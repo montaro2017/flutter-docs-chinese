@@ -107,21 +107,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Called whenever the <a href="widgets/Navigator-class.html">Navigator</a> has updated in some manner that might
-affect routes, to indicate that the route may wish to rebuild as well.</p>
-<p>This is called by the <a href="widgets/Navigator-class.html">Navigator</a> whenever the
-<a href="widgets/NavigatorState-class.html">NavigatorState</a>'s <a href="widgets/State/widget.html">State.widget</a> changes (as in <a href="widgets/State/didUpdateWidget.html">State.didUpdateWidget</a>),
-for example because the <a href="material/MaterialApp-class.html">MaterialApp</a> has been rebuilt. This
-ensures that routes that directly refer to the state of the
-widget that built the <a href="material/MaterialApp-class.html">MaterialApp</a> will be notified when that
-widget rebuilds, since it would otherwise be difficult to notify
-the routes that state they depend on may have changed.</p>
-<p>It is also called whenever the <a href="widgets/Navigator-class.html">Navigator</a>'s dependencies change
-(as in <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a>). This allows routes to use the
-<a href="widgets/Navigator-class.html">Navigator</a>'s context (<a href="widgets/State/context.html">NavigatorState.context</a>), for example in
-<a href="widgets/ModalRoute/barrierColor.html">ModalRoute.barrierColor</a>, and update accordingly.</p>
-<p>The <a href="widgets/ModalRoute-class.html">ModalRoute</a> subclass overrides this to force the barrier
-overlay to rebuild.</p>
+  <p>每当 <a href="widgets/Navigator-class.html">Navigator</a> 发生可能影响 route 的变化时，都会调用此方法，以表示 route 可能也需要重新构建。</p>
+<p>每当 <a href="widgets/NavigatorState-class.html">NavigatorState</a> 的 <a href="widgets/State/widget.html">State.widget</a> 发生变化（例如 <a href="widgets/State/didUpdateWidget.html">State.didUpdateWidget</a> 中的情况）时，<a href="widgets/Navigator-class.html">Navigator</a> 都会调用此方法；例如 <a href="material/MaterialApp-class.html">MaterialApp</a> 重新构建时就可能发生这种情况。这样一来，直接引用构建 <a href="material/MaterialApp-class.html">MaterialApp</a> 的 widget 状态的 route 也会收到通知；否则很难通知这些 route：它们所依赖的状态可能已经变化。</p>
+<p>当 <a href="widgets/Navigator-class.html">Navigator</a> 的依赖发生变化（例如 <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 中的情况）时，也会调用此方法。这使 route 能够使用 <a href="widgets/Navigator-class.html">Navigator</a> 的上下文（<a href="widgets/State/context.html">NavigatorState.context</a>），例如在 <a href="widgets/ModalRoute/barrierColor.html">ModalRoute.barrierColor</a> 中使用，并据此更新。</p>
+<p><a href="widgets/ModalRoute-class.html">ModalRoute</a> 子类会重写此方法，以强制重新构建 barrier overlay。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/Route/changedInternalState.html">changedInternalState</a>, the equivalent but for changes to the internal

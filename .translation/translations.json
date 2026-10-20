@@ -260056,5 +260056,225 @@
     "0": "<p>将此 widget 实例化，并附加到提供的 <a href=\"widgets/BuildOwner-class.html\">BuildOwner</a>。</p>",
     "1": "<p>如果 <code>element</code> 为 null，此函数会创建一个新元素。否则，会安排更新给定元素，使其切换为此 widget。</p>",
     "2": "<p><a href=\"widgets/WidgetsBinding/attachToBuildOwner.html\">WidgetsBinding.attachToBuildOwner</a> 使用此方法引导应用；该方法会由 <a href=\"widgets/runApp.html\">runApp</a> 间接调用。</p>"
+  },
+  "flutter/widgets/RotatedBox-class.html": {
+    "0": "<p>将子 widget 旋转整数个四分之一圈的 widget。</p>",
+    "1": "<p>与在绘制前才应用变换的 <a href=\"widgets/Transform-class.html\">Transform</a> 不同，此对象会在布局前应用旋转，因此旋转后的整个方框只占用子 widget 旋转后所需的空间。</p>"
+  },
+  "flutter/widgets/RotationTransition-class.html": {
+    "0": "<p>为 widget 的旋转添加动画。</p>",
+    "1": "<p>下面展示了 <a href=\"widgets/RotationTransition-class.html\">RotationTransition</a> widget 的示例，其中 <a href=\"widgets/RotationTransition/turns.html\">turns</a> 由设置为 <a href=\"animation/Curves/elasticOut-constant.html\">Curves.elasticOut</a> 的 <a href=\"animation/CurvedAnimation-class.html\">CurvedAnimation</a> 驱动动画：</p>"
+  },
+  "flutter/widgets/Route-class.html": {
+    "0": "<p>由 <a href=\"widgets/Navigator-class.html\">Navigator</a> 管理的条目的抽象。</p>",
+    "1": "<p>此类定义了 navigator 与被推入或弹出 navigator 的“route”之间的抽象接口。大多数 route 都有视觉表现形式，会使用一个或多个 <a href=\"widgets/OverlayEntry-class.html\">OverlayEntry</a> 对象将内容放入 navigator 的 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中。</p>",
+    "2": "<p>有关如何在导航中使用 <a href=\"widgets/Route-class.html\">Route</a> 的更多说明（含代码示例），请参阅 <a href=\"widgets/Navigator-class.html\">Navigator</a>。</p>",
+    "3": "<p>如需让 route 通过平台自适应的转场替换整个屏幕，请参阅 <a href=\"material/MaterialPageRoute-class.html\">MaterialPageRoute</a>。</p>",
+    "4": "<p>如果 <a href=\"widgets/Route/settings.html\">settings</a> 是 <a href=\"widgets/Page-class.html\">Page</a> 的子类，则 route 可以归属于某个 page。基于 page 的 route 不同于无 page 的 route：前者会在 <a href=\"widgets/Navigator/pages.html\">Navigator.pages</a> 更新期间通过 <a href=\"widgets/Page/createRoute.html\">Page.createRoute</a> 创建。与此 route 关联的 page 在 route 的生命周期内可能发生变化。如果 <a href=\"widgets/Navigator-class.html\">Navigator</a> 更新了此 route 的 page，就会调用 <a href=\"widgets/Route/changedInternalState.html\">changedInternalState</a>，通知 route 其 page 已更新。</p>",
+    "5": "<p>类型参数 <code>T</code> 是 route 的返回类型，用于 <a href=\"widgets/Route/currentResult.html\">currentResult</a>、<a href=\"widgets/Route/popped.html\">popped</a> 和 <a href=\"widgets/Route/didPop.html\">didPop</a>。如果 route 不返回值，可以使用 <code>void</code> 类型。</p>"
+  },
+  "flutter/widgets/Route/Route.html": {
+    "0": "<p>初始化 <a href=\"widgets/Route-class.html\">Route</a>。</p>",
+    "1": "<p>如果未提供 <code>settings</code>，则会改用空的 <a href=\"widgets/RouteSettings-class.html\">RouteSettings</a> 对象。</p>",
+    "2": "<p>如果未提供 <code>requestFocus</code>，则会改用 <a href=\"widgets/Navigator/requestFocus.html\">Navigator.requestFocus</a> 的值。</p>"
+  },
+  "flutter/widgets/Route/changedExternalState.html": {
+    "0": "<p>每当 <a href=\"widgets/Navigator-class.html\">Navigator</a> 发生可能影响 route 的变化时，都会调用此方法，以表示 route 可能也需要重新构建。</p>",
+    "1": "<p>每当 <a href=\"widgets/NavigatorState-class.html\">NavigatorState</a> 的 <a href=\"widgets/State/widget.html\">State.widget</a> 发生变化（例如 <a href=\"widgets/State/didUpdateWidget.html\">State.didUpdateWidget</a> 中的情况）时，<a href=\"widgets/Navigator-class.html\">Navigator</a> 都会调用此方法；例如 <a href=\"material/MaterialApp-class.html\">MaterialApp</a> 重新构建时就可能发生这种情况。这样一来，直接引用构建 <a href=\"material/MaterialApp-class.html\">MaterialApp</a> 的 widget 状态的 route 也会收到通知；否则很难通知这些 route：它们所依赖的状态可能已经变化。</p>",
+    "2": "<p>当 <a href=\"widgets/Navigator-class.html\">Navigator</a> 的依赖发生变化（例如 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中的情况）时，也会调用此方法。这使 route 能够使用 <a href=\"widgets/Navigator-class.html\">Navigator</a> 的上下文（<a href=\"widgets/State/context.html\">NavigatorState.context</a>），例如在 <a href=\"widgets/ModalRoute/barrierColor.html\">ModalRoute.barrierColor</a> 中使用，并据此更新。</p>",
+    "3": "<p><a href=\"widgets/ModalRoute-class.html\">ModalRoute</a> 子类会重写此方法，以强制重新构建 barrier overlay。</p>"
+  },
+  "flutter/widgets/Route/changedInternalState.html": {
+    "0": "<p>每当 route 的内部状态发生变化时调用。</p>",
+    "1": "<p>每当 <a href=\"widgets/Route/willHandlePopInternally.html\">willHandlePopInternally</a>、<a href=\"widgets/Route/didPop.html\">didPop</a>、<a href=\"widgets/ModalRoute/offstage.html\">ModalRoute.offstage</a> 或 route 的其他内部状态值发生变化时，都应调用此方法。例如，<a href=\"widgets/ModalRoute-class.html\">ModalRoute</a> 会使用它，通过自身的继承 widget 向 route 的子级报告新信息。</p>"
+  },
+  "flutter/widgets/Route/currentResult.html": {
+    "0": "<p>弹出此 route 时（参见 <a href=\"widgets/Navigator/pop.html\">Navigator.pop</a>），如果未指定结果或结果为 null，就会改用此值。</p>",
+    "1": "<p>此回退行为由 <a href=\"widgets/Route/didComplete.html\">didComplete</a> 实现。如果传给该方法的参数为 null，就会使用此值。</p>"
+  },
+  "flutter/widgets/Route/didAdd.html": {
+    "0": "<p>route 添加到 navigator 时，在 <a href=\"widgets/Route/install.html\">install</a> 之后调用。</p>",
+    "1": "<p>如果 route 会立即显示在屏幕上且没有推入转场，则会调用此方法，而不是 <a href=\"widgets/Route/didPush.html\">didPush</a>。</p>",
+    "2": "<p>通常会在此方法调用后立即调用 <a href=\"widgets/Route/didChangeNext.html\">didChangeNext</a> 和 <a href=\"widgets/Route/didChangePrevious.html\">didChangePrevious</a>。</p>"
+  },
+  "flutter/widgets/Route/didChangeNext.html": {
+    "0": "<p>此 route 的下一个 route 已变为给定的新 route。</p>",
+    "1": "<p>只要此 route 仍在历史记录中，无论下一个 route 因何变化，都会调用此方法；包括 route 首次加入 <a href=\"widgets/Navigator-class.html\">Navigator</a>（例如通过 <a href=\"widgets/Navigator/push.html\">Navigator.push</a> 加入）的情况，但会调用 <a href=\"widgets/Route/didPopNext.html\">didPopNext</a> 的情况除外。</p>",
+    "2": "<p>如果没有新的下一个 route（也就是 <a href=\"widgets/Route/isCurrent.html\">isCurrent</a> 为 true），<code>nextRoute</code> 参数将为 null。</p>"
+  },
+  "flutter/widgets/Route/didChangePrevious.html": {
+    "0": "<p>此 route 的前一个 route 已变为给定的新 route。</p>",
+    "1": "<p>只要此 route 仍在历史记录中，无论前一个 route 因何变化，都会调用此方法；但在此 route 自身刚被推入后不会立即调用，而是改为调用 <a href=\"widgets/Route/didPush.html\">didPush</a> 或 <a href=\"widgets/Route/didReplace.html\">didReplace</a>。</p>",
+    "2": "<p>如果没有前一个 route（也就是 <a href=\"widgets/Route/isFirst.html\">isFirst</a> 为 true），<code>previousRoute</code> 参数将为 null。</p>"
+  },
+  "flutter/widgets/Route/didComplete.html": {
+    "0": "<p>route 已弹出，或正在以其他较为平缓的方式移除。</p>",
+    "1": "<p>由 <a href=\"widgets/Route/didPop.html\">didPop</a> 调用，也会响应 <a href=\"widgets/NavigatorState/pushReplacement.html\">NavigatorState.pushReplacement</a>。如果未调用 <a href=\"widgets/Route/didPop.html\">didPop</a>，则必须立即调用 <a href=\"widgets/NavigatorState/finalizeRoute.html\">NavigatorState.finalizeRoute</a> 方法，并且不会播放退出动画。</p>",
+    "2": "<p>此方法会完成 <a href=\"widgets/Route/popped.html\">popped</a> future。<code>result</code> 参数指定该 future 完成时使用的值；如果它为 null，则改用 <a href=\"widgets/Route/currentResult.html\">currentResult</a>。</p>",
+    "3": "<p>如果存在弹出动画，应在动画开始前调用此方法。不过，在某些情况下，用户可能会在 route 确认弹出之前驱动动画；iOS 风格的返回手势尤其可能如此。请参阅 <a href=\"widgets/NavigatorState/didStartUserGesture.html\">NavigatorState.didStartUserGesture</a>。</p>"
+  },
+  "flutter/widgets/Route/didPop.html": {
+    "0": "<p>收到弹出此 route 的请求。如果 route 能在内部处理（例如它拥有自己的内部状态栈），则返回 false；否则返回 true（即返回调用 <code>super.didPop</code> 的结果）。返回 false 会阻止 <a href=\"widgets/NavigatorState/pop.html\">NavigatorState.pop</a> 的默认行为。</p>",
+    "1": "<p>此方法返回 true 时，navigator 会将此 route 从历史记录中移除，但暂时不会调用 <a href=\"widgets/Route/dispose.html\">dispose</a>。route 应负责调用 <a href=\"widgets/NavigatorState/finalizeRoute.html\">NavigatorState.finalizeRoute</a>，后者随后会对 route 调用 <a href=\"widgets/Route/dispose.html\">dispose</a>。这个过程让 route 能在弹出后、释放前播放退出动画或执行其他视觉效果。</p>",
+    "2": "<p>此方法应调用 <a href=\"widgets/Route/didComplete.html\">didComplete</a> 来完成 <a href=\"widgets/Route/popped.html\">popped</a> future（默认实现只执行这项操作）；route 不应等退出动画结束后才调用。</p>",
+    "3": "<p>关于 <code>result</code> 参数的说明，请参阅 <a href=\"widgets/Route/popped.html\">popped</a>、<a href=\"widgets/Route/didComplete.html\">didComplete</a> 和 <a href=\"widgets/Route/currentResult.html\">currentResult</a>。</p>"
+  },
+  "flutter/widgets/Route/didPopNext.html": {
+    "0": "<p>位于此 route 上方的给定 route 已从 navigator 中弹出。</p>",
+    "1": "<p>此 route 现在是当前 route（<a href=\"widgets/Route/isCurrent.html\">isCurrent</a> 现在为 true），并且没有下一个 route。</p>"
+  },
+  "flutter/widgets/Route/didPush.html": {
+    "0": "<p>route 推入 navigator 时，在 <a href=\"widgets/Route/install.html\">install</a> 之后调用。</p>",
+    "1": "<p>返回值会在推入转场完成时完成。</p>",
+    "2": "<p>如果 route 会立即显示在屏幕上且没有推入转场，则会调用 <a href=\"widgets/Route/didAdd.html\">didAdd</a>，而不是 <a href=\"widgets/Route/didPush.html\">didPush</a>。</p>",
+    "3": "<p>通常会在此方法调用后立即调用 <a href=\"widgets/Route/didChangeNext.html\">didChangeNext</a> 和 <a href=\"widgets/Route/didChangePrevious.html\">didChangePrevious</a>。</p>"
+  },
+  "flutter/widgets/Route/didReplace.html": {
+    "0": "<p>route 在 navigator 中替换另一个 route 时，在 <a href=\"widgets/Route/install.html\">install</a> 之后调用。</p>",
+    "1": "<p>通常会在此方法调用后立即调用 <a href=\"widgets/Route/didChangeNext.html\">didChangeNext</a> 和 <a href=\"widgets/Route/didChangePrevious.html\">didChangePrevious</a>。</p>"
+  },
+  "flutter/widgets/Route/dispose.html": {
+    "0": "<p>释放此对象使用的所有资源。</p>",
+    "1": "<p>此方法不应从 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中移除此对象的 <a href=\"widgets/Route/overlayEntries.html\">overlayEntries</a>，这应由对象的所有者负责。</p>",
+    "2": "<p>调用此方法后，对象将不可再用，应予以丢弃。</p>",
+    "3": "<p>此方法只能由对象所有者调用。通常，route 由 <a href=\"widgets/Navigator-class.html\">Navigator</a> 所有；route 被移除后，navigator 会调用此方法，此后也不会再引用该 route。</p>"
+  },
+  "flutter/widgets/Route/install.html": {
+    "0": "<p>route 插入 navigator 时调用。</p>",
+    "1": "<p>使用此方法填充 <a href=\"widgets/Route/overlayEntries.html\">overlayEntries</a>。调用 <a href=\"widgets/Route/install.html\">install</a> 后，该列表中必须至少有一个条目。<a href=\"widgets/Navigator-class.html\">Navigator</a> 负责将这些条目添加到 <a href=\"widgets/Overlay-class.html\">Overlay</a> 或从中移除，具体通过调用 <a href=\"widgets/OverlayEntry/remove.html\">OverlayEntry.remove</a> 完成。</p>"
+  },
+  "flutter/widgets/Route/isActive.html": {
+    "0": "<p>此 route 是否位于 navigator 中。</p>",
+    "1": "<p>如果 route 不仅处于活动状态，而且还是当前 route（最顶层的 route），那么 <a href=\"widgets/Route/isCurrent.html\">isCurrent</a> 也会为 true。如果它是第一个 route（最底层的 route），那么 <a href=\"widgets/Route/isFirst.html\">isFirst</a> 也会为 true。</p>",
+    "2": "<p>如果更高层的 route 完全不透明，此 route 仍处于活动状态，但不会被渲染。甚至可能出现 route 处于活动状态，但其中的有状态 widget 尚未实例化的情况。请参阅 <a href=\"widgets/ModalRoute/maintainState.html\">ModalRoute.maintainState</a>。</p>"
+  },
+  "flutter/widgets/Route/isCurrent.html": {
+    "0": "<p>此 route 是否为 navigator 最顶层的 route。</p>",
+    "1": "<p>如果此值为 true，则 <a href=\"widgets/Route/isActive.html\">isActive</a> 也为 true。</p>"
+  },
+  "flutter/widgets/Route/isFirst.html": {
+    "0": "<p>此 route 是否为 navigator 中最底层的活动 route。</p>",
+    "1": "<p>如果 <a href=\"widgets/Route/isFirst.html\">isFirst</a> 与 <a href=\"widgets/Route/isCurrent.html\">isCurrent</a> 都为 true，则此 route 是 navigator 中唯一的 route（此时 <a href=\"widgets/Route/isActive.html\">isActive</a> 也为 true）。</p>"
+  },
+  "flutter/widgets/Route/overlayEntries.html": {
+    "0": "<p>此 route 的 overlay 条目。</p>",
+    "1": "<p>通常由 <a href=\"widgets/Route/install.html\">install</a> 填充。<a href=\"widgets/Navigator-class.html\">Navigator</a> 负责将它们添加到 <a href=\"widgets/Overlay-class.html\">Overlay</a> 或从中移除。</p>",
+    "2": "<p>调用 <a href=\"widgets/Route/install.html\">install</a> 后，此列表中必须至少有一个条目。</p>",
+    "3": "<p>如果 route 在历史记录中的位置发生变化，<a href=\"widgets/Navigator-class.html\">Navigator</a> 会确保这些条目仍然保持在一起。</p>"
+  },
+  "flutter/widgets/Route/popped.html": {
+    "0": "<p>当此 route 从 navigator 中弹出时完成的 future。</p>",
+    "1": "<p>如果有值，future 会以传给 <a href=\"widgets/Navigator/pop.html\">Navigator.pop</a> 的值完成；否则使用 <a href=\"widgets/Route/currentResult.html\">currentResult</a> 的值。有关此行为的更多说明，请参阅 <a href=\"widgets/Route/didComplete.html\">didComplete</a>。</p>"
+  },
+  "flutter/widgets/Route/requestFocus.html": {
+    "0": "<p>route 状态更新时，如果当前 route 位于最顶层，则请求焦点。</p>",
+    "1": "<p>如果构造函数未提供此值，则改用 <a href=\"widgets/Navigator/requestFocus.html\">Navigator.requestFocus</a>。</p>"
+  },
+  "flutter/widgets/Route/restorationScopeId.html": {
+    "0": "<p>用于包围此 route 的 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 的恢复作用域 ID。</p>",
+    "1": "<p>如果当前已为此 route 禁用状态恢复，则恢复作用域 ID 为 null。</p>",
+    "2": "<p>如果 route 的生命周期内恢复作用域 ID 发生变化（例如状态恢复被启用或禁用），<a href=\"foundation/ValueListenable-class.html\">ValueListenable</a> 会通知其监听器。例如，route 正在转场离开屏幕时，该 ID 会变为 null，从而触发此字段的通知。此时，在状态恢复看来，该 route 已不再存在，因此不会恢复其状态。</p>"
+  },
+  "flutter/widgets/Route/settings.html": {
+    "0": "<p>此 route 的设置。</p>",
+    "1": "<p>详情请参阅 <a href=\"widgets/RouteSettings-class.html\">RouteSettings</a>。</p>",
+    "2": "<p>route 的生命周期内，设置可能发生变化。如果设置发生变化，route 的 overlays 会被标记为需要更新（参见 <a href=\"widgets/Route/changedInternalState.html\">changedInternalState</a>）。</p>",
+    "3": "<p>如果此 route 是从 <a href=\"widgets/Navigator/pages.html\">Navigator.pages</a> 列表中的 <a href=\"widgets/Page-class.html\">Page</a> 创建的，此值就是某个 <a href=\"widgets/Page-class.html\">Page</a> 子类，并会在对应的 <a href=\"widgets/Navigator/pages.html\">Navigator.pages</a> 中的 <a href=\"widgets/Page-class.html\">Page</a> 发生变化时更新。<a href=\"widgets/Route-class.html\">Route</a> 从历史记录中移除后，此值不再更新，并保留最后一次的值。</p>"
+  },
+  "flutter/widgets/RouteFactory.html": {
+    "0": "<p>根据给定的 route 设置创建一个 route。</p>",
+    "1": "<p>由 <a href=\"widgets/Navigator/onGenerateRoute.html\">Navigator.onGenerateRoute</a> 使用。</p>"
+  },
+  "flutter/widgets/RouteAware-class.html": {
+    "0": "<p>用于感知当前 <a href=\"widgets/Route-class.html\">Route</a> 的对象所实现的接口。</p>",
+    "1": "<p>此接口与 <a href=\"widgets/RouteObserver-class.html\">RouteObserver</a> 配合使用，使 widget 能够感知 <a href=\"widgets/Navigator-class.html\">Navigator</a> 会话历史的变化。</p>"
+  },
+  "flutter/widgets/RouteAware/didPushNext.html": {
+    "0": "<p>新的 route 推入到此 route 上方并暂时遮挡它时调用。</p>",
+    "1": "<p>此方法会在推入操作期间同步调用，早于转场动画完成。当前 route 在动画退出时仍可能部分可见。若要在 route 完全被遮挡后执行操作，可以监听 <a href=\"widgets/ModalRoute/secondaryAnimation.html\">ModalRoute.secondaryAnimation</a> 的动画完成状态，例如：</p>"
+  },
+  "flutter/widgets/RouteInformation-class.html": {
+    "0": "<p>一段路由信息。</p>",
+    "1": "<p>路由信息由应用的位置字符串以及用于配置应用在该位置状态的 state 对象组成。</p>",
+    "2": "<p>此信息会双向流动：从 <a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a> 流向 <a href=\"widgets/Router-class.html\">Router</a>，或从 <a href=\"widgets/Router-class.html\">Router</a> 流向 <a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a>。</p>",
+    "3": "<p>在前一种情况下，<a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a> 会在有新的 <a href=\"widgets/RouteInformation-class.html\">RouteInformation</a> 时通知 <a href=\"widgets/Router-class.html\">Router</a> widget。<a href=\"widgets/Router-class.html\">Router</a> widget 会使用这些信息进行导航。</p>",
+    "4": "<p>后一种情况发生在 Web 应用中，此时 <a href=\"widgets/Router-class.html\">Router</a> 会将路由变化报告回 Web 引擎。</p>",
+    "5": "<p>应用当前的 <a href=\"widgets/RouteInformation-class.html\">RouteInformation</a> 也用于状态恢复。应用被终止前，<a href=\"widgets/Router-class.html\">Router</a> 会借助 <a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a> 将当前配置转换为 <a href=\"widgets/RouteInformation-class.html\">RouteInformation</a> 对象。随后该 <a href=\"widgets/RouteInformation-class.html\">RouteInformation</a> 对象会被序列化并持久化。状态恢复时，对象会被反序列化并传回 <a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a>，再由它转换为 <a href=\"widgets/Router-class.html\">Router</a> 的配置，以恢复其状态。</p>"
+  },
+  "flutter/widgets/RouteInformation/RouteInformation.html": {
+    "0": "<p>创建一个路由信息对象。</p>",
+    "1": "<p><code>location</code> 与 <code>uri</code> 至少有一个不能为 null。</p>"
+  },
+  "flutter/widgets/RouteInformation/location.html": {
+    "0": "<p>应用的位置。</p>",
+    "1": "<p>此字符串通常由多个标识符组成，标识符之间以斜杠分隔。例如：<code>/</code>、<code>/path</code>、<code>/path/to/the/app</code>。</p>"
+  },
+  "flutter/widgets/RouteInformation/state.html": {
+    "0": "<p>应用在 <a href=\"widgets/RouteInformation/uri.html\">uri</a> 位置的状态。</p>",
+    "1": "<p>即使位于同一位置，应用也可能有不同状态。例如 <a href=\"material/TextField-class.html\">TextField</a> 中的文本或 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 的滚动位置。这些 widget 状态可以存储在 <a href=\"widgets/RouteInformation/state.html\">state</a> 中。</p>",
+    "2": "<p>在 Web 平台上，<a href=\"widgets/Router-class.html\">Router</a> 通过 <a href=\"widgets/PlatformRouteInformationProvider-class.html\">PlatformRouteInformationProvider</a> 将此路由信息报告回 Web 引擎时，信息会存入浏览器历史记录。用户点击后退或前进按钮时，浏览器会连同 <a href=\"widgets/RouteInformation/uri.html\">uri</a> 一起传回这些信息。</p>",
+    "3": "<p>出于状态恢复的需要，此信息也会与 <a href=\"widgets/RouteInformation/uri.html\">uri</a> 一同序列化并持久化。状态恢复期间，这些信息会再次提供给 <a href=\"widgets/Router-class.html\">Router</a>，使其能够恢复到先前的配置。</p>",
+    "4": "<p>此状态必须可序列化。</p>"
+  },
+  "flutter/widgets/RouteInformation/uri.html": {
+    "0": "<p>应用的 URI 位置。</p>",
+    "1": "<p>如果此对象由深层链接请求创建，则 host 和 scheme 不为空。它们表示重定向该深层链接的网站。</p>",
+    "2": "<p>在 Web 平台上，host 和 scheme 始终为空。</p>"
+  },
+  "flutter/widgets/RouteInformationParser-class.html": {
+    "0": "<p>供 <a href=\"widgets/Router-class.html\">Router</a> widget 使用的委托，用于将路由信息解析为 T 类型的配置。</p>",
+    "1": "<p>当 <a href=\"widgets/Router-class.html\">Router</a> widget 首次使用来自 <a href=\"widgets/Router/routeInformationProvider.html\">Router.routeInformationProvider</a> 的初始路由信息构建，以及该 provider 后续发出新的路由通知时，都会使用此委托。<a href=\"widgets/Router-class.html\">Router</a> widget 会将来自 <a href=\"widgets/Router/routeInformationProvider.html\">Router.routeInformationProvider</a> 的路由信息传给 <a href=\"widgets/RouteInformationParser/parseRouteInformation.html\">parseRouteInformation</a>。</p>",
+    "2": "<p>必须实现 <a href=\"widgets/RouteInformationParser/parseRouteInformation.html\">parseRouteInformation</a> 或 <a href=\"widgets/RouteInformationParser/parseRouteInformationWithDependencies.html\">parseRouteInformationWithDependencies</a> 其中之一，否则会抛出运行时错误。</p>"
+  },
+  "flutter/widgets/RouteInformationParser/parseRouteInformation.html": {
+    "0": "<p>将给定的路由信息转换为已解析的数据，并传递给 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>。</p>",
+    "1": "<p>此方法应返回一个 future，并在解析完成时完成。如果解析器需要与 OEM 线程通信以获取有关路由的其他数据，解析过程可能是异步的。</p>",
+    "2": "<p>如果结果可同步计算，可以考虑使用 <a href=\"foundation/SynchronousFuture-class.html\">SynchronousFuture</a>，这样 <a href=\"widgets/Router-class.html\">Router</a> 就不必等到下一个微任务才将数据传给 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>。</p>",
+    "3": "<p>如果解析依赖于 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 中的其他依赖项，也可以改为实现 <a href=\"widgets/RouteInformationParser/parseRouteInformationWithDependencies.html\">parseRouteInformationWithDependencies</a>。</p>"
+  },
+  "flutter/widgets/RouteInformationParser/parseRouteInformationWithDependencies.html": {
+    "0": "<p>将给定的路由信息转换为已解析的数据，并传递给 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>。</p>",
+    "1": "<p>此方法应返回一个 future，并在解析完成时完成。如果解析器需要与 OEM 线程通信以获取有关路由的其他数据，解析过程可能是异步的。</p>",
+    "2": "<p>如果结果可同步计算，可以考虑使用 <a href=\"foundation/SynchronousFuture-class.html\">SynchronousFuture</a>，这样 <a href=\"widgets/Router-class.html\">Router</a> 就不必等到下一个微任务才将数据传给 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>。</p>",
+    "3": "<p>输入的 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 可用于查找 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>。如果使用 <a href=\"widgets/BuildContext/dependOnInheritedWidgetOfExactType.html\">BuildContext.dependOnInheritedWidgetOfExactType</a>，就会建立依赖关系。如果该依赖项通知其监听器，<a href=\"widgets/Router-class.html\">Router</a> 会从 <a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a> 重新解析 <a href=\"widgets/RouteInformation-class.html\">RouteInformation</a>。</p>",
+    "4": "<p>也可以使用 <a href=\"widgets/BuildContext/getElementForInheritedWidgetOfExactType.html\">BuildContext.getElementForInheritedWidgetOfExactType</a> 查找 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>，而不建立依赖关系。</p>"
+  },
+  "flutter/widgets/RouteInformationParser/restoreRouteInformation.html": {
+    "0": "<p>根据给定的配置恢复路由信息。</p>",
+    "1": "<p>此方法可以返回 null；此时不会更新浏览器历史记录，并且会禁用状态恢复。详情请参阅 <a href=\"widgets/Router-class.html\">Router</a> 文档。</p>",
+    "2": "<p>将此方法的返回值传给 <a href=\"widgets/RouteInformationParser/parseRouteInformation.html\">parseRouteInformation</a> 时，该方法必须生成等效的配置。</p>"
+  },
+  "flutter/widgets/RouteInformationProvider-class.html": {
+    "0": "<p>为 <a href=\"widgets/Router-class.html\">Router</a> widget 提供路由信息的 provider。</p>",
+    "1": "<p>此 provider 通过 <a href=\"foundation/ValueListenable/value.html\">value</a> getter 传递路由信息，并在有新的路由信息时通知监听器，通常是 <a href=\"widgets/Router-class.html\">Router</a> widget。</p>",
+    "2": "<p>当 router 选择报告路由信息（即重写 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">RouterDelegate.currentConfiguration</a> 并返回非 null）时，应重写 <a href=\"widgets/RouteInformationProvider/routerReportsNewRouteInformation.html\">routerReportsNewRouteInformation</a> 方法来处理路由信息。</p>"
+  },
+  "flutter/widgets/RouteInformationProvider/routerReportsNewRouteInformation.html": {
+    "0": "<p><a href=\"widgets/Router-class.html\">Router</a> widget 报告新的路由信息时调用的回调。</p>",
+    "1": "<p>子类可以重写此方法来更新自身的值或触发其他副作用。例如，<a href=\"widgets/PlatformRouteInformationProvider-class.html\">PlatformRouteInformationProvider</a> 会重写此方法，将路由信息报告回引擎。</p>",
+    "2": "<p><code>routeInformation</code> 是由 Router 重建生成的新路由信息，其值可能与 <a href=\"foundation/ValueListenable/value.html\">value</a> 相同，也可能不同。</p>",
+    "3": "<p><code>type</code> 表示 <a href=\"widgets/Router-class.html\">Router</a> 报告此 <code>routeInformation</code> 时的意图。子类可据此决定如何使用 <code>routeInformation</code> 更新 <a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a> 的内部状态。例如，<a href=\"widgets/PlatformRouteInformationProvider-class.html\">PlatformRouteInformationProvider</a> 会利用此属性，决定是将新的 <code>routeInformation</code> 推入浏览器历史记录，还是替换当前条目。</p>",
+    "4": "<p>有关 <a href=\"widgets/Router-class.html\">Router</a> 如何判定导航事件的更多信息，请参阅 <a href=\"widgets/Router-class.html\">Router</a> 文档中的“Web 应用的 URL 更新”一节。</p>"
+  },
+  "flutter/widgets/RouteInformationReportingType.html": {
+    "0": "<p><a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a> 向 <a href=\"widgets/Router-class.html\">Router</a> 报告新的 <a href=\"widgets/RouteInformation-class.html\">RouteInformation</a> 时，Router 表达的意图。</p>"
+  },
+  "flutter/widgets/RouteListFactory.html": {
+    "0": "<p>创建一个或多个 route 组成的序列。</p>",
+    "1": "<p>由 <a href=\"widgets/Navigator/onGenerateInitialRoutes.html\">Navigator.onGenerateInitialRoutes</a> 使用。</p>"
+  },
+  "flutter/widgets/RouteCompletionCallback.html": {
+    "0": "<p>用于处理已完成的 <a href=\"widgets/Route-class.html\">Route</a> 结果的回调。</p>",
+    "1": "<p>route 的返回值（例如 void route 的 null）会传递给此回调。</p>",
+    "2": "<p>由 <a href=\"widgets/RestorableRouteFuture/onComplete.html\">RestorableRouteFuture.onComplete</a> 使用。</p>"
+  },
+  "flutter/widgets/RoutePopDisposition.html": {
+    "0": "<p>表示是否应弹出当前 route。</p>",
+    "1": "<p>用作 <a class=\"deprecated\" href=\"widgets/Route/willPop.html\">Route.willPop</a> 的返回值。</p>"
+  },
+  "flutter/widgets/RoutePresentationCallback.html": {
+    "0": "<p>一个回调，接收 <code>arguments</code> 和 <code>navigator</code>，向该 <code>navigator</code> 添加新的可恢复 route，并返回新 route 的不透明 ID。</p>",
+    "1": "<p>当 route 已呈现给用户时会调用此回调。</p>",
+    "2": "<p>由 <a href=\"widgets/RestorableRouteFuture/onPresent.html\">RestorableRouteFuture.onPresent</a> 使用。</p>"
   }
 }

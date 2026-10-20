@@ -1,61 +1,17 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,934 页，部分翻译 358 页，未翻译 960 页；正文已译 21,201/24,807 段。
+模块共 8,093 页：已完整 5,977 页，部分翻译 346 页，未翻译 929 页；正文已译 21,328/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RootElementMixin/debugVisitOnstageChildren.html` — 部分；已译 4/5 段；待译段落：3
 
-- `flutter/widgets/RotatedBox-class.html` — 部分；已译 2/4 段；待译段落：0, 1
-
-- `flutter/widgets/RotationTransition-class.html` — 部分；已译 2/4 段；待译段落：0, 1
-
-- `flutter/widgets/Route-class.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/Route/Route.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Route/changedExternalState.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/Route/changedInternalState.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/Route/currentResult.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Route/didAdd.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/Route/didChangeNext.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Route/didChangePrevious.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Route/didComplete.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/Route/didPop.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/Route/didPopNext.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Route/didPush.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/Route/didReplace.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/Route/dispose.html` — 部分；已译 1/4 段；待译段落：1, 2, 3
-
-- `flutter/widgets/Route/install.html` — 部分；已译 1/2 段；待译段落：1
-- `flutter/widgets/Route/isActive.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Route/isCurrent.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Route/isFirst.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/Route/overlayEntries.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
 - `flutter/widgets/Route/popDisposition.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/Route/popped.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Route/requestFocus.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Route/restorationScopeId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Route/settings.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
 
 - `flutter/widgets/Route/willPop.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RouteAware-class.html` — 未译；已译 0/2 段；待译段落：0, 1
 
-- `flutter/widgets/RouteAware/didPushNext.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RouteCompletionCallback.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RouteFactory.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/RouteInformation-class.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/RouteInformation/RouteInformation.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RouteInformation/location.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RouteInformation/state.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RouteInformation/uri.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RouteInformationParser-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RouteInformationParser/parseRouteInformation.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RouteInformationParser/parseRouteInformationWithDependencies.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RouteInformationParser/restoreRouteInformation.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RouteInformationProvider-class.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/RouteInformationProvider/routerReportsNewRouteInformation.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RouteInformationReportingType.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/RouteListFactory.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
+
 - `flutter/widgets/RouteObserver-class.html` — 部分；已译 2/7 段；待译段落：0, 1, 2, 3, 4
 - `flutter/widgets/RouteObserver/debugObservingRoute.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/RouteObserver/didPop.html` — 未译；已译 0/2 段；待译段落：0, 1
@@ -63,9 +19,6 @@
 - `flutter/widgets/RouteObserver/subscribe.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/RouteObserver/unsubscribe.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/RoutePageBuilder.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RoutePopDisposition.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/RoutePresentationCallback.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 
 - `flutter/widgets/RouteSettings/arguments.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/RouteSettings/name.html` — 未译；已译 0/2 段；待译段落：0, 1
