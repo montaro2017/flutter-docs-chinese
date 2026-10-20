@@ -87,41 +87,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;RawView-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/view.dart#L336"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RawView</span> 类 
+<h1><span class="kind-class">RawView</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>The lower level workhorse widget for <a href="widgets/View-class.html">View</a> that bootstraps a render tree
-for a view.</p>
+  <p>用于为视图启动渲染树的底层核心组件 <a href="widgets/View-class.html">View</a> 实现。</p>
 <p>Typically, the <a href="widgets/View-class.html">View</a> widget is used instead of a <a href="widgets/RawView-class.html">RawView</a> widget to create
 a view, since, in addition to creating a view, it also adds some useful
 widgets, such as a <a href="widgets/MediaQuery-class.html">MediaQuery</a> 和 <a href="widgets/FocusScope-class.html">FocusScope</a>. The <a href="widgets/RawView-class.html">RawView</a> widget is
 only used directly if it is not desirable to have these additional widgets
 around the resulting widget tree. The <a href="widgets/View-class.html">View</a> widget uses the <a href="widgets/RawView-class.html">RawView</a>
 widget internally to manage its <a href="dart-ui/FlutterView-class.html">FlutterView</a>.</p>
-<p>This widget can be used at the root of the widget tree outside of any other
-<a href="widgets/View-class.html">View</a> or <a href="widgets/RawView-class.html">RawView</a> widget, as a child to a <a href="widgets/ViewCollection-class.html">ViewCollection</a>, or in the
-<a href="widgets/ViewAnchor/view.html">ViewAnchor.view</a> slot of a <a href="widgets/ViewAnchor-class.html">ViewAnchor</a> widget. It is not required to be a
-direct child of those widgets; other non-<a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>s may appear in
-between the two (such as an <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>).</p>
-<p>Each <a href="dart-ui/FlutterView-class.html">FlutterView</a> can be associated with at most one <a href="widgets/View-class.html">View</a> or <a href="widgets/RawView-class.html">RawView</a>
-widget in the widget tree. Two or more <a href="widgets/View-class.html">View</a> or <a href="widgets/RawView-class.html">RawView</a> widgets
-configured with the same <a href="dart-ui/FlutterView-class.html">FlutterView</a> must never exist within the same
-widget tree at the same time. This limitation is enforced by a
-<a href="widgets/GlobalObjectKey-class.html">GlobalObjectKey</a> that derives its identity from the <a href="widgets/RawView/view.html">view</a> provided to this
-widget.</p>
-<p>Since the <a href="widgets/RawView-class.html">RawView</a> widget bootstraps its own independent render tree,
-neither it nor any of its descendants will insert a <a href="rendering/RenderObject-class.html">RenderObject</a> into an
-existing render tree. Therefore, the <a href="widgets/RawView-class.html">RawView</a> widget can only be used in
-those parts of the widget tree where it is not required to participate in
-the construction of the surrounding render tree. In other words, the widget
-may only be used in a non-rendering zone of the widget tree (see
-<a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a> for a definition of rendering and non-rendering zones).</p>
-<p>To find the <a href="dart-ui/FlutterView-class.html">FlutterView</a> associated with a <a href="widgets/BuildContext-class.html">BuildContext</a>, use <a href="widgets/View/of.html">View.of</a> or
-<a href="widgets/View/maybeOf.html">View.maybeOf</a>, even if the view was created using <a href="widgets/RawView-class.html">RawView</a> instead of
-<a href="widgets/View-class.html">View</a>.</p>
+<p>此组件可作为组件树的根节点（不位于其他 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> 组件内），也可作为 <a href="widgets/ViewCollection-class.html">ViewCollection</a> 的子组件，或放入 <a href="widgets/ViewAnchor-class.html">ViewAnchor</a> 组件的 <a href="widgets/ViewAnchor/view.html">ViewAnchor.view</a> 插槽中。它不必是这些组件的直接子组件；两者之间可以有其他非 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 组件，例如 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>。</p>
+<p>组件树中的每个 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 最多只能关联一个 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> 组件。任何时候，同一组件树中都不能同时存在两个或更多使用同一 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 配置的 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> 组件。系统通过 <a href="widgets/GlobalObjectKey-class.html">GlobalObjectKey</a> 强制执行此限制，其标识由传给此组件的 <a href="widgets/RawView/view.html">view</a> 推导得出。</p>
+<p>由于 <a href="widgets/RawView-class.html">RawView</a> 组件会启动独立的渲染树，因此它及其后代都不会将 <a href="rendering/RenderObject-class.html">RenderObject</a> 插入现有渲染树。因此，<a href="widgets/RawView-class.html">RawView</a> 只能用于组件树中无需参与周围渲染树构建的部分。换言之，它只能放在组件树的非渲染区域中（渲染区域和非渲染区域的定义请参阅 <a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a>）。</p>
+<p>若要查找与 <a href="widgets/BuildContext-class.html">BuildContext</a> 关联的 <a href="dart-ui/FlutterView-class.html">FlutterView</a>，请使用 <a href="widgets/View/of.html">View.of</a> 或 <a href="widgets/View/maybeOf.html">View.maybeOf</a>，即使该视图是通过 <a href="widgets/View-class.html">View</a> 的替代组件 <a href="widgets/RawView-class.html">RawView</a> 创建的也一样。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/View-class.html">View</a> for a higher level interface that also sets up a <a href="widgets/MediaQuery-class.html">MediaQuery</a> 和

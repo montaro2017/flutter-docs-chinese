@@ -87,13 +87,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;ListView-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/scroll_view.dart#L1294"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">ListView</span> 类 
+<h1><span class="kind-class">ListView</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A scrollable list of widgets arranged linearly.</p>
+  <p>沿线性方向排列组件的可滚动列表。</p>
 <iframe src="https://www.youtube.com/embed/KJpkjHGiI5A?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -105,59 +105,34 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<p><a href="widgets/ListView-class.html">ListView</a> is the most commonly used scrolling widget. It displays its
-children one after another in the scroll direction. In the cross axis, the
-children are required to fill the <a href="widgets/ListView-class.html">ListView</a>.</p>
-<p>If non-null, the <a href="widgets/ListView/itemExtent.html">itemExtent</a> forces the children to have the given extent
-in the scroll direction.</p>
-<p>If non-null, the <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> forces the children to have the same extent
-as the given widget in the scroll direction.</p>
-<p>Specifying an <a href="widgets/ListView/itemExtent.html">itemExtent</a> or an <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> is more efficient than
-letting the children determine their own extent because the scrolling
-machinery can make use of the foreknowledge of the children's extent to save
-work, for example when the scroll position changes drastically.</p>
+<p><a href="widgets/ListView-class.html">ListView</a> 是最常用的滚动组件。它会沿滚动方向依次显示子组件。在交叉轴方向上，子组件必须填满 <a href="widgets/ListView-class.html">ListView</a>。</p>
+<p>如果 <a href="widgets/ListView/itemExtent.html">itemExtent</a> 不为 null，则会强制子组件在滚动方向上具有给定的范围。</p>
+<p>如果 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> 不为 null，则会强制子组件在滚动方向上与给定组件具有相同的范围。</p>
+<p>指定 <a href="widgets/ListView/itemExtent.html">itemExtent</a> 或 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a>，比让子组件自行确定范围更高效，因为滚动机制可以利用已知的子组件范围减少工作量，例如滚动位置发生较大变化时。</p>
 <p>You can't specify both <a href="widgets/ListView/itemExtent.html">itemExtent</a> 和 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a>, only one or none of
 them.</p>
-<p>There are four options for constructing a <a href="widgets/ListView-class.html">ListView</a>:</p>
+<p>构建 <a href="widgets/ListView-class.html">ListView</a> 有四种方式：</p>
 <ol>
 <li>
-<p>The default constructor takes an explicit <a href="dart-core/List-class.html">List&lt;Widget&gt;</a> of children. This
-constructor is appropriate for list views with a small number of
-children because constructing the <a href="dart-core/List-class.html">List</a> requires doing work for every
-child that could possibly be displayed in the list view instead of just
-those children that are actually visible.</p>
+<p>默认构造函数接收显式的子组件 <a href="dart-core/List-class.html">List&lt;Widget&gt;</a>。它适用于子组件数量较少的列表视图，因为构造 <a href="dart-core/List-class.html">List</a> 时，必须为列表中所有可能显示的子组件执行工作，而不只是当前可见的子组件。</p>
 </li>
 <li>
-<p>The <a href="widgets/ListView/ListView.builder.html">ListView.builder</a> constructor takes an <a href="widgets/IndexedWidgetBuilder.html">IndexedWidgetBuilder</a>, which
-builds the children on demand. This constructor is appropriate for list views
-with a large (or infinite) number of children because the builder is called
-only for those children that are actually visible.</p>
+<p><a href="widgets/ListView/ListView.builder.html">ListView.builder</a> 构造函数接收一个 <a href="widgets/IndexedWidgetBuilder.html">IndexedWidgetBuilder</a>，按需构建子组件。它适用于子组件数量较多（或无限）的列表视图，因为 builder 只会为当前可见的子组件调用。</p>
 </li>
 <li>
-<p>The <a href="widgets/ListView/ListView.separated.html">ListView.separated</a> constructor takes two <a href="widgets/IndexedWidgetBuilder.html">IndexedWidgetBuilder</a>s:
-<code>itemBuilder</code> builds child items on demand, and <code>separatorBuilder</code>
-similarly builds separator children which appear in between the child items.
-This constructor is appropriate for list views with a fixed number of children.</p>
+<p><a href="widgets/ListView/ListView.separated.html">ListView.separated</a> 构造函数接收两个 <a href="widgets/IndexedWidgetBuilder.html">IndexedWidgetBuilder</a>：<code>itemBuilder</code> 按需构建列表项，<code>separatorBuilder</code> 则按需构建列表项之间的分隔组件。此构造函数适用于子组件数量固定的列表视图。</p>
 </li>
 <li>
-<p>The <a href="widgets/ListView/ListView.custom.html">ListView.custom</a> constructor takes a <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a>, which provides
-the ability to customize additional aspects of the child model. For example,
-a <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> can control the algorithm used to estimate the
-size of children that are not actually visible.</p>
+<p><a href="widgets/ListView/ListView.custom.html">ListView.custom</a> 构造函数接收 <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a>，借此可以自定义子组件模型的其他方面。例如，<a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> 可以控制用于估算当前不可见子组件尺寸的算法。</p>
 </li>
 </ol>
-<p>To control the initial scroll offset of the scroll view, provide a
-<a href="widgets/ScrollView/controller.html">controller</a> with its <a href="widgets/ScrollController/initialScrollOffset.html">ScrollController.initialScrollOffset</a> property set.</p>
-<p>By default, <a href="widgets/ListView-class.html">ListView</a> will automatically pad the list's scrollable
-extremities to avoid partial obstructions indicated by <a href="widgets/MediaQuery-class.html">MediaQuery</a>'s
-padding. To avoid this behavior, override with a zero <a href="widgets/BoxScrollView/padding.html">padding</a> property.</p>
+<p>若要控制滚动视图的初始滚动偏移量，请提供一个 <a href="widgets/ScrollView/controller.html">controller</a>，并设置其 <a href="widgets/ScrollController/initialScrollOffset.html">ScrollController.initialScrollOffset</a> 属性。</p>
+<p>默认情况下，<a href="widgets/ListView-class.html">ListView</a> 会根据 <a href="widgets/MediaQuery-class.html">MediaQuery</a> 的 padding 自动为列表可滚动区域的两端添加内边距，以避开部分遮挡。若要停用此行为，可将 <a href="widgets/BoxScrollView/padding.html">padding</a> 属性设为零。</p>
 <p>
 <a name="widgets.ListView.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-This example uses the default constructor for <a href="widgets/ListView-class.html">ListView</a> which takes an
-explicit <a href="dart-core/List-class.html">List&lt;Widget&gt;</a> of children. This <a href="widgets/ListView-class.html">ListView</a>'s children are made up
-of <a href="widgets/Container-class.html">Container</a>s with <a href="widgets/Text-class.html">Text</a>.</p>
+此示例使用 <a href="widgets/ListView-class.html">ListView</a> 的默认构造函数，它接收显式的子组件 <a href="dart-core/List-class.html">List&lt;Widget&gt;</a> 列表。此 <a href="widgets/ListView-class.html">ListView</a> 的子组件由包含 <a href="widgets/Text-class.html">Text</a> 的 <a href="widgets/Container-class.html">Container</a> 组成。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view.png" alt="A ListView of 3 amber colored containers with sample text.">
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
@@ -197,9 +172,7 @@ of <a href="widgets/Container-class.html">Container</a>s with <a href="widgets/T
 <a name="widgets.ListView.2"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-This example mirrors the previous one, creating the same list using the
-<a href="widgets/ListView/ListView.builder.html">ListView.builder</a> constructor. Using the <a href="widgets/IndexedWidgetBuilder.html">IndexedWidgetBuilder</a>, children
-are built lazily and can be infinite in number.</p>
+此示例与前一个示例相对应，使用 <a href="widgets/ListView/ListView.builder.html">ListView.builder</a> 构造函数创建相同的列表。通过 <a href="widgets/IndexedWidgetBuilder.html">IndexedWidgetBuilder</a>，子组件会按需构建，数量也可以是无限的。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view_builder.png" alt="A ListView of 3 amber colored containers with sample text.">
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
@@ -235,9 +208,7 @@ Widget build(BuildContext context) {
 <a name="widgets.ListView.3"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-This example continues to build from our the previous ones, creating a
-similar list using <a href="widgets/ListView/ListView.separated.html">ListView.separated</a>. Here, a <a href="material/Divider-class.html">Divider</a> is used as a
-separator.</p>
+此示例延续前面的做法，使用 <a href="widgets/ListView/ListView.separated.html">ListView.separated</a> 创建类似的列表，并使用 <a href="material/Divider-class.html">Divider</a> 作为分隔组件。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view_separated.png" alt="A ListView of 3 amber colored containers with sample text and a Divider
 between each of them.">
 </div>
@@ -277,66 +248,34 @@ Widget build(BuildContext context) {
   </div>
 </div>
 </p>
-<h2 id="child-elements-lifecycle">Child elements' lifecycle</h2>
-<h3 id="creation">Creation</h3>
-<p>While laying out the list, visible children's elements, states and render
-objects will be created lazily based on existing widgets (such as when using
-the default constructor) or lazily provided ones (such as when using the
-<a href="widgets/ListView/ListView.builder.html">ListView.builder</a> constructor).</p>
-<h3 id="destruction">Destruction</h3>
-<p>When a child is scrolled out of view, the associated element subtree,
-states and render objects are destroyed. A new child at the same position
-in the list will be lazily recreated along with new elements, states and
-render objects when it is scrolled back.</p>
-<h3 id="destruction-mitigation">Destruction mitigation</h3>
+<h2 id="child-elements-lifecycle">子元素的生命周期</h2>
+<h3 id="creation">创建</h3>
+<p>布局列表时，会根据现有组件（例如使用默认构造函数时）或按需提供的组件（例如使用 <a href="widgets/ListView/ListView.builder.html">ListView.builder</a> 构造函数时），延迟创建可见子项的元素、状态和渲染对象。</p>
+<h3 id="destruction">销毁</h3>
+<p>子项滚出视口时，与之关联的元素子树、状态和渲染对象都会被销毁。滚回列表中的相同位置时，会连同新的元素、状态和渲染对象一起按需重新创建该子项。</p>
+<h3 id="destruction-mitigation">减少销毁影响</h3>
 <p>为了在子元素滚入或滚出视野时保留其状态，可以采用以下选项：</p>
 <ul>
 <li>
-<p>Moving the ownership of non-trivial UI-state-driving business logic
-out of the list child subtree. For instance, if a list contains posts
-with their number of upvotes coming from a cached network response, store
-the list of posts and upvote number in a data model outside the list. Let
-the list child UI subtree be easily recreate-able from the
-source-of-truth model object. Use <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>s in the child
-widget subtree to store instantaneous UI state only.</p>
+<p>将驱动复杂 UI 状态的业务逻辑移出列表子项子树。例如，如果列表包含帖子，且点赞数来自缓存的网络响应，可在列表外部的数据模型中保存帖子列表和点赞数。让列表子项的 UI 子树能够根据真实数据源模型对象轻松重建。子组件子树中使用的 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 应只保存瞬时 UI 状态。</p>
 </li>
 <li>
-<p>Letting <a href="widgets/KeepAlive-class.html">KeepAlive</a> be the root widget of the list child widget subtree
-that needs to be preserved. The <a href="widgets/KeepAlive-class.html">KeepAlive</a> widget marks the child
-subtree's top render object child for keepalive. When the associated top
-render object is scrolled out of view, the list keeps the child's render
-object (and by extension, its associated elements and states) in a cache
-list instead of destroying them. When scrolled back into view, the render
-object is repainted as-is (if it wasn't marked dirty in the interim).</p>
+<p>对于需要保留的列表子项子树，可将 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 设为其根组件。<a href="widgets/KeepAlive-class.html">KeepAlive</a> 组件会将子树顶部渲染对象的子项标记为需要保活。当关联的顶部渲染对象滚出视口时，列表会将该子项的渲染对象（以及与之关联的元素和状态）保存在缓存列表中，而不是销毁它们。滚回视口时，将按原样重新绘制该渲染对象（前提是此期间未将其标记为需要重新布局或绘制）。</p>
 <p>This only works if <code>addAutomaticKeepAlives</code> 和 <code>addRepaintBoundaries</code>
 are false since those parameters cause the <a href="widgets/ListView-class.html">ListView</a> to wrap each child
 widget subtree with other widgets.</p>
 </li>
 <li>
-<p>Using <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> widgets (inserted by default when
-<code>addAutomaticKeepAlives</code> is true). <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> allows descendant
-widgets to control whether the subtree is actually kept alive or not.
-This behavior is in contrast with <a href="widgets/KeepAlive-class.html">KeepAlive</a>, which will unconditionally keep
-the subtree alive.</p>
-<p>As an example, the <a href="widgets/EditableText-class.html">EditableText</a> widget signals its list child element
-subtree to stay alive while its text field has input focus. If it doesn't
-have focus and no other descendants signaled for keepalive via a
-<a href="widgets/KeepAliveNotification-class.html">KeepAliveNotification</a>, the list child element subtree will be destroyed
-when scrolled away.</p>
+<p>使用 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 组件（当 <code>addAutomaticKeepAlives</code> 为 true 时默认插入）。<a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 允许后代组件控制是否实际保留子树。此行为与 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 不同，后者会无条件保留子树。</p>
+<p>例如，<a href="widgets/EditableText-class.html">EditableText</a> 组件会在文本字段获得输入焦点时，通知列表中的子项元素子树保持活动状态。如果它失去焦点，且没有其他后代通过 <a href="widgets/KeepAliveNotification-class.html">KeepAliveNotification</a> 请求保活，那么该子项元素子树滚出视口时就会被销毁。</p>
 <p><a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 的后代通常会通过 <a href="widgets/AutomaticKeepAliveClientMixin-mixin.html">AutomaticKeepAliveClientMixin</a> 通知它们需要保持存活，然后实现 <a href="widgets/AutomaticKeepAliveClientMixin/wantKeepAlive.html">AutomaticKeepAliveClientMixin.wantKeepAlive</a> getter，并调用 <a href="widgets/AutomaticKeepAliveClientMixin/updateKeepAlive.html">AutomaticKeepAliveClientMixin.updateKeepAlive</a>。</p>
 </li>
 </ul>
-<h2 id="transitioning-to-customscrollview">Transitioning to <a href="widgets/CustomScrollView-class.html">CustomScrollView</a></h2>
-<p>A <a href="widgets/ListView-class.html">ListView</a> is basically a <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> with a single <a href="widgets/SliverList-class.html">SliverList</a> in
-its <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> property.</p>
-<p>If <a href="widgets/ListView-class.html">ListView</a> is no longer sufficient, for example because the scroll view
-is to have both a list and a grid, or because the list is to be combined
-with a <a href="material/SliverAppBar-class.html">SliverAppBar</a>, etc, it is straight-forward to port code from using
-<a href="widgets/ListView-class.html">ListView</a> to using <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> directly.</p>
-<p>The <a href="widgets/Widget/key.html">key</a>, <a href="widgets/ScrollView/scrollDirection.html">scrollDirection</a>, <a href="widgets/ScrollView/reverse.html">reverse</a>, <a href="widgets/ScrollView/controller.html">controller</a>, <a href="widgets/ScrollView/primary.html">primary</a>, <a href="widgets/ScrollView/physics.html">physics</a>,
-and <a href="widgets/ScrollView/shrinkWrap.html">shrinkWrap</a> properties on <a href="widgets/ListView-class.html">ListView</a> map directly to the identically
-named properties on <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>.</p>
-<p>The <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> property should be a list containing either:</p>
+<h2 id="transitioning-to-customscrollview">转换为 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a></h2>
+<p><a href="widgets/ListView-class.html">ListView</a> 本质上是一个 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>，其 <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> 属性中只包含一个 <a href="widgets/SliverList-class.html">SliverList</a>。</p>
+<p>当 <a href="widgets/ListView-class.html">ListView</a> 无法满足需求时，例如滚动视图需要同时包含列表和网格，或列表需要与 <a href="material/SliverAppBar-class.html">SliverAppBar</a> 组合时，可以轻松地将代码从 <a href="widgets/ListView-class.html">ListView</a> 改为直接使用 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>。</p>
+<p><a href="widgets/ListView-class.html">ListView</a> 的 <a href="widgets/Widget/key.html">key</a>、<a href="widgets/ScrollView/scrollDirection.html">scrollDirection</a>、<a href="widgets/ScrollView/reverse.html">reverse</a>、<a href="widgets/ScrollView/controller.html">controller</a>、<a href="widgets/ScrollView/primary.html">primary</a>、<a href="widgets/ScrollView/physics.html">physics</a> 和 <a href="widgets/ScrollView/shrinkWrap.html">shrinkWrap</a> 属性，分别直接对应 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 中同名的属性。</p>
+<p><a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> 属性应为一个列表，其中包含以下任一内容：</p>
 <ul>
 <li>a <a href="widgets/SliverList-class.html">SliverList</a> if both <a href="widgets/ListView/itemExtent.html">itemExtent</a> 和 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> were null;</li>
 <li>a <a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a> if <a href="widgets/ListView/itemExtent.html">itemExtent</a> was not null; or</li>
@@ -349,15 +288,11 @@ named properties on <a href="widgets/CustomScrollView-class.html">CustomScrollVi
 argument. The <a href="widgets/ListView/ListView.builder.html">ListView.builder</a> constructor's <code>itemBuilder</code> 和
 <code>itemCount</code> arguments correspond to the <a href="widgets/ListView/childrenDelegate.html">childrenDelegate</a> being a
 <a href="widgets/SliverChildBuilderDelegate-class.html">SliverChildBuilderDelegate</a> with the equivalent arguments.</p>
-<p>The <a href="widgets/BoxScrollView/padding.html">padding</a> property corresponds to having a <a href="widgets/SliverPadding-class.html">SliverPadding</a> in the
-<a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> property instead of the list itself, and having
-the <a href="widgets/SliverList-class.html">SliverList</a> instead be a child of the <a href="widgets/SliverPadding-class.html">SliverPadding</a>.</p>
+<p><a href="widgets/BoxScrollView/padding.html">padding</a> 属性相当于在 <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> 中放入 <a href="widgets/SliverPadding-class.html">SliverPadding</a>，并将 <a href="widgets/SliverList-class.html">SliverList</a> 作为 <a href="widgets/SliverPadding-class.html">SliverPadding</a> 的子组件，而不是直接放在列表中。</p>
 <p><a href="widgets/CustomScrollView-class.html">CustomScrollView</a>s don't automatically avoid obstructions from <a href="widgets/MediaQuery-class.html">MediaQuery</a>
 like <a href="widgets/ListView-class.html">ListView</a>s do. To reproduce the behavior, wrap the slivers in
 <a href="widgets/SliverSafeArea-class.html">SliverSafeArea</a>。</p>
-<p>Once code has been ported to use <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>, other slivers, such as
-<a href="widgets/SliverGrid-class.html">SliverGrid</a> or <a href="material/SliverAppBar-class.html">SliverAppBar</a>, can be put in the <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a>
-list.</p>
+<p>将代码改为使用 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 后，还可以将其他 sliver（例如 <a href="widgets/SliverGrid-class.html">SliverGrid</a> 或 <a href="material/SliverAppBar-class.html">SliverAppBar</a>）放入 <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> 列表。</p>
 <p>
 <a name="widgets.ListView.4"></a>
 <div class="snippet snippet-container anchor-container">
@@ -421,11 +356,8 @@ Here are two brief snippets showing a <a href="widgets/ListView-class.html">List
   </div>
 </div>
 </p>
-<h2 id="special-handling-for-an-empty-list">Special handling for an empty list</h2>
-<p>A common design pattern is to have a custom UI for an empty list. The best
-way to achieve this in Flutter is just conditionally replacing the
-<a href="widgets/ListView-class.html">ListView</a> at build time with whatever widgets you need to show for the
-empty list state:</p>
+<h2 id="special-handling-for-an-empty-list">空列表的特殊处理</h2>
+<p>常见的设计模式是为空列表显示自定义 UI。在 Flutter 中，最好的实现方式是在构建时根据条件，将 <a href="widgets/ListView-class.html">ListView</a> 替换为显示空列表状态所需的组件：</p>
 <p>
 <a name="widgets.ListView.6"></a>
 <div class="snippet snippet-container anchor-container">
@@ -460,10 +392,8 @@ Example of simple empty list interface:
   </div>
 </div>
 </p>
-<h2 id="selection-of-list-items">Selection of list items</h2>
-<p><a href="widgets/ListView-class.html">ListView</a> has no built-in notion of a selected item or items. For a small
-example of how a caller might wire up basic item selection, see
-<a href="material/ListTile/selected.html">ListTile.selected</a>.</p>
+<h2 id="selection-of-list-items">列表项选择</h2>
+<p><a href="widgets/ListView-class.html">ListView</a> 本身没有内置的列表项选择机制。若要了解调用方如何实现基本的列表项选择，请参阅 <a href="material/ListTile/selected.html">ListTile.selected</a> 中的简短示例。</p>
 <p>
 <a name="widgets.ListView.7"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet7">
@@ -486,17 +416,9 @@ Long press any <a href="material/ListTile-class.html">ListTile</a> to enable sel
     </iframe>
 </div>
 </p>
-<p><a href="widgets/ScrollView-class.html">ScrollView</a>s are often decorated with <a href="material/Scrollbar-class.html">Scrollbar</a>s and overscroll indicators,
-which are managed by the inherited <a href="widgets/ScrollBehavior-class.html">ScrollBehavior</a>. Placing a
-<a href="widgets/ScrollConfiguration-class.html">ScrollConfiguration</a> above a ScrollView can modify these behaviors for that
-ScrollView, or can be managed app-wide by providing a ScrollBehavior to
-<a href="material/MaterialApp/scrollBehavior.html">MaterialApp.scrollBehavior</a> or <a href="cupertino/CupertinoApp/scrollBehavior.html">CupertinoApp.scrollBehavior</a>.</p>
+<p><a href="widgets/ScrollView-class.html">ScrollView</a> 通常会装饰 <a href="material/Scrollbar-class.html">Scrollbar</a> 和过度滚动指示器，这些行为由继承的 <a href="widgets/ScrollBehavior-class.html">ScrollBehavior</a> 管理。在 ScrollView 上方放置 <a href="widgets/ScrollConfiguration-class.html">ScrollConfiguration</a> 可以修改该 ScrollView 的行为；也可以通过为 <a href="material/MaterialApp/scrollBehavior.html">MaterialApp.scrollBehavior</a> 或 <a href="cupertino/CupertinoApp/scrollBehavior.html">CupertinoApp.scrollBehavior</a> 提供 ScrollBehavior，统一管理整个应用的行为。</p>
 <h2 id="persisting-the-scroll-position-during-a-session">在会话期间保留滚动位置</h2>
-<p>Scroll views attempt to persist their scroll position using <a href="widgets/PageStorage-class.html">PageStorage</a>.
-This can be disabled by setting <a href="widgets/ScrollController/keepScrollOffset.html">ScrollController.keepScrollOffset</a> to false
-on the <a href="widgets/ScrollView/controller.html">controller</a>. If it is enabled, using a <a href="widgets/PageStorageKey-class.html">PageStorageKey</a> for the
-<a href="widgets/Widget/key.html">key</a> of this widget is recommended to help disambiguate different scroll
-views from each other.</p>
+<p>滚动视图会尝试使用 <a href="widgets/PageStorage-class.html">PageStorage</a> 保存滚动位置。若要停用此功能，可将 <a href="widgets/ScrollView/controller.html">controller</a> 的 <a href="widgets/ScrollController/keepScrollOffset.html">ScrollController.keepScrollOffset</a> 设为 false。如果启用了此功能，建议将 <a href="widgets/PageStorageKey-class.html">PageStorageKey</a> 用作此组件的 <a href="widgets/Widget/key.html">key</a>，以便区分不同的滚动视图。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a>, which is a scrollable widget that has a single

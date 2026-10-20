@@ -19189,7 +19189,45 @@
     "52": "<p>另请参阅：</p>",
     "31": "<p><a href=\"widgets/AutomaticKeepAlive-class.html\">AutomaticKeepAlive</a> 的后代通常会通过 <a href=\"widgets/AutomaticKeepAliveClientMixin-mixin.html\">AutomaticKeepAliveClientMixin</a> 通知它们需要保持存活，然后实现 <a href=\"widgets/AutomaticKeepAliveClientMixin/wantKeepAlive.html\">AutomaticKeepAliveClientMixin.wantKeepAlive</a> getter，并调用 <a href=\"widgets/AutomaticKeepAliveClientMixin/updateKeepAlive.html\">AutomaticKeepAliveClientMixin.updateKeepAlive</a>。</p>",
     "25": "<p>为了在子元素滚入或滚出视野时保留其状态，可以采用以下选项：</p>",
-    "50": "<h2 id=\"persisting-the-scroll-position-during-a-session\">在会话期间保留滚动位置</h2>"
+    "50": "<h2 id=\"persisting-the-scroll-position-during-a-session\">在会话期间保留滚动位置</h2>",
+    "0": "<p>沿线性方向排列组件的可滚动列表。</p>",
+    "1": "<p><a href=\"widgets/ListView-class.html\">ListView</a> 是最常用的滚动组件。它会沿滚动方向依次显示子组件。在交叉轴方向上，子组件必须填满 <a href=\"widgets/ListView-class.html\">ListView</a>。</p>",
+    "2": "<p>如果 <a href=\"widgets/ListView/itemExtent.html\">itemExtent</a> 不为 null，则会强制子组件在滚动方向上具有给定的范围。</p>",
+    "3": "<p>如果 <a href=\"widgets/ListView/prototypeItem.html\">prototypeItem</a> 不为 null，则会强制子组件在滚动方向上与给定组件具有相同的范围。</p>",
+    "4": "<p>指定 <a href=\"widgets/ListView/itemExtent.html\">itemExtent</a> 或 <a href=\"widgets/ListView/prototypeItem.html\">prototypeItem</a>，比让子组件自行确定范围更高效，因为滚动机制可以利用已知的子组件范围减少工作量，例如滚动位置发生较大变化时。</p>",
+    "6": "<p>构建 <a href=\"widgets/ListView-class.html\">ListView</a> 有四种方式：</p>",
+    "7": "<p>默认构造函数接收显式的子组件 <a href=\"dart-core/List-class.html\">List&lt;Widget&gt;</a>。它适用于子组件数量较少的列表视图，因为构造 <a href=\"dart-core/List-class.html\">List</a> 时，必须为列表中所有可能显示的子组件执行工作，而不只是当前可见的子组件。</p>",
+    "8": "<p><a href=\"widgets/ListView/ListView.builder.html\">ListView.builder</a> 构造函数接收一个 <a href=\"widgets/IndexedWidgetBuilder.html\">IndexedWidgetBuilder</a>，按需构建子组件。它适用于子组件数量较多（或无限）的列表视图，因为 builder 只会为当前可见的子组件调用。</p>",
+    "9": "<p><a href=\"widgets/ListView/ListView.separated.html\">ListView.separated</a> 构造函数接收两个 <a href=\"widgets/IndexedWidgetBuilder.html\">IndexedWidgetBuilder</a>：<code>itemBuilder</code> 按需构建列表项，<code>separatorBuilder</code> 则按需构建列表项之间的分隔组件。此构造函数适用于子组件数量固定的列表视图。</p>",
+    "10": "<p><a href=\"widgets/ListView/ListView.custom.html\">ListView.custom</a> 构造函数接收 <a href=\"widgets/SliverChildDelegate-class.html\">SliverChildDelegate</a>，借此可以自定义子组件模型的其他方面。例如，<a href=\"widgets/SliverChildDelegate-class.html\">SliverChildDelegate</a> 可以控制用于估算当前不可见子组件尺寸的算法。</p>",
+    "11": "<p>若要控制滚动视图的初始滚动偏移量，请提供一个 <a href=\"widgets/ScrollView/controller.html\">controller</a>，并设置其 <a href=\"widgets/ScrollController/initialScrollOffset.html\">ScrollController.initialScrollOffset</a> 属性。</p>",
+    "12": "<p>默认情况下，<a href=\"widgets/ListView-class.html\">ListView</a> 会根据 <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a> 的 padding 自动为列表可滚动区域的两端添加内边距，以避开部分遮挡。若要停用此行为，可将 <a href=\"widgets/BoxScrollView/padding.html\">padding</a> 属性设为零。</p>",
+    "13": "<p>\n<a name=\"widgets.ListView.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例使用 <a href=\"widgets/ListView-class.html\">ListView</a> 的默认构造函数，它接收显式的子组件 <a href=\"dart-core/List-class.html\">List&lt;Widget&gt;</a> 列表。此 <a href=\"widgets/ListView-class.html\">ListView</a> 的子组件由包含 <a href=\"widgets/Text-class.html\">Text</a> 的 <a href=\"widgets/Container-class.html\">Container</a> 组成。</p>",
+    "19": "<h2 id=\"child-elements-lifecycle\">子元素的生命周期</h2>",
+    "20": "<h3 id=\"creation\">创建</h3>",
+    "21": "<p>布局列表时，会根据现有组件（例如使用默认构造函数时）或按需提供的组件（例如使用 <a href=\"widgets/ListView/ListView.builder.html\">ListView.builder</a> 构造函数时），延迟创建可见子项的元素、状态和渲染对象。</p>",
+    "22": "<h3 id=\"destruction\">销毁</h3>",
+    "23": "<p>子项滚出视口时，与之关联的元素子树、状态和渲染对象都会被销毁。滚回列表中的相同位置时，会连同新的元素、状态和渲染对象一起按需重新创建该子项。</p>",
+    "24": "<h3 id=\"destruction-mitigation\">减少销毁影响</h3>",
+    "26": "<p>将驱动复杂 UI 状态的业务逻辑移出列表子项子树。例如，如果列表包含帖子，且点赞数来自缓存的网络响应，可在列表外部的数据模型中保存帖子列表和点赞数。让列表子项的 UI 子树能够根据真实数据源模型对象轻松重建。子组件子树中使用的 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 应只保存瞬时 UI 状态。</p>",
+    "27": "<p>对于需要保留的列表子项子树，可将 <a href=\"widgets/KeepAlive-class.html\">KeepAlive</a> 设为其根组件。<a href=\"widgets/KeepAlive-class.html\">KeepAlive</a> 组件会将子树顶部渲染对象的子项标记为需要保活。当关联的顶部渲染对象滚出视口时，列表会将该子项的渲染对象（以及与之关联的元素和状态）保存在缓存列表中，而不是销毁它们。滚回视口时，将按原样重新绘制该渲染对象（前提是此期间未将其标记为需要重新布局或绘制）。</p>",
+    "15": "<p>\n<a name=\"widgets.ListView.2\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例与前一个示例相对应，使用 <a href=\"widgets/ListView/ListView.builder.html\">ListView.builder</a> 构造函数创建相同的列表。通过 <a href=\"widgets/IndexedWidgetBuilder.html\">IndexedWidgetBuilder</a>，子组件会按需构建，数量也可以是无限的。</p>",
+    "17": "<p>\n<a name=\"widgets.ListView.3\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例延续前面的做法，使用 <a href=\"widgets/ListView/ListView.separated.html\">ListView.separated</a> 创建类似的列表，并使用 <a href=\"material/Divider-class.html\">Divider</a> 作为分隔组件。</p>",
+    "29": "<p>使用 <a href=\"widgets/AutomaticKeepAlive-class.html\">AutomaticKeepAlive</a> 组件（当 <code>addAutomaticKeepAlives</code> 为 true 时默认插入）。<a href=\"widgets/AutomaticKeepAlive-class.html\">AutomaticKeepAlive</a> 允许后代组件控制是否实际保留子树。此行为与 <a href=\"widgets/KeepAlive-class.html\">KeepAlive</a> 不同，后者会无条件保留子树。</p>",
+    "30": "<p>例如，<a href=\"widgets/EditableText-class.html\">EditableText</a> 组件会在文本字段获得输入焦点时，通知列表中的子项元素子树保持活动状态。如果它失去焦点，且没有其他后代通过 <a href=\"widgets/KeepAliveNotification-class.html\">KeepAliveNotification</a> 请求保活，那么该子项元素子树滚出视口时就会被销毁。</p>",
+    "32": "<h2 id=\"transitioning-to-customscrollview\">转换为 <a href=\"widgets/CustomScrollView-class.html\">CustomScrollView</a></h2>",
+    "33": "<p><a href=\"widgets/ListView-class.html\">ListView</a> 本质上是一个 <a href=\"widgets/CustomScrollView-class.html\">CustomScrollView</a>，其 <a href=\"widgets/CustomScrollView/slivers.html\">CustomScrollView.slivers</a> 属性中只包含一个 <a href=\"widgets/SliverList-class.html\">SliverList</a>。</p>",
+    "34": "<p>当 <a href=\"widgets/ListView-class.html\">ListView</a> 无法满足需求时，例如滚动视图需要同时包含列表和网格，或列表需要与 <a href=\"material/SliverAppBar-class.html\">SliverAppBar</a> 组合时，可以轻松地将代码从 <a href=\"widgets/ListView-class.html\">ListView</a> 改为直接使用 <a href=\"widgets/CustomScrollView-class.html\">CustomScrollView</a>。</p>",
+    "35": "<p><a href=\"widgets/ListView-class.html\">ListView</a> 的 <a href=\"widgets/Widget/key.html\">key</a>、<a href=\"widgets/ScrollView/scrollDirection.html\">scrollDirection</a>、<a href=\"widgets/ScrollView/reverse.html\">reverse</a>、<a href=\"widgets/ScrollView/controller.html\">controller</a>、<a href=\"widgets/ScrollView/primary.html\">primary</a>、<a href=\"widgets/ScrollView/physics.html\">physics</a> 和 <a href=\"widgets/ScrollView/shrinkWrap.html\">shrinkWrap</a> 属性，分别直接对应 <a href=\"widgets/CustomScrollView-class.html\">CustomScrollView</a> 中同名的属性。</p>",
+    "36": "<p><a href=\"widgets/CustomScrollView/slivers.html\">CustomScrollView.slivers</a> 属性应为一个列表，其中包含以下任一内容：</p>",
+    "38": "<p><a href=\"widgets/BoxScrollView/padding.html\">padding</a> 属性相当于在 <a href=\"widgets/CustomScrollView/slivers.html\">CustomScrollView.slivers</a> 中放入 <a href=\"widgets/SliverPadding-class.html\">SliverPadding</a>，并将 <a href=\"widgets/SliverList-class.html\">SliverList</a> 作为 <a href=\"widgets/SliverPadding-class.html\">SliverPadding</a> 的子组件，而不是直接放在列表中。</p>",
+    "40": "<p>将代码改为使用 <a href=\"widgets/CustomScrollView-class.html\">CustomScrollView</a> 后，还可以将其他 sliver（例如 <a href=\"widgets/SliverGrid-class.html\">SliverGrid</a> 或 <a href=\"material/SliverAppBar-class.html\">SliverAppBar</a>）放入 <a href=\"widgets/CustomScrollView/slivers.html\">CustomScrollView.slivers</a> 列表。</p>",
+    "43": "<h2 id=\"special-handling-for-an-empty-list\">空列表的特殊处理</h2>",
+    "44": "<p>常见的设计模式是为空列表显示自定义 UI。在 Flutter 中，最好的实现方式是在构建时根据条件，将 <a href=\"widgets/ListView-class.html\">ListView</a> 替换为显示空列表状态所需的组件：</p>",
+    "46": "<h2 id=\"selection-of-list-items\">列表项选择</h2>",
+    "47": "<p><a href=\"widgets/ListView-class.html\">ListView</a> 本身没有内置的列表项选择机制。若要了解调用方如何实现基本的列表项选择，请参阅 <a href=\"material/ListTile/selected.html\">ListTile.selected</a> 中的简短示例。</p>",
+    "49": "<p><a href=\"widgets/ScrollView-class.html\">ScrollView</a> 通常会装饰 <a href=\"material/Scrollbar-class.html\">Scrollbar</a> 和过度滚动指示器，这些行为由继承的 <a href=\"widgets/ScrollBehavior-class.html\">ScrollBehavior</a> 管理。在 ScrollView 上方放置 <a href=\"widgets/ScrollConfiguration-class.html\">ScrollConfiguration</a> 可以修改该 ScrollView 的行为；也可以通过为 <a href=\"material/MaterialApp/scrollBehavior.html\">MaterialApp.scrollBehavior</a> 或 <a href=\"cupertino/CupertinoApp/scrollBehavior.html\">CupertinoApp.scrollBehavior</a> 提供 ScrollBehavior，统一管理整个应用的行为。</p>",
+    "51": "<p>滚动视图会尝试使用 <a href=\"widgets/PageStorage-class.html\">PageStorage</a> 保存滚动位置。若要停用此功能，可将 <a href=\"widgets/ScrollView/controller.html\">controller</a> 的 <a href=\"widgets/ScrollController/keepScrollOffset.html\">ScrollController.keepScrollOffset</a> 设为 false。如果启用了此功能，建议将 <a href=\"widgets/PageStorageKey-class.html\">PageStorageKey</a> 用作此组件的 <a href=\"widgets/Widget/key.html\">key</a>，以便区分不同的滚动视图。</p>"
   },
   "widgets/ListWheelChildDelegate-class.html": {
     "2": "<p>另请参阅：</p>",
@@ -20032,11 +20070,19 @@
   },
   "widgets/RawTooltip-class.html": {
     "3": "<p>另请参阅：</p>",
-    "4": "<p>\n<a name=\"widgets.RawTooltip.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\nThis example shows how <a href=\"widgets/RawTooltip-class.html\">RawTooltip</a> can be shown manually with <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode.manual</a>\nby calling the <a href=\"material/TooltipState/ensureTooltipVisible.html\">TooltipState.ensureTooltipVisible</a> function.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawTooltip.1');\" onclick=\"fixHref(this, 'widgets.RawTooltip.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawTooltip.1 mysample</span>\n        </p>"
+    "4": "<p>\n<a name=\"widgets.RawTooltip.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\nThis example shows how <a href=\"widgets/RawTooltip-class.html\">RawTooltip</a> can be shown manually with <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode.manual</a>\nby calling the <a href=\"material/TooltipState/ensureTooltipVisible.html\">TooltipState.ensureTooltipVisible</a> function.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawTooltip.1');\" onclick=\"fixHref(this, 'widgets.RawTooltip.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawTooltip.1 mysample</span>\n        </p>",
+    "0": "<p>一个包装子组件的组件，可在用户交互（例如悬停或长按）时显示提示浮层。</p>",
+    "1": "<p>提示工具通过显示文本标签或简短说明，为按钮及其他用户界面元素提供关键背景信息，帮助解释其功能。</p>",
+    "2": "<p>可通过多种方式触发提示工具：</p>"
   },
   "widgets/RawView-class.html": {
     "1": "<p>Typically, the <a href=\"widgets/View-class.html\">View</a> widget is used instead of a <a href=\"widgets/RawView-class.html\">RawView</a> widget to create\na view, since, in addition to creating a view, it also adds some useful\nwidgets, such as a <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a> 和 <a href=\"widgets/FocusScope-class.html\">FocusScope</a>. The <a href=\"widgets/RawView-class.html\">RawView</a> widget is\nonly used directly if it is not desirable to have these additional widgets\naround the resulting widget tree. The <a href=\"widgets/View-class.html\">View</a> widget uses the <a href=\"widgets/RawView-class.html\">RawView</a>\nwidget internally to manage its <a href=\"dart-ui/FlutterView-class.html\">FlutterView</a>.</p>",
-    "6": "<p>另请参阅：</p>"
+    "6": "<p>另请参阅：</p>",
+    "0": "<p>用于为视图启动渲染树的底层核心组件 <a href=\"widgets/View-class.html\">View</a> 实现。</p>",
+    "2": "<p>此组件可作为组件树的根节点（不位于其他 <a href=\"widgets/View-class.html\">View</a> 或 <a href=\"widgets/RawView-class.html\">RawView</a> 组件内），也可作为 <a href=\"widgets/ViewCollection-class.html\">ViewCollection</a> 的子组件，或放入 <a href=\"widgets/ViewAnchor-class.html\">ViewAnchor</a> 组件的 <a href=\"widgets/ViewAnchor/view.html\">ViewAnchor.view</a> 插槽中。它不必是这些组件的直接子组件；两者之间可以有其他非 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 组件，例如 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>。</p>",
+    "3": "<p>组件树中的每个 <a href=\"dart-ui/FlutterView-class.html\">FlutterView</a> 最多只能关联一个 <a href=\"widgets/View-class.html\">View</a> 或 <a href=\"widgets/RawView-class.html\">RawView</a> 组件。任何时候，同一组件树中都不能同时存在两个或更多使用同一 <a href=\"dart-ui/FlutterView-class.html\">FlutterView</a> 配置的 <a href=\"widgets/View-class.html\">View</a> 或 <a href=\"widgets/RawView-class.html\">RawView</a> 组件。系统通过 <a href=\"widgets/GlobalObjectKey-class.html\">GlobalObjectKey</a> 强制执行此限制，其标识由传给此组件的 <a href=\"widgets/RawView/view.html\">view</a> 推导得出。</p>",
+    "4": "<p>由于 <a href=\"widgets/RawView-class.html\">RawView</a> 组件会启动独立的渲染树，因此它及其后代都不会将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入现有渲染树。因此，<a href=\"widgets/RawView-class.html\">RawView</a> 只能用于组件树中无需参与周围渲染树构建的部分。换言之，它只能放在组件树的非渲染区域中（渲染区域和非渲染区域的定义请参阅 <a href=\"widgets/WidgetsBinding-mixin.html\">WidgetsBinding</a>）。</p>",
+    "5": "<p>若要查找与 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 关联的 <a href=\"dart-ui/FlutterView-class.html\">FlutterView</a>，请使用 <a href=\"widgets/View/of.html\">View.of</a> 或 <a href=\"widgets/View/maybeOf.html\">View.maybeOf</a>，即使该视图是通过 <a href=\"widgets/View-class.html\">View</a> 的替代组件 <a href=\"widgets/RawView-class.html\">RawView</a> 创建的也一样。</p>"
   },
   "widgets/ReadingOrderTraversalPolicy-class.html": {
     "0": "<p>按“阅读顺序”遍历焦点。</p>",
@@ -20061,7 +20107,9 @@
     "2": "<p>下图展示了 <a href=\"widgets/RelativePositionedTransition-class.html\">RelativePositionedTransition</a> 组件，其 <a href=\"widgets/RelativePositionedTransition/rect.html\">rect</a> 由设置为 <a href=\"animation/CurvedAnimation-class.html\">Curves.elasticInOut</a> 的 <a href=\"animation/Curves/elasticInOut-constant.html\">CurvedAnimation</a> 驱动：</p>"
   },
   "widgets/RelativeRectTween-class.html": {
-    "2": "<p>有关插值对象的使用方式，请参阅 <a href=\"animation/Tween-class.html\">Tween</a>。</p>"
+    "2": "<p>有关插值对象的使用方式，请参阅 <a href=\"animation/Tween-class.html\">Tween</a>。</p>",
+    "0": "<p>两个相对矩形之间的插值对象。</p>",
+    "1": "<p>此类专门为 <a href=\"animation/Tween-class.html\">Tween&lt;RelativeRect&gt;</a> 实现插值，并使用 <a href=\"rendering/RelativeRect/lerp.html\">RelativeRect.lerp</a>。</p>"
   },
   "widgets/RenderTapRegion-class.html": {
     "5": "<p>另请参阅：</p>"
@@ -34096,7 +34144,8 @@
     "4": "<p>另请参阅：</p>",
     "3": "<p>如果结果可以同步计算，可考虑使用 <a href=\"foundation/SynchronousFuture-class.html\">SynchronousFuture</a>，这样 <a href=\"widgets/Router-class.html\">Router</a> 就不必等待下一个 microtask 才能安排构建。</p>",
     "0": "<p>应用启动时，<a href=\"widgets/Router-class.html\">Router</a> 会使用 <a href=\"widgets/RouteInformationParser-class.html\">RouteInformationParser</a> 解析初始路由得到的结构调用此方法。</p>",
-    "1": "<p>此方法应配置 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>，使调用 <a href=\"widgets/RouterDelegate/build.html\">build</a> 时创建与初始路由相匹配的组件树。</p>"
+    "1": "<p>此方法应配置 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>，使调用 <a href=\"widgets/RouterDelegate/build.html\">build</a> 时创建与初始路由相匹配的组件树。</p>",
+    "2": "<p>默认情况下，此方法会将 <code>configuration</code> 转发给 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>。</p>"
   },
   "widgets/PopNavigatorRouterDelegateMixin/toString.html": {
     "0": "<p>此对象的字符串表示。</p>",
@@ -34846,7 +34895,8 @@
   },
   "widgets/RawTooltip/child.html": {
     "0": "<p>组件树中位于此组件下方的组件。</p>",
-    "2": "<p>此组件只能有一个子组件。要布局多个子组件，可将其子组件设为具有 <code>children</code> 属性的组件，例如 <a href=\"widgets/Row-class.html\">Row</a>、<a href=\"widgets/Column-class.html\">Column</a> 或 <a href=\"widgets/Stack-class.html\">Stack</a>，然后向该组件提供多个子组件。</p>"
+    "2": "<p>此组件只能有一个子组件。若要布局多个子组件，可将 <a href=\"widgets/Row-class.html\">Row</a>、<a href=\"widgets/Column-class.html\">Column</a> 或 <a href=\"widgets/Stack-class.html\">Stack</a> 等具有 <code>children</code> 属性的组件作为此组件的 child，再将这些子组件传给该组件。</p>",
+    "1": "<p>当用户将鼠标悬停在此子组件上时，会显示 <a href=\"widgets/RawTooltip/tooltipBuilder.html\">tooltipBuilder</a> 返回的组件。</p>"
   },
   "widgets/RawTooltip/createState.html": {
     "0": "<p>为组件在树中的给定位置创建可变状态。</p>",
@@ -34866,7 +34916,9 @@
     "9": "<p>不要添加生命周期短于此对象的值。</p>"
   },
   "widgets/RawTooltip/dismissDelay.html": {
-    "2": "<p>另请参阅：</p>"
+    "2": "<p>另请参阅：</p>",
+    "0": "<p>指针停止悬停在提示工具组件上后，提示工具隐藏前需要等待的时间。</p>",
+    "1": "<p>默认值为 100 毫秒。</p>"
   },
   "widgets/RawTooltip/enableFeedback.html": {
     "0": "<p>工具提示是否提供声音和/或触觉反馈。</p>",
@@ -34884,15 +34936,24 @@
   },
   "widgets/RawTooltip/ignorePointer.html": {
     "1": "<p>默认为 false。</p>",
-    "2": "<p>另请参阅：</p>"
+    "2": "<p>另请参阅：</p>",
+    "0": "<p>指定命中测试是否忽略此提示工具。</p>"
   },
   "widgets/RawTooltip/onTriggered.html": {
     "0": "<p>通过程序、轻触或长按触发 <a href=\"widgets/RawTooltip-class.html\">RawTooltip</a> 时调用。</p>",
     "2": "<p>鼠标指针悬停在工具提示上不会调用此回调。</p>",
-    "3": "<p>另请参阅：</p>"
+    "3": "<p>另请参阅：</p>",
+    "1": "<p>轻点触发时，<a href=\"widgets/RawTooltip/triggerMode.html\">triggerMode</a> 为 <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode.tap</a>；长按触发时，<a href=\"widgets/RawTooltip/triggerMode.html\">triggerMode</a> 为 <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode.longPress</a>。</p>"
   },
   "widgets/RawTooltip/positionDelegate.html": {
-    "7": "<p>另请参阅：</p>"
+    "7": "<p>另请参阅：</p>",
+    "0": "<p>用于计算提示工具位置的自定义位置委托函数。</p>",
+    "2": "<p>这允许使用自定义定位方式，例如放在左侧或右侧，也可以实现任意其他定位逻辑。</p>",
+    "3": "<p>例如，如果 <a href=\"widgets/Overlay-class.html\">Overlay</a> 占据整个屏幕，返回 <a href=\"dart-ui/Offset/zero-constant.html\">Offset.zero</a> 会将提示工具放在屏幕左上角。</p>",
+    "4": "<p><a href=\"widgets/TooltipPositionContext-class.html\">TooltipPositionContext</a> 提供的信息可用于将提示工具相对于目标组件或子组件定位。</p>",
+    "5": "<p>例如：</p>",
+    "6": "<p>为 null 时，默认使用 <a href=\"painting/positionDependentBox.html\">positionDependentBox</a>，将提示工具置于目标下方并水平居中。</p>",
+    "1": "<p>提供此函数时，会传入包含定位所需全部信息的 <a href=\"widgets/TooltipPositionContext-class.html\">TooltipPositionContext</a>。函数应返回一个 <a href=\"dart-ui/Offset-class.html\">Offset</a>，用于指示提示工具在最近的 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中的放置位置。</p>"
   },
   "widgets/RawTooltip/touchDelay.html": {
     "0": "<p>在长按结束（当 triggerMode 为 <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode.longPress</a> 时）或轻触结束（当 triggerMode 为 <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode.tap</a> 时）后，工具提示继续显示的时长。</p>",
@@ -34901,7 +34962,8 @@
     "3": "<p>另请参阅：</p>"
   },
   "widgets/RawTooltip/triggerMode.html": {
-    "0": "<p>用于显示工具提示的 <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode</a>。</p>"
+    "0": "<p>用于显示工具提示的 <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode</a>。</p>",
+    "1": "<p>此属性不会影响鼠标设备。将 <a href=\"widgets/RawTooltip/triggerMode.html\">triggerMode</a> 设为 <a href=\"widgets/TooltipTriggerMode.html\">TooltipTriggerMode.manual</a>，仍不会阻止鼠标光标悬停时显示提示工具。</p>"
   },
   "widgets/RawTooltipState/build.html": {
     "0": "<p>描述此 widget 所表示的用户界面部分。</p>",
@@ -34950,7 +35012,8 @@
     "6": "<p>如果组件的 <a href=\"widgets/RawView/build.html\">build</a> 方法还依赖其他内容，请改用 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a>。</p>"
   },
   "widgets/RawView/child.html": {
-    "1": "<p>此组件只能有一个子组件。要布局多个子组件，可将其子组件设为具有 <code>children</code> 属性的组件，例如 <a href=\"widgets/Row-class.html\">Row</a>、<a href=\"widgets/Column-class.html\">Column</a> 或 <a href=\"widgets/Stack-class.html\">Stack</a>，然后向该组件提供多个子组件。</p>"
+    "1": "<p>此组件只能有一个子组件。要布局多个子组件，可将其子组件设为具有 <code>children</code> 属性的组件，例如 <a href=\"widgets/Row-class.html\">Row</a>、<a href=\"widgets/Column-class.html\">Column</a> 或 <a href=\"widgets/Stack-class.html\">Stack</a>，然后向该组件提供多个子组件。</p>",
+    "0": "<p>组件树中位于此组件下方、将被绘制到 <a href=\"widgets/RawView/view.html\">view</a> 中的组件。</p>"
   },
   "widgets/RawView/RawView.html": {
     "0": "<p>创建一个 <a href=\"widgets/RawView-class.html\">RawView</a> 组件。</p>"
@@ -35004,7 +35067,9 @@
     "0": "<p>验证对象是否满足其约束。子类可重写此函数，以验证对象状态是否符合约束对象。仅在启用断言时（即调试模式下），且仅当 needsLayout 为 false 时才会调用此函数。如果不满足约束，应触发断言或抛出异常。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/debugCreator.html": {
-    "2": "<p>另请参阅：</p>"
+    "2": "<p>另请参阅：</p>",
+    "0": "<p>负责创建此渲染对象的对象。</p>",
+    "1": "<p>用于调试消息。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/debugDescribeChildren.html": {
     "3": "<p>Used by <a href=\"widgets/RenderAbstractLayoutBuilderMixin/toStringDeep.html\">toStringDeep</a>, <a href=\"widgets/RenderAbstractLayoutBuilderMixin/toDiagnosticsNode.html\">toDiagnosticsNode</a> 和 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/toStringShallow.html\">toStringShallow</a>.</p>",
@@ -35032,7 +35097,10 @@
     "0": "<p>如果子类具有“size”（即由 <code>parentUsesSize</code> 控制的状态，无论该状态在子类中具体是什么，例如 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 的实际 <code>size</code> 属性），并且子类会在调试模式下验证：未设置 <a href=\"rendering/RenderObject/debugCanParentUseSize.html\">debugCanParentUseSize</a> 时不得使用此“size”属性，那么该子类应重写 <a href=\"rendering/RenderObject/debugResetSize.html\">debugResetSize</a>，将当前 <a href=\"rendering/RenderObject/debugCanParentUseSize.html\">debugCanParentUseSize</a> 值重新应用到该状态。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/describeSemanticsClip.html": {
-    "3": "<p>另请参阅：</p>"
+    "3": "<p>另请参阅：</p>",
+    "0": "<p>返回一个以此对象坐标系表示的矩形，用于描述 <code>child</code> 生成的哪些 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 应包含在语义树中。位于此矩形之外的 <code>child</code> 所生成的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 将被丢弃。位于此矩形内但超出 <a href=\"rendering/RenderObject/describeApproximatePaintClip.html\">describeApproximatePaintClip</a> 的子项 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 会标记为隐藏后加入语义树。位于这两个矩形内的子项 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 则会作为普通节点加入语义树。</p>",
+    "1": "<p>只有当语义裁剪矩形与 <a href=\"rendering/RenderObject/describeApproximatePaintClip.html\">describeApproximatePaintClip</a> 返回的矩形不同时，此方法才会返回非 null 值。如果语义裁剪矩形和绘制裁剪矩形相同，此方法会返回 null。</p>",
+    "2": "<p>视口通常会实现此方法，将紧邻前缘之前或后缘之后、当前被隐藏的语义节点也纳入语义树。在 iOS 上，当无障碍焦点从视口中最后一个可见节点移至第一个隐藏节点时，视口会隐式滚动；要实现此功能，这些节点必须包含在语义树中。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/handleEvent.html": {
     "0": "<p>重写此方法，以处理命中此渲染对象的指针事件。</p>"
@@ -35047,10 +35115,17 @@
     "6": "<p>如果子类重写了 <a href=\"dart-core/Object/hashCode.html\">hashCode</a>，那么它也应该重写 <a href=\"dart-core/Object/operator_equals.html\">operator ==</a> 运算符以保持一致性。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/markNeedsCompositedLayerUpdate.html": {
-    "3": "<p>另请参阅：</p>"
+    "3": "<p>另请参阅：</p>",
+    "0": "<p>将此渲染对象标记为合成图层上的某个属性已更改。</p>",
+    "1": "<p>具有合成图层且 <a href=\"rendering/RenderObject/isRepaintBoundary.html\">isRepaintBoundary</a> 为 true 的渲染对象，可以更新该合成图层的属性，而无需重新绘制其子项。如果此渲染对象是重绘边界，但尚未为其创建合成图层，此方法会改为将最近的重绘边界父对象标记为需要绘制。</p>",
+    "2": "<p>如果对此渲染对象调用此方法，而它不是重绘边界，或虽是重绘边界但尚未合成，则效果等同于调用 <a href=\"rendering/RenderObject/markNeedsPaint.html\">markNeedsPaint</a>。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/markNeedsPaint.html": {
-    "4": "<p>另请参阅：</p>"
+    "4": "<p>另请参阅：</p>",
+    "0": "<p>将此渲染对象标记为视觉外观已更改。</p>",
+    "1": "<p>收到写入时，我们不会立即更新此渲染对象的显示列表，而是将其标记为需要绘制并安排一次视觉更新。视觉更新过程中，渲染流水线会让此渲染对象有机会更新其显示列表。</p>",
+    "2": "<p>此机制会批量处理绘制工作，将连续发生的多次写入合并，从而避免重复计算。</p>",
+    "3": "<p>对渲染对象调用 <a href=\"rendering/RenderObject/markNeedsPaint.html\">markNeedsPaint</a> 后，<a href=\"rendering/RenderObject/debugNeedsPaint.html\">debugNeedsPaint</a> 会一直对该对象返回 true，直到流水线所有者调用该对象的 <a href=\"rendering/RenderObject/paint.html\">paint</a> 后才恢复。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/noSuchMethod.html": {
     "0": "<p>访问不存在的方法或属性时调用。</p>",
@@ -35074,7 +35149,10 @@
     "8": "<p>如果子类重写了相等运算符，它也应该重写 <a href=\"dart-core/Object/hashCode.html\">hashCode</a> 方法，以保持一致性。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/reassemble.html": {
-    "3": "<p>另请参阅：</p>"
+    "3": "<p>另请参阅：</p>",
+    "0": "<p>将给定 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 根节点下的整个子树标记为需要重新布局、绘制等，以便显示热重载的效果，或应用全局调试标志（例如 <a href=\"rendering/debugPaintSizeEnabled.html\">debugPaintSizeEnabled</a>）变化后的效果。</p>",
+    "1": "<p>当开发工具检测到应用代码发生变化时，会使用 <code>ext.flutter.reassemble</code> 钩子；<a href=\"rendering/RendererBinding-mixin.html\">RendererBinding</a> 会响应此钩子并调用此方法，使组件树采用更新后的实现。</p>",
+    "2": "<p>此操作开销较大，除开发期间外不应调用。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/runtimeType.html": {
     "0": "<p>此对象运行时类型的表示。</p>"
@@ -35086,7 +35164,11 @@
     "0": "<p>出于辅助功能用途，此对象在本地坐标系中的边界框。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/showOnScreen.html": {
-    "4": "<p>另请参阅：</p>"
+    "4": "<p>另请参阅：</p>",
+    "0": "<p>尝试使此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 或其某个后代的部分区域在屏幕上可见。</p>",
+    "1": "<p>如果提供了 <code>descendant</code>，则会使该 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 可见。如果省略 <code>descendant</code>，则会使此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 可见。</p>",
+    "2": "<p>可选参数 <code>rect</code> 用于描述应在屏幕上显示该 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的哪个区域。如果 <code>rect</code> 为 null，则会显示整个 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>（范围由其 <a href=\"rendering/RenderObject/paintBounds.html\">paintBounds</a> 定义）。如果提供了 <code>descendant</code> 参数，<code>rect</code> 会相对于该后代的坐标系解释；否则相对于此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 解释。</p>",
+    "3": "<p>将 <code>duration</code> 参数设为非零值后，可以通过 <code>curve</code> 定义的动画将目标对象滚动到屏幕可见区域。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/toString.html": {
     "0": "<p>此对象的字符串表示。</p>",
@@ -252024,7 +252106,8 @@
   "widgets/RenderObjectElement/moveRenderObjectChild.html": {
     "2": "<p><code>slot</code> 的语义由此元素决定。例如，如果此元素只有一个子节点，slot 应始终为 null；如果此元素有多个子节点，将前一个兄弟元素包装在 <a href=\"widgets/IndexedSlot-class.html\">IndexedSlot</a> 中，便可作为 slot 的合适值。</p>",
     "0": "<p>将指定子节点从旧 slot 移动到新 slot。</p>",
-    "1": "<p>保证指定子节点的父节点为 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a>。</p>"
+    "1": "<p>保证指定子节点的父节点为 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a>。</p>",
+    "3": "<p>只有当 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 可能使用现有的子 <a href=\"widgets/Element-class.html\">Element</a> 调用，并且传入的 <code>slot</code> 与此前分配给该元素的 slot 不同时，才会调用此方法。例如，<a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a> 会这样做，而 <a href=\"widgets/SingleChildRenderObjectElement-class.html\">SingleChildRenderObjectElement</a> 不会（因为 <code>slot</code> 始终为 null）。如果某个 <a href=\"widgets/Element-class.html\">Element</a> 的子项具有固定的一组 slot，每个子项的 slot 始终不变，且更新一个 slot 时不会与其他 slot 中的子项相互比较，那么就永远不会调用此方法。</p>"
   },
   "widgets/RenderObjectToWidgetElement/insertRenderObjectChild.html": {
     "1": "<p><code>slot</code> 的语义由此元素决定。例如，如果此元素只有一个子节点，slot 应始终为 null；如果此元素有多个子节点，将前一个兄弟元素包装在 <a href=\"widgets/IndexedSlot-class.html\">IndexedSlot</a> 中，便可作为 slot 的合适值。</p>",
@@ -252281,14 +252364,17 @@
     "4": "<p>有关详细信息，请参阅 <a href=\"widgets/Element-class.html\">Element</a> 的生命周期文档。</p>",
     "5": "<p>实现应以调用继承的方法结束，例如 <code>super.deactivate()</code>。</p>",
     "2": "<p>重建组件子树时若发生未捕获异常，框架也会对出错的子树调用此方法，以尽量确保组件树保持相对一致。此类子树的停用仅尽力而为，停用期间抛出的错误不会再次抛出。</p>",
-    "1": "<p>当框架将一个先前处于活动状态的 element 移入非活动元素列表时，会调用此方法。element 处于非活动状态期间不会显示在屏幕上，并且最多只能保持到当前动画帧结束。如果动画帧结束时该 element 仍未重新激活，框架就会将其卸载。</p>"
+    "1": "<p>当框架将一个先前处于活动状态的 element 移入非活动元素列表时，会调用此方法。element 处于非活动状态期间不会显示在屏幕上，并且最多只能保持到当前动画帧结束。如果动画帧结束时该 element 仍未重新激活，框架就会将其卸载。</p>",
+    "0": "<p>从“活动”生命周期状态转换到“非活动”状态。</p>",
+    "3": "<p>此方法由 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a> 间接调用。</p>"
   },
   "widgets/RenderObjectElement/unmount.html": {
     "4": "<p>有关详细信息，请参阅 <a href=\"widgets/Element-class.html\">Element</a> 的生命周期文档。</p>",
     "2": "<p>调用此函数后，该 element 将不再被纳入组件树。</p>",
     "3": "<p>此时应释放该 element 持有的所有资源。例如，<a href=\"widgets/RenderObjectElement/unmount.html\">RenderObjectElement.unmount</a> 会调用 <a href=\"rendering/RenderObject/dispose.html\">RenderObject.dispose</a>，并清空其对渲染对象的引用。</p>",
     "1": "<p>当框架确定某个非活动 element 永远不会重新激活时调用。每个动画帧结束时，框架都会对仍处于非活动状态的元素调用 <a href=\"widgets/RenderObjectElement/unmount.html\">unmount</a>，确保非活动元素不会连续超过一个动画帧。</p>",
-    "5": "<p>此方法的实现应以调用继承的方法结束，例如 <code>super.unmount()</code>。</p>"
+    "5": "<p>此方法的实现应以调用继承的方法结束，例如 <code>super.unmount()</code>。</p>",
+    "0": "<p>从“非活动”生命周期状态转换到“失效”状态。</p>"
   },
   "widgets/RootElementMixin/activate.html": {
     "2": "<p>有关详细信息，请参阅 <a href=\"widgets/Element-class.html\">Element</a> 的生命周期文档。</p>",
@@ -253763,15 +253849,19 @@
   },
   "widgets/RenderAbstractLayoutBuilderMixin/debugNeedsCompositedLayerUpdate.html": {
     "2": "<p>本项供测试和断言使用。</p>",
-    "1": "<p>此属性仅在 debug 模式下设置。通常，渲染对象无需根据自身是否为 dirty 来调整运行时行为，因为它们只应在即将布局和绘制时标记为 dirty。非调试构建中始终返回 false。</p>"
+    "1": "<p>此属性仅在 debug 模式下设置。通常，渲染对象无需根据自身是否为 dirty 来调整运行时行为，因为它们只应在即将布局和绘制时标记为 dirty。非调试构建中始终返回 false。</p>",
+    "0": "<p>此渲染对象的图层信息是否处于脏状态。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/debugNeedsLayout.html": {
     "2": "<p>本项供测试和断言使用。</p>",
-    "1": "<p>此属性仅在 debug 模式下设置。通常，渲染对象无需根据自身是否为 dirty 来调整运行时行为，因为它们只应在即将布局和绘制时标记为 dirty。非调试构建中始终返回 false。</p>"
+    "1": "<p>此属性仅在 debug 模式下设置。通常，渲染对象无需根据自身是否为 dirty 来调整运行时行为，因为它们只应在即将布局和绘制时标记为 dirty。非调试构建中始终返回 false。</p>",
+    "0": "<p>此渲染对象的布局信息是否处于脏状态。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/debugNeedsPaint.html": {
     "2": "<p>本项供测试和断言使用。</p>",
-    "1": "<p>此属性仅在 debug 模式下设置。通常，渲染对象无需根据自身是否为 dirty 来调整运行时行为，因为它们只应在即将布局和绘制时标记为 dirty。非调试构建中始终返回 false。</p>"
+    "1": "<p>此属性仅在 debug 模式下设置。通常，渲染对象无需根据自身是否为 dirty 来调整运行时行为，因为它们只应在即将布局和绘制时标记为 dirty。非调试构建中始终返回 false。</p>",
+    "0": "<p>此渲染对象的绘制信息是否处于脏状态。</p>",
+    "3": "<p><a href=\"rendering/RenderObject/debugNeedsPaint.html\">debugNeedsPaint</a> 为 false，而 <a href=\"rendering/RenderObject/debugNeedsLayout.html\">debugNeedsLayout</a> 为 true 的情况是可能的，而且很常见。此时，该渲染对象仍会在下一帧重新绘制，因为框架会在渲染对象完成布局后、绘制阶段开始前，隐式调用 <a href=\"rendering/RenderObject/markNeedsPaint.html\">markNeedsPaint</a> 方法。</p>"
   },
   "widgets/SlottedContainerRenderObjectMixin/debugNeedsCompositedLayerUpdate.html": {
     "2": "<p>本项供测试和断言使用。</p>",
@@ -253790,13 +253880,16 @@
     "3": "<p><a href=\"rendering/RenderObject/debugNeedsPaint.html\">debugNeedsPaint</a> 为 false 而 <a href=\"rendering/RenderObject/debugNeedsLayout.html\">debugNeedsLayout</a> 为 true 是可能的，而且相当常见。即便如此，该渲染对象仍会在下一帧重绘，因为在渲染对象完成布局后、绘制阶段开始前，框架会隐式调用 <a href=\"rendering/RenderObject/markNeedsPaint.html\">markNeedsPaint</a>。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/debugDoingThisLayout.html": {
-    "1": "<p>仅在启用断言时有效。发布版构建中始终返回 false。</p>"
+    "1": "<p>仅在启用断言时有效。发布版构建中始终返回 false。</p>",
+    "0": "<p>此渲染对象的 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 是否正在执行。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/debugDoingThisPaint.html": {
-    "1": "<p>仅在启用断言时有效。发布版构建中始终返回 false。</p>"
+    "1": "<p>仅在启用断言时有效。发布版构建中始终返回 false。</p>",
+    "0": "<p>此渲染对象的 <a href=\"rendering/RenderObject/paint.html\">paint</a> 是否正在执行。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/debugDoingThisResize.html": {
-    "1": "<p>仅在启用断言时有效。发布版构建中始终返回 false。</p>"
+    "1": "<p>仅在启用断言时有效。发布版构建中始终返回 false。</p>",
+    "0": "<p>此渲染对象的 <a href=\"rendering/RenderObject/performResize.html\">performResize</a> 是否正在执行。</p>"
   },
   "widgets/SlottedContainerRenderObjectMixin/debugDoingThisLayout.html": {
     "1": "<p>仅在启用断言时有效。发布版构建中始终返回 false。</p>",
@@ -253943,10 +254036,17 @@
     "1": "<p>默认值为 <a href=\"rendering/HitTestBehavior.html\">HitTestBehavior.opaque</a>，这会阻止此 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 后方的目标接收事件。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/performLayout.html": {
-    "1": "<p>不要直接调用此函数，请改为调用 <a href=\"rendering/RenderObject/layout.html\">layout</a>。当此渲染对象在布局期间确实需要执行工作时，<a href=\"rendering/RenderObject/layout.html\">layout</a> 会调用此函数。父级提供的布局约束可通过 <a href=\"rendering/RenderObject/constraints.html\">constraints</a> getter 获取。</p>"
+    "1": "<p>不要直接调用此函数，请改为调用 <a href=\"rendering/RenderObject/layout.html\">layout</a>。当此渲染对象在布局期间确实需要执行工作时，<a href=\"rendering/RenderObject/layout.html\">layout</a> 会调用此函数。父级提供的布局约束可通过 <a href=\"rendering/RenderObject/constraints.html\">constraints</a> getter 获取。</p>",
+    "0": "<p>执行此渲染对象的布局计算。</p>",
+    "2": "<p>如果 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 为 true，此函数不应更改此渲染对象的尺寸；应由 <a href=\"rendering/RenderObject/performResize.html\">performResize</a> 完成此工作。如果 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 为 false，则此函数应更改此渲染对象的尺寸，并指示其子项执行布局。</p>",
+    "3": "<p>实现此函数时，必须对每个子项调用 <a href=\"rendering/RenderObject/layout.html\">layout</a>。如果此对象的布局信息依赖子项的布局信息，应将 parentUsesSize 传为 true。这样可确保子项执行布局时，此渲染对象也会执行布局。否则，子项可以在不通知此渲染对象的情况下更改布局信息。</p>",
+    "4": "<p>部分特殊的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 子类（例如 <a href=\"widgets/OverlayPortal/OverlayPortal.overlayChildLayoutBuilder.html\">OverlayPortal.overlayChildLayoutBuilder</a> 使用的子类）会在其 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 实现中调用 <a href=\"rendering/RenderObject/applyPaintTransform.html\">applyPaintTransform</a>。为了让这些 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 获得最新的绘制变换，<a href=\"rendering/RenderObject-class.html\">RenderObject</a> 子类通常应在此方法中更新绘制变换（由 <a href=\"rendering/RenderObject/applyPaintTransform.html\">applyPaintTransform</a> 报告），而不是在 <a href=\"rendering/RenderObject/paint.html\">paint</a> 中更新。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/performResize.html": {
-    "1": "<p>不要直接调用此函数，请改为调用 <a href=\"rendering/RenderObject/layout.html\">layout</a>。当此渲染对象在布局期间确实需要执行工作时，<a href=\"rendering/RenderObject/layout.html\">layout</a> 会调用此函数。父级提供的布局约束可通过 <a href=\"rendering/RenderObject/constraints.html\">constraints</a> getter 获取。</p>"
+    "1": "<p>不要直接调用此函数，请改为调用 <a href=\"rendering/RenderObject/layout.html\">layout</a>。当此渲染对象在布局期间确实需要执行工作时，<a href=\"rendering/RenderObject/layout.html\">layout</a> 会调用此函数。父级提供的布局约束可通过 <a href=\"rendering/RenderObject/constraints.html\">constraints</a> getter 获取。</p>",
+    "0": "<p>仅根据约束更新渲染对象的尺寸。</p>",
+    "2": "<p>仅当 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 为 true 时才会调用此函数。</p>",
+    "3": "<p>将 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 设为 true 的子类应重写此方法来计算自身尺寸。<a href=\"rendering/RenderBox-class.html\">RenderBox</a> 的子类可以考虑改为重写 <a href=\"rendering/RenderBox/computeDryLayout.html\">RenderBox.computeDryLayout</a>。</p>"
   },
   "widgets/RenderSliverOverlapAbsorber/performLayout.html": {
     "1": "<p>不要直接调用此函数，请改为调用 <a href=\"rendering/RenderObject/layout.html\">layout</a>。当此渲染对象在布局期间确实需要执行工作时，<a href=\"rendering/RenderObject/layout.html\">layout</a> 会调用此函数。父级提供的布局约束可通过 <a href=\"rendering/RenderSliver/constraints.html\">constraints</a> getter 获取。</p>",
@@ -254106,7 +254206,9 @@
   },
   "widgets/RenderObjectElement/debugDoingBuild.html": {
     "3": "<p>在发布模式下访问此标志属于无效操作。</p>",
-    "1": "<p><a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 和 <a href=\"widgets/StatelessWidget-class.html\">StatelessWidget</a> 在执行各自的 build 方法期间，此标志为 true。<a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 在创建或配置关联的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 时会将此标志设为 true。其他 <a href=\"widgets/Widget-class.html\">Widget</a> 类型也可能在其生命周期中概念上相似的阶段将其设为 true。</p>"
+    "1": "<p><a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 和 <a href=\"widgets/StatelessWidget-class.html\">StatelessWidget</a> 在执行各自的 build 方法期间，此标志为 true。<a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 在创建或配置关联的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 时会将此标志设为 true。其他 <a href=\"widgets/Widget-class.html\">Widget</a> 类型也可能在其生命周期中概念上相似的阶段将其设为 true。</p>",
+    "0": "<p><a href=\"widgets/Element/widget.html\">widget</a> 当前是否正在更新 widget 或渲染树。</p>",
+    "2": "<p>此值为 true 时，<a href=\"widgets/Element/widget.html\">widget</a> 可以通过调用 <a href=\"widgets/Element/dependOnInheritedElement.html\">dependOnInheritedElement</a> 或 <a href=\"widgets/Element/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a>，安全地依赖 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>。</p>"
   },
   "widgets/RootElement/debugDoingBuild.html": {
     "3": "<p>在发布模式下访问此标志属于无效操作。</p>",
@@ -254328,7 +254430,8 @@
   },
   "widgets/RenderAbstractLayoutBuilderMixin/attach.html": {
     "0": "<p>将此渲染对象标记为已附加到指定的 owner。</p>",
-    "2": "<p>带有子项的子类应重写此方法，在调用继承的方法后，将所有子项 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/attach.html\">attach</a> 到同一个 <code>owner</code>，例如调用 <code>super.attach(owner)</code>。</p>"
+    "2": "<p>带有子项的子类应重写此方法，在调用继承的方法后，将所有子项 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/attach.html\">attach</a> 到同一个 <code>owner</code>，例如调用 <code>super.attach(owner)</code>。</p>",
+    "1": "<p>通常只会从 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/parent.html\">parent</a> 的 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/attach.html\">attach</a> 方法调用；也会由 <code>owner</code> 调用，以将树的根节点标记为已附加。</p>"
   },
   "widgets/RenderSliverOverlapAbsorber/detach.html": {
     "0": "<p>将此渲染对象标记为已从其 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a> 分离。</p>",
@@ -254351,7 +254454,8 @@
   },
   "widgets/RenderAbstractLayoutBuilderMixin/detach.html": {
     "0": "<p>将此渲染对象标记为已从其 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a> 分离。</p>",
-    "2": "<p>带有子项的子类应重写此方法，在调用继承的方法后，将所有子项 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/detach.html\">detach</a>，例如调用 <code>super.detach()</code>。</p>"
+    "2": "<p>带有子项的子类应重写此方法，在调用继承的方法后，将所有子项 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/detach.html\">detach</a>，例如调用 <code>super.detach()</code>。</p>",
+    "1": "<p>通常只会从 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/parent.html\">parent</a> 的 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/detach.html\">detach</a> 方法调用；也会由 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/owner.html\">owner</a> 调用，以将树的根节点标记为已分离。</p>"
   },
   "widgets/ViewportElementMixin/detachRenderObject.html": {
     "0": "<p>从渲染树中移除 <a href=\"widgets/Element/renderObject.html\">renderObject</a>。</p>",
@@ -254359,7 +254463,8 @@
   },
   "widgets/RenderObjectElement/detachRenderObject.html": {
     "0": "<p>从渲染树中移除 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a>。</p>",
-    "1": "<p>默认实现会对每个子项递归调用 <a href=\"widgets/RenderObjectElement/detachRenderObject.html\">detachRenderObject</a>。<a href=\"widgets/RenderObjectElement/detachRenderObject.html\">RenderObjectElement.detachRenderObject</a> 重写的方法负责实际将 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a> 从渲染树中移除。</p>"
+    "1": "<p>默认实现会对每个子项递归调用 <a href=\"widgets/RenderObjectElement/detachRenderObject.html\">detachRenderObject</a>。<a href=\"widgets/RenderObjectElement/detachRenderObject.html\">RenderObjectElement.detachRenderObject</a> 重写的方法负责实际将 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a> 从渲染树中移除。</p>",
+    "2": "<p>此方法由 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a> 调用。</p>"
   },
   "widgets/NotifiableElementMixin/detachRenderObject.html": {
     "0": "<p>从渲染树中移除 <a href=\"widgets/Element/renderObject.html\">renderObject</a>。</p>",
@@ -256070,7 +256175,8 @@
   "widgets/MagnifierController/overlayEntry.html": {
     "0": "<p>如果放大镜当前位于覆盖层中，则返回它的 <a href=\"widgets/OverlayEntry-class.html\">OverlayEntry</a>。</p>",
     "1": "<p>公开此属性是为了让其他覆盖层条目可以放置在此 <a href=\"widgets/MagnifierController/overlayEntry.html\">overlayEntry</a> 上方或下方。此 <a href=\"widgets/OverlayEntry-class.html\">OverlayEntry</a> 中绘制顺序排在 <a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a> 之后的内容不会显示在放大镜中；如果希望某个覆盖层条目显示在放大镜里，<em>必须</em>将它放在放大镜下方。</p>",
-    "3": "<p>若要检查放大镜是否位于覆盖层中，请使用 <a href=\"widgets/MagnifierController/shown.html\">shown</a>。即使放大镜不可见，<a href=\"widgets/MagnifierController/overlayEntry.html\">overlayEntry</a> 字段也可能不为 null。</p>"
+    "3": "<p>若要检查放大镜是否位于覆盖层中，请使用 <a href=\"widgets/MagnifierController/shown.html\">shown</a>。即使放大镜不可见，<a href=\"widgets/MagnifierController/overlayEntry.html\">overlayEntry</a> 字段也可能不为 null。</p>",
+    "2": "<p>\n<a name=\"widgets.MagnifierController.overlayEntry.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  \n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.MagnifierController.overlayEntry.1');\" onclick=\"fixHref(this, 'widgets.MagnifierController.overlayEntry.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">void magnifierShowExample(BuildContext context) {\n  final MagnifierController myMagnifierController = MagnifierController();\n\n  &#47;&#47; Placed below the magnifier, so it will show.\n  Overlay.of(context).insert(OverlayEntry(\n      builder: (BuildContext context) =&gt; const Text(&#39;I WILL display in the magnifier&#39;)));\n\n  &#47;&#47; Will display in the magnifier, since this entry was passed to show.\n  final OverlayEntry displayInMagnifier = OverlayEntry(\n      builder: (BuildContext context) =&gt;\n          const Text(&#39;I WILL display in the magnifier&#39;));\n\n  Overlay.of(context)\n      .insert(displayInMagnifier);\n  myMagnifierController.show(\n      context: context,\n      below: displayInMagnifier,\n      builder: (BuildContext context) =&gt; const RawMagnifier(\n            size: Size(100, 100),\n          ));\n\n  &#47;&#47; By default, new entries will be placed over the top entry.\n  Overlay.of(context).insert(OverlayEntry(\n      builder: (BuildContext context) =&gt; const Text(&#39;I WILL NOT display in the magnifier&#39;)));\n\n  Overlay.of(context).insert(\n      below:\n          myMagnifierController.overlayEntry, &#47;&#47; Explicitly placed below the magnifier.\n      OverlayEntry(\n          builder: (BuildContext context) =&gt; const Text(&#39;I WILL display in the magnifier&#39;)));\n}</code></pre>\n  </div>\n</div>\n</p>"
   },
   "widgets/MagnifierController/removeFromOverlay.html": {
     "0": "<p>从 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中移除 <a href=\"widgets/OverlayEntry-class.html\">OverlayEntry</a>。</p>",
@@ -257883,7 +257989,8 @@
   },
   "widgets/PopNavigatorRouterDelegateMixin/setRestoredRoutePath.html": {
     "0": "<p>状态恢复期间由 <a href=\"widgets/Router-class.html\">Router</a> 调用。</p>",
-    "1": "<p>将 <a href=\"widgets/Router-class.html\">Router</a> 配置为支持状态恢复后，它会在序列化状态时保存 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">currentConfiguration</a> 的值。恢复状态时，<a href=\"widgets/Router-class.html\">Router</a> 会调用此方法（而非 <a href=\"widgets/RouterDelegate/setInitialRoutePath.html\">setInitialRoutePath</a>），将之前的配置传回委托。委托负责根据提供的配置恢复其内部状态。</p>"
+    "1": "<p>将 <a href=\"widgets/Router-class.html\">Router</a> 配置为支持状态恢复后，它会在序列化状态时保存 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">currentConfiguration</a> 的值。恢复状态时，<a href=\"widgets/Router-class.html\">Router</a> 会调用此方法（而非 <a href=\"widgets/RouterDelegate/setInitialRoutePath.html\">setInitialRoutePath</a>），将之前的配置传回委托。委托负责根据提供的配置恢复其内部状态。</p>",
+    "2": "<p>默认情况下，此方法会将 <code>configuration</code> 转发给 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>。</p>"
   },
   "widgets/PopPageCallback.html": {
     "0": "<p><a class=\"deprecated\" href=\"widgets/Navigator/onPopPage.html\">Navigator.onPopPage</a> 回调的签名。</p>",
@@ -258108,7 +258215,8 @@
     "4": "<p>如果此参数非 null，则 <a href=\"widgets/RawAutocomplete/focusNode.html\">focusNode</a> 也必须非 null。</p>"
   },
   "widgets/RelativePositionedTransition/RelativePositionedTransition.html": {
-    "0": "<p>创建 <a href=\"widgets/Positioned-class.html\">Positioned</a> 的动画版本。</p>"
+    "0": "<p>创建 <a href=\"widgets/Positioned-class.html\">Positioned</a> 的动画版本。</p>",
+    "1": "<p>每一帧都会配置 <a href=\"widgets/Positioned-class.html\">Positioned</a> 组件，使其表示 <code>rect</code> 参数的当前值，并假定 Stack 的尺寸为给定的 <code>size</code>。</p>"
   },
   "widgets/RawDialogRoute/anchorPoint.html": {
     "0": "<p>用于选择最近子屏幕的锚点。</p>",
@@ -258362,7 +258470,8 @@
   "widgets/RawScrollbar/trackVisibility.html": {
     "0": "<p>指定滚动条轨道是否应保持可见。</p>",
     "1": "<p>为 true 时，只要滑块可见，滚动条轨道就会始终显示。如果滑块不可见，轨道也不会显示。</p>",
-    "2": "<p>值为 null 时，默认值为 false。</p>"
+    "2": "<p>值为 null 时，默认值为 false。</p>",
+    "3": "<p>子类 <a href=\"material/Scrollbar-class.html\">Scrollbar</a> 可以通过 <a href=\"material/ScrollbarThemeData/trackVisibility.html\">ScrollbarThemeData.trackVisibility</a>，根据 <a href=\"widgets/WidgetState.html\">WidgetState</a> 显示或隐藏滚动条滑块。</p>"
   },
   "widgets/RawScrollbarState-class.html": {
     "0": "<p><a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> 组件的状态，也由 <a href=\"material/Scrollbar-class.html\">Scrollbar</a> 和 <a href=\"cupertino/CupertinoScrollbar-class.html\">CupertinoScrollbar</a> 组件共享。</p>",
@@ -258410,5 +258519,404 @@
   "widgets/RawScrollbarState/updateScrollbarPainter.html": {
     "0": "<p>此方法负责根据 <a href=\"widgets/State/widget.html\">widget</a> 的属性以及绘制器所依赖的继承组件（例如 <a href=\"widgets/Directionality-class.html\">Directionality</a> 和 <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a>）配置 <a href=\"widgets/RawScrollbarState/scrollbarPainter.html\">scrollbarPainter</a>。</p>",
     "1": "<p>子类可以重写此方法以配置 <a href=\"widgets/RawScrollbarState/scrollbarPainter.html\">scrollbarPainter</a>。</p>"
+  },
+  "widgets/RawTooltip/RawTooltip.html": {
+    "0": "<p>创建一个原始提示工具。</p>",
+    "1": "<p>必须提供 <code>semanticsTooltip</code>、<code>tooltipBuilder</code> 和 <code>child</code> 参数。</p>"
+  },
+  "widgets/RawTooltip/dismissAllToolTips.html": {
+    "0": "<p>关闭屏幕上当前显示的所有提示工具，包括鼠标指针正悬停其上的提示工具。</p>",
+    "1": "<p>如果成功关闭至少一个提示工具，此方法返回 true；如果当前没有显示任何提示工具，则返回 false。</p>"
+  },
+  "widgets/RawTooltipState-class.html": {
+    "0": "<p>包含 <a href=\"widgets/RawTooltip-class.html\">RawTooltip</a> 的状态。</p>",
+    "1": "<p>此类可用于以编程方式显示 <a href=\"widgets/RawTooltip-class.html\">RawTooltip</a>。请参阅 <a href=\"widgets/RawTooltipState/ensureTooltipVisible.html\">ensureTooltipVisible</a> 方法。</p>"
+  },
+  "widgets/RawTooltipState/ensureTooltipVisible.html": {
+    "0": "<p>如果提示工具尚未显示，则将其显示出来。</p>",
+    "1": "<p>通过此方法显示后，提示工具不会在 <a href=\"widgets/RawTooltip/hoverDelay.html\">RawTooltip.hoverDelay</a> 之后自动关闭；只有用户将其关闭或再次触发，或者调用 <a href=\"widgets/RawTooltip/dismissAllToolTips.html\">RawTooltip.dismissAllToolTips</a> 时才会关闭。</p>",
+    "2": "<p>如果不应显示提示工具，或提示工具已经显示，则返回 <code>false</code>。</p>"
+  },
+  "widgets/RawTooltip/semanticsTooltip.html": {
+    "0": "<p>在提示工具的语义公告中显示的文本。</p>",
+    "1": "<p>辅助技术（尤其是 TalkBack 和 VoiceOver 等屏幕阅读器）会使用此字符串来说明提示工具的用途。</p>",
+    "2": "<p>提供非空字符串会为辅助技术添加 <a href=\"widgets/Semantics-class.html\">Semantics</a> 提示文本。如果提示工具不应带有语义说明，必须显式将此属性设为 null。</p>"
+  },
+  "widgets/RawTooltip/animationStyle.html": {
+    "0": "<p>用于覆盖显示和隐藏提示工具动画的曲线与时长。</p>",
+    "1": "<p>如果提供了 <a href=\"animation/AnimationStyle/duration.html\">AnimationStyle.duration</a>，则会覆盖显示提示工具的动画时长。为 null 时，默认值为 150 毫秒。</p>",
+    "2": "<p>如果提供了 <a href=\"animation/AnimationStyle/curve.html\">AnimationStyle.curve</a>，则会覆盖显示提示工具的动画曲线。为 null 时，默认使用 <a href=\"animation/Curves/fastOutSlowIn-constant.html\">Curves.fastOutSlowIn</a>。</p>",
+    "3": "<p>如果提供了 <a href=\"animation/AnimationStyle/reverseDuration.html\">AnimationStyle.reverseDuration</a>，则会覆盖隐藏提示工具的动画时长。为 null 时，默认值为 75 毫秒。</p>",
+    "4": "<p>如果提供了 <a href=\"animation/AnimationStyle/reverseCurve.html\">AnimationStyle.reverseCurve</a>，则会覆盖隐藏提示工具的动画曲线。为 null 时，隐藏动画会使用与显示动画相同的曲线。</p>",
+    "5": "<p>若要停用提示工具的显示和隐藏动画，请使用 <a href=\"animation/AnimationStyle/noAnimation-constant.html\">AnimationStyle.noAnimation</a>。</p>"
+  },
+  "widgets/RawTooltip/tooltipBuilder.html": {
+    "0": "<p>构建要显示在提示工具浮层中的组件。</p>",
+    "1": "<p><code>animation</code> 参数是一个 <a href=\"animation/Animation-class.html\">Animation</a>，对应提示工具的显示和隐藏动画。提示工具显示时，其值从 0.0 变为 1.0；隐藏时则从 1.0 变为 0.0。</p>",
+    "2": "<p>可使用此动画为提示工具创建自定义过渡效果，例如将内容包裹在 <a href=\"widgets/FadeTransition-class.html\">FadeTransition</a> 或 <a href=\"widgets/ScaleTransition-class.html\">ScaleTransition</a> 中，并使用传入的 <code>animation</code> 实现淡入淡出或缩放效果。</p>",
+    "3": "<p>动画的时长和曲线等特征，可以通过 <a href=\"widgets/RawTooltip/animationStyle.html\">RawTooltip.animationStyle</a> 属性自定义。</p>",
+    "4": "<p>\n<a name=\"widgets.RawTooltip.tooltipBuilder.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n一种常见用法是让提示工具内容淡入和淡出。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.RawTooltip.tooltipBuilder.1');\" onclick=\"fixHref(this, 'widgets.RawTooltip.tooltipBuilder.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">RawTooltip(\n  semanticsTooltip: &#39;An example tooltip&#39;,\n  tooltipBuilder: (BuildContext context, Animation&lt;double&gt; animation) {\n    return FadeTransition(\n      opacity: animation,\n      child: Container(\n        padding: const EdgeInsets.all(8.0),\n        color: Colors.grey,\n        child: const Text(&#39;I am a tooltip!&#39;),\n      ),\n    );\n  },\n  child: const Icon(Icons.info),\n)</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "widgets/RegisterServiceExtensionCallback.html": {
+    "0": "<p>用于将服务扩展 <code>callback</code> 注册到给定 <code>name</code> 的方法签名。</p>",
+    "1": "<p>用作 <a href=\"widgets/WidgetInspectorService/initServiceExtensions.html\">WidgetInspectorService.initServiceExtensions</a> 的参数。<a href=\"foundation/BindingBase/registerServiceExtension.html\">BindingBase.registerServiceExtension</a> 实现了此签名。</p>"
+  },
+  "widgets/RelativeRectTween/RelativeRectTween.html": {
+    "0": "<p>创建一个 <a href=\"rendering/RelativeRect-class.html\">RelativeRect</a> tween。</p>",
+    "1": "<p><code>begin</code> 和 <code>end</code> 属性可以为 null；此时 null 会按 <a href=\"rendering/RelativeRect/fill-constant.html\">RelativeRect.fill</a> 处理。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin-mixin.html": {
+    "0": "<p>供由 <a href=\"widgets/AbstractLayoutBuilder-class.html\">AbstractLayoutBuilder</a> 创建的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 使用的通用 mixin，这些对象具有相同的 <code>LayoutInfoType</code>。</p>",
+    "1": "<p>提供 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/layoutCallback.html\">layoutCallback</a> 实现，并在需要时调用 <a href=\"widgets/AbstractLayoutBuilder-class.html\">AbstractLayoutBuilder</a> 的 builder 回调。</p>",
+    "2": "<p>实现类可以重写 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/layoutInfo.html\">layoutInfo</a>，返回一个可安全地在 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/layoutCallback.html\">layoutCallback</a> 中访问的值。layoutCallback 会在 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 中调用。默认的 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/layoutInfo.html\">layoutInfo</a> 会返回传入的 <a href=\"rendering/Constraints-class.html\">Constraints</a>。</p>",
+    "3": "<p>此 mixin 取代了 <a href=\"widgets/RenderConstrainedLayoutBuilder.html\">RenderConstrainedLayoutBuilder</a>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/adoptChild.html": {
+    "0": "<p>子类确定某个渲染对象是子项时调用此方法。</p>",
+    "1": "<p>此方法仅供子类在更改子项列表时使用。在其他情况下调用会导致组件树状态不一致，并可能引发崩溃。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/alwaysNeedsCompositing.html": {
+    "0": "<p>此渲染对象是否始终需要合成。</p>",
+    "1": "<p>子类可以重写此方法，声明其绘制函数始终会创建至少一个合成图层。例如，使用硬件解码器的视频应返回 true。</p>",
+    "2": "<p>如果此 getter 的值发生变化，必须调用 <a href=\"rendering/RenderObject/markNeedsCompositingBitsUpdate.html\">markNeedsCompositingBitsUpdate</a>。（调用 <a href=\"rendering/RenderObject/adoptChild.html\">adoptChild</a> 或 <a href=\"rendering/RenderObject/dropChild.html\">dropChild</a> 时会隐式触发此更新。）</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/applyPaintTransform.html": {
+    "0": "<p>将绘制给定子项时应用的变换应用到给定矩阵。</p>",
+    "1": "<p>坐标转换函数（例如 <a href=\"rendering/RenderObject/getTransformTo.html\">getTransformTo</a>）会使用此方法，将一个渲染对象的局部坐标转换为另一个渲染对象的局部坐标。</p>",
+    "2": "<p>有些 RenderObject 会在此方法中提供一个清零的矩阵，表示该子项当前不应绘制或响应命中测试。即使父项当前不绘制子项，也可能提供非零矩阵，例如父项是将 <code>offstage</code> 设为 true 的 <a href=\"rendering/RenderOffstage-class.html\">RenderOffstage</a>。在这两种情况下，父项都必须让 <a href=\"rendering/RenderObject/paintsChild.html\">paintsChild</a> 返回 <code>false</code>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/assembleSemanticsNode.html": {
+    "0": "<p>为此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 组装 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>。</p>",
+    "1": "<p>如果 <a href=\"rendering/RenderObject/describeSemanticsConfiguration.html\">describeSemanticsConfiguration</a> 将 <a href=\"semantics/SemanticsConfiguration/isSemanticBoundary.html\">SemanticsConfiguration.isSemanticBoundary</a> 设为 true，调用此方法时会传入为此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 创建的 <code>node</code>、要应用于该节点的 <code>config</code>，以及此 RenderObject 的后代生成的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 子项 <code>children</code>。</p>",
+    "2": "<p>默认情况下，此方法会使用 <code>config</code> 注释 <code>node</code>，并将 <code>children</code> 添加到该节点。</p>",
+    "3": "<p>子类可以重写此方法，向语义树添加其他 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>。如果在此方法中实例化了新的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>，则必须在 <a href=\"rendering/RenderObject/clearSemantics.html\">clearSemantics</a> 中释放它们。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/attached.html": {
+    "0": "<p>此渲染对象所属的渲染树是否已附加到 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a>。</p>",
+    "1": "<p>调用 <a href=\"rendering/RenderObject/attach.html\">attach</a> 期间，此值会变为 true。</p>",
+    "2": "<p>调用 <a href=\"rendering/RenderObject/detach.html\">detach</a> 期间，此值会变为 false。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/clearSemantics.html": {
+    "0": "<p>移除此渲染对象及其后代的所有语义信息。</p>",
+    "1": "<p>只应对其 <a href=\"rendering/RenderObject/parent.html\">parent</a> 不是 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的对象调用。</p>",
+    "2": "<p>如果在重写的 <a href=\"rendering/RenderObject/assembleSemanticsNode.html\">assembleSemanticsNode</a> 方法中实例化了新的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>，请重写此方法以释放这些节点。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/constraints.html": {
+    "0": "<p>父对象最近一次提供的布局约束。</p>",
+    "1": "<p>如果尚未执行布局，访问此 getter 会抛出 <a href=\"dart-core/StateError-class.html\">StateError</a> 异常。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugCanParentUseSize.html": {
+    "0": "<p>父渲染对象是否可以使用此渲染对象的尺寸。</p>",
+    "1": "<p>此值由传给 <a href=\"rendering/RenderObject/layout.html\">layout</a> 的 <code>parentUsesSize</code> 参数决定。</p>",
+    "2": "<p>仅在启用断言时有效。在 release 构建中调用会抛出异常。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugDisposed.html": {
+    "0": "<p>此对象是否已释放。</p>",
+    "1": "<p>禁用断言时，此属性始终为 null。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugDoingThisLayoutWithCallback.html": {
+    "0": "<p>此渲染对象的 <a href=\"rendering/RenderObject/invokeLayoutCallback.html\">invokeLayoutCallback</a> 是否正在执行。</p>",
+    "1": "<p>布局回调是此渲染对象布局阶段中的特殊部分：执行回调时，允许修改子项列表并使渲染子树变为脏状态。此标志让仅用于调试的断言可以区分这一特殊回调阶段和常规的 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 主体。</p>",
+    "2": "<p>这并不表示当前正在进行组件重建。布局回调可以通过修改渲染树或元素树触发重建工作，但此标志只描述传给 <a href=\"rendering/RenderObject/invokeLayoutCallback.html\">invokeLayoutCallback</a> 的同步回调。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugLayer.html": {
+    "0": "<p>在调试模式下，此渲染对象用于重新绘制的合成图层。</p>",
+    "1": "<p>此 getter 仅用于调试。在 release 构建中始终返回 null；在 debug 构建中，即使图层处于脏状态也会返回该图层。</p>",
+    "2": "<p>生产代码请考虑使用 <a href=\"rendering/RenderObject/layer.html\">layer</a>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugLayoutParent.html": {
+    "0": "<p>预期会在其 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 实现中对此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 调用 <a href=\"rendering/RenderObject/layout.html\">layout</a> 的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。</p>",
+    "1": "<p>此方法用于实现断言，确保正在执行布局的渲染子树不会被意外修改。它仅在 debug 模式下实现，在 release 模式下始终返回 null。</p>",
+    "2": "<p>默认实现返回 <a href=\"rendering/RenderObject/parent.html\">parent</a>，通常无需重写。如果某个 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 子类期望由其 <a href=\"rendering/RenderObject/parent.html\">parent</a> 之外的其他 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 调用其 <a href=\"rendering/RenderObject/performLayout.html\">RenderObject.performLayout</a>，则应重写此属性并返回实际的布局父对象。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugNeedsSemanticsUpdate.html": {
+    "0": "<p>此渲染对象的语义信息是否已变脏并等待更新。</p>",
+    "1": "<p>在 release 模式下始终返回 false。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugRegisterRepaintBoundaryPaint.html": {
+    "0": "<p>在 debug 模式下，如果 <a href=\"rendering/RenderObject/isRepaintBoundary.html\">isRepaintBoundary</a> 为 true，且此渲染对象或其父对象尝试绘制时，会调用此方法。</p>",
+    "1": "<p>可用此方法记录相关指标，以判断该节点是否确实应作为重绘边界。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugSemantics.html": {
+    "0": "<p>此渲染对象的语义信息。</p>",
+    "1": "<p>此属性仅用于测试和调试。若要在生产环境中了解渲染对象的语义，请从 <a class=\"deprecated\" href=\"rendering/PipelineOwner/ensureSemantics.html\">PipelineOwner.ensureSemantics</a> 获取 <a href=\"flutter_test/SemanticsHandle-class.html\">SemanticsHandle</a>。</p>",
+    "2": "<p>仅在 debug 和 profile 模式下有效。在 release 构建中始终返回 null。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/debugValidateChild.html": {
+    "0": "<p>检查给定渲染对象的 <a href=\"dart-core/Object/runtimeType.html\">runtimeType</a> 是否适合作为此渲染对象的子项。</p>",
+    "1": "<p>禁用断言时不执行任何操作。</p>",
+    "2": "<p>始终返回 true。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/depth.html": {
+    "0": "<p>此渲染对象在渲染树中的深度。</p>",
+    "1": "<p>沿树向下遍历时，节点的 <a href=\"rendering/RenderObject/depth.html\">depth</a> 会单调递增：节点的 depth 总是大于其祖先。兄弟节点之间的 depth 没有大小保证。</p>",
+    "2": "<p>子节点的 <a href=\"rendering/RenderObject/depth.html\">depth</a> 可以比父节点的 <a href=\"rendering/RenderObject/depth.html\">depth</a> 大 1 以上，因为 <a href=\"rendering/RenderObject/depth.html\">depth</a> 值不会递减：只需保证它大于父节点。假设一棵树包含根节点 A、子节点 B 和孙节点 C。初始时，A 的 <a href=\"rendering/RenderObject/depth.html\">depth</a> 为 0，B 的 <a href=\"rendering/RenderObject/depth.html\">depth</a> 为 1，C 的 <a href=\"rendering/RenderObject/depth.html\">depth</a> 为 2。如果将 C 移到 A 下，使它与 B 成为兄弟节点，这些数值不会改变；C 的 <a href=\"rendering/RenderObject/depth.html\">depth</a> 仍为 2。</p>",
+    "3": "<p>节点的深度用于确保按深度顺序处理节点。<a href=\"rendering/RenderObject/depth.html\">depth</a> 由 <a href=\"rendering/RenderObject/adoptChild.html\">adoptChild</a> 和 <a href=\"rendering/RenderObject/dropChild.html\">dropChild</a> 方法自动维护。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/describeApproximatePaintClip.html": {
+    "0": "<p>返回一个以此对象坐标系表示的矩形，描述绘制阶段将应用于给定子项的裁剪矩形的大致边界（如果存在）。</p>",
+    "1": "<p>如果子项不会被裁剪，则返回 null。</p>",
+    "2": "<p>此方法用于语义阶段，避免将物理上不可见的子项包含在内。</p>",
+    "3": "<p>绘制时遵循 <a href=\"dart-ui/Clip.html\">Clip</a> 行为的 RenderObject，在描述此值时 <em>必须</em> 遵循相同的行为。例如，如果将 <a href=\"dart-ui/Clip.html\">Clip.none</a> 传给 <a href=\"rendering/PaintingContext/pushClipRect.html\">PaintingContext.pushClipRect</a> 的 <code>clipBehavior</code> 参数，则此方法的实现必须返回 null。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/describeForError.html": {
+    "0": "<p>添加经过优化的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 调试表示，以便纳入错误消息。</p>",
+    "1": "<p>默认的 <code>style</code> 为 <a href=\"foundation/DiagnosticsTreeStyle.html\">DiagnosticsTreeStyle.shallow</a>，这会确保错误输出包含渲染对象的所有属性，但不包含其任何子项。</p>",
+    "2": "<p>如果某个 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 导致错误或违反约定，则应始终在错误消息中包含它。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/describeSemanticsConfiguration.html": {
+    "0": "<p>报告此节点的语义信息，例如供无障碍功能使用的信息。</p>",
+    "1": "<p>具有重要语义信息的子类应重写此方法。</p>",
+    "2": "<p>给定的 <a href=\"semantics/SemanticsConfiguration-class.html\">SemanticsConfiguration</a> 对象是可变的，应根据当前状态为其添加相应信息。不要保留对此对象的引用；在 <a href=\"rendering/RenderObject/describeSemanticsConfiguration.html\">describeSemanticsConfiguration</a> 调用上下文之外修改它（例如异步计算的结果导致修改），轻则不起作用，重则会因数据状态不一致而导致崩溃。</p>",
+    "3": "<p>\n<a name=\"rendering.RenderObject.describeSemanticsConfiguration.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n以下代码片段会将此节点描述为可响应轻点操作的按钮。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'rendering.RenderObject.describeSemanticsConfiguration.1');\" onclick=\"fixHref(this, 'rendering.RenderObject.describeSemanticsConfiguration.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">abstract class SemanticButtonRenderObject extends RenderObject {\n  @override\n  void describeSemanticsConfiguration(SemanticsConfiguration config) {\n    super.describeSemanticsConfiguration(config);\n    config\n      ..onTap = _handleTap\n      ..label = &#39;I am a button&#39;\n      ..isButton = true;\n  }\n\n  void _handleTap() {\n    &#47;&#47; Do something.\n  }\n}</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/dispose.html": {
+    "0": "<p>释放此渲染对象持有的所有资源。</p>",
+    "1": "<p>创建 RenderObject 的对象负责释放它。如果此渲染对象直接创建了子项，也必须在此方法中释放这些子项。不得释放由其他对象（例如 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>）创建的子项。这些子项会在对应元素卸载时释放；如果元素被移动到树的其他部分，释放可能会延迟进行。</p>",
+    "2": "<p>此方法的实现必须以调用继承的方法结束，例如 <code>super.dispose()</code>。</p>",
+    "3": "<p>调用 dispose 后，此对象将无法继续使用。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/dropChild.html": {
+    "0": "<p>子类确定某个渲染对象不再是子项时调用此方法。</p>",
+    "1": "<p>此方法仅供子类在更改子项列表时使用。在其他情况下调用会导致组件树状态不一致，并可能引发崩溃。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/getTransformTo.html": {
+    "0": "<p>将从此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 到目标 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的绘制变换应用到 <code>target</code>。</p>",
+    "1": "<p>返回一个将局部绘制坐标系映射到 <code>target</code> 坐标系的矩阵；如果无法计算绘制变换，则返回 <a href=\"package-vector_math_vector_math_64/Matrix4/Matrix4.zero.html\">Matrix4.zero</a>。</p>",
+    "2": "<p>如果 <code>target</code> 与此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 不在同一渲染树中，此方法会抛出异常，因为此时行为未定义。</p>",
+    "3": "<p>此方法会忽略 <a href=\"rendering/RenderObject/paintsChild.html\">RenderObject.paintsChild</a>。因此，即使此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 或 <code>target</code> 当前不可见，仍会尝试计算绘制变换。</p>",
+    "4": "<p>如果 <code>target</code> 为 null，此方法会返回一个将局部绘制坐标系映射到 <a href=\"rendering/PipelineOwner/rootNode.html\">PipelineOwner.rootNode</a> 坐标系的矩阵。</p>",
+    "5": "<p>对于由 <a href=\"rendering/RendererBinding-mixin.html\">RendererBinding</a> 管理的渲染树（即设备上显示的主渲染树），此方法会映射到以逻辑像素表示的全局坐标系。若要获取物理像素坐标，请再使用 <a href=\"rendering/RenderView-class.html\">RenderView</a> 的 <a href=\"rendering/RenderObject/applyPaintTransform.html\">applyPaintTransform</a> 变换坐标。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/invokeLayoutCallback.html": {
+    "0": "<p>允许修改此对象的子项列表（及其所有后代），也允许修改同一个 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a> 所拥有的渲染树中的其他脏节点。<code>callback</code> 参数会同步调用，且只允许在该回调执行期间进行这些修改。</p>",
+    "1": "<p>此方法允许在布局期间按需构建子项列表（例如根据对象尺寸构建），并在此过程中移动节点（例如处理 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 重新挂接），同时确保每个节点在每一帧中只进行一次布局。</p>",
+    "2": "<p>调用此函数会禁用一些用于捕获潜在错误的断言。因此通常不建议使用此函数。</p>",
+    "3": "<p>只能在布局期间调用此函数。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/isRepaintBoundary.html": {
+    "0": "<p>此渲染对象是否与其父对象分开重新绘制。</p>",
+    "1": "<p>子类可以重写此属性，声明其类的实例应独立重新绘制。例如，经常需要重绘的渲染对象可以只重绘自身，而不要求父对象一同重绘。</p>",
+    "2": "<p>如果此 getter 返回 true，<a href=\"rendering/RenderObject/paintBounds.html\">paintBounds</a> 会应用于此对象及其所有后代。框架会调用 <a href=\"rendering/RenderObject/updateCompositedLayer.html\">RenderObject.updateCompositedLayer</a> 创建 <a href=\"rendering/OffsetLayer-class.html\">OffsetLayer</a>，并将其赋给 <a href=\"rendering/RenderObject/layer.html\">layer</a> 字段。声明自己是重绘边界的渲染对象不得替换框架创建的图层。</p>",
+    "3": "<p>如果此 getter 的值发生变化，必须调用 <a href=\"rendering/RenderObject/markNeedsCompositingBitsUpdate.html\">markNeedsCompositingBitsUpdate</a>。</p>",
+    "4": "<p>有关重绘边界工作方式的更多信息，请参阅 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/layout.html": {
+    "0": "<p>计算此渲染对象的布局。</p>",
+    "1": "<p>父对象主要通过此方法要求子项更新其布局信息。父对象会传入一个约束对象，告知子项允许采用哪些布局；子项必须遵守给定约束。</p>",
+    "2": "<p>如果父对象会读取子项布局期间计算的信息，就必须将 <code>parentUsesSize</code> 设为 true。在这种情况下，当子项被标记为需要布局时，父对象也会被标记为需要布局，因为父对象的布局信息依赖于子项的布局信息。如果父对象对 <code>parentUsesSize</code> 使用默认值 false，子项可以在给定约束范围内更改布局信息，而无需通知父对象。</p>",
+    "3": "<p>子类不应直接重写 <a href=\"rendering/RenderObject/layout.html\">layout</a>。应改为重写 <a href=\"rendering/RenderObject/performResize.html\">performResize</a> 和/或 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a>。<a href=\"rendering/RenderObject/layout.html\">layout</a> 方法会将实际工作委托给 <a href=\"rendering/RenderObject/performResize.html\">performResize</a> 和 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a>。</p>",
+    "4": "<p>父对象的 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 方法应无条件地对所有子项调用 <a href=\"rendering/RenderObject/layout.html\">layout</a>。如果子项无需执行任何工作来更新布局信息，<a href=\"rendering/RenderObject/layout.html\">layout</a> 方法（如本实现所示）负责提前返回。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/layer.html": {
+    "0": "<p>此渲染对象用于重新绘制的合成图层。</p>",
+    "1": "<p>如果此渲染对象不是重绘边界，则由 <a href=\"rendering/RenderObject/paint.html\">paint</a> 方法填充此字段。如果 <a href=\"rendering/RenderObject/needsCompositing.html\">needsCompositing</a> 为 true，此字段可以保存渲染对象实现所使用的最上层图层。重新绘制时，渲染对象可以更新此字段中保存的图层，以提升性能，而不必创建新图层。也可以将此字段保留为 null，并在每次重绘时创建新图层，但这样无法获得性能提升。如果 <a href=\"rendering/RenderObject/needsCompositing.html\">needsCompositing</a> 为 false，则必须将此字段设为 null：可以从不填充此字段，或者在 <a href=\"rendering/RenderObject/needsCompositing.html\">needsCompositing</a> 的值从 true 变为 false 时将其设为 null。</p>",
+    "2": "<p>如果新图层被创建并保存在渲染对象的其他字段中，渲染对象必须使用 <a href=\"rendering/LayerHandle-class.html\">LayerHandle</a> 保存它。LayerHandle 会防止渲染对象仍在使用图层时图层被释放；当渲染对象创建替代图层或将字段设为 null 时，它也会确保图层得到正确释放。渲染对象必须在 <a href=\"rendering/RenderObject/dispose.html\">dispose</a> 方法中将 <a href=\"rendering/LayerHandle/layer.html\">LayerHandle.layer</a> 设为 null。</p>",
+    "3": "<p>如果此渲染对象是重绘边界，框架会自动创建一个 <a href=\"rendering/OffsetLayer-class.html\">OffsetLayer</a>，并在调用 <a href=\"rendering/RenderObject/paint.html\">paint</a> 方法前填充此字段。<a href=\"rendering/RenderObject/paint.html\">paint</a> 方法不得替换此字段的值。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/layoutCallback.html": {
+    "0": "<p>调用通过 <a href=\"widgets/AbstractLayoutBuilder-class.html\">AbstractLayoutBuilder</a> 提供的 builder 回调，并在需要时重建 <a href=\"widgets/AbstractLayoutBuilder-class.html\">AbstractLayoutBuilder</a> 的组件树。</p>",
+    "1": "<p>如果自上次调用此方法以来 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/layoutInfo.html\">layoutInfo</a> 未发生变化，且组件重建时 <a href=\"widgets/AbstractLayoutBuilder/updateShouldRebuild.html\">AbstractLayoutBuilder.updateShouldRebuild</a> 返回 <code>false</code>，则不会执行后续工作。</p>",
+    "2": "<p>通常应尽早在类的 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 实现中调用此方法，在进行任何布局工作之前调用。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/layoutInfo.html": {
+    "0": "<p>调用 <a href=\"widgets/AbstractLayoutBuilder/builder.html\">AbstractLayoutBuilder.builder</a> 回调时传入的信息。</p>",
+    "1": "<p>通常是只有在 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 中才能获取的信息，而常规的 <a href=\"widgets/Builder-class.html\">Builder</a> 组件无法访问这些信息，例如传入的 <a href=\"rendering/Constraints-class.html\">Constraints</a>（这是默认值）。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/markNeedsLayout.html": {
+    "0": "<p>将此渲染对象的布局信息标记为脏状态；如果此对象是重新布局边界，则向其 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a> 注册，否则交由父对象处理。</p>",
+    "1": "<h2 id=\"background\">背景</h2>",
+    "2": "<p>收到对渲染对象的写入时，我们不会立即更新布局信息，而是将其标记为脏状态并安排一次视觉更新。视觉更新过程中，渲染流水线会更新渲染对象的布局信息。</p>",
+    "3": "<p>此机制会批量处理布局工作，将连续发生的多次写入合并，从而避免重复计算。</p>",
+    "4": "<p>如果渲染对象的父对象表示在计算布局信息时会使用某个渲染子项的尺寸，那么对此子项调用此函数时，也会将父对象标记为需要布局。在这种情况下，父对象和子项都需要重新计算布局，因此渲染流水线只会收到父对象的通知；父对象完成布局时会调用子项的 <a href=\"rendering/RenderObject/layout.html\">layout</a> 方法，子项也会随之布局。</p>",
+    "5": "<p>对渲染对象调用 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a> 后，<a href=\"rendering/RenderObject/debugNeedsLayout.html\">debugNeedsLayout</a> 会一直对该对象返回 true，直到流水线所有者调用该对象的 <a href=\"rendering/RenderObject/layout.html\">layout</a> 后才恢复。</p>",
+    "6": "<h2 id=\"special-cases\">特殊情况</h2>",
+    "7": "<p><a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的部分子类（尤其是 <a href=\"rendering/RenderBox-class.html\">RenderBox</a>）还存在其他需要在子项变脏时通知父对象的情况，例如子项的固有尺寸或基线发生变化。这些子类会重写 markNeedsLayout：常规情况下调用 <code>super.markNeedsLayout()</code>；如果父对象和子项都需要重新布局，则调用 <a href=\"rendering/RenderObject/markParentNeedsLayout.html\">markParentNeedsLayout</a>。</p>",
+    "8": "<p>如果 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 发生变化，应改为调用 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a>，而不是 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/markNeedsCompositingBitsUpdate.html": {
+    "0": "<p>将此渲染对象的合成状态标记为脏状态。</p>",
+    "1": "<p>此方法用于声明需要在下一次渲染引擎阶段 <a href=\"rendering/PipelineOwner/flushCompositingBits.html\">PipelineOwner.flushCompositingBits</a> 中重新计算 <a href=\"rendering/RenderObject/needsCompositing.html\">needsCompositing</a> 的值。</p>",
+    "2": "<p>子树发生变化时，需要重新计算 <a href=\"rendering/RenderObject/needsCompositing.html\">needsCompositing</a> 标志；如果该值发生变化，部分祖先也需要重新计算。为此，<a href=\"rendering/RenderObject/adoptChild.html\">adoptChild</a> 和 <a href=\"rendering/RenderObject/dropChild.html\">dropChild</a> 会调用此方法；必要时，此方法也会逐级调用父对象的方法，沿树向上标记所有需要更新的节点。</p>",
+    "3": "<p>此方法不会安排渲染帧，因为合成标志不可能是唯一发生变化的内容，其他变化已为我们安排了帧。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/markNeedsLayoutForSizedByParentChange.html": {
+    "0": "<p>将此渲染对象的布局信息标记为脏状态（类似 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a>），并处理 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 值发生变化时所需的其他工作。</p>",
+    "1": "<p>每当 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 可能发生变化时，都应调用此方法。</p>",
+    "2": "<p>仅当 <a href=\"rendering/RenderObject/parent.html\">parent</a> 不为 null 时调用。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/markNeedsSemanticsUpdate.html": {
+    "0": "<p>将此节点标记为需要更新语义说明。</p>",
+    "1": "<p>每当此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 经 <a href=\"rendering/RenderObject/describeSemanticsConfiguration.html\">describeSemanticsConfiguration</a> 注释的语义配置发生任何变化时，都必须调用此方法以更新语义树。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/markParentNeedsLayout.html": {
+    "0": "<p>将此渲染对象的布局信息标记为脏状态，然后交由父对象处理。</p>",
+    "1": "<p>只有当子类重写 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a> 或 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a>，并引入需要将脏布局交由父对象处理的其他原因时，才应调用此函数。详情请参阅 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a>。</p>",
+    "2": "<p>仅当 <a href=\"rendering/RenderObject/parent.html\">parent</a> 不为 null 时调用。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/needsCompositing.html": {
+    "0": "<p>此对象或其某个后代是否具有合成图层。</p>",
+    "1": "<p>如果此位标志明示当前节点需要合成，那么它的所有祖先节点也都需要合成。</p>",
+    "2": "<p>只能在调用 <a href=\"rendering/PipelineOwner/flushLayout.html\">PipelineOwner.flushLayout</a> 和 <a href=\"rendering/PipelineOwner/flushCompositingBits.html\">PipelineOwner.flushCompositingBits</a> 后调用。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/owner.html": {
+    "0": "<p>此渲染对象的所有者；未附加时为 null。</p>",
+    "1": "<p>此渲染对象所属的整个渲染树都使用同一个 owner。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/paint.html": {
+    "0": "<p>在给定上下文中的给定偏移处绘制此渲染对象。</p>",
+    "1": "<p>子类应重写此方法以提供自身的视觉外观。渲染对象的局部坐标系与上下文画布的坐标系轴对齐；渲染对象的局部原点（即 x=0、y=0）位于上下文画布中的给定偏移处。</p>",
+    "2": "<p>不要直接调用此函数。若要绘制自身，请改为调用 <a href=\"rendering/RenderObject/markNeedsPaint.html\">markNeedsPaint</a>，以安排对此函数的调用。若要绘制子项，请在给定的 <code>context</code> 上调用 <a href=\"rendering/PaintingContext/paintChild.html\">PaintingContext.paintChild</a>。</p>",
+    "3": "<p>通过给定上下文中的子项绘制函数绘制子项时，上下文当前持有的画布可能会发生变化，因为子项绘制前后的绘制操作可能需要记录在不同的合成图层中。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/paintBounds.html": {
+    "0": "<p>对此渲染对象绘制范围的估算，可用于 <a href=\"rendering/debugPaintLayerBordersEnabled.html\">debugPaintLayerBordersEnabled</a> 等调试标志。</p>",
+    "1": "<p>此范围也用于 <a href=\"rendering/RenderObject/showOnScreen.html\">showOnScreen</a> 将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 滚动到屏幕可见区域。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/paintsChild.html": {
+    "0": "<p>如果调用 <a href=\"rendering/RenderObject/paint.html\">paint</a>，给定的子项是否会被绘制。</p>",
+    "1": "<p>某些 RenderObject 在配置为不产生任何可见效果时，会跳过子项绘制。例如，<a href=\"rendering/RenderOffstage-class.html\">RenderOffstage</a> 的 <code>offstage</code> 属性为 true，或 <a href=\"rendering/RenderOpacity-class.html\">RenderOpacity</a> 的不透明度为零。</p>",
+    "2": "<p>在这些情况下，父对象仍可以在 <a href=\"rendering/RenderObject/applyPaintTransform.html\">applyPaintTransform</a> 中提供非零矩阵，告知调用方如果绘制子项，它会位于何处。或者，如果父对象无法确定子项的有效矩阵，因而无法有意义地确定子项的绘制位置，也可以提供清零的矩阵。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/parent.html": {
+    "0": "<p>此渲染对象在渲染树中的父对象。</p>",
+    "1": "<p>渲染树根节点的 <a href=\"rendering/RenderObject/parent.html\">parent</a> 为 null。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/parentData.html": {
+    "0": "<p>供父渲染对象使用的数据。</p>",
+    "1": "<p>布局此对象的渲染对象（通常是它在渲染树中的父对象）会使用 parent data 保存与自身相关的信息，以及其他恰好知道这些数据含义的节点所需的信息。对于子对象而言，parent data 是不透明的。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/redepthChild.html": {
+    "0": "<p>调整给定 <code>child</code> 的 <a href=\"rendering/RenderObject/depth.html\">depth</a>，使其大于此节点自身的 <a href=\"rendering/RenderObject/depth.html\">depth</a>。</p>",
+    "1": "<p>只应从 <a href=\"rendering/RenderObject/redepthChildren.html\">redepthChildren</a> 的重写实现中调用此方法。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/redepthChildren.html": {
+    "0": "<p>如有子项，则调整此节点子项的 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/depth.html\">depth</a>。</p>",
+    "1": "<p>具有子节点的子类应重写此方法，并对每个子项调用 <a href=\"widgets/RenderAbstractLayoutBuilderMixin/redepthChild.html\">redepthChild</a>。不要直接调用此方法。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/replaceRootLayer.html": {
+    "0": "<p>替换图层。此方法仅适用于渲染对象子树的根节点（即调用 <a href=\"rendering/RenderObject/scheduleInitialPaint.html\">scheduleInitialPaint</a> 的对象）。</p>",
+    "1": "<p>例如，设备像素比发生变化时可能会调用此方法。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/scheduleInitialLayout.html": {
+    "0": "<p>通过安排首次布局来启动渲染流水线。</p>",
+    "1": "<p>此渲染对象必须已附加，且必须是渲染树的根节点。</p>",
+    "2": "<p>有关此函数的用法示例，请参阅 <a href=\"rendering/RenderView-class.html\">RenderView</a>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/scheduleInitialPaint.html": {
+    "0": "<p>通过安排首次绘制来启动渲染流水线。</p>",
+    "1": "<p>此渲染对象必须已附加、是渲染树的根节点，并且具有合成图层。</p>",
+    "2": "<p>有关此函数的用法示例，请参阅 <a href=\"rendering/RenderView-class.html\">RenderView</a>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/scheduleInitialSemantics.html": {
+    "0": "<p>将此节点标记为需要更新语义信息，以启动语义报告机制。</p>",
+    "1": "<p>此渲染对象必须已附加，且必须是渲染树的根节点。</p>",
+    "2": "<p>有关此函数的用法示例，请参阅 <a href=\"rendering/RendererBinding-mixin.html\">RendererBinding</a>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/sendSemanticsEvent.html": {
+    "0": "<p>发送与此渲染对象的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 关联的 <a href=\"semantics/SemanticsEvent-class.html\">SemanticsEvent</a>。</p>",
+    "1": "<p>如果此渲染对象没有语义信息，则使用第一个具有非 null 语义节点的父渲染对象。</p>",
+    "2": "<p>如果语义功能已停用，则不会分发任何事件。</p>",
+    "3": "<p>有关此行为的完整说明，请参阅 <a href=\"semantics/SemanticsNode/sendEvent.html\">SemanticsNode.sendEvent</a>。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/setupParentData.html": {
+    "0": "<p>重写此方法，为子项正确设置 parent data。</p>",
+    "1": "<p>可在将子项添加到父项的子项列表之前调用此函数，为其设置 parent data。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/sizedByParent.html": {
+    "0": "<p>尺寸计算算法是否只以约束为输入（也就是说，子节点不会影响尺寸）。</p>",
+    "1": "<p>返回 false 始终是正确的；但如果返回 true，在计算此渲染对象尺寸时可能更高效，因为约束不变时无需重新计算尺寸。</p>",
+    "2": "<p>通常，子类始终返回相同的值。如果此值可能变化，那么发生变化时，子类应确保调用 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a>。</p>",
+    "3": "<p>返回 true 的子类不得在 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 中更改此渲染对象的尺寸。此工作应由 <a href=\"rendering/RenderObject/performResize.html\">performResize</a> 完成；对于 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 子类，也可以在 <a href=\"rendering/RenderBox/computeDryLayout.html\">RenderBox.computeDryLayout</a> 中完成。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/toStringShallow.html": {
+    "0": "<p>返回渲染对象的一行详细说明。此说明通常会比较长。</p>",
+    "1": "<p>包含与 <a href=\"rendering/RenderObject/toStringDeep.html\">toStringDeep</a> 相同的此 RenderObject 信息，但不会递归处理任何子项。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/updateCompositedLayer.html": {
+    "0": "<p>更新此渲染对象拥有的合成图层。</p>",
+    "1": "<p>当 <a href=\"rendering/RenderObject/isRepaintBoundary.html\">isRepaintBoundary</a> 为 true 时，框架会调用此方法。</p>",
+    "2": "<p>如果 <code>oldLayer</code> 为 <code>null</code>，此方法必须返回一个新的 <a href=\"rendering/OffsetLayer-class.html\">OffsetLayer</a>（或其子类型）。如果 <code>oldLayer</code> 不为 <code>null</code>，则必须复用提供的图层实例；在这种情况下创建新图层会导致错误。渲染对象被释放或不再是重绘边界时，框架会释放该图层。</p>",
+    "3": "<p><a href=\"rendering/OffsetLayer/offset.html\">OffsetLayer.offset</a> 属性由框架管理，此方法不得更新它。</p>",
+    "4": "<p>如果需要更新合成图层的某个属性，渲染对象必须调用 <a href=\"rendering/RenderObject/markNeedsCompositedLayerUpdate.html\">markNeedsCompositedLayerUpdate</a>，以安排调用此方法，同时不重新绘制子项。如果此组件同时被标记为需要绘制和需要更新合成图层，此方法只会调用一次。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/visitChildren.html": {
+    "0": "<p>对这个渲染对象的每个直接子项调用 visitor。</p>",
+    "1": "<p>有子项的子类应重写此方法，并对每个子项调用 visitor。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/visitChildrenForSemantics.html": {
+    "0": "<p>收集此节点的语义信息时调用。</p>",
+    "1": "<p>实现必须按绘制顺序返回相关子项，并跳过所有与语义无关的子项（例如不可见的子项）。</p>",
+    "2": "<p>默认实现与 <a href=\"rendering/RenderObject/visitChildren.html\">visitChildren</a> 的行为一致；后者应遍历所有子项。</p>"
+  },
+  "widgets/RenderAbstractLayoutBuilderMixin/runLayoutCallback.html": {
+    "0": "<p>通过 <a href=\"rendering/RenderObject/invokeLayoutCallback.html\">invokeLayoutCallback</a> 调用 <a href=\"rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html\">layoutCallback</a>。</p>",
+    "1": "<p>必须在 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 中调用此方法，通常应尽早调用，在任何布局工作开始前执行，以避免再次将子 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 标记为脏状态。</p>"
+  },
+  "widgets/RenderConstrainedLayoutBuilder.html": {
+    "0": "<p>供由 <a href=\"widgets/AbstractLayoutBuilder-class.html\">AbstractLayoutBuilder</a> 创建的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 使用的通用 mixin，这些对象具有相同的 <code>LayoutInfoType</code>。</p>",
+    "1": "<p>请改用 <a href=\"widgets/RenderAbstractLayoutBuilderMixin-mixin.html\">RenderAbstractLayoutBuilderMixin</a>，此 mixin 已取代当前 mixin。</p>"
+  },
+  "widgets/RenderObjectElement-class.html": {
+    "0": "<p>使用 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 作为配置的 <a href=\"widgets/Element-class.html\">Element</a>。</p>",
+    "1": "<p><a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 对象在渲染树中关联一个 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 组件，用于处理布局、绘制和命中测试等具体操作。</p>",
+    "2": "<p>与 <a href=\"widgets/ComponentElement-class.html\">ComponentElement</a> 对比。</p>",
+    "3": "<p>有关 Element 生命周期的详情，请参阅 <a href=\"widgets/Element-class.html\">Element</a> 中的说明。</p>",
+    "4": "<h2 id=\"writing-a-renderobjectelement-subclass\">编写 RenderObjectElement 子类</h2>",
+    "5": "<p>大多数 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 使用以下三种常见的子项模型：</p>",
+    "6": "<p>叶子渲染对象没有子项；此情况由 <a href=\"widgets/LeafRenderObjectElement-class.html\">LeafRenderObjectElement</a> 类处理。</p>",
+    "7": "<p>单个子项；此情况由 <a href=\"widgets/SingleChildRenderObjectElement-class.html\">SingleChildRenderObjectElement</a> 类处理。</p>",
+    "8": "<p>子项链表；此情况由 <a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a> 类处理。</p>",
+    "9": "<p>不过，有时渲染对象的子项模型会更复杂，例如包含二维子项数组、按需构建子项，或有多个子项列表。在这些情况下，为配置该 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的 <a href=\"widgets/Widget-class.html\">Widget</a> 对应的 <a href=\"widgets/Element-class.html\">Element</a> 将是一个新的 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 子类。</p>",
+    "10": "<p>此类子类负责管理子项，具体而言，既要管理此对象的 <a href=\"widgets/Element-class.html\">Element</a> 子项，也要管理其对应 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 子项。</p>",
+    "11": "<h3 id=\"specializing-the-getters\">专门化 getter</h3>",
+    "12": "<p><a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 通常会充当其 <a href=\"widgets/Element/widget.html\">widget</a> 与 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a> 之间的中介。一般不建议专门化 <a href=\"widgets/Element/widget.html\">widget</a> getter；最好在各个调用点进行类型转换，避免在此特定实现之外增加开销。</p>",
+    "13": "<h3 id=\"slots\">插槽</h3>",
+    "14": "<p>每个子 <a href=\"widgets/Element-class.html\">Element</a> 都对应一个 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>，该对象应作为子项附加到此元素的渲染对象。</p>",
+    "15": "<p>不过，元素的直接子项不一定就是最终生成其对应 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的对象。例如，<a href=\"widgets/StatelessElement-class.html\">StatelessElement</a>（即 <a href=\"widgets/StatelessWidget-class.html\">StatelessWidget</a> 对应的元素）对应的是其子项（即其 <a href=\"widgets/StatelessWidget/build.html\">StatelessWidget.build</a> 方法返回的元素）所对应的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。</p>",
+    "16": "<p>因此，每个子项都会分配一个<em><a href=\"widgets/Element/slot.html\">slot</a></em> 令牌。此标识符的含义仅对当前 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 节点有效。当最终生成 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的后代准备将其附加到此节点的渲染对象时，会将该 slot 令牌传回此节点。这样，此节点就能高效地确定应将子渲染对象放在父渲染对象中的哪个位置。</p>",
+    "17": "<p>父项调用 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 扩展子项时，会确定该子项的 <a href=\"widgets/Element/slot.html\">slot</a>（见下一节）。也可以调用 <a href=\"widgets/Element/updateSlotForChild.html\">updateSlotForChild</a> 更新它。</p>",
+    "18": "<h3 id=\"updating-children\">更新子项</h3>",
+    "19": "<p>在元素生命周期的早期，框架会调用 <a href=\"widgets/RenderObjectElement/mount.html\">mount</a> 方法。此方法应对每个子项调用 <a href=\"widgets/Element/updateChild.html\">updateChild</a>，并传入该子项的 widget 和 slot，从而获得子 <a href=\"widgets/Element-class.html\">Element</a> 列表。</p>",
+    "20": "<p>之后，框架会调用 <a href=\"widgets/RenderObjectElement/update.html\">update</a> 方法。在此方法中，<a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 应针对每个子项调用 <a href=\"widgets/Element/updateChild.html\">updateChild</a>，传入在 <a href=\"widgets/RenderObjectElement/mount.html\">mount</a> 或最近一次 <a href=\"widgets/RenderObjectElement/update.html\">update</a> 中获得的 <a href=\"widgets/Element-class.html\">Element</a>、新的 <a href=\"widgets/Widget-class.html\">Widget</a> 以及 slot。这样，该对象就会获得新的 <a href=\"widgets/Element-class.html\">Element</a> 列表。</p>",
+    "21": "<p>如果条件允许，<a href=\"widgets/RenderObjectElement/update.html\">update</a> 方法应尝试将上一轮的元素与新一轮的 widget 对应起来。例如，如果上一轮的某个元素使用了特定的 <a href=\"foundation/Key-class.html\">Key</a>，且新一轮的某个 widget 使用相同的 key，就应将它们配对，并使用该 widget 和其新位置对应的 slot 更新旧元素。<a href=\"widgets/Element/updateChildren.html\">updateChildren</a> 方法可能对此有所帮助。</p>",
+    "22": "<p>应按逻辑顺序为子项调用 <a href=\"widgets/Element/updateChild.html\">updateChild</a>。顺序可能很重要：例如，如果两个子项都在其 build 方法中使用 <a href=\"widgets/PageStorage-class.html\">PageStorage</a> 的 <code>writeState</code> 功能，且两者都没有 <a href=\"widgets/Widget/key.html\">Widget.key</a>，那么第二个子项写入的状态会覆盖第一个。</p>",
+    "23": "<h4 id=\"dynamically-determining-the-children-during-the-build-phase\">在构建阶段动态确定子项</h4>",
+    "24": "<p>子 widget 不一定要直接来自此元素的 widget。也可以通过回调动态生成，或用其他更灵活的方式生成。</p>",
+    "25": "<h4 id=\"dynamically-determining-the-children-during-layout\">在布局期间动态确定子项</h4>",
+    "26": "<p>如果要在布局时生成 widget，那么在 <a href=\"widgets/RenderObjectElement/mount.html\">mount</a> 和 <a href=\"widgets/RenderObjectElement/update.html\">update</a> 方法中生成将不起作用：此时该元素的渲染对象尚未开始布局。此时可由 <a href=\"widgets/RenderObjectElement/update.html\">update</a> 方法将渲染对象标记为需要布局（参阅 <a href=\"rendering/RenderObject/markNeedsLayout.html\">RenderObject.markNeedsLayout</a>），随后由渲染对象的 <a href=\"rendering/RenderObject/performLayout.html\">RenderObject.performLayout</a> 回调此元素，让它生成 widget 并相应调用 <a href=\"widgets/Element/updateChild.html\">updateChild</a>。</p>",
+    "27": "<p>渲染对象若要在布局期间调用元素，必须使用 <a href=\"rendering/RenderObject/invokeLayoutCallback.html\">RenderObject.invokeLayoutCallback</a>。元素若要在 <a href=\"widgets/RenderObjectElement/update.html\">update</a> 方法之外调用 <a href=\"widgets/Element/updateChild.html\">updateChild</a>，必须使用 <a href=\"widgets/BuildOwner/buildScope.html\">BuildOwner.buildScope</a>。</p>",
+    "28": "<p>正常运行时，框架执行布局期间构建时提供的检查比普通构建更多。因此，使用布局时构建语义创建 widget 时应格外谨慎。</p>",
+    "29": "<h4 id=\"handling-errors-when-building\">处理构建期间的错误</h4>",
+    "30": "<p>如果元素调用 builder 函数来获取子项 widget，构建过程可能会抛出异常。应捕获此类异常，并使用 <a href=\"foundation/FlutterError/reportError.html\">FlutterError.reportError</a> 报告。如果确实需要一个子项，但 builder 因此失败，可以改用 <a href=\"widgets/ErrorWidget-class.html\">ErrorWidget</a> 实例。</p>",
+    "31": "<h3 id=\"detaching-children\">分离子项</h3>",
+    "32": "<p>使用 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 时，其他元素可能会在此元素更新之前主动移除一个子项。（具体来说，当某个带有特定 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 的 widget 子树从此元素移动到构建阶段中更早处理的元素时，就会发生这种情况。）发生这种情况时，系统会调用此元素的 <a href=\"widgets/Element/forgetChild.html\">forgetChild</a> 方法，并传入受影响子元素的引用。</p>",
+    "33": "<p><a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 子类的 <a href=\"widgets/Element/forgetChild.html\">forgetChild</a> 方法必须从子元素列表中移除该子元素，这样下次调用 <a href=\"widgets/RenderObjectElement/update.html\">update</a> 更新子项时，就不会再处理已移除的子项。</p>",
+    "34": "<p>如果元素很多，出于性能考虑，将已遗忘的元素存储在 <a href=\"dart-core/Set-class.html\">Set</a> 中进行跟踪，可能比主动修改本地子项列表记录及所有 slot 标识更快。例如，可参阅 <a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a> 的实现。</p>",
+    "35": "<h3 id=\"maintaining-the-render-object-tree\">维护渲染对象树</h3>",
+    "36": "<p>后代生成渲染对象后，会调用 <a href=\"widgets/RenderObjectElement/insertRenderObjectChild.html\">insertRenderObjectChild</a>。如果后代的 slot 标识发生变化，则会调用 <a href=\"widgets/RenderObjectElement/moveRenderObjectChild.html\">moveRenderObjectChild</a>。如果后代被移除，则会调用 <a href=\"widgets/RenderObjectElement/removeRenderObjectChild.html\">removeRenderObjectChild</a>。</p>",
+    "37": "<p>这三个方法应相应地更新渲染树，分别将给定的子渲染对象附加到此元素自己的渲染对象、在树中移动，以及从树中分离。</p>",
+    "38": "<h3 id=\"walking-the-children\">遍历子项</h3>",
+    "39": "<p><a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 对象如果有任何子 <a href=\"widgets/Element-class.html\">Element</a>，就必须在其 <a href=\"widgets/Element/visitChildren.html\">visitChildren</a> 方法实现中公开这些子元素。框架的许多内部机制都会使用此方法，因此它应当足够快。测试框架和 <a href=\"widgets/debugDumpApp.html\">debugDumpApp</a> 也会使用此方法。</p>"
+  },
+  "widgets/RenderNestedScrollViewViewport-class.html": {
+    "0": "<p>供 <a href=\"widgets/NestedScrollView-class.html\">NestedScrollView</a> 使用的 <a href=\"rendering/RenderViewport-class.html\">RenderViewport</a> 变体。</p>",
+    "1": "<p>此视口接收一个 <a href=\"widgets/SliverOverlapAbsorberHandle-class.html\">SliverOverlapAbsorberHandle</a>，并在视口需要重新计算布局时（例如发生滚动时）通知它。</p>"
+  },
+  "widgets/RenderNestedScrollViewViewport/markNeedsLayout.html": {
+    "0": "<p>将此渲染对象的布局信息标记为脏状态；如果此对象是重新布局边界，则向其 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a> 注册，否则交由父对象处理。</p>",
+    "1": "<h2 id=\"background\">背景</h2>",
+    "2": "<p>收到对渲染对象的写入时，我们不会立即更新布局信息，而是将其标记为脏状态并安排一次视觉更新。视觉更新过程中，渲染流水线会更新渲染对象的布局信息。</p>",
+    "3": "<p>此机制会批量处理布局工作，将连续发生的多次写入合并，从而避免重复计算。</p>",
+    "4": "<p>如果渲染对象的父对象表示在计算布局信息时会使用某个渲染子项的尺寸，那么对此子项调用此函数时，也会将父对象标记为需要布局。在这种情况下，父对象和子项都需要重新计算布局，因此渲染流水线只会收到父对象的通知；父对象完成布局时会调用子项的 <a href=\"rendering/RenderObject/layout.html\">layout</a> 方法，子项也会随之布局。</p>",
+    "5": "<p>对渲染对象调用 <a href=\"widgets/RenderNestedScrollViewViewport/markNeedsLayout.html\">markNeedsLayout</a> 后，<a href=\"rendering/RenderObject/debugNeedsLayout.html\">debugNeedsLayout</a> 会一直对该对象返回 true，直到流水线所有者调用该对象的 <a href=\"rendering/RenderObject/layout.html\">layout</a> 后才恢复。</p>",
+    "6": "<h2 id=\"special-cases\">特殊情况</h2>",
+    "7": "<p><a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的部分子类（尤其是 <a href=\"rendering/RenderBox-class.html\">RenderBox</a>）还存在其他需要在子项变脏时通知父对象的情况，例如子项的固有尺寸或基线发生变化。这些子类会重写 markNeedsLayout：常规情况下调用 <code>super.markNeedsLayout()</code>；如果父对象和子项都需要重新布局，则调用 <a href=\"rendering/RenderObject/markParentNeedsLayout.html\">markParentNeedsLayout</a>。</p>",
+    "8": "<p>如果 <a href=\"rendering/RenderViewport/sizedByParent.html\">sizedByParent</a> 发生变化，应改为调用 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a>，而不是 <a href=\"widgets/RenderNestedScrollViewViewport/markNeedsLayout.html\">markNeedsLayout</a>。</p>"
+  },
+  "widgets/RenderObjectElement/renderObjectAttachingChild.html": {
+    "0": "<p>返回此 <a href=\"widgets/Element-class.html\">Element</a> 的一个子项，该子项会将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入此 Element 的某个祖先中，以构建渲染树。</p>",
+    "1": "<p>如果此 <a href=\"widgets/Element-class.html\">Element</a> 没有任何需要将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 附加到某个祖先的子项，则返回 null。因此，<a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 会返回 null，因为它的子项会将其 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 自身，而不是插入 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 的某个祖先中。</p>",
+    "2": "<p>此外，如果 <a href=\"widgets/Element-class.html\">Element</a> 会提升自己的独立渲染树，而不会扩展祖先的渲染树，此方法也可能返回 null。</p>"
   }
 }

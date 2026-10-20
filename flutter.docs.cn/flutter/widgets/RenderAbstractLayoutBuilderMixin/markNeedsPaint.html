@@ -101,17 +101,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Mark this render object as having changed its visual appearance.</p>
-<p>Rather than eagerly updating this render object's display list
-in response to writes, we instead mark the render object as needing to
-paint, which schedules a visual update. As part of the visual update, the
-rendering pipeline will give this render object an opportunity to update
-its display list.</p>
-<p>This mechanism batches the painting work so that multiple sequential
-writes are coalesced, removing redundant computation.</p>
-<p>Once <a href="rendering/RenderObject/markNeedsPaint.html">markNeedsPaint</a> has been called on a render object,
-<a href="rendering/RenderObject/debugNeedsPaint.html">debugNeedsPaint</a> returns true for that render object until just after
-the pipeline owner has called <a href="rendering/RenderObject/paint.html">paint</a> on the render object.</p>
+  <p>将此渲染对象标记为视觉外观已更改。</p>
+<p>收到写入时，我们不会立即更新此渲染对象的显示列表，而是将其标记为需要绘制并安排一次视觉更新。视觉更新过程中，渲染流水线会让此渲染对象有机会更新其显示列表。</p>
+<p>此机制会批量处理绘制工作，将连续发生的多次写入合并，从而避免重复计算。</p>
+<p>对渲染对象调用 <a href="rendering/RenderObject/markNeedsPaint.html">markNeedsPaint</a> 后，<a href="rendering/RenderObject/debugNeedsPaint.html">debugNeedsPaint</a> 会一直对该对象返回 true，直到流水线所有者调用该对象的 <a href="rendering/RenderObject/paint.html">paint</a> 后才恢复。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a>, to scope a subtree of render objects to their own
