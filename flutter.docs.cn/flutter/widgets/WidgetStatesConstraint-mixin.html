@@ -93,12 +93,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>This mixin allows <a href="widgets/WidgetState.html">WidgetState</a> enum values to be combined
-using the <code>&amp;</code>, <code>|</code>, and <code>~</code> operators.</p>
-<p>A <a href="dart-core/Map-class.html">Map</a> with <a href="widgets/WidgetStatesConstraint-mixin.html">WidgetStatesConstraint</a> objects as keys can be used
-in the <a href="widgets/WidgetStateProperty/WidgetStateProperty.fromMap.html">WidgetStateProperty.fromMap</a> constructor to resolve to
-one of its values, based on the first key that <a href="widgets/WidgetStatesConstraint/isSatisfiedBy.html">isSatisfiedBy</a>
-the current set of states.</p>
+  <p>此 mixin 允许使用 <code>&amp;</code>、<code>|</code> 和 <code>~</code> 运算符组合 <a href="widgets/WidgetState.html">WidgetState</a> 枚举值。</p>
+<p>以 <a href="widgets/WidgetStatesConstraint-mixin.html">WidgetStatesConstraint</a> 对象为键的 <a href="dart-core/Map-class.html">Map</a> 可用于 <a href="widgets/WidgetStateProperty/WidgetStateProperty.fromMap.html">WidgetStateProperty.fromMap</a> 构造函数。它会根据首个满足当前状态集合的键，解析出对应的值；判断条件由 <a href="widgets/WidgetStatesConstraint/isSatisfiedBy.html">isSatisfiedBy</a> 确定。</p>
 <p>示例：</p>
 <pre class="language-dart"><code class="language-dart">// This WidgetStateMap&lt;Color?&gt; resolves to null if no keys match.
 WidgetStateProperty&lt;Color?&gt;.fromMap(&lt;WidgetStatesConstraint, Color?&gt;{
@@ -123,9 +119,7 @@ WidgetStateProperty.resolveWith&lt;Color?&gt;((Set&lt;WidgetState&gt; states) {
   return null;
 });
 </code></pre>
-<p>A widget state combination can be stored in a variable,
-and <a href="widgets/WidgetState/any-constant.html">WidgetState.any</a> can be used for non-nullable types to ensure
-that there's a match:</p>
+<p>可以将一组 Widget 状态组合存储在变量中；对于不可为 null 的类型，可以使用 <a href="widgets/WidgetState/any-constant.html">WidgetState.any</a> 确保总能匹配到值：</p>
 <pre class="language-dart"><code class="language-dart">final WidgetStatesConstraint selectedError = WidgetState.selected &amp; WidgetState.error;
 
 final WidgetStateProperty&lt;Color&gt; color = WidgetStateProperty&lt;Color&gt;.fromMap(

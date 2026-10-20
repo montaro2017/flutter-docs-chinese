@@ -87,35 +87,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;WidgetStatesController-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/widget_state.dart#L1140"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">WidgetStatesController</span> 类 
+<h1><span class="kind-class">WidgetStatesController</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Manages a set of <a href="widgets/WidgetState.html">WidgetState</a>s and notifies listeners of changes.</p>
-<p>Used by widgets that expose their internal state for the sake of
-extensions that add support for additional states. See
-<a href="material/TextButton-class.html">TextButton</a> for an example.</p>
-<p>The controller's <a href="foundation/ValueNotifier/value.html">value</a> is its current set of states. Listeners
-are notified whenever the <a href="foundation/ValueNotifier/value.html">value</a> changes. The <a href="foundation/ValueNotifier/value.html">value</a> should only be
-changed with <a href="widgets/WidgetStatesController/update.html">update</a>; it should not be modified directly.</p>
-<p>The controller's <a href="foundation/ValueNotifier/value.html">value</a> represents the set of states that a
-widget's visual properties, typically <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a>
-values, are resolved against. It is <em>not</em> the intrinsic state of
-the widget. The widget is responsible for ensuring that the
-controller's <a href="foundation/ValueNotifier/value.html">value</a> tracks its intrinsic state. For example one
-cannot request the keyboard focus for a widget by adding
-<a href="widgets/WidgetState.html">WidgetState.focused</a> to its controller. When the widget gains the
-or loses the focus it will <a href="widgets/WidgetStatesController/update.html">update</a> its controller's <a href="foundation/ValueNotifier/value.html">value</a> and
-notify listeners of the change.</p>
-<p>When calling <code>setState</code> in a <a href="widgets/WidgetStatesController-class.html">WidgetStatesController</a> listener, use the
-<a href="scheduler/SchedulerBinding/addPostFrameCallback.html">SchedulerBinding.addPostFrameCallback</a> to delay the call to <code>setState</code> after
-the frame has been rendered. It's generally prudent to use the
-<a href="scheduler/SchedulerBinding/addPostFrameCallback.html">SchedulerBinding.addPostFrameCallback</a> because some of the widgets that
-depend on <a href="widgets/WidgetStatesController-class.html">WidgetStatesController</a> may call <a href="widgets/WidgetStatesController/update.html">update</a> in their build method.
-In such cases, listener's that call <code>setState</code> - during the build phase - will cause
-an error.</p>
+  <p>管理一组 <a href="widgets/WidgetState.html">WidgetState</a>，并在状态变化时通知监听器。</p>
+<p>供需要公开内部状态、以便扩展支持其他状态的组件使用。示例请参阅 <a href="material/TextButton-class.html">TextButton</a>。</p>
+<p>控制器的 <a href="foundation/ValueNotifier/value.html">value</a> 是当前状态集合。每当 <a href="foundation/ValueNotifier/value.html">value</a> 发生变化时，都会通知监听器。应仅通过 <a href="widgets/WidgetStatesController/update.html">update</a> 修改 <a href="foundation/ValueNotifier/value.html">value</a>，不要直接改动。</p>
+<p>控制器的 <a href="foundation/ValueNotifier/value.html">value</a> 表示用于解析组件视觉属性（通常是 <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> 值）的一组状态，<em>并不</em>代表组件的内在状态。组件负责确保控制器的 <a href="foundation/ValueNotifier/value.html">value</a> 与其内在状态保持同步。例如，不能通过向控制器添加 <a href="widgets/WidgetState.html">WidgetState.focused</a> 来请求组件获得键盘焦点。组件获得或失去焦点时，会调用 <a href="widgets/WidgetStatesController/update.html">update</a> 更新控制器的 <a href="foundation/ValueNotifier/value.html">value</a>，并通知监听器状态已变化。</p>
+<p>在 <a href="widgets/WidgetStatesController-class.html">WidgetStatesController</a> 监听器中调用 <code>setState</code> 时，应使用 <a href="scheduler/SchedulerBinding/addPostFrameCallback.html">SchedulerBinding.addPostFrameCallback</a>，将 <code>setState</code> 调用延迟到帧渲染完成之后。通常也建议使用 <a href="scheduler/SchedulerBinding/addPostFrameCallback.html">SchedulerBinding.addPostFrameCallback</a>，因为依赖 <a href="widgets/WidgetStatesController-class.html">WidgetStatesController</a> 的某些组件可能会在构建方法中调用 <a href="widgets/WidgetStatesController/update.html">update</a>。若监听器在构建阶段调用 <code>setState</code>，就会导致错误。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a class="deprecated" href="material/MaterialStatesController.html">MaterialStatesController</a>, the Material specific version of

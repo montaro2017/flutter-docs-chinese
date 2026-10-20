@@ -1,6 +1,6 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,971 页，部分翻译 82 页，未翻译 199 页；正文已译 23,995/24,807 段。
+模块共 8,093 页：已完整 6,993 页，部分翻译 78 页，未翻译 181 页；正文已译 24,038/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
@@ -9,31 +9,6 @@
 - `flutter/widgets/WidgetStateColor-class.html` — 部分；已译 4/5 段；待译段落：4
 
 - `flutter/widgets/WidgetStateMapper/noSuchMethod.html` — 部分；已译 6/8 段；待译段落：3, 4
-
-- `flutter/widgets/WidgetStatePropertyAll-class.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/WidgetStatePropertyAll/WidgetStatePropertyAll.html` — 未译；已译 0/1 段；待译段落：0
-
-- `flutter/widgets/WidgetStatePropertyAll/resolve.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStatePropertyAll/value.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStateTextStyle-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/WidgetStateTextStyle/WidgetStateTextStyle.fromMap.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetStateTextStyle/WidgetStateTextStyle.resolveWith.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetStateTextStyle/resolve.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStatesConstraint-mixin.html` — 部分；已译 1/4 段；待译段落：0, 1, 3
-- `flutter/widgets/WidgetStatesConstraint/isSatisfiedBy.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/WidgetStatesConstraint/operator_bitwise_and.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStatesConstraint/operator_bitwise_negate.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStatesConstraint/operator_bitwise_or.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStatesController-class.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/WidgetStatesController/WidgetStatesController.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStatesController/update.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetToRenderBoxAdapter-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetToRenderBoxAdapter/WidgetToRenderBoxAdapter.html` — 未译；已译 0/1 段；待译段落：0
-
-- `flutter/widgets/WidgetToRenderBoxAdapter/didUnmountRenderObject.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetToRenderBoxAdapter/onBuild.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetToRenderBoxAdapter/onUnmount.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/WidgetToRenderBoxAdapter/renderBox.html` — 未译；已译 0/2 段；待译段落：0, 1
 
 - `flutter/widgets/WidgetsApp-class.html` — 部分；已译 2/5 段；待译段落：0, 1, 3
 - `flutter/widgets/WidgetsApp/WidgetsApp.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
