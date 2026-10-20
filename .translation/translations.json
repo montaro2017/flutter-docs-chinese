@@ -262228,5 +262228,197 @@
   "flutter/widgets/StretchingOverscrollIndicator/notificationPredicate.html": {
     "0": "<p>用于判断此 widget 是否应处理 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 的检查函数。</p>",
     "1": "<p>默认情况下，会检查 <code>notification.depth == 0</code>。对于嵌套 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 等更复杂的布局，可将其设为其他值。</p>"
+  },
+  "flutter/widgets/SystemContextMenu-class.html": {
+    "0": "<p>在 Flutter 视图上方显示系统上下文菜单。</p>",
+    "1": "<p>目前仅支持 iOS 16.0 及更高版本，在其他平台上不会显示任何内容。</p>",
+    "2": "<p>上下文菜单是指例如选择文本时出现的菜单。Flutter 通常会自行绘制此菜单，而此类用于处理由平台绘制的上下文菜单。</p>",
+    "3": "<p>同一时间只能显示一个系统上下文菜单。如果系统上下文菜单已显示时构建此 widget，旧菜单会被隐藏，并显示此菜单。被隐藏的系统上下文菜单会收到 <a href=\"widgets/SystemContextMenu/onSystemHide.html\">onSystemHide</a> 通知。</p>",
+    "4": "<p>传入 <a href=\"widgets/SystemContextMenu/items.html\">items</a> 可指定菜单中显示的按钮。未设置标题的条目会从 <a href=\"widgets/WidgetsLocalizations-class.html\">WidgetsLocalizations</a> 获取默认标题。</p>",
+    "5": "<p>默认情况下，<a href=\"widgets/SystemContextMenu/items.html\">items</a> 会设为 <a href=\"widgets/SystemContextMenu/getDefaultItems.html\">getDefaultItems</a> 的返回结果。此方法会考虑 <a href=\"widgets/EditableTextState-class.html\">EditableTextState</a> 的状态，例如，只有当前存在可复制的选区时才会包含 <a href=\"widgets/IOSSystemContextMenuItemCopy-class.html\">IOSSystemContextMenuItemCopy</a>。</p>",
+    "6": "<p>若要检查当前设备是否支持显示系统上下文菜单，请调用 <a href=\"widgets/SystemContextMenu/isSupported.html\">isSupported</a>。</p>",
+    "8": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/SystemContextMenu/getDefaultItems.html": {
+    "0": "<p>给定 <a href=\"widgets/EditableTextState-class.html\">EditableTextState</a> 对应的默认 <a href=\"widgets/SystemContextMenu/items.html\">items</a>。</p>",
+    "1": "<p>例如，仅当由 <a href=\"widgets/EditableTextState-class.html\">EditableTextState</a> 表示的字段存在选区时，才会包含 <a href=\"widgets/IOSSystemContextMenuItemCopy-class.html\">IOSSystemContextMenuItemCopy</a>。</p>"
+  },
+  "flutter/widgets/SystemContextMenu/isSupported.html": {
+    "0": "<p>当前设备是否支持显示系统上下文菜单。</p>",
+    "1": "<p>目前仅较新版本的 iOS 支持此功能。</p>"
+  },
+  "flutter/widgets/SystemContextMenu/isSupportedByField.html": {
+    "0": "<p>给定字段是否支持显示系统上下文菜单。</p>",
+    "1": "<p>目前，<a href=\"widgets/SystemContextMenu-class.html\">SystemContextMenu</a> 仅支持连接处于活动状态的 <a href=\"services/TextInputConnection-class.html\">TextInputConnection</a>。对于无法满足此条件的情况（例如只读字段），请改用 Flutter 绘制的上下文菜单，例如 <a href=\"material/AdaptiveTextSelectionToolbar-class.html\">AdaptiveTextSelectionToolbar</a>。</p>"
+  },
+  "flutter/widgets/SystemContextMenu/items.html": {
+    "0": "<p>系统上下文菜单中显示的条目列表。</p>",
+    "1": "<p>传入此列表后，无论文本输入处于何种状态，都会显示这些条目。例如，即使没有可复制的选区，<a href=\"widgets/IOSSystemContextMenuItemCopy-class.html\">IOSSystemContextMenuItemCopy</a> 仍会显示复制按钮。可以使用 <a href=\"widgets/EditableTextState-class.html\">EditableTextState</a> 和/或 <a href=\"widgets/SystemContextMenu/getDefaultItems.html\">getDefaultItems</a> 的结果，根据输入状态添加或移除条目。</p>",
+    "2": "<p>默认值为 <a href=\"widgets/SystemContextMenu/getDefaultItems.html\">getDefaultItems</a> 的返回结果。</p>",
+    "3": "<p>若要添加自定义菜单条目，请在 <a href=\"widgets/SystemContextMenu/items.html\">items</a> 列表中传入 <a href=\"widgets/IOSSystemContextMenuItemCustom-class.html\">IOSSystemContextMenuItemCustom</a> 实例。每个自定义条目都必须提供标题和 onPressed 回调。</p>",
+    "4": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/SystemContextMenu/onSystemHide.html": {
+    "0": "<p>系统隐藏此上下文菜单时调用。</p>",
+    "1": "<p>例如，通常在点击上下文菜单外部时，系统会隐藏菜单。</p>",
+    "2": "<p>显示新的系统上下文菜单而导致另一个菜单被隐藏时，不会调用此方法。</p>"
+  },
+  "flutter/widgets/Table-class.html": {
+    "0": "<p>使用表格布局算法排列其子级的 widget。</p>",
+    "2": "<p>如果只有一行，使用 <a href=\"widgets/Row-class.html\">Row</a> widget 更合适。如果只有一列，使用 <a href=\"widgets/SliverList-class.html\">SliverList</a> 或 <a href=\"widgets/Column-class.html\">Column</a> widget 更合适。</p>",
+    "3": "<p>行的垂直尺寸由其内容决定。若要控制各列的宽度，可通过 <a href=\"widgets/Table/columnWidths.html\">columnWidths</a> 属性为每一列指定一个 <a href=\"rendering/TableColumnWidth-class.html\">TableColumnWidth</a>。如果 <a href=\"widgets/Table/columnWidths.html\">columnWidths</a> 为 null，或 <a href=\"widgets/Table/columnWidths.html\">columnWidths</a> 中某一列对应的条目为 null，则表格会改用 <a href=\"widgets/Table/defaultColumnWidth.html\">defaultColumnWidth</a>。</p>",
+    "4": "<p>默认情况下，<a href=\"widgets/Table/defaultColumnWidth.html\">defaultColumnWidth</a> 是 <a href=\"rendering/FlexColumnWidth-class.html\">FlexColumnWidth</a>。此 <a href=\"rendering/TableColumnWidth-class.html\">TableColumnWidth</a> 会分配水平方向的剩余空间，以确定列宽。如果将 <a href=\"widgets/Table-class.html\">Table</a> 放入水平 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 中，请选择其他 <a href=\"rendering/TableColumnWidth-class.html\">TableColumnWidth</a>，例如 <a href=\"rendering/FixedColumnWidth-class.html\">FixedColumnWidth</a>。</p>",
+    "5": "<p>有关表格布局算法的详细信息，请参阅 <a href=\"rendering/RenderTable-class.html\">RenderTable</a>。若要控制子级的对齐方式，请参阅 <a href=\"widgets/TableCell-class.html\">TableCell</a>。</p>",
+    "6": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/Table/children.html": {
+    "0": "<p>表格的各行。</p>",
+    "1": "<p>表格中的每一行都必须具有相同数量的子级。</p>"
+  },
+  "flutter/widgets/Table/columnWidths.html": {
+    "0": "<p>用于确定此表格各列水平范围的方式。</p>",
+    "1": "<p>如果 <a href=\"dart-core/Map-class.html\">Map</a> 中某一列对应的条目为 null，表格会改用 <a href=\"widgets/Table/defaultColumnWidth.html\">defaultColumnWidth</a>。默认情况下，该属性使用弹性布局，在各列之间平均分配剩余空间。</p>",
+    "2": "<p>可以使用 <a href=\"rendering/FixedColumnWidth-class.html\">FixedColumnWidth</a> 类指定以像素为单位的固定宽度。这是确定表格列宽开销最低的方式。</p>",
+    "3": "<p>表格的布局性能在很大程度上取决于此处使用的列宽算法。尤其是 <a href=\"rendering/IntrinsicColumnWidth-class.html\">IntrinsicColumnWidth</a> 开销很高，因为它需要测量列中的每个单元格，才能确定该列的固有尺寸。</p>",
+    "4": "<p>此 Map 的键（列索引）从 0 开始。</p>",
+    "5": "<p>如果设为 null，则会按空 Map 处理。</p>"
+  },
+  "flutter/widgets/Table/defaultColumnWidth.html": {
+    "0": "<p>用于确定未显式指定尺寸算法的列的宽度。</p>",
+    "1": "<p>如果 <code>columnWidths[i]</code> 为 null，则第 <code>i</code> 列使用 <a href=\"widgets/Table/defaultColumnWidth.html\">defaultColumnWidth</a>。默认值为 <a href=\"rendering/FlexColumnWidth-class.html\">FlexColumnWidth</a>，它会在具有相同 <a href=\"rendering/TableColumnWidth-class.html\">TableColumnWidth</a> 类型的列之间平均分配剩余水平空间。</p>",
+    "2": "<p>由于水平空间是无限的，位于水平 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 中的 <a href=\"widgets/Table-class.html\">Table</a> 必须使用 <a href=\"rendering/FixedColumnWidth-class.html\">FixedColumnWidth</a> 或 <a href=\"rendering/IntrinsicColumnWidth-class.html\">IntrinsicColumnWidth</a>。</p>"
+  },
+  "flutter/widgets/Table/defaultVerticalAlignment.html": {
+    "0": "<p>未显式指定垂直对齐方式的单元格所使用的垂直对齐方式。</p>",
+    "1": "<p>可以将单元格内容放入 <a href=\"widgets/TableCell-class.html\">TableCell</a> widget 中，以指定其垂直对齐方式。</p>"
+  },
+  "flutter/widgets/Table/textBaseline.html": {
+    "0": "<p>使用 <a href=\"rendering/TableCellVerticalAlignment.html\">TableCellVerticalAlignment.baseline</a> 对齐各行时所使用的文本基线。</p>",
+    "1": "<p>使用基线对齐时必须设置此属性。它没有默认值，因为框架无法预先知道正确的基线。</p>"
+  },
+  "flutter/widgets/Table/textDirection.html": {
+    "0": "<p>各列的排列方向。</p>",
+    "1": "<p>默认为当前环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>。</p>"
+  },
+  "flutter/widgets/TableCell-class.html": {
+    "0": "<p>用于控制 <a href=\"widgets/Table-class.html\">Table</a> 子级对齐方式的 widget。</p>",
+    "1": "<p><a href=\"widgets/TableCell-class.html\">TableCell</a> widget 必须是 <a href=\"widgets/Table-class.html\">Table</a> 的后代，并且从 <a href=\"widgets/TableCell-class.html\">TableCell</a> 到其所属 <a href=\"widgets/Table-class.html\">Table</a> 的路径上只能包含 <a href=\"widgets/TableRow-class.html\">TableRow</a>、<a href=\"widgets/StatelessWidget-class.html\">StatelessWidget</a> 或 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a>（不能包含其他类型的 widget，例如 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a>）。</p>",
+    "2": "<p>若要创建空的 <a href=\"widgets/TableCell-class.html\">TableCell</a>，请将 <a href=\"widgets/SizedBox/SizedBox.shrink.html\">SizedBox.shrink</a> 作为其 <a href=\"widgets/TableCell/child.html\">child</a>。</p>"
+  },
+  "flutter/widgets/TableRow-class.html": {
+    "0": "<p><a href=\"widgets/Table-class.html\">Table</a> 中的一组水平单元格。</p>",
+    "1": "<p>表格中的每一行都必须具有相同数量的子级。</p>",
+    "2": "<p>可以使用 <a href=\"widgets/TableCell-class.html\">TableCell</a> 控制一行中各个单元格的对齐方式。</p>"
+  },
+  "flutter/widgets/TableRow/children.html": {
+    "0": "<p>组成此行各单元格的 widget。</p>",
+    "1": "<p>可以使用 <a href=\"widgets/TableCell-class.html\">TableCell</a> widget 包裹子级，为 <a href=\"widgets/Table-class.html\">Table</a> 提供单元格级配置；但子级也可以不使用 <a href=\"widgets/TableCell-class.html\">TableCell</a> widget 包裹。</p>"
+  },
+  "flutter/widgets/TableRow/decoration.html": {
+    "0": "<p>绘制在此行后方的装饰。</p>",
+    "1": "<p>与可能无法覆盖整个区域的单元格装饰不同，行装饰会填满表格中每一行的水平和垂直范围。</p>"
+  },
+  "flutter/widgets/TapRegion-class.html": {
+    "0": "<p>定义一个区域的 widget，可检测自身及所属任意区域组内外发生的点击，并且不参与 <a href=\"https://flutter.dev/to/gesture-disambiguation\">手势消歧</a> 系统（若 <a href=\"widgets/TapRegion/consumeOutsideTaps.html\">consumeOutsideTaps</a> 为 true，则会消耗按下事件）。</p>",
+    "1": "<p>此 widget 会告知最近的祖先 <a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a>，其子级占据的区域将参与该 surface 的点击检测。</p>",
+    "2": "<p>如果此区域属于某个组（即设置了 <a href=\"widgets/TapRegion/groupId.html\">groupId</a>），组内所有区域会作为一个整体运行。</p>",
+    "3": "<p>如果没有祖先 <a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a>，<a href=\"widgets/TapRegion-class.html\">TapRegion</a> 不会执行任何操作。</p>",
+    "4": "<p><a href=\"widgets/TapRegion-class.html\">TapRegion</a> 会感知 <a href=\"widgets/Route-class.html\">Route</a> 和 <a href=\"widgets/Navigator-class.html\">Navigator</a>，因此用户导航到其他页面后，不会调用 <a href=\"widgets/TapRegion/onTapOutside.html\">onTapOutside</a> 或 <a href=\"widgets/TapRegion/onTapUpOutside.html\">onTapUpOutside</a>。</p>"
+  },
+  "flutter/widgets/TapRegion/TapRegion.html": {
+    "0": "<p>创建一个 const <a href=\"widgets/TapRegion-class.html\">TapRegion</a>。</p>",
+    "1": "<p>必须提供 <code>child</code> 参数。</p>"
+  },
+  "flutter/widgets/TapRegion/behavior.html": {
+    "0": "<p>进行命中测试时的行为：决定命中测试如何传播到子级，以及是否考虑此 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> 后方的目标。</p>",
+    "1": "<p>默认为 <a href=\"rendering/HitTestBehavior.html\">HitTestBehavior.deferToChild</a>。</p>",
+    "2": "<p>允许的取值及其含义，请参阅 <a href=\"rendering/HitTestBehavior.html\">HitTestBehavior</a>。</p>"
+  },
+  "flutter/widgets/TapRegion/consumeOutsideTaps.html": {
+    "0": "<p>如果为 true，此区域所属的组会停止手势竞技场中所有事件的传播。</p>",
+    "1": "<p>当调用 <a href=\"widgets/TapRegion/onTapOutside.html\">onTapOutside</a> 时，如果要阻止事件传递给 <a href=\"widgets/GestureDetector-class.html\">GestureDetector</a>，此属性会很有用。</p>",
+    "2": "<p>如果其他具有相同 <a href=\"widgets/TapRegion/groupId.html\">groupId</a> 的 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> 将 <a href=\"widgets/TapRegion/consumeOutsideTaps.html\">consumeOutsideTaps</a> 设为 false，而此区域设为 true，则以此区域为准，事件会被消耗。</p>",
+    "3": "<p>默认为 false。</p>"
+  },
+  "flutter/widgets/TapRegion/debugLabel.html": {
+    "0": "<p>可选的调试标签，用于在调试模式下辅助调试。</p>",
+    "1": "<p>发布模式下为 null。</p>"
+  },
+  "flutter/widgets/TapRegion/enabled.html": {
+    "0": "<p>此 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> 是否作为组合区域的一部分启用。</p>"
+  },
+  "flutter/widgets/TapRegion/groupId.html": {
+    "0": "<p>可选的组 ID，用于将多个 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> 组合起来，使其作为一个区域运行。如果组内任一成员被某次点击命中，则不会为组内任何成员调用 <a href=\"widgets/TapRegion/onTapOutside.html\">onTapOutside</a> / <a href=\"widgets/TapRegion/onTapUpOutside.html\">onTapUpOutside</a>。如果组内任一成员被命中，则会为所有成员调用 <a href=\"widgets/TapRegion/onTapInside.html\">onTapInside</a> / <a href=\"widgets/TapRegion/onTapUpInside.html\">onTapUpInside</a>。</p>",
+    "1": "<p>如果组 ID 为 null，则命中测试只针对当前区域。</p>"
+  },
+  "flutter/widgets/TapRegion/onTapInside.html": {
+    "0": "<p>当此 <a href=\"widgets/TapRegion-class.html\">TapRegion</a>内部（或具有相同 <a href=\"widgets/TapRegion/groupId.html\">groupId</a> 的其他点击区域内）检测到点击按下时调用的回调。</p>",
+    "1": "<p>传给该函数的 <a href=\"gestures/PointerDownEvent-class.html\">PointerDownEvent</a> 是触发通知的事件。如果此区域属于某个组（即设置了 <a href=\"widgets/TapRegion/groupId.html\">groupId</a>），该事件可能发生在当前区域之外，但仍位于组内某个成员区域中。</p>",
+    "2": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TapRegion/onTapOutside.html": {
+    "0": "<p>当此 <a href=\"widgets/TapRegion-class.html\">TapRegion</a>外部（或具有相同 <a href=\"widgets/TapRegion/groupId.html\">groupId</a> 的其他点击区域内）检测到点击按下时调用的回调。</p>",
+    "1": "<p>传给该函数的 <a href=\"gestures/PointerDownEvent-class.html\">PointerDownEvent</a> 是触发通知的事件。如果此区域属于某个组（即设置了 <a href=\"widgets/TapRegion/groupId.html\">groupId</a>），该事件可能发生在当前区域之外，但仍位于组内某个成员区域中。</p>",
+    "2": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TapRegion/onTapUpInside.html": {
+    "0": "<p>当此 <a href=\"widgets/TapRegion-class.html\">TapRegion</a>内部（或具有相同 <a href=\"widgets/TapRegion/groupId.html\">groupId</a> 的其他点击区域内）检测到点击抬起时调用的回调。</p>",
+    "1": "<p>传给该函数的 <a href=\"gestures/PointerUpEvent-class.html\">PointerUpEvent</a> 是触发通知的事件。如果此区域属于某个组（即设置了 <a href=\"widgets/TapRegion/groupId.html\">groupId</a>），该事件可能发生在当前区域之外，但仍位于组内某个成员区域中。</p>",
+    "2": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TapRegion/onTapUpOutside.html": {
+    "0": "<p>当此 <a href=\"widgets/TapRegion-class.html\">TapRegion</a>外部（或具有相同 <a href=\"widgets/TapRegion/groupId.html\">groupId</a> 的其他点击区域内）检测到点击抬起时调用的回调。</p>",
+    "1": "<p>传给该函数的 <a href=\"gestures/PointerUpEvent-class.html\">PointerUpEvent</a> 是触发通知的事件。如果此区域属于某个组（即设置了 <a href=\"widgets/TapRegion/groupId.html\">groupId</a>），该事件可能发生在当前区域之外，但仍位于组内某个成员区域中。</p>",
+    "2": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TapRegionCallback.html": {
+    "0": "<p>相对于 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> 的 <a href=\"gestures/PointerDownEvent-class.html\">PointerDownEvent</a> 回调签名。</p>",
+    "1": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TapRegionSurface-class.html": {
+    "0": "<p>提供点击通知的 widget，可检测一组已注册区域内外的点击，且不参与 <a href=\"https://flutter.dev/to/gesture-disambiguation\">手势消歧</a> 系统。</p>",
+    "1": "<p>在感兴趣的区域周围向 widget 树中添加 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> widget 即可定义区域；它们会向此 <a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a> 注册。每个点击区域都可以通过指定 <a href=\"widgets/TapRegion/groupId.html\">TapRegion.groupId</a> 加入某个组，同组中具有相同 groupId 的区域会作为一个整体运行。</p>",
+    "2": "<p>检测到已注册区域或区域组外部的点击按下或抬起时，会分别调用其 <a href=\"widgets/TapRegion/onTapOutside.html\">TapRegion.onTapOutside</a> 或 <a href=\"widgets/TapRegion/onTapUpOutside.html\">TapRegion.onTapUpOutside</a> 回调。如果点击位于组内一个成员之外、但在另一个成员之内，则不会发送通知。</p>",
+    "3": "<p>检测到已注册区域或区域组内部的点击按下或抬起时，会分别调用其 <a href=\"widgets/TapRegion/onTapInside.html\">TapRegion.onTapInside</a> 或 <a href=\"widgets/TapRegion/onTapUpInside.html\">TapRegion.onTapUpInside</a> 回调。如果点击位于组内任一成员中，则会通知所有成员。</p>",
+    "4": "<p><a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a> 应定义在足够高的层级，以覆盖需要监测点击的整个区域，通常是整个应用。如果未覆盖整个应用，<a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a> 外部的点击会被忽略，也不会针对这些事件调用 <a href=\"widgets/TapRegion/onTapOutside.html\">TapRegion.onTapOutside</a> 或 <a href=\"widgets/TapRegion/onTapUpOutside.html\">TapRegion.onTapUpOutside</a>。<a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a>、<a href=\"material/MaterialApp-class.html\">MaterialApp</a> 和 <a href=\"cupertino/CupertinoApp-class.html\">CupertinoApp</a> 会自动在整个应用外层包含一个 <a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a>。</p>",
+    "5": "<p><a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a> 不参与 <a href=\"https://flutter.dev/to/gesture-disambiguation\">手势消歧</a> 系统，因此如果同时有多个 <a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a> 处于活动状态，它们都会触发；由 <a href=\"widgets/GestureDetector-class.html\">GestureDetector</a> 或其他指针事件处理器识别的手势也会触发。</p>",
+    "6": "<p><a href=\"widgets/TapRegion-class.html\">TapRegion</a> 只会向最近的祖先 <a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a> 注册。</p>",
+    "7": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TapRegionRegistry-class.html": {
+    "0": "<p>用于向 <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a>（通常由 <a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a> widget 创建）注册和取消注册 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a>（通常由 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> widget 创建）的接口。</p>"
+  },
+  "flutter/widgets/TapRegionRegistry/maybeOf.html": {
+    "0": "<p>用于查找最近的 <a href=\"widgets/TapRegionRegistry-class.html\">TapRegionRegistry</a>，例如 <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a>。</p>"
+  },
+  "flutter/widgets/TapRegionRegistry/of.html": {
+    "0": "<p>用于查找最近的 <a href=\"widgets/TapRegionRegistry-class.html\">TapRegionRegistry</a>，例如 <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a>。</p>",
+    "1": "<p>找不到 <a href=\"widgets/TapRegionRegistry-class.html\">TapRegionRegistry</a> 时会抛出异常。</p>"
+  },
+  "flutter/widgets/TapRegionRegistry/registerTapRegion.html": {
+    "0": "<p>向注册表注册给定的 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a>。</p>"
+  },
+  "flutter/widgets/TapRegionRegistry/unregisterTapRegion.html": {
+    "0": "<p>从注册表取消注册给定的 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a>。</p>"
+  },
+  "flutter/widgets/TapRegionSurface/TapRegionSurface.html": {
+    "0": "<p>创建一个 const <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a>。</p>",
+    "1": "<p>必须提供 <code>child</code> 属性。</p>"
+  },
+  "flutter/widgets/TapRegionUpCallback.html": {
+    "0": "<p>相对于 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> 的 <a href=\"gestures/PointerUpEvent-class.html\">PointerUpEvent</a> 回调签名。</p>",
+    "1": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/SystemTextScaler/scale.html": {
+    "0": "<p>根据给定的未缩放 <code>fontSize</code>（逻辑像素）计算缩放后的字体大小（逻辑像素）。</p>",
+    "1": "<p>输入的 <code>fontSize</code> 必须是有限的非负数。</p>",
+    "2": "<p>输入相同的 <code>fontSize</code> 时，此方法始终返回相同的值。较大的输入 <code>fontSize</code> 通常会得到较大的输出，但在少数特殊情况下，较大和较小的输入可能产生相同的输出。例如，某些平台使用单精度浮点数表示字号，由于精度截断，两个不同的未缩放字号可能会缩放为相同的值。</p>"
+  },
+  "flutter/widgets/SystemTextScaler/textScaleFactor.html": {
+    "0": "<p>表示用户当前偏好的字体缩放系数的值。</p>",
+    "1": "<p>此数值通常用于比较不同的 <a href=\"widgets/SystemTextScaler-class.html\">SystemTextScaler</a>。如果两个 <a href=\"widgets/SystemTextScaler-class.html\">SystemTextScaler</a> 实例的 <a href=\"widgets/SystemTextScaler/textScaleFactor.html\">textScaleFactor</a> 相同，则认为它们相等，因为给定相同的输入字号时，其 <a href=\"widgets/SystemTextScaler/scale.html\">scale</a> 方法会产生相同的输出。不过，不应在算术运算中使用 <a href=\"widgets/SystemTextScaler/textScaleFactor.html\">textScaleFactor</a>。</p>"
+  },
+  "flutter/widgets/TapBehaviorButtonBuilder.html": {
+    "0": "<p>供 <a href=\"widgets/WidgetInspector/tapBehaviorButtonBuilder.html\">WidgetInspector.tapBehaviorButtonBuilder</a> 使用的 builder 回调签名。</p>"
   }
 }

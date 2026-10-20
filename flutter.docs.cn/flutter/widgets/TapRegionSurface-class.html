@@ -87,42 +87,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;TapRegionSurface-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/tap_region.dart#L138"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">TapRegionSurface</span> 类 
+<h1><span class="kind-class">TapRegionSurface</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A widget that provides notification of a tap inside or outside of a set of
-registered regions, without participating in the <a href="https://flutter.dev/to/gesture-disambiguation">gesture
-disambiguation</a>
-system.</p>
-<p>The regions are defined by adding <a href="widgets/TapRegion-class.html">TapRegion</a> widgets to the widget tree
-around the regions of interest, and they will register with this
-<a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a>. Each of the tap regions can optionally belong to a group
-by assigning a <a href="widgets/TapRegion/groupId.html">TapRegion.groupId</a>, where all the regions with the same
-groupId act as if they were all one region.</p>
-<p>When a tap down or tap up outside of a registered region or region group is
-detected, its <a href="widgets/TapRegion/onTapOutside.html">TapRegion.onTapOutside</a> or <a href="widgets/TapRegion/onTapUpOutside.html">TapRegion.onTapUpOutside</a>
-callback is called, respectively. If the tap is outside one member of a
-group, but inside another, no notification is made.</p>
-<p>When a tap down or tap up inside of a registered region or region group is
-detected, its <a href="widgets/TapRegion/onTapInside.html">TapRegion.onTapInside</a> or <a href="widgets/TapRegion/onTapUpInside.html">TapRegion.onTapUpInside</a>
-callback is called, respectively. If the tap is inside one member of a
-group, all members are notified.</p>
-<p>The <a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> should be defined at the highest level needed to
-encompass the entire area where taps should be monitored. This is typically
-around the entire app. If the entire app isn't covered, then taps outside of
-the <a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> will be ignored and no <a href="widgets/TapRegion/onTapOutside.html">TapRegion.onTapOutside</a> or
-<a href="widgets/TapRegion/onTapUpOutside.html">TapRegion.onTapUpOutside</a> calls will be made for those events. The
-<a href="widgets/WidgetsApp-class.html">WidgetsApp</a>, <a href="material/MaterialApp-class.html">MaterialApp</a> 和 <a href="cupertino/CupertinoApp-class.html">CupertinoApp</a> automatically include a
-<a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> around their entire app.</p>
-<p><a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> does not participate in the <a href="https://flutter.dev/to/gesture-disambiguation">gesture
-disambiguation</a>
-system, so if multiple <a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a>s are active at the same time, they
-will all fire, and so will any other gestures recognized by a
-<a href="widgets/GestureDetector-class.html">GestureDetector</a> or other pointer event handlers.</p>
-<p><a href="widgets/TapRegion-class.html">TapRegion</a>s register only with the nearest ancestor <a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a>.</p>
+  <p>提供点击通知的 widget，可检测一组已注册区域内外的点击，且不参与 <a href="https://flutter.dev/to/gesture-disambiguation">手势消歧</a> 系统。</p>
+<p>在感兴趣的区域周围向 widget 树中添加 <a href="widgets/TapRegion-class.html">TapRegion</a> widget 即可定义区域；它们会向此 <a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> 注册。每个点击区域都可以通过指定 <a href="widgets/TapRegion/groupId.html">TapRegion.groupId</a> 加入某个组，同组中具有相同 groupId 的区域会作为一个整体运行。</p>
+<p>检测到已注册区域或区域组外部的点击按下或抬起时，会分别调用其 <a href="widgets/TapRegion/onTapOutside.html">TapRegion.onTapOutside</a> 或 <a href="widgets/TapRegion/onTapUpOutside.html">TapRegion.onTapUpOutside</a> 回调。如果点击位于组内一个成员之外、但在另一个成员之内，则不会发送通知。</p>
+<p>检测到已注册区域或区域组内部的点击按下或抬起时，会分别调用其 <a href="widgets/TapRegion/onTapInside.html">TapRegion.onTapInside</a> 或 <a href="widgets/TapRegion/onTapUpInside.html">TapRegion.onTapUpInside</a> 回调。如果点击位于组内任一成员中，则会通知所有成员。</p>
+<p><a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> 应定义在足够高的层级，以覆盖需要监测点击的整个区域，通常是整个应用。如果未覆盖整个应用，<a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> 外部的点击会被忽略，也不会针对这些事件调用 <a href="widgets/TapRegion/onTapOutside.html">TapRegion.onTapOutside</a> 或 <a href="widgets/TapRegion/onTapUpOutside.html">TapRegion.onTapUpOutside</a>。<a href="widgets/WidgetsApp-class.html">WidgetsApp</a>、<a href="material/MaterialApp-class.html">MaterialApp</a> 和 <a href="cupertino/CupertinoApp-class.html">CupertinoApp</a> 会自动在整个应用外层包含一个 <a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a>。</p>
+<p><a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> 不参与 <a href="https://flutter.dev/to/gesture-disambiguation">手势消歧</a> 系统，因此如果同时有多个 <a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> 处于活动状态，它们都会触发；由 <a href="widgets/GestureDetector-class.html">GestureDetector</a> 或其他指针事件处理器识别的手势也会触发。</p>
+<p><a href="widgets/TapRegion-class.html">TapRegion</a> 只会向最近的祖先 <a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a> 注册。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a>, the render object that is inserted into the

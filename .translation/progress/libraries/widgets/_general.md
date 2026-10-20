@@ -1,62 +1,11 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,347 页，部分翻译 225 页，未翻译 680 页；正文已译 22,502/24,807 段。
+模块共 8,093 页：已完整 6,387 页，部分翻译 211 页，未翻译 654 页；正文已译 22,604/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/SystemContextMenu-class.html` — 部分；已译 2/9 段；待译段落：0, 1, 2, 3, 4, 5, 6
-
-- `flutter/widgets/SystemContextMenu/getDefaultItems.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/SystemContextMenu/isSupported.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/SystemContextMenu/isSupportedByField.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/SystemContextMenu/items.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/SystemContextMenu/onSystemHide.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SystemTextScaler/scale.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SystemTextScaler/textScaleFactor.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Table-class.html` — 部分；已译 2/7 段；待译段落：0, 2, 3, 4, 5
-
-- `flutter/widgets/Table/children.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Table/columnWidths.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-
-- `flutter/widgets/Table/defaultColumnWidth.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Table/defaultVerticalAlignment.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Table/textBaseline.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Table/textDirection.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/TableCell-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/TableRow-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/TableRow/children.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TableRow/decoration.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/TapBehaviorButtonBuilder.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TapRegion-class.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
-- `flutter/widgets/TapRegion/TapRegion.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TapRegion/behavior.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TapRegion/consumeOutsideTaps.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-
-- `flutter/widgets/TapRegion/debugLabel.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TapRegion/enabled.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TapRegion/groupId.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TapRegion/onTapInside.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/TapRegion/onTapOutside.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/TapRegion/onTapUpInside.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/TapRegion/onTapUpOutside.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/TapRegionCallback.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/TapRegionRegistry-class.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TapRegionRegistry/maybeOf.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TapRegionRegistry/of.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TapRegionRegistry/registerTapRegion.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TapRegionRegistry/unregisterTapRegion.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TapRegionSurface-class.html` — 部分；已译 2/8 段；待译段落：0, 1, 2, 3, 5, 6
-- `flutter/widgets/TapRegionSurface/TapRegionSurface.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/TapRegionUpCallback.html` — 部分；已译 1/2 段；待译段落：0
 - `flutter/widgets/Text-class.html` — 部分；已译 5/20 段；待译段落：0, 1, 2, 3, 5, 6, 7, 8, 10, 12, 13, 14, 15, 16, 17
 - `flutter/widgets/Text/Text.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/Text/Text.rich.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
