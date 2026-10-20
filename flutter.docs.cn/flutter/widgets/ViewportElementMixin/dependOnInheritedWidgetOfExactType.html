@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/framework.dart#L5094"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">dependOnInheritedWidgetOfExactType&lt;<wbr><span class="type-parameter">T extends InheritedWidget</span>&gt;</span> 方法 
+<h1><span class="kind-method">dependOnInheritedWidgetOfExactType&lt;<wbr><span class="type-parameter">T extends InheritedWidget</span>&gt;</span> 方法
 </h1></div>
 
     <section class="multi-line-signature">
@@ -107,44 +107,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Returns the nearest widget of the given type <code>T</code> and creates a dependency
-on it, or null if no appropriate widget is found.</p>
-<p>The widget found will be a concrete <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> subclass, and
-calling <a href="widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html">dependOnInheritedWidgetOfExactType</a> registers this build context
-with the returned widget. When that widget changes (or a new widget of
-that type is introduced, or the widget goes away), this build context is
-rebuilt so that it can obtain new values from that widget.</p>
-<p>This is typically called implicitly from <code>of()</code> static methods, e.g.
-<a href="material/Theme/of.html">Theme.of</a>.</p>
-<p>This method should not be called from widget constructors or from
-<a href="widgets/State/initState.html">State.initState</a> methods. While calling this method effectively registers
-the <a href="widgets/BuildContext-class.html">BuildContext</a> as a dependent for future rebuilds, the constructor and
-<a href="widgets/State/initState.html">State.initState</a> are lifecycle-locked and only execute once during the
-initial creation of the element.</p>
-<p>If an inherited value changes later, the framework will correctly trigger
-the <a href="widgets/State/build.html">State.build</a> method to run again, but it cannot re-run the
-constructor or <a href="widgets/State/initState.html">State.initState</a>. Consequently, if any internal variables,
-controllers, or side effects were initialized using a "snapshot" of the
-inherited value in those one-time methods, they will retain their original,
-now-obsolete values. This leads to a state desynchronization where the
-widget's <a href="widgets/State/build.html">State.build</a> method might be using updated data while its
-internal logic remains bound to stale data captured during <a href="widgets/State/initState.html">State.initState</a>.</p>
-<p>To ensure the widget stays in sync, call this (directly or indirectly)
-from build methods, layout and paint callbacks, or from <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a>.</p>
-<p><a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> is called immediately after <a href="widgets/State/initState.html">State.initState</a>
-and is re-invoked whenever the inherited widget this context depends on
-changes, until the next time the widget or one of its ancestors is moved
-(for example, because an ancestor is added or removed). This allows the
-<a href="widgets/State-class.html">State</a> to update internal variables or perform initialization logic that
-depends on the inherited value before <a href="widgets/State/build.html">State.build</a> is called.</p>
+  <p>返回给定类型 <code>T</code> 的最近祖先 widget，并建立对此 widget 的依赖；如果找不到合适的 widget，则返回 null。</p>
+<p>找到的 widget 将是具体 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 子类。调用 <a href="widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html">dependOnInheritedWidgetOfExactType</a> 会将此 build context 注册为依赖于返回的 widget。当该 widget 发生变化（或新增同类型 widget，或该 widget 被移除）时，此 build context 会重建，以便获取该 widget 的新值。</p>
+<p>通常会从 <code>of()</code> 静态方法中隐式调用此方法，例如 <a href="material/Theme/of.html">Theme.of</a>。</p>
+<p>不应从 widget 构造函数或 <a href="widgets/State/initState.html">State.initState</a> 方法中调用此方法。虽然调用此方法实际上会将 <a href="widgets/BuildContext-class.html">BuildContext</a> 注册为依赖项，以便后续重建，但构造函数和 <a href="widgets/State/initState.html">State.initState</a> 受生命周期限制，在 element 初次创建时只执行一次。</p>
+<p>如果继承值之后发生变化，框架会正确地再次调用 <a href="widgets/State/build.html">State.build</a>，但无法重新运行构造函数或 <a href="widgets/State/initState.html">State.initState</a>。因此，如果这些只执行一次的方法使用继承值的“快照”初始化了内部变量、控制器或副作用，它们会保留原先已过时的值。这会造成状态不同步：widget 的 <a href="widgets/State/build.html">State.build</a> 可能使用更新后的数据，而内部逻辑仍依赖在 <a href="widgets/State/initState.html">State.initState</a> 中捕获的旧数据。</p>
+<p>为确保 widget 保持同步，应在 build 方法、布局和绘制回调中直接或间接调用此方法，或在 <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 中调用。</p>
+<p><a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 会在 <a href="widgets/State/initState.html">State.initState</a> 之后立即调用；只要此 context 所依赖的继承 widget 发生变化，它就会再次调用，直到该 widget 或其某个祖先下次移动为止（例如添加或移除祖先）。这样，在调用 <a href="widgets/State/build.html">State.build</a> 之前，<a href="widgets/State-class.html">State</a> 可以更新内部变量或执行依赖继承值的初始化逻辑。</p>
 <p>当时元素树已不再稳定，因此不能在 <a href="widgets/State/dispose.html">State.dispose</a> 中调用此方法。若要在该方法中引用祖先，应在 <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 中保存对祖先的引用。可以在 <a href="widgets/State/deactivate.html">State.deactivate</a> 中安全地调用此方法；每当组件从树中移除时都会调用该方法。</p>
 <p>也可以在交互事件处理器（例如手势回调）或定时器中调用此方法来获取一次性值，前提是之后不缓存或重复使用该值。</p>
-<p>Calling this method is O(1) with a small constant factor, but will lead to
-the widget being rebuilt more often.</p>
-<p>The <code>aspect</code> parameter is only used when <code>T</code> is an
-<a href="widgets/InheritedWidget-class.html">InheritedWidget</a> subclasses that supports partial updates, like
-<a href="widgets/InheritedModel-class.html">InheritedModel</a>. It specifies what "aspect" of the inherited
-widget this context depends on.</p>
+<p>也可以在交互事件处理程序（例如手势回调）或定时器中调用此方法，以获取一次性的值；前提是之后不缓存或重用该值。</p>
+<p><code>aspect</code> 参数仅在 <code>T</code> 为支持局部更新的 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 子类（例如 <a href="widgets/InheritedModel-class.html">InheritedModel</a>）时使用。它指定此 context 所依赖的继承 widget 的哪个“方面”。</p>
 </section>
 
 

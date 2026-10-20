@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the updateChildren method from the ViewportElementMixin mixin, for the Dart programming language.">
-  <title>updateChildren method - ViewportElementMixin mixin - widgets library - Dart API</title>
+  <title>updateChildren method - ViewportElementMixin mixin - widgets 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets.dart</a></li>
     <li><a href="widgets/ViewportElementMixin-mixin.html">ViewportElementMixin</a></li>
-    <li class="self-crumb">updateChildren method</li>
+    <li class="self-crumb">updateChildren 方法</li>
   </ol>
   <div class="self-name">updateChildren</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,8 +87,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="widgets&#47;ViewportElementMixin-mixin-sidebar.html"
     data-below-sidebar="">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/framework.dart#L4138"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">updateChildren</span> method 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/framework.dart#L4138"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">updateChildren</span> 方法
 </h1></div>
 
     <section class="multi-line-signature">
@@ -105,59 +105,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><span class="parameter" id="updateChildren-param-slots"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a>?</span>&gt;</span>?</span> <span class="parameter-name">slots</span>, </span></li>
 </ol>})
 
-      <div class="features"><span class="feature">inherited</span></div>
+      <div class="features"><span class="feature">继承</span></div>
 
     </section>
     
 <section class="desc markdown">
-  <p>Updates the children of this element to use new widgets.</p>
-<p>Attempts to update the given old children list using the given new
-widgets, removing obsolete elements and introducing new ones as necessary,
-and then returns the new child list.</p>
-<p>During this function the <code>oldChildren</code> list must not be modified. If the
-caller wishes to remove elements from <code>oldChildren</code> reentrantly while
-this function is on the stack, the caller can supply a <code>forgottenChildren</code>
-argument, which can be modified while this function is on the stack.
-Whenever this function reads from <code>oldChildren</code>, this function first
-checks whether the child is in <code>forgottenChildren</code>. If it is, the function
-acts as if the child was not in <code>oldChildren</code>.</p>
-<p>This function is a convenience wrapper around <a href="widgets/Element/updateChild.html">updateChild</a>, which updates
-each individual child. If <code>slots</code> is non-null, the value for the <code>newSlot</code>
-argument of <a href="widgets/Element/updateChild.html">updateChild</a> is retrieved from that list using the index that
-the currently processed <code>child</code> corresponds to in the <code>newWidgets</code> list
-(<code>newWidgets</code> and <code>slots</code> must have the same length). If <code>slots</code> is null,
-an <a href="widgets/IndexedSlot-class.html">IndexedSlot&lt;Element&gt;</a> is used as the value for the <code>newSlot</code> argument.
-In that case, <a href="widgets/IndexedSlot/index.html">IndexedSlot.index</a> is set to the index that the currently
-processed <code>child</code> corresponds to in the <code>newWidgets</code> list and
-<a href="widgets/IndexedSlot/value.html">IndexedSlot.value</a> is set to the <a href="widgets/Element-class.html">Element</a> of the previous widget in that
-list (or null if it is the first child).</p>
-<p>When the <a href="widgets/Element/slot.html">slot</a> value of an <a href="widgets/Element-class.html">Element</a> changes, its
-associated <a href="widgets/Element/renderObject.html">renderObject</a> needs to move to a new position in the child
-list of its parents. If that <a href="rendering/RenderObject-class.html">RenderObject</a> organizes its children in a
-linked list (as is done by the <a href="rendering/ContainerRenderObjectMixin-mixin.html">ContainerRenderObjectMixin</a>) this can
-be implemented by re-inserting the child <a href="rendering/RenderObject-class.html">RenderObject</a> into the
-list after the <a href="rendering/RenderObject-class.html">RenderObject</a> associated with the <a href="widgets/Element-class.html">Element</a> provided as
-<a href="widgets/IndexedSlot/value.html">IndexedSlot.value</a> in the <a href="widgets/Element/slot.html">slot</a> object.</p>
-<p>Using the previous sibling as a <a href="widgets/Element/slot.html">slot</a> is not enough, though, because
-child <a href="rendering/RenderObject-class.html">RenderObject</a>s are only moved around when the <a href="widgets/Element/slot.html">slot</a> of their
-associated <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a>s is updated. When the order of child
-<a href="widgets/Element-class.html">Element</a>s is changed, some elements in the list may move to a new index
-but still have the same previous sibling. For example, when
-<code>[e1, e2, e3, e4]</code> is changed to <code>[e1, e3, e4, e2]</code> the element e4
-continues to have e3 as a previous sibling even though its index in the list
-has changed and its <a href="rendering/RenderObject-class.html">RenderObject</a> needs to move to come before e2's
-<a href="rendering/RenderObject-class.html">RenderObject</a>. In order to trigger this move, a new <a href="widgets/Element/slot.html">slot</a> value needs to
-be assigned to its <a href="widgets/Element-class.html">Element</a> whenever its index in its
-parent's child list changes. Using an <a href="widgets/IndexedSlot-class.html">IndexedSlot&lt;Element&gt;</a> achieves
-exactly that and also ensures that the underlying parent <a href="rendering/RenderObject-class.html">RenderObject</a>
-knows where a child needs to move to in a linked list by providing its new
-previous sibling.</p>
+  <p>更新此 element 的子级，使其使用新的 widget。</p>
+<p>尝试使用给定的新 widget 列表更新旧子级列表，按需移除过时 element 并添加新 element，然后返回新的子级列表。</p>
+<p>此函数运行期间不得修改 <code>oldChildren</code> 列表。如果调用方希望在此函数仍在调用栈中时重入并移除 <code>oldChildren</code> 中的 element，可以提供 <code>forgottenChildren</code> 参数；函数执行期间允许修改该参数。每次读取 <code>oldChildren</code> 时，函数都会先检查对应子级是否位于 <code>forgottenChildren</code> 中。如果在其中，就会按该子级不在 <code>oldChildren</code> 中的方式处理。</p>
+<p>此函数是对 <a href="widgets/Element/updateChild.html">updateChild</a> 的便捷封装，后者负责更新每个子级。如果 <code>slots</code> 不为 null，则会根据当前处理的 <code>child</code> 在 <code>newWidgets</code> 列表中的索引，从该列表获取 <a href="widgets/Element/updateChild.html">updateChild</a> 的 <code>newSlot</code> 参数值（<code>newWidgets</code> 和 <code>slots</code> 的长度必须相同）。如果 <code>slots</code> 为 null，则使用 <a href="widgets/IndexedSlot-class.html">IndexedSlot&lt;Element&gt;</a> 作为 <code>newSlot</code> 参数值。此时，<a href="widgets/IndexedSlot/index.html">IndexedSlot.index</a> 设为当前 <code>child</code> 在 <code>newWidgets</code> 列表中的索引，而 <a href="widgets/IndexedSlot/value.html">IndexedSlot.value</a> 设为该列表中前一个 widget 对应的 <a href="widgets/Element-class.html">Element</a>；如果当前子级是第一个，则为 null。</p>
+<p><a href="widgets/Element/slot.html">slot</a> 值发生变化时，<a href="widgets/Element-class.html">Element</a> 关联的 <a href="widgets/Element/renderObject.html">renderObject</a> 需要在父级的子级列表中移动到新位置。如果 <a href="rendering/RenderObject-class.html">RenderObject</a> 使用链表组织子级（例如 <a href="rendering/ContainerRenderObjectMixin-mixin.html">ContainerRenderObjectMixin</a>），可以将子 <a href="rendering/RenderObject-class.html">RenderObject</a> 重新插入链表，并放在与 <a href="widgets/Element-class.html">Element</a> 关联、且由 <a href="widgets/Element/slot.html">slot</a> 对象中 <a href="widgets/IndexedSlot/value.html">IndexedSlot.value</a> 指定的 <a href="rendering/RenderObject-class.html">RenderObject</a> 之后。</p>
+<p>不过，仅将前一个同级元素用作 <a href="widgets/Element/slot.html">slot</a> 还不够，因为只有关联的 <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a> 的 <a href="widgets/Element/slot.html">slot</a> 更新时，子 <a href="rendering/RenderObject-class.html">RenderObject</a> 才会移动。当子 <a href="widgets/Element-class.html">Element</a> 的顺序变化时，列表中某些 element 的索引可能改变，但前一个同级元素仍相同。例如，将 <code>[e1, e2, e3, e4]</code> 改为 <code>[e1, e3, e4, e2]</code> 后，e4 的前一个同级元素仍是 e3，尽管它在列表中的索引已变化，而且它的 <a href="rendering/RenderObject-class.html">RenderObject</a> 需要移动到 e2 的 <a href="rendering/RenderObject-class.html">RenderObject</a> 之前。为触发此次移动，只要子级在父级子级列表中的索引变化，就需要为其 <a href="widgets/Element-class.html">Element</a> 重新设置 <a href="widgets/Element/slot.html">slot</a> 值。使用 <a href="widgets/IndexedSlot-class.html">IndexedSlot&lt;Element&gt;</a> 正好可以实现这一点，也会通过提供新的前一个同级元素，确保底层父级 <a href="rendering/RenderObject-class.html">RenderObject</a> 知道子级在链表中应移动到的位置。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">@protected
 List&lt;Element&gt; updateChildren(
   List&lt;Element&gt; oldChildren,
@@ -351,14 +315,14 @@ List&lt;Element&gt; updateChildren(
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets</a></li>
     <li><a href="widgets/ViewportElementMixin-mixin.html">ViewportElementMixin</a></li>
-    <li class="self-crumb">updateChildren method</li>
+    <li class="self-crumb">updateChildren 方法</li>
 </ol>
 
     <h5>ViewportElementMixin mixin</h5>
@@ -384,7 +348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 
