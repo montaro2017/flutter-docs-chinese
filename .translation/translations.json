@@ -22258,7 +22258,7 @@
     "3": "<p>The animation is further customized by providing a <a href=\"widgets/ImplicitlyAnimatedWidget/curve.html\">curve</a> 和 <a href=\"widgets/ImplicitlyAnimatedWidget/duration.html\">duration</a>.</p>",
     "4": "<p>The current value of the animation along with the <a href=\"widgets/TweenAnimationBuilder/child.html\">child</a> is passed to\nthe <a href=\"widgets/TweenAnimationBuilder/builder.html\">builder</a> callback, which is expected to build a <a href=\"widgets/Widget-class.html\">Widget</a> based on the\ncurrent animation value. The <a href=\"widgets/TweenAnimationBuilder/builder.html\">builder</a> is called throughout the animation\nfor every animation value until <a href=\"animation/Tween/end.html\">Tween.end</a> 。</p>",
     "6": "<h2 id=\"performance-optimizations\">性能优化</h2>",
-    "14": "<p>\n<a name=\"widgets.TweenAnimationBuilder.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\nThis example shows an <a href=\"material/IconButton-class.html\">IconButton</a> that \"zooms\" in when the widget first\nbuilds (its size smoothly increases from 0 to 24) and whenever the button\nis pressed, it smoothly changes its size to the new target value of either\n48 or 24.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.TweenAnimationBuilder.1');\" onclick=\"fixHref(this, 'widgets.TweenAnimationBuilder.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.TweenAnimationBuilder.1 mysample</span>\n        </p>",
+    "14": "<p>\n<a name=\"widgets.TweenAnimationBuilder.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n此示例展示一个 <a href=\"material/IconButton-class.html\">IconButton</a>：widget 首次构建时会以“缩放”效果进入（尺寸从 0 平滑增至 24）；每次点击按钮时，尺寸也会平滑地变为新的目标值 48 或 24。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.TweenAnimationBuilder.1');\" onclick=\"fixHref(this, 'widgets.TweenAnimationBuilder.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>若要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.TweenAnimationBuilder.1 mysample</span>\n        </p>",
     "18": "<p>另请参阅：</p>"
   },
   "widgets/TwoDimensionalChildBuilderDelegate-class.html": {
@@ -263621,5 +263621,315 @@
   },
   "widgets/TreeSliver/indentation.html": {
     "3": "<p>\n<a name=\"rendering.TreeSliverIndentationType.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n此示例展示经过高度自定义的 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a>，其缩进配置为 <a href=\"rendering/TreeSliverIndentationType/none-constant.html\">TreeSliverIndentationType.none</a>。这样，开发者就可以在 <a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 中自行处理缩进，并使用装饰填充缩进区域。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'rendering.TreeSliverIndentationType.1');\" onclick=\"fixHref(this, 'rendering.TreeSliverIndentationType.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>若要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=rendering.TreeSliverIndentationType.1 mysample</span>\n        </p>"
+  },
+  "flutter/widgets/TreeSliverController/of.html": {
+    "0": "<p>查找包含给定 context 的最近 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 实例所对应的 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a>。</p>",
+    "1": "<p>如果没有 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 包含给定 context，调试模式下会触发断言，发布模式下会抛出异常。</p>",
+    "2": "<p>如果没有 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 时要返回 null，请改用 <a href=\"widgets/TreeSliverController/maybeOf.html\">maybeOf</a>。</p>",
+    "3": "<p>通常会在 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 后代的 <code>build</code> 方法中调用 <a href=\"widgets/TreeSliverController/of.html\">TreeSliverController.of</a> 函数。</p>",
+    "4": "<p>如果在同一个 <code>build</code> 函数中创建 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a>，并定义引用控制器的回调，则不能使用该 <code>build</code> 函数的 <code>context</code> 参数查找 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a>（因为它位于返回的 widget 树中当前 widget 的“上方”）。这种情况下，可以添加 <a href=\"widgets/Builder-class.html\">Builder</a> widget，创建一个新的作用域，并提供位于 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a>“下方”的 <a href=\"widgets/BuildContext-class.html\">BuildContext</a>。</p>"
+  },
+  "flutter/widgets/TreeSliverController/toggleNode.html": {
+    "0": "<p>切换给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的展开状态。</p>",
+    "1": "<p>可能会根据 <a href=\"widgets/TreeSliver/toggleAnimationStyle.html\">TreeSliver.toggleAnimationStyle</a> 播放动画，以显示或隐藏节点的子级。</p>",
+    "2": "<p>如果节点没有子级，则不会执行任何操作。</p>"
+  },
+  "flutter/widgets/TreeSliverNode-class.html": {
+    "0": "<p>用于配置 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 子级的数据结构。</p>",
+    "1": "<p><code>TreeSliverNode.content</code> 可以是任意 <code>T</code> 类型，但必须与 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 使用相同的类型。</p>",
+    "2": "<p><a href=\"widgets/TreeSliverNode/depth.html\">depth</a>、<a href=\"widgets/TreeSliverNode/parent.html\">parent</a> 和 <a href=\"widgets/TreeSliverNode/isExpanded.html\">isExpanded</a> getter 返回的值由 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 的状态管理。</p>"
+  },
+  "flutter/widgets/TreeSliverNode/TreeSliverNode.html": {
+    "0": "<p>创建一个供 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 使用的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 实例。</p>"
+  },
+  "flutter/widgets/TreeSliverNode/children.html": {
+    "0": "<p>此节点的子节点，也就是将此节点作为 <a href=\"widgets/TreeSliverNode/parent.html\">parent</a> 的其他 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>",
+    "1": "<p>修改 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 中节点的子级会导致树重建，以便在树中反映新添加的活动节点。</p>"
+  },
+  "flutter/widgets/TreeSliverNode/content.html": {
+    "0": "<p>节点所包含的内容。</p>",
+    "1": "<p>内容类型必须与 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 的类型相对应。</p>"
+  },
+  "flutter/widgets/TreeSliverNode/depth.html": {
+    "0": "<p>从此节点到树根之间的父节点数量。</p>"
+  },
+  "flutter/widgets/TreeSliverNode/isExpanded.html": {
+    "0": "<p>此节点在树中是否已展开。</p>",
+    "1": "<p>没有子级时无法展开。</p>"
+  },
+  "flutter/widgets/TreeSliverNode/parent.html": {
+    "0": "<p>此节点的父级 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>"
+  },
+  "flutter/widgets/TreeSliverNodeBuilder.html": {
+    "0": "<p>用于创建代表 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 中给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的 <a href=\"widgets/Widget-class.html\">Widget</a> 的函数签名。</p>",
+    "1": "<p><a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 使用此函数按需构建树行。</p>"
+  },
+  "flutter/widgets/TreeSliverNodeCallback.html": {
+    "0": "<p><a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 切换展开状态时调用的函数签名。</p>"
+  },
+  "flutter/widgets/TreeSliverRowExtentBuilder.html": {
+    "0": "<p>返回给定 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 中 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 范围的函数签名。</p>",
+    "1": "<p><a href=\"widgets/TreeSliver/treeRowExtentBuilder.html\">TreeSliver.treeRowExtentBuilder</a> 使用此函数按需调整树行尺寸。提供的 <a href=\"rendering/SliverLayoutDimensions-class.html\">SliverLayoutDimensions</a> 包含当前滚动状态和 <a href=\"widgets/Viewport-class.html\">Viewport</a> 尺寸信息。</p>"
+  },
+  "flutter/widgets/TreeSliverStateMixin-mixin.html": {
+    "0": "<p>供实现树结构的类使用的 mixin，树结构应符合 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a> 的预期。</p>",
+    "1": "<p><a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 使用此 mixin 为 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a> 实现接口。</p>",
+    "2": "<p>这样，其他实现此接口的 widget 也可以使用 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a>。</p>",
+    "3": "<p>类型 <code>T</code> 与 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 和 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的类型相对应，表示 <a href=\"widgets/TreeSliverNode/content.html\">TreeSliverNode.content</a> 的类型。</p>"
+  },
+  "flutter/widgets/TreeSliverStateMixin/collapseAll.html": {
+    "0": "<p>折叠树中的所有父级 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>"
+  },
+  "flutter/widgets/TreeSliverStateMixin/expandAll.html": {
+    "0": "<p>展开树中的所有父级 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>"
+  },
+  "flutter/widgets/TreeSliverStateMixin/getActiveIndexFor.html": {
+    "0": "<p>返回给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 当前所在的行索引。</p>",
+    "1": "<p>如果节点当前不在树的活动路径中（即其父节点已折叠），则返回 null。</p>"
+  },
+  "flutter/widgets/TreeSliverStateMixin/getNodeFor.html": {
+    "0": "<p>如果存在，返回包含相关内容的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>",
+    "1": "<p>如果不存在对应节点，则返回 null。此结果不表示节点是否处于活动状态（参见 <a href=\"widgets/TreeSliverStateMixin/isActive.html\">isActive</a>），也不表示节点当前是否在视口中可见。</p>"
+  },
+  "flutter/widgets/TreeSliverStateMixin/isActive.html": {
+    "0": "<p>给定的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 是否位于其父级 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的范围内。</p>",
+    "1": "<p>如果 <a href=\"widgets/TreeSliverNode/parent.html\">TreeSliverNode.parent</a> 已展开（参见 <a href=\"widgets/TreeSliverStateMixin/isExpanded.html\">isExpanded</a>，且其所有父节点也都已展开），或者给定节点是根节点，则该节点处于活动状态，此方法返回 true。此结果不表示节点是否在 <a href=\"widgets/Viewport-class.html\">Viewport</a> 中可见。</p>"
+  },
+  "flutter/widgets/TreeSliverStateMixin/isExpanded.html": {
+    "0": "<p>返回给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 是否已展开。</p>"
+  },
+  "flutter/widgets/TreeSliverStateMixin/toggleNode.html": {
+    "0": "<p>切换给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的展开状态。</p>",
+    "1": "<p>可能会根据 <a href=\"widgets/TreeSliver/toggleAnimationStyle.html\">TreeSliver.toggleAnimationStyle</a> 播放动画，以显示或隐藏节点的子级。</p>",
+    "2": "<p>如果节点没有子级，则不会执行任何操作。</p>"
+  },
+  "flutter/widgets/TweenAnimationBuilder-class.html": {
+    "0": "<p>当目标值变化时，将 <a href=\"widgets/Widget-class.html\">Widget</a> 的某个属性动画过渡到目标值的 <a href=\"widgets/Widget-class.html\">Widget</a> 构建器。</p>",
+    "1": "<p>动画属性的类型（例如 <a href=\"dart-ui/Color-class.html\">Color</a>、<a href=\"dart-ui/Rect-class.html\">Rect</a>、<a href=\"dart-core/double-class.html\">double</a> 等）由所提供的 <a href=\"widgets/TweenAnimationBuilder/tween.html\">tween</a> 类型决定（例如 <a href=\"animation/ColorTween-class.html\">ColorTween</a>、<a href=\"animation/RectTween-class.html\">RectTween</a>、<a href=\"animation/Tween-class.html\">Tween&lt;double&gt;</a> 等）。</p>",
+    "2": "<p><a href=\"widgets/TweenAnimationBuilder/tween.html\">tween</a> 也定义动画的目标值：widget 首次构建时，会从 <a href=\"animation/Tween/begin.html\">Tween.begin</a> 动画过渡到 <a href=\"animation/Tween/end.html\">Tween.end</a>。随时都可以通过提供具有新 <a href=\"animation/Tween/end.html\">Tween.end</a> 值的新 <a href=\"widgets/TweenAnimationBuilder/tween.html\">tween</a> 来触发新动画。新动画会从当前动画值开始（如果旧动画已完成，该值可能是旧 <a href=\"widgets/TweenAnimationBuilder/tween.html\">tween</a> 的 <a href=\"animation/Tween/end.html\">Tween.end</a>），并过渡到新 <a href=\"widgets/TweenAnimationBuilder/tween.html\">tween</a> 的 <a href=\"animation/Tween/end.html\">Tween.end</a>。</p>",
+    "5": "<p>每当动画完成时，都会调用所提供的 <a href=\"widgets/ImplicitlyAnimatedWidget/onEnd.html\">onEnd</a> 回调。注册 <a href=\"widgets/ImplicitlyAnimatedWidget/onEnd.html\">此回调</a>可在当前动画结束时触发操作，例如启动另一段动画。</p>",
+    "7": "<p>如果 <a href=\"widgets/TweenAnimationBuilder/builder.html\">builder</a> 函数包含不依赖动画的子树，那么只构建一次该子树，比每次动画帧都重新构建更高效。</p>",
+    "8": "<p>如果将预先构建的子树作为 <a href=\"widgets/TweenAnimationBuilder/child.html\">child</a> 参数传入，AnimatedBuilder 会将它传回 builder 函数，以便纳入构建结果。</p>",
+    "9": "<p>使用此预构建子级完全可选，但在某些情况下可以显著提升性能，因此这是一个良好实践。</p>",
+    "10": "<h2 id=\"ownership-of-the-tween\">对 <a href=\"animation/Tween-class.html\">Tween</a> 的所有权</h2>",
+    "11": "<p><a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 会完全接管所提供的 <a href=\"widgets/TweenAnimationBuilder/tween.html\">tween</a> 实例，并修改它。将 <a href=\"animation/Tween-class.html\">Tween</a> 传给 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 后，不应再访问或更改其属性，以免干扰 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a>。</p>",
+    "12": "<p>建议不要将传给 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 的 <a href=\"animation/Tween-class.html\">Tween</a> 保存在实例变量中，以免意外修改 <a href=\"animation/Tween-class.html\">它</a>。</p>",
+    "13": "<h2 id=\"example-code\">示例代码</h2>",
+    "15": "<h2 id=\"relationship-to-implicitlyanimatedwidgets-and-animatedwidgets\">与 <a href=\"widgets/ImplicitlyAnimatedWidget-class.html\">ImplicitlyAnimatedWidget</a> 和 <a href=\"widgets/AnimatedWidget-class.html\">AnimatedWidget</a> 的关系</h2>",
+    "16": "<p><a href=\"widgets/ImplicitlyAnimatedWidget-class.html\">ImplicitlyAnimatedWidget</a> 有许多子类，为常规 widget 提供带动画的版本。这些子类（例如 <a href=\"widgets/AnimatedOpacity-class.html\">AnimatedOpacity</a>、<a href=\"widgets/AnimatedContainer-class.html\">AnimatedContainer</a>、<a href=\"widgets/AnimatedSize-class.html\">AnimatedSize</a> 等）会平滑地动画过渡其属性变化，比这种通用构建器更容易使用。不过，<a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 本身也是 <a href=\"widgets/ImplicitlyAnimatedWidget-class.html\">ImplicitlyAnimatedWidget</a> 的子类，适合将任意 widget 属性动画过渡到指定目标值，即使 Flutter 框架或第三方 widget 库没有提供该 widget 的动画版本也可以使用。</p>",
+    "17": "<p>这些 <a href=\"widgets/ImplicitlyAnimatedWidget-class.html\">ImplicitlyAnimatedWidget</a>（包括 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a>）都会管理内部的 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 来驱动动画。如果除了设置目标值、<a href=\"widgets/ImplicitlyAnimatedWidget/duration.html\">duration</a> 和 <a href=\"widgets/ImplicitlyAnimatedWidget/curve.html\">curve</a> 以外，还需要更多动画控制，可以查看 <a href=\"widgets/AnimatedWidget-class.html\">AnimatedWidget</a> 的子类。使用这些类时，必须手动管理 <a href=\"animation/AnimationController-class.html\">AnimationController</a>，从而完全控制动画。<a href=\"widgets/AnimatedBuilder-class.html\">AnimatedBuilder</a> 就是一个 <a href=\"widgets/AnimatedWidget-class.html\">AnimatedWidget</a> 示例，它的用法与 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 类似，但动画由开发者管理的 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 驱动。</p>"
+  },
+  "flutter/widgets/TweenAnimationBuilder/TweenAnimationBuilder.html": {
+    "0": "<p>创建一个 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a>。</p>",
+    "1": "<p><a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 会完全接管所提供的 <code>tween</code> 实例并对其进行修改。将 <a href=\"animation/Tween-class.html\">Tween</a> 传给 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 后，不应再访问或更改其属性，以免干扰 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a>。</p>"
+  },
+  "flutter/widgets/TweenAnimationBuilder/builder.html": {
+    "0": "<p>每当动画值变化时调用。</p>",
+    "1": "<p>当前动画值会与 <a href=\"widgets/TweenAnimationBuilder/child.html\">child</a> 一起传给 builder。builder 应根据当前动画值构建 <a href=\"widgets/Widget-class.html\">Widget</a>，并在 <a href=\"widgets/TweenAnimationBuilder/child.html\">child</a> 不为 null 时将其纳入构建结果。</p>"
+  },
+  "flutter/widgets/TweenAnimationBuilder/child.html": {
+    "0": "<p>传给 builder 的子级 widget。</p>",
+    "1": "<p>如果 builder 回调的返回值中包含不依赖动画的子树，只构建一次该子树，比每次动画帧都重新构建更高效。</p>",
+    "2": "<p>如果将预先构建的子树作为 child 参数传入，<a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 会将它传回 <a href=\"widgets/TweenAnimationBuilder/builder.html\">builder</a> 函数，以便纳入构建结果。</p>",
+    "3": "<p>使用此预构建子级完全可选，但在某些情况下可以显著提升性能，因此这是一个良好实践。</p>"
+  },
+  "flutter/widgets/TweenAnimationBuilder/tween.html": {
+    "0": "<p>定义动画的目标值。</p>",
+    "1": "<p>widget 首次构建时，如果 <a href=\"animation/Tween/begin.html\">Tween.begin</a> 不为 null，动画会从 <a href=\"animation/Tween/begin.html\">Tween.begin</a> 过渡到 <a href=\"animation/Tween/end.html\">Tween.end</a>。随时都可以通过提供具有新 <a href=\"animation/Tween/end.html\">Tween.end</a> 值的新 <a href=\"animation/Tween-class.html\">Tween</a> 来触发新动画。新动画会从当前动画值开始（如果旧动画已完成，该值可能是旧 <a href=\"widgets/TweenAnimationBuilder/tween.html\">tween</a> 的 <a href=\"animation/Tween/end.html\">Tween.end</a>），并过渡到新 <a href=\"widgets/TweenAnimationBuilder/tween.html\">tween</a> 的 <a href=\"animation/Tween/end.html\">Tween.end</a>。除 widget 首次构建时触发的初始动画外，都会忽略 <a href=\"animation/Tween/begin.html\">Tween.begin</a> 值。</p>",
+    "2": "<p>可以传入任何 <a href=\"animation/Tween-class.html\">Tween</a> 子类。例如，要为 <a href=\"widgets/Widget-class.html\">Widget</a> 的高度或宽度制作动画，可以使用 <a href=\"animation/Tween-class.html\">Tween&lt;double&gt;</a>；要为 <a href=\"widgets/Widget-class.html\">Widget</a> 的颜色属性制作动画，可以使用 <a href=\"animation/ColorTween-class.html\">ColorTween</a>。</p>",
+    "3": "<p>提供的任何 <a href=\"animation/Tween-class.html\">Tween</a> 都必须具有非 null 的 <a href=\"animation/Tween/end.html\">Tween.end</a> 值。</p>",
+    "4": "<h2 id=\"ownership\">所有权</h2>",
+    "5": "<p><a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 会完全接管所提供的 <a href=\"animation/Tween-class.html\">Tween</a> 并修改 <a href=\"animation/Tween-class.html\">它</a>。将 <a href=\"animation/Tween-class.html\">Tween</a> 实例传给 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 后，不应再访问或更改其属性，以免干扰 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a>。如果需要修改 <a href=\"animation/Tween-class.html\">Tween</a>，请使用新值创建一个<strong>新实例</strong>。</p>",
+    "6": "<p>建议不要将传给 <a href=\"widgets/TweenAnimationBuilder-class.html\">TweenAnimationBuilder</a> 的 <a href=\"animation/Tween-class.html\">Tween</a> 保存在实例变量中，以免意外修改 <a href=\"animation/Tween-class.html\">它</a>。</p>"
+  },
+  "flutter/widgets/TweenConstructor.html": {
+    "0": "<p><a href=\"animation/Tween-class.html\">Tween</a> 工厂函数的签名。</p>",
+    "1": "<p>这是 <a href=\"widgets/TweenVisitor.html\">TweenVisitor</a> 的一个参数类型；<a href=\"widgets/ImplicitlyAnimatedWidgetState/forEachTween.html\">AnimatedWidgetBaseState.forEachTween</a> 使用此签名。</p>",
+    "2": "<p>此函数的实例应接收一个值，并返回一个从该值开始的补间动画。</p>"
+  },
+  "flutter/widgets/TweenVisitor.html": {
+    "0": "<p>传给 <a href=\"widgets/ImplicitlyAnimatedWidgetState/forEachTween.html\">ImplicitlyAnimatedWidgetState.forEachTween</a> 的回调函数签名。</p>",
+    "1": "<p><code>tween</code> 参数应包含当前补间动画值。状态首次初始化时，该值最初为 null。</p>",
+    "2": "<p><code>targetValue</code> 参数应包含状态正在过渡到的目标值。例如，如果状态正在为 widget 的不透明度制作动画，此参数应包含 widget 当前的不透明度值。</p>",
+    "3": "<p><code>constructor</code> 参数应包含一个函数，该函数接收一个值（即正在制作动画的 widget 属性值），并返回一个从该值开始的补间动画。</p>",
+    "4": "<p>预期 <code>forEachTween()</code> 会将补间动画值更新为此 visitor 返回的值。</p>",
+    "5": "<p><code>&lt;T&gt;</code> 参数指定正在制作动画的值的类型。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildBuilderDelegate-class.html": {
+    "0": "<p>一种 delegate，通过 builder 回调为 <a href=\"widgets/TwoDimensionalScrollView-class.html\">TwoDimensionalScrollView</a> 提供子项。</p>",
+    "1": "<p>如果 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/addRepaintBoundaries.html\">addRepaintBoundaries</a> 为 true（默认值也是 true），builder 回调返回的 widget 会自动包装在 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> widget 中。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildBuilderDelegate/TwoDimensionalChildBuilderDelegate.html": {
+    "0": "<p>创建一个 delegate，使用给定的 builder 回调为 <a href=\"widgets/TwoDimensionalScrollView-class.html\">TwoDimensionalScrollView</a> 提供子项。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildBuilderDelegate/addRepaintBoundaries.html": {
+    "0": "<p>是否将每个子项包装在 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> 中。</p>",
+    "1": "<p>滚动容器中的子项通常会包装在重绘边界中，这样列表滚动时就不必重新绘制它们。如果子项很容易重绘（例如纯色块或一小段文本），不添加重绘边界、而是在滚动时始终重绘子项可能更高效。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildBuilderDelegate/build.html": {
+    "0": "<p>返回给定 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 对应的子项；其位置由 x 和 y 索引描述。</p>",
+    "1": "<p>子类必须实现此函数，并且通常会将子项包装在 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> widget 中。</p>",
+    "2": "<p>此方法返回的值会被缓存。若要表明 widget 已更改，必须提供新的 delegate，并确保新 delegate 的 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/shouldRebuild.html\">shouldRebuild</a> 方法返回 true。也可以调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>，以便继续使用同一个 delegate。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildBuilderDelegate/builder.html": {
+    "0": "<p>按需构建子项时调用。</p>",
+    "1": "<p><a href=\"widgets/RenderTwoDimensionalViewport/layoutChildSequence.html\">RenderTwoDimensionalViewport.layoutChildSequence</a> 的实现会调用此 builder 来创建视口的子项。对于大于 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/maxXIndex.html\">maxXIndex</a> 或 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/maxYIndex.html\">maxYIndex</a> 的 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 索引，默认的 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/build.html\">build</a> 实现会返回 null。可以通过重写 build 方法更改此默认行为。</p>",
+    "2": "<p>如果收到的 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 不存在，必须返回 null。</p>",
+    "3": "<p>如果 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/addRepaintBoundaries.html\">addRepaintBoundaries</a> 为 true，此 builder 返回的子项会由 delegate 包装在 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> widget 中。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildBuilderDelegate/maxXIndex.html": {
+    "0": "<p>子项在 x 轴上的最大 <a href=\"widgets/ChildVicinity/xIndex.html\">ChildVicinity.xIndex</a>。</p>",
+    "1": "<p>对于每个 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a>，子项的相对位置由 x 和 y 索引描述，从而让视口中的所有子项都遵循一致的遍历模式。</p>",
+    "2": "<p>在表格实现中，这通常很直观：每一行的列数通常相同（反过来也一样），并且各列依次对齐。</p>",
+    "3": "<p>以更抽象的方式在二维空间中布置子项时，不同行对应的 x 索引数量可能不同。例如，散点图顶部的子项可能比底部更多。</p>",
+    "4": "<p>如果该值为 null，<a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 的子类可以继续调用 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/builder.html\">builder</a>，直到所有已知 x 和 y 索引都返回 null。有时 null 并不表示遍历结束，例如表格中的合并单元格可能跨越多个索引。请参阅相应的 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 子类，了解此值在具体场景中的用法。</p>",
+    "5": "<p>如果此值不为 null，则必须大于或等于 -1；-1 表示不会向 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 提供任何子项。</p>",
+    "6": "<p>此值发生变化时，delegate 会调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>，通知 <a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> delegate 中缓存的信息已失效。</p>",
+    "7": "<p>此值表示二维滚动视图中所有 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 的最大 x 索引。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildBuilderDelegate/maxYIndex.html": {
+    "0": "<p>子项在 y 轴上的最大 <a href=\"widgets/ChildVicinity/yIndex.html\">ChildVicinity.yIndex</a>。</p>",
+    "1": "<p>对于每个 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a>，子项的相对位置由 x 和 y 索引描述，从而让视口中的所有子项都遵循一致的遍历模式。</p>",
+    "2": "<p>在表格实现中，这通常很直观：每一行的列数通常相同（反过来也一样），并且各列依次对齐。</p>",
+    "3": "<p>以更抽象的方式在二维空间中布置子项时，不同行对应的 x 索引数量可能不同。例如，散点图顶部的子项可能比底部更多。</p>",
+    "4": "<p>如果该值为 null，<a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 的子类可以继续调用 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/builder.html\">builder</a>，直到所有已知 x 和 y 索引都返回 null。有时 null 并不表示遍历结束，例如表格中的合并单元格可能跨越多个索引。请参阅相应的 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 子类，了解此值在具体场景中的用法。</p>",
+    "5": "<p>如果此值不为 null，则必须大于或等于 -1；-1 表示不会向 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 提供任何子项。</p>",
+    "6": "<p>此值发生变化时，delegate 会调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>，通知 <a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> delegate 中缓存的信息已失效。</p>",
+    "7": "<p>此值表示二维滚动视图中所有 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 的最大 y 索引。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildBuilderDelegate/shouldRebuild.html": {
+    "0": "<p>每当提供新的子项 delegate 实例时调用。</p>",
+    "1": "<p>如果新实例表示的信息与旧实例不同，此方法应返回 true；否则应返回 false。</p>",
+    "2": "<p>如果此方法返回 false，<a href=\"widgets/TwoDimensionalChildBuilderDelegate/build.html\">build</a> 调用可能会被优化掉。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildDelegate-class.html": {
+    "0": "<p>一个为二维滚动提供子项的 delegate。</p>",
+    "1": "<p><a href=\"widgets/TwoDimensionalScrollView-class.html\">TwoDimensionalScrollView</a> 会按需构建盒子子项，避免创建超出 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 可见范围的子项。它不会接收显式的 <a href=\"dart-core/List-class.html\">List</a>，而是通过 <a href=\"widgets/TwoDimensionalChildDelegate-class.html\">TwoDimensionalChildDelegate</a> 获取子项。</p>",
+    "2": "<p>作为 ChangeNotifier，此 delegate 允许子类通知其监听器（通常是 <a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 的子类），以便在 delegate 的相关属性变化时触发重建。此 delegate 的 getter 或 builder 返回值发生变化时，应调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>。这会通知 <a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 重新查询 getter 和 builder，从而更新视口中子项的布局。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildDelegate/TwoDimensionalChildDelegate.html": {
+    "0": "<p>创建一个为二维滚动提供子项的 delegate。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildDelegate/build.html": {
+    "0": "<p>返回给定 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 对应的子项；其位置由 x 和 y 索引描述。</p>",
+    "1": "<p>子类必须实现此函数，并且通常会将子项包装在 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> widget 中。</p>",
+    "2": "<p>此方法返回的值会被缓存。若要表明 widget 已更改，必须提供新的 delegate，并确保新 delegate 的 <a href=\"widgets/TwoDimensionalChildDelegate/shouldRebuild.html\">shouldRebuild</a> 方法返回 true。也可以调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>，以便继续使用同一个 delegate。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildDelegate/shouldRebuild.html": {
+    "0": "<p>每当提供新的子项 delegate 实例时调用。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildListDelegate-class.html": {
+    "0": "<p>一个 delegate，使用显式的二维数组为 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 提供子项。</p>",
+    "1": "<p>通常，提前构建所有 widget 并不高效。更好的方式是创建一个按需构建 widget 的 delegate，例如使用 <a href=\"widgets/TwoDimensionalChildBuilderDelegate-class.html\">TwoDimensionalChildBuilderDelegate</a>，或直接继承 <a href=\"widgets/TwoDimensionalChildDelegate-class.html\">TwoDimensionalChildDelegate</a>。</p>",
+    "2": "<p>此类适用于以下情况：子项列表早已确定（例如，子项本身都是编译时常量），因此无需在每次创建 delegate 时重新构建；或者数组较小，几乎总是全部可见，按需构建也就没有优势。</p>",
+    "3": "<p>如果 <a href=\"widgets/TwoDimensionalChildListDelegate/addRepaintBoundaries.html\">addRepaintBoundaries</a> 为 true（默认值也是 true），给定 <a href=\"widgets/TwoDimensionalChildListDelegate/children.html\">children</a> 列表中的 widget 会自动包装在 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> widget 中。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildListDelegate/TwoDimensionalChildListDelegate.html": {
+    "0": "<p>创建一个为 <a href=\"widgets/TwoDimensionalScrollView-class.html\">TwoDimensionalScrollView</a> 提供子项的 delegate。</p>",
+    "1": "<p><code>children</code> 和 <code>addRepaintBoundaries</code> 均不能为空。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildListDelegate/addRepaintBoundaries.html": {
+    "0": "<p>是否将每个子项包装在 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> 中。</p>",
+    "1": "<p>滚动容器中的子项通常会包装在重绘边界中，这样列表滚动时就不必重新绘制它们。如果子项很容易重绘（例如纯色块或一小段文本），不添加重绘边界、而是在滚动时始终重绘子项可能更高效。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildListDelegate/build.html": {
+    "0": "<p>返回给定 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 对应的子项；其位置由 x 和 y 索引描述。</p>",
+    "1": "<p>子类必须实现此函数，并且通常会将子项包装在 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> widget 中。</p>",
+    "2": "<p>此方法返回的值会被缓存。若要表明 widget 已更改，必须提供新的 delegate，并确保新 delegate 的 <a href=\"widgets/TwoDimensionalChildListDelegate/shouldRebuild.html\">shouldRebuild</a> 方法返回 true。也可以调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>，以便继续使用同一个 delegate。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildListDelegate/children.html": {
+    "0": "<p>要显示的 widget。</p>",
+    "1": "<p>此外，Flutter 中的 <a href=\"widgets/Widget-class.html\">Widget</a> 是不可变的，因此直接修改 <a href=\"widgets/TwoDimensionalChildListDelegate/children.html\">children</a>（例如调用 <code>someWidget.children.add(...)</code>），或将原列表的引用传给 <a href=\"widgets/TwoDimensionalChildListDelegate/children.html\">children</a> 参数，都会导致错误行为。每次修改 children 列表时，都必须提供一个新列表对象。</p>",
+    "2": "<p>对于 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 中每个 <a href=\"widgets/ChildVicinity/yIndex.html\">ChildVicinity.yIndex</a> 和 <a href=\"widgets/ChildVicinity/xIndex.html\">ChildVicinity.xIndex</a>，会通过 <code>children[vicinity.yIndex][vicinity.xIndex]</code> 访问对应的 <a href=\"widgets/TwoDimensionalChildListDelegate/children.html\">children</a>。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildListDelegate/shouldRebuild.html": {
+    "0": "<p>每当提供新的子项 delegate 实例时调用。</p>"
+  },
+  "flutter/widgets/TwoDimensionalChildManager-class.html": {
+    "0": "<p><a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 用来管理其子项的 delegate。</p>",
+    "1": "<p><a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 对象会按需具体化子项，以免为视口中不可见的子项耗费资源。此 delegate 允许这些对象创建、复用和移除子项。</p>"
+  },
+  "flutter/widgets/TwoDimensionalIndexedWidgetBuilder.html": {
+    "0": "<p>用于根据给定 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 创建 widget 的函数签名，例如在 <a href=\"widgets/TwoDimensionalScrollView-class.html\">TwoDimensionalScrollView</a> 中使用；该函数也可以返回 null。</p>",
+    "1": "<p>供 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/builder.html\">TwoDimensionalChildBuilderDelegate.builder</a> 以及其他按需生成 widget 的 API 使用，适用于子项数量无法提前确定的情况。</p>",
+    "2": "<p>与大多数 builder 不同，此回调可以返回 null，表示 <a href=\"widgets/ChildVicinity/xIndex.html\">ChildVicinity.xIndex</a> 或 <a href=\"widgets/ChildVicinity/yIndex.html\">ChildVicinity.yIndex</a> 超出范围。何时以及是否允许这样做取决于 builder 的语义。例如，<a href=\"widgets/TwoDimensionalChildBuilderDelegate/builder.html\">TwoDimensionalChildBuilderDelegate.builder</a> 会在一个或两个索引超出范围时返回 null；范围由 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/maxXIndex.html\">TwoDimensionalChildBuilderDelegate.maxXIndex</a> 或 <a href=\"widgets/TwoDimensionalChildBuilderDelegate/maxYIndex.html\">TwoDimensionalChildBuilderDelegate.maxYIndex</a> 定义。因此，在这种情况下，vicinity 的值可能决定返回 null 是否有效。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView-class.html": {
+    "0": "<p>一种 widget，将 <a href=\"widgets/TwoDimensionalScrollable-class.html\">TwoDimensionalScrollable</a> 与 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 组合起来，在垂直和水平方向上创建可交互的内容滚动区域。</p>",
+    "1": "<p>双向滚动 widget 由三个部分组成：</p>",
+    "2": "<p><a href=\"widgets/TwoDimensionalScrollView-class.html\">TwoDimensionalScrollView</a> 负责协调这些部分：它会创建 <a href=\"widgets/TwoDimensionalScrollable-class.html\">TwoDimensionalScrollable</a>，并交由子类实现 <a href=\"widgets/TwoDimensionalScrollView/buildViewport.html\">buildViewport</a>，以构建 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 的子类。<a href=\"widgets/TwoDimensionalChildDelegate-class.html\">TwoDimensionalChildDelegate</a> 通过 <a href=\"widgets/TwoDimensionalScrollView/delegate.html\">delegate</a> 参数提供。</p>",
+    "3": "<p><a href=\"widgets/TwoDimensionalScrollView-class.html\">TwoDimensionalScrollView</a> 有两个不同的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a>，每个 <a href=\"painting/Axis.html\">Axis</a> 各一个。因此，这些位置也分别使用不同的 <a href=\"widgets/ScrollController-class.html\">ScrollController</a>。若要通过 ScrollController 访问 ScrollPosition，请使用传给此滚动视图的对应轴的 <a href=\"widgets/ScrollableDetails/controller.html\">ScrollableDetails.controller</a> 属性。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/TwoDimensionalScrollView.html": {
+    "0": "<p>创建一个可在两个维度上滚动的 widget。</p>",
+    "1": "<p><code>primary</code> 参数与 <code>mainAxis</code> 关联。如果为该轴配置了 <code>primary</code>，则 <a href=\"widgets/ScrollableDetails/controller.html\">ScrollableDetails.controller</a> 必须为 null。如果 <code>primary</code> 为 true，widget 周围最近的 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> 会附加到该轴的滚动位置。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/buildViewport.html": {
+    "0": "<p>构建二维视口。</p>",
+    "1": "<p>子类可以重写此方法以更改视口的构建方式，通常会返回 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 的某个子类。</p>",
+    "2": "<p><code>verticalOffset</code> 和 <code>horizontalOffset</code> 参数的值来自 <a href=\"widgets/TwoDimensionalScrollable/viewportBuilder.html\">TwoDimensionalScrollable.viewportBuilder</a>。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/delegate.html": {
+    "0": "<p>为 <a href=\"widgets/TwoDimensionalScrollView-class.html\">TwoDimensionalScrollView</a> 提供子项的 delegate。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/diagonalDragBehavior.html": {
+    "0": "<p>指定滚动手势应锁定在某一个轴上、允许沿两个轴自由移动，还是按加权比例进行判断。</p>",
+    "1": "<p>默认为 <a href=\"widgets/DiagonalDragBehavior.html\">DiagonalDragBehavior.none</a>，即锁定坐标轴，每次只接收一个轴上的输入。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/hitTestBehavior.html": {
+    "2": "<p>此值同时应用于两个轴。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/horizontalDetails.html": {
+    "0": "<p>水平 Scrollable 的配置。</p>",
+    "1": "<p>可使用这些 <a href=\"widgets/ScrollableDetails-class.html\">ScrollableDetails</a> 为水平方向设置 <a href=\"painting/AxisDirection.html\">AxisDirection</a>、<a href=\"widgets/ScrollController-class.html\">ScrollController</a>、<a href=\"widgets/ScrollPhysics-class.html\">ScrollPhysics</a> 等属性。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/mainAxis.html": {
+    "0": "<p>两个轴中的主轴。</p>",
+    "1": "<p>当 <a href=\"widgets/TwoDimensionalScrollView/primary.html\">primary</a> 为 true 时，用于确定如何应用该属性。</p>",
+    "2": "<p>还应将此值传给 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 的子类，用于确定子项的绘制顺序。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/verticalDetails.html": {
+    "0": "<p>垂直 Scrollable 的配置。</p>",
+    "1": "<p>可使用这些 <a href=\"widgets/ScrollableDetails-class.html\">ScrollableDetails</a> 为垂直方向设置 <a href=\"painting/AxisDirection.html\">AxisDirection</a>、<a href=\"widgets/ScrollController-class.html\">ScrollController</a>、<a href=\"widgets/ScrollPhysics-class.html\">ScrollPhysics</a> 等属性。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollView/primary.html": {
+    "0": "<p>此滚动视图是否为与父级 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> 关联的主滚动视图。</p>",
+    "1": "<p>为 true 时，即使内容不足以实际滚动，此滚动视图仍可滚动。否则，默认情况下只有内容足够时用户才能滚动此视图。请参阅 <a href=\"physics/\">physics</a>。</p>",
+    "2": "<p>为 true 时，此滚动视图也会用于默认的 <a href=\"widgets/ScrollAction-class.html\">ScrollAction</a>。如果应用中其他获得焦点的部分未处理某个 ScrollAction，就会通过此滚动视图执行该操作。例如，执行 Page Up 和 Page Down 等 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> 键盘事件时便会如此。</p>",
+    "3": "<p>在 iOS 上，点按状态栏时也会滚动此视图回到顶部。</p>",
+    "4": "<p>如果已向 <code>controller</code> 提供 <a href=\"widgets/ScrollController-class.html\">ScrollController</a>，此值不能为 true，因为一个 ScrollView 只能关联一个 ScrollController。</p>",
+    "5": "<p>设为 false 会明确禁止继承任何 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a>。</p>",
+    "6": "<p>默认为 null。如果为 null 且未提供 controller，则使用 <a href=\"widgets/PrimaryScrollController/shouldInherit.html\">PrimaryScrollController.shouldInherit</a> 决定是否自动继承。</p>",
+    "7": "<p>默认情况下，每个 <a href=\"widgets/ModalRoute-class.html\">ModalRoute</a> 注入的 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> 都配置为：在 <a href=\"flutter_test/TargetPlatformVariant/TargetPlatformVariant.mobile.html\">TargetPlatformVariant.mobile</a> 平台上，为滚动方向为 <a href=\"painting/Axis.html\">Axis.vertical</a> 的 ScrollView 自动继承。若在应用中再添加一个 PrimaryScrollController，它会覆盖上层的 PrimaryScrollController。</p>",
+    "8": "<p>以下视频介绍了滚动控制器、PrimaryScrollController widget 及其对应用的影响：</p>"
+  },
+  "flutter/widgets/TwoDimensionalViewportParentData-class.html": {
+    "0": "<p>供 <a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 使用的父级数据结构。</p>",
+    "1": "<p>父级数据主要描述子项在视口中的位置。<a href=\"widgets/TwoDimensionalViewportParentData/layoutOffset.html\">layoutOffset</a> 必须由 <a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 的子类在 <a href=\"widgets/RenderTwoDimensionalViewport/layoutChildSequence.html\">RenderTwoDimensionalViewport.layoutChildSequence</a> 期间设置，用来表示子项在视口中的位置。</p>",
+    "2": "<p><a href=\"widgets/TwoDimensionalViewportParentData/paintOffset.html\">paintOffset</a> 由 <a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 在 <a href=\"widgets/RenderTwoDimensionalViewport/layoutChildSequence.html\">RenderTwoDimensionalViewport.layoutChildSequence</a> 完成后计算。如果 RenderTwoDimensionalViewport 的子类重写 paint 方法，应使用 <a href=\"widgets/TwoDimensionalViewportParentData/paintOffset.html\">paintOffset</a> 在视口中定位子项，以处理一个或两个维度上的 <a href=\"painting/AxisDirection.html\">AxisDirection</a> 反向情况。</p>"
+  },
+  "flutter/widgets/TwoDimensionalViewportParentData/isVisible.html": {
+    "0": "<p>子项当前是否实际显示在视口内。</p>",
+    "1": "<p>例如，子项位于 <a class=\"deprecated\" href=\"widgets/RenderTwoDimensionalViewport/cacheExtent.html\">RenderTwoDimensionalViewport.cacheExtent</a> 范围内，但当前不在屏幕上。</p>",
+    "2": "<p>在 <a href=\"widgets/RenderTwoDimensionalViewport/paint.html\">RenderTwoDimensionalViewport.paint</a> 期间会使用此值，跳过不可见子项的绘制。</p>"
+  },
+  "flutter/widgets/TwoDimensionalViewportParentData/keptAlive.html": {
+    "0": "<p>此 widget 当前是否保持存活，也就是说，它的 <a href=\"rendering/KeepAliveParentDataMixin/keepAlive.html\">keepAlive</a> 为 true 且位于屏幕外。</p>"
+  },
+  "flutter/widgets/TwoDimensionalViewportParentData/layoutOffset.html": {
+    "0": "<p>在父级坐标系中绘制子项时使用的偏移量。</p>",
+    "1": "<p>此 <a href=\"dart-ui/Offset-class.html\">Offset</a> 表示 <a href=\"widgets/TwoDimensionalViewport-class.html\">TwoDimensionalViewport</a> 子项的左上角位置。</p>",
+    "2": "<p>实现者必须在 <a href=\"widgets/RenderTwoDimensionalViewport/layoutChildSequence.html\">RenderTwoDimensionalViewport.layoutChildSequence</a> 期间设置此值。该方法完成后，<a href=\"widgets/RenderTwoDimensionalViewport-class.html\">RenderTwoDimensionalViewport</a> 会根据此值计算 <a href=\"widgets/TwoDimensionalViewportParentData/paintOffset.html\">paintOffset</a>，以处理 <a href=\"painting/AxisDirection.html\">AxisDirection</a>。</p>"
+  },
+  "flutter/widgets/TwoDimensionalViewportParentData/paintOffset.html": {
+    "0": "<p>子项相对于视口边界及其 <a href=\"painting/AxisDirection.html\">AxisDirection</a> 的位置。</p>",
+    "1": "<p>此值表示从父级左上方可见角到子项左上方可见角的距离。当 <a href=\"painting/AxisDirection.html\">AxisDirection</a> 为 <a href=\"painting/AxisDirection.html\">AxisDirection.down</a> 或 <a href=\"painting/AxisDirection.html\">AxisDirection.right</a> 时，此值与 <a href=\"widgets/TwoDimensionalViewportParentData/layoutOffset.html\">layoutOffset</a> 相同。当滚动方向反向，即 <a href=\"painting/AxisDirection.html\">AxisDirection.up</a> 或 <a href=\"painting/AxisDirection.html\">AxisDirection.left</a> 时，此值会相应变化，以正确重新定位子项。</p>",
+    "2": "<p>此值在 <a href=\"widgets/RenderTwoDimensionalViewport/updateChildPaintData.html\">RenderTwoDimensionalViewport.updateChildPaintData</a> 中，于 <a href=\"widgets/RenderTwoDimensionalViewport/layoutChildSequence.html\">RenderTwoDimensionalViewport.layoutChildSequence</a> 完成后设置。</p>",
+    "3": "<p>如果重写 <a href=\"widgets/RenderTwoDimensionalViewport/paint.html\">RenderTwoDimensionalViewport.paint</a>，请使用此值定位子项，而不是使用 <a href=\"widgets/TwoDimensionalViewportParentData/layoutOffset.html\">layoutOffset</a>。</p>"
+  },
+  "flutter/widgets/TwoDimensionalViewportParentData/vicinity.html": {
+    "0": "<p>子项在二维空间中的逻辑位置。</p>",
+    "1": "<p>子项不一定严格按行和列布局，但相对位置决定了按行优先或列优先格式遍历子项的顺序。</p>",
+    "2": "<p>此值在 <a href=\"widgets/RenderTwoDimensionalViewport/buildOrObtainChildFor.html\">RenderTwoDimensionalViewport.buildOrObtainChildFor</a> 中设置。</p>"
   }
 }

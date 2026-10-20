@@ -87,14 +87,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;TweenAnimationBuilder-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/tween_animation_builder.dart#L105"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">TweenAnimationBuilder&lt;<wbr><span class="type-parameter">T extends Object?</span>&gt;</span> 类 
+<h1><span class="kind-class">TweenAnimationBuilder&lt;<wbr><span class="type-parameter">T extends Object?</span>&gt;</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p><a href="widgets/Widget-class.html">Widget</a> builder that animates a property of a <a href="widgets/Widget-class.html">Widget</a> to a target value
-whenever the target value changes.</p>
+  <p>当目标值变化时，将 <a href="widgets/Widget-class.html">Widget</a> 的某个属性动画过渡到目标值的 <a href="widgets/Widget-class.html">Widget</a> 构建器。</p>
 <iframe src="https://www.youtube.com/embed/l9uHB8VXZOg?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -106,49 +105,27 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<p>The type of the animated property (<a href="dart-ui/Color-class.html">Color</a>, <a href="dart-ui/Rect-class.html">Rect</a>, <a href="dart-core/double-class.html">double</a>, etc.) is
-defined via the type of the provided <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> (e.g. <a href="animation/ColorTween-class.html">ColorTween</a>,
-<a href="animation/RectTween-class.html">RectTween</a>, <a href="animation/Tween-class.html">Tween&lt;double&gt;</a>, etc.).</p>
-<p>The <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> also defines the target value for the animation: When the widget
-first builds, it animates from <a href="animation/Tween/begin.html">Tween.begin</a> to <a href="animation/Tween/end.html">Tween.end</a>. A new animation
-can be triggered anytime by providing a new <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> with a new <a href="animation/Tween/end.html">Tween.end</a>
-value. The new animation runs from the current animation value (which may be
-<a href="animation/Tween/end.html">Tween.end</a> of the old <a href="widgets/TweenAnimationBuilder/tween.html">tween</a>, if that animation completed) to <a href="animation/Tween/end.html">Tween.end</a>
-of the new <a href="widgets/TweenAnimationBuilder/tween.html">tween</a>.</p>
+<p>动画属性的类型（例如 <a href="dart-ui/Color-class.html">Color</a>、<a href="dart-ui/Rect-class.html">Rect</a>、<a href="dart-core/double-class.html">double</a> 等）由所提供的 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 类型决定（例如 <a href="animation/ColorTween-class.html">ColorTween</a>、<a href="animation/RectTween-class.html">RectTween</a>、<a href="animation/Tween-class.html">Tween&lt;double&gt;</a> 等）。</p>
+<p><a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 也定义动画的目标值：widget 首次构建时，会从 <a href="animation/Tween/begin.html">Tween.begin</a> 动画过渡到 <a href="animation/Tween/end.html">Tween.end</a>。随时都可以通过提供具有新 <a href="animation/Tween/end.html">Tween.end</a> 值的新 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 来触发新动画。新动画会从当前动画值开始（如果旧动画已完成，该值可能是旧 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 的 <a href="animation/Tween/end.html">Tween.end</a>），并过渡到新 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 的 <a href="animation/Tween/end.html">Tween.end</a>。</p>
 <p>The animation is further customized by providing a <a href="widgets/ImplicitlyAnimatedWidget/curve.html">curve</a> 和 <a href="widgets/ImplicitlyAnimatedWidget/duration.html">duration</a>.</p>
 <p>The current value of the animation along with the <a href="widgets/TweenAnimationBuilder/child.html">child</a> is passed to
 the <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> callback, which is expected to build a <a href="widgets/Widget-class.html">Widget</a> based on the
 current animation value. The <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> is called throughout the animation
 for every animation value until <a href="animation/Tween/end.html">Tween.end</a> 。</p>
-<p>A provided <a href="widgets/ImplicitlyAnimatedWidget/onEnd.html">onEnd</a> callback is called whenever an animation completes.
-Registering an <a href="widgets/ImplicitlyAnimatedWidget/onEnd.html">onEnd</a> callback my be useful to trigger an action (like
-another animation) at the end of the current animation.</p>
+<p>每当动画完成时，都会调用所提供的 <a href="widgets/ImplicitlyAnimatedWidget/onEnd.html">onEnd</a> 回调。注册 <a href="widgets/ImplicitlyAnimatedWidget/onEnd.html">此回调</a>可在当前动画结束时触发操作，例如启动另一段动画。</p>
 <h2 id="performance-optimizations">性能优化</h2>
-<p>If your <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> function contains a subtree that does not depend on the
-animation, it's more efficient to build that subtree once instead of
-rebuilding it on every animation tick.</p>
-<p>If you pass the pre-built subtree as the <a href="widgets/TweenAnimationBuilder/child.html">child</a> parameter, the
-AnimatedBuilder will pass it back to your builder function so that you
-can incorporate it into your build.</p>
-<p>Using this pre-built child is entirely optional, but can improve
-performance significantly in some cases and is therefore a good practice.</p>
-<h2 id="ownership-of-the-tween">Ownership of the <a href="animation/Tween-class.html">Tween</a></h2>
-<p>The <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a> takes full ownership of the provided <a href="widgets/TweenAnimationBuilder/tween.html">tween</a>
-instance and it will mutate it. Once a <a href="animation/Tween-class.html">Tween</a> has been passed to a
-<a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a>, its properties should not be accessed or changed
-anymore to avoid interference with the <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a>.</p>
-<p>It is good practice to never store a <a href="animation/Tween-class.html">Tween</a> provided to a
-<a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a> in an instance variable to avoid accidental
-modifications of the <a href="animation/Tween-class.html">Tween</a>.</p>
-<h2 id="example-code">Example Code</h2>
+<p>如果 <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> 函数包含不依赖动画的子树，那么只构建一次该子树，比每次动画帧都重新构建更高效。</p>
+<p>如果将预先构建的子树作为 <a href="widgets/TweenAnimationBuilder/child.html">child</a> 参数传入，AnimatedBuilder 会将它传回 builder 函数，以便纳入构建结果。</p>
+<p>使用此预构建子级完全可选，但在某些情况下可以显著提升性能，因此这是一个良好实践。</p>
+<h2 id="ownership-of-the-tween">对 <a href="animation/Tween-class.html">Tween</a> 的所有权</h2>
+<p><a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a> 会完全接管所提供的 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 实例，并修改它。将 <a href="animation/Tween-class.html">Tween</a> 传给 <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a> 后，不应再访问或更改其属性，以免干扰 <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a>。</p>
+<p>建议不要将传给 <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a> 的 <a href="animation/Tween-class.html">Tween</a> 保存在实例变量中，以免意外修改 <a href="animation/Tween-class.html">它</a>。</p>
+<h2 id="example-code">示例代码</h2>
 <p>
 <a name="widgets.TweenAnimationBuilder.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-This example shows an <a href="material/IconButton-class.html">IconButton</a> that "zooms" in when the widget first
-builds (its size smoothly increases from 0 to 24) and whenever the button
-is pressed, it smoothly changes its size to the new target value of either
-48 or 24.
+此示例展示一个 <a href="material/IconButton-class.html">IconButton</a>：widget 首次构建时会以“缩放”效果进入（尺寸从 0 平滑增至 24）；每次点击按钮时，尺寸也会平滑地变为新的目标值 48 或 24。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.TweenAnimationBuilder.1');" onclick="fixHref(this, 'widgets.TweenAnimationBuilder.1'); copyStringToClipboard(this.href);"
@@ -156,7 +133,7 @@ is pressed, it smoothly changes its size to the new target value of either
         <i class="material-icons anchor-image">link</i>
     </a>
     <div class="snippet-description">
-        <p>要使用此代码示例创建本地项目，请运行：<br />
+        <p>若要使用此代码示例创建本地项目，请运行：<br />
             <span class="snippet-create-command">flutter create --sample=widgets.TweenAnimationBuilder.1 mysample</span>
         </p>
     </div>
@@ -165,24 +142,9 @@ is pressed, it smoothly changes its size to the new target value of either
     </iframe>
 </div>
 </p>
-<h2 id="relationship-to-implicitlyanimatedwidgets-and-animatedwidgets">Relationship to <a href="widgets/ImplicitlyAnimatedWidget-class.html">ImplicitlyAnimatedWidget</a>s and <a href="widgets/AnimatedWidget-class.html">AnimatedWidget</a>s</h2>
-<p>The <a href="widgets/ImplicitlyAnimatedWidget-class.html">ImplicitlyAnimatedWidget</a> has many subclasses that provide animated
-versions of regular widgets. These subclasses (like <a href="widgets/AnimatedOpacity-class.html">AnimatedOpacity</a>,
-<a href="widgets/AnimatedContainer-class.html">AnimatedContainer</a>, <a href="widgets/AnimatedSize-class.html">AnimatedSize</a>, etc.) animate changes in their
-properties smoothly and they are easier to use than this general-purpose
-builder. However, <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a> (which itself is a subclass of
-<a href="widgets/ImplicitlyAnimatedWidget-class.html">ImplicitlyAnimatedWidget</a>) is handy for animating any widget property to a
-given target value even when the framework (or third-party widget library)
-doesn't ship with an animated version of that widget.</p>
-<p>Those <a href="widgets/ImplicitlyAnimatedWidget-class.html">ImplicitlyAnimatedWidget</a>s (including this <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a>)
-all manage an internal <a href="animation/AnimationController-class.html">AnimationController</a> to drive the animation. If you
-want more control over the animation than just setting a target value,
-<a href="widgets/ImplicitlyAnimatedWidget/duration.html">duration</a>, and <a href="widgets/ImplicitlyAnimatedWidget/curve.html">curve</a>, have a look at (subclasses of) <a href="widgets/AnimatedWidget-class.html">AnimatedWidget</a>s.
-For those, you have to manually manage an <a href="animation/AnimationController-class.html">AnimationController</a> giving you
-full control over the animation. An example of an <a href="widgets/AnimatedWidget-class.html">AnimatedWidget</a> is the
-<a href="widgets/AnimatedBuilder-class.html">AnimatedBuilder</a>, which can be used similarly to this
-<a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a>, but unlike the latter it is powered by a
-developer-managed <a href="animation/AnimationController-class.html">AnimationController</a>.</p>
+<h2 id="relationship-to-implicitlyanimatedwidgets-and-animatedwidgets">与 <a href="widgets/ImplicitlyAnimatedWidget-class.html">ImplicitlyAnimatedWidget</a> 和 <a href="widgets/AnimatedWidget-class.html">AnimatedWidget</a> 的关系</h2>
+<p><a href="widgets/ImplicitlyAnimatedWidget-class.html">ImplicitlyAnimatedWidget</a> 有许多子类，为常规 widget 提供带动画的版本。这些子类（例如 <a href="widgets/AnimatedOpacity-class.html">AnimatedOpacity</a>、<a href="widgets/AnimatedContainer-class.html">AnimatedContainer</a>、<a href="widgets/AnimatedSize-class.html">AnimatedSize</a> 等）会平滑地动画过渡其属性变化，比这种通用构建器更容易使用。不过，<a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a> 本身也是 <a href="widgets/ImplicitlyAnimatedWidget-class.html">ImplicitlyAnimatedWidget</a> 的子类，适合将任意 widget 属性动画过渡到指定目标值，即使 Flutter 框架或第三方 widget 库没有提供该 widget 的动画版本也可以使用。</p>
+<p>这些 <a href="widgets/ImplicitlyAnimatedWidget-class.html">ImplicitlyAnimatedWidget</a>（包括 <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a>）都会管理内部的 <a href="animation/AnimationController-class.html">AnimationController</a> 来驱动动画。如果除了设置目标值、<a href="widgets/ImplicitlyAnimatedWidget/duration.html">duration</a> 和 <a href="widgets/ImplicitlyAnimatedWidget/curve.html">curve</a> 以外，还需要更多动画控制，可以查看 <a href="widgets/AnimatedWidget-class.html">AnimatedWidget</a> 的子类。使用这些类时，必须手动管理 <a href="animation/AnimationController-class.html">AnimationController</a>，从而完全控制动画。<a href="widgets/AnimatedBuilder-class.html">AnimatedBuilder</a> 就是一个 <a href="widgets/AnimatedWidget-class.html">AnimatedWidget</a> 示例，它的用法与 <a href="widgets/TweenAnimationBuilder-class.html">TweenAnimationBuilder</a> 类似，但动画由开发者管理的 <a href="animation/AnimationController-class.html">AnimationController</a> 驱动。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/ValueListenableBuilder-class.html">ValueListenableBuilder</a>, a widget whose content stays synced with a

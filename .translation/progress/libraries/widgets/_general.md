@@ -1,82 +1,11 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,665 页，部分翻译 153 页，未翻译 434 页；正文已译 23,247/24,807 段。
+模块共 8,093 页：已完整 6,728 页，部分翻译 138 页，未翻译 386 页；正文已译 23,429/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
-- `flutter/widgets/TreeSliverController/of.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/TreeSliverController/toggleNode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TreeSliverNode-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TreeSliverNode/TreeSliverNode.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TreeSliverNode/children.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TreeSliverNode/content.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TreeSliverNode/depth.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TreeSliverNode/isExpanded.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TreeSliverNode/parent.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TreeSliverNodeBuilder.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TreeSliverNodeCallback.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/TreeSliverRowExtentBuilder.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/TreeSliverStateMixin-mixin.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/TreeSliverStateMixin/collapseAll.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TreeSliverStateMixin/expandAll.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TreeSliverStateMixin/getActiveIndexFor.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TreeSliverStateMixin/getNodeFor.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TreeSliverStateMixin/isActive.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TreeSliverStateMixin/isExpanded.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TreeSliverStateMixin/toggleNode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TweenAnimationBuilder-class.html` — 部分；已译 5/19 段；待译段落：0, 1, 2, 5, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17
-- `flutter/widgets/TweenAnimationBuilder/TweenAnimationBuilder.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TweenAnimationBuilder/builder.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TweenAnimationBuilder/child.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/TweenAnimationBuilder/tween.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
-- `flutter/widgets/TweenConstructor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TweenVisitor.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/TwoDimensionalChildBuilderDelegate-class.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/TwoDimensionalChildBuilderDelegate/TwoDimensionalChildBuilderDelegate.html` — 未译；已译 0/1 段；待译段落：0
-
-- `flutter/widgets/TwoDimensionalChildBuilderDelegate/addRepaintBoundaries.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/TwoDimensionalChildBuilderDelegate/build.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalChildBuilderDelegate/builder.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/TwoDimensionalChildBuilderDelegate/maxXIndex.html` — 部分；已译 1/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/TwoDimensionalChildBuilderDelegate/maxYIndex.html` — 部分；已译 1/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/TwoDimensionalChildBuilderDelegate/shouldRebuild.html` — 部分；已译 2/3 段；待译段落：0
-- `flutter/widgets/TwoDimensionalChildDelegate-class.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalChildDelegate/TwoDimensionalChildDelegate.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TwoDimensionalChildDelegate/build.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalChildDelegate/shouldRebuild.html` — 部分；已译 2/3 段；待译段落：0
-- `flutter/widgets/TwoDimensionalChildListDelegate-class.html` — 部分；已译 2/6 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/TwoDimensionalChildListDelegate/TwoDimensionalChildListDelegate.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/TwoDimensionalChildListDelegate/addRepaintBoundaries.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/TwoDimensionalChildListDelegate/build.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalChildListDelegate/children.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalChildListDelegate/shouldRebuild.html` — 部分；已译 2/3 段；待译段落：0
-- `flutter/widgets/TwoDimensionalChildManager-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TwoDimensionalIndexedWidgetBuilder.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalScrollView-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/TwoDimensionalScrollView/TwoDimensionalScrollView.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/TwoDimensionalScrollView/buildViewport.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/TwoDimensionalScrollView/delegate.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TwoDimensionalScrollView/diagonalDragBehavior.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TwoDimensionalScrollView/hitTestBehavior.html` — 部分；已译 2/3 段；待译段落：2
-- `flutter/widgets/TwoDimensionalScrollView/horizontalDetails.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/TwoDimensionalScrollView/mainAxis.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalScrollView/primary.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-
-- `flutter/widgets/TwoDimensionalScrollView/verticalDetails.html` — 未译；已译 0/2 段；待译段落：0, 1
-
 - `flutter/widgets/TwoDimensionalScrollableState-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 
-- `flutter/widgets/TwoDimensionalViewportParentData-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalViewportParentData/isVisible.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalViewportParentData/keptAlive.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TwoDimensionalViewportParentData/layoutOffset.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TwoDimensionalViewportParentData/paintOffset.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/TwoDimensionalViewportParentData/vicinity.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/UiKitView-class.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
 - `flutter/widgets/UiKitView/UiKitView.html` — 未译；已译 0/2 段；待译段落：0, 1
 
