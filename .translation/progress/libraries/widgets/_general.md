@@ -1,16 +1,8 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 7,025 页，部分翻译 59 页，未翻译 168 页；正文已译 24,117/24,807 段。
+模块共 8,093 页：已完整 7,030 页，部分翻译 54 页，未翻译 168 页；正文已译 24,133/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
-
-- `flutter/widgets/WidgetsApp/localeListResolutionCallback.html` — 部分；已译 4/7 段；待译段落：3, 4, 5
-- `flutter/widgets/WidgetsApp/localeResolutionCallback.html` — 部分；已译 4/7 段；待译段落：3, 4, 5
-
-- `flutter/widgets/WidgetsApp/routeInformationParser.html` — 部分；已译 2/4 段；待译段落：0, 2
-
-- `flutter/widgets/WidgetsApp/routerDelegate.html` — 部分；已译 2/4 段；待译段落：0, 2
-- `flutter/widgets/WidgetsApp/routes.html` — 部分；已译 1/7 段；待译段落：1, 2, 3, 4, 5, 6
 
 - `flutter/widgets/WidgetsBinding-mixin.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
 - `flutter/widgets/WidgetsBinding/accessibilityFeatures.html` — 未译；已译 0/3 段；待译段落：0, 1, 2

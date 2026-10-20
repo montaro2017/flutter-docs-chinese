@@ -265208,5 +265208,31 @@
   "flutter/widgets/WidgetsApp/navigatorObservers.html": {
     "1": "<p>如果更改了 <a href=\"widgets/WidgetsApp/navigatorKey.html\">navigatorKey</a>，必须将此列表替换为一组新创建的观察器。</p>",
     "2": "<p>只有在提供了路由（通过 <a href=\"widgets/WidgetsApp/home.html\">home</a>、<a href=\"widgets/WidgetsApp/routes.html\">routes</a>、<a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a> 或 <a href=\"widgets/WidgetsApp/onUnknownRoute.html\">onUnknownRoute</a>）时，才会构建 <a href=\"widgets/Navigator-class.html\">Navigator</a>；否则，<a href=\"widgets/WidgetsApp/navigatorObservers.html\">navigatorObservers</a> 必须为空列表，且 <a href=\"widgets/WidgetsApp/builder.html\">builder</a> 不能为 null。</p>"
+  },
+  "flutter/widgets/WidgetsApp/localeListResolutionCallback.html": {
+    "3": "<p>完善本地化的项目应提供比 <a href=\"widgets/WidgetsApp/supportedLocales.html\">supportedLocales</a> 的基础方法更高级的算法，因为该方法未实现完整算法（例如 <a href=\"https://unicode.org/reports/tr35/#LanguageMatching\">Unicode TR35</a> 中定义的算法），而且为提升速度牺牲了对某些少见边缘情况的处理。</p>",
+    "4": "<p>此回调会考虑首选语言区域的完整列表。</p>",
+    "5": "<p>此算法应能处理首选语言区域列表为 null 或为空的情况，这表示 Flutter 尚未从平台收到语言区域信息。</p>"
+  },
+  "flutter/widgets/WidgetsApp/localeResolutionCallback.html": {
+    "3": "<p>完善本地化的项目应提供比 <a href=\"widgets/WidgetsApp/supportedLocales.html\">supportedLocales</a> 的基础方法更高级的算法，因为该方法未实现完整算法（例如 <a href=\"https://unicode.org/reports/tr35/#LanguageMatching\">Unicode TR35</a> 中定义的算法），而且为提升速度牺牲了对某些少见边缘情况的处理。</p>",
+    "4": "<p>此回调只考虑默认语言区域，也就是首选语言区域列表中的第一个值。建议优先设置 <a href=\"widgets/WidgetsApp/localeListResolutionCallback.html\">localeListResolutionCallback</a>，而不是 <a href=\"widgets/WidgetsApp/localeResolutionCallback.html\">localeResolutionCallback</a>，因为前者会提供完整的首选语言区域列表。</p>",
+    "5": "<p>此算法应能处理语言区域为 null 的情况，这表示 Flutter 尚未从平台收到语言区域信息。</p>"
+  },
+  "flutter/widgets/WidgetsApp/routeInformationParser.html": {
+    "0": "<p>用于将 <a href=\"widgets/WidgetsApp/routeInformationProvider.html\">routeInformationProvider</a> 提供的路由信息解析为通用数据类型，供 <a href=\"widgets/WidgetsApp/routerDelegate.html\">routerDelegate</a> 在后续阶段处理的委托。</p>",
+    "2": "<p>泛型类型 <code>T</code> 必须与 <a href=\"widgets/WidgetsApp/routerDelegate.html\">routerDelegate</a> 的泛型类型一致。</p>"
+  },
+  "flutter/widgets/WidgetsApp/routerDelegate.html": {
+    "0": "<p>用于配置 Widget（通常是 <a href=\"widgets/Navigator-class.html\">Navigator</a>）的委托，配置依据是 <a href=\"widgets/WidgetsApp/routeInformationParser.html\">routeInformationParser</a> 解析出的结果。</p>",
+    "2": "<p>泛型类型 <code>T</code> 必须与 <a href=\"widgets/WidgetsApp/routeInformationParser.html\">routeInformationParser</a> 的泛型类型一致。</p>"
+  },
+  "flutter/widgets/WidgetsApp/routes.html": {
+    "1": "<p>使用 <a href=\"widgets/Navigator/pushNamed.html\">Navigator.pushNamed</a> 推入命名路由时，会在此映射中查找路由名称。如果找到该名称，就会使用对应的 <a href=\"widgets/WidgetBuilder.html\">WidgetBuilder</a> 构建由 <a href=\"widgets/WidgetsApp/pageRouteBuilder.html\">pageRouteBuilder</a> 指定的 <a href=\"widgets/PageRoute-class.html\">PageRoute</a>，以便通过适当的过渡效果（包括 <a href=\"widgets/Hero-class.html\">Hero</a> 动画）进入新路由。</p>",
+    "2": "<p>如果应用只有一个页面，可以改用 <a href=\"widgets/WidgetsApp/home.html\">home</a> 指定。</p>",
+    "3": "<p>如果指定了 <a href=\"widgets/WidgetsApp/home.html\">home</a>，就相当于在此表中为 <a href=\"widgets/Navigator/defaultRouteName-constant.html\">Navigator.defaultRouteName</a> 路由（<code>/</code>）添加一项；因此，不得再在 <a href=\"widgets/WidgetsApp/routes.html\">routes</a> 表中重复提供该路由。</p>",
+    "4": "<p>如果请求的路由未在此表或 <a href=\"widgets/WidgetsApp/home.html\">home</a> 中指定，则会调用 <a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a> 回调来构建页面。</p>",
+    "5": "<p>只有在提供了路由（通过 <a href=\"widgets/WidgetsApp/home.html\">home</a>、<a href=\"widgets/WidgetsApp/routes.html\">routes</a>、<a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a> 或 <a href=\"widgets/WidgetsApp/onUnknownRoute.html\">onUnknownRoute</a>）时，才会构建 <a href=\"widgets/Navigator-class.html\">Navigator</a>；否则，<a href=\"widgets/WidgetsApp/builder.html\">builder</a> 不能为 null。</p>",
+    "6": "<p>如果 routes 映射不为空，就必须设置 <a href=\"widgets/WidgetsApp/pageRouteBuilder.html\">pageRouteBuilder</a>，以便默认路由处理器知道应创建哪种 <a href=\"widgets/PageRoute-class.html\">PageRoute</a>。</p>"
   }
 }
