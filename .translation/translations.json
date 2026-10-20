@@ -265324,5 +265324,73 @@
     "0": "<p>用于缓冲并分发消息的底层机制：消息由引擎侧插件发送，再交给框架侧对应的插件代码。</p>",
     "1": "<p>此属性公开 <a href=\"dart-ui/channelBuffers.html\">dart:ui.channelBuffers</a> 对象。Binding 可以覆盖此 getter，以拦截对 <a href=\"dart-ui/ChannelBuffers-class.html\">ChannelBuffers</a> 机制的调用（例如用于测试）。</p>",
     "2": "<p>在生产环境中通常不需要直接访问此对象。消息由 <a href=\"services/ServicesBinding/defaultBinaryMessenger.html\">defaultBinaryMessenger</a> 接收并分发。此对象主要用于测试，通过 <a href=\"dart-ui/ChannelBuffers/push.html\">ChannelBuffers.push</a> 方法发送模拟消息（模拟插件向框架发送消息）。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/createBinaryMessenger.html": {
+    "0": "<p>创建默认的 <a href=\"services/BinaryMessenger-class.html\">BinaryMessenger</a> 实例，用于发送平台消息。</p>",
+    "1": "<p>许多与平台通信的 Flutter 框架组件都假设平台会按照消息发送顺序接收消息。覆盖此方法时，请确保 <a href=\"services/BinaryMessenger-class.html\">BinaryMessenger</a> 实现能够保证先进先出（FIFO）传递。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/createCanvas.html": {
+    "0": "<p>根据 <a href=\"dart-ui/PictureRecorder-class.html\">PictureRecorder</a> 创建 <a href=\"dart-ui/Canvas-class.html\">Canvas</a>。</p>",
+    "1": "<p>此扩展点允许测试 binding 对渲染层进行检测。</p>",
+    "2": "<p><a href=\"rendering/PaintingContext-class.html\">PaintingContext</a> 使用 <a href=\"rendering/RendererBinding/createPictureRecorder.html\">createPictureRecorder</a> 创建 <a href=\"dart-ui/PictureRecorder-class.html\">PictureRecorder</a> 后，会通过此方法创建 Canvas。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/createPictureRecorder.html": {
+    "0": "<p>创建一个 <a href=\"dart-ui/PictureRecorder-class.html\">PictureRecorder</a>。</p>",
+    "1": "<p>此扩展点允许测试 binding 对渲染层进行检测。</p>",
+    "2": "<p><a href=\"rendering/PaintingContext-class.html\">PaintingContext</a> 使用此方法创建 <a href=\"dart-ui/PictureRecorder-class.html\">PictureRecorder</a>，用于将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 绘制到 <a href=\"rendering/PictureLayer-class.html\">PictureLayer</a> 所接收的 <a href=\"dart-ui/Picture-class.html\">Picture</a> 中。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/createRestorationManager.html": {
+    "0": "<p>创建可通过 <a href=\"services/ServicesBinding/restorationManager.html\">restorationManager</a> 访问的 <a href=\"services/RestorationManager-class.html\">RestorationManager</a> 实例。</p>",
+    "1": "<p>子类可以覆盖此方法，以创建不同的 <a href=\"services/RestorationManager-class.html\">RestorationManager</a>。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/createRootPipelineOwner.html": {
+    "0": "<p>创建作为管线所有者树根节点的 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a>（即 <a href=\"rendering/RendererBinding/rootPipelineOwner.html\">rootPipelineOwner</a>）。</p>",
+    "1": "<p>默认情况下，根管线所有者未配置为管理渲染树，因此不得设置其 <a href=\"rendering/PipelineOwner/rootNode.html\">PipelineOwner.rootNode</a>。如有需要，可以覆盖 <a href=\"rendering/RendererBinding/createRootPipelineOwner.html\">createRootPipelineOwner</a>，创建一个配置为管理自身渲染树的根管线所有者。</p>",
+    "2": "<p>通常，子管线所有者会通过 <a href=\"rendering/PipelineOwner/adoptChild.html\">PipelineOwner.adoptChild</a> 添加到根管线所有者。每个子管线所有者通常管理自己的 <a href=\"rendering/RenderView-class.html\">RenderView</a>，并生成独立的渲染树，将内容绘制到与该 <a href=\"rendering/RenderView-class.html\">RenderView</a> 关联的 <a href=\"dart-ui/FlutterView-class.html\">FlutterView</a> 中。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/createSceneBuilder.html": {
+    "0": "<p>创建一个 <a href=\"dart-ui/SceneBuilder-class.html\">SceneBuilder</a>。</p>",
+    "1": "<p>此扩展点允许测试 binding 对渲染层进行检测。</p>",
+    "2": "<p><a href=\"rendering/RenderView-class.html\">RenderView</a> 使用此方法创建 <a href=\"dart-ui/SceneBuilder-class.html\">SceneBuilder</a>，并将其传递给 <a href=\"rendering/Layer-class.html\">Layer</a> 系统以渲染场景。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/createSemanticsUpdateBuilder.html": {
+    "0": "<p>创建一个空的语义更新构建器。</p>",
+    "1": "<p>调用方负责填充语义节点更新。</p>",
+    "2": "<p><a href=\"semantics/SemanticsOwner-class.html\">SemanticsOwner</a> 使用此方法为其所有语义更新创建构建器。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/createViewConfigurationFor.html": {
+    "0": "<p>根据当前环境，为给定的 <a href=\"rendering/RenderView-class.html\">RenderView</a> 返回相应的 <a href=\"rendering/ViewConfiguration-class.html\">ViewConfiguration</a>。</p>",
+    "1": "<p>添加 <a href=\"rendering/RendererBinding/addRenderView.html\">addRenderView</a> 时会调用此方法；系统尺寸变化时也会调用它，以更新已添加到 binding 的所有 <a href=\"rendering/RendererBinding/renderViews.html\">renderViews</a>。</p>",
+    "2": "<p>Binding 可以覆盖此方法，以更改 <a href=\"rendering/RenderView-class.html\">RenderView</a> 使用的尺寸或设备像素比。例如，测试框架会在设备上通过 <code>flutter run</code> 运行测试时，使用此方法将显示尺寸强制设为 800x600。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/computePlatformResolvedLocale.html": {
+    "0": "<p>计算当前平台会解析出的语言区域。</p>",
+    "1": "<p>此方法旨在作为 <a href=\"widgets/WidgetsApp/localeListResolutionCallback.html\">WidgetsApp.localeListResolutionCallback</a> 的一部分使用。由于此方法可能返回 null，因此仍应提供 Flutter/Dart 算法作为后备，以应对无法确定原生解析语言区域或原生解析结果不符合预期的情况。</p>",
+    "2": "<p>如果平台不支持原生语言区域解析，或解析失败，此方法可能返回 null <a href=\"dart-ui/Locale-class.html\">Locale</a>。</p>",
+    "3": "<p>第一个 <code>supportedLocale</code> 会被视为默认语言区域；如果找不到更合适的匹配项，就会返回它。</p>",
+    "4": "<p>目前支持 Android 和 iOS。</p>",
+    "5": "<p>在 Android 上，使用 <a href=\"https://developer.android.com/guide/topics/resources/multilingual-support\">https://developer.android.com/guide/topics/resources/multilingual-support</a> 中所述的算法确定解析后的语言区域。具体使用现代算法（API 24 及以上）还是旧版算法（低于 API 24），取决于设备的 Android 版本。</p>",
+    "6": "<p>在 iOS 上，此方法返回 <code>NSBundle</code> 的 <code>preferredLocalizationsFromArray</code> 方法的结果。关于所用方法的详细信息，请参阅：<a href=\"https://developer.apple.com/documentation/foundation/nsbundle/1417249-preferredlocalizationsfromarray?language=objc\">https://developer.apple.com/documentation/foundation/nsbundle/1417249-preferredlocalizationsfromarray?language=objc</a>。</p>",
+    "7": "<p>iOS 将脚本代码视为匹配所必需的条件，因此用户首选语言区域为 <code>zh_Hans_CN</code> 时，不会匹配到受支持的 <code>zh_CN</code>。</p>",
+    "8": "<p>由于此方法的实现可能因平台而异，而且开销可能较大，如果需要多次使用其结果，建议缓存结果。</p>",
+    "9": "<p>如需获得次优及其他候选匹配语言区域，可以再次调用此方法，并从 <code>supportedLocales</code> 中排除第一次调用所匹配的语言区域。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/currentFrameTimeStamp.html": {
+    "0": "<p>当前正在处理的帧的时间戳。</p>",
+    "1": "<p>仅在对应帧从 <a href=\"scheduler/SchedulerBinding/handleBeginFrame.html\">handleBeginFrame</a> 开始到 <a href=\"scheduler/SchedulerBinding/handleDrawFrame.html\">handleDrawFrame</a> 结束的期间有效，也就是生成帧的过程中有效。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/currentSystemFrameTimeStamp.html": {
+    "0": "<p>当前正在处理的帧中，引擎传递给 <a href=\"dart-ui/PlatformDispatcher/onBeginFrame.html\">dart:ui.PlatformDispatcher.onBeginFrame</a> 的原始时间戳。</p>",
+    "1": "<p>与 <a href=\"scheduler/SchedulerBinding/currentFrameTimeStamp.html\">currentFrameTimeStamp</a> 不同，此时间戳既不会根据当前时间纪元的起点进行偏移调整，也不会按比例缩放以反映当前纪元的 <a href=\"scheduler/timeDilation.html\">timeDilation</a>。</p>",
+    "2": "<p>在大多数平台上，此值大致是任意值，通常应忽略。在 Fuchsia 上，它对应系统提供的呈现时间，可用于确保不同进程中运行的动画保持同步。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/deferFirstFrame.html": {
+    "0": "<p>通知框架暂不向引擎发送第一帧，直到相应地调用 <a href=\"rendering/RendererBinding/allowFirstFrame.html\">allowFirstFrame</a>。</p>",
+    "1": "<p>在第一帧渲染（并关闭启动画面）之前需要执行异步初始化工作时，可以调用此方法。框架仍会完成生成帧所需的所有工作，但这些帧不会发送给引擎，也不会显示在屏幕上。</p>",
+    "2": "<p>第一帧发送给引擎后再调用此方法不会产生任何效果。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/disableAnimations.html": {
+    "0": "<p>平台请求禁用动画或简化动画效果。</p>",
+    "1": "<p>可通过设置 <a href=\"semantics/debugSemanticsDisableAnimations.html\">debugSemanticsDisableAnimations</a> 覆盖此设置，以用于测试或调试。</p>"
   }
 }

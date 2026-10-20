@@ -1,20 +1,9 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 7,047 页，部分翻译 47 页，未翻译 158 页；正文已译 24,189/24,807 段。
+模块共 8,093 页：已完整 7,060 页，部分翻译 47 页，未翻译 145 页；正文已译 24,231/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
-- `flutter/widgets/WidgetsBinding/computePlatformResolvedLocale.html` — 未译；已译 0/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-- `flutter/widgets/WidgetsBinding/createBinaryMessenger.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetsBinding/createCanvas.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/createPictureRecorder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/createRestorationManager.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetsBinding/createRootPipelineOwner.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/createSceneBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/createSemanticsUpdateBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/createViewConfigurationFor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/currentFrameTimeStamp.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetsBinding/currentSystemFrameTimeStamp.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/WidgetsBinding/debugAssertNoPendingPerformanceModeRequests.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/WidgetsBinding/debugAssertNoTimeDilation.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/WidgetsBinding/debugAssertNoTransientCallbacks.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
@@ -29,8 +18,7 @@
 - `flutter/widgets/WidgetsBinding/debugShowWidgetInspectorOverrideNotifier.html` — 未译；已译 0/1 段；待译段落：0
 - `flutter/widgets/WidgetsBinding/debugWidgetInspectorSelectionOnTapEnabled.html` — 未译；已译 0/1 段；待译段落：0
 - `flutter/widgets/WidgetsBinding/defaultBinaryMessenger.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/deferFirstFrame.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/disableAnimations.html` — 未译；已译 0/2 段；待译段落：0, 1
+
 - `flutter/widgets/WidgetsBinding/dispatchAccessibilityFeaturesChanged.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/WidgetsBinding/dispatchEvent.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/WidgetsBinding/dispatchLocalesChanged.html` — 未译；已译 0/2 段；待译段落：0, 1
