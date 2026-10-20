@@ -260402,5 +260402,117 @@
     "34": "<h2 id=\"state-restoration\">状态恢复</h2>",
     "35": "<p>如果 <a href=\"widgets/Router-class.html\">Router</a> 配置了 <a href=\"widgets/Router/restorationScopeId.html\">restorationScopeId</a>，且其子树已启用状态恢复，那么状态恢复期间它会恢复 <a href=\"widgets/Router/routerDelegate.html\">routerDelegate</a> 的当前配置。为此，操作系统终止应用前会序列化并持久化 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">RouterDelegate.currentConfiguration</a> 的值。应用重启后，该值会被反序列化，并通过调用 <a href=\"widgets/RouterDelegate/setRestoredRoutePath.html\">RouterDelegate.setRestoredRoutePath</a> 传回 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>（默认实现只会调用 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">RouterDelegate.setNewRoutePath</a>）。<a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a> 负责使用提供的配置信息恢复其内部状态。</p>",
     "36": "<p>为序列化 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">RouterDelegate.currentConfiguration</a> 并在之后反序列化，<a href=\"widgets/Router-class.html\">Router</a> 会分别调用 <a href=\"widgets/RouteInformationParser/restoreRouteInformation.html\">RouteInformationParser.restoreRouteInformation</a> 和 <a href=\"widgets/RouteInformationParser/parseRouteInformation.html\">RouteInformationParser.parseRouteInformation</a>。因此，如果提供了 <a href=\"widgets/Router/restorationScopeId.html\">restorationScopeId</a>，也必须配置 <a href=\"widgets/Router/routeInformationParser.html\">routeInformationParser</a>。</p>"
+  },
+  "flutter/widgets/Router/Router.html": {
+    "0": "<p>创建一个 router。</p>",
+    "1": "<p>如果此 router 不依赖路由信息，<code>routeInformationProvider</code> 和 <code>routeInformationParser</code> 可以为 null。常见情况是子 router 完全根据应用状态构建其内容。</p>",
+    "2": "<p><code>routeInformationProvider</code> 和 <code>routeInformationParser</code> 必须同时提供，或者都不提供。</p>"
+  },
+  "flutter/widgets/Router/Router.withConfig.html": {
+    "0": "<p>使用 <a href=\"widgets/RouterConfig-class.html\">RouterConfig</a> 创建一个 router。</p>",
+    "1": "<p>如果此 router 不依赖路由信息，<a href=\"widgets/RouterConfig/routeInformationProvider.html\">RouterConfig.routeInformationProvider</a> 和 <a href=\"widgets/RouterConfig/routeInformationParser.html\">RouterConfig.routeInformationParser</a> 可以为 null。常见情况是子 router 完全根据应用状态构建其内容。</p>",
+    "2": "<p>如果 <a href=\"widgets/RouterConfig/routeInformationProvider.html\">RouterConfig.routeInformationProvider</a> 不为 null，则 <a href=\"widgets/RouterConfig/routeInformationParser.html\">RouterConfig.routeInformationParser</a> 也必须不为 null。</p>"
+  },
+  "flutter/widgets/Router/backButtonDispatcher.html": {
+    "0": "<p>此 router 的返回按钮分发器。</p>",
+    "1": "<p>常见选择有：根 router 使用 <a href=\"widgets/RootBackButtonDispatcher-class.html\">RootBackButtonDispatcher</a>，其他 router 使用 <a href=\"widgets/ChildBackButtonDispatcher-class.html\">ChildBackButtonDispatcher</a>。</p>"
+  },
+  "flutter/widgets/Router/maybeOf.html": {
+    "0": "<p>从给定上下文中获取最近的 <a href=\"widgets/Router-class.html\">Router</a> 祖先。</p>",
+    "1": "<p>此方法可访问 <a href=\"widgets/Router-class.html\">Router</a> 的委托。例如，创建嵌套 <a href=\"widgets/Router-class.html\">Router</a> 的 <a href=\"widgets/ChildBackButtonDispatcher-class.html\">ChildBackButtonDispatcher</a> 时，可以使用它获取父 router 的 <a href=\"widgets/Router/backButtonDispatcher.html\">backButtonDispatcher</a>。</p>",
+    "2": "<p>如果给定上下文中不存在 <code>Router</code> 祖先，此方法会返回 null。</p>"
+  },
+  "flutter/widgets/Router/navigate.html": {
+    "0": "<p>强制 <a href=\"widgets/Router-class.html\">Router</a> 执行 <code>callback</code>，并在浏览器中创建新的历史记录条目。</p>",
+    "1": "<p>Web 应用依靠 <a href=\"widgets/Router-class.html\">Router</a> 报告新的路由信息来创建浏览器历史记录。只有 <a href=\"widgets/Router-class.html\">Router</a> 检测到 <a href=\"widgets/RouteInformation/uri.html\">RouteInformation.uri</a> 发生变化时，才会报告路由信息。若希望 <a href=\"widgets/Router-class.html\">Router</a> 即使在位置未变化时也报告路由信息，可以使用此方法。当 URL 不变但需要支持浏览器的后退和前进按钮时，此方法很有用。</p>",
+    "2": "<p>例如，可以将滚动位置等状态存入 <a href=\"widgets/RouteInformation/state.html\">RouteInformation.state</a>。如果使用此方法在 URL 不变的情况下多次更新滚动位置，浏览器就会创建一系列 URL 相同、但 <a href=\"widgets/RouteInformation/state.html\">RouteInformation.state</a> 不同的历史条目，用于保存新的滚动位置。用户点击浏览器后退按钮时，浏览器会从历史条目中恢复滚动位置，而不会更改 URL。</p>"
+  },
+  "flutter/widgets/Router/neglect.html": {
+    "0": "<p>强制 <a href=\"widgets/Router-class.html\">Router</a> 执行 <code>callback</code>，但不在浏览器中创建新的历史条目。</p>",
+    "1": "<p>Web 应用依靠 <a href=\"widgets/Router-class.html\">Router</a> 报告新的路由信息来创建浏览器历史记录。检测到 <a href=\"widgets/RouteInformation/uri.html\">RouteInformation.uri</a> 发生变化时，<a href=\"widgets/Router-class.html\">Router</a> 会自动报告。</p>",
+    "2": "<p>创建新的路由历史条目会让用户感觉自己访问了新页面，浏览器后退按钮则会返回上一个历史条目。如果不希望 <a href=\"widgets/Router-class.html\">Router</a> 在执行 <code>callback</code> 后检测到变化时创建新的路由信息，可以使用此方法。</p>",
+    "3": "<p>此方法仍会更新当前历史条目中的 URL 和状态。</p>"
+  },
+  "flutter/widgets/Router/of.html": {
+    "0": "<p>从给定上下文中获取最近的 <a href=\"widgets/Router-class.html\">Router</a> 祖先。</p>",
+    "1": "<p>此方法可访问 <a href=\"widgets/Router-class.html\">Router</a> 的委托。例如，创建嵌套 <a href=\"widgets/Router-class.html\">Router</a> 的 <a href=\"widgets/ChildBackButtonDispatcher-class.html\">ChildBackButtonDispatcher</a> 时，可以使用它获取父 router 的 <a href=\"widgets/Router/backButtonDispatcher.html\">backButtonDispatcher</a>。</p>",
+    "2": "<p>如果给定上下文中不存在 <a href=\"widgets/Router-class.html\">Router</a> 祖先，调试模式下会触发断言，发布模式下会抛出异常。</p>"
+  },
+  "flutter/widgets/Router/restorationScopeId.html": {
+    "0": "<p>用于保存和恢复 <a href=\"widgets/Router-class.html\">Router</a> 状态的恢复 ID。</p>",
+    "1": "<p>如果此值不为 null，<a href=\"widgets/Router-class.html\">Router</a> 会持久化 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a> 的当前配置（即 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">RouterDelegate.currentConfiguration</a>）。状态恢复期间，<a href=\"widgets/Router-class.html\">Router</a> 会调用 <a href=\"widgets/RouterDelegate/setRestoredRoutePath.html\">RouterDelegate.setRestoredRoutePath</a>，将先前的配置告知 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>（默认实现只会调用 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">RouterDelegate.setNewRoutePath</a>）。<a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a> 负责根据提供的配置恢复其内部状态。</p>",
+    "2": "<p>使用 <a href=\"widgets/RouteInformationParser-class.html\">RouteInformationParser</a> 序列化和反序列化 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">RouterDelegate.currentConfiguration</a>。因此，当 <a href=\"widgets/Router/restorationScopeId.html\">restorationScopeId</a> 不为 null 时，必须提供 <a href=\"widgets/Router/routeInformationParser.html\">routeInformationParser</a>。</p>"
+  },
+  "flutter/widgets/Router/routeInformationParser.html": {
+    "0": "<p>此 router 的路由信息解析器。</p>",
+    "1": "<p><a href=\"widgets/Router-class.html\">Router</a> 从 <a href=\"widgets/Router/routeInformationProvider.html\">routeInformationProvider</a> 收到新的路由信息时，会使用此委托解析路由信息并生成配置。随后 <a href=\"widgets/Router/routerDelegate.html\">routerDelegate</a>，并触发 <a href=\"widgets/Router-class.html\">Router</a> widget 重建 会使用该配置，最终触发 <a href=\"widgets/Router-class.html\">Router</a> widget 重建。</p>",
+    "2": "<p>由于此委托是 <a href=\"widgets/Router/routeInformationProvider.html\">routeInformationProvider</a> 的主要使用者，只要 <a href=\"widgets/Router/routeInformationProvider.html\">routeInformationProvider</a> 不为 null，此委托也必须不为 null。</p>"
+  },
+  "flutter/widgets/Router/routeInformationProvider.html": {
+    "0": "<p>此 router 的路由信息 provider。</p>",
+    "1": "<p>首次构建时此 provider 的值会用作初始 route。<a href=\"widgets/Router-class.html\">Router</a> 会监听此 provider；收到通知后，会使用新的名称重新构建。</p>",
+    "2": "<p>如果此 router 构建内容时不依赖路由信息，此值可以为 null。在这种情况下，<a href=\"widgets/Router/routeInformationParser.html\">routeInformationParser</a> 也必须为 null。</p>"
+  },
+  "flutter/widgets/Router/routerDelegate.html": {
+    "0": "<p>此 router 的委托。</p>",
+    "1": "<p>此委托使用 <a href=\"widgets/Router/routeInformationParser.html\">routeInformationParser</a> 提供的配置，并为 <a href=\"widgets/Router-class.html\">Router</a> 构建导航 widget。</p>",
+    "2": "<p>它也是 <a href=\"widgets/Router/backButtonDispatcher.html\">backButtonDispatcher</a> 的主要响应者。<a href=\"widgets/Router-class.html\">Router</a> 依靠 <a href=\"widgets/RouterDelegate/popRoute.html\">RouterDelegate.popRoute</a> 处理返回按钮。</p>",
+    "3": "<p>如果 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">RouterDelegate.currentConfiguration</a> 返回非 null 对象，此 <a href=\"widgets/Router-class.html\">Router</a> 就会启用 URL 更新。</p>"
+  },
+  "flutter/widgets/RouterConfig-class.html": {
+    "0": "<p>用于便捷配置 <a href=\"widgets/Router-class.html\">Router</a> widget 的一组配置。</p>",
+    "1": "<p>配置 <a href=\"widgets/Router-class.html\">Router</a> widget 时，需要提供多个委托：<a href=\"widgets/RouteInformationProvider-class.html\">RouteInformationProvider</a>、<a href=\"widgets/RouteInformationParser-class.html\">RouteInformationParser</a>、<a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a> 和 <a href=\"widgets/BackButtonDispatcher-class.html\">BackButtonDispatcher</a>。此抽象类提供了一种方式，可将这些委托打包到单个对象中来配置 <a href=\"widgets/Router-class.html\">Router</a>。</p>",
+    "2": "<p><a href=\"widgets/RouterConfig/backButtonDispatcher.html\">backButtonDispatcher</a> 和 <a href=\"widgets/RouterConfig/routeInformationProvider.html\">routeInformationProvider</a> 和 <a href=\"widgets/RouterConfig/routeInformationProvider.html\">routeInformationProvider</a> 是可选的。</p>",
+    "3": "<p><a href=\"widgets/RouterConfig/routeInformationProvider.html\">routeInformationProvider</a> 和 <a href=\"widgets/RouterConfig/routeInformationParser.html\">routeInformationParser</a> 必须同时提供，或同时不提供。</p>"
+  },
+  "flutter/widgets/RouterConfig/RouterConfig.html": {
+    "0": "<p>创建一个 <a href=\"widgets/RouterConfig-class.html\">RouterConfig</a>。</p>",
+    "1": "<p><code>backButtonDispatcher</code>、<code>routeInformationProvider</code> 和 <code>routeInformationParser</code> 都是可选的。</p>",
+    "2": "<p><code>routeInformationProvider</code> 和 <code>routeInformationParser</code> 必须同时提供，或同时不提供。</p>"
+  },
+  "flutter/widgets/RouterDelegate-class.html": {
+    "0": "<p>供 <a href=\"widgets/Router-class.html\">Router</a> widget 使用的委托，用于构建和配置导航 widget。</p>",
+    "1": "<p>此委托是 <a href=\"widgets/Router-class.html\">Router</a> widget 的核心。它会响应引擎发出的推入 route 和弹出 route 意图，并通知 <a href=\"widgets/Router-class.html\">Router</a> 重新构建。它还充当 <a href=\"widgets/Router-class.html\">Router</a> widget 的构建器：每当 <a href=\"widgets/Router-class.html\">Router</a> widget每当该 widget 构建时，都会构建一个导航 widget，通常是 <a href=\"widgets/Navigator-class.html\">Navigator</a>。</p>",
+    "2": "<p>引擎推入新 route 时，<a href=\"widgets/RouteInformationParser-class.html\">RouteInformationParser</a> 会解析路由信息，生成 T 类型的配置。router delegate 通过 <a href=\"widgets/RouterDelegate/setInitialRoutePath.html\">setInitialRoutePath</a> 或 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a> 接收配置并据此完成设置；之后在被请求时（<a href=\"widgets/RouterDelegate/build.html\">build</a>）构建最新的导航 widget。</p>",
+    "3": "<p>实现子类时，可以考虑定义一个 <a href=\"foundation/Listenable-class.html\">Listenable</a> 应用状态对象，用于构建导航 widget。router delegate 应相应更新应用状态，并在应用状态变化或收到引擎发出的路由意图（例如 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>、<a href=\"widgets/RouterDelegate/setInitialRoutePath.html\">setInitialRoutePath</a> 或 <a href=\"widgets/RouterDelegate/popRoute.html\">popRoute</a>）时通知自己的监听器。</p>",
+    "4": "<p>所有子类都必须实现 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>、<a href=\"widgets/RouterDelegate/popRoute.html\">popRoute</a> 和 <a href=\"widgets/RouterDelegate/build.html\">build</a>。</p>",
+    "5": "<h2 id=\"state-restoration\">状态恢复</h2>",
+    "6": "<p>如果拥有此委托的 <a href=\"widgets/Router-class.html\">Router</a> 已配置状态恢复，就会通过以下机制持久化和恢复此 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a> 的配置：操作系统终止应用前，<a href=\"widgets/RouterDelegate/currentConfiguration.html\">currentConfiguration</a> 的值会被序列化并持久化。应用重启后，该值会被反序列化，并通过调用 <a href=\"widgets/RouterDelegate/setRestoredRoutePath.html\">setRestoredRoutePath</a> 传回 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>（默认实现只调用 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>）。<a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a> 负责使用提供的配置信息恢复其内部状态。</p>"
+  },
+  "flutter/widgets/RouterDelegate/build.html": {
+    "0": "<p>由 <a href=\"widgets/Router-class.html\">Router</a> 调用，以获取表示当前状态的 widget 树。</p>",
+    "1": "<p>当 <a href=\"widgets/RouterDelegate/setInitialRoutePath.html\">setInitialRoutePath</a>、<a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a> 或 <a href=\"widgets/RouterDelegate/setRestoredRoutePath.html\">setRestoredRoutePath</a> 返回的 <a href=\"dart-async/Future-class.html\">Future</a> 完成时，以及此委托通知其客户端时（参见此接口继承的 <a href=\"foundation/Listenable-class.html\">Listenable</a> 接口），都会调用此方法。此外，它也可能在其他时间调用。因此，上述方法必须等各自的 future 完成后，才能更新 <a href=\"widgets/RouterDelegate/build.html\">build</a> 方法所使用的状态。</p>",
+    "2": "<p>此方法通常会返回配置适当的 <a href=\"widgets/Navigator-class.html\">Navigator</a>。如果计划创建 navigator，可以考虑使用 <a href=\"widgets/PopNavigatorRouterDelegateMixin-mixin.html\">PopNavigatorRouterDelegateMixin</a>。如果使用此委托的 <a href=\"widgets/Router-class.html\">Router</a> 已启用状态恢复，还可以为此方法返回的 <a href=\"widgets/Navigator-class.html\">Navigator</a> 提供非 null 的 <a href=\"widgets/Navigator/restorationScopeId.html\">Navigator.restorationScopeId</a>。</p>",
+    "3": "<p>此方法不得返回 null。</p>",
+    "4": "<p><code>context</code> 是 <a href=\"widgets/Router-class.html\">Router</a> 的构建上下文。</p>"
+  },
+  "flutter/widgets/RouterDelegate/currentConfiguration.html": {
+    "0": "<p><a href=\"widgets/Router-class.html\">Router</a> 在检测到重建可能导致路由信息变化时调用此 getter。</p>",
+    "1": "<p>如果此 getter 返回非 null 值，<a href=\"widgets/Router-class.html\">Router</a> 就会开始向引擎报告新的路由信息。在 Web 应用中，新的路由信息会用于填充浏览器历史记录，以支持前进和后退按钮。</p>",
+    "2": "<p>重写此方法时，此 getter 返回的配置必须能够构造当前应用状态；如果将相同配置传回 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>，则必须能通过 <a href=\"widgets/RouterDelegate/build.html\">build</a> 构建出配置相同的 widget。否则浏览器前进和后退按钮将无法正常工作。</p>",
+    "3": "<p>默认情况下，此 getter 返回 null，以阻止 <a href=\"widgets/Router-class.html\">Router</a> 报告路由信息。子类可以重写此 getter 并返回当前配置，以启用此功能。</p>",
+    "4": "<p>最多只能有一个 <a href=\"widgets/Router-class.html\">Router</a> 启用路由信息报告。通常，只有由 <a href=\"widgets/WidgetsApp/WidgetsApp.router.html\">WidgetsApp.router</a> 创建的最顶层 <a href=\"widgets/Router-class.html\">Router</a> 应启用此功能。</p>",
+    "5": "<h2 id=\"state-restoration\">状态恢复</h2>",
+    "6": "<p><a href=\"widgets/Router-class.html\">Router</a> 也会使用此 getter 实现状态恢复。序列化状态时，<a href=\"widgets/Router-class.html\">Router</a> 会持久化当前配置；恢复状态时，则会调用 <a href=\"widgets/RouterDelegate/setRestoredRoutePath.html\">setRestoredRoutePath</a> 将配置传回委托。</p>"
+  },
+  "flutter/widgets/RouterDelegate/popRoute.html": {
+    "0": "<p>当 <a href=\"widgets/Router/backButtonDispatcher.html\">Router.backButtonDispatcher</a> 报告操作系统要求弹出当前 route 时，由 <a href=\"widgets/Router-class.html\">Router</a> 调用。</p>",
+    "1": "<p>此方法应返回一个布尔值 <a href=\"dart-async/Future-class.html\">Future</a>，表示此委托是否处理了请求。返回 true 表示请求已处理，并会阻止请求继续向上冒泡。返回 false 表示此委托未处理请求，因此在嵌套 <a href=\"widgets/Router-class.html\">Router</a> 结构中，请求可以继续传给父级 <a href=\"widgets/BackButtonDispatcher-class.html\">BackButtonDispatcher</a>。如果请求到达根 <a href=\"widgets/WidgetsBinding-mixin.html\">WidgetsBinding</a> 后仍未处理，系统会通过调用 <a href=\"services/SystemNavigator/pop.html\">SystemNavigator.pop</a> 请求平台关闭应用。</p>",
+    "2": "<p>如果结果可同步计算，可以考虑使用 <a href=\"foundation/SynchronousFuture-class.html\">SynchronousFuture</a>，这样 <a href=\"widgets/Router-class.html\">Router</a> 就不必等到下一个微任务才安排构建。</p>"
+  },
+  "flutter/widgets/RouterDelegate/setInitialRoutePath.html": {
+    "0": "<p>启动时由 <a href=\"widgets/Router-class.html\">Router</a> 调用，并传入 <a href=\"widgets/RouteInformationParser-class.html\">RouteInformationParser</a> 解析初始 route 后得到的结构。</p>",
+    "1": "<p>此方法应配置 <a href=\"widgets/RouterDelegate-class.html\">RouterDelegate</a>，使其在调用 <a href=\"widgets/RouterDelegate/build.html\">build</a> 时创建与初始 route 相符的 widget 树。</p>",
+    "2": "<p>默认情况下，此方法会将 <code>configuration</code> 转发给 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>。</p>",
+    "3": "<p>如果结果可同步计算，可以考虑使用 <a href=\"foundation/SynchronousFuture-class.html\">SynchronousFuture</a>，这样 <a href=\"widgets/Router-class.html\">Router</a> 就不必等到下一个微任务才安排构建。</p>"
+  },
+  "flutter/widgets/RouterDelegate/setNewRoutePath.html": {
+    "0": "<p>当 <a href=\"widgets/Router/routeInformationProvider.html\">Router.routeInformationProvider</a> 报告操作系统向应用推入了新的 route 时，由 <a href=\"widgets/Router-class.html\">Router</a> 调用。</p>",
+    "1": "<p>如果结果可同步计算，可以考虑使用 <a href=\"foundation/SynchronousFuture-class.html\">SynchronousFuture</a>，这样 <a href=\"widgets/Router-class.html\">Router</a> 就不必等到下一个微任务才安排构建。</p>"
+  },
+  "flutter/widgets/RouterDelegate/setRestoredRoutePath.html": {
+    "0": "<p>状态恢复期间由 <a href=\"widgets/Router-class.html\">Router</a> 调用。</p>",
+    "1": "<p>如果 <a href=\"widgets/Router-class.html\">Router</a> 配置了状态恢复，它会在序列化状态时持久化 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">currentConfiguration</a> 的值。恢复状态期间，<a href=\"widgets/Router-class.html\">Router</a> 会调用此方法（而不是 <a href=\"widgets/RouterDelegate/setInitialRoutePath.html\">setInitialRoutePath</a>），将先前的配置传回委托。委托负责根据提供的配置恢复其内部状态。</p>",
+    "2": "<p>默认情况下，此方法会将 <code>configuration</code> 转发给 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>。</p>"
   }
 }

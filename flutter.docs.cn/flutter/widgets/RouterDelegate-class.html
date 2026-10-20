@@ -87,40 +87,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;RouterDelegate-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/router.dart#L1340"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RouterDelegate&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类 
+<h1><span class="kind-class">RouterDelegate&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类
     <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A delegate that is used by the <a href="widgets/Router-class.html">Router</a> widget to build and configure a
-navigating widget.</p>
-<p>This delegate is the core piece of the <a href="widgets/Router-class.html">Router</a> widget. It responds to
-push route and pop route intents from the engine and notifies the <a href="widgets/Router-class.html">Router</a>
-to rebuild. It also acts as a builder for the <a href="widgets/Router-class.html">Router</a> widget and builds a
-navigating widget, typically a <a href="widgets/Navigator-class.html">Navigator</a>, when the <a href="widgets/Router-class.html">Router</a> widget
-builds.</p>
-<p>When the engine pushes a new route, the route information is parsed by the
-<a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> to produce a configuration of type T. The router
-delegate receives the configuration through <a href="widgets/RouterDelegate/setInitialRoutePath.html">setInitialRoutePath</a> or
-<a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a> to configure itself and builds the latest navigating
-widget when asked (<a href="widgets/RouterDelegate/build.html">build</a>).</p>
-<p>When implementing subclasses, consider defining a <a href="foundation/Listenable-class.html">Listenable</a> app state object to be
-used for building the navigating widget. The router delegate would update
-the app state accordingly and notify its own listeners when the app state has
-changed and when it receive route related engine intents (e.g.
-<a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>, <a href="widgets/RouterDelegate/setInitialRoutePath.html">setInitialRoutePath</a>, or <a href="widgets/RouterDelegate/popRoute.html">popRoute</a>).</p>
-<p>All subclass must implement <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>, <a href="widgets/RouterDelegate/popRoute.html">popRoute</a>, and <a href="widgets/RouterDelegate/build.html">build</a>.</p>
-<h2 id="state-restoration">State Restoration</h2>
-<p>If the <a href="widgets/Router-class.html">Router</a> owning this delegate is configured for state restoration, it
-will persist and restore the configuration of this <a href="widgets/RouterDelegate-class.html">RouterDelegate</a> using
-the following mechanism: Before the app is killed by the operating system,
-the value of <a href="widgets/RouterDelegate/currentConfiguration.html">currentConfiguration</a> is serialized out and persisted. After
-the app has restarted, the value is deserialized and passed back to the
-<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> via a call to <a href="widgets/RouterDelegate/setRestoredRoutePath.html">setRestoredRoutePath</a> (which by default just
-calls <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>). It is the responsibility of the <a href="widgets/RouterDelegate-class.html">RouterDelegate</a>
-to use the configuration information provided to restore its internal state.</p>
+  <p>供 <a href="widgets/Router-class.html">Router</a> widget 使用的委托，用于构建和配置导航 widget。</p>
+<p>此委托是 <a href="widgets/Router-class.html">Router</a> widget 的核心。它会响应引擎发出的推入 route 和弹出 route 意图，并通知 <a href="widgets/Router-class.html">Router</a> 重新构建。它还充当 <a href="widgets/Router-class.html">Router</a> widget 的构建器：每当 <a href="widgets/Router-class.html">Router</a> widget每当该 widget 构建时，都会构建一个导航 widget，通常是 <a href="widgets/Navigator-class.html">Navigator</a>。</p>
+<p>引擎推入新 route 时，<a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> 会解析路由信息，生成 T 类型的配置。router delegate 通过 <a href="widgets/RouterDelegate/setInitialRoutePath.html">setInitialRoutePath</a> 或 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a> 接收配置并据此完成设置；之后在被请求时（<a href="widgets/RouterDelegate/build.html">build</a>）构建最新的导航 widget。</p>
+<p>实现子类时，可以考虑定义一个 <a href="foundation/Listenable-class.html">Listenable</a> 应用状态对象，用于构建导航 widget。router delegate 应相应更新应用状态，并在应用状态变化或收到引擎发出的路由意图（例如 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>、<a href="widgets/RouterDelegate/setInitialRoutePath.html">setInitialRoutePath</a> 或 <a href="widgets/RouterDelegate/popRoute.html">popRoute</a>）时通知自己的监听器。</p>
+<p>所有子类都必须实现 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>、<a href="widgets/RouterDelegate/popRoute.html">popRoute</a> 和 <a href="widgets/RouterDelegate/build.html">build</a>。</p>
+<h2 id="state-restoration">状态恢复</h2>
+<p>如果拥有此委托的 <a href="widgets/Router-class.html">Router</a> 已配置状态恢复，就会通过以下机制持久化和恢复此 <a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 的配置：操作系统终止应用前，<a href="widgets/RouterDelegate/currentConfiguration.html">currentConfiguration</a> 的值会被序列化并持久化。应用重启后，该值会被反序列化，并通过调用 <a href="widgets/RouterDelegate/setRestoredRoutePath.html">setRestoredRoutePath</a> 传回 <a href="widgets/RouterDelegate-class.html">RouterDelegate</a>（默认实现只调用 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>）。<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 负责使用提供的配置信息恢复其内部状态。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a>, which is responsible for parsing the route

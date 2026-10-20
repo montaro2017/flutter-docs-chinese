@@ -1,6 +1,6 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,997 页，部分翻译 343 页，未翻译 912 页；正文已译 21,414/24,807 段。
+模块共 8,093 页：已完整 6,017 页，部分翻译 334 页，未翻译 901 页；正文已译 21,483/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
@@ -8,28 +8,6 @@
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/Router/Router.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Router/Router.withConfig.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Router/backButtonDispatcher.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/Router/maybeOf.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/Router/navigate.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/Router/neglect.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/Router/of.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/Router/restorationScopeId.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/Router/routeInformationParser.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Router/routeInformationProvider.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Router/routerDelegate.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RouterConfig-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RouterConfig/RouterConfig.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RouterDelegate-class.html` — 部分；已译 1/8 段；待译段落：0, 1, 2, 3, 4, 5, 6
-- `flutter/widgets/RouterDelegate/build.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RouterDelegate/currentConfiguration.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
-- `flutter/widgets/RouterDelegate/popRoute.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/RouterDelegate/setInitialRoutePath.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
-- `flutter/widgets/RouterDelegate/setNewRoutePath.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/RouterDelegate/setRestoredRoutePath.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/Row-class.html` — 部分；已译 5/25 段；待译段落：0, 1, 2, 3, 4, 5, 6, 9, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23
 - `flutter/widgets/Row/Row.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/SafeArea-class.html` — 部分；已译 3/7 段；待译段落：0, 1, 4, 5
