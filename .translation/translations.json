@@ -265234,5 +265234,95 @@
     "4": "<p>如果请求的路由未在此表或 <a href=\"widgets/WidgetsApp/home.html\">home</a> 中指定，则会调用 <a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a> 回调来构建页面。</p>",
     "5": "<p>只有在提供了路由（通过 <a href=\"widgets/WidgetsApp/home.html\">home</a>、<a href=\"widgets/WidgetsApp/routes.html\">routes</a>、<a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a> 或 <a href=\"widgets/WidgetsApp/onUnknownRoute.html\">onUnknownRoute</a>）时，才会构建 <a href=\"widgets/Navigator-class.html\">Navigator</a>；否则，<a href=\"widgets/WidgetsApp/builder.html\">builder</a> 不能为 null。</p>",
     "6": "<p>如果 routes 映射不为空，就必须设置 <a href=\"widgets/WidgetsApp/pageRouteBuilder.html\">pageRouteBuilder</a>，以便默认路由处理器知道应创建哪种 <a href=\"widgets/PageRoute-class.html\">PageRoute</a>。</p>"
+  },
+  "flutter/widgets/WidgetsBinding-mixin.html": {
+    "0": "<p>连接 Flutter Widgets 层与引擎的纽带。</p>",
+    "1": "<p><a href=\"widgets/WidgetsBinding-mixin.html\">WidgetsBinding</a> 管理一棵以 <a href=\"widgets/WidgetsBinding/rootElement.html\">rootElement</a> 为根的 <a href=\"widgets/Element-class.html\">Element</a> 树。调用 <a href=\"widgets/runApp.html\">runApp</a>（它会间接调用 <a href=\"widgets/WidgetsBinding/attachRootWidget.html\">attachRootWidget</a>）即可启动这棵 Element 树。</p>",
+    "2": "<h2 id=\"relationship-to-render-trees\">与渲染树的关系</h2>",
+    "3": "<p>一棵 Element 树可以关联多棵渲染树，这些渲染树由底层的 <a href=\"rendering/RendererBinding-mixin.html\">RendererBinding</a> 管理。</p>",
+    "4": "<p>Element 树分为两类区域：渲染区域和非渲染区域。</p>",
+    "5": "<p>渲染区域是 Element 树中由渲染树支撑的一部分，用于描述屏幕上绘制的像素。此区域中的 <a href=\"widgets/Element/renderObject.html\">Element.renderObject</a> 永远不会返回 null，因为其中的元素都关联着 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。几乎所有 Widget 都可以放入渲染区域；值得注意的例外包括 <a href=\"widgets/View-class.html\">View</a>、<a href=\"widgets/ViewCollection-class.html\">ViewCollection</a> 和 <a href=\"widgets/RootWidget-class.html\">RootWidget</a>。</p>",
+    "6": "<p>非渲染区域是 Element 树中没有渲染树支撑的一部分。此区域中的 <a href=\"widgets/Element/renderObject.html\">Element.renderObject</a> 会返回 null，因为其中的元素没有关联任何 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。此区域只能使用不会生成 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的 Widget，因为没有渲染树可供挂接。也就是说，不能在此区域使用 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a>。此区域通常包含 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>、<a href=\"widgets/View-class.html\">View</a> 和 <a href=\"widgets/ViewCollection-class.html\">ViewCollection</a>，用于跨渲染区域向树中注入数据，并将各渲染区域（以及相应的渲染树）组织成统一的 Element 树。</p>",
+    "7": "<p>从 <a href=\"widgets/WidgetsBinding/rootElement.html\">rootElement</a> 开始的 Element 树根节点位于非渲染区域。在非渲染区域中，使用 <a href=\"widgets/View-class.html\">View</a> Widget 启动渲染树，从而开始一个渲染区域。在渲染区域中，则可以使用 <a href=\"widgets/ViewAnchor-class.html\">ViewAnchor</a> 开始新的非渲染区域。</p>",
+    "8": "<p>要判断一个元素是否位于渲染区域，可以沿树向上遍历，并在其祖先上调用 <a href=\"widgets/Element/debugExpectsRenderObjectForSlot.html\">Element.debugExpectsRenderObjectForSlot</a>。如果遇到返回 false 的元素，它就位于非渲染区域；如果遇到 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 祖先，它就位于渲染区域。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/accessibilityFeatures.html": {
+    "0": "<p>当前启用的 <a href=\"dart-ui/AccessibilityFeatures-class.html\">ui.AccessibilityFeatures</a> 集合。</p>",
+    "1": "<p>此值在 binding 首次初始化时设置，并会在标志发生变化时更新。</p>",
+    "2": "<p>要监听辅助功能特性的变化，请创建 <a href=\"widgets/WidgetsBindingObserver-class.html\">WidgetsBindingObserver</a>，并监听 <a href=\"widgets/WidgetsBindingObserver/didChangeAccessibilityFeatures.html\">WidgetsBindingObserver.didChangeAccessibilityFeatures</a>。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/accessibilityFocus.html": {
+    "0": "<p>当系统的辅助功能焦点发生变化时发出通知的 Listenable。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/addObserver.html": {
+    "0": "<p>将给定对象注册为 binding 观察器。当发生各种应用事件时（例如系统语言区域变化），binding 观察器会收到通知。通常，Widget 树中的某个 Widget 会注册为 binding 观察器，并将系统状态转换为继承 Widget。</p>",
+    "1": "<p>例如，<a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> Widget 会注册为 binding 观察器，并在每次构建时将屏幕尺寸传递给 <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a> Widget。这样，其他 Widget 就可以使用 <a href=\"widgets/MediaQuery/sizeOf.html\">MediaQuery.sizeOf</a> 静态方法和（隐式使用）<a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 机制，在屏幕尺寸变化时收到通知（例如设备旋转时）。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/addPersistentFrameCallback.html": {
+    "0": "<p>添加一个持久帧回调。</p>",
+    "1": "<p>持久回调会在瞬时（非持久）帧回调之后调用。</p>",
+    "2": "<p>此方法<em>不会</em>请求新帧。从概念上说，持久帧回调是“帧开始”事件的观察器。由于它们在瞬时帧回调之后执行，因此可以驱动渲染管线。</p>",
+    "3": "<p>无法注销持久帧回调。注册后，在应用的整个生命周期中，每一帧都会调用它。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/addPostFrameCallback.html": {
+    "0": "<p>安排一个在当前帧结束时运行的回调。</p>",
+    "1": "<p>给定的回调会在帧结束后立即运行，具体来说是在持久帧回调之后（此时主渲染管线已完成刷新）。</p>",
+    "2": "<p>此方法<em>不会</em>请求新帧。如果当前已有帧正在处理，且尚未开始执行帧后回调，那么注册的回调会在当前帧末尾执行。否则，它会在下一帧之后执行（如果下一帧会发生的话）。</p>",
+    "3": "<p>回调按添加顺序执行。</p>",
+    "4": "<p>无法注销帧后回调。每个回调只会调用一次。</p>",
+    "5": "<p>在调试模式下，如果 <a href=\"scheduler/debugTracePostFrameCallbacks.html\">debugTracePostFrameCallbacks</a> 为 true，注册的回调会显示在时间线事件图表中，该图表可在 <a href=\"https://docs.flutter.dev/tools/devtools\">DevTools</a> 中查看。此时，<code>debugLabel</code> 参数指定回调在时间线中显示的名称。在 profile 和 release 构建中，不会跟踪帧后回调，<code>debugLabel</code> 参数也会被忽略。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/addRenderView.html": {
+    "0": "<p>向此 binding 添加一个 <a href=\"rendering/RenderView-class.html\">RenderView</a>。</p>",
+    "1": "<p>binding 会通过以下方式与 <a href=\"rendering/RenderView-class.html\">RenderView</a> 交互：</p>",
+    "2": "<p>要从 binding 中移除 <a href=\"rendering/RenderView-class.html\">RenderView</a>，请调用 <a href=\"rendering/RendererBinding/removeRenderView.html\">removeRenderView</a>。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/addSemanticsActionListener.html": {
+    "0": "<p>添加一个监听器，每当收到 <a href=\"dart-ui/SemanticsActionEvent-class.html\">ui.SemanticsActionEvent</a> 时都会调用它。</p>",
+    "1": "<p>调用 <a href=\"semantics/SemanticsBinding/performSemanticsAction.html\">performSemanticsAction</a> 之前会先调用这些监听器。</p>",
+    "2": "<p>要移除监听器，请调用 <a href=\"semantics/SemanticsBinding/removeSemanticsActionListener.html\">removeSemanticsActionListener</a>。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/addSemanticsEnabledListener.html": {
+    "0": "<p>添加一个 <code>listener</code>，当 <a href=\"semantics/SemanticsBinding/semanticsEnabled.html\">semanticsEnabled</a> 发生变化时调用它。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/addTimingsCallback.html": {
+    "0": "<p>添加一个 <a href=\"dart-ui/TimingsCallback.html\">TimingsCallback</a>，用于接收引擎发送的 <a href=\"dart-ui/FrameTiming-class.html\">FrameTiming</a>。</p>",
+    "1": "<p>此 API 可让应用监控图形性能。引擎数据会批量整理为 <a href=\"dart-ui/FrameTiming-class.html\">FrameTiming</a> 对象列表：release 模式下大约每秒报告一次，debug 和 profile 构建下大约每 100 毫秒报告一次。列表按时间升序排列（最早的帧在前）。第一帧的时间数据会立即发送，不进行批处理。</p>",
+    "2": "<p>可通过返回的数据检测丢帧（例如 <a href=\"dart-ui/FrameTiming/buildDuration.html\">FrameTiming.buildDuration</a> 或 <a href=\"dart-ui/FrameTiming/rasterDuration.html\">FrameTiming.rasterDuration</a> 超出帧预算，如 60Hz 下的 16 毫秒），也可检测高延迟（例如 <a href=\"dart-ui/FrameTiming/totalSpan.html\">FrameTiming.totalSpan</a> 超出帧预算）。即使没有丢帧，延迟仍可能超过一帧，例如 Flutter 引擎对图形更新进行流水线处理时，<a href=\"dart-ui/FrameTiming/buildDuration.html\">FrameTiming.buildDuration</a> 与 <a href=\"dart-ui/FrameTiming/rasterDuration.html\">FrameTiming.rasterDuration</a> 之和超过帧预算。在这种情况下，动画仍然流畅，但触控输入会显得迟缓。</p>",
+    "3": "<p>相比直接使用 <a href=\"dart-ui/PlatformDispatcher/onReportTimings.html\">dart:ui.PlatformDispatcher.onReportTimings</a>，更推荐使用 <a href=\"scheduler/SchedulerBinding/addTimingsCallback.html\">addTimingsCallback</a>。<a href=\"dart-ui/PlatformDispatcher/onReportTimings.html\">dart:ui.PlatformDispatcher.onReportTimings</a> API 只允许注册一个回调，因此多个库无法同时注册监听器；而此 API 允许多个回调彼此独立地注册。</p>",
+    "4": "<p>此 API 基于 <a href=\"dart-ui/PlatformDispatcher/onReportTimings.html\">dart:ui.PlatformDispatcher.onReportTimings</a> 实现。在 release 构建中，如果没有库注册此 API，便不会设置 <a href=\"dart-ui/PlatformDispatcher/onReportTimings.html\">dart:ui.PlatformDispatcher.onReportTimings</a> 回调，从而关闭性能跟踪，并使运行时开销降至约为零。注册一个或多个回调（即启用跟踪）时，性能跟踪的开销大约为每秒 0.01% 的 CPU 使用率（在 iPhone 6s 上测得）。</p>",
+    "5": "<p>在 debug 和 profile 构建中，<a href=\"scheduler/SchedulerBinding-mixin.html\">SchedulerBinding</a> 本身会注册一个时间回调来更新 <a href=\"dart-developer/Timeline-class.html\">Timeline</a>。</p>",
+    "6": "<p>如果同一个回调添加两次，它就会执行两次。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/allowFirstFrame.html": {
+    "0": "<p>在调用 <a href=\"rendering/RendererBinding/deferFirstFrame.html\">deferFirstFrame</a> 后调用此方法，通知框架现在可以向引擎发送第一帧。</p>",
+    "1": "<p>为获得最佳性能，仅应在 <a href=\"scheduler/SchedulerBinding/schedulerPhase.html\">schedulerPhase</a> 为 <a href=\"scheduler/SchedulerPhase.html\">SchedulerPhase.idle</a> 时调用此方法。</p>",
+    "2": "<p>对于每次对应的 <a href=\"rendering/RendererBinding/deferFirstFrame.html\">deferFirstFrame</a> 调用，此方法只能调用一次。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/attachRootWidget.html": {
+    "0": "<p>接收一个 Widget 并将其挂接到 <a href=\"widgets/WidgetsBinding/rootElement.html\">rootElement</a>；如果 rootElement 尚不存在，则会创建它。</p>",
+    "1": "<p><a href=\"widgets/runApp.html\">runApp</a> 会调用此方法来配置 Widget 树。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/attachToBuildOwner.html": {
+    "0": "<p><a href=\"widgets/WidgetsBinding/attachRootWidget.html\">attachRootWidget</a> 会调用此方法，将提供的 <a href=\"widgets/RootWidget-class.html\">RootWidget</a> 挂接到 <a href=\"widgets/WidgetsBinding/buildOwner.html\">buildOwner</a>。</p>",
+    "1": "<p>如有必要，此方法会创建 <a href=\"widgets/WidgetsBinding/rootElement.html\">rootElement</a>；否则会复用已有的 rootElement。</p>",
+    "2": "<p>通常不会直接调用此方法，但在测试中，可以传入先前版本对应的 <a href=\"widgets/RootWidget-class.html\">RootWidget</a>，将 Element 树恢复到该版本。示例用法请参阅 <a href=\"flutter_test/WidgetTester/restartAndRestore.html\">WidgetTester.restartAndRestore</a>。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/buildOwner.html": {
+    "0": "<p>负责执行此 binding 下 Widget 树构建管线的 <a href=\"widgets/BuildOwner-class.html\">BuildOwner</a>。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/cancelFrameCallbackWithId.html": {
+    "0": "<p>取消具有给定 <code>id</code> 的瞬时帧回调。</p>",
+    "1": "<p>从帧回调列表中移除给定回调。如果已经请求了一帧，此操作不会同时取消该请求。</p>",
+    "2": "<p>瞬时帧回调是通过 <a href=\"scheduler/SchedulerBinding/scheduleFrameCallback.html\">scheduleFrameCallback</a> 注册的回调。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/cancelPointer.html": {
+    "0": "<p>尽快为给定指针分发一个 <a href=\"gestures/PointerCancelEvent-class.html\">PointerCancelEvent</a>。</p>",
+    "1": "<p>此指针事件会在下一个指针事件之前、当前微任务结束之前分发，但不会在此函数调用过程中分发。</p>"
+  },
+  "flutter/widgets/WidgetsBinding/channelBuffers.html": {
+    "0": "<p>用于缓冲并分发消息的底层机制：消息由引擎侧插件发送，再交给框架侧对应的插件代码。</p>",
+    "1": "<p>此属性公开 <a href=\"dart-ui/channelBuffers.html\">dart:ui.channelBuffers</a> 对象。Binding 可以覆盖此 getter，以拦截对 <a href=\"dart-ui/ChannelBuffers-class.html\">ChannelBuffers</a> 机制的调用（例如用于测试）。</p>",
+    "2": "<p>在生产环境中通常不需要直接访问此对象。消息由 <a href=\"services/ServicesBinding/defaultBinaryMessenger.html\">defaultBinaryMessenger</a> 接收并分发。此对象主要用于测试，通过 <a href=\"dart-ui/ChannelBuffers/push.html\">ChannelBuffers.push</a> 方法发送模拟消息（模拟插件向框架发送消息）。</p>"
   }
 }

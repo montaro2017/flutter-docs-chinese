@@ -102,43 +102,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Add a <a href="dart-ui/TimingsCallback.html">TimingsCallback</a> that receives <a href="dart-ui/FrameTiming-class.html">FrameTiming</a> sent from
-the engine.</p>
-<p>This API enables applications to monitor their graphics
-performance. Data from the engine is batched into lists of
-<a href="dart-ui/FrameTiming-class.html">FrameTiming</a> objects which are reported approximately once a
-second in release mode and approximately once every 100ms in
-debug and profile builds. The list is sorted in ascending
-chronological order (earliest frame first). The timing of the
-first frame is sent immediately without batching.</p>
-<p>The data returned can be used to catch missed frames (by seeing
-if <a href="dart-ui/FrameTiming/buildDuration.html">FrameTiming.buildDuration</a> or <a href="dart-ui/FrameTiming/rasterDuration.html">FrameTiming.rasterDuration</a>
-exceed the frame budget, e.g. 16ms at 60Hz), and to catch high
-latency (by seeing if <a href="dart-ui/FrameTiming/totalSpan.html">FrameTiming.totalSpan</a> exceeds the frame
-budget). It is possible for no frames to be missed but for the
-latency to be more than one frame in the case where the Flutter
-engine is pipelining the graphics updates, e.g. because the sum
-of the <a href="dart-ui/FrameTiming/buildDuration.html">FrameTiming.buildDuration</a> and the
-<a href="dart-ui/FrameTiming/rasterDuration.html">FrameTiming.rasterDuration</a> together exceed the frame budget.
-In those cases, animations will be smooth but touch input will
-feel more sluggish.</p>
-<p>Using <a href="scheduler/SchedulerBinding/addTimingsCallback.html">addTimingsCallback</a> is preferred over using
-<a href="dart-ui/PlatformDispatcher/onReportTimings.html">dart:ui.PlatformDispatcher.onReportTimings</a> directly because the
-<a href="dart-ui/PlatformDispatcher/onReportTimings.html">dart:ui.PlatformDispatcher.onReportTimings</a> API only allows one callback,
-which prevents multiple libraries from registering listeners
-simultaneously, while this API allows multiple callbacks to be registered
-independently.</p>
-<p>This API is implemented in terms of
-<a href="dart-ui/PlatformDispatcher/onReportTimings.html">dart:ui.PlatformDispatcher.onReportTimings</a>. In release builds, when no
-libraries have registered with this API, the
-<a href="dart-ui/PlatformDispatcher/onReportTimings.html">dart:ui.PlatformDispatcher.onReportTimings</a> callback is not set, which
-disables the performance tracking and reduces the runtime overhead to
-approximately zero. The performance overhead of the performance tracking
-when one or more callbacks are registered (i.e. when it is enabled) is
-very approximately 0.01% CPU usage per second (measured on an iPhone 6s).</p>
-<p>In debug and profile builds, the <a href="scheduler/SchedulerBinding-mixin.html">SchedulerBinding</a> itself
-registers a timings callback to update the <a href="dart-developer/Timeline-class.html">Timeline</a>.</p>
-<p>If the same callback is added twice, it will be executed twice.</p>
+  <p>添加一个 <a href="dart-ui/TimingsCallback.html">TimingsCallback</a>，用于接收引擎发送的 <a href="dart-ui/FrameTiming-class.html">FrameTiming</a>。</p>
+<p>此 API 可让应用监控图形性能。引擎数据会批量整理为 <a href="dart-ui/FrameTiming-class.html">FrameTiming</a> 对象列表：release 模式下大约每秒报告一次，debug 和 profile 构建下大约每 100 毫秒报告一次。列表按时间升序排列（最早的帧在前）。第一帧的时间数据会立即发送，不进行批处理。</p>
+<p>可通过返回的数据检测丢帧（例如 <a href="dart-ui/FrameTiming/buildDuration.html">FrameTiming.buildDuration</a> 或 <a href="dart-ui/FrameTiming/rasterDuration.html">FrameTiming.rasterDuration</a> 超出帧预算，如 60Hz 下的 16 毫秒），也可检测高延迟（例如 <a href="dart-ui/FrameTiming/totalSpan.html">FrameTiming.totalSpan</a> 超出帧预算）。即使没有丢帧，延迟仍可能超过一帧，例如 Flutter 引擎对图形更新进行流水线处理时，<a href="dart-ui/FrameTiming/buildDuration.html">FrameTiming.buildDuration</a> 与 <a href="dart-ui/FrameTiming/rasterDuration.html">FrameTiming.rasterDuration</a> 之和超过帧预算。在这种情况下，动画仍然流畅，但触控输入会显得迟缓。</p>
+<p>相比直接使用 <a href="dart-ui/PlatformDispatcher/onReportTimings.html">dart:ui.PlatformDispatcher.onReportTimings</a>，更推荐使用 <a href="scheduler/SchedulerBinding/addTimingsCallback.html">addTimingsCallback</a>。<a href="dart-ui/PlatformDispatcher/onReportTimings.html">dart:ui.PlatformDispatcher.onReportTimings</a> API 只允许注册一个回调，因此多个库无法同时注册监听器；而此 API 允许多个回调彼此独立地注册。</p>
+<p>此 API 基于 <a href="dart-ui/PlatformDispatcher/onReportTimings.html">dart:ui.PlatformDispatcher.onReportTimings</a> 实现。在 release 构建中，如果没有库注册此 API，便不会设置 <a href="dart-ui/PlatformDispatcher/onReportTimings.html">dart:ui.PlatformDispatcher.onReportTimings</a> 回调，从而关闭性能跟踪，并使运行时开销降至约为零。注册一个或多个回调（即启用跟踪）时，性能跟踪的开销大约为每秒 0.01% 的 CPU 使用率（在 iPhone 6s 上测得）。</p>
+<p>在 debug 和 profile 构建中，<a href="scheduler/SchedulerBinding-mixin.html">SchedulerBinding</a> 本身会注册一个时间回调来更新 <a href="dart-developer/Timeline-class.html">Timeline</a>。</p>
+<p>如果同一个回调添加两次，它就会执行两次。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="scheduler/SchedulerBinding/removeTimingsCallback.html">removeTimingsCallback</a>, which can be used to remove a callback

@@ -1,26 +1,9 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 7,030 页，部分翻译 54 页，未翻译 168 页；正文已译 24,133/24,807 段。
+模块共 8,093 页：已完整 7,047 页，部分翻译 47 页，未翻译 158 页；正文已译 24,189/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
-- `flutter/widgets/WidgetsBinding-mixin.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-- `flutter/widgets/WidgetsBinding/accessibilityFeatures.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/accessibilityFocus.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetsBinding/addObserver.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/WidgetsBinding/addPersistentFrameCallback.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/WidgetsBinding/addPostFrameCallback.html` — 部分；已译 1/7 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/WidgetsBinding/addRenderView.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/addSemanticsActionListener.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/addSemanticsEnabledListener.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/WidgetsBinding/addTimingsCallback.html` — 部分；已译 1/8 段；待译段落：0, 1, 2, 3, 4, 5, 6
-- `flutter/widgets/WidgetsBinding/allowFirstFrame.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/attachRootWidget.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/WidgetsBinding/attachToBuildOwner.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/buildOwner.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetsBinding/cancelFrameCallbackWithId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetsBinding/cancelPointer.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetsBinding/channelBuffers.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
 - `flutter/widgets/WidgetsBinding/computePlatformResolvedLocale.html` — 未译；已译 0/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 - `flutter/widgets/WidgetsBinding/createBinaryMessenger.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/WidgetsBinding/createCanvas.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
