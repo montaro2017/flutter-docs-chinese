@@ -1,57 +1,14 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,793 页，部分翻译 423 页，未翻译 1,036 页；正文已译 20,782/24,807 段。
+模块共 8,093 页：已完整 5,831 页，部分翻译 395 页，未翻译 1,026 页；正文已译 20,862/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/ReorderableList/anchor.html` — 部分；已译 3/4 段；待译段落：3
 
-- `flutter/widgets/RestorableBool-class.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/RestorableBool/RestorableBool.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/widgets/RestorableEnum/values.html` — 部分；已译 4/5 段；待译段落：4
 
-- `flutter/widgets/RestorableBoolN-class.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/RestorableBoolN/RestorableBoolN.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/RestorableChangeNotifier-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/RestorableDateTime-class.html` — 部分；已译 1/3 段；待译段落：0, 2
-- `flutter/widgets/RestorableDateTime/RestorableDateTime.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/RestorableDateTimeN-class.html` — 部分；已译 1/3 段；待译段落：0, 2
-- `flutter/widgets/RestorableDateTimeN/RestorableDateTimeN.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/RestorableDouble-class.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/RestorableDouble/RestorableDouble.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/RestorableDoubleN-class.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/RestorableDoubleN/RestorableDoubleN.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/RestorableEnum-class.html` — 部分；已译 3/6 段；待译段落：0, 3, 4
-- `flutter/widgets/RestorableEnum/RestorableEnum.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/RestorableEnum/value.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RestorableEnum/values.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RestorableEnumN-class.html` — 部分；已译 3/6 段；待译段落：0, 3, 4
-- `flutter/widgets/RestorableEnumN/RestorableEnumN.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/RestorableEnumN/value.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RestorableEnumN/values.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/RestorableInt-class.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/RestorableInt/RestorableInt.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/RestorableIntN-class.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/RestorableIntN/RestorableIntN.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/RestorableListenable-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RestorableListenable/value.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RestorableNum-class.html` — 部分；已译 4/5 段；待译段落：0
-- `flutter/widgets/RestorableNum/RestorableNum.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/RestorableNumN-class.html` — 部分；已译 4/5 段；待译段落：0
-- `flutter/widgets/RestorableNumN/RestorableNumN.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/RestorableProperty-class.html` — 部分；已译 1/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-
-- `flutter/widgets/RestorableProperty/enabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RestorableProperty/state.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/RestorableEnumN/values.html` — 部分；已译 5/6 段；待译段落：5
 
 - `flutter/widgets/RestorableRouteBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/RestorableRouteFuture-class.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
@@ -65,19 +22,10 @@
 - `flutter/widgets/RestorableRouteFuture/present.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/RestorableRouteFuture/route.html` — 未译；已译 0/2 段；待译段落：0, 1
 
-- `flutter/widgets/RestorableString-class.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/RestorableString/RestorableString.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/RestorableStringN-class.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/RestorableStringN/RestorableStringN.html` — 部分；已译 1/2 段；待译段落：0
-
 - `flutter/widgets/RestorableTextEditingController-class.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/RestorableTextEditingController/RestorableTextEditingController.fromValue.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/RestorableTextEditingController/RestorableTextEditingController.html` — 未译；已译 0/2 段；待译段落：0, 1
 
-- `flutter/widgets/RestorableValue-class.html` — 部分；已译 3/7 段；待译段落：0, 1, 2, 4
-
-- `flutter/widgets/RestorableValue/value.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/RestorationMixin-mixin.html` — 部分；已译 2/12 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
 - `flutter/widgets/RestorationMixin/bucket.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3

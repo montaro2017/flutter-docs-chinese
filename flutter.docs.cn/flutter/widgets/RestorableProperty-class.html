@@ -94,66 +94,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>Manages an object of type <code>T</code>, whose value a <a href="widgets/State-class.html">State</a> object wants to have
-restored during state restoration.</p>
-<p>The property wraps an object of type <code>T</code>. It knows how to store its value in
-the restoration data and it knows how to re-instantiate that object from the
-information it previously stored in the restoration data.</p>
-<p>The knowledge of how to store the wrapped object in the restoration data is
-encoded in the <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> method and the knowledge of how to
-re-instantiate the object from that data is encoded in the <a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a>
-method. A call to <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> must return a representation of the wrapped
-object that can be serialized with the <a href="services/StandardMessageCodec-class.html">StandardMessageCodec</a>. If any
-collections (e.g. <a href="dart-core/List-class.html">List</a>s, <a href="dart-core/Map-class.html">Map</a>s, etc.) are returned, they must not be
-modified after they have been returned from <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a>. At a later point
-in time (which may be after the application restarted), the data obtained
-from <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> may be handed back to the property's <a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a>
-method to restore it to the previous state described by that data.</p>
-<p>A <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> needs to be registered to a <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> using
-a restoration ID that is unique within the mixin. The <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a>
-provides and manages the <a href="services/RestorationBucket-class.html">RestorationBucket</a>, in which the data returned by
-<a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> is stored.</p>
-<p>Whenever the value returned by <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> (or the <a href="widgets/RestorableProperty/enabled.html">enabled</a> getter)
-changes, the <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> must call <a href="foundation/ChangeNotifier/notifyListeners.html">notifyListeners</a>. This will
-trigger the <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> to update the data it has stored for the
-property in its <a href="services/RestorationBucket-class.html">RestorationBucket</a> to the latest information returned by
-<a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a>.</p>
-<p>When the property is registered with the <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a>, the mixin
-checks whether there is any restoration data available for the property. If
-data is available, the mixin calls <a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a> on the property, which
-must return an object that matches the object the property wrapped when the
-provided restoration data was obtained from <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a>. If no
-restoration data is available to restore the property's wrapped object from,
-the mixin calls <a href="widgets/RestorableProperty/createDefaultValue.html">createDefaultValue</a>. The value returned by either of those
-methods is then handed to the property's <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> method.</p>
-<p>Usually, subclasses of <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> hold on to the value provided to
-them in <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> and make it accessible to the <a href="widgets/State-class.html">State</a> object that
-owns the property. This <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> base class, however, has no
-opinion about what to do with the value provided to <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a>.</p>
-<p>The <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> may call <a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a>/<a href="widgets/RestorableProperty/createDefaultValue.html">createDefaultValue</a>
-followed by <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> multiple times throughout the life of a
-<a href="widgets/RestorableProperty-class.html">RestorableProperty</a>: Whenever new restoration data is made available to the
-<a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> the property is registered with, the cycle of calling
-<a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a> (if the new restoration data contains information to
-restore the property from) or <a href="widgets/RestorableProperty/createDefaultValue.html">createDefaultValue</a> (if no information for
-the property is available in the new restoration data) followed by a call to
-<a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> repeats. Whenever <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> is called, the property
-should forget the old value it was wrapping and re-initialize itself with
-the newly provided value.</p>
-<p>In a typical use case, a subclass of <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> is instantiated
-either to initialize a member variable of a <a href="widgets/State-class.html">State</a> object or within
-<a href="widgets/State/initState.html">State.initState</a>. It is then registered to a <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> in
-<a href="widgets/RestorationMixin/restoreState.html">RestorationMixin.restoreState</a> and later <a href="widgets/RestorableProperty/dispose.html">dispose</a>ed in <a href="widgets/State/dispose.html">State.dispose</a>.
-For less common use cases (e.g. if the value stored in a
-<a href="widgets/RestorableProperty-class.html">RestorableProperty</a> is only needed while the <a href="widgets/State-class.html">State</a> object is in a certain
-state), a <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> may be registered with a <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a>
-any time after <a href="widgets/RestorationMixin/restoreState.html">RestorationMixin.restoreState</a> has been called for the first
-time. A <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> may also be unregistered from a
-<a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> before the owning <a href="widgets/State-class.html">State</a> object is disposed by calling
-<a href="widgets/RestorationMixin/unregisterFromRestoration.html">RestorationMixin.unregisterFromRestoration</a>. This is uncommon, though, and
-will delete the information that the property contributed from the
-restoration data (meaning the value of the property will no longer be
-restored during a future state restoration).</p>
+  <p>管理类型为 <code>T</code> 的对象，该对象的值是 <a href="widgets/State-class.html">State</a> 状态对象希望在状态恢复期间恢复的内容。</p>
+<p>此属性会包装类型为 <code>T</code> 的对象。它知道如何将该对象的值保存到状态恢复数据中，也知道如何根据之前保存的信息重新创建该对象。</p>
+<p>如何将被包装对象保存到状态恢复数据中的逻辑由 <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> 方法定义；如何根据这些数据重新创建对象的逻辑则由 <a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a> 方法定义。调用 <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> 必须返回被包装对象的表示形式，且该形式可通过 <a href="services/StandardMessageCodec-class.html">StandardMessageCodec</a> 序列化。如果返回了集合（例如 <a href="dart-core/List-class.html">List</a>、<a href="dart-core/Map-class.html">Map</a> 等），则在 <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> 返回这些集合后不得再修改它们。之后（可能是在应用重启后），可以将从 <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> 获得的数据传回属性的 <a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a> 方法，以恢复数据所描述的先前状态。</p>
+<p>必须使用在此 mixin 内唯一的状态恢复 ID，将 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 注册到 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a>。<a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 会提供并管理 <a href="services/RestorationBucket-class.html">RestorationBucket</a>，并在其中保存 <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> 返回的数据。</p>
+<p>每当 <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> 返回的值（或 <a href="widgets/RestorableProperty/enabled.html">enabled</a> getter）发生变化，<a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 都必须调用 <a href="foundation/ChangeNotifier/notifyListeners.html">notifyListeners</a>。这会触发 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 将存储在其 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 中的此属性数据更新为 <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> 返回的最新信息。</p>
+<p>将属性注册到 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 时，mixin 会检查是否有可用的状态恢复数据。如果有，mixin 会在属性上调用 <a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a>；该方法必须返回一个对象，与获取所提供恢复数据时该属性包装的对象相匹配，相关数据通过 <a href="widgets/RestorableProperty/toPrimitives.html">toPrimitives</a> 获得。如果没有可用于恢复被包装对象的数据，mixin 会调用 <a href="widgets/RestorableProperty/createDefaultValue.html">createDefaultValue</a>。这两个方法之一返回的值随后会传给属性的 <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> 方法。</p>
+<p>通常，<a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 的子类会保留通过 <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> 提供给它们的值，并将该值提供给拥有此属性的 <a href="widgets/State-class.html">State</a> 对象使用。但这个 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 基类并不规定如何处理传给 <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> 的值。</p>
+<p>在 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 的生命周期中，它可能多次调用 <a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a>（如果新状态恢复数据包含恢复属性所需的信息）或 <a href="widgets/RestorableProperty/createDefaultValue.html">createDefaultValue</a>（如果新数据不包含相关信息），随后调用 <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a>。每当向注册此属性的 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 提供新的状态恢复数据时，都会重复这一流程。每次调用 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a>、<a href="widgets/RestorableProperty/fromPrimitives.html">fromPrimitives</a> 或 <a href="widgets/RestorableProperty/createDefaultValue.html">createDefaultValue</a> 来获取新值，并随后调用 <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> 时，属性都应忘记旧的包装值，并使用新提供的值重新初始化；再次调用 <a href="widgets/RestorableProperty/initWithValue.html">initWithValue</a> 也应按此规则初始化。</p>
+<p>典型用法是：实例化 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 的子类，以初始化 <a href="widgets/State-class.html">State</a> 对象的成员变量，或在 <a href="widgets/State/initState.html">State.initState</a> 中实例化；然后在 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 中将其注册到 <a href="widgets/RestorationMixin/restoreState.html">RestorationMixin.restoreState</a>，之后在 <a href="widgets/RestorableProperty/dispose.html">dispose</a> 中调用 <a href="widgets/State/dispose.html">State.dispose</a>。在较少见的用法中（例如，只有当 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 对象处于某种特定状态时才需要 <a href="widgets/State-class.html">State</a> 中保存的值），首次调用 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 后的任意时间都可以将 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 注册到 <a href="widgets/RestorationMixin/restoreState.html">RestorationMixin.restoreState</a>。在所属的 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 对象释放之前，也可以通过调用 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 从 <a href="widgets/State-class.html">State</a> 注销 <a href="widgets/RestorationMixin/unregisterFromRestoration.html">RestorationMixin.unregisterFromRestoration</a>。不过这种做法并不常见，而且会删除此属性写入状态恢复数据的信息（这意味着将来进行状态恢复时不会再恢复该属性的值）。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/RestorableValue-class.html">RestorableValue</a>, which is a <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> that makes the wrapped
