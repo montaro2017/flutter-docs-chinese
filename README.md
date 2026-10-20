@@ -1,6 +1,6 @@
 # Flutter API 中文文档
 
-本仓库是 Flutter API 文档的中文翻译版本。中文翻译由 OpenAI Codex 协助完成，使用模型 **GPT-6**；当前仍在持续翻译和校对中。实际进度见 [翻译进度](.translation/翻译进度.md)。
+本仓库是 Flutter API 文档的中文翻译版本。中文翻译由 OpenAI Codex 协助完成，使用模型 **GPT-6.1-sol**（GPT-6 系列）；当前仍在持续翻译和校对中。实际进度见 [翻译进度](.translation/翻译进度.md)。
 
 ## 浏览文档
 

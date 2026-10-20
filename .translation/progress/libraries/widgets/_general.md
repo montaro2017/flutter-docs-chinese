@@ -1,56 +1,15 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,415 页，部分翻译 542 页，未翻译 1,295 页；正文已译 19,549/24,807 段。
+模块共 8,093 页：已完整 5,447 页，部分翻译 534 页，未翻译 1,271 页；正文已译 19,644/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
-
-- `flutter/widgets/LeafRenderObjectElement/moveRenderObjectChild.html` — 部分；已译 3/4 段；待译段落：3
 
 - `flutter/widgets/ListView-class.html` — 部分；已译 15/53 段；待译段落：0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 15, 17, 19, 20, 21, 22, 23, 24, 26, 27, 29, 30, 32, 33, 34, 35, 36, 38, 40, 43, 44, 46, 47, 49, 51
 
 - `flutter/widgets/MagnifierController/overlayEntry.html` — 部分；已译 3/4 段；待译段落：2
 
-- `flutter/widgets/PlatformProvidedMenuItem-class.html` — 部分；已译 1/7 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/PlatformProvidedMenuItem/PlatformProvidedMenuItem.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/PlatformProvidedMenuItem/toChannelRepresentation.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PlatformProvidedMenuItem/type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PlatformProvidedMenuItemType.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/PlatformRouteInformationProvider-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PlatformRouteInformationProvider/PlatformRouteInformationProvider.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PlatformRouteInformationProvider/didPushRouteInformation.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/PlatformRouteInformationProvider/dispose.html` — 部分；已译 3/4 段；待译段落：1
-- `flutter/widgets/PlatformRouteInformationProvider/routerReportsNewRouteInformation.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/PlatformRouteInformationProvider/value.html` — 部分；已译 1/2 段；待译段落：1
-- `flutter/widgets/PlatformSelectableRegionContextMenu-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/PlatformSelectableRegionContextMenu/debugOverrideRegisterViewFactory.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/PlatformViewCreationParams-class.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/PlatformViewCreationParams/id.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PlatformViewCreationParams/onFocusChanged.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/PlatformViewCreationParams/viewType.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PlatformViewLink-class.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/PlatformViewLink/viewType.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PlatformViewSurface-class.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/PlatformViewSurface/controller.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/PlatformViewSurface/gestureRecognizers.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/PlatformViewSurface/hitTestBehavior.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/PlatformViewSurfaceFactory.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/PopEntry-class.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/PopEntry/canPopNotifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/PopInvokedCallback.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PopInvokedWithResultCallback.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PopNavigatorRouterDelegateMixin-mixin.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PopNavigatorRouterDelegateMixin/build.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
 - `flutter/widgets/PopNavigatorRouterDelegateMixin/currentConfiguration.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
-- `flutter/widgets/PopNavigatorRouterDelegateMixin/navigatorKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+
 - `flutter/widgets/PopNavigatorRouterDelegateMixin/popRoute.html` — 部分；已译 1/3 段；待译段落：0, 1
 - `flutter/widgets/PopNavigatorRouterDelegateMixin/setInitialRoutePath.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
 - `flutter/widgets/PopNavigatorRouterDelegateMixin/setNewRoutePath.html` — 部分；已译 1/2 段；待译段落：0
