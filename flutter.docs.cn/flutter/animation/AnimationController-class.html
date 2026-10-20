@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="animation 库中 AnimationController 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>AnimationController 类 - animation 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="animation/">animation.dart</a></li>
+    <li class="self-crumb">AnimationController 类</li>
+  </ol>
+  <div class="self-name">AnimationController</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="animation&#47;animation-library-sidebar.html"
+    data-below-sidebar="animation&#47;AnimationController-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/animation/animation_controller.dart#L230"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">AnimationController</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>动画的控制器。</p>
+<p>此类让你能够执行如下任务：</p>
+<ul>
+<li>Play an animation <a href="animation/AnimationController/forward.html">forward</a> or in <a href="animation/AnimationController/reverse.html">reverse</a>, or <a href="animation/AnimationController/stop.html">stop</a> an animation.</li>
+<li>Set the animation to a specific <a href="animation/AnimationController/value.html">value</a>.</li>
+<li>Define the <a href="animation/AnimationController/upperBound.html">upperBound</a> 和 <a href="animation/AnimationController/lowerBound.html">lowerBound</a> values of an animation.</li>
+<li>Create a <a href="animation/AnimationController/fling.html">fling</a> animation effect using a physics simulation.</li>
+</ul>
+<p>默认情况下，<a href="animation/AnimationController-class.html">AnimationController</a> 会在给定时长内线性地产出从 0.0 到 1.0 的值。</p>
+<p>当动画处于活动状态时，动画控制器会在运行应用的设备准备好显示新一帧时（通常约为每秒 60–120 个值）生成一个新值。如果动画控制器通过 <a href="widgets/State-class.html">TickerProvider</a> 与某个 <a href="scheduler/TickerProvider-class.html">State</a> 关联，那么当该 <a href="widgets/State-class.html">State</a> 的子树按 <a href="widgets/TickerMode-class.html">TickerMode</a> 的定义被禁用时，它的更新将被静默；时间仍会流逝，<a href="animation/AnimationController/forward.html">forward</a> 和 <a href="animation/AnimationController/stop.html">stop</a> 等方法仍可调用并会改变值，但控制器本身不会生成新值。</p>
+<h2 id="ticker-providers">Ticker 提供器</h2>
+<p><a href="animation/AnimationController-class.html">AnimationController</a> 需要一个 <a href="scheduler/TickerProvider-class.html">TickerProvider</a>，它通过构造函数的 <code>vsync</code> 参数进行配置。构造函数使用该 <a href="scheduler/TickerProvider-class.html">TickerProvider</a> 创建一个 <a href="scheduler/Ticker-class.html">Ticker</a>，<a href="animation/AnimationController-class.html">AnimationController</a> 用它来逐步推进所控制的动画。</p>
+<p>有关获取 ticker 提供器的建议，请参阅 <a href="scheduler/TickerProvider-class.html">TickerProvider</a>。通常由相关的 <a href="widgets/State-class.html">State</a> 充当 ticker 提供器，做法是应用合适的 mixin（例如 <a href="widgets/SingleTickerProviderStateMixin-mixin.html">SingleTickerProviderStateMixin</a>），使 <a href="widgets/State-class.html">State</a> 子类实现 <a href="scheduler/TickerProvider-class.html">TickerProvider</a>。</p>
+<h2 id="life-cycle">生命周期</h2>
+<p><a href="animation/AnimationController-class.html">AnimationController</a> 不再需要时应予以 <a href="animation/AnimationController/dispose.html">dispose</a>，以降低泄漏的可能性。与 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 搭配使用时，通常在 <a href="animation/AnimationController-class.html">State.initState</a> 方法中创建 <a href="widgets/State/initState.html">AnimationController</a>，并在 <a href="widgets/State/dispose.html">State.dispose</a> 方法中将其释放。</p>
+<h2 id="using-futures-with-animationcontroller">在 <a href="dart-async/Future-class.html">AnimationController</a> 中使用 <a href="animation/AnimationController-class.html">Future</a></h2>
+<p>启动动画的方法会返回一个 <a href="scheduler/TickerFuture-class.html">TickerFuture</a> 对象，该对象在动画成功完成时完成，且永远不会抛出错误；如果动画被取消，则该 future 永远不会完成。此对象还有一个 <a href="scheduler/TickerFuture/orCancel.html">TickerFuture.orCancel</a> 属性，返回一个在动画成功完成时完成、在动画中止时以错误完成的 future。</p>
+<p>可以使用它来编写类似下面 <code>fadeOutAndUpdateState</code> 方法的代码。</p>
+<p>
+<a name="animation.AnimationController.1"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">以下是一个有状态的 <code>Foo</code> 控件。它的 <a href="widgets/State-class.html">State</a> 使用 <a href="widgets/SingleTickerProviderStateMixin-mixin.html">SingleTickerProviderStateMixin</a> 实现所需的 <a href="scheduler/TickerProvider-class.html">TickerProvider</a>，在 <a href="widgets/State/initState.html">State.initState</a> 中创建控制器，并在 <a href="widgets/State/dispose.html">State.dispose</a> 中释放控制器。控制器的时长由 <code>Foo</code> 控件的属性配置；该属性变化时，通过 <a href="widgets/State/didUpdateWidget.html">State.didUpdateWidget</a> 更新控制器。</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'animation.AnimationController.1');" onclick="fixHref(this, 'animation.AnimationController.1'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">class Foo extends StatefulWidget {
+  const Foo({ super.key, required this.duration });
+
+  final Duration duration;
+
+  @override
+  State&lt;Foo&gt; createState() =&gt; _FooState();
+}
+
+class _FooState extends State&lt;Foo&gt; with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this, &#47;&#47; the SingleTickerProviderStateMixin
+      duration: widget.duration,
+    );
+  }
+
+  @override
+  void didUpdateWidget(Foo oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _controller.duration = widget.duration;
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(); &#47;&#47; ...
+  }
+}</code></pre>
+  </div>
+</div>
+</p>
+<p>
+<a name="animation.AnimationController.2"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">以下方法（属于 <a href="widgets/State-class.html">State</a> 子类）使用 Dart 的异步语法等待 <a href="dart-async/Future-class.html">Future</a> 对象，从而驱动两个动画控制器：</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'animation.AnimationController.2');" onclick="fixHref(this, 'animation.AnimationController.2'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">Future&lt;void&gt; fadeOutAndUpdateState() async {
+  try {
+    await fadeAnimationController.forward().orCancel;
+    await sizeAnimationController.forward().orCancel;
+    setState(() {
+      dismissed = true;
+    });
+  } on TickerCanceled {
+    &#47;&#47; the animation got canceled, probably because we were disposed
+  }
+}</code></pre>
+  </div>
+</div>
+</p>
+<p>上述代码假设动画控制器是在 <a href="widgets/State-class.html">State</a> 子类对 <a href="widgets/State/dispose.html">State.dispose</a> 方法的重写中被释放的。由于释放控制器会取消动画（抛出 <a href="scheduler/TickerCanceled-class.html">TickerCanceled</a> 异常），此处的代码可以跳过在每一步验证 <a href="widgets/State/mounted.html">State.mounted</a> 是否仍为 true。（同样，这里假设控制器是在 <a href="widgets/State/initState.html">State.initState</a> 中创建、在 <a href="widgets/State/dispose.html">State.dispose</a> 中释放的，如上一节所述。）</p>
+<p>
+<a name="animation.AnimationController.3"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet3">
+    <div class="snippet-description">此示例展示如何使用 <a href="animation/AnimationController-class.html">AnimationController</a> 和 <a href="widgets/SlideTransition-class.html">SlideTransition</a> 创建动画数字，效果类似老式弹珠台或汽车里程表。新数字从下方滑入，旧数字则向上滑出视野。若控制器正在播放动画时发生点击，会缩短 <a href="animation/AnimationController/duration.html">AnimationController.duration</a>，避免动画效果落后。</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'animation.AnimationController.3');" onclick="fixHref(this, 'animation.AnimationController.3'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=animation.AnimationController.3 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=animation.AnimationController.3&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="animation/Tween-class.html">Tween</a>, the base class for converting an <a href="animation/AnimationController-class.html">AnimationController</a> to a
+range of values of other types.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/Listenable-class.html">Listenable</a></li>
+        <li><a href="animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span></li>
+      <li>AnimationController</li>
+    </ul>
+  </dd>
+
+        
+        
+  <dt>混入的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="animation/AnimationEagerListenerMixin-mixin.html">AnimationEagerListenerMixin</a></li>
+        <li><a href="animation/AnimationLocalListenersMixin-mixin.html">AnimationLocalListenersMixin</a></li>
+        <li><a href="animation/AnimationLocalStatusListenersMixin-mixin.html">AnimationLocalStatusListenersMixin</a></li>
+    </ul>
+  </dd>
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="AnimationController.new" class="callable">
+          <span class="name"><a href="animation/AnimationController/AnimationController.html">AnimationController</a></span><span class="signature">({<span class="parameter" id="-param-value"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="-param-reverseDuration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">reverseDuration</span>, </span><span class="parameter" id="-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugLabel</span>, </span><span class="parameter" id="-param-lowerBound"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">lowerBound</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="-param-upperBound"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">upperBound</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="-param-animationBehavior"><span class="type-annotation"><a href="animation/AnimationBehavior.html">AnimationBehavior</a></span> <span class="parameter-name">animationBehavior</span> = <span class="default-value">AnimationBehavior.normal</span>, </span><span class="parameter" id="-param-vsync"><span>required</span> <span class="type-annotation"><a href="scheduler/TickerProvider-class.html">TickerProvider</a></span> <span class="parameter-name">vsync</span></span>})</span>
+        </dt>
+        <dd>
+          创建动画控制器。
+        </dd>
+        <dt id="AnimationController.unbounded" class="callable">
+          <span class="name"><a href="animation/AnimationController/AnimationController.unbounded.html">AnimationController.unbounded</a></span><span class="signature">({<span class="parameter" id="unbounded-param-value"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">value</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="unbounded-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="unbounded-param-reverseDuration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">reverseDuration</span>, </span><span class="parameter" id="unbounded-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugLabel</span>, </span><span class="parameter" id="unbounded-param-vsync"><span>required</span> <span class="type-annotation"><a href="scheduler/TickerProvider-class.html">TickerProvider</a></span> <span class="parameter-name">vsync</span>, </span><span class="parameter" id="unbounded-param-animationBehavior"><span class="type-annotation"><a href="animation/AnimationBehavior.html">AnimationBehavior</a></span> <span class="parameter-name">animationBehavior</span> = <span class="default-value">AnimationBehavior.preserve</span></span>})</span>
+        </dt>
+        <dd>
+          创建一个值没有上限和下限的动画控制器。
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="animationBehavior" class="property">
+  <span class="name"><a href="animation/AnimationController/animationBehavior.html">animationBehavior</a></span>
+  <span class="signature">&#8594; <a href="animation/AnimationBehavior.html">AnimationBehavior</a></span>
+  
+
+</dt>
+<dd>
+  当 <a href="dart-ui/AccessibilityFeatures/disableAnimations.html">AccessibilityFeatures.disableAnimations</a> 为 true 时控制器的行为。
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="debugLabel" class="property">
+  <span class="name"><a href="animation/AnimationController/debugLabel.html">debugLabel</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  用于 <a href="animation/Animation/toString.html">toString</a> 输出中的标签。旨在帮助在调试输出中识别动画控制器实例。
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="duration" class="property">
+  <span class="name"><a href="animation/AnimationController/duration.html">duration</a></span>
+  <span class="signature">&#8596; <a href="dart-core/Duration-class.html">Duration</a>?</span>
+  
+
+</dt>
+<dd>
+  此动画应持续的时长。
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isAnimating" class="property">
+  <span class="name"><a href="animation/AnimationController/isAnimating.html">isAnimating</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  此动画当前是否正在正向或反向运行。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="isCompleted" class="property inherited">
+  <span class="name"><a href="animation/Animation/isCompleted.html">isCompleted</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此动画是否停在终点。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isDismissed" class="property inherited">
+  <span class="name"><a href="animation/Animation/isDismissed.html">isDismissed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此动画是否停在起点。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isForwardOrCompleted" class="property inherited">
+  <span class="name"><a href="animation/Animation/isForwardOrCompleted.html">isForwardOrCompleted</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  动画当前是否朝完成方向推进。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="lastElapsedDuration" class="property">
+  <span class="name"><a href="animation/AnimationController/lastElapsedDuration.html">lastElapsedDuration</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Duration-class.html">Duration</a>?</span>
+  
+
+</dt>
+<dd>
+  从动画开始到最近一次 tick 之间经过的时间。
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="lowerBound" class="property">
+  <span class="name"><a href="animation/AnimationController/lowerBound.html">lowerBound</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  此动画被视为处于 dismissed 状态时的值。
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="reverseDuration" class="property">
+  <span class="name"><a href="animation/AnimationController/reverseDuration.html">reverseDuration</a></span>
+  <span class="signature">&#8596; <a href="dart-core/Duration-class.html">Duration</a>?</span>
+  
+
+</dt>
+<dd>
+  动画以 <a href="animation/AnimationController/reverse.html">reverse</a> 方式运行时应持续的时长。
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="status" class="property">
+  <span class="name"><a href="animation/AnimationController/status.html">status</a></span>
+  <span class="signature">&#8594; <a href="animation/AnimationStatus.html">AnimationStatus</a></span>
+  
+
+</dt>
+<dd>
+  此动画的当前状态。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="upperBound" class="property">
+  <span class="name"><a href="animation/AnimationController/upperBound.html">upperBound</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  此动画被视为已完成时的值。
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="value" class="property">
+  <span class="name"><a href="animation/AnimationController/value.html">value</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  动画的当前值。
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">override-getter</span></div>
+
+</dd>
+
+        <dt id="velocity" class="property">
+  <span class="name"><a href="animation/AnimationController/velocity.html">velocity</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  <a href="animation/AnimationController/value.html">value</a> 每秒的变化速率。
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="view" class="property">
+  <span class="name"><a href="animation/AnimationController/view.html">view</a></span>
+  <span class="signature">&#8594; <a href="animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  为此动画控制器返回一个 <a href="animation/Animation-class.html">Animation&lt;double&gt;</a>，以便在各处传递指向此对象的引用，同时不允许引用的使用者修改 <a href="animation/AnimationController-class.html">AnimationController</a> 的状态。
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="addListener" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalListenersMixin/addListener.html">addListener</a></span><span class="signature">(<wbr><span class="parameter" id="addListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  每当动画值变化时调用监听器。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addStatusListener" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalStatusListenersMixin/addStatusListener.html">addStatusListener</a></span><span class="signature">(<wbr><span class="parameter" id="addStatusListener-param-listener"><span class="type-annotation"><a href="animation/AnimationStatusListener.html">AnimationStatusListener</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  每当动画状态变化时调用监听器。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="animateBack" class="callable">
+  <span class="name"><a href="animation/AnimationController/animateBack.html">animateBack</a></span><span class="signature">(<wbr><span class="parameter" id="animateBack-param-target"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">target</span>, {</span><span class="parameter" id="animateBack-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="animateBack-param-curve"><span class="type-annotation"><a href="animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.linear</span></span>})
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  将动画从当前值“向后”驱动到给定目标。
+  
+
+</dd>
+
+        <dt id="animateBackWith" class="callable">
+  <span class="name"><a href="animation/AnimationController/animateBackWith.html">animateBackWith</a></span><span class="signature">(<wbr><span class="parameter" id="animateBackWith-param-simulation"><span class="type-annotation"><a href="physics/Simulation-class.html">Simulation</a></span> <span class="parameter-name">simulation</span></span>)
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  按照给定的模拟驱动动画，其 <a href="animation/AnimationController/status.html">status</a> 为 <a href="animation/AnimationStatus.html">AnimationStatus.reverse</a>。
+  
+
+</dd>
+
+        <dt id="animateTo" class="callable">
+  <span class="name"><a href="animation/AnimationController/animateTo.html">animateTo</a></span><span class="signature">(<wbr><span class="parameter" id="animateTo-param-target"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">target</span>, {</span><span class="parameter" id="animateTo-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="animateTo-param-curve"><span class="type-annotation"><a href="animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.linear</span></span>})
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  将动画从当前值“向前”驱动到给定目标。
+  
+
+</dd>
+
+        <dt id="animateWith" class="callable">
+  <span class="name"><a href="animation/AnimationController/animateWith.html">animateWith</a></span><span class="signature">(<wbr><span class="parameter" id="animateWith-param-simulation"><span class="type-annotation"><a href="physics/Simulation-class.html">Simulation</a></span> <span class="parameter-name">simulation</span></span>)
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  按照给定的模拟驱动动画。
+  
+
+</dd>
+
+        <dt id="clearListeners" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalListenersMixin/clearListeners.html">clearListeners</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  移除所有通过以下方法添加的监听器： <a href="animation/AnimationLocalListenersMixin/addListener.html">addListener</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="clearStatusListeners" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalStatusListenersMixin/clearStatusListeners.html">clearStatusListeners</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  移除所有通过以下方法添加的监听器： <a href="animation/AnimationLocalStatusListenersMixin/addStatusListener.html">addStatusListener</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="didRegisterListener" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalStatusListenersMixin/didRegisterListener.html">didRegisterListener</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  在通过以下方法添加状态监听器之前立即调用： <a href="animation/AnimationLocalStatusListenersMixin/addStatusListener.html">addStatusListener</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="didUnregisterListener" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalStatusListenersMixin/didUnregisterListener.html">didUnregisterListener</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  在通过以下方法移除状态监听器之后立即调用： <a href="animation/AnimationLocalStatusListenersMixin/removeStatusListener.html">removeStatusListener</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="animation/AnimationController/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  释放此对象使用的资源。调用此方法后，该对象将无法继续使用。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="drive" class="callable inherited">
+  <span class="name"><a href="animation/Animation/drive.html">drive</a></span><span class="signature">&lt;<wbr><span class="type-parameter">U</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="drive-param-child"><span class="type-annotation"><a href="animation/Animatable-class.html">Animatable</a><span class="signature">&lt;<wbr><span class="type-parameter">U</span>&gt;</span></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; <a href="animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter">U</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  将 <a href="animation/Tween-class.html">Tween</a> （或 <a href="animation/CurveTween-class.html">CurveTween</a>）与当前对象链式组合： <a href="animation/Animation-class.html">Animation</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="fling" class="callable">
+  <span class="name"><a href="animation/AnimationController/fling.html">fling</a></span><span class="signature">(<wbr>{<span class="parameter" id="fling-param-velocity"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">velocity</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="fling-param-springDescription"><span class="type-annotation"><a href="physics/SpringDescription-class.html">SpringDescription</a>?</span> <span class="parameter-name">springDescription</span>, </span><span class="parameter" id="fling-param-animationBehavior"><span class="type-annotation"><a href="animation/AnimationBehavior.html">AnimationBehavior</a>?</span> <span class="parameter-name">animationBehavior</span></span>})
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  以弹簧（在 <a href="animation/AnimationController/lowerBound.html">lowerBound</a> 和 <a href="animation/AnimationController/upperBound.html">upperBound</a> 之间）和初始速度驱动动画。
+  
+
+</dd>
+
+        <dt id="forward" class="callable">
+  <span class="name"><a href="animation/AnimationController/forward.html">forward</a></span><span class="signature">(<wbr>{<span class="parameter" id="forward-param-from"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">from</span></span>})
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  开始正向（朝结束方向）运行此动画。
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="notifyListeners" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalListenersMixin/notifyListeners.html">notifyListeners</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  调用所有监听器。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="notifyStatusListeners" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalStatusListenersMixin/notifyStatusListeners.html">notifyStatusListeners</a></span><span class="signature">(<wbr><span class="parameter" id="notifyStatusListeners-param-status"><span class="type-annotation"><a href="animation/AnimationStatus.html">AnimationStatus</a></span> <span class="parameter-name">status</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  调用所有状态监听器。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeListener" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalListenersMixin/removeListener.html">removeListener</a></span><span class="signature">(<wbr><span class="parameter" id="removeListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  停止在动画值变化时调用该监听器。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeStatusListener" class="callable inherited">
+  <span class="name"><a href="animation/AnimationLocalStatusListenersMixin/removeStatusListener.html">removeStatusListener</a></span><span class="signature">(<wbr><span class="parameter" id="removeStatusListener-param-listener"><span class="type-annotation"><a href="animation/AnimationStatusListener.html">AnimationStatusListener</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  停止在动画状态变化时调用该监听器。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="repeat" class="callable">
+  <span class="name"><a href="animation/AnimationController/repeat.html">repeat</a></span><span class="signature">(<wbr>{<span class="parameter" id="repeat-param-min"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">min</span>, </span><span class="parameter" id="repeat-param-max"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">max</span>, </span><span class="parameter" id="repeat-param-reverse"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span> = <span class="default-value">false</span>, </span><span class="parameter" id="repeat-param-period"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">period</span>, </span><span class="parameter" id="repeat-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">count</span></span>})
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  开始正向运行此动画，并在动画完成时重新启动。
+  
+
+</dd>
+
+        <dt id="reset" class="callable">
+  <span class="name"><a href="animation/AnimationController/reset.html">reset</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  将控制器的值设为 <a href="animation/AnimationController/lowerBound.html">lowerBound</a>，停止动画（如果正在运行），并重置到起始点，即 dismissed 状态。
+  
+
+</dd>
+
+        <dt id="resync" class="callable">
+  <span class="name"><a href="animation/AnimationController/resync.html">resync</a></span><span class="signature">(<wbr><span class="parameter" id="resync-param-vsync"><span class="type-annotation"><a href="scheduler/TickerProvider-class.html">TickerProvider</a></span> <span class="parameter-name">vsync</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  使用新的 <a href="scheduler/TickerProvider-class.html">TickerProvider</a> 重新创建 <a href="scheduler/Ticker-class.html">Ticker</a>。
+  
+
+</dd>
+
+        <dt id="reverse" class="callable">
+  <span class="name"><a href="animation/AnimationController/reverse.html">reverse</a></span><span class="signature">(<wbr>{<span class="parameter" id="reverse-param-from"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">from</span></span>})
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  开始反向（朝开始方向）运行此动画。
+  
+
+</dd>
+
+        <dt id="stop" class="callable">
+  <span class="name"><a href="animation/AnimationController/stop.html">stop</a></span><span class="signature">(<wbr>{<span class="parameter" id="stop-param-canceled"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">canceled</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  停止运行此动画。
+  
+
+</dd>
+
+        <dt id="toggle" class="callable">
+  <span class="name"><a href="animation/AnimationController/toggle.html">toggle</a></span><span class="signature">(<wbr>{<span class="parameter" id="toggle-param-from"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">from</span></span>})
+    <span class="returntype parameter">&#8594; <a href="scheduler/TickerFuture-class.html">TickerFuture</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  根据此动画是否 <a href="animation/Animation/isForwardOrCompleted.html">isForwardOrCompleted</a>，切换此动画的方向。
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="animation/Animation/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDetails" class="callable">
+  <span class="name"><a href="animation/AnimationController/toStringDetails.html">toStringDetails</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  提供描述此对象状态的字符串，但不包含对象本身的信息。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="animation/">animation</a></li>
+    <li class="self-crumb">AnimationController 类</li>
+</ol>
+
+    <h5>animation 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

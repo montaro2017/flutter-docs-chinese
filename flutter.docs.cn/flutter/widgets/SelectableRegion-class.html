@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 SelectableRegion 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>SelectableRegion 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">SelectableRegion 类</li>
+  </ol>
+  <div class="self-name">SelectableRegion</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;SelectableRegion-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/selectable_region.dart#L240"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">SelectableRegion</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>A widget that introduces an area for user selections.</p>
+<p>Flutter widgets are not selectable by default. Wrapping a widget subtree
+with a <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> widget enables selection for widgets in the
+subtree that participate in selection. For example, <a href="widgets/Text-class.html">Text</a> widgets
+automatically look for selectable regions to enable selection, while widgets
+such as <a href="widgets/RichText-class.html">RichText</a> must be configured with a <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> 和
+<a href="widgets/RichText/selectionColor.html">RichText.selectionColor</a>. The wrapped subtree can be selected by users
+using mouse or touch gestures, e.g. users can select widgets by holding the
+mouse left-click and dragging across widgets, or they can use long press
+gestures to select words on touch devices.</p>
+<p>A <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> widget requires configuration; in particular specific
+<a href="widgets/SelectableRegion/selectionControls.html">selectionControls</a> must be provided.</p>
+<p>The <a href="material/SelectionArea-class.html">SelectionArea</a> widget from the <a href="material/">material</a> library configures a
+<a href="widgets/SelectableRegion-class.html">SelectableRegion</a> in a platform-specific manner (e.g. using a Material
+toolbar on Android, a Cupertino toolbar on iOS), and it may therefore be
+simpler to use that widget rather than using <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> directly.</p>
+<h2 id="an-overview-of-the-selection-system">An overview of the selection system.</h2>
+<p>Every <a href="rendering/Selectable-mixin.html">Selectable</a> under the <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> can be selected. They form a
+selection tree structure to handle the selection.</p>
+<p>The <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> is a wrapper over <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>. It listens to
+user gestures and sends corresponding <a href="rendering/SelectionEvent-class.html">SelectionEvent</a>s to the
+<a href="widgets/SelectionContainer-class.html">SelectionContainer</a> it creates.</p>
+<p>A <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> is a single <a href="rendering/Selectable-mixin.html">Selectable</a> that handles
+<a href="rendering/SelectionEvent-class.html">SelectionEvent</a>s on behalf of child <a href="rendering/Selectable-mixin.html">Selectable</a>s in the subtree. It
+creates a <a href="widgets/SelectionRegistrarScope-class.html">SelectionRegistrarScope</a> with its <a href="widgets/SelectionContainer/delegate.html">SelectionContainer.delegate</a>
+to collect child <a href="rendering/Selectable-mixin.html">Selectable</a>s and sends the <a href="rendering/SelectionEvent-class.html">SelectionEvent</a>s it receives
+from the parent <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> to the appropriate child <a href="rendering/Selectable-mixin.html">Selectable</a>s.
+It creates an abstraction for the parent <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> as if it is
+interacting with a single <a href="rendering/Selectable-mixin.html">Selectable</a>.</p>
+<p>The <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> created by <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> is the root node of a
+selection tree. Each non-leaf node in the tree is a <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>,
+and the leaf node is a leaf widget whose render object implements
+<a href="rendering/Selectable-mixin.html">Selectable</a>. They are connected through <a href="widgets/SelectionRegistrarScope-class.html">SelectionRegistrarScope</a>s created
+by <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>。</p>
+<p>Both <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>s and the leaf <a href="rendering/Selectable-mixin.html">Selectable</a>s need to register
+themselves to the <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> from the
+<a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> if they want to participate in the selection.
+The <a href="widgets/BuildContext-class.html">BuildContext</a> used with <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> must be below the
+<a href="widgets/SelectionContainer-class.html">SelectionContainer</a>, <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>, or <a href="material/SelectionArea-class.html">SelectionArea</a> that provides
+the registrar in the widget tree.</p>
+<p>An example selection tree will look like:</p>
+<p>
+<a name="widgets.SelectableRegion.1"></a>
+<div class="snippet snippet-container anchor-container">
+  
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'widgets.SelectableRegion.1');" onclick="fixHref(this, 'widgets.SelectableRegion.1'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">MaterialApp(
+  home: SelectableRegion(
+    selectionControls: materialTextSelectionControls,
+    child: Scaffold(
+      appBar: AppBar(title: const Text(&#39;Flutter Code Sample&#39;)),
+      body: ListView(
+        children: const &lt;Widget&gt;[
+          Text(&#39;Item 0&#39;, style: TextStyle(fontSize: 50.0)),
+          Text(&#39;Item 1&#39;, style: TextStyle(fontSize: 50.0)),
+        ],
+      ),
+    ),
+  ),
+)</code></pre>
+  </div>
+</div>
+</p>
+<pre class="language-dart"><code>          SelectionContainer
+          (SelectableRegion)
+             /         \
+            /           \
+           /             \
+      Selectable          \
+ ("Flutter Code Sample")   \
+                            \
+                     SelectionContainer
+                         (ListView)
+                         /       \
+                        /         \
+                       /           \
+                Selectable        Selectable
+                ("Item 0")         ("Item 1")
+</code></pre>
+<h2 id="making-a-widget-selectable">Making a widget selectable</h2>
+<p>Some leaf widgets, such as <a href="widgets/Text-class.html">Text</a>, have all of the selection logic wired up
+automatically and can be selected as long as they are under a
+<a href="widgets/SelectableRegion-class.html">SelectableRegion</a>.</p>
+<p>To make a custom selectable widget, its render object needs to mix in
+<a href="rendering/Selectable-mixin.html">Selectable</a> and implement the required APIs to handle <a href="rendering/SelectionEvent-class.html">SelectionEvent</a>s
+as well as paint appropriate selection highlights.</p>
+<p>The render object also needs to register itself to a <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a>.
+For the most cases, one can use <a href="rendering/SelectionRegistrant-mixin.html">SelectionRegistrant</a> to auto-register
+itself with the register returned from <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> as
+seen in the example below.</p>
+<p>
+<a name="widgets.SelectableRegion.2"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet2">
+    <div class="snippet-description">
+This sample demonstrates how to create an adapter widget that makes any
+child widget selectable.
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.SelectableRegion.2');" onclick="fixHref(this, 'widgets.SelectableRegion.2'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.SelectableRegion.2 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.SelectableRegion.2&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<h2 id="complex-layout">Complex layout</h2>
+<p>By default, the screen order is used as the selection order. If a group of
+<a href="rendering/Selectable-mixin.html">Selectable</a>s needs to select differently, consider wrapping them with a
+<a href="widgets/SelectionContainer-class.html">SelectionContainer</a> to customize its selection behavior.</p>
+<p>
+<a name="widgets.SelectableRegion.3"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet3">
+    <div class="snippet-description">
+This sample demonstrates how to create a <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> that only
+allows selecting everything or nothing with no partial selection.
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.SelectableRegion.3');" onclick="fixHref(this, 'widgets.SelectableRegion.3'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.SelectableRegion.3 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.SelectableRegion.3&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>In the case where a group of widgets should be excluded from selection under
+a <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>, consider wrapping that group of widgets using
+<a href="widgets/SelectionContainer/SelectionContainer.disabled.html">SelectionContainer.disabled</a>.</p>
+<p>
+<a name="widgets.SelectableRegion.4"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet4">
+    <div class="snippet-description">
+This sample demonstrates how to disable selection for a Text in a Column.
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.SelectableRegion.4');" onclick="fixHref(this, 'widgets.SelectableRegion.4'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.SelectableRegion.4 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.SelectableRegion.4&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>To create a separate selection system from its parent selection area,
+wrap part of the subtree with another <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>. The selection of the
+child selection area can not extend past its subtree, and the selection of
+the parent selection area can not extend inside the child selection area.</p>
+<h2 id="selection-status">Selection status</h2>
+<p>A <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>s <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> is used to indicate whether
+the <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> is actively changing the selection, or has finalized it. For
+example, during a mouse click + drag, the <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> will be
+set to <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.changing</a>, and when the mouse click is released
+the status will be set to <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.finalized</a>.</p>
+<p>The default value of <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>s selection status
+is <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.finalized</a>.</p>
+<p>To access the <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> of a parent <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>
+use <a href="widgets/SelectableRegionSelectionStatusScope/maybeOf.html">SelectableRegionSelectionStatusScope.maybeOf</a> and retrieve the value from
+the <a href="foundation/ValueListenable-class.html">ValueListenable</a>.</p>
+<p>One can also listen for changes to the <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> by
+adding a listener to the <a href="foundation/ValueListenable-class.html">ValueListenable</a> retrieved from <a href="widgets/SelectableRegionSelectionStatusScope/maybeOf.html">SelectableRegionSelectionStatusScope.maybeOf</a>
+through <a href="foundation/Listenable/addListener.html">ValueListenable.addListener</a>. In Stateful widgets this is typically
+done in <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a>. Remove the listener when no longer
+needed, typically in your Stateful widgets <a href="widgets/State/dispose.html">State.dispose</a> method through
+<a href="foundation/Listenable/removeListener.html">ValueListenable.removeListener</a>.</p>
+<h2 id="tests">Tests</h2>
+<p>In a test, a region can be selected either by faking drag events (e.g. using
+<a href="flutter_test/WidgetController/dragFrom.html">WidgetTester.dragFrom</a>) or by sending intents to a widget inside the region
+that has been given a <a href="widgets/GlobalKey-class.html">GlobalKey</a>, e.g.:</p>
+<pre class="language-dart"><code class="language-dart">Actions.invoke(key.currentContext!, const SelectAllTextIntent(SelectionChangedCause.keyboard));
+</code></pre>
+<p>另请参阅：</p>
+<ul>
+<li><a href="material/SelectionArea-class.html">SelectionArea</a>, which creates a <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> with
+platform-adaptive selection controls.</li>
+<li><a href="material/SelectableText-class.html">SelectableText</a>, which enables selection on a single run of text.</li>
+<li><a href="rendering/SelectionHandler-class.html">SelectionHandler</a>, which contains APIs to handle selection events from the
+<a href="widgets/SelectableRegion-class.html">SelectableRegion</a>.</li>
+<li><a href="rendering/Selectable-mixin.html">Selectable</a>, which provides API to participate in the selection system.</li>
+<li><a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a>, which <a href="rendering/Selectable-mixin.html">Selectable</a> needs to subscribe to receive
+selection events.</li>
+<li><a href="widgets/SelectionContainer-class.html">SelectionContainer</a>, which collects selectable widgets in the subtree
+and provides api to dispatch selection event to the collected widget.</li>
+<li><a href="widgets/SelectionListener-class.html">SelectionListener</a>, which enables accessing the <a href="widgets/SelectionDetails-class.html">SelectionDetails</a> of
+the selectable subtree it wraps.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>SelectableRegion</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="SelectableRegion.new" class="callable">
+          <span class="name"><a href="widgets/SelectableRegion/SelectableRegion.html">SelectableRegion</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-contextMenuBuilder"><span class="type-annotation"><a href="widgets/SelectableRegionContextMenuBuilder.html">SelectableRegionContextMenuBuilder</a>?</span> <span class="parameter-name">contextMenuBuilder</span>, </span><span class="parameter" id="-param-focusNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">focusNode</span>, </span><span class="parameter" id="-param-magnifierConfiguration"><span class="type-annotation"><a href="widgets/TextMagnifierConfiguration-class.html">TextMagnifierConfiguration</a></span> <span class="parameter-name">magnifierConfiguration</span> = <span class="default-value">TextMagnifierConfiguration.disabled</span>, </span><span class="parameter" id="-param-onSelectionChanged"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/SelectedContent-class.html">SelectedContent</a>?</span>&gt;</span>?</span> <span class="parameter-name">onSelectionChanged</span>, </span><span class="parameter" id="-param-selectionControls"><span>required</span> <span class="type-annotation"><a href="widgets/TextSelectionControls-class.html">TextSelectionControls</a></span> <span class="parameter-name">selectionControls</span>, </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
+        </dt>
+        <dd>
+          根据参数创建一个新的 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> widget.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="child" class="property">
+  <span class="name"><a href="widgets/SelectableRegion/child.html">child</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  
+
+</dt>
+<dd>
+  The child widget this selection area applies to.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="contextMenuBuilder" class="property">
+  <span class="name"><a href="widgets/SelectableRegion/contextMenuBuilder.html">contextMenuBuilder</a></span>
+  <span class="signature">&#8594; <a href="widgets/SelectableRegionContextMenuBuilder.html">SelectableRegionContextMenuBuilder</a>?</span>
+  
+
+</dt>
+<dd>
+  Builds the text selection toolbar when requested by the user.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="focusNode" class="property">
+  <span class="name"><a href="widgets/SelectableRegion/focusNode.html">focusNode</a></span>
+  <span class="signature">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a>?</span>
+  
+
+</dt>
+<dd>
+  An optional focus node to use as the focus node for this widget.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="magnifierConfiguration" class="property">
+  <span class="name"><a href="widgets/SelectableRegion/magnifierConfiguration.html">magnifierConfiguration</a></span>
+  <span class="signature">&#8594; <a href="widgets/TextMagnifierConfiguration-class.html">TextMagnifierConfiguration</a></span>
+  
+
+</dt>
+<dd>
+  The configuration for the magnifier used with selections in this region.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onSelectionChanged" class="property">
+  <span class="name"><a href="widgets/SelectableRegion/onSelectionChanged.html">onSelectionChanged</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/SelectedContent-class.html">SelectedContent</a>?</span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  Called when the selected content changes.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="selectionControls" class="property">
+  <span class="name"><a href="widgets/SelectableRegion/selectionControls.html">selectionControls</a></span>
+  <span class="signature">&#8594; <a href="widgets/TextSelectionControls-class.html">TextSelectionControls</a></span>
+  
+
+</dt>
+<dd>
+  The delegate to build the selection handles and toolbar for mobile
+devices.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="widgets/SelectableRegion/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="getSelectableButtonItems" class="callable">
+  <span class="name"><a href="widgets/SelectableRegion/getSelectableButtonItems.html">getSelectableButtonItems</a></span><span class="signature">(<wbr>{<span class="parameter" id="getSelectableButtonItems-param-selectionGeometry"><span>required</span> <span class="type-annotation"><a href="rendering/SelectionGeometry-class.html">SelectionGeometry</a></span> <span class="parameter-name">selectionGeometry</span>, </span><span class="parameter" id="getSelectableButtonItems-param-onCopy"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">onCopy</span>, </span><span class="parameter" id="getSelectableButtonItems-param-onSelectAll"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">onSelectAll</span>, </span><span class="parameter" id="getSelectableButtonItems-param-onShare"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onShare</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/ContextMenuButtonItem-class.html">ContextMenuButtonItem</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/ContextMenuButtonItem-class.html">ContextMenuButtonItem</a>s representing the buttons in this
+platform's default selection menu.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">SelectableRegion 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

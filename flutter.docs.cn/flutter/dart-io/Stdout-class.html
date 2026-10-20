@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:io 库中 Stdout 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Stdout class - dart:io 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-io/">dart:io</a></li>
+    <li class="self-crumb">Stdout 类</li>
+  </ol>
+  <div class="self-name">Stdout</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-io&#47;dart-io-library-sidebar.html"
+    data-below-sidebar="dart-io&#47;Stdout-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Stdout</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>连接到进程标准输出或标准错误的 <a href="dart-io/IOSink-class.html">IOSink</a>。</p>
+<p>提供一个<em>阻塞式</em> <code>IOSink</code>，因此使用它写入时会一直阻塞，直到输出完成。</p>
+<p>在某些情况下，这种阻塞行为并不理想，因为它不具备 <code>dart:io</code> 通常提供的非阻塞行为。使用属性 <a href="dart-io/Stdout/nonBlocking.html">nonBlocking</a> 可获取具有非阻塞行为的 <a href="dart-io/IOSink-class.html">IOSink</a>。</p>
+<p>此类还可用于检查 <code>stdout</code> 或 <code>stderr</code> 是否连接到终端，并查询一些终端属性。</p>
+<p><code>addError</code> API 继承自 <a href="dart-async/StreamSink-class.html">StreamSink</a>。调用它会导致未处理的异步错误，除非为 <code>done</code> 设置了错误处理程序。</p>
+<p><code>lineTerminator</code> 字段供 <code>write</code>、<code>writeln</code>、<code>writeAll</code> 和 <code>writeCharCode</code> 方法使用，用于转换 <code>"\n"</code>。默认情况下，<code>"\n"</code> 会按字面值输出。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="dart-io/IOSink-class.html">IOSink</a></li>
+    </ul>
+  </dd>
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="done" class="property inherited">
+  <span class="name"><a href="dart-io/Stdout/done.html">done</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A future that will complete when the consumer closes, or when an
+error occurs.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="encoding" class="property inherited">
+  <span class="name"><a href="dart-io/Stdout/encoding.html">encoding</a></span>
+  <span class="signature">&#8596; <a href="dart-convert/Encoding-class.html">Encoding</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="dart-convert/Encoding-class.html">Encoding</a> used when writing strings.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hasTerminal" class="property">
+  <span class="name"><a href="dart-io/Stdout/hasTerminal.html">hasTerminal</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether there is a terminal attached to stdout.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="lineTerminator" class="property inherited">
+  <span class="name"><a href="dart-io/Stdout/lineTerminator.html">lineTerminator</a></span>
+  <span class="signature">&#8596; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Line ending appended by <code>writeln</code>, and replacing <code>"\n"</code> in some methods.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="nonBlocking" class="property">
+  <span class="name"><a href="dart-io/Stdout/nonBlocking.html">nonBlocking</a></span>
+  <span class="signature">&#8594; <a href="dart-io/IOSink-class.html">IOSink</a></span>
+  
+
+</dt>
+<dd>
+  A non-blocking <code>IOSink</code> for the same output.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="supportsAnsiEscapes" class="property">
+  <span class="name"><a href="dart-io/Stdout/supportsAnsiEscapes.html">supportsAnsiEscapes</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether connected to a terminal that supports ANSI escape sequences.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="terminalColumns" class="property">
+  <span class="name"><a href="dart-io/Stdout/terminalColumns.html">terminalColumns</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The number of columns of the terminal.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="terminalLines" class="property">
+  <span class="name"><a href="dart-io/Stdout/terminalLines.html">terminalLines</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The number of lines of the terminal.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="add" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-data"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">data</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds byte <code>data</code> to the target consumer, ignoring <a href="dart-io/Stdout/encoding.html">encoding</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addError" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/addError.html">addError</a></span><span class="signature">(<wbr><span class="parameter" id="addError-param-error"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span>, [</span><span class="parameter" id="addError-param-stackTrace"><span class="type-annotation"><a href="dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Passes the error to the target consumer as an error event.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addStream" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/addStream.html">addStream</a></span><span class="signature">(<wbr><span class="parameter" id="addStream-param-stream"><span class="type-annotation"><a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">stream</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds all elements of the given <code>stream</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="close" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/close.html">close</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Close the target consumer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="flush" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/flush.html">flush</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a <a href="dart-async/Future-class.html">Future</a> that completes once all buffered data is accepted by the
+underlying <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="write" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/write.html">write</a></span><span class="signature">(<wbr><span class="parameter" id="write-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">object</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Converts <code>object</code> to a String by invoking <a href="dart-core/Object/toString.html">Object.toString</a> 和
+<a href="dart-io/Stdout/add.html">add</a>s the encoding of the result to the target consumer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="writeAll" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/writeAll.html">writeAll</a></span><span class="signature">(<wbr><span class="parameter" id="writeAll-param-objects"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a></span> <span class="parameter-name">objects</span>, [</span><span class="parameter" id="writeAll-param-sep"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">sep</span> = <span class="default-value">&quot;&quot;</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Iterates over the given <code>objects</code> 和 <code>write</code>s them in sequence.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="writeCharCode" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/writeCharCode.html">writeCharCode</a></span><span class="signature">(<wbr><span class="parameter" id="writeCharCode-param-charCode"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">charCode</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Writes the character of <code>charCode</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="writeln" class="callable inherited">
+  <span class="name"><a href="dart-io/Stdout/writeln.html">writeln</a></span><span class="signature">(<wbr>[<span class="parameter" id="writeln-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">object</span> = <span class="default-value">&quot;&quot;</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Converts <code>object</code> to a String by invoking <a href="dart-core/Object/toString.html">Object.toString</a> and
+writes the result to <code>this</code>, followed by a newline.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-io/">dart:io</a></li>
+    <li class="self-crumb">Stdout 类</li>
+</ol>
+
+    <h5>dart:io library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

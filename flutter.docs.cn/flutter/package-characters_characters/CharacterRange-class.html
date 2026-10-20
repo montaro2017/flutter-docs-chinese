@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="characters 库中 CharacterRange 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>CharacterRange 类 - characters 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-characters_characters/">characters.dart</a></li>
+    <li class="self-crumb">CharacterRange 类</li>
+  </ol>
+  <div class="self-name">CharacterRange</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-characters_characters&#47;package-characters_characters-library-sidebar.html"
+    data-below-sidebar="package-characters_characters&#47;CharacterRange-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">CharacterRange</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p><a href="package-characters_characters/Characters-class.html">Characters</a> 中的一段字符范围。</p>
+<p><a href="package-characters_characters/CharacterRange/source.html">source</a> 中一段连续字符，对应源序列中的起始和结束位置。范围可以为空；即便如此，它仍对应一个位置，此时起始和结束位置相同。</p>
+<p>源序列可分为范围<em>之前</em>的字符、范围本身，以及范围<em>之后</em>的字符。</p>
+<p>有些操作会检查或处理当前范围中的字符，另一些操作则通过移动起点和/或终点来修改范围。</p>
+<p>一般而言，以 <code>move</code> 开头的操作会同时移动起点和终点，选取一个与当前范围不重叠的新范围。以 <code>collapse</code> 开头的操作会将当前范围缩小为其子范围。以 <code>expand</code> 开头的操作会通过将终点向后移动或起点向前移动来扩大当前范围；以 <code>drop</code> 开头的操作则会通过将起点向后移动或终点向前移动来缩小当前范围，从一端或两端移除字符。</p>
+<p>此字符范围实现了 <a href="dart-core/Iterator-class.html">Iterator</a>。不带参数调用 <a href="package-characters_characters/CharacterRange/moveNext.html">moveNext</a> 操作时，会逐个迭代 <a href="package-characters_characters/CharacterRange/source.html">source</a> 序列中的下一个字符。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="dart-core/Iterator-class.html">Iterator</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></li>
+    </ul>
+  </dd>
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="CharacterRange.new" class="callable">
+          <span class="name"><a href="package-characters_characters/CharacterRange/CharacterRange.html">CharacterRange</a></span><span class="signature">(<span class="parameter" id="-param-string"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">string</span></span>)</span>
+        </dt>
+        <dd>
+          Creates a new character iterator iterating the character
+of <code>string</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="CharacterRange.at" class="callable">
+          <span class="name"><a href="package-characters_characters/CharacterRange/CharacterRange.at.html">CharacterRange.at</a></span><span class="signature">(<span class="parameter" id="at-param-string"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">string</span>, </span><span class="parameter" id="at-param-startIndex"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">startIndex</span>, [</span><span class="parameter" id="at-param-endIndex"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">endIndex</span></span>])</span>
+        </dt>
+        <dd>
+          Creates a new character iterator on <code>string</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="charactersAfter" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/charactersAfter.html">charactersAfter</a></span>
+  <span class="signature">&#8594; <a href="package-characters_characters/Characters-class.html">Characters</a></span>
+  
+
+</dt>
+<dd>
+  The characters after the current range.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="charactersBefore" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/charactersBefore.html">charactersBefore</a></span>
+  <span class="signature">&#8594; <a href="package-characters_characters/Characters-class.html">Characters</a></span>
+  
+
+</dt>
+<dd>
+  The characters before the current range.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="current" class="property inherited">
+  <span class="name"><a href="dart-core/Iterator/current.html">current</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The current element.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="currentCharacters" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/currentCharacters.html">currentCharacters</a></span>
+  <span class="signature">&#8594; <a href="package-characters_characters/Characters-class.html">Characters</a></span>
+  
+
+</dt>
+<dd>
+  The characters of this range.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isEmpty" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/isEmpty.html">isEmpty</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the current range is empty.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="isNotEmpty" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/isNotEmpty.html">isNotEmpty</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the current range is not empty.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runes" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/runes.html">runes</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Runes-class.html">Runes</a></span>
+  
+
+</dt>
+<dd>
+  The code points of the current character range.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="source" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/source.html">source</a></span>
+  <span class="signature">&#8594; <a href="package-characters_characters/Characters-class.html">Characters</a></span>
+  
+
+</dt>
+<dd>
+  The character sequence that this range is a sub-sequence of.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="stringAfter" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/stringAfter.html">stringAfter</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The string of the characters after the current range.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="stringAfterLength" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/stringAfterLength.html">stringAfterLength</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The length, in code units, of <a href="package-characters_characters/CharacterRange/stringAfter.html">stringAfter</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="stringBefore" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/stringBefore.html">stringBefore</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The string of the characters before the current range.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="stringBeforeLength" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/stringBeforeLength.html">stringBeforeLength</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The length, in code units, of <a href="package-characters_characters/CharacterRange/stringBefore.html">stringBefore</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="utf16CodeUnits" class="property">
+  <span class="name"><a href="package-characters_characters/CharacterRange/utf16CodeUnits.html">utf16CodeUnits</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The code units of the current character range.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="collapseToEnd" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/collapseToEnd.html">collapseToEnd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Collapses the range to its end.
+  
+
+</dd>
+
+        <dt id="collapseToFirst" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/collapseToFirst.html">collapseToFirst</a></span><span class="signature">(<wbr><span class="parameter" id="collapseToFirst-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Collapses to the first occurrence of <code>target</code> in the current range.
+  
+
+</dd>
+
+        <dt id="collapseToLast" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/collapseToLast.html">collapseToLast</a></span><span class="signature">(<wbr><span class="parameter" id="collapseToLast-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Collapses to the last occurrence of <code>target</code> in the current range.
+  
+
+</dd>
+
+        <dt id="collapseToStart" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/collapseToStart.html">collapseToStart</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Collapses the range to its start.
+  
+
+</dd>
+
+        <dt id="copy" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/copy.html">copy</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-characters_characters/CharacterRange-class.html">CharacterRange</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates a copy of this <a href="package-characters_characters/CharacterRange-class.html">CharacterRange</a>.
+  
+
+</dd>
+
+        <dt id="dropBackTo" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/dropBackTo.html">dropBackTo</a></span><span class="signature">(<wbr><span class="parameter" id="dropBackTo-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Drops the last occurrence of <code>target</code> in the range.
+  
+
+</dd>
+
+        <dt id="dropBackUntil" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/dropBackUntil.html">dropBackUntil</a></span><span class="signature">(<wbr><span class="parameter" id="dropBackUntil-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Drops characters from the end of the range until after
+the last occurrence of <code>target</code>.
+  
+
+</dd>
+
+        <dt id="dropBackWhile" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/dropBackWhile.html">dropBackWhile</a></span><span class="signature">(<wbr><span class="parameter" id="dropBackWhile-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span></span>)</span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Drops characters from the end of the range while they satisfy <code>test</code>.
+  
+
+</dd>
+
+        <dt id="dropFirst" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/dropFirst.html">dropFirst</a></span><span class="signature">(<wbr>[<span class="parameter" id="dropFirst-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span> = <span class="default-value">1</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Drop the first <code>count</code> characters from the range.
+  
+
+</dd>
+
+        <dt id="dropLast" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/dropLast.html">dropLast</a></span><span class="signature">(<wbr>[<span class="parameter" id="dropLast-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span> = <span class="default-value">1</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Drop the last <code>count</code> characters from the range.
+  
+
+</dd>
+
+        <dt id="dropTo" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/dropTo.html">dropTo</a></span><span class="signature">(<wbr><span class="parameter" id="dropTo-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Drops the first occurrence of <code>target</code> in the range.
+  
+
+</dd>
+
+        <dt id="dropUntil" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/dropUntil.html">dropUntil</a></span><span class="signature">(<wbr><span class="parameter" id="dropUntil-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Drops characters from the start of the range until before
+the first occurrence of <code>target</code>.
+  
+
+</dd>
+
+        <dt id="dropWhile" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/dropWhile.html">dropWhile</a></span><span class="signature">(<wbr><span class="parameter" id="dropWhile-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span></span>)</span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Drops characters from the start of the range while they satisfy <code>test</code>.
+  
+
+</dd>
+
+        <dt id="endsWith" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/endsWith.html">endsWith</a></span><span class="signature">(<wbr><span class="parameter" id="endsWith-param-characters"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">characters</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether the current range ends with <code>characters</code>.
+  
+
+</dd>
+
+        <dt id="expandAll" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandAll.html">expandAll</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the range to the end of <a href="package-characters_characters/CharacterRange/source.html">source</a>.
+  
+
+</dd>
+
+        <dt id="expandBack" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandBack.html">expandBack</a></span><span class="signature">(<wbr>[<span class="parameter" id="expandBack-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span> = <span class="default-value">1</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the current range with the preceding <code>count</code> characters.
+  
+
+</dd>
+
+        <dt id="expandBackAll" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandBackAll.html">expandBackAll</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the range back to the start of <a href="package-characters_characters/CharacterRange/source.html">source</a>.
+  
+
+</dd>
+
+        <dt id="expandBackTo" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandBackTo.html">expandBackTo</a></span><span class="signature">(<wbr><span class="parameter" id="expandBackTo-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the range to include the previous occurrence of <code>target</code>.
+  
+
+</dd>
+
+        <dt id="expandBackUntil" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandBackUntil.html">expandBackUntil</a></span><span class="signature">(<wbr><span class="parameter" id="expandBackUntil-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the range to include characters back until the previous <code>target</code>.
+  
+
+</dd>
+
+        <dt id="expandBackWhile" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandBackWhile.html">expandBackWhile</a></span><span class="signature">(<wbr><span class="parameter" id="expandBackWhile-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span></span>)</span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the range with the preceding characters satisfying <code>test</code>.
+  
+
+</dd>
+
+        <dt id="expandNext" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandNext.html">expandNext</a></span><span class="signature">(<wbr>[<span class="parameter" id="expandNext-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span> = <span class="default-value">1</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the current range with the next <code>count</code> characters.
+  
+
+</dd>
+
+        <dt id="expandTo" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandTo.html">expandTo</a></span><span class="signature">(<wbr><span class="parameter" id="expandTo-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the range to include the next occurrence of <code>target</code>.
+  
+
+</dd>
+
+        <dt id="expandUntil" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandUntil.html">expandUntil</a></span><span class="signature">(<wbr><span class="parameter" id="expandUntil-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the range to include characters until the next <code>target</code>.
+  
+
+</dd>
+
+        <dt id="expandWhile" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/expandWhile.html">expandWhile</a></span><span class="signature">(<wbr><span class="parameter" id="expandWhile-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span></span>)</span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Expands the range with the following characters satisfying <code>test</code>.
+  
+
+</dd>
+
+        <dt id="isFollowedBy" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/isFollowedBy.html">isFollowedBy</a></span><span class="signature">(<wbr><span class="parameter" id="isFollowedBy-param-characters"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">characters</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether the current range is followed by <code>characters</code>.
+  
+
+</dd>
+
+        <dt id="isPrecededBy" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/isPrecededBy.html">isPrecededBy</a></span><span class="signature">(<wbr><span class="parameter" id="isPrecededBy-param-characters"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">characters</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether the current range is preceded by <code>characters</code>.
+  
+
+</dd>
+
+        <dt id="moveBack" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/moveBack.html">moveBack</a></span><span class="signature">(<wbr>[<span class="parameter" id="moveBack-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span> = <span class="default-value">1</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves the range to be the last <code>count</code> characters before the current
+range.
+  
+
+</dd>
+
+        <dt id="moveBackAll" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/moveBackAll.html">moveBackAll</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves the range to be everything before the current range.
+  
+
+</dd>
+
+        <dt id="moveBackTo" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/moveBackTo.html">moveBackTo</a></span><span class="signature">(<wbr><span class="parameter" id="moveBackTo-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves the range to the last occurrence of <code>target</code>
+before the current range.
+  
+
+</dd>
+
+        <dt id="moveBackUntil" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/moveBackUntil.html">moveBackUntil</a></span><span class="signature">(<wbr><span class="parameter" id="moveBackUntil-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves to the range after the previous occurrence of <code>target</code>.
+  
+
+</dd>
+
+        <dt id="moveNext" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/moveNext.html">moveNext</a></span><span class="signature">(<wbr>[<span class="parameter" id="moveNext-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span> = <span class="default-value">1</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves the range to be the next <code>count</code> characters after the current range.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="moveNextAll" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/moveNextAll.html">moveNextAll</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves the range to be everything after the current range.
+  
+
+</dd>
+
+        <dt id="moveTo" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/moveTo.html">moveTo</a></span><span class="signature">(<wbr><span class="parameter" id="moveTo-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves the range to the next occurrence of <code>target</code>
+after the current range.
+  
+
+</dd>
+
+        <dt id="moveUntil" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/moveUntil.html">moveUntil</a></span><span class="signature">(<wbr><span class="parameter" id="moveUntil-param-target"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Moves to the range until the next occurrence of <code>target</code>.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="replaceAll" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/replaceAll.html">replaceAll</a></span><span class="signature">(<wbr><span class="parameter" id="replaceAll-param-pattern"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">pattern</span>, </span><span class="parameter" id="replaceAll-param-replacement"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">replacement</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-characters_characters/CharacterRange-class.html">CharacterRange</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Replaces <code>pattern</code> in the current range with <code>replacement</code>.
+  
+
+</dd>
+
+        <dt id="replaceFirst" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/replaceFirst.html">replaceFirst</a></span><span class="signature">(<wbr><span class="parameter" id="replaceFirst-param-pattern"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">pattern</span>, </span><span class="parameter" id="replaceFirst-param-replacement"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">replacement</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-characters_characters/CharacterRange-class.html">CharacterRange</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Replaces the first occurrence of <code>pattern</code> with <code>replacement</code>.
+  
+
+</dd>
+
+        <dt id="replaceRange" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/replaceRange.html">replaceRange</a></span><span class="signature">(<wbr><span class="parameter" id="replaceRange-param-replacement"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">replacement</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-characters_characters/CharacterRange-class.html">CharacterRange</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Replaces the current range with <code>replacement</code> and returns the result.
+  
+
+</dd>
+
+        <dt id="split" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/split.html">split</a></span><span class="signature">(<wbr><span class="parameter" id="split-param-pattern"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">pattern</span>, [</span><span class="parameter" id="split-param-maxParts"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">maxParts</span> = <span class="default-value">0</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="package-characters_characters/CharacterRange-class.html">CharacterRange</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Splits the current range of characters at each occurrence of <code>pattern</code>.
+  
+
+</dd>
+
+        <dt id="startsWith" class="callable">
+  <span class="name"><a href="package-characters_characters/CharacterRange/startsWith.html">startsWith</a></span><span class="signature">(<wbr><span class="parameter" id="startsWith-param-characters"><span class="type-annotation"><a href="package-characters_characters/Characters-class.html">Characters</a></span> <span class="parameter-name">characters</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether the current range starts with <code>characters</code>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-characters_characters/">characters</a></li>
+    <li class="self-crumb">CharacterRange 类</li>
+</ol>
+
+    <h5>characters 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="flutter_test 库中 ValueVariant 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>ValueVariant 类 - flutter_test 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_test/">flutter_test.dart</a></li>
+    <li class="self-crumb">ValueVariant<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+  </ol>
+  <div class="self-name">ValueVariant</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="flutter_test&#47;flutter_test-library-sidebar.html"
+    data-below-sidebar="flutter_test&#47;ValueVariant-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter_test/lib/src/widget_tester.dart#L352"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">ValueVariant&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一种 <a href="flutter_test/TestVariant-class.html">TestVariant</a>，会针对给定的每个值分别运行测试。</p>
+<p>要使用此变体，请在测试前定义它，然后在测试中访问 <a href="flutter_test/ValueVariant/currentValue.html">currentValue</a>。</p>
+<p>这些值通常是枚举，但不一定必须是枚举。系统会使用给定值的 <code>toString</code> 来描述该变体，并从其 <code>toString</code> 输出中移除类型名称，因此枚举值只会显示具体值，不会显示类型。</p>
+<p>
+<a name="flutter_test.flutter_test.ValueVariant.1"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+以下示例展示了如何设置测试以访问 <a href="flutter_test/ValueVariant/currentValue.html">currentValue</a>。本例会运行两项测试，分别使用 <code>value1</code>，以及
+<code>value2</code>。使用 <code>value2</code> 会失败。两项测试的名称如下：</p>
+<ul>
+<li><code>Test handling of TestScenario (value1)</code></li>
+<li><code>Test handling of TestScenario (value2)</code>
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'flutter_test.flutter_test.ValueVariant.1');" onclick="fixHref(this, 'flutter_test.flutter_test.ValueVariant.1'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">enum TestScenario {
+  value1,
+  value2,
+  value3,
+}
+
+final ValueVariant&lt;TestScenario&gt; variants = ValueVariant&lt;TestScenario&gt;(
+  &lt;TestScenario&gt;{TestScenario.value1, TestScenario.value2},
+);
+void main() {
+  testWidgets(&#39;Test handling of TestScenario&#39;, (WidgetTester tester) async {
+    expect(variants.currentValue, equals(TestScenario.value1));
+  }, variant: variants);
+}</code></pre>
+  </div>
+</div>
+</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="flutter_test/TestVariant-class.html">TestVariant</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
+      <li>ValueVariant</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="ValueVariant.new" class="callable">
+          <span class="name"><a href="flutter_test/ValueVariant/ValueVariant.html">ValueVariant</a></span><span class="signature">(<span class="parameter" id="-param-values"><span class="type-annotation"><a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">values</span></span>)</span>
+        </dt>
+        <dd>
+          创建一个 <a href="flutter_test/ValueVariant-class.html">ValueVariant</a> that tests the given <code>values</code>.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="currentValue" class="property">
+  <span class="name"><a href="flutter_test/ValueVariant/currentValue.html">currentValue</a></span>
+  <span class="signature">&#8594; T?</span>
+  
+
+</dt>
+<dd>
+  Returns the value currently under test.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="values" class="property">
+  <span class="name"><a href="flutter_test/ValueVariant/values.html">values</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  Returns an iterable of the variations that this test dimension represents.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="describeValue" class="callable">
+  <span class="name"><a href="flutter_test/ValueVariant/describeValue.html">describeValue</a></span><span class="signature">(<wbr><span class="parameter" id="describeValue-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the string that will be used to both add to the test description, and
+be printed when a test fails for this variation.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="setUp" class="callable">
+  <span class="name"><a href="flutter_test/ValueVariant/setUp.html">setUp</a></span><span class="signature">(<wbr><span class="parameter" id="setUp-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  A function that will be called before each value is tested, with the
+value that will be tested.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="tearDown" class="callable">
+  <span class="name"><a href="flutter_test/ValueVariant/tearDown.html">tearDown</a></span><span class="signature">(<wbr><span class="parameter" id="tearDown-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="tearDown-param-memento"><span>covariant</span> <span class="type-annotation">T</span> <span class="parameter-name">memento</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  A function that is guaranteed to be called after a value is tested, even
+if it throws an exception.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_test/">flutter_test</a></li>
+    <li class="self-crumb">ValueVariant<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+</ol>
+
+    <h5>flutter_test 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

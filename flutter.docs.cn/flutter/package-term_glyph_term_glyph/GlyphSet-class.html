@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="term_glyph 库中 GlyphSet 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>GlyphSet 类 - term_glyph 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-term_glyph_term_glyph/">term_glyph.dart</a></li>
+    <li class="self-crumb">GlyphSet 类</li>
+  </ol>
+  <div class="self-name">GlyphSet</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-term_glyph_term_glyph&#47;package-term_glyph_term_glyph-library-sidebar.html"
+    data-below-sidebar="package-term_glyph_term_glyph&#47;GlyphSet-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">GlyphSet</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>提供对所有可配置图形字符进行访问的类。</p>
+<p>此处将其设计为类，以便代码的各个部分可以选择使用 <code>ascii</code> 或 <code>unicode</code> 图形字符。例如：</p>
+<pre class="language-dart"><code class="language-dart">import 'package:term_glyph/term_glyph.dart' as glyph;
+
+/// Adds a vertical line to the left of [text].
+///
+/// If [unicode] is `true`, this uses Unicode for the line. If it's
+/// `false`, this uses plain ASCII characters. If it's `null`, it
+/// defaults to [glyph.ascii].
+void addVerticalLine(String text, {bool unicode}) {
+  var glyphs =
+      (unicode ?? !glyph.ascii) ? glyph.unicodeGlyphs : glyph.asciiGlyphs;
+
+  return text
+      .split('\n')
+      .map((line) =&gt; '${glyphs.verticalLine} $line')
+      .join('\n');
+}
+</code></pre>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="GlyphSet.new" class="callable">
+          <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/GlyphSet.html">GlyphSet</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="bottomLeftCorner" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/bottomLeftCorner.html">bottomLeftCorner</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The lower left-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="bottomLeftCornerBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/bottomLeftCornerBold.html">bottomLeftCornerBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The bold lower left-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="bottomLeftCornerDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/bottomLeftCornerDouble.html">bottomLeftCornerDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The double lower left-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="bottomRightCorner" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/bottomRightCorner.html">bottomRightCorner</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The lower right-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="bottomRightCornerBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/bottomRightCornerBold.html">bottomRightCornerBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The bold lower right-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="bottomRightCornerDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/bottomRightCornerDouble.html">bottomRightCornerDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The double lower right-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="bullet" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/bullet.html">bullet</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bullet point.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="cross" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/cross.html">cross</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  An intersection of vertical and horizontal box lines.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="crossBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/crossBold.html">crossBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  An intersection of bold vertical and horizontal box lines.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="crossDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/crossDouble.html">crossDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  An intersection of double vertical and horizontal box lines.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="downArrow" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/downArrow.html">downArrow</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A downwards-pointing arrow.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="downEnd" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/downEnd.html">downEnd</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The bottom half of a vertical box line.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="downEndBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/downEndBold.html">downEndBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The bottom half of a bold vertical box line.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="horizontalLine" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLine.html">horizontalLine</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="horizontalLineBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLineBold.html">horizontalLineBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="horizontalLineDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLineDouble.html">horizontalLineDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A double horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="horizontalLineDoubleDash" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLineDoubleDash.html">horizontalLineDoubleDash</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A dashed horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="horizontalLineDoubleDashBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLineDoubleDashBold.html">horizontalLineDoubleDashBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold dashed horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="horizontalLineQuadrupleDash" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLineQuadrupleDash.html">horizontalLineQuadrupleDash</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A dashed horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="horizontalLineQuadrupleDashBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLineQuadrupleDashBold.html">horizontalLineQuadrupleDashBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold dashed horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="horizontalLineTripleDash" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLineTripleDash.html">horizontalLineTripleDash</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A dashed horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="horizontalLineTripleDashBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/horizontalLineTripleDashBold.html">horizontalLineTripleDashBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold dashed horizontal line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="leftArrow" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/leftArrow.html">leftArrow</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A left-pointing arrow.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="leftEnd" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/leftEnd.html">leftEnd</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The left half of a horizontal box line.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="leftEndBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/leftEndBold.html">leftEndBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The left half of a bold horizontal box line.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="longLeftArrow" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/longLeftArrow.html">longLeftArrow</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A two-character left-pointing arrow.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="longRightArrow" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/longRightArrow.html">longRightArrow</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A two-character right-pointing arrow.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="rightArrow" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/rightArrow.html">rightArrow</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A right-pointing arrow.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="rightEnd" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/rightEnd.html">rightEnd</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The right half of a horizontal box line.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="rightEndBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/rightEndBold.html">rightEndBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The right half of a bold horizontal box line.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="teeDown" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeDown.html">teeDown</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A horizontal box line with a vertical line going down from the middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeDownBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeDownBold.html">teeDownBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold horizontal box line with a vertical line going down from the
+middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeDownDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeDownDouble.html">teeDownDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A double horizontal box line with a vertical line going down from the
+middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeLeft" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeLeft.html">teeLeft</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A vertical box line with a horizontal line going left from the middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeLeftBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeLeftBold.html">teeLeftBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold vertical box line with a horizontal line going left from the
+middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeLeftDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeLeftDouble.html">teeLeftDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A double vertical box line with a horizontal line going left from the
+middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeRight" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeRight.html">teeRight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A vertical box line with a horizontal line going right from the middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeRightBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeRightBold.html">teeRightBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold vertical box line with a horizontal line going right from the
+middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeRightDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeRightDouble.html">teeRightDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A double vertical box line with a horizontal line going right from the
+middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeUp" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeUp.html">teeUp</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A horizontal box line with a vertical line going up from the middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeUpBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeUpBold.html">teeUpBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold horizontal box line with a vertical line going up from the middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="teeUpDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/teeUpDouble.html">teeUpDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A double horizontal box line with a vertical line going up from the
+middle.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="topLeftCorner" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/topLeftCorner.html">topLeftCorner</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The upper left-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="topLeftCornerBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/topLeftCornerBold.html">topLeftCornerBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The bold upper left-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="topLeftCornerDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/topLeftCornerDouble.html">topLeftCornerDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The double upper left-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="topRightCorner" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/topRightCorner.html">topRightCorner</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The upper right-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="topRightCornerBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/topRightCornerBold.html">topRightCornerBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The bold upper right-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="topRightCornerDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/topRightCornerDouble.html">topRightCornerDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The double upper right-hand corner of a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="upArrow" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/upArrow.html">upArrow</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  An upwards-pointing arrow.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="upEnd" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/upEnd.html">upEnd</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The top half of a vertical box line.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="upEndBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/upEndBold.html">upEndBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The top half of a bold vertical box line.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLine" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLine.html">verticalLine</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLineBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLineBold.html">verticalLineBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLineDouble" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLineDouble.html">verticalLineDouble</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A double vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLineDoubleDash" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLineDoubleDash.html">verticalLineDoubleDash</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A dashed vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLineDoubleDashBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLineDoubleDashBold.html">verticalLineDoubleDashBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold dashed vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLineQuadrupleDash" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLineQuadrupleDash.html">verticalLineQuadrupleDash</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A dashed vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLineQuadrupleDashBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLineQuadrupleDashBold.html">verticalLineQuadrupleDashBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold dashed vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLineTripleDash" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLineTripleDash.html">verticalLineTripleDash</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A dashed vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="verticalLineTripleDashBold" class="property">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/verticalLineTripleDashBold.html">verticalLineTripleDashBold</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A bold dashed vertical line that can be used to draw a box.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="glyphOrAscii" class="callable">
+  <span class="name"><a href="package-term_glyph_term_glyph/GlyphSet/glyphOrAscii.html">glyphOrAscii</a></span><span class="signature">(<wbr><span class="parameter" id="glyphOrAscii-param-glyph"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">glyph</span>, </span><span class="parameter" id="glyphOrAscii-param-alternative"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">alternative</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <code>glyph</code> if <code>this</code> supports Unicode glyphs and <code>alternative</code>
+otherwise.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-term_glyph_term_glyph/">term_glyph</a></li>
+    <li class="self-crumb">GlyphSet 类</li>
+</ol>
+
+    <h5>term_glyph 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

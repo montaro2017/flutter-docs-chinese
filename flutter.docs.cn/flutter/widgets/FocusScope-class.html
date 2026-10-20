@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 FocusScope 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>FocusScope 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">FocusScope 类</li>
+  </ol>
+  <div class="self-name">FocusScope</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;FocusScope-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/focus_scope.dart#L804"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">FocusScope</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p><a href="widgets/FocusScope-class.html">FocusScope</a> 类似于 <a href="widgets/Focus-class.html">Focus</a>，但还为其后代提供一个范围，将焦点遍历限制在该范围内的控件。</p>
+<p>例如，推入新 route 时会自动创建新的 <a href="widgets/FocusScope-class.html">FocusScope</a>，防止焦点遍历移动到上一条 route 中的控件。</p>
+<p>如果只想将 widget 编组，使其按特定顺序遍历，但焦点仍可离开该组，请使用 <a href="widgets/FocusTraversalGroup-class.html">FocusTraversalGroup</a>。</p>
+<p>与 <a href="widgets/Focus-class.html">Focus</a> 一样，<a href="widgets/FocusScope-class.html">FocusScope</a> 提供 <a href="widgets/Focus/onFocusChange.html">onFocusChange</a>，用于在此 widget 获得或失去焦点时接收通知。</p>
+<p><a class="deprecated" href="widgets/Focus/onKey.html">onKey</a> 参数允许指定按键事件处理器；当此节点或其任一子项拥有焦点时会调用该处理器。按键首先发送给拥有主要焦点的 widget，然后沿该节点的祖先节点传播；如果某个节点的 <a class="deprecated" href="widgets/KeyEventResult.html">onKey</a> 返回 <a href="widgets/Focus/onKey.html">KeyEventResult.handled</a>，表示已处理事件，传播就会停止。</p>
+<p>管理 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 包括管理其生命周期、监听焦点变化，并在需要时重新指定父节点，以使焦点层级与 widget 层级保持同步。此 widget 会为你处理这些工作。如果不使用 <a href="widgets/FocusScopeNode-class.html">FocusScope</a> widget 而需要自行管理节点，请参阅 <a href="widgets/FocusScope-class.html">FocusScopeNode</a> 了解详情。</p>
+<p><a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 会记住其后代中最近获得焦点的 <a href="widgets/FocusNode-class.html">FocusNode</a>。对 <a href="widgets/FocusNode/nextFocus.html">FocusNode</a> 或 <a href="widgets/FocusNode/previousFocus.html">FocusScopeNode</a> 调用 <a href="widgets/FocusNode/focusInDirection.html">FocusNode.nextFocus</a>、<a href="widgets/FocusNode-class.html">FocusNode.previousFocus</a> 或 <a href="widgets/FocusScopeNode-class.html">FocusNode.focusInDirection</a> 时，可将焦点移动到下一个／上一个节点或特定方向上的节点。</p>
+<p>To move the focus, use methods on <a href="widgets/FocusNode-class.html">FocusNode</a> by getting the <a href="widgets/FocusNode-class.html">FocusNode</a>
+through the <a href="widgets/FocusScope/of.html">of</a> method. For instance, to move the focus to the next node in
+the focus traversal order, call <code>Focus.of(context).nextFocus()</code>. To unfocus
+a widget, call <code>Focus.of(context).unfocus()</code>.</p>
+<p>
+<a name="widgets.FocusScope.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">
+此示例展示如何使用 <a href="widgets/FocusScope-class.html">FocusScope</a> 将焦点限制在应用的特定区域内。本例中，焦点被限制在 Stack 的可见部分。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.FocusScope.1');" onclick="fixHref(this, 'widgets.FocusScope.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>若要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.FocusScope.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.FocusScope.1&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>, which represents a scope node in the focus hierarchy.</li>
+<li><a href="widgets/FocusNode-class.html">FocusNode</a>, which represents a node in the focus hierarchy and has an
+explanation of the focus system.</li>
+<li><a href="widgets/Focus-class.html">Focus</a>, a widget that manages a <a href="widgets/FocusNode-class.html">FocusNode</a> and allows easy access to
+managing focus without having to manage the node.</li>
+<li><a href="widgets/FocusManager-class.html">FocusManager</a>, a singleton that manages the focus and distributes key
+events to focused nodes.</li>
+<li><a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a>, an object used to determine how to move the focus
+to other nodes.</li>
+<li><a href="widgets/FocusTraversalGroup-class.html">FocusTraversalGroup</a>, a widget used to configure the focus traversal
+policy for a widget subtree.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+        <li><a href="widgets/Focus-class.html">Focus</a></li>
+      <li>FocusScope</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="FocusScope.new" class="callable">
+          <span class="name"><a href="widgets/FocusScope/FocusScope.html">FocusScope</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-node"><span class="type-annotation"><a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>?</span> <span class="parameter-name">node</span>, </span><span class="parameter" id="-param-parentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">parentNode</span>, </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="-param-autofocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">autofocus</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-onFocusChange"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span>?</span> <span class="parameter-name">onFocusChange</span>, </span><span class="parameter" id="-param-canRequestFocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">canRequestFocus</span>, </span><span class="parameter" id="-param-skipTraversal"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">skipTraversal</span>, </span><span class="parameter" id="-param-onKeyEvent"><span class="type-annotation"><a href="widgets/FocusOnKeyEventCallback.html">FocusOnKeyEventCallback</a>?</span> <span class="parameter-name">onKeyEvent</span>, </span><span class="parameter" id="-param-onKey"><span class="type-annotation"><a class="deprecated" href="widgets/FocusOnKeyCallback.html">FocusOnKeyCallback</a>?</span> <span class="parameter-name">onKey</span>, </span><span class="parameter" id="-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugLabel</span>, </span><span class="parameter" id="-param-includeSemantics"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includeSemantics</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-descendantsAreFocusable"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">descendantsAreFocusable</span>, </span><span class="parameter" id="-param-descendantsAreTraversable"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">descendantsAreTraversable</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a widget that manages a <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="FocusScope.withExternalFocusNode" class="callable">
+          <span class="name"><a href="widgets/FocusScope/FocusScope.withExternalFocusNode.html">FocusScope.withExternalFocusNode</a></span><span class="signature">({<span class="parameter" id="withExternalFocusNode-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="withExternalFocusNode-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="withExternalFocusNode-param-focusScopeNode"><span>required</span> <span class="type-annotation"><a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a></span> <span class="parameter-name">focusScopeNode</span>, </span><span class="parameter" id="withExternalFocusNode-param-parentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">parentNode</span>, </span><span class="parameter" id="withExternalFocusNode-param-autofocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">autofocus</span>, </span><span class="parameter" id="withExternalFocusNode-param-includeSemantics"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includeSemantics</span>, </span><span class="parameter" id="withExternalFocusNode-param-onFocusChange"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span>?</span> <span class="parameter-name">onFocusChange</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a FocusScope widget that uses the given <code>focusScopeNode</code> as the
+source of truth for attributes on the node, rather than the attributes of
+this widget.
+            <div class="constructor-modifier features">const</div>
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="autofocus" class="property inherited">
+  <span class="name"><a href="widgets/Focus/autofocus.html">autofocus</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  True if this widget will be selected as the initial focus when no other
+node in its scope is currently focused.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="canRequestFocus" class="property inherited">
+  <span class="name"><a href="widgets/Focus/canRequestFocus.html">canRequestFocus</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  If true, this widget may request the primary focus.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="child" class="property inherited">
+  <span class="name"><a href="widgets/Focus/child.html">child</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The child widget of this <a href="widgets/Focus-class.html">Focus</a>.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugLabel" class="property inherited">
+  <span class="name"><a href="widgets/Focus/debugLabel.html">debugLabel</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  A debug label for this widget.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="descendantsAreFocusable" class="property inherited">
+  <span class="name"><a href="widgets/Focus/descendantsAreFocusable.html">descendantsAreFocusable</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  If false, will make this widget's descendants unfocusable.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="descendantsAreTraversable" class="property inherited">
+  <span class="name"><a href="widgets/Focus/descendantsAreTraversable.html">descendantsAreTraversable</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  If false, will make this widget's descendants untraversable.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="focusNode" class="property inherited">
+  <span class="name"><a href="widgets/Focus/focusNode.html">focusNode</a></span>
+  <span class="signature">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  An optional focus node to use as the focus node for this widget.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="includeSemantics" class="property inherited">
+  <span class="name"><a href="widgets/Focus/includeSemantics.html">includeSemantics</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Include semantics information in this widget.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onFocusChange" class="property inherited">
+  <span class="name"><a href="widgets/Focus/onFocusChange.html">onFocusChange</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Handler called when the focus changes.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onKey" class="property inherited">
+  <span class="name"><a class="deprecated" href="widgets/Focus/onKey.html">onKey</a></span>
+  <span class="signature">&#8594; <a class="deprecated" href="widgets/FocusOnKeyCallback.html">FocusOnKeyCallback</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  A handler for keys that are pressed when this object or one of its
+children has focus.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onKeyEvent" class="property inherited">
+  <span class="name"><a href="widgets/Focus/onKeyEvent.html">onKeyEvent</a></span>
+  <span class="signature">&#8594; <a href="widgets/FocusOnKeyEventCallback.html">FocusOnKeyEventCallback</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  A handler for keys that are pressed when this object or one of its
+children has focus.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="parentNode" class="property inherited">
+  <span class="name"><a href="widgets/Focus/parentNode.html">parentNode</a></span>
+  <span class="signature">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The optional parent node to use when reparenting the <a href="widgets/Focus/focusNode.html">focusNode</a> for this
+<a href="widgets/Focus-class.html">Focus</a> widget.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="skipTraversal" class="property inherited">
+  <span class="name"><a href="widgets/Focus/skipTraversal.html">skipTraversal</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Sets the <a href="widgets/FocusNode/skipTraversal.html">FocusNode.skipTraversal</a> flag on the focus node so that it won't
+be visited by the <a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a>.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="widgets/FocusScope/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Focus-class.html">Focus</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Focus/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="of" class="callable">
+  <span class="name"><a href="widgets/FocusScope/of.html">of</a></span><span class="signature">(<wbr><span class="parameter" id="of-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, {</span><span class="parameter" id="of-param-createDependency"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">createDependency</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/FocusNode/nearestScope.html">FocusNode.nearestScope</a> of the <a href="widgets/Focus-class.html">Focus</a> or <a href="widgets/FocusScope-class.html">FocusScope</a> that
+most tightly encloses the given <code>context</code>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">FocusScope 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

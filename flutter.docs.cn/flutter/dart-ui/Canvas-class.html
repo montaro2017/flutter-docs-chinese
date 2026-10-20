@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:ui 库中 Canvas 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Canvas class - dart:ui 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li class="self-crumb">Canvas 类</li>
+  </ol>
+  <div class="self-name">Canvas</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-ui&#47;dart-ui-library-sidebar.html"
+    data-below-sidebar="dart-ui&#47;Canvas-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Canvas</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>用于记录图形操作的接口。</p>
+<p><a href="dart-ui/Canvas-class.html">Canvas</a> 对象用于创建 <a href="dart-ui/Picture-class.html">Picture</a> 对象；后者可与 <a href="dart-ui/SceneBuilder-class.html">SceneBuilder</a> 配合构建 <a href="dart-ui/Scene-class.html">Scene</a>。不过，在常规用法中，这些工作都由框架处理。</p>
+<p>画布具有一个当前变换矩阵，该矩阵会应用于所有操作。初始时，变换矩阵为恒等变换。可以通过 <a href="dart-ui/Canvas/translate.html">translate</a>、<a href="dart-ui/Canvas/scale.html">scale</a>、<a href="dart-ui/Canvas/rotate.html">rotate</a>、<a href="dart-ui/Canvas/skew.html">skew</a> 和 <a href="dart-ui/Canvas/transform.html">transform</a> 方法修改它。</p>
+<p>画布还具有一个当前裁剪区域，该区域会应用于所有操作。初始时，裁剪区域为无限范围。可以通过 <a href="dart-ui/Canvas/clipRect.html">clipRect</a>、<a href="dart-ui/Canvas/clipRRect.html">clipRRect</a> 和 <a href="dart-ui/Canvas/clipPath.html">clipPath</a> 方法修改它。</p>
+<p>可以使用由 <a href="dart-ui/Canvas/save.html">save</a>、<a href="dart-ui/Canvas/saveLayer.html">saveLayer</a> 和 <a href="dart-ui/Canvas/restore.html">restore</a> 方法管理的栈来保存和恢复当前变换与裁剪状态。</p>
+<h2 id="use-with-the-flutter-framework">与 Flutter 框架配合使用</h2>
+<p>Flutter 框架的 <a href="rendering/RendererBinding-mixin.html">RendererBinding</a> 提供了创建 <a href="dart-ui/Canvas-class.html">Canvas</a> 对象的钩子（<a href="rendering/RendererBinding/createCanvas.html">RendererBinding.createCanvas</a>），允许测试接入场景创建逻辑。在 Flutter 框架上下文中创建要与 <a href="dart-ui/Canvas-class.html">Scene</a> 中的 <a href="rendering/PictureLayer-class.html">PictureLayer</a> 配合使用的 <a href="dart-ui/Scene-class.html">Canvas</a> 时，可考虑调用 <a href="rendering/RendererBinding/createCanvas.html">RendererBinding.createCanvas</a>，而不是直接调用 <a href="dart-ui/Canvas/Canvas.html">Canvas.new</a> 构造函数。</p>
+<p>如果使用画布生成其他用途的位图，则不适用上述建议，例如使用 <a href="dart-ui/Picture/toImage.html">Picture.toImage</a> 生成 PNG 图像。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="flutter_test/TestRecordingCanvas-class.html">TestRecordingCanvas</a></li>
+          </ul></dd>
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Canvas.new" class="callable">
+          <span class="name"><a href="dart-ui/Canvas/Canvas.html">Canvas</a></span><span class="signature">(<span class="parameter" id="-param-recorder"><span class="type-annotation"><a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a></span> <span class="parameter-name">recorder</span>, [</span><span class="parameter" id="-param-cullRect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a>?</span> <span class="parameter-name">cullRect</span></span>])</span>
+        </dt>
+        <dd>
+          Creates a canvas for recording graphical operations into the
+given picture recorder.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="clipPath" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/clipPath.html">clipPath</a></span><span class="signature">(<wbr><span class="parameter" id="clipPath-param-path"><span class="type-annotation"><a href="dart-ui/Path-class.html">Path</a></span> <span class="parameter-name">path</span>, {</span><span class="parameter" id="clipPath-param-doAntiAlias"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">doAntiAlias</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Reduces the clip region to the intersection of the current clip and the
+given <a href="dart-ui/Path-class.html">Path</a>.
+  
+
+</dd>
+
+        <dt id="clipRect" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/clipRect.html">clipRect</a></span><span class="signature">(<wbr><span class="parameter" id="clipRect-param-rect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">rect</span>, {</span><span class="parameter" id="clipRect-param-clipOp"><span class="type-annotation"><a href="dart-ui/ClipOp.html">ClipOp</a></span> <span class="parameter-name">clipOp</span> = <span class="default-value">ClipOp.intersect</span>, </span><span class="parameter" id="clipRect-param-doAntiAlias"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">doAntiAlias</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Reduces the clip region to the intersection of the current clip and the
+given rectangle.
+  
+
+</dd>
+
+        <dt id="clipRRect" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/clipRRect.html">clipRRect</a></span><span class="signature">(<wbr><span class="parameter" id="clipRRect-param-rrect"><span class="type-annotation"><a href="dart-ui/RRect-class.html">RRect</a></span> <span class="parameter-name">rrect</span>, {</span><span class="parameter" id="clipRRect-param-doAntiAlias"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">doAntiAlias</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Reduces the clip region to the intersection of the current clip and the
+given rounded rectangle.
+  
+
+</dd>
+
+        <dt id="clipRSuperellipse" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/clipRSuperellipse.html">clipRSuperellipse</a></span><span class="signature">(<wbr><span class="parameter" id="clipRSuperellipse-param-rsuperellipse"><span class="type-annotation"><a href="dart-ui/RSuperellipse-class.html">RSuperellipse</a></span> <span class="parameter-name">rsuperellipse</span>, {</span><span class="parameter" id="clipRSuperellipse-param-doAntiAlias"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">doAntiAlias</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Reduces the clip region to the intersection of the current clip and the
+given rounded superellipse.
+  
+
+</dd>
+
+        <dt id="drawArc" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawArc.html">drawArc</a></span><span class="signature">(<wbr><span class="parameter" id="drawArc-param-rect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">rect</span>, </span><span class="parameter" id="drawArc-param-startAngle"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">startAngle</span>, </span><span class="parameter" id="drawArc-param-sweepAngle"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">sweepAngle</span>, </span><span class="parameter" id="drawArc-param-useCenter"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useCenter</span>, </span><span class="parameter" id="drawArc-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draw an arc scaled to fit inside the given rectangle.
+  
+
+</dd>
+
+        <dt id="drawAtlas" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawAtlas.html">drawAtlas</a></span><span class="signature">(<wbr><span class="parameter" id="drawAtlas-param-atlas"><span class="type-annotation"><a href="dart-ui/Image-class.html">Image</a></span> <span class="parameter-name">atlas</span>, </span><span class="parameter" id="drawAtlas-param-transforms"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/RSTransform-class.html">RSTransform</a></span>&gt;</span></span> <span class="parameter-name">transforms</span>, </span><span class="parameter" id="drawAtlas-param-rects"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Rect-class.html">Rect</a></span>&gt;</span></span> <span class="parameter-name">rects</span>, </span><span class="parameter" id="drawAtlas-param-colors"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a></span>&gt;</span>?</span> <span class="parameter-name">colors</span>, </span><span class="parameter" id="drawAtlas-param-blendMode"><span class="type-annotation"><a href="dart-ui/BlendMode.html">BlendMode</a>?</span> <span class="parameter-name">blendMode</span>, </span><span class="parameter" id="drawAtlas-param-cullRect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a>?</span> <span class="parameter-name">cullRect</span>, </span><span class="parameter" id="drawAtlas-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws many parts of an image - the <code>atlas</code> - onto the canvas.
+  
+
+</dd>
+
+        <dt id="drawCircle" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawCircle.html">drawCircle</a></span><span class="signature">(<wbr><span class="parameter" id="drawCircle-param-c"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">c</span>, </span><span class="parameter" id="drawCircle-param-radius"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">radius</span>, </span><span class="parameter" id="drawCircle-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a circle centered at the point given by the first argument and
+that has the radius given by the second argument, with the <a href="dart-ui/Paint-class.html">Paint</a> given in
+the third argument. Whether the circle is filled or stroked (or both) is
+controlled by <a href="dart-ui/Paint/style.html">Paint.style</a>.
+  
+
+</dd>
+
+        <dt id="drawColor" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawColor.html">drawColor</a></span><span class="signature">(<wbr><span class="parameter" id="drawColor-param-color"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">color</span>, </span><span class="parameter" id="drawColor-param-blendMode"><span class="type-annotation"><a href="dart-ui/BlendMode.html">BlendMode</a></span> <span class="parameter-name">blendMode</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Paints the given <a href="dart-ui/Color-class.html">Color</a> onto the canvas, applying the given
+<a href="dart-ui/BlendMode.html">BlendMode</a>, with the given color being the source and the background
+being the destination.
+  
+
+</dd>
+
+        <dt id="drawDRRect" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawDRRect.html">drawDRRect</a></span><span class="signature">(<wbr><span class="parameter" id="drawDRRect-param-outer"><span class="type-annotation"><a href="dart-ui/RRect-class.html">RRect</a></span> <span class="parameter-name">outer</span>, </span><span class="parameter" id="drawDRRect-param-inner"><span class="type-annotation"><a href="dart-ui/RRect-class.html">RRect</a></span> <span class="parameter-name">inner</span>, </span><span class="parameter" id="drawDRRect-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a shape consisting of the difference between two rounded rectangles
+with the given <a href="dart-ui/Paint-class.html">Paint</a>. Whether this shape is filled or stroked (or both)
+is controlled by <a href="dart-ui/Paint/style.html">Paint.style</a>.
+  
+
+</dd>
+
+        <dt id="drawImage" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawImage.html">drawImage</a></span><span class="signature">(<wbr><span class="parameter" id="drawImage-param-image"><span class="type-annotation"><a href="dart-ui/Image-class.html">Image</a></span> <span class="parameter-name">image</span>, </span><span class="parameter" id="drawImage-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span>, </span><span class="parameter" id="drawImage-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws the given <a href="dart-ui/Image-class.html">Image</a> into the canvas with its top-left corner at the
+given <a href="dart-ui/Offset-class.html">Offset</a>. The image is composited into the canvas using the given <a href="dart-ui/Paint-class.html">Paint</a>.
+  
+
+</dd>
+
+        <dt id="drawImageNine" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawImageNine.html">drawImageNine</a></span><span class="signature">(<wbr><span class="parameter" id="drawImageNine-param-image"><span class="type-annotation"><a href="dart-ui/Image-class.html">Image</a></span> <span class="parameter-name">image</span>, </span><span class="parameter" id="drawImageNine-param-center"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">center</span>, </span><span class="parameter" id="drawImageNine-param-dst"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">dst</span>, </span><span class="parameter" id="drawImageNine-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws the given <a href="dart-ui/Image-class.html">Image</a> into the canvas using the given <a href="dart-ui/Paint-class.html">Paint</a>.
+  
+
+</dd>
+
+        <dt id="drawImageRect" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawImageRect.html">drawImageRect</a></span><span class="signature">(<wbr><span class="parameter" id="drawImageRect-param-image"><span class="type-annotation"><a href="dart-ui/Image-class.html">Image</a></span> <span class="parameter-name">image</span>, </span><span class="parameter" id="drawImageRect-param-src"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">src</span>, </span><span class="parameter" id="drawImageRect-param-dst"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">dst</span>, </span><span class="parameter" id="drawImageRect-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws the subset of the given image described by the <code>src</code> argument into
+the canvas in the axis-aligned rectangle given by the <code>dst</code> argument.
+  
+
+</dd>
+
+        <dt id="drawLine" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawLine.html">drawLine</a></span><span class="signature">(<wbr><span class="parameter" id="drawLine-param-p1"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">p1</span>, </span><span class="parameter" id="drawLine-param-p2"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">p2</span>, </span><span class="parameter" id="drawLine-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a line between the given points using the given paint. The line is
+stroked, the value of the <a href="dart-ui/Paint/style.html">Paint.style</a> is ignored for this call.
+  
+
+</dd>
+
+        <dt id="drawOval" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawOval.html">drawOval</a></span><span class="signature">(<wbr><span class="parameter" id="drawOval-param-rect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">rect</span>, </span><span class="parameter" id="drawOval-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws an axis-aligned oval that fills the given axis-aligned rectangle
+with the given <a href="dart-ui/Paint-class.html">Paint</a>. Whether the oval is filled or stroked (or both) is
+controlled by <a href="dart-ui/Paint/style.html">Paint.style</a>.
+  
+
+</dd>
+
+        <dt id="drawPaint" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawPaint.html">drawPaint</a></span><span class="signature">(<wbr><span class="parameter" id="drawPaint-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Fills the canvas with the given <a href="dart-ui/Paint-class.html">Paint</a>.
+  
+
+</dd>
+
+        <dt id="drawParagraph" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawParagraph.html">drawParagraph</a></span><span class="signature">(<wbr><span class="parameter" id="drawParagraph-param-paragraph"><span class="type-annotation"><a href="dart-ui/Paragraph-class.html">Paragraph</a></span> <span class="parameter-name">paragraph</span>, </span><span class="parameter" id="drawParagraph-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws the text in the given <a href="dart-ui/Paragraph-class.html">Paragraph</a> into this canvas at the given
+<a href="dart-ui/Offset-class.html">Offset</a>.
+  
+
+</dd>
+
+        <dt id="drawPath" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawPath.html">drawPath</a></span><span class="signature">(<wbr><span class="parameter" id="drawPath-param-path"><span class="type-annotation"><a href="dart-ui/Path-class.html">Path</a></span> <span class="parameter-name">path</span>, </span><span class="parameter" id="drawPath-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws the given <a href="dart-ui/Path-class.html">Path</a> with the given <a href="dart-ui/Paint-class.html">Paint</a>.
+  
+
+</dd>
+
+        <dt id="drawPicture" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawPicture.html">drawPicture</a></span><span class="signature">(<wbr><span class="parameter" id="drawPicture-param-picture"><span class="type-annotation"><a href="dart-ui/Picture-class.html">Picture</a></span> <span class="parameter-name">picture</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draw the given picture onto the canvas. To create a picture, see
+<a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a>.
+  
+
+</dd>
+
+        <dt id="drawPoints" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawPoints.html">drawPoints</a></span><span class="signature">(<wbr><span class="parameter" id="drawPoints-param-pointMode"><span class="type-annotation"><a href="dart-ui/PointMode.html">PointMode</a></span> <span class="parameter-name">pointMode</span>, </span><span class="parameter" id="drawPoints-param-points"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Offset-class.html">Offset</a></span>&gt;</span></span> <span class="parameter-name">points</span>, </span><span class="parameter" id="drawPoints-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a sequence of points according to the given <a href="dart-ui/PointMode.html">PointMode</a>.
+  
+
+</dd>
+
+        <dt id="drawRawAtlas" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawRawAtlas.html">drawRawAtlas</a></span><span class="signature">(<wbr><span class="parameter" id="drawRawAtlas-param-atlas"><span class="type-annotation"><a href="dart-ui/Image-class.html">Image</a></span> <span class="parameter-name">atlas</span>, </span><span class="parameter" id="drawRawAtlas-param-rstTransforms"><span class="type-annotation"><a href="dart-typed_data/Float32List-class.html">Float32List</a></span> <span class="parameter-name">rstTransforms</span>, </span><span class="parameter" id="drawRawAtlas-param-rects"><span class="type-annotation"><a href="dart-typed_data/Float32List-class.html">Float32List</a></span> <span class="parameter-name">rects</span>, </span><span class="parameter" id="drawRawAtlas-param-colors"><span class="type-annotation"><a href="dart-typed_data/Int32List-class.html">Int32List</a>?</span> <span class="parameter-name">colors</span>, </span><span class="parameter" id="drawRawAtlas-param-blendMode"><span class="type-annotation"><a href="dart-ui/BlendMode.html">BlendMode</a>?</span> <span class="parameter-name">blendMode</span>, </span><span class="parameter" id="drawRawAtlas-param-cullRect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a>?</span> <span class="parameter-name">cullRect</span>, </span><span class="parameter" id="drawRawAtlas-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws many parts of an image - the <code>atlas</code> - onto the canvas.
+  
+
+</dd>
+
+        <dt id="drawRawPoints" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawRawPoints.html">drawRawPoints</a></span><span class="signature">(<wbr><span class="parameter" id="drawRawPoints-param-pointMode"><span class="type-annotation"><a href="dart-ui/PointMode.html">PointMode</a></span> <span class="parameter-name">pointMode</span>, </span><span class="parameter" id="drawRawPoints-param-points"><span class="type-annotation"><a href="dart-typed_data/Float32List-class.html">Float32List</a></span> <span class="parameter-name">points</span>, </span><span class="parameter" id="drawRawPoints-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a sequence of points according to the given <a href="dart-ui/PointMode.html">PointMode</a>.
+  
+
+</dd>
+
+        <dt id="drawRect" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawRect.html">drawRect</a></span><span class="signature">(<wbr><span class="parameter" id="drawRect-param-rect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">rect</span>, </span><span class="parameter" id="drawRect-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a rectangle with the given <a href="dart-ui/Paint-class.html">Paint</a>. Whether the rectangle is filled
+or stroked (or both) is controlled by <a href="dart-ui/Paint/style.html">Paint.style</a>.
+  
+
+</dd>
+
+        <dt id="drawRRect" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawRRect.html">drawRRect</a></span><span class="signature">(<wbr><span class="parameter" id="drawRRect-param-rrect"><span class="type-annotation"><a href="dart-ui/RRect-class.html">RRect</a></span> <span class="parameter-name">rrect</span>, </span><span class="parameter" id="drawRRect-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a rounded rectangle with the given <a href="dart-ui/Paint-class.html">Paint</a>. Whether the rectangle is
+filled or stroked (or both) is controlled by <a href="dart-ui/Paint/style.html">Paint.style</a>.
+  
+
+</dd>
+
+        <dt id="drawRSuperellipse" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawRSuperellipse.html">drawRSuperellipse</a></span><span class="signature">(<wbr><span class="parameter" id="drawRSuperellipse-param-rsuperellipse"><span class="type-annotation"><a href="dart-ui/RSuperellipse-class.html">RSuperellipse</a></span> <span class="parameter-name">rsuperellipse</span>, </span><span class="parameter" id="drawRSuperellipse-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a rounded superellipse with the given <a href="dart-ui/Paint-class.html">Paint</a>. The shape is filled,
+and the value of the <a href="dart-ui/Paint/style.html">Paint.style</a> is ignored for this call.
+  
+
+</dd>
+
+        <dt id="drawShadow" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawShadow.html">drawShadow</a></span><span class="signature">(<wbr><span class="parameter" id="drawShadow-param-path"><span class="type-annotation"><a href="dart-ui/Path-class.html">Path</a></span> <span class="parameter-name">path</span>, </span><span class="parameter" id="drawShadow-param-color"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">color</span>, </span><span class="parameter" id="drawShadow-param-elevation"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">elevation</span>, </span><span class="parameter" id="drawShadow-param-transparentOccluder"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">transparentOccluder</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a shadow for a <a href="dart-ui/Path-class.html">Path</a> representing the given material elevation.
+  
+
+</dd>
+
+        <dt id="drawVertices" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/drawVertices.html">drawVertices</a></span><span class="signature">(<wbr><span class="parameter" id="drawVertices-param-vertices"><span class="type-annotation"><a href="dart-ui/Vertices-class.html">Vertices</a></span> <span class="parameter-name">vertices</span>, </span><span class="parameter" id="drawVertices-param-blendMode"><span class="type-annotation"><a href="dart-ui/BlendMode.html">BlendMode</a></span> <span class="parameter-name">blendMode</span>, </span><span class="parameter" id="drawVertices-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Draws a set of <a href="dart-ui/Vertices-class.html">Vertices</a> onto the canvas as one or more triangles.
+  
+
+</dd>
+
+        <dt id="getDestinationClipBounds" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/getDestinationClipBounds.html">getDestinationClipBounds</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Rect-class.html">Rect</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the conservative bounds of the combined result of all clip methods
+executed within the current save stack of this <a href="dart-ui/Canvas-class.html">Canvas</a> object, as measured
+in the destination coordinate space in which the <a href="dart-ui/Picture-class.html">Picture</a> will be rendered.
+  
+
+</dd>
+
+        <dt id="getLocalClipBounds" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/getLocalClipBounds.html">getLocalClipBounds</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Rect-class.html">Rect</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the conservative bounds of the combined result of all clip methods
+executed within the current save stack of this <a href="dart-ui/Canvas-class.html">Canvas</a> object, as measured
+in the local coordinate space under which rendering operations are currently
+performed.
+  
+
+</dd>
+
+        <dt id="getSaveCount" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/getSaveCount.html">getSaveCount</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the number of items on the save stack, including the
+initial state. This means it returns 1 for a clean canvas, and
+that each call to <a href="dart-ui/Canvas/save.html">save</a> 和 <a href="dart-ui/Canvas/saveLayer.html">saveLayer</a> increments it, and that
+each matching call to <a href="dart-ui/Canvas/restore.html">restore</a> decrements it.
+  
+
+</dd>
+
+        <dt id="getTransform" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/getTransform.html">getTransform</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-typed_data/Float64List-class.html">Float64List</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the current transform including the combined result of all transform
+methods executed since the creation of this <a href="dart-ui/Canvas-class.html">Canvas</a> object, and respecting the
+save/restore history.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="restore" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/restore.html">restore</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pops the current save stack, if there is anything to pop.
+Otherwise, does nothing.
+  
+
+</dd>
+
+        <dt id="restoreToCount" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/restoreToCount.html">restoreToCount</a></span><span class="signature">(<wbr><span class="parameter" id="restoreToCount-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Restores the save stack to a previous level as might be obtained from <a href="dart-ui/Canvas/getSaveCount.html">getSaveCount</a>.
+If <code>count</code> is less than 1, the stack is restored to its initial state.
+If <code>count</code> is greater than the current <a href="dart-ui/Canvas/getSaveCount.html">getSaveCount</a> then nothing happens.
+  
+
+</dd>
+
+        <dt id="rotate" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/rotate.html">rotate</a></span><span class="signature">(<wbr><span class="parameter" id="rotate-param-radians"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">radians</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add a rotation to the current transform. The argument is in radians clockwise.
+  
+
+</dd>
+
+        <dt id="save" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/save.html">save</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Saves a copy of the current transform and clip on the save stack.
+  
+
+</dd>
+
+        <dt id="saveLayer" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/saveLayer.html">saveLayer</a></span><span class="signature">(<wbr><span class="parameter" id="saveLayer-param-bounds"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a>?</span> <span class="parameter-name">bounds</span>, </span><span class="parameter" id="saveLayer-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Saves a copy of the current transform and clip on the save stack, and then
+creates a new group which subsequent calls will become a part of. When the
+save stack is later popped, the group will be flattened into a layer and
+have the given <code>paint</code>'s <a href="dart-ui/Paint/colorFilter.html">Paint.colorFilter</a> 和 <a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a>
+applied.
+  
+
+</dd>
+
+        <dt id="scale" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/scale.html">scale</a></span><span class="signature">(<wbr><span class="parameter" id="scale-param-sx"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">sx</span>, [</span><span class="parameter" id="scale-param-sy"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">sy</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add an axis-aligned scale to the current transform, scaling by the first
+argument in the horizontal direction and the second in the vertical
+direction.
+  
+
+</dd>
+
+        <dt id="skew" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/skew.html">skew</a></span><span class="signature">(<wbr><span class="parameter" id="skew-param-sx"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">sx</span>, </span><span class="parameter" id="skew-param-sy"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">sy</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add an axis-aligned skew to the current transform, with the first argument
+being the horizontal skew in rise over run units clockwise around the
+origin, and the second argument being the vertical skew in rise over run
+units clockwise around the origin.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="transform" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/transform.html">transform</a></span><span class="signature">(<wbr><span class="parameter" id="transform-param-matrix4"><span class="type-annotation"><a href="dart-typed_data/Float64List-class.html">Float64List</a></span> <span class="parameter-name">matrix4</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Multiply the current transform by the specified 4⨉4 transformation matrix
+specified as a list of values in column-major order.
+  
+
+</dd>
+
+        <dt id="translate" class="callable">
+  <span class="name"><a href="dart-ui/Canvas/translate.html">translate</a></span><span class="signature">(<wbr><span class="parameter" id="translate-param-dx"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">dx</span>, </span><span class="parameter" id="translate-param-dy"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">dy</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add a translation to the current transform, shifting the coordinate space
+horizontally by the first argument and vertically by the second argument.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li class="self-crumb">Canvas 类</li>
+</ol>
+
+    <h5>dart:ui library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

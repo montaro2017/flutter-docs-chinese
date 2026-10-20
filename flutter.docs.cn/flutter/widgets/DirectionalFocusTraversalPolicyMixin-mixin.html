@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the DirectionalFocusTraversalPolicyMixin mixin from the widgets library, for the Dart programming language.">
+  <title>DirectionalFocusTraversalPolicyMixin mixin - widgets library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">DirectionalFocusTraversalPolicyMixin mixin</li>
+  </ol>
+  <div class="self-name">DirectionalFocusTraversalPolicyMixin</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;DirectionalFocusTraversalPolicyMixin-mixin-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/focus_traversal.dart#L759"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-mixin">DirectionalFocusTraversalPolicyMixin</span> mixin 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一个 mixin 类，提供沿特定方向查找节点的实现。</p>
+<p>其他 <a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a> 实现可以混入此类，从而只需实现新的前进/后退策略。</p>
+<p>导航顺序中出现滞后现象并不理想，因此此实现会在受影响的 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 的策略数据中维护一个栈，记录之前访问过的位置。如果上一次移动方向与当前方向相反，此策略会请求焦点返回先前获得焦点的节点。若改为沿当前方向或其相反方向以外的其他方向移动，则会清空此栈。</p>
+<p>例如，焦点先连续向下移动三次，再连续向上移动三次，那么它在两个方向上经过 widget 的路径会相同。但如果焦点先连续向下移动三次，再向左、向右移动，最后连续向上移动三次，那么向上时经过的路径可能与向下时不同，因为改变移动轴会重置历史记录。</p>
+<p>此类实现了一种算法：它会在 <a href="widgets/FocusScope-class.html">FocusScope</a> 内，沿移动方向考虑一条带状区域；该区域的宽度或高度取决于方向，并以当前获得焦点的 widget 为基准，然后在移动方向上查找该带状区域内最近的 widget。如果带状区域内没有节点，就选择边缘距离该区域最近的 widget。如果两个区域外的 widget 到该区域距离相同，则选择沿移动方向较近的那个。到达 <a href="widgets/FocusScope-class.html">FocusScope</a> 指定方向的边缘时，行为由 <a href="widgets/FocusScopeNode/directionalTraversalEdgeBehavior.html">FocusScopeNode.directionalTraversalEdgeBehavior</a> 决定。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.closedLoop</a>，算法会在带状区域内重新选择反方向上最远的节点。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.parentScope</a>，带状区域会扩展到父级 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>；如果该节点在父级中仍位于边缘，则继续根据父级的 <a href="widgets/FocusScopeNode/directionalTraversalEdgeBehavior.html">FocusScopeNode.directionalTraversalEdgeBehavior</a> 查找。如果当前范围上方没有父级范围，则回退到 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.closedLoop</a> 行为。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.leaveFlutterView</a>，焦点会丢失。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.stop</a>，当前获得焦点的元素保持不变。</p>
+<p>此算法的目标是选出一个 widget，使用户不会觉得焦点沿着错误的轴移动（仅按某一轴上的距离对 widget 排序时就可能出现这种情况），同时又能沿指定方向跳转到下一个逻辑上相邻的 widget，而不会跳过其他 widget。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/FocusNode-class.html">FocusNode</a>, for a description of the focus system.</li>
+<li><a href="widgets/FocusTraversalGroup-class.html">FocusTraversalGroup</a>, a widget that groups together and imposes a
+traversal policy on the <a href="widgets/Focus-class.html">Focus</a> nodes below it in the widget hierarchy.</li>
+<li><a href="widgets/WidgetOrderTraversalPolicy-class.html">WidgetOrderTraversalPolicy</a>, a policy that relies on the widget creation
+order to describe the order of traversal.</li>
+<li><a href="widgets/ReadingOrderTraversalPolicy-class.html">ReadingOrderTraversalPolicy</a>, a policy that describes the order as the
+natural "reading order" for the current <a href="widgets/Directionality-class.html">Directionality</a>.</li>
+<li><a href="widgets/OrderedTraversalPolicy-class.html">OrderedTraversalPolicy</a>, a policy that describes the order explicitly
+using <a href="widgets/FocusTraversalOrder-class.html">FocusTraversalOrder</a> widgets.</li>
+</ul>
+</section>
+
+
+      <section>
+        <dl class="dl-horizontal">
+            <dt>Superclass constraints</dt>
+            <dd><ul class="comma-separated dark mixin-relationships">
+                <li><a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a></li>
+            </ul></dd>
+
+          
+
+          
+
+            <dt>Mixin applications</dt>
+            <dd>
+              <ul class="comma-separated mixin-relationships">
+                <li><a href="widgets/OrderedTraversalPolicy-class.html">OrderedTraversalPolicy</a></li>
+                <li><a href="widgets/ReadingOrderTraversalPolicy-class.html">ReadingOrderTraversalPolicy</a></li>
+                <li><a href="widgets/WidgetOrderTraversalPolicy-class.html">WidgetOrderTraversalPolicy</a></li>
+              </ul>
+            </dd>
+          
+
+          
+        </dl>
+      </section>
+
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="requestFocusCallback" class="property inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/requestFocusCallback.html">requestFocusCallback</a></span>
+  <span class="signature">&#8594; <a href="widgets/TraversalRequestFocusCallback.html">TraversalRequestFocusCallback</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The callback used to move the focus from one focus node to another when
+traversing them using a keyboard. By default it requests focus on the next
+node and ensures the node is visible if it's in a scrollable.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="changedScope" class="callable">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/changedScope.html">changedScope</a></span><span class="signature">(<wbr>{<span class="parameter" id="changedScope-param-node"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">node</span>, </span><span class="parameter" id="changedScope-param-oldScope"><span class="type-annotation"><a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>?</span> <span class="parameter-name">oldScope</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  This is called whenever the given <code>node</code> is re-parented into a new scope,
+so that the policy has a chance to update or invalidate any cached data
+that it maintains per scope about the node.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="findFirstFocus" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/findFirstFocus.html">findFirstFocus</a></span><span class="signature">(<wbr><span class="parameter" id="findFirstFocus-param-currentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a></span> <span class="parameter-name">currentNode</span>, {</span><span class="parameter" id="findFirstFocus-param-ignoreCurrentFocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">ignoreCurrentFocus</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a>?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the node that should receive focus if focus is traversing
+forwards, and there is no current focus.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="findFirstFocusInDirection" class="callable">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/findFirstFocusInDirection.html">findFirstFocusInDirection</a></span><span class="signature">(<wbr><span class="parameter" id="findFirstFocusInDirection-param-currentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a></span> <span class="parameter-name">currentNode</span>, </span><span class="parameter" id="findFirstFocusInDirection-param-direction"><span class="type-annotation"><a href="widgets/TraversalDirection.html">TraversalDirection</a></span> <span class="parameter-name">direction</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the first node in the given <code>direction</code> that should receive focus
+if there is no current focus in the scope to which the <code>currentNode</code>
+belongs.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="findLastFocus" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/findLastFocus.html">findLastFocus</a></span><span class="signature">(<wbr><span class="parameter" id="findLastFocus-param-currentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a></span> <span class="parameter-name">currentNode</span>, {</span><span class="parameter" id="findLastFocus-param-ignoreCurrentFocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">ignoreCurrentFocus</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the node that should receive focus if focus is traversing
+backwards, and there is no current focus.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="inDirection" class="callable">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/inDirection.html">inDirection</a></span><span class="signature">(<wbr><span class="parameter" id="inDirection-param-currentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a></span> <span class="parameter-name">currentNode</span>, </span><span class="parameter" id="inDirection-param-direction"><span class="type-annotation"><a href="widgets/TraversalDirection.html">TraversalDirection</a></span> <span class="parameter-name">direction</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Focuses the next widget in the given <code>direction</code> in the <a href="widgets/FocusScope-class.html">FocusScope</a> that
+contains the <code>currentNode</code>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="invalidateScopeData" class="callable">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/invalidateScopeData.html">invalidateScopeData</a></span><span class="signature">(<wbr><span class="parameter" id="invalidateScopeData-param-node"><span class="type-annotation"><a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a></span> <span class="parameter-name">node</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Clears the data associated with the given <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> for this object.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="next" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/next.html">next</a></span><span class="signature">(<wbr><span class="parameter" id="next-param-currentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a></span> <span class="parameter-name">currentNode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Focuses the next widget in the focus scope that contains the given
+<code>currentNode</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="previous" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/previous.html">previous</a></span><span class="signature">(<wbr><span class="parameter" id="previous-param-currentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a></span> <span class="parameter-name">currentNode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Focuses the previous widget in the focus scope that contains the given
+<code>currentNode</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="sortDescendants" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/sortDescendants.html">sortDescendants</a></span><span class="signature">(<wbr><span class="parameter" id="sortDescendants-param-descendants"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/FocusNode-class.html">FocusNode</a></span>&gt;</span></span> <span class="parameter-name">descendants</span>, </span><span class="parameter" id="sortDescendants-param-currentNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a></span> <span class="parameter-name">currentNode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/FocusNode-class.html">FocusNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Sorts the given <code>descendants</code> into focus order.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A brief description of this object, usually just the <a href="dart-core/Object/runtimeType.html">runtimeType</a> and the
+<a href="dart-core/Object/hashCode.html">hashCode</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/DirectionalFocusTraversalPolicyMixin/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+</div> <!-- /.main-content -->
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">DirectionalFocusTraversalPolicyMixin mixin</li>
+</ol>
+
+  <h5>widgets 库</h5>
+  <div id="dartdoc-sidebar-left-content"></div>
+</div>
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

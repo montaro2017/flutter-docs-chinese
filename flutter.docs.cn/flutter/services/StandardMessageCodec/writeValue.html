@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the writeValue method from the StandardMessageCodec class, for the Dart programming language.">
+  <title>writeValue 方法 - StandardMessageCodec 类 - services 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services.dart</a></li>
+    <li><a href="services/StandardMessageCodec-class.html">StandardMessageCodec</a></li>
+    <li class="self-crumb">writeValue 方法</li>
+  </ol>
+  <div class="self-name">writeValue</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services&#47;StandardMessageCodec-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/services/message_codecs.dart#L383"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">writeValue</span> 方法 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype">void</span>
+<span class="name ">writeValue</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="writeValue-param-buffer"><span class="type-annotation"><a href="foundation/WriteBuffer-class.html">WriteBuffer</a></span> <span class="parameter-name">buffer</span>, </span></li>
+<li><span class="parameter" id="writeValue-param-value"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">value</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>先写入一个类型标识字节，再写入值本身，从而将 <code>value</code> 写入 <code>buffer</code>。</p>
+<p>可以递归调用此方法来序列化容器值。</p>
+<p>类型标识符 0 到 127（含）保留给基类使用，具体如下：</p>
+<ul>
+<li>null = 0</li>
+<li>true = 1</li>
+<li>false = 2</li>
+<li>32 位整数 = 3</li>
+<li>64 位整数 = 4</li>
+<li>较大整数 = 5（见下文）</li>
+<li>64 位浮点数 = 6</li>
+<li>String = 7</li>
+<li>Uint8List = 8</li>
+<li>Int32List = 9</li>
+<li>Int64List = 10</li>
+<li>Float64List = 11</li>
+<li>List = 12</li>
+<li>Map = 13</li>
+<li>Float32List = 14</li>
+<li>保留供将来扩展：15..127</li>
+</ul>
+<p>可以通过重写此方法扩展编解码器；对于扩展不处理的值，应调用父类实现。扩展使用的类型标识符必须大于或等于 128，以避免与基类未来新增的类型冲突。</p>
+<p><a href="services/StandardMessageCodec/writeValue.html">writeValue</a> 从不使用“较大整数”类型 5。子类可以使用此类型表示来自其他包的大整数。其格式为：先写入类型字节（0x05），再写入以 ASCII 字符串表示的实际数字（十六进制形式）；字符串长度按照 <a href="services/StandardMessageCodec/writeSize.html">writeSize</a> 编码，随后写入字符串字节。在 Android 上，它会转换为 <code>java.math.BigInteger</code> 对象；在 iOS 上，则返回字符串表示。</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>实现</span></h2>
+  <pre class="language-dart"><code class="language-dart">void writeValue(WriteBuffer buffer, Object? value) {
+  if (value == null) {
+    buffer.putUint8(_valueNull);
+  } else if (value is bool) {
+    buffer.putUint8(value ? _valueTrue : _valueFalse);
+  } else if (value is double) {
+    &#47;&#47; Double precedes int because in JS everything is a double.
+    &#47;&#47; Therefore in JS, both `is int` and `is double` always
+    &#47;&#47; return `true`. If we check int first, we&#39;ll end up treating
+    &#47;&#47; all numbers as ints and attempt the int32&#47;int64 conversion,
+    &#47;&#47; which is wrong. This precedence rule is irrelevant when
+    &#47;&#47; decoding because we use tags to detect the type of value.
+    buffer.putUint8(_valueFloat64);
+    buffer.putFloat64(value);
+    &#47;&#47; ignore: avoid_double_and_int_checks, JS code always goes through the `double` path above
+  } else if (value is int) {
+    if (-0x7fffffff - 1 &lt;= value &amp;&amp; value &lt;= 0x7fffffff) {
+      buffer.putUint8(_valueInt32);
+      buffer.putInt32(value);
+    } else {
+      buffer.putUint8(_valueInt64);
+      buffer.putInt64(value);
+    }
+  } else if (value is String) {
+    buffer.putUint8(_valueString);
+    final asciiBytes = Uint8List(value.length);
+    Uint8List? utf8Bytes;
+    var utf8Offset = 0;
+    &#47;&#47; Only do utf8 encoding if we encounter non-ascii characters.
+    for (var i = 0; i &lt; value.length; i += 1) {
+      final int char = value.codeUnitAt(i);
+      if (char &lt;= 0x7f) {
+        asciiBytes[i] = char;
+      } else {
+        utf8Bytes = utf8.encode(value.substring(i));
+        utf8Offset = i;
+        break;
+      }
+    }
+    if (utf8Bytes != null) {
+      writeSize(buffer, utf8Offset + utf8Bytes.length);
+      buffer.putUint8List(Uint8List.sublistView(asciiBytes, 0, utf8Offset));
+      buffer.putUint8List(utf8Bytes);
+    } else {
+      writeSize(buffer, asciiBytes.length);
+      buffer.putUint8List(asciiBytes);
+    }
+  } else if (value is Uint8List) {
+    buffer.putUint8(_valueUint8List);
+    writeSize(buffer, value.length);
+    buffer.putUint8List(value);
+  } else if (value is Int32List) {
+    buffer.putUint8(_valueInt32List);
+    writeSize(buffer, value.length);
+    buffer.putInt32List(value);
+  } else if (value is Int64List) {
+    buffer.putUint8(_valueInt64List);
+    writeSize(buffer, value.length);
+    buffer.putInt64List(value);
+  } else if (value is Float32List) {
+    buffer.putUint8(_valueFloat32List);
+    writeSize(buffer, value.length);
+    buffer.putFloat32List(value);
+  } else if (value is Float64List) {
+    buffer.putUint8(_valueFloat64List);
+    writeSize(buffer, value.length);
+    buffer.putFloat64List(value);
+  } else if (value is List) {
+    buffer.putUint8(_valueList);
+    writeSize(buffer, value.length);
+    for (final Object? item in value) {
+      writeValue(buffer, item);
+    }
+  } else if (value is Map) {
+    buffer.putUint8(_valueMap);
+    writeSize(buffer, value.length);
+    value.forEach((Object? key, Object? value) {
+      writeValue(buffer, key);
+      writeValue(buffer, value);
+    });
+  } else {
+    throw ArgumentError.value(value);
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services</a></li>
+    <li><a href="services/StandardMessageCodec-class.html">StandardMessageCodec</a></li>
+    <li class="self-crumb">writeValue 方法</li>
+</ol>
+
+    <h5>StandardMessageCodec 类</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the Constraints class from the rendering library, for the Dart programming language.">
+  <title>Constraints class - rendering library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="rendering/">rendering.dart</a></li>
+    <li class="self-crumb">Constraints class</li>
+  </ol>
+  <div class="self-name">Constraints</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="rendering&#47;rendering-library-sidebar.html"
+    data-below-sidebar="rendering&#47;Constraints-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L902"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">Constraints</span> class 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">abstract</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>An abstract set of layout constraints.</p>
+<p>Concrete layout models (such as box) will create concrete subclasses to
+communicate layout constraints between parents and children.</p>
+<h2 id="writing-a-constraints-subclass">Writing a Constraints subclass</h2>
+<p>When creating a new <a href="rendering/RenderObject-class.html">RenderObject</a> subclass with a new layout protocol, one
+will usually need to create a new <a href="rendering/Constraints-class.html">Constraints</a> subclass to express the
+input to the layout algorithms.</p>
+<p>A <a href="rendering/Constraints-class.html">Constraints</a> subclass should be immutable (all fields final). There are
+several members to implement, in addition to whatever fields, constructors,
+and helper methods one may find useful for a particular layout protocol:</p>
+<ul>
+<li>
+<p>The <a href="rendering/Constraints/isTight.html">isTight</a> getter, which should return true if the object represents a
+case where the <a href="rendering/RenderObject-class.html">RenderObject</a> class has no choice for how to lay itself
+out. For example, <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> returns true for <a href="rendering/Constraints/isTight.html">isTight</a> when both
+the minimum and maximum widths and the minimum and maximum heights are
+equal.</p>
+</li>
+<li>
+<p>The <a href="rendering/Constraints/isNormalized.html">isNormalized</a> getter, which should return true if the object
+represents its data in its canonical form. Sometimes, it is possible for
+fields to be redundant with each other, such that several different
+representations have the same implications. For example, a
+<a href="rendering/BoxConstraints-class.html">BoxConstraints</a> instance with its minimum width greater than its maximum
+width is equivalent to one where the maximum width is set to that minimum
+width (<code>2&lt;w&lt;1</code> is equivalent to <code>2&lt;w&lt;2</code>, since minimum constraints have
+priority). This getter is used by the default implementation of
+<a href="rendering/Constraints/debugAssertIsValid.html">debugAssertIsValid</a>.</p>
+</li>
+<li>
+<p>The <a href="rendering/Constraints/debugAssertIsValid.html">debugAssertIsValid</a> method, which should assert if there's anything
+wrong with the constraints object. (We use this approach rather than
+asserting in constructors so that our constructors can be <code>const</code> and so
+that it is possible to create invalid constraints temporarily while
+building valid ones.) See the implementation of
+<a href="rendering/BoxConstraints/debugAssertIsValid.html">BoxConstraints.debugAssertIsValid</a> for an example of the detailed checks
+that can be made.</p>
+</li>
+<li>
+<p>The <a href="dart-core/Object/operator_equals.html">==</a> operator and the <a href="dart-core/Object/hashCode.html">hashCode</a> getter, so that constraints can be
+compared for equality. If a render object is given constraints that are
+equal, then the rendering library will avoid laying the object out again
+if it is not dirty.</p>
+</li>
+<li>
+<p>The <a href="dart-core/Object/toString.html">toString</a> method, which should describe the constraints so that they
+appear in a usefully readable form in the output of <a href="rendering/debugDumpRenderTree.html">debugDumpRenderTree</a>.</p>
+</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+          <dt>Implementers</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="rendering/BoxConstraints-class.html">BoxConstraints</a></li>
+              <li><a href="rendering/SliverConstraints-class.html">SliverConstraints</a></li>
+          </ul></dd>
+
+        
+        
+  <dt>Annotations</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@<a href="meta/immutable-constant.html">immutable</a></li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Constraints.new" class="callable">
+          <span class="name"><a href="rendering/Constraints/Constraints.html">Constraints</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          Abstract const constructor. This constructor enables subclasses to provide
+const constructors so that they can be used in const expressions.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="isNormalized" class="property">
+  <span class="name"><a href="rendering/Constraints/isNormalized.html">isNormalized</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the constraint is expressed in a consistent manner.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="isTight" class="property">
+  <span class="name"><a href="rendering/Constraints/isTight.html">isTight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether there is exactly one size possible given these constraints.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="debugAssertIsValid" class="callable">
+  <span class="name"><a href="rendering/Constraints/debugAssertIsValid.html">debugAssertIsValid</a></span><span class="signature">(<wbr>{<span class="parameter" id="debugAssertIsValid-param-isAppliedConstraint"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isAppliedConstraint</span> = <span class="default-value">false</span>, </span><span class="parameter" id="debugAssertIsValid-param-informationCollector"><span class="type-annotation"><a href="foundation/InformationCollector.html">InformationCollector</a>?</span> <span class="parameter-name">informationCollector</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Asserts that the constraints are valid.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="rendering/">rendering</a></li>
+    <li class="self-crumb">Constraints class</li>
+</ol>
+
+    <h5>rendering library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

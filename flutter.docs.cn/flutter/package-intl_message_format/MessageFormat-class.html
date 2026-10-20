@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="message_format 库中 MessageFormat 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>MessageFormat 类 - message_format 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-intl_message_format/">message_format.dart</a></li>
+    <li class="self-crumb">MessageFormat 类</li>
+  </ol>
+  <div class="self-name">MessageFormat</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-intl_message_format&#47;package-intl_message_format-library-sidebar.html"
+    data-below-sidebar="package-intl_message_format&#47;MessageFormat-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">MessageFormat</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>MessageFormat 语法：</p>
+<pre class="language-dart"><code>message := messageText (argument messageText)*
+argument := simpleArg | pluralArg | selectArg
+
+simpleArg := "#" | "{" argNameOrNumber "}"
+pluralArg := "{" argNameOrNumber "," "plural" "," pluralStyle "}"
+selectArg := "{" argNameOrNumber "," "select" "," selectStyle "}"
+
+argNameOrNumber := identifier | number
+
+pluralStyle := [offsetValue] (pluralSelector "{" message "}")+
+offsetValue := "offset:" number
+pluralSelector := explicitValue | pluralKeyword
+explicitValue := "=" number  // adjacent, no white space in between
+pluralKeyword := "zero" | "one" | "two" | "few" | "many" | "other"
+
+selectStyle := (selectSelector "{" message "}")+
+selectSelector := keyword
+
+identifier := [^[[:Pattern_Syntax:][:Pattern_White_Space:]]]+
+number := "0" | ("1".."9" ("0".."9")*)
+</code></pre>
+<p>注意：只有在复数块中，# 才有特殊含义。它与该复数块的参数相关联，# 的值等于复数参数的值减去 offset。</p>
+<p>引号与转义：如果文本部分中出现语法字符，需要用成对的 ASCII 单引号将这些语法字符括起来。</p>
+<p>一对 ASCII 单引号始终表示一个 ASCII 单引号，类似于 printf 中 %% 表示一个 %；即使在引号括起的文本中，此规则仍然适用。</p>
+<p>示例：英文消息文本中的撇号与语法括号转义示例（保留原文语法）。</p>
+<p>只有当 ASCII 单引号紧挨着需要转义的字符时，它才会开始一段带引号的文本（即“仅在必要时”）；嵌套消息和模式顶层都遵循相同规则。</p>
+<p>建议：面向用户的文本使用弯引号字符 ’（U+2019）；ASCII 单引号 '（U+0027）仅用于程序语法，例如转义。</p>
+<p>This is a subset of the ICU MessageFormat syntax:
+<a href="http://userguide.icu-project.org/formatparse/messages">http://userguide.icu-project.org/formatparse/messages</a>.</p>
+<p>消息示例：</p>
+<pre class="language-dart"><code>I see {NUM_PEOPLE, plural, offset:1
+        =0 {no one at all}
+        =1 {{WHO}}
+        one {{WHO} and one other person}
+        other {{WHO} and # other people}}
+in {PLACE}.
+</code></pre>
+<p>Calling <code>format({'NUM_PEOPLE': 2, 'WHO': 'Mark', 'PLACE': 'Athens'})</code> would
+produce <code>"I see Mark and one other person in Athens."</code> as output.</p>
+<p>Calling <code>format({'NUM_PEOPLE': 5, 'WHO': 'Mark', 'PLACE': 'Athens'})</code> would
+produce <code>"I see Mark and 4 other people in Athens."</code> as output.
+Notice how the "#" is the value of <code>NUM_PEOPLE</code> - 1 (the offset).</p>
+<p>Another important thing to notice is the existence of both <code>"=1"</code> 和
+<code>"one"</code>. You should think of the plural keywords as names for "buckets of
+numbers" which have only a loose connection to the numerical value.</p>
+<p>In English there is no difference, but for example in Russian all the
+numbers that end with <code>"1"</code> but not with <code>"11"</code> are mapped to <code>"one"</code></p>
+<p>For more information please visit:
+<a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">http://cldr.unicode.org/index/cldr-spec/plural-rules</a> 和
+<a href="http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html">http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html</a></p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="MessageFormat.new" class="callable">
+          <span class="name"><a href="package-intl_message_format/MessageFormat/MessageFormat.html">MessageFormat</a></span><span class="signature">(<span class="parameter" id="-param-pattern"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">pattern</span>, {</span><span class="parameter" id="-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">locale</span> = <span class="default-value">&#39;en&#39;</span></span>})</span>
+        </dt>
+        <dd>
+          Create a MessageFormat for the ICU message string <code>pattern</code>.
+It does parameter substitutions in a locale-aware way.
+The syntax is similar to the one used by ICU and is described in the
+grammar above.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="format" class="callable">
+  <span class="name"><a href="package-intl_message_format/MessageFormat/format.html">format</a></span><span class="signature">(<wbr>[<span class="parameter" id="format-param-namedParameters"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>&gt;</span>?</span> <span class="parameter-name">namedParameters</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a formatted message, treating '#' as a special placeholder.
+  
+
+</dd>
+
+        <dt id="formatIgnoringPound" class="callable">
+  <span class="name"><a href="package-intl_message_format/MessageFormat/formatIgnoringPound.html">formatIgnoringPound</a></span><span class="signature">(<wbr>[<span class="parameter" id="formatIgnoringPound-param-namedParameters"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>&gt;</span>?</span> <span class="parameter-name">namedParameters</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a formatted message, treating '#' as literal character.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-intl_message_format/">message_format</a></li>
+    <li class="self-crumb">MessageFormat 类</li>
+</ol>
+
+    <h5>message_format 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:async 库中 Future 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Future class - dart:async 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-async/">dart:async</a></li>
+    <li class="self-crumb">Future<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+  </ol>
+  <div class="self-name">Future</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-async&#47;dart-async-library-sidebar.html"
+    data-below-sidebar="dart-async&#47;Future-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Future&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#interface" class="feature feature-interface" title="This class can only be implemented (not extended or mixed in).">interface</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>异步计算的结果。</p>
+<p>与会立即计算出结果的同步计算不同，<em>异步计算</em>在启动时无法立即提供结果。同步计算会通过返回值或抛出异常立即得出结果。异步计算可能需要等待程序外部的操作（例如读取文件、查询数据库或获取网页），而这些操作都需要时间。异步计算不会阻塞所有计算，直到结果可用，而是立即返回一个 <code>Future</code>，该 future 最终会以结果“完成”。</p>
+<h3 id="asynchronous-programming">异步编程</h3>
+<p>要执行异步计算，请使用始终会产生 future 的 <code>async</code> 函数。在这种异步函数中，可以使用 <code>await</code> 操作暂停执行，直到另一项异步计算得到结果。等待函数暂停执行期间，程序不会被阻塞，仍可继续处理其他事情。</p>
+<p>示例：</p>
+<pre class="language-dart"><code class="language-dart">import "dart:io";
+Future&lt;bool&gt; fileContains(String path, String needle) async {
+   var haystack = await File(path).readAsString();
+   return haystack.contains(needle);
+}
+</code></pre>
+<p>这里，<code>File.readAsString</code> 方法是来自 <code>dart:io</code> 的异步函数，它返回 <code>Future&lt;String&gt;</code>。<code>fileContains</code> 函数在函数体前标记了 <code>async</code>，这表示可以在其中使用 <code>await</code>，并且它必须返回一个 future。调用 <code>File(path).readAsString()</code> 会开始将文件读入字符串，并产生一个最终包含读取结果的 <code>Future&lt;String&gt;</code>。随后 <code>await</code> 会等待该 future 以字符串完成（如果读取文件失败，则会以错误完成）。等待期间，程序可以处理其他事情。future 以字符串完成后，<code>fileContains</code> 函数会计算一个布尔值并返回；该值会使函数最初调用时返回的 future 完成。</p>
+<p>如果 future 以<em>错误</em>完成，等待该 future 时会重新抛出该错误。在此示例中，可以添加错误检查：</p>
+<pre class="language-dart"><code class="language-dart">import "dart:io";
+Future&lt;bool&gt; fileContains(String path, String needle) async {
+  try {
+    var haystack = await File(path).readAsString();
+    return haystack.contains(needle);
+  } on FileSystemException catch (exception, stack) {
+    _myLog.logError(exception, stack);
+    return false;
+  }
+}
+</code></pre>
+<p>使用普通的 <code>try</code>/<code>catch</code> 捕获等待异步计算时发生的错误。</p>
+<p>通常，编写异步代码时，future 产生后就应立即等待它，不要等到又经历一次异步延迟后才等待。这样可以及时接收该 future 可能产生的错误。这一点很重要，因为无人等待的异步错误属于<em>未捕获</em>错误，可能会终止正在运行的程序。</p>
+<h3 id="programming-with-the-future-api">使用 <code>Future</code> API 编程</h3>
+<p><code>Future</code> 类还提供了更直接、底层的功能来访问 future 完成时产生的结果。<code>async</code> 和 <code>await</code> 语言特性建立在此功能之上，有时直接使用这些功能更合适。有些事情无法仅通过逐个 <code>await</code> future 来完成。</p>
+<p>借助 <a href="dart-async/Future-class.html">Future</a>，可以手动注册回调，在值或错误可用时进行处理。例如：</p>
+<pre class="language-dart"><code class="language-dart">Future&lt;int&gt; future = getFuture();
+future.then((value) =&gt; handleValue(value))
+      .catchError((error) =&gt; handleError(error));
+</code></pre>
+<p><a href="dart-async/Future-class.html">Future</a> 可以通过两种方式完成：异步计算成功时以值完成，或计算失败时以错误完成。因此，可以分别为其中一种或两种情况安装回调。</p>
+<p>有时我们会说一个 future <em>以另一个 future 完成</em>。这是简洁的说法，表示当另一个 future 完成后，此 future 会以相同的方式、相同的值或错误完成。平台库中大多数会完成 future 的函数（例如 <a href="dart-async/Completer/complete.html">Completer.complete</a> 或 <a href="dart-async/Future/Future.value.html">Future.value</a>）也接受另一个 future，并会自动将其结果转发给正在完成的 future。</p>
+<p>注册回调后会得到一个新的 <code>Future</code>。该 future 会以调用相应回调并传入原始 future 结果后得到的结果完成。如果被调用的回调抛出异常，新的 future 就会以错误完成。例如：</p>
+<pre class="language-dart"><code class="language-dart">Future&lt;int&gt; successor = future.then((int value) {
+    // Invoked when the future is completed with a value.
+    return 42;  // The successor is completed with the value 42.
+  },
+  onError: (e) {
+    // Invoked when the future is completed with an error.
+    if (canHandle(e)) {
+      return 499;  // The successor is completed with the value 499.
+    } else {
+      throw e;  // The successor is completed with the error e.
+    }
+  });
+</code></pre>
+<p>如果 future 以错误完成时没有注册任何处理器，它会将错误转发给“未捕获错误处理器”。这样可以避免错误被悄悄丢弃。不过，这也意味着应尽早安装错误处理器，确保 future 以错误完成时处理器已经就绪。以下示例展示了这个潜在问题：</p>
+<pre class="language-dart"><code class="language-dart">var future = getFuture();
+Timer(const Duration(milliseconds: 5), () {
+  // The error-handler is not attached until 5 ms after the future has
+  // been received. If the future fails before that, the error is
+  // forwarded to the global error-handler, even though there is code
+  // (just below) to eventually handle the error.
+  future.then((value) { useValue(value); },
+              onError: (e) { handleError(e); });
+});
+</code></pre>
+<p>注册回调时，通常分别注册两个回调更易读：先使用一个参数调用 <a href="dart-async/Future/then.html">then</a>（即值处理器），再使用 <a href="dart-async/Future/catchError.html">catchError</a> 处理错误。每个回调都会把自己未处理的结果转发给后续回调，两者配合即可处理值和错误。这样做还有一个好处：<a href="dart-async/Future/catchError.html">catchError</a> 也能处理值回调 <a href="dart-async/Future/then.html">then</a> 中发生的错误。与并行处理相比，使用顺序排列的处理器通常更容易理解，也能让异步代码更接近同步代码：</p>
+<pre class="language-dart"><code class="language-dart">// Synchronous code.
+try {
+  int value = foo();
+  return bar(value);
+} catch (e) {
+  return 499;
+}
+</code></pre>
+<p>基于 futures 的等效异步代码：</p>
+<pre class="language-dart"><code class="language-dart">Future&lt;int&gt; asyncValue = Future(foo);  // Result of foo() as a future.
+asyncValue.then((int value) {
+  return bar(value);
+}).catchError((e) {
+  return 499;
+});
+</code></pre>
+<p>与同步代码类似，这里的错误处理器（通过 <a href="dart-async/Future/catchError.html">catchError</a> 注册）会处理 <code>foo</code> 或 <code>bar</code> 抛出的任何错误。如果将错误处理器作为 <code>onError</code> 参数注册到 <code>then</code> 调用中，它就无法捕获 <code>bar</code> 调用产生的错误。</p>
+<p>一个 future 可以注册多组回调。每个后续回调组都会独立处理，效果如同它是唯一的一组后续回调。各后续回调完成的顺序未定义。</p>
+<p>future 也可能永远无法完成。在这种情况下，不会调用任何回调。除非已清楚记录这种行为，否则通常应尽量避免。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="package-async_async/DelegatingFuture-class.html">DelegatingFuture</a></li>
+              <li><a href="foundation/SynchronousFuture-class.html">SynchronousFuture</a></li>
+              <li><a href="scheduler/TickerFuture-class.html">TickerFuture</a></li>
+          </ul></dd>
+
+        
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="dart-async/FutureExtensions.html">FutureExtensions</a></li>
+      <li><a href="dart-js_interop/FutureOfJSAnyToJSPromise.html">FutureOfJSAnyToJSPromise</a></li>
+      <li><a href="dart-js_interop/FutureOfVoidToJSPromise.html">FutureOfVoidToJSPromise</a></li>
+  </ul></dd>
+        
+  <dt>注解</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@vmIsolateUnsendable</li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Future.new" class="callable">
+          <span class="name"><a href="dart-async/Future/Future.html">Future</a></span><span class="signature">(<span class="parameter" id="-param-computation"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">computation</span>()</span>)</span>
+        </dt>
+        <dd>
+          Creates a future containing the result of calling <code>computation</code>
+asynchronously with <a href="dart-async/Timer/run.html">Timer.run</a>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Future.delayed" class="callable">
+          <span class="name"><a href="dart-async/Future/Future.delayed.html">Future.delayed</a></span><span class="signature">(<span class="parameter" id="delayed-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span>, [</span><span class="parameter" id="delayed-param-computation"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">computation</span>()?</span>])</span>
+        </dt>
+        <dd>
+          Creates a future that runs its computation after a delay.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Future.error" class="callable">
+          <span class="name"><a href="dart-async/Future/Future.error.html">Future.error</a></span><span class="signature">(<span class="parameter" id="error-param-error"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span>, [</span><span class="parameter" id="error-param-stackTrace"><span class="type-annotation"><a href="dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span></span>])</span>
+        </dt>
+        <dd>
+          Creates a future that completes with an error.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Future.microtask" class="callable">
+          <span class="name"><a href="dart-async/Future/Future.microtask.html">Future.microtask</a></span><span class="signature">(<span class="parameter" id="microtask-param-computation"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">computation</span>()</span>)</span>
+        </dt>
+        <dd>
+          Creates a future containing the result of calling <code>computation</code>
+asynchronously with <a href="dart-async/scheduleMicrotask.html">scheduleMicrotask</a>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Future.sync" class="callable">
+          <span class="name"><a href="dart-async/Future/Future.sync.html">Future.sync</a></span><span class="signature">(<span class="parameter" id="sync-param-computation"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">computation</span>()</span>)</span>
+        </dt>
+        <dd>
+          The result of calling <code>computation</code> as a future.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Future.syncValue" class="callable">
+          <span class="name"><a href="dart-async/Future/Future.syncValue.html">Future.syncValue</a></span><span class="signature">(<span class="parameter" id="syncValue-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span></span>)</span>
+        </dt>
+        <dd>
+          Creates a future completed with <code>value</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Future.value" class="callable">
+          <span class="name"><a href="dart-async/Future/Future.value.html">Future.value</a></span><span class="signature">([<span class="parameter" id="value-param-value"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">value</span></span>])</span>
+        </dt>
+        <dd>
+          Creates a future completed with <code>value</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toJS" class="property">
+  <span class="name"><a href="dart-js_interop/FutureOfJSAnyToJSPromise/toJS.html">toJS</a></span>
+  <span class="signature">&#8594; <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>,
+        provided by the <a href="dart-js_interop/FutureOfJSAnyToJSPromise.html">FutureOfJSAnyToJSPromise</a> extension</span>
+      </p>
+  A <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a> that either resolves with the result of the completed
+<a href="dart-async/Future-class.html">Future</a> or rejects with an object that contains its error.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="toJS" class="property">
+  <span class="name"><a href="dart-js_interop/FutureOfVoidToJSPromise/toJS.html">toJS</a></span>
+  <span class="signature">&#8594; <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span>,
+        provided by the <a href="dart-js_interop/FutureOfVoidToJSPromise.html">FutureOfVoidToJSPromise</a> extension</span>
+      </p>
+  A <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a> that either resolves once this <a href="dart-async/Future-class.html">Future</a> completes or rejects
+with an object that contains its error.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="asStream" class="callable">
+  <span class="name"><a href="dart-async/Future/asStream.html">asStream</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  创建一个 <a href="dart-async/Stream-class.html">Stream</a> containing the result of this future.
+  
+
+</dd>
+
+        <dt id="catchError" class="callable">
+  <span class="name"><a href="dart-async/Future/catchError.html">catchError</a></span><span class="signature">(<wbr><span class="parameter" id="catchError-param-onError"><span class="type-annotation"><a href="dart-core/Function-class.html">Function</a></span> <span class="parameter-name">onError</span>, {</span><span class="parameter" id="catchError-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-error"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span></span>)?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Handles errors emitted by this <a href="dart-async/Future-class.html">Future</a>.
+  
+
+</dd>
+
+        <dt id="ignore" class="callable">
+  <span class="name"><a href="dart-async/FutureExtensions/ignore.html">ignore</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>,
+        provided by the <a href="dart-async/FutureExtensions.html">FutureExtensions</a> extension</span>
+      </p>
+  Completely ignores this future and its result.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onError" class="callable">
+  <span class="name"><a href="dart-async/FutureExtensions/onError.html">onError</a></span><span class="signature">&lt;<wbr><span class="type-parameter">E extends <a href="dart-core/Object-class.html">Object</a></span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="onError-param-handleError"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">handleError</span>(<span class="parameter" id="handleError-param-error"><span class="type-annotation">E</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="handleError-param-stackTrace"><span class="type-annotation"><a href="dart-core/StackTrace-class.html">StackTrace</a></span> <span class="parameter-name">stackTrace</span></span>), {</span><span class="parameter" id="onError-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-error"><span class="type-annotation">E</span> <span class="parameter-name">error</span></span>)?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>,
+        provided by the <a href="dart-async/FutureExtensions.html">FutureExtensions</a> extension</span>
+      </p>
+  Handles errors on this future.
+  
+
+</dd>
+
+        <dt id="then" class="callable">
+  <span class="name"><a href="dart-async/Future/then.html">then</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="then-param-onValue"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span> <span class="parameter-name">onValue</span>(<span class="parameter" id="onValue-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span></span>), {</span><span class="parameter" id="then-param-onError"><span class="type-annotation"><a href="dart-core/Function-class.html">Function</a>?</span> <span class="parameter-name">onError</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Register callbacks to be called when this future completes.
+  
+
+</dd>
+
+        <dt id="timeout" class="callable">
+  <span class="name"><a href="dart-async/Future/timeout.html">timeout</a></span><span class="signature">(<wbr><span class="parameter" id="timeout-param-timeLimit"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">timeLimit</span>, {</span><span class="parameter" id="timeout-param-onTimeout"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">onTimeout</span>()?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Stop waiting for this future after <code>timeLimit</code> has passed.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="whenComplete" class="callable">
+  <span class="name"><a href="dart-async/Future/whenComplete.html">whenComplete</a></span><span class="signature">(<wbr><span class="parameter" id="whenComplete-param-action"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span> <span class="parameter-name">action</span>()</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Registers a function to be called when this future completes.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="any" class="callable">
+  <span class="name"><a href="dart-async/Future/any.html">any</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="any-param-futures"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">futures</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the result of the first future in <code>futures</code> to complete.
+  
+
+</dd>
+
+        <dt id="doWhile" class="callable">
+  <span class="name"><a href="dart-async/Future/doWhile.html">doWhile</a></span><span class="signature">(<wbr><span class="parameter" id="doWhile-param-action"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span> <span class="parameter-name">action</span>()</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Performs an operation repeatedly until it returns <code>false</code>.
+  
+
+</dd>
+
+        <dt id="forEach" class="callable">
+  <span class="name"><a href="dart-async/Future/forEach.html">forEach</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="forEach-param-elements"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">elements</span>, </span><span class="parameter" id="forEach-param-action"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a></span> <span class="parameter-name">action</span>(<span class="parameter" id="action-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Performs an action for each element of the iterable, in turn.
+  
+
+</dd>
+
+        <dt id="pause" class="callable">
+  <span class="name"><a href="dart-async/Future/pause.html">pause</a></span><span class="signature">(<wbr>[<span class="parameter" id="pause-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span> = <span class="default-value">Duration.zero</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  创建一个 <a href="dart-async/Future-class.html">Future</a> that completes with no result after <code>duration</code>.
+  
+
+</dd>
+
+        <dt id="wait" class="callable">
+  <span class="name"><a href="dart-async/Future/wait.html">wait</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="wait-param-futures"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">futures</span>, {</span><span class="parameter" id="wait-param-eagerError"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">eagerError</span> = <span class="default-value">false</span>, </span><span class="parameter" id="wait-param-cleanUp"><span class="type-annotation">void</span> <span class="parameter-name">cleanUp</span>(<span class="parameter" id="cleanUp-param-successValue"><span class="type-annotation">T</span> <span class="parameter-name">successValue</span></span>)?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Waits for multiple futures to complete and collects their results.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-async/">dart:async</a></li>
+    <li class="self-crumb">Future<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+</ol>
+
+    <h5>dart:async library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

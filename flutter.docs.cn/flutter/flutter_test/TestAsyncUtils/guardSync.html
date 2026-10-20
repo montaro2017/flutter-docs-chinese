@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the guardSync method from the TestAsyncUtils class, for the Dart programming language.">
+  <title>guardSync 方法 - TestAsyncUtils 类 - flutter_test 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_test/">flutter_test.dart</a></li>
+    <li><a href="flutter_test/TestAsyncUtils-class.html">TestAsyncUtils</a></li>
+    <li class="self-crumb">guardSync static method</li>
+  </ol>
+  <div class="self-name">guardSync</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="flutter_test&#47;TestAsyncUtils-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter_test/lib/src/test_async_utils.dart#L152"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">guardSync</span> static 方法 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype">void</span>
+<span class="name ">guardSync</span>(<wbr>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>验证当前没有待完成的受保护方法（参见 <a href="flutter_test/TestAsyncUtils/guard.html">guard</a>）。</p>
+<p>如果当前有待完成的受保护方法，且此次调用并非直接或间接嵌套在该方法的函数体内，则此方法会抛出详细异常。</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>实现</span></h2>
+  <pre class="language-dart"><code class="language-dart">static void guardSync() {
+  if (_scopeStack.isEmpty) {
+    &#47;&#47; No scopes open, so we must be fine.
+    return;
+  }
+  &#47;&#47; Find the current TestAsyncUtils scope zone so we can see if it&#39;s the one we expect.
+  final Zone? zone = _currentScopeZone;
+  if (zone == _scopeStack.last.zone) {
+    &#47;&#47; We&#39;re still in the current scope zone. All good.
+    return;
+  }
+  &#47;&#47; If we get here, we know we&#39;ve got a conflict on our hands.
+  &#47;&#47; We got an async barrier, but the current zone isn&#39;t the last scope that
+  &#47;&#47; we pushed on the stack.
+  &#47;&#47; Find which scope the conflict happened in, so that we know
+  &#47;&#47; which stack trace to report the conflict as starting from.
+  &#47;&#47;
+  &#47;&#47; For example, if we called an async method A, which ran its body in a
+  &#47;&#47; guarded block, and in its body it ran an async method B, which ran its
+  &#47;&#47; body in a guarded block, but we didn&#39;t await B, then in A&#39;s block we ran
+  &#47;&#47; an async method C, which ran its body in a guarded block, then we should
+  &#47;&#47; complain about the call to B then the call to C. BUT. If we called an async
+  &#47;&#47; method A, which ran its body in a guarded block, and in its body it ran
+  &#47;&#47; an async method B, which ran its body in a guarded block, but we didn&#39;t
+  &#47;&#47; await A, and then at the top level we called a method D, then we should
+  &#47;&#47; complain about the call to A then the call to D.
+  &#47;&#47;
+  &#47;&#47; In both examples, the scope stack would have two scopes. In the first
+  &#47;&#47; example, the current zone would be the zone of the _scopeStack[0] scope,
+  &#47;&#47; and we would want to show _scopeStack[1]&#39;s creationStack. In the second
+  &#47;&#47; example, the current zone would not be in the _scopeStack, and we would
+  &#47;&#47; want to show _scopeStack[0]&#39;s creationStack.
+  var skipCount = 0;
+  _AsyncScope candidateScope = _scopeStack.last;
+  _AsyncScope scope;
+  do {
+    skipCount += 1;
+    scope = candidateScope;
+    if (skipCount &gt;= _scopeStack.length) {
+      if (zone == null) {
+        break;
+      }
+      &#47;&#47; Some people have reported reaching this point, but it&#39;s not clear
+      &#47;&#47; why. For now, just silently return.
+      &#47;&#47; TODO(ianh): If we ever get a test case that shows how we reach
+      &#47;&#47; this point, reduce it and report the error if there is one.
+      return;
+    }
+    candidateScope = _scopeStack[_scopeStack.length - skipCount - 1];
+  } while (candidateScope.zone != zone);
+  final information = &lt;DiagnosticsNode&gt;[
+    ErrorSummary(&#39;Guarded function conflict.&#39;),
+    ErrorHint(&#39;You must use &quot;await&quot; with all Future-returning test APIs.&#39;),
+  ];
+  final _StackEntry? originalGuarder = _findResponsibleMethod(
+    scope.creationStack,
+    &#39;guard&#39;,
+    information,
+  );
+  final _StackEntry? collidingGuarder = _findResponsibleMethod(
+    StackTrace.current,
+    &#39;guardSync&#39;,
+    information,
+  );
+  if (originalGuarder != null &amp;&amp; collidingGuarder != null) {
+    final originalKind = originalGuarder.className == null ? &#39;function&#39; : &#39;method&#39;;
+    String originalName;
+    if (originalGuarder.className == null) {
+      originalName = &#39;$originalKind (${originalGuarder.methodName})&#39;;
+      information.add(
+        ErrorDescription(
+          &#39;The guarded &quot;${originalGuarder.methodName}&quot; function &#39;
+          &#39;was called from ${originalGuarder.callerFile} &#39;
+          &#39;on line ${originalGuarder.callerLine}.&#39;,
+        ),
+      );
+    } else {
+      originalName = &#39;$originalKind (${originalGuarder.className}.${originalGuarder.methodName})&#39;;
+      information.add(
+        ErrorDescription(
+          &#39;The guarded method &quot;${originalGuarder.methodName}&quot; &#39;
+          &#39;from class ${originalGuarder.className} &#39;
+          &#39;was called from ${originalGuarder.callerFile} &#39;
+          &#39;on line ${originalGuarder.callerLine}.&#39;,
+        ),
+      );
+    }
+    final again =
+        (originalGuarder.callerFile == collidingGuarder.callerFile) &amp;&amp;
+            (originalGuarder.callerLine == collidingGuarder.callerLine)
+        ? &#39;again &#39;
+        : &#39;&#39;;
+    final collidingKind = collidingGuarder.className == null ? &#39;function&#39; : &#39;method&#39;;
+    String collidingName;
+    if ((originalGuarder.className == collidingGuarder.className) &amp;&amp;
+        (originalGuarder.methodName == collidingGuarder.methodName)) {
+      originalName = originalKind;
+      collidingName = collidingKind;
+      information.add(
+        ErrorDescription(
+          &#39;Then, it &#39;
+          &#39;was called ${again}from ${collidingGuarder.callerFile} &#39;
+          &#39;on line ${collidingGuarder.callerLine}.&#39;,
+        ),
+      );
+    } else if (collidingGuarder.className == null) {
+      collidingName = &#39;$collidingKind (${collidingGuarder.methodName})&#39;;
+      information.add(
+        ErrorDescription(
+          &#39;Then, the &quot;${collidingGuarder.methodName}&quot; function &#39;
+          &#39;was called ${again}from ${collidingGuarder.callerFile} &#39;
+          &#39;on line ${collidingGuarder.callerLine}.&#39;,
+        ),
+      );
+    } else {
+      collidingName =
+          &#39;$collidingKind (${collidingGuarder.className}.${collidingGuarder.methodName})&#39;;
+      information.add(
+        ErrorDescription(
+          &#39;Then, the &quot;${collidingGuarder.methodName}&quot; method &#39;
+          &#39;${originalGuarder.className == collidingGuarder.className ? &quot;(also from class ${collidingGuarder.className})&quot; : &quot;from class ${collidingGuarder.className}&quot;} &#39;
+          &#39;was called ${again}from ${collidingGuarder.callerFile} &#39;
+          &#39;on line ${collidingGuarder.callerLine}.&#39;,
+        ),
+      );
+    }
+    information.add(
+      ErrorDescription(
+        &#39;The first $originalName &#39;
+        &#39;had not yet finished executing at the time that &#39;
+        &#39;the second $collidingName &#39;
+        &#39;was called. Since both are guarded, and the second was not a nested call inside the first, the &#39;
+        &#39;first must complete its execution before the second can be called. Typically, this is achieved by &#39;
+        &#39;putting an &quot;await&quot; statement in front of the call to the first.&#39;,
+      ),
+    );
+    if (collidingGuarder.className == null &amp;&amp; collidingGuarder.methodName == &#39;expect&#39;) {
+      information.add(
+        ErrorHint(
+          &#39;If you are confident that all test APIs are being called using &quot;await&quot;, and &#39;
+          &#39;this expect() call is not being called at the top level but is itself being &#39;
+          &#39;called from some sort of callback registered before the ${originalGuarder.methodName} &#39;
+          &#39;method was called, then consider using expectSync() instead.&#39;,
+        ),
+      );
+    }
+    information.add(
+      DiagnosticsStackTrace(
+        &#39;\nWhen the first $originalName was called, this was the stack&#39;,
+        scope.creationStack,
+      ),
+    );
+  } else {
+    information.add(
+      DiagnosticsStackTrace(
+        &#39;\nWhen the first function was called, this was the stack&#39;,
+        scope.creationStack,
+      ),
+    );
+  }
+  throw FlutterError.fromParts(information);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_test/">flutter_test</a></li>
+    <li><a href="flutter_test/TestAsyncUtils-class.html">TestAsyncUtils</a></li>
+    <li class="self-crumb">guardSync static method</li>
+</ol>
+
+    <h5>TestAsyncUtils 类</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

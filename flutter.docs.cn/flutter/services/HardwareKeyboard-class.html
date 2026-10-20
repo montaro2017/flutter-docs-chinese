@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="services 库中 HardwareKeyboard 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>HardwareKeyboard 类 - services 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services.dart</a></li>
+    <li class="self-crumb">HardwareKeyboard 类</li>
+  </ol>
+  <div class="self-name">HardwareKeyboard</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services&#47;services-library-sidebar.html"
+    data-below-sidebar="services&#47;HardwareKeyboard-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/services/hardware_keyboard.dart#L411"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">HardwareKeyboard</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>管理来自硬件键盘的按键事件。</p>
+<p><a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 管理 Flutter 应用中来自硬件键盘（而非屏幕键盘）的所有按键事件。它从原生平台接收按键数据，将按键事件分发给已注册的处理器，并记录键盘状态。</p>
+<p>若要在按键按下、保持或释放时收到通知，请使用 <a href="services/HardwareKeyboard/addHandler.html">addHandler</a> 添加处理器。若只需在应用的特定区域获得焦点时收到通知，可使用 <a href="widgets/Focus-class.html">Focus</a> 组件的 <code>onFocusChanged</code> 属性，而不是 <a href="services/HardwareKeyboard/addHandler.html">addHandler</a>。不再需要通知或处理器即将释放时，应使用 <a href="services/HardwareKeyboard/removeHandler.html">removeHandler</a> 移除处理器。</p>
+<p>若要查询某个按键是否处于按住状态，或某种锁定模式是否启用，请使用 <a href="services/HardwareKeyboard/physicalKeysPressed.html">physicalKeysPressed</a>、<a href="services/HardwareKeyboard/logicalKeysPressed.html">logicalKeysPressed</a> 或 <a href="services/HardwareKeyboard/lockModesEnabled.html">lockModesEnabled</a>。在按键事件处理器中使用这些状态时，它们已根据当前事件更新。</p>
+<p>单例 <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 实例由 <a href="services/ServicesBinding-mixin.html">ServicesBinding</a> 持有，作为 <a href="services/ServicesBinding/keyboard.html">ServicesBinding.keyboard</a> 提供，也可以通过静态访问器 <a href="services/HardwareKeyboard/instance.html">HardwareKeyboard.instance</a> 方便地访问。</p>
+<h2 id="event-model">事件模型</h2>
+<p>无论原生平台为何，Flutter 都使用统一的事件模型（<a href="services/KeyEvent-class.html">KeyEvent</a>）和按键选项（<a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a> 与 <a href="services/PhysicalKeyboardKey-class.html">PhysicalKeyboardKey</a>），同时尽可能保留平台特有功能。</p>
+<p><a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 保证按键模型经过“规范化”：按键事件流由一系列“按键点击序列”组成。每个序列依次包含一个 <a href="services/KeyDownEvent-class.html">KeyDownEvent</a>、零个或多个 <a href="services/KeyRepeatEvent-class.html">KeyRepeatEvent</a>，以及一个 <a href="services/KeyUpEvent-class.html">KeyUpEvent</a>，且它们具有相同的物理键和逻辑键。</p>
+<p>示例：</p>
+<ul>
+<li>Tap and hold key A, US layout:
+<ul>
+<li>KeyDownEvent(physicalKey: keyA, logicalKey: keyA, character: "a")</li>
+<li>KeyRepeatEvent(physicalKey: keyA, logicalKey: keyA, character: "a")</li>
+<li>KeyUpEvent(physicalKey: keyA, logicalKey: keyA)</li>
+</ul>
+</li>
+<li>Press ShiftLeft, tap key A, then release ShiftLeft, US layout:
+<ul>
+<li>KeyDownEvent(physicalKey: shiftLeft, logicalKey: shiftLeft)</li>
+<li>KeyDownEvent(physicalKey: keyA, logicalKey: keyA, character: "A")</li>
+<li>KeyRepeatEvent(physicalKey: keyA, logicalKey: keyA, character: "A")</li>
+<li>KeyUpEvent(physicalKey: keyA, logicalKey: keyA)</li>
+<li>KeyUpEvent(physicalKey: shiftLeft, logicalKey: shiftLeft)</li>
+</ul>
+</li>
+<li>Tap key Q, French layout:
+<ul>
+<li>KeyDownEvent(physicalKey: keyA, logicalKey: keyQ, character: "q")</li>
+<li>KeyUpEvent(physicalKey: keyA, logicalKey: keyQ)</li>
+</ul>
+</li>
+<li>Tap CapsLock:
+<ul>
+<li>KeyDownEvent(physicalKey: capsLock, logicalKey: capsLock)</li>
+<li>KeyUpEvent(physicalKey: capsLock, logicalKey: capsLock)</li>
+</ul>
+</li>
+</ul>
+<p>Flutter 应用启动时，所有按键均处于释放状态，所有锁定模式均已停用。收到按键事件时，<a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 会先更新状态，再分发回调：<a href="services/KeyDownEvent-class.html">KeyDownEvent</a> 和 <a href="services/KeyUpEvent-class.html">KeyUpEvent</a> 会设置或重置按下状态，而 <a href="services/KeyDownEvent-class.html">KeyDownEvent</a> 还会切换锁定模式。</p>
+<p>Flutter 会在平台允许的情况下，通过合成事件（<a href="services/KeyEvent/synthesized.html">KeyEvent.synthesized</a>）尝试与键盘的实际状态同步。初始状态非空，或焦点窗口/应用发生变化，都可能造成不同步。例如，应用启动时若 CapsLock 已启用，则在第一个按键事件到达前，会合成并分发 CapsLock 的 <a href="services/KeyDownEvent-class.html">KeyDownEvent</a> 和 <a href="services/KeyUpEvent-class.html">KeyUpEvent</a>。</p>
+<p>最终生成的事件流与原生按键事件流并非一一对应。有些原生事件可能被跳过，有些事件则可能是合成的，并不对应任何原生事件。合成事件会通过 <a href="services/KeyEvent/synthesized.html">KeyEvent.synthesized</a> 标记。</p>
+<p>示例：</p>
+<ul>
+<li>Flutter starts with CapsLock on, the first press of keyA:
+<ul>
+<li>KeyDownEvent(physicalKey: capsLock, logicalKey: capsLock, synthesized: true)</li>
+<li>KeyUpEvent(physicalKey: capsLock, logicalKey: capsLock, synthesized: true)</li>
+<li>KeyDownEvent(physicalKey: keyA, logicalKey: keyA, character: "a")</li>
+</ul>
+</li>
+<li>While holding ShiftLeft, lose window focus, release shiftLeft, then focus
+back and press keyA:
+<ul>
+<li>KeyUpEvent(physicalKey: shiftLeft, logicalKey: shiftLeft, synthesized: true)</li>
+<li>KeyDownEvent(physicalKey: keyA, logicalKey: keyA, character: "a")</li>
+</ul>
+</li>
+</ul>
+<p>Flutter 不区分多个键盘。它会将所有事件都视为来自同一个键盘，尝试解决冲突并生成规范化的按键事件流，因此该事件流可能与实际键盘状态不完全一致。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="services/KeyDownEvent-class.html">KeyDownEvent</a>, <a href="services/KeyRepeatEvent-class.html">KeyRepeatEvent</a>, and <a href="services/KeyUpEvent-class.html">KeyUpEvent</a>, the classes used to
+describe specific key events.</li>
+<li><a href="services/HardwareKeyboard/instance.html">instance</a>, the singleton instance of this class.</li>
+</ul>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="HardwareKeyboard.new" class="callable">
+          <span class="name"><a href="services/HardwareKeyboard/HardwareKeyboard.html">HardwareKeyboard</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isAltPressed" class="property">
+  <span class="name"><a href="services/HardwareKeyboard/isAltPressed.html">isAltPressed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Returns true if a logical ALT modifier key is pressed, regardless of which
+side of the keyboard it is on.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="isControlPressed" class="property">
+  <span class="name"><a href="services/HardwareKeyboard/isControlPressed.html">isControlPressed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Returns true if a logical CTRL modifier key is pressed, regardless of
+which side of the keyboard it is on.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="isMetaPressed" class="property">
+  <span class="name"><a href="services/HardwareKeyboard/isMetaPressed.html">isMetaPressed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Returns true if a logical META modifier key is pressed, regardless of
+which side of the keyboard it is on.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="isShiftPressed" class="property">
+  <span class="name"><a href="services/HardwareKeyboard/isShiftPressed.html">isShiftPressed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Returns true if a logical SHIFT modifier key is pressed, regardless of
+which side of the keyboard it is on.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="lockModesEnabled" class="property">
+  <span class="name"><a href="services/HardwareKeyboard/lockModesEnabled.html">lockModesEnabled</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/KeyboardLockMode.html">KeyboardLockMode</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The set of <a href="services/KeyboardLockMode.html">KeyboardLockMode</a> that are enabled.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="logicalKeysPressed" class="property">
+  <span class="name"><a href="services/HardwareKeyboard/logicalKeysPressed.html">logicalKeysPressed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The set of <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a>s that are pressed.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="physicalKeysPressed" class="property">
+  <span class="name"><a href="services/HardwareKeyboard/physicalKeysPressed.html">physicalKeysPressed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/PhysicalKeyboardKey-class.html">PhysicalKeyboardKey</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The set of <a href="services/PhysicalKeyboardKey-class.html">PhysicalKeyboardKey</a>s that are pressed.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="addHandler" class="callable">
+  <span class="name"><a href="services/HardwareKeyboard/addHandler.html">addHandler</a></span><span class="signature">(<wbr><span class="parameter" id="addHandler-param-handler"><span class="type-annotation"><a href="services/KeyEventCallback.html">KeyEventCallback</a></span> <span class="parameter-name">handler</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Register a listener that is called every time a hardware key event
+occurs.
+  
+
+</dd>
+
+        <dt id="clearState" class="callable">
+  <span class="name"><a href="services/HardwareKeyboard/clearState.html">clearState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Clear all keyboard states and additional handlers.
+  
+
+</dd>
+
+        <dt id="handleKeyEvent" class="callable">
+  <span class="name"><a href="services/HardwareKeyboard/handleKeyEvent.html">handleKeyEvent</a></span><span class="signature">(<wbr><span class="parameter" id="handleKeyEvent-param-event"><span class="type-annotation"><a href="services/KeyEvent-class.html">KeyEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Process a new <a href="services/KeyEvent-class.html">KeyEvent</a> by recording the state changes and dispatching
+to handlers.
+  
+
+</dd>
+
+        <dt id="isLogicalKeyPressed" class="callable">
+  <span class="name"><a href="services/HardwareKeyboard/isLogicalKeyPressed.html">isLogicalKeyPressed</a></span><span class="signature">(<wbr><span class="parameter" id="isLogicalKeyPressed-param-key"><span class="type-annotation"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span> <span class="parameter-name">key</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns true if the given <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a> is pressed, according to
+the <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a>.
+  
+
+</dd>
+
+        <dt id="isPhysicalKeyPressed" class="callable">
+  <span class="name"><a href="services/HardwareKeyboard/isPhysicalKeyPressed.html">isPhysicalKeyPressed</a></span><span class="signature">(<wbr><span class="parameter" id="isPhysicalKeyPressed-param-key"><span class="type-annotation"><a href="services/PhysicalKeyboardKey-class.html">PhysicalKeyboardKey</a></span> <span class="parameter-name">key</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns true if the given <a href="services/PhysicalKeyboardKey-class.html">PhysicalKeyboardKey</a> is pressed, according to
+the <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a>.
+  
+
+</dd>
+
+        <dt id="lookUpLayout" class="callable">
+  <span class="name"><a href="services/HardwareKeyboard/lookUpLayout.html">lookUpLayout</a></span><span class="signature">(<wbr><span class="parameter" id="lookUpLayout-param-physicalKey"><span class="type-annotation"><a href="services/PhysicalKeyboardKey-class.html">PhysicalKeyboardKey</a></span> <span class="parameter-name">physicalKey</span></span>)
+    <span class="returntype parameter">&#8594; <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the logical key that corresponds to the given pressed physical key.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeHandler" class="callable">
+  <span class="name"><a href="services/HardwareKeyboard/removeHandler.html">removeHandler</a></span><span class="signature">(<wbr><span class="parameter" id="removeHandler-param-handler"><span class="type-annotation"><a href="services/KeyEventCallback.html">KeyEventCallback</a></span> <span class="parameter-name">handler</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Stop calling the given listener every time a hardware key event
+occurs.
+  
+
+</dd>
+
+        <dt id="syncKeyboardState" class="callable">
+  <span class="name"><a href="services/HardwareKeyboard/syncKeyboardState.html">syncKeyboardState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Query the engine and update _pressedKeys accordingly to the engine answer.
+Both the framework and the engine maintain a state of the current pressed
+keys. There are edge cases, related to startup and restart, where the framework
+needs to resynchronize its keyboard state.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="instance" class="property">
+  <span class="name"><a href="services/HardwareKeyboard/instance.html">instance</a></span>
+  <span class="signature">&#8594; <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a></span>
+  
+
+</dt>
+<dd>
+  Provides convenient access to the current <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> singleton from
+the <a href="services/ServicesBinding-mixin.html">ServicesBinding</a> instance.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services</a></li>
+    <li class="self-crumb">HardwareKeyboard 类</li>
+</ol>
+
+    <h5>services 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

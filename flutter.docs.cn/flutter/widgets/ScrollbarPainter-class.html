@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 ScrollbarPainter 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>ScrollbarPainter 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">ScrollbarPainter 类</li>
+  </ol>
+  <div class="self-name">ScrollbarPainter</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;ScrollbarPainter-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/scrollbar.dart#L92"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">ScrollbarPainter</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Paints a scrollbar's track and thumb.</p>
+<p>The size of the scrollbar along its scroll direction is typically
+proportional to the percentage of content completely visible on screen,
+as long as its size isn't less than <a href="widgets/ScrollbarPainter/minLength.html">minLength</a> and it isn't overscrolling.</p>
+<p>If <a href="widgets/ScrollbarPainter/padding.html">padding</a> is an <a href="painting/EdgeInsetsDirectional-class.html">EdgeInsetsDirectional</a>, a non-null <a href="widgets/ScrollbarPainter/textDirection.html">textDirection</a> must
+be provided to properly resolve the padding values.</p>
+<p>Unlike <a href="rendering/CustomPainter-class.html">CustomPainter</a>s that subclasses <a href="rendering/CustomPainter-class.html">CustomPainter</a> and only repaint
+when <a href="widgets/ScrollbarPainter/shouldRepaint.html">shouldRepaint</a> returns true (which requires this <a href="rendering/CustomPainter-class.html">CustomPainter</a> to
+be rebuilt), this painter has the added optimization of repainting and not
+rebuilding when:</p>
+<ul>
+<li>the scroll position changes; and</li>
+<li>when the scrollbar fades away.</li>
+</ul>
+<p>Calling <a href="widgets/ScrollbarPainter/update.html">update</a> with the new <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> will repaint the new scrollbar
+position.</p>
+<p>Updating the value on the provided <a href="widgets/ScrollbarPainter/fadeoutOpacityAnimation.html">fadeoutOpacityAnimation</a> will repaint
+with the new opacity.</p>
+<p>You must call <a href="widgets/ScrollbarPainter/dispose.html">dispose</a> on this <a href="widgets/ScrollbarPainter-class.html">ScrollbarPainter</a> when it's no longer used.</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="material/Scrollbar-class.html">Scrollbar</a> for a widget showing a scrollbar around a <a href="widgets/Scrollable-class.html">Scrollable</a> in the
+Material Design style.</li>
+<li><a href="cupertino/CupertinoScrollbar-class.html">CupertinoScrollbar</a> for a widget showing a scrollbar around a
+<a href="widgets/Scrollable-class.html">Scrollable</a> in the iOS style.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/ChangeNotifier-class.html">ChangeNotifier</a></li>
+      <li>ScrollbarPainter</li>
+    </ul>
+  </dd>
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="rendering/CustomPainter-class.html">CustomPainter</a></li>
+    </ul>
+  </dd>
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="ScrollbarPainter.new" class="callable">
+          <span class="name"><a href="widgets/ScrollbarPainter/ScrollbarPainter.html">ScrollbarPainter</a></span><span class="signature">({<span class="parameter" id="-param-color"><span>required</span> <span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">color</span>, </span><span class="parameter" id="-param-fadeoutOpacityAnimation"><span>required</span> <span class="type-annotation"><a href="animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">fadeoutOpacityAnimation</span>, </span><span class="parameter" id="-param-trackColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">trackColor</span> = <span class="default-value">const Color(0x00000000)</span>, </span><span class="parameter" id="-param-trackBorderColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">trackBorderColor</span> = <span class="default-value">const Color(0x00000000)</span>, </span><span class="parameter" id="-param-textDirection"><span class="type-annotation"><a href="dart-ui/TextDirection.html">TextDirection</a>?</span> <span class="parameter-name">textDirection</span>, </span><span class="parameter" id="-param-thickness"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">thickness</span> = <span class="default-value">_kScrollbarThickness</span>, </span><span class="parameter" id="-param-padding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a></span> <span class="parameter-name">padding</span> = <span class="default-value">EdgeInsets.zero</span>, </span><span class="parameter" id="-param-mainAxisMargin"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">mainAxisMargin</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="-param-crossAxisMargin"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">crossAxisMargin</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="-param-radius"><span class="type-annotation"><a href="dart-ui/Radius-class.html">Radius</a>?</span> <span class="parameter-name">radius</span>, </span><span class="parameter" id="-param-trackRadius"><span class="type-annotation"><a href="dart-ui/Radius-class.html">Radius</a>?</span> <span class="parameter-name">trackRadius</span>, </span><span class="parameter" id="-param-shape"><span class="type-annotation"><a href="painting/OutlinedBorder-class.html">OutlinedBorder</a>?</span> <span class="parameter-name">shape</span>, </span><span class="parameter" id="-param-minLength"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">minLength</span> = <span class="default-value">_kMinThumbExtent</span>, </span><span class="parameter" id="-param-minOverscrollLength"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minOverscrollLength</span>, </span><span class="parameter" id="-param-scrollbarOrientation"><span class="type-annotation"><a href="widgets/ScrollbarOrientation.html">ScrollbarOrientation</a>?</span> <span class="parameter-name">scrollbarOrientation</span>, </span><span class="parameter" id="-param-ignorePointer"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">ignorePointer</span> = <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a scrollbar with customizations given by construction arguments.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="color" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/color.html">color</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  <a href="dart-ui/Color-class.html">Color</a> of the thumb. Mustn't be null.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="crossAxisMargin" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/crossAxisMargin.html">crossAxisMargin</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Distance from the scrollbar thumb to the nearest cross axis edge
+in logical pixels.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="fadeoutOpacityAnimation" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/fadeoutOpacityAnimation.html">fadeoutOpacityAnimation</a></span>
+  <span class="signature">&#8594; <a href="animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  An opacity <a href="animation/Animation-class.html">Animation</a> that dictates the opacity of the thumb.
+Changes in value of this <a href="foundation/Listenable-class.html">Listenable</a> will automatically trigger repaints.
+Mustn't be null.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hasListeners" class="property inherited">
+  <span class="name"><a href="foundation/ChangeNotifier/hasListeners.html">hasListeners</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether any listeners are currently registered.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="ignorePointer" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/ignorePointer.html">ignorePointer</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the painter will be ignored during hit testing.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="mainAxisMargin" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/mainAxisMargin.html">mainAxisMargin</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Distance from the scrollbar thumb's start and end to the edge of the
+viewport in logical pixels. It affects the amount of available paint area.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="minLength" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/minLength.html">minLength</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The preferred smallest size the scrollbar thumb can shrink to when the total
+scrollable extent is large, the current visible viewport is small, and the
+viewport is not overscrolled.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="minOverscrollLength" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/minOverscrollLength.html">minOverscrollLength</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The preferred smallest size the scrollbar thumb can shrink to when viewport is
+overscrolled.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="padding" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/padding.html">padding</a></span>
+  <span class="signature">&#8596; <a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a></span>
+  
+
+</dt>
+<dd>
+  The amount of space by which to inset the scrollbar's start and end, as
+well as its side to the nearest edge, in logical pixels.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="radius" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/radius.html">radius</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/Radius-class.html">Radius</a>?</span>
+  
+
+</dt>
+<dd>
+  <a href="dart-ui/Radius-class.html">Radius</a> of corners if the scrollbar should have rounded corners.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scrollbarOrientation" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/scrollbarOrientation.html">scrollbarOrientation</a></span>
+  <span class="signature">&#8596; <a href="widgets/ScrollbarOrientation.html">ScrollbarOrientation</a>?</span>
+  
+
+</dt>
+<dd>
+  Dictates the orientation of the scrollbar.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="semanticsBuilder" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/semanticsBuilder.html">semanticsBuilder</a></span>
+  <span class="signature">&#8594; <a href="rendering/SemanticsBuilderCallback.html">SemanticsBuilderCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Returns a function that builds semantic information for the picture drawn
+by this painter.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="shape" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/shape.html">shape</a></span>
+  <span class="signature">&#8596; <a href="painting/OutlinedBorder-class.html">OutlinedBorder</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="painting/OutlinedBorder-class.html">OutlinedBorder</a> of the scrollbar's thumb.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="textDirection" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/textDirection.html">textDirection</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/TextDirection.html">TextDirection</a>?</span>
+  
+
+</dt>
+<dd>
+  <a href="dart-ui/TextDirection.html">TextDirection</a> of the <a href="widgets/BuildContext-class.html">BuildContext</a> which dictates the side of the
+screen the scrollbar appears in (the trailing side). Must be set prior to
+calling paint.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="thickness" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/thickness.html">thickness</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Thickness of the scrollbar in its cross-axis in logical pixels. Mustn't be null.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="trackBorderColor" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/trackBorderColor.html">trackBorderColor</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  <a href="dart-ui/Color-class.html">Color</a> of the track border. Mustn't be null.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="trackColor" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/trackColor.html">trackColor</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  <a href="dart-ui/Color-class.html">Color</a> of the track. Mustn't be null.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="trackRadius" class="property">
+  <span class="name"><a href="widgets/ScrollbarPainter/trackRadius.html">trackRadius</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/Radius-class.html">Radius</a>?</span>
+  
+
+</dt>
+<dd>
+  <a href="dart-ui/Radius-class.html">Radius</a> of corners of the Scrollbar's track.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="addListener" class="callable inherited">
+  <span class="name"><a href="foundation/ChangeNotifier/addListener.html">addListener</a></span><span class="signature">(<wbr><span class="parameter" id="addListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Register a closure to be called when the object changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Discards any resources used by the object.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="getThumbScrollOffset" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/getThumbScrollOffset.html">getThumbScrollOffset</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The thumb's corresponding scroll offset in the track.
+  
+
+</dd>
+
+        <dt id="getTrackToScroll" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/getTrackToScroll.html">getTrackToScroll</a></span><span class="signature">(<wbr><span class="parameter" id="getTrackToScroll-param-thumbOffsetLocal"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">thumbOffsetLocal</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Convert between a thumb track position and the corresponding scroll
+position.
+  
+
+</dd>
+
+        <dt id="hitTest" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/hitTest.html">hitTest</a></span><span class="signature">(<wbr><span class="parameter" id="hitTest-param-position"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a>?</span> <span class="parameter-name">position</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called whenever a hit test is being performed on an object that is using
+this custom paint delegate.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="hitTestInteractive" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/hitTestInteractive.html">hitTestInteractive</a></span><span class="signature">(<wbr><span class="parameter" id="hitTestInteractive-param-position"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span>, </span><span class="parameter" id="hitTestInteractive-param-kind"><span class="type-annotation"><a href="dart-ui/PointerDeviceKind.html">PointerDeviceKind</a></span> <span class="parameter-name">kind</span>, {</span><span class="parameter" id="hitTestInteractive-param-forHover"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forHover</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Same as hitTest, but includes some padding when the <a href="gestures/PointerEvent-class.html">PointerEvent</a> is
+caused by <a href="dart-ui/PointerDeviceKind.html">PointerDeviceKind.touch</a> to make sure that the region
+isn't too small to be interacted with by the user.
+  
+
+</dd>
+
+        <dt id="hitTestOnlyThumbInteractive" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/hitTestOnlyThumbInteractive.html">hitTestOnlyThumbInteractive</a></span><span class="signature">(<wbr><span class="parameter" id="hitTestOnlyThumbInteractive-param-position"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span>, </span><span class="parameter" id="hitTestOnlyThumbInteractive-param-kind"><span class="type-annotation"><a href="dart-ui/PointerDeviceKind.html">PointerDeviceKind</a></span> <span class="parameter-name">kind</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Same as hitTestInteractive, but excludes the track portion of the scrollbar.
+Used to evaluate interactions with only the scrollbar thumb.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="notifyListeners" class="callable inherited">
+  <span class="name"><a href="foundation/ChangeNotifier/notifyListeners.html">notifyListeners</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Call all the registered listeners.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="paint" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/paint.html">paint</a></span><span class="signature">(<wbr><span class="parameter" id="paint-param-canvas"><span class="type-annotation"><a href="dart-ui/Canvas-class.html">Canvas</a></span> <span class="parameter-name">canvas</span>, </span><span class="parameter" id="paint-param-size"><span class="type-annotation"><a href="dart-ui/Size-class.html">Size</a></span> <span class="parameter-name">size</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called whenever the object needs to paint. The given <a href="dart-ui/Canvas-class.html">Canvas</a> has its
+coordinate space configured such that the origin is at the top left of the
+box. The area of the box is the size of the <code>size</code> argument.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="removeListener" class="callable inherited">
+  <span class="name"><a href="foundation/ChangeNotifier/removeListener.html">removeListener</a></span><span class="signature">(<wbr><span class="parameter" id="removeListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Remove a previously registered closure from the list of closures that are
+notified when the object changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="shouldRebuildSemantics" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/shouldRebuildSemantics.html">shouldRebuildSemantics</a></span><span class="signature">(<wbr><span class="parameter" id="shouldRebuildSemantics-param-oldDelegate"><span>covariant</span> <span class="type-annotation"><a href="rendering/CustomPainter-class.html">CustomPainter</a></span> <span class="parameter-name">oldDelegate</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called whenever a new instance of the custom painter delegate class is
+provided to the <a href="rendering/RenderCustomPaint-class.html">RenderCustomPaint</a> object, or any time that a new
+<a href="widgets/CustomPaint-class.html">CustomPaint</a> object is created with a new instance of the custom painter
+delegate class (which amounts to the same thing, because the latter is
+implemented in terms of the former).
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="shouldRepaint" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/shouldRepaint.html">shouldRepaint</a></span><span class="signature">(<wbr><span class="parameter" id="shouldRepaint-param-oldDelegate"><span>covariant</span> <span class="type-annotation"><a href="widgets/ScrollbarPainter-class.html">ScrollbarPainter</a></span> <span class="parameter-name">oldDelegate</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called whenever a new instance of the custom painter delegate class is
+provided to the <a href="rendering/RenderCustomPaint-class.html">RenderCustomPaint</a> object, or any time that a new
+<a href="widgets/CustomPaint-class.html">CustomPaint</a> object is created with a new instance of the custom painter
+delegate class (which amounts to the same thing, because the latter is
+implemented in terms of the former).
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="update" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/update.html">update</a></span><span class="signature">(<wbr><span class="parameter" id="update-param-metrics"><span class="type-annotation"><a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a></span> <span class="parameter-name">metrics</span>, </span><span class="parameter" id="update-param-axisDirection"><span class="type-annotation"><a href="painting/AxisDirection.html">AxisDirection</a></span> <span class="parameter-name">axisDirection</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Update with new <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a>. If the metrics change, the scrollbar will
+show and redraw itself based on these new metrics.
+  
+
+</dd>
+
+        <dt id="updateThickness" class="callable">
+  <span class="name"><a href="widgets/ScrollbarPainter/updateThickness.html">updateThickness</a></span><span class="signature">(<wbr><span class="parameter" id="updateThickness-param-nextThickness"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">nextThickness</span>, </span><span class="parameter" id="updateThickness-param-nextRadius"><span class="type-annotation"><a href="dart-ui/Radius-class.html">Radius</a></span> <span class="parameter-name">nextRadius</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Update and redraw with new scrollbar thickness and radius.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">ScrollbarPainter 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

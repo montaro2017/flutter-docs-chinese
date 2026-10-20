@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getUserMedia method from the Navigator class, for the Dart programming language.">
+  <title>getUserMedia method - Navigator class - dart:html 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-html/">dart:html</a></li>
+    <li><a href="dart-html/Navigator-class.html">Navigator</a></li>
+    <li class="self-crumb">getUserMedia 方法</li>
+  </ol>
+  <div class="self-name">getUserMedia</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-html&#47;Navigator-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">getUserMedia</span> 方法 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-html/MediaStream-class.html">MediaStream</a></span>&gt;</span></span>
+<span class="name ">getUserMedia</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="getUserMedia-param-audio"><span class="type-annotation">dynamic</span> <span class="parameter-name">audio</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="getUserMedia-param-video"><span class="type-annotation">dynamic</span> <span class="parameter-name">video</span> = <span class="default-value">false</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>从本地计算机获取媒体流（视频和/或音频）。</p>
+<p>使用 <a href="dart-html/MediaStream/supported.html">MediaStream.supported</a> 检查当前平台是否支持此功能。参数 <code>audio</code> 和 <code>video</code> 默认为 <code>false</code>（分别表示媒体流不使用音频或视频）。</p>
+<p>简单用法示例：</p>
+<pre class="language-dart"><code>window.navigator.getUserMedia(audio: true, video: true).then((stream) {
+  var video = new VideoElement()
+    ..autoplay = true
+    ..src = Url.createObjectUrlFromStream(stream);
+  document.body.append(video);
+});
+</code></pre>
+<p>用户也可以为 audio 或 video 参数传入 Map，以指定媒体流的必需和可选约束。如果不传入映射而传入 <code>true</code>，则会获得具有音频或视频能力、但不附加其他约束的 MediaStream。音频和视频的具体约束名称仍在调整中；以下是添加更多约束的示例。</p>
+<pre class="language-dart"><code>window.navigator.getUserMedia(
+    audio: true,
+    video: {'mandatory':
+               { 'minAspectRatio': 1.333, 'maxAspectRatio': 1.334 },
+            'optional':
+               [{ 'minFrameRate': 60 },
+                { 'maxWidth': 640 }]
+});
+</code></pre>
+<p>另请参阅：</p>
+<ul>
+<li><a href="dart-html/MediaStream/supported.html">MediaStream.supported</a></li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>实现</span></h2>
+  <pre class="language-dart"><code class="language-dart">@SupportedBrowser(SupportedBrowser.CHROME)
+Future&lt;MediaStream&gt; getUserMedia({audio = false, video = false}) {
+  var completer = new Completer&lt;MediaStream&gt;();
+  var options = {&#39;audio&#39;: audio, &#39;video&#39;: video};
+  _ensureGetUserMedia();
+  this._getUserMedia(
+    convertDartToNative_SerializedScriptValue(options),
+    (stream) {
+      completer.complete(stream);
+    },
+    (error) {
+      completer.completeError(error);
+    },
+  );
+  return completer.future;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-html/">dart:html</a></li>
+    <li><a href="dart-html/Navigator-class.html">Navigator</a></li>
+    <li class="self-crumb">getUserMedia 方法</li>
+</ol>
+
+    <h5>Navigator 类</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

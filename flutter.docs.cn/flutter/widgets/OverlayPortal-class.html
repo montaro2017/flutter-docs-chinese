@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 OverlayPortal 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>OverlayPortal 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">OverlayPortal 类</li>
+  </ol>
+  <div class="self-name">OverlayPortal</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;OverlayPortal-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/overlay.dart#L1869"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">OverlayPortal</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一种在 <a href="widgets/Overlay-class.html">Overlay</a> 上绘制 overlay 子项的 widget。</p>
+<p>overlay 子项最初处于隐藏状态，直到对关联的 <a href="widgets/OverlayPortal/controller.html">controller</a> 调用 <a href="widgets/OverlayPortalController/show.html">OverlayPortalController.show</a>。<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 使用 <a href="widgets/OverlayPortal/overlayChildBuilder.html">overlayChildBuilder</a> 构建 overlay 子项，并将其绘制到指定的 <a href="widgets/Overlay-class.html">Overlay</a> 上，效果如同通过 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 插入一样；同时，该子项可以依赖与此 widget 相同的一组 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>（例如 <a href="material/Theme-class.html">Theme</a>）。</p>
+<p>显示 overlay 子项时，widget 树中必须存在 <a href="widgets/Overlay-class.html">Overlay</a> 祖先。overlay 子项由该 <a href="widgets/Overlay-class.html">Overlay</a> 祖先绘制，而非由此 widget 绘制。这样一来，overlay 子项就可以悬浮在其他 widget 上方，不受其在 widget 树中位置的影响。</p>
+<p>调用 <a href="widgets/OverlayPortalController/hide.html">OverlayPortalController.hide</a> 后，使用 <a href="widgets/OverlayPortal/overlayChildBuilder.html">overlayChildBuilder</a> 构建的 widget 会在 widget 树下次重建时被移除。因此，overlay 子树中的有状态后代可能会丢失状态。</p>
+<p>
+<a name="widgets.OverlayPortal.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">
+此示例使用 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 构建提示框，用户点击 <a href="widgets/OverlayPortal/child.html">child</a> widget 后，提示框便会显示。<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 上方有一个 <a href="widgets/DefaultTextStyle-class.html">DefaultTextStyle</a>，用于控制 <a href="widgets/OverlayPortal/child.html">child</a> widget 以及 <a href="widgets/OverlayPortal/overlayChildBuilder.html">overlayChildBuilder</a> 所构建 widget 的 <a href="painting/TextStyle-class.html">TextStyle</a>；如果将提示框作为 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 添加，则无法实现这一点。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.OverlayPortal.1');" onclick="fixHref(this, 'widgets.OverlayPortal.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.OverlayPortal.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.OverlayPortal.1&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<h3 id="paint-order">绘制顺序</h3>
+<p>在 <a href="widgets/Overlay-class.html">Overlay</a> 中，overlay 子项会绘制在与其 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 关联的 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 之后（即 widget 树中离 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 最近的 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a>，通常代表包围它的 <a href="widgets/Route-class.html">Route</a>），并绘制在下一个 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 之前。</p>
+<p>当一个 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 关联多个 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 时，它们的 overlay 子项按照调用 <a href="widgets/OverlayPortalController/show.html">OverlayPortalController.show</a> 的先后顺序绘制。最后调用 <code>show</code> 的 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 会将其 overlay 子项绘制在前景。</p>
+<h3 id="semantics">语义信息</h3>
+<p>overlay 子项生成的语义子树会被视为附属于 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a>，而不是目标 <a href="widgets/Overlay-class.html">Overlay</a>。即使 overlay 子项仍然可见，<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 的语义子树也可能因不可见而从语义树中移除（例如，<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 在 <a href="widgets/ListView-class.html">ListView</a> 中完全不可见，但由 <a href="widgets/KeepAlive-class.html">KeepAlive</a> widget 保持存活）。发生这种情况时，即使 overlay 子项仍显示在屏幕上，它生成的语义子树也会一并移除。</p>
+<h3 id="differences-between-overlayportal-and-overlayentry"><a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 与 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的区别</h3>
+<p><a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 与 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 的主要区别在于：<a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 会将 widget 子树构建为目标 <a href="widgets/Overlay-class.html">Overlay</a> 的子项，而 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 则使用 <a href="widgets/OverlayPortal/overlayChildBuilder.html">OverlayPortal.overlayChildBuilder</a> 将子 widget 构建为自身的子项。这样，<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 的 overlay 子项可以依赖与 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 相同的一组 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>；同时还能保证 overlay 子项的生命周期不会超出其 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a>。</p>
+<p>另一方面，<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 的实现更复杂。例如，在全局键重新挂接期间，它比常规 widget 需要执行更多工作。如果要显示在 <a href="widgets/Overlay-class.html">Overlay</a> 上的内容并不需要成为 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 子树的一部分，请考虑改用 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a>。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/OverlayEntry-class.html">OverlayEntry</a>, an alternative API for inserting widgets into an
+<a href="widgets/Overlay-class.html">Overlay</a>.</li>
+<li><a href="widgets/Positioned-class.html">Positioned</a>, which can be used to size and position the overlay child in
+relation to the target <a href="widgets/Overlay-class.html">Overlay</a>'s boundaries.</li>
+<li><a href="widgets/CompositedTransformFollower-class.html">CompositedTransformFollower</a>, which can be used to position the overlay
+child in relation to the linked <a href="widgets/CompositedTransformTarget-class.html">CompositedTransformTarget</a> widget.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>OverlayPortal</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="OverlayPortal.new" class="callable">
+          <span class="name"><a href="widgets/OverlayPortal/OverlayPortal.html">OverlayPortal</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-controller"><span>required</span> <span class="type-annotation"><a href="widgets/OverlayPortalController-class.html">OverlayPortalController</a></span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="-param-overlayChildBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/WidgetBuilder.html">WidgetBuilder</a></span> <span class="parameter-name">overlayChildBuilder</span>, </span><span class="parameter" id="-param-overlayLocation"><span class="type-annotation"><a href="widgets/OverlayChildLocation.html">OverlayChildLocation</a></span> <span class="parameter-name">overlayLocation</span> = <span class="default-value">OverlayChildLocation.nearestOverlay</span>, </span><span class="parameter" id="-param-child"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span></span>})</span>
+        </dt>
+        <dd>
+          创建一个 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> that renders the widget <code>overlayChildBuilder</code>
+builds on the closest <a href="widgets/Overlay-class.html">Overlay</a> when <a href="widgets/OverlayPortalController/show.html">OverlayPortalController.show</a> is
+called.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="OverlayPortal.overlayChildLayoutBuilder" class="callable">
+          <span class="name"><a href="widgets/OverlayPortal/OverlayPortal.overlayChildLayoutBuilder.html">OverlayPortal.overlayChildLayoutBuilder</a></span><span class="signature">({<span class="parameter" id="overlayChildLayoutBuilder-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="overlayChildLayoutBuilder-param-controller"><span>required</span> <span class="type-annotation"><a href="widgets/OverlayPortalController-class.html">OverlayPortalController</a></span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="overlayChildLayoutBuilder-param-overlayChildBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/OverlayChildLayoutBuilder.html">OverlayChildLayoutBuilder</a></span> <span class="parameter-name">overlayChildBuilder</span>, </span><span class="parameter" id="overlayChildLayoutBuilder-param-overlayLocation"><span class="type-annotation"><a href="widgets/OverlayChildLocation.html">OverlayChildLocation</a></span> <span class="parameter-name">overlayLocation</span> = <span class="default-value">OverlayChildLocation.nearestOverlay</span>, </span><span class="parameter" id="overlayChildLayoutBuilder-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span></span>})</span>
+        </dt>
+        <dd>
+          创建一个 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> that renders the widget <code>overlayChildBuilder</code>
+builds on the closest <a href="widgets/Overlay-class.html">Overlay</a> when <a href="widgets/OverlayPortalController/show.html">OverlayPortalController.show</a> is
+called.
+        </dd>
+        <dt id="OverlayPortal.targetsRootOverlay" class="callable">
+          <span class="name"><a class="deprecated" href="widgets/OverlayPortal/OverlayPortal.targetsRootOverlay.html">OverlayPortal.targetsRootOverlay</a></span><span class="signature">({<span class="parameter" id="targetsRootOverlay-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="targetsRootOverlay-param-controller"><span>required</span> <span class="type-annotation"><a href="widgets/OverlayPortalController-class.html">OverlayPortalController</a></span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="targetsRootOverlay-param-overlayChildBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/WidgetBuilder.html">WidgetBuilder</a></span> <span class="parameter-name">overlayChildBuilder</span>, </span><span class="parameter" id="targetsRootOverlay-param-child"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span></span>})</span>
+        </dt>
+        <dd>
+          创建一个 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> that renders the widget <code>overlayChildBuilder</code>
+builds on the root <a href="widgets/Overlay-class.html">Overlay</a> when <a href="widgets/OverlayPortalController/show.html">OverlayPortalController.show</a> is
+called.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="child" class="property">
+  <span class="name"><a href="widgets/OverlayPortal/child.html">child</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  A widget below this widget in the tree.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="controller" class="property">
+  <span class="name"><a href="widgets/OverlayPortal/controller.html">controller</a></span>
+  <span class="signature">&#8594; <a href="widgets/OverlayPortalController-class.html">OverlayPortalController</a></span>
+  
+
+</dt>
+<dd>
+  The controller to show, hide and bring to top the overlay child.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="overlayChildBuilder" class="property">
+  <span class="name"><a href="widgets/OverlayPortal/overlayChildBuilder.html">overlayChildBuilder</a></span>
+  <span class="signature">&#8594; <a href="widgets/WidgetBuilder.html">WidgetBuilder</a></span>
+  
+
+</dt>
+<dd>
+  A <a href="widgets/WidgetBuilder.html">WidgetBuilder</a> used to build a widget below this widget in the tree,
+that renders on the closest <a href="widgets/Overlay-class.html">Overlay</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="overlayLocation" class="property">
+  <span class="name"><a href="widgets/OverlayPortal/overlayLocation.html">overlayLocation</a></span>
+  <span class="signature">&#8594; <a href="widgets/OverlayChildLocation.html">OverlayChildLocation</a></span>
+  
+
+</dt>
+<dd>
+  The <a href="widgets/Overlay-class.html">Overlay</a> that the widget returns from <a href="widgets/OverlayPortal/overlayChildBuilder.html">overlayChildBuilder</a> is
+attached to.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="widgets/OverlayPortal/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/OverlayPortal-class.html">OverlayPortal</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">OverlayPortal 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

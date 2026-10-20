@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 EditableText 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>EditableText 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">EditableText 类</li>
+  </ol>
+  <div class="self-name">EditableText</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;EditableText-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/editable_text.dart#L815"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">EditableText</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一个基础的文本输入框。</p>
+<p>此组件通过 <a href="services/TextInput-class.html">TextInput</a> 服务与系统交互，使用户可以编辑其中的文本。它还提供滚动、选择和光标移动功能。</p>
+<p><a href="widgets/EditableText-class.html">EditableText</a> 是一个底层组件，旨在作为自定义组件集的构建模块。若要获得完整的用户体验，请考虑使用 <a href="material/TextField-class.html">TextField</a> 或 <a href="cupertino/CupertinoTextField-class.html">CupertinoTextField</a>。</p>
+<h2 id="handling-user-input">处理用户输入</h2>
+<p>目前，用户可以通过键盘或文本选择菜单更改此组件中的文本。用户插入或删除文本时，你会收到通知，并有机会修改新的文本值：</p>
+<ul>
+<li>
+<p>首先会对用户输入应用 <a href="widgets/EditableText/inputFormatters.html">inputFormatters</a>。</p>
+</li>
+<li>
+<p>随后，<a href="widgets/EditableText/controller.html">controller</a> 的 <a href="widgets/TextEditingController/value.html">TextEditingController.value</a> 会更新为格式化后的结果，并通知 <a href="widgets/EditableText/controller.html">controller</a> 的监听器。</p>
+</li>
+<li>
+<p>如果指定了 <a href="widgets/EditableText/onChanged.html">onChanged</a> 回调，它会最后调用。</p>
+</li>
+</ul>
+<h2 id="input-actions">输入操作</h2>
+<p>可以提供 <a href="flutter_test/TextInputAction.html">TextInputAction</a>，以自定义 Android 和 iOS 软键盘上操作按钮的外观。默认操作为 <a href="flutter_test/TextInputAction.html">TextInputAction.done</a>。</p>
+<p>Android 和 iOS 上有许多常见的 <a href="flutter_test/TextInputAction.html">TextInputAction</a>。不过，如果在调试模式下提供了当前平台不支持的 <a href="widgets/EditableText/textInputAction.html">textInputAction</a>，相应的 EditableText 获得焦点时会抛出错误。例如，在 Android 设备上运行时提供 iOS 的“emergencyCall”操作，在调试模式下就会报错。在发布模式下，不兼容的 <a href="flutter_test/TextInputAction.html">TextInputAction</a> 会被替换：Android 上替换为“unspecified”，iOS 上替换为“default”。可以先检查当前平台，再选择合适的 <a href="widgets/EditableText/textInputAction.html">textInputAction</a>。</p>
+<h2 id="lifecycle">生命周期</h2>
+<p>编辑完成时（例如按下键盘上的“完成”按钮），会执行两个操作：</p>
+<p>第一步：结束编辑。此步骤的默认行为包括调用 <a href="widgets/EditableText/onChanged.html">onChanged</a>。可以覆盖此默认行为。详情请参阅 <a href="widgets/EditableText/onEditingComplete.html">onEditingComplete</a>。</p>
+<p>第二步：使用用户输入的值调用 <a href="widgets/EditableText/onSubmitted.html">onSubmitted</a>。</p>
+<p>用户完成当前获得焦点的输入组件后，可以通过 <a href="widgets/EditableText/onSubmitted.html">onSubmitted</a> 手动将焦点移至另一个输入组件。</p>
+<p>此组件获得焦点时，会通过 <a href="widgets/AutomaticKeepAliveClientMixin/wantKeepAlive.html">AutomaticKeepAliveClientMixin.wantKeepAlive</a> 阻止自身被释放，以避免丢失选区。移除焦点后，组件即可被释放。</p>
+<p>不直接使用此组件也可以考虑使用 <a href="material/TextField-class.html">TextField</a>。它是功能完整的 Material Design 文本输入框，支持占位文本、标签以及与 <a href="widgets/Form-class.html">Form</a> 集成。</p>
+<h2 id="text-editing-intents-and-their-default-actions">文本编辑 <a href="widgets/Intent-class.html">Intent</a> 及其默认 <a href="widgets/Action-class.html">Action</a></h2>
+<p>此组件提供默认的 <a href="widgets/Action-class.html">Action</a>，用于处理常见文本编辑 <a href="widgets/Intent-class.html">Intent</a>，例如在文本字段中删除、复制和粘贴。这些 <a href="widgets/Action-class.html">Action</a> 可以通过 <a href="widgets/Actions/invoke.html">Actions.invoke</a> 或 <a href="widgets/Actions/maybeInvoke.html">Actions.maybeInvoke</a> 方法直接调用。默认的文本编辑键盘 <a href="widgets/Shortcuts-class.html">Shortcuts</a> 通常由 <a href="widgets/DefaultTextEditingShortcuts-class.html">DefaultTextEditingShortcuts</a> 声明，它们也会使用这些 <a href="widgets/Intent-class.html">Intent</a> 和 <a href="widgets/Action-class.html">Action</a> 执行所绑定的文本编辑操作。</p>
+<p>可以在此组件上方放置 <a href="widgets/Intent-class.html">Actions</a> 组件，以覆盖特定 <a href="widgets/Actions-class.html">Intent</a> 的默认处理方式。有关如何覆盖预定义的可重写 <a href="widgets/Action-class.html">Action</a> 的更多信息，请参阅 <a href="widgets/Action/Action.overridable.html">Action</a> 类和 <a href="widgets/Action-class.html">Action.overridable</a> 构造函数。</p>
+<h3 id="intents-for-deleting-text-and-their-default-behavior">用于删除文本的 Intent 及其默认行为</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Intent Class</strong></th>
+<th align="left"><strong>Default Behavior when there's selected text</strong></th>
+<th align="left"><strong>Default Behavior when there is a <a href="https://en.wikipedia.org/wiki/Caret_navigation">caret</a> (The selection is <a href="services/TextSelection/TextSelection.collapsed.html">TextSelection.collapsed</a>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="widgets/DeleteCharacterIntent-class.html">DeleteCharacterIntent</a></td>
+<td align="left">Deletes the selected text</td>
+<td align="left">Deletes the user-perceived character before or after the caret location.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/DeleteToNextWordBoundaryIntent-class.html">DeleteToNextWordBoundaryIntent</a></td>
+<td align="left">Deletes the selected text and the word before/after the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> position</td>
+<td align="left">Deletes from the caret location to the previous or the next word boundary</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/DeleteToLineBreakIntent-class.html">DeleteToLineBreakIntent</a></td>
+<td align="left">Deletes the selected text, and deletes to the start/end of the line from the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> position</td>
+<td align="left">Deletes from the caret location to the logical start or end of the current line</td>
+</tr>
+</tbody>
+</table>
+<h3 id="intents-for-moving-the-carethttpsenwikipediaorgwikicaret_navigation">用于移动 <a href="https://en.wikipedia.org/wiki/Caret_navigation">插入光标</a> 的 Intent</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Intent Class</strong></th>
+<th align="left"><strong>Default Behavior when there's selected text</strong></th>
+<th align="left"><strong>Default Behavior when there is a caret (<a href="services/TextSelection/TextSelection.collapsed.html">TextSelection.collapsed</a>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionByCharacterIntent-class.html">ExtendSelectionByCharacterIntent</a>(<code>collapseSelection: true</code>)</td>
+<td align="left">Collapses the selection to the logical start/end of the selection</td>
+<td align="left">Moves the caret past the user-perceived character before or after the current caret location.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionToNextWordBoundaryIntent-class.html">ExtendSelectionToNextWordBoundaryIntent</a>(<code>collapseSelection: true</code>)</td>
+<td align="left">Collapses the selection to the word boundary before/after the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> position</td>
+<td align="left">Moves the caret to the previous/next word boundary.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionToNextWordBoundaryOrCaretLocationIntent-class.html">ExtendSelectionToNextWordBoundaryOrCaretLocationIntent</a>(<code>collapseSelection: true</code>)</td>
+<td align="left">Collapses the selection to the word boundary before/after the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> position, or <a href="services/TextSelection/base.html">TextSelection.base</a>, whichever is closest in the given direction</td>
+<td align="left">Moves the caret to the previous/next word boundary.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionToLineBreakIntent-class.html">ExtendSelectionToLineBreakIntent</a>(<code>collapseSelection: true</code>)</td>
+<td align="left">Collapses the selection to the start/end of the line at the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> position</td>
+<td align="left">Moves the caret to the start/end of the current line .</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionVerticallyToAdjacentLineIntent-class.html">ExtendSelectionVerticallyToAdjacentLineIntent</a>(<code>collapseSelection: true</code>)</td>
+<td align="left">Collapses the selection to the position closest to the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a>, on the previous/next adjacent line</td>
+<td align="left">Moves the caret to the closest position on the previous/next adjacent line.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionVerticallyToAdjacentPageIntent-class.html">ExtendSelectionVerticallyToAdjacentPageIntent</a>(<code>collapseSelection: true</code>)</td>
+<td align="left">Collapses the selection to the position closest to the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a>, on the previous/next adjacent page</td>
+<td align="left">Moves the caret to the closest position on the previous/next adjacent page.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionToDocumentBoundaryIntent-class.html">ExtendSelectionToDocumentBoundaryIntent</a>(<code>collapseSelection: true</code>)</td>
+<td align="left">Collapses the selection to the start/end of the document</td>
+<td align="left">Moves the caret to the start/end of the document.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="intents-for-extending-the-selection">用于扩展选区的 Intent</h4>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Intent Class</strong></th>
+<th align="left"><strong>Default Behavior when there's selected text</strong></th>
+<th align="left"><strong>Default Behavior when there is a caret (<a href="services/TextSelection/TextSelection.collapsed.html">TextSelection.collapsed</a>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionByCharacterIntent-class.html">ExtendSelectionByCharacterIntent</a>(<code>collapseSelection: false</code>)</td>
+<td align="left">Moves the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> past the user-perceived character before/after it</td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionToNextWordBoundaryIntent-class.html">ExtendSelectionToNextWordBoundaryIntent</a>(<code>collapseSelection: false</code>)</td>
+<td align="left">Moves the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> to the previous/next word boundary</td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionToNextWordBoundaryOrCaretLocationIntent-class.html">ExtendSelectionToNextWordBoundaryOrCaretLocationIntent</a>(<code>collapseSelection: false</code>)</td>
+<td align="left">Moves the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> to the previous/next word boundary, or <a href="services/TextSelection/base.html">TextSelection.base</a> whichever is closest in the given direction</td>
+<td align="left">Moves the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> to the previous/next word boundary.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionToLineBreakIntent-class.html">ExtendSelectionToLineBreakIntent</a>(<code>collapseSelection: false</code>)</td>
+<td align="left">Moves the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> to the start/end of the line</td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionVerticallyToAdjacentLineIntent-class.html">ExtendSelectionVerticallyToAdjacentLineIntent</a>(<code>collapseSelection: false</code>)</td>
+<td align="left">Moves the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> to the closest position on the previous/next adjacent line</td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionVerticallyToAdjacentPageIntent-class.html">ExtendSelectionVerticallyToAdjacentPageIntent</a>(<code>collapseSelection: false</code>)</td>
+<td align="left">Moves the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> to the closest position on the previous/next adjacent page</td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ExtendSelectionToDocumentBoundaryIntent-class.html">ExtendSelectionToDocumentBoundaryIntent</a>(<code>collapseSelection: false</code>)</td>
+<td align="left">Moves the selection's <a href="services/TextSelection/extent.html">TextSelection.extent</a> to the start/end of the document</td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/SelectAllTextIntent-class.html">SelectAllTextIntent</a></td>
+<td align="left">Selects the entire document</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-intents">其他 Intent</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Intent Class</strong></th>
+<th align="left"><strong>Default Behavior</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="widgets/DoNothingAndStopPropagationTextIntent-class.html">DoNothingAndStopPropagationTextIntent</a></td>
+<td align="left">Does nothing in the input field, and prevents the key event from further propagating in the widget tree.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/ReplaceTextIntent-class.html">ReplaceTextIntent</a></td>
+<td align="left">Replaces the current <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a> in the input field's <a href="widgets/TextEditingController-class.html">TextEditingController</a>, and triggers all related user callbacks and <a href="services/TextInputFormatter-class.html">TextInputFormatter</a>。</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/UpdateSelectionIntent-class.html">UpdateSelectionIntent</a></td>
+<td align="left">Updates the current selection in the input field's <a href="widgets/TextEditingController-class.html">TextEditingController</a>, and triggers the <a href="widgets/EditableText/onSelectionChanged.html">onSelectionChanged</a> callback.</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/CopySelectionTextIntent-class.html">CopySelectionTextIntent</a></td>
+<td align="left">Copies or cuts the selected text into the clipboard</td>
+</tr>
+<tr>
+<td align="left"><a href="widgets/PasteTextIntent-class.html">PasteTextIntent</a></td>
+<td align="left">Inserts the current text in the clipboard after the caret location, or replaces the selected text if the selection is not collapsed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="text-editing-shortcuts">文本编辑 <a href="widgets/Shortcuts-class.html">快捷键</a></h2>
+<p>也可以通过在组件树中将 <a href="widgets/Intent-class.html">Shortcuts</a> 组件插入到此组件上方，直接将键盘快捷键重新映射到新的 <a href="widgets/Shortcuts-class.html">Intent</a>。使用 <a href="widgets/WidgetsApp-class.html">WidgetsApp</a> 时，大量默认文本编辑键盘快捷键会在组件树靠上位置的 <a href="widgets/DefaultTextEditingShortcuts-class.html">DefaultTextEditingShortcuts</a> 中声明；它与此 <a href="widgets/Shortcuts-class.html">EditableText</a> 之间的任何 <a href="widgets/EditableText-class.html">Shortcuts</a> 组件都可以覆盖这些默认设置。</p>
+<h3 id="interactions-between-shortcuts-and-text-input"><a href="widgets/Shortcuts-class.html">Shortcuts</a> 与文本输入之间的交互</h3>
+<p>Shortcuts 会阻止文本输入字段将按键接收为文本输入。例如，在文本输入字段上方的组件树中放置 <a href="widgets/Shortcuts-class.html">Shortcuts</a> 组件，并为 <a href="services/LogicalKeyboardKey/keyA-constant.html">LogicalKeyboardKey.keyA</a> 创建快捷键，就会阻止该字段将此按键作为文本输入。换句话说，在字段中键入“A”会触发快捷键，而不会向字段插入字母“a”。</p>
+<p>这是因为 Flutter 处理按键的方式如此：Flutter 引擎收到按键后，会先通过 <a href="services/SystemChannels/keyEvent-constant.html">SystemChannels.keyEvent</a> 让框架有机会将其作为原始按键事件处理。<a href="widgets/Shortcuts-class.html">Shortcuts</a> 会通过其 <a href="widgets/FocusNode-class.html">FocusNode</a> 间接监听该事件。如果未处理，框架就会尝试通过 <a href="services/SystemChannels/textInput-constant.html">SystemChannels.textInput</a> 将其作为文本输入处理；<a href="widgets/EditableTextState-class.html">EditableTextState</a> 则通过 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 监听文本输入。</p>
+<p>如果快捷键阻止了某个字段的文本输入，可以在组件树更下方再放置一个 <a href="widgets/Shortcuts-class.html">Shortcuts</a> 组件，并将所需按键映射到 <a href="widgets/DoNothingAndStopPropagationIntent-class.html">DoNothingAndStopPropagationIntent</a>，以覆盖此行为。框架会将该按键事件报告为未处理，随后照常将其作为文本输入发送。</p>
+<h2 id="gesture-events-handling">手势事件处理</h2>
+<p>当 <a href="widgets/EditableText/rendererIgnoresPointer.html">rendererIgnoresPointer</a> 为 false（默认值）时，此组件会为点击、长按和滚动等用户操作提供基础且跨平台的手势处理。</p>
+<p>若要提供更完整的手势处理（包括双击选词、拖动选择，以及长按等平台特定手势的处理），可以考虑将 <a href="widgets/EditableText/rendererIgnoresPointer.html">rendererIgnoresPointer</a> 设为 true，并使用 <a href="widgets/TextSelectionGestureDetectorBuilder-class.html">TextSelectionGestureDetectorBuilder</a>。</p>
+<h2 id="keep-the-caret-visible-when-focused">获得焦点时保持插入光标可见</h2>
+<p>获得焦点时，此组件会尝试在以下情况下保持文本区域及其插入光标可见（即使 <a href="widgets/EditableText/showCursor.html">showCursor</a> 为 <code>false</code>）：</p>
+<ul>
+<li>When the user focuses this text field and it is not <a href="widgets/EditableText/readOnly.html">readOnly</a>.</li>
+<li>When the user changes the selection of the text field, or changes the
+text when the text field is not <a href="widgets/EditableText/readOnly.html">readOnly</a>.</li>
+<li>When the virtual keyboard pops up.</li>
+</ul>
+<h2 id="scrolling-considerations">滚动注意事项</h2>
+<p>如果此 <a href="widgets/EditableText-class.html">EditableText</a> 不在 <a href="material/Scaffold-class.html">Scaffold</a> 子树中，且位于 <a href="widgets/Scrollable-class.html">Scrollable</a> 或嵌套的 <a href="widgets/Scrollable-class.html">Scrollable</a> 中，建议在包含此 <a href="widgets/ScrollNotificationObserver-class.html">EditableText</a> 的根 <a href="widgets/Scrollable-class.html">Scrollable</a> 上方放置 <a href="widgets/EditableText-class.html">ScrollNotificationObserver</a>，以确保 <a href="widgets/EditableText-class.html">TextSelectionOverlay</a> 等组件与 <a href="widgets/TextSelectionOverlay-class.html">EditableText</a> 正确协调滚动。</p>
+<h2 id="troubleshooting-common-accessibility-issues">常见无障碍问题排查</h2>
+<h3 id="customizing-user-input-accessibility-announcements">自定义用户输入无障碍播报</h3>
+<p>若要自定义文本变化触发的用户输入无障碍播报，请使用 <a href="semantics/SemanticsService/sendAnnouncement.html">SemanticsService.sendAnnouncement</a> 播报所需内容。</p>
+<p>在 iOS 上，如果 <a href="services/TextInputFormatter-class.html">TextInputFormatter</a> 为货币文本字段插入千位分隔符，屏幕键盘可能会错误播报最近输入的内容。以下示例演示如何始终将文本字段内容作为美元金额播报，从而抑制默认的无障碍播报（<code>\$</code> 会插入美元符号，<code>$newText</code> 会插入变量 <code>newText</code> 的值）：</p>
+<pre class="language-dart"><code class="language-dart">onChanged: (String newText) {
+  if (newText.isNotEmpty) {
+    SemanticsService.sendAnnouncement(
+      View.of(context),
+      '\$$newText',
+       Directionality.of(context),
+    );
+  }
+}
+</code></pre>
+<p>另请参阅：</p>
+<ul>
+<li><a href="material/TextField-class.html">TextField</a>, which is a full-featured, material-design text input field
+with placeholder text, labels, and <a href="widgets/Form-class.html">Form</a> integration.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>EditableText</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="EditableText.new" class="callable">
+          <span class="name"><a href="widgets/EditableText/EditableText.html">EditableText</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-controller"><span>required</span> <span class="type-annotation"><a href="widgets/TextEditingController-class.html">TextEditingController</a></span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="-param-focusNode"><span>required</span> <span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a></span> <span class="parameter-name">focusNode</span>, </span><span class="parameter" id="-param-readOnly"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">readOnly</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-obscuringCharacter"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">obscuringCharacter</span> = <span class="default-value">&#39;•&#39;</span>, </span><span class="parameter" id="-param-obscureText"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">obscureText</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-autocorrect"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">autocorrect</span>, </span><span class="parameter" id="-param-smartDashesType"><span class="type-annotation"><a href="services/SmartDashesType.html">SmartDashesType</a>?</span> <span class="parameter-name">smartDashesType</span>, </span><span class="parameter" id="-param-smartQuotesType"><span class="type-annotation"><a href="services/SmartQuotesType.html">SmartQuotesType</a>?</span> <span class="parameter-name">smartQuotesType</span>, </span><span class="parameter" id="-param-enableSuggestions"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enableSuggestions</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-style"><span>required</span> <span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a></span> <span class="parameter-name">style</span>, </span><span class="parameter" id="-param-strutStyle"><span class="type-annotation"><a href="painting/StrutStyle-class.html">StrutStyle</a>?</span> <span class="parameter-name">strutStyle</span>, </span><span class="parameter" id="-param-cursorColor"><span>required</span> <span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">cursorColor</span>, </span><span class="parameter" id="-param-backgroundCursorColor"><span>required</span> <span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">backgroundCursorColor</span>, </span><span class="parameter" id="-param-textAlign"><span class="type-annotation"><a href="dart-ui/TextAlign.html">TextAlign</a></span> <span class="parameter-name">textAlign</span> = <span class="default-value">TextAlign.start</span>, </span><span class="parameter" id="-param-textDirection"><span class="type-annotation"><a href="dart-ui/TextDirection.html">TextDirection</a>?</span> <span class="parameter-name">textDirection</span>, </span><span class="parameter" id="-param-locale"><span class="type-annotation"><a href="dart-ui/Locale-class.html">Locale</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="-param-textScaleFactor"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use textScaler instead. &#39; &#39;Use of textScaleFactor was deprecated in preparation for the upcoming nonlinear text scaling support. &#39; &#39;This feature was deprecated after v3.12.0-2.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">textScaleFactor</span>, </span><span class="parameter" id="-param-textScaler"><span class="type-annotation"><a href="painting/TextScaler-class.html">TextScaler</a>?</span> <span class="parameter-name">textScaler</span>, </span><span class="parameter" id="-param-maxLines"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span> = <span class="default-value">1</span>, </span><span class="parameter" id="-param-minLines"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minLines</span>, </span><span class="parameter" id="-param-expands"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">expands</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-forceLine"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceLine</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-textHeightBehavior"><span class="type-annotation"><a href="dart-ui/TextHeightBehavior-class.html">TextHeightBehavior</a>?</span> <span class="parameter-name">textHeightBehavior</span>, </span><span class="parameter" id="-param-textWidthBasis"><span class="type-annotation"><a href="painting/TextWidthBasis.html">TextWidthBasis</a></span> <span class="parameter-name">textWidthBasis</span> = <span class="default-value">TextWidthBasis.parent</span>, </span><span class="parameter" id="-param-autofocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">autofocus</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-showCursor"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showCursor</span>, </span><span class="parameter" id="-param-showSelectionHandles"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showSelectionHandles</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-selectionColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">selectionColor</span>, </span><span class="parameter" id="-param-selectionControls"><span class="type-annotation"><a href="widgets/TextSelectionControls-class.html">TextSelectionControls</a>?</span> <span class="parameter-name">selectionControls</span>, </span><span class="parameter" id="-param-keyboardType"><span class="type-annotation"><a href="services/TextInputType-class.html">TextInputType</a>?</span> <span class="parameter-name">keyboardType</span>, </span><span class="parameter" id="-param-textInputAction"><span class="type-annotation"><a href="flutter_test/TextInputAction.html">TextInputAction</a>?</span> <span class="parameter-name">textInputAction</span>, </span><span class="parameter" id="-param-textCapitalization"><span class="type-annotation"><a href="services/TextCapitalization.html">TextCapitalization</a></span> <span class="parameter-name">textCapitalization</span> = <span class="default-value">TextCapitalization.none</span>, </span><span class="parameter" id="-param-onChanged"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">onChanged</span>, </span><span class="parameter" id="-param-onEditingComplete"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onEditingComplete</span>, </span><span class="parameter" id="-param-onSubmitted"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">onSubmitted</span>, </span><span class="parameter" id="-param-onAppPrivateCommand"><span class="type-annotation"><a href="widgets/AppPrivateCommandCallback.html">AppPrivateCommandCallback</a>?</span> <span class="parameter-name">onAppPrivateCommand</span>, </span><span class="parameter" id="-param-onSelectionChanged"><span class="type-annotation"><a href="widgets/SelectionChangedCallback.html">SelectionChangedCallback</a>?</span> <span class="parameter-name">onSelectionChanged</span>, </span><span class="parameter" id="-param-onSelectionHandleTapped"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onSelectionHandleTapped</span>, </span><span class="parameter" id="-param-groupId"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">groupId</span> = <span class="default-value">EditableText</span>, </span><span class="parameter" id="-param-onTapOutside"><span class="type-annotation"><a href="widgets/TapRegionCallback.html">TapRegionCallback</a>?</span> <span class="parameter-name">onTapOutside</span>, </span><span class="parameter" id="-param-onTapUpOutside"><span class="type-annotation"><a href="widgets/TapRegionUpCallback.html">TapRegionUpCallback</a>?</span> <span class="parameter-name">onTapUpOutside</span>, </span><span class="parameter" id="-param-inputFormatters"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/TextInputFormatter-class.html">TextInputFormatter</a></span>&gt;</span>?</span> <span class="parameter-name">inputFormatters</span>, </span><span class="parameter" id="-param-mouseCursor"><span class="type-annotation"><a href="services/MouseCursor-class.html">MouseCursor</a>?</span> <span class="parameter-name">mouseCursor</span>, </span><span class="parameter" id="-param-rendererIgnoresPointer"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">rendererIgnoresPointer</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-cursorWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">cursorWidth</span> = <span class="default-value">2.0</span>, </span><span class="parameter" id="-param-cursorHeight"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cursorHeight</span>, </span><span class="parameter" id="-param-cursorRadius"><span class="type-annotation"><a href="dart-ui/Radius-class.html">Radius</a>?</span> <span class="parameter-name">cursorRadius</span>, </span><span class="parameter" id="-param-cursorOpacityAnimates"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">cursorOpacityAnimates</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-cursorOffset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a>?</span> <span class="parameter-name">cursorOffset</span>, </span><span class="parameter" id="-param-paintCursorAboveText"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">paintCursorAboveText</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-selectionHeightStyle"><span class="type-annotation"><a href="dart-ui/BoxHeightStyle.html">BoxHeightStyle</a>?</span> <span class="parameter-name">selectionHeightStyle</span>, </span><span class="parameter" id="-param-selectionWidthStyle"><span class="type-annotation"><a href="dart-ui/BoxWidthStyle.html">BoxWidthStyle</a>?</span> <span class="parameter-name">selectionWidthStyle</span>, </span><span class="parameter" id="-param-scrollPadding"><span class="type-annotation"><a href="painting/EdgeInsets-class.html">EdgeInsets</a></span> <span class="parameter-name">scrollPadding</span> = <span class="default-value">const EdgeInsets.all(20.0)</span>, </span><span class="parameter" id="-param-keyboardAppearance"><span class="type-annotation"><a href="dart-ui/Brightness.html">Brightness</a></span> <span class="parameter-name">keyboardAppearance</span> = <span class="default-value">Brightness.light</span>, </span><span class="parameter" id="-param-dragStartBehavior"><span class="type-annotation"><a href="gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">dragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span><span class="parameter" id="-param-enableInteractiveSelection"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">enableInteractiveSelection</span>, </span><span class="parameter" id="-param-selectAllOnFocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">selectAllOnFocus</span>, </span><span class="parameter" id="-param-scrollController"><span class="type-annotation"><a href="widgets/ScrollController-class.html">ScrollController</a>?</span> <span class="parameter-name">scrollController</span>, </span><span class="parameter" id="-param-scrollPhysics"><span class="type-annotation"><a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a>?</span> <span class="parameter-name">scrollPhysics</span>, </span><span class="parameter" id="-param-autocorrectionTextRectColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">autocorrectionTextRectColor</span>, </span><span class="parameter" id="-param-toolbarOptions"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use `contextMenuBuilder` instead. &#39; &#39;This feature was deprecated after v3.3.0-0.5.pre.&#39;)</span> <span class="type-annotation"><a class="deprecated" href="widgets/ToolbarOptions-class.html">ToolbarOptions</a>?</span> <span class="parameter-name">toolbarOptions</span>, </span><span class="parameter" id="-param-autofillHints"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">autofillHints</span> = <span class="default-value">const &lt;String&gt;[]</span>, </span><span class="parameter" id="-param-autofillClient"><span class="type-annotation"><a href="services/AutofillClient-class.html">AutofillClient</a>?</span> <span class="parameter-name">autofillClient</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span>, </span><span class="parameter" id="-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="-param-scrollBehavior"><span class="type-annotation"><a href="widgets/ScrollBehavior-class.html">ScrollBehavior</a>?</span> <span class="parameter-name">scrollBehavior</span>, </span><span class="parameter" id="-param-scribbleEnabled"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use `stylusHandwritingEnabled` instead. &#39; &#39;This feature was deprecated after v3.27.0-0.2.pre.&#39;)</span> <span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">scribbleEnabled</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-stylusHandwritingEnabled"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">stylusHandwritingEnabled</span> = <span class="default-value">defaultStylusHandwritingEnabled</span>, </span><span class="parameter" id="-param-enableIMEPersonalizedLearning"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enableIMEPersonalizedLearning</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-contentInsertionConfiguration"><span class="type-annotation"><a href="widgets/ContentInsertionConfiguration-class.html">ContentInsertionConfiguration</a>?</span> <span class="parameter-name">contentInsertionConfiguration</span>, </span><span class="parameter" id="-param-contextMenuBuilder"><span class="type-annotation"><a href="widgets/EditableTextContextMenuBuilder.html">EditableTextContextMenuBuilder</a>?</span> <span class="parameter-name">contextMenuBuilder</span>, </span><span class="parameter" id="-param-spellCheckConfiguration"><span class="type-annotation"><a href="widgets/SpellCheckConfiguration-class.html">SpellCheckConfiguration</a>?</span> <span class="parameter-name">spellCheckConfiguration</span>, </span><span class="parameter" id="-param-magnifierConfiguration"><span class="type-annotation"><a href="widgets/TextMagnifierConfiguration-class.html">TextMagnifierConfiguration</a></span> <span class="parameter-name">magnifierConfiguration</span> = <span class="default-value">TextMagnifierConfiguration.disabled</span>, </span><span class="parameter" id="-param-undoController"><span class="type-annotation"><a href="widgets/UndoHistoryController-class.html">UndoHistoryController</a>?</span> <span class="parameter-name">undoController</span>, </span><span class="parameter" id="-param-hintLocales"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Locale-class.html">Locale</a></span>&gt;</span>?</span> <span class="parameter-name">hintLocales</span>, </span><span class="parameter" id="-param-enableInlinePrediction"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">enableInlinePrediction</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a basic text input control.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="autocorrect" class="property">
+  <span class="name"><a href="widgets/EditableText/autocorrect.html">autocorrect</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to enable autocorrection.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="autocorrectionTextRectColor" class="property">
+  <span class="name"><a href="widgets/EditableText/autocorrectionTextRectColor.html">autocorrectionTextRectColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  The color to use when painting the autocorrection Rect.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="autofillClient" class="property">
+  <span class="name"><a href="widgets/EditableText/autofillClient.html">autofillClient</a></span>
+  <span class="signature">&#8594; <a href="services/AutofillClient-class.html">AutofillClient</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="services/AutofillClient-class.html">AutofillClient</a> that controls this input field's autofill behavior.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="autofillHints" class="property">
+  <span class="name"><a href="widgets/EditableText/autofillHints.html">autofillHints</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  A list of strings that helps the autofill service identify the type of this
+text input.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="autofocus" class="property">
+  <span class="name"><a href="widgets/EditableText/autofocus.html">autofocus</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this text field should focus itself if nothing else is already
+focused.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="backgroundCursorColor" class="property">
+  <span class="name"><a href="widgets/EditableText/backgroundCursorColor.html">backgroundCursorColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  The color to use when painting the background cursor aligned with the text
+while rendering the floating cursor.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="clipBehavior" class="property">
+  <span class="name"><a href="widgets/EditableText/clipBehavior.html">clipBehavior</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Clip.html">Clip</a></span>
+  
+
+</dt>
+<dd>
+  The content will be clipped (or not) according to this option.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="contentInsertionConfiguration" class="property">
+  <span class="name"><a href="widgets/EditableText/contentInsertionConfiguration.html">contentInsertionConfiguration</a></span>
+  <span class="signature">&#8594; <a href="widgets/ContentInsertionConfiguration-class.html">ContentInsertionConfiguration</a>?</span>
+  
+
+</dt>
+<dd>
+  Configuration of handler for media content inserted via the system input
+method.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="contextMenuBuilder" class="property">
+  <span class="name"><a href="widgets/EditableText/contextMenuBuilder.html">contextMenuBuilder</a></span>
+  <span class="signature">&#8594; <a href="widgets/EditableTextContextMenuBuilder.html">EditableTextContextMenuBuilder</a>?</span>
+  
+
+</dt>
+<dd>
+  Builds the text selection toolbar when requested by the user.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="controller" class="property">
+  <span class="name"><a href="widgets/EditableText/controller.html">controller</a></span>
+  <span class="signature">&#8594; <a href="widgets/TextEditingController-class.html">TextEditingController</a></span>
+  
+
+</dt>
+<dd>
+  Controls the text being edited.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="cursorColor" class="property">
+  <span class="name"><a href="widgets/EditableText/cursorColor.html">cursorColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  The color to use when painting the cursor.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="cursorHeight" class="property">
+  <span class="name"><a href="widgets/EditableText/cursorHeight.html">cursorHeight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  How tall the cursor will be.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="cursorOffset" class="property">
+  <span class="name"><a href="widgets/EditableText/cursorOffset.html">cursorOffset</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Offset-class.html">Offset</a>?</span>
+  
+
+</dt>
+<dd>
+  The offset that is used, in pixels, when painting the cursor on screen.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="cursorOpacityAnimates" class="property">
+  <span class="name"><a href="widgets/EditableText/cursorOpacityAnimates.html">cursorOpacityAnimates</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the cursor will animate from fully transparent to fully opaque
+during each cursor blink.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="cursorRadius" class="property">
+  <span class="name"><a href="widgets/EditableText/cursorRadius.html">cursorRadius</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Radius-class.html">Radius</a>?</span>
+  
+
+</dt>
+<dd>
+  How rounded the corners of the cursor should be.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="cursorWidth" class="property">
+  <span class="name"><a href="widgets/EditableText/cursorWidth.html">cursorWidth</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  How thick the cursor will be.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="dragStartBehavior" class="property">
+  <span class="name"><a href="widgets/EditableText/dragStartBehavior.html">dragStartBehavior</a></span>
+  <span class="signature">&#8594; <a href="gestures/DragStartBehavior.html">DragStartBehavior</a></span>
+  
+
+</dt>
+<dd>
+  Determines the way that drag start behavior is handled.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="enableIMEPersonalizedLearning" class="property">
+  <span class="name"><a href="widgets/EditableText/enableIMEPersonalizedLearning.html">enableIMEPersonalizedLearning</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to enable that the IME update personalized data such as typing
+history and user dictionary data.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="enableInlinePrediction" class="property">
+  <span class="name"><a href="widgets/EditableText/enableInlinePrediction.html">enableInlinePrediction</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  
+
+</dt>
+<dd>
+  Whether to enable inline predictive text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="enableInteractiveSelection" class="property">
+  <span class="name"><a href="widgets/EditableText/enableInteractiveSelection.html">enableInteractiveSelection</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to enable user interface affordances for changing the
+text selection.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="enableSuggestions" class="property">
+  <span class="name"><a href="widgets/EditableText/enableSuggestions.html">enableSuggestions</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to show input suggestions as the user types.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="expands" class="property">
+  <span class="name"><a href="widgets/EditableText/expands.html">expands</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this widget's height will be sized to fill its parent.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="focusNode" class="property">
+  <span class="name"><a href="widgets/EditableText/focusNode.html">focusNode</a></span>
+  <span class="signature">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a></span>
+  
+
+</dt>
+<dd>
+  Controls whether this widget has keyboard focus.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="forceLine" class="property">
+  <span class="name"><a href="widgets/EditableText/forceLine.html">forceLine</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the text will take the full width regardless of the text width.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="groupId" class="property">
+  <span class="name"><a href="widgets/EditableText/groupId.html">groupId</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Object-class.html">Object</a></span>
+  
+
+</dt>
+<dd>
+  The group identifier for the <a href="widgets/TextFieldTapRegion-class.html">TextFieldTapRegion</a> of this text field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hintLocales" class="property">
+  <span class="name"><a href="widgets/EditableText/hintLocales.html">hintLocales</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Locale-class.html">Locale</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  List of the languages that the user is expected to use.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="inputFormatters" class="property">
+  <span class="name"><a href="widgets/EditableText/inputFormatters.html">inputFormatters</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/TextInputFormatter-class.html">TextInputFormatter</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  Optional input validation and formatting overrides.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="keyboardAppearance" class="property">
+  <span class="name"><a href="widgets/EditableText/keyboardAppearance.html">keyboardAppearance</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Brightness.html">Brightness</a></span>
+  
+
+</dt>
+<dd>
+  The appearance of the keyboard.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="keyboardType" class="property">
+  <span class="name"><a href="widgets/EditableText/keyboardType.html">keyboardType</a></span>
+  <span class="signature">&#8594; <a href="services/TextInputType-class.html">TextInputType</a></span>
+  
+
+</dt>
+<dd>
+  The type of keyboard to use for editing the text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="locale" class="property">
+  <span class="name"><a href="widgets/EditableText/locale.html">locale</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Locale-class.html">Locale</a>?</span>
+  
+
+</dt>
+<dd>
+  Used to select a font when the same Unicode character can
+be rendered differently, depending on the locale.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="magnifierConfiguration" class="property">
+  <span class="name"><a href="widgets/EditableText/magnifierConfiguration.html">magnifierConfiguration</a></span>
+  <span class="signature">&#8594; <a href="widgets/TextMagnifierConfiguration-class.html">TextMagnifierConfiguration</a></span>
+  
+
+</dt>
+<dd>
+  The configuration for the magnifier to use with selections in this text
+field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="maxLines" class="property">
+  <span class="name"><a href="widgets/EditableText/maxLines.html">maxLines</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  The maximum number of lines to show at one time, wrapping if necessary.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="minLines" class="property">
+  <span class="name"><a href="widgets/EditableText/minLines.html">minLines</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  The minimum number of lines to occupy when the content spans fewer lines.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="mouseCursor" class="property">
+  <span class="name"><a href="widgets/EditableText/mouseCursor.html">mouseCursor</a></span>
+  <span class="signature">&#8594; <a href="services/MouseCursor-class.html">MouseCursor</a>?</span>
+  
+
+</dt>
+<dd>
+  The cursor for a mouse pointer when it enters or is hovering over the
+widget.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="obscureText" class="property">
+  <span class="name"><a href="widgets/EditableText/obscureText.html">obscureText</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to hide the text being edited (e.g., for passwords).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="obscuringCharacter" class="property">
+  <span class="name"><a href="widgets/EditableText/obscuringCharacter.html">obscuringCharacter</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Character used for obscuring text if <a href="widgets/EditableText/obscureText.html">obscureText</a> is true.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onAppPrivateCommand" class="property">
+  <span class="name"><a href="widgets/EditableText/onAppPrivateCommand.html">onAppPrivateCommand</a></span>
+  <span class="signature">&#8594; <a href="widgets/AppPrivateCommandCallback.html">AppPrivateCommandCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  This is used to receive a private command from the input method.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onChanged" class="property">
+  <span class="name"><a href="widgets/EditableText/onChanged.html">onChanged</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  Called when the user initiates a change to the TextField's
+value: when they have inserted or deleted text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onEditingComplete" class="property">
+  <span class="name"><a href="widgets/EditableText/onEditingComplete.html">onEditingComplete</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when the user submits editable content (e.g., user presses the "done"
+button on the keyboard).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onSelectionChanged" class="property">
+  <span class="name"><a href="widgets/EditableText/onSelectionChanged.html">onSelectionChanged</a></span>
+  <span class="signature">&#8594; <a href="widgets/SelectionChangedCallback.html">SelectionChangedCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when the user changes the selection of text (including the cursor
+location).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onSelectionHandleTapped" class="property">
+  <span class="name"><a href="widgets/EditableText/onSelectionHandleTapped.html">onSelectionHandleTapped</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  A callback that's optionally invoked when a selection handle is tapped.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onSubmitted" class="property">
+  <span class="name"><a href="widgets/EditableText/onSubmitted.html">onSubmitted</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  Called when the user indicates that they are done editing the text in the
+field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onTapOutside" class="property">
+  <span class="name"><a href="widgets/EditableText/onTapOutside.html">onTapOutside</a></span>
+  <span class="signature">&#8594; <a href="widgets/TapRegionCallback.html">TapRegionCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called for each tap down that occurs outside of the <a href="widgets/TextFieldTapRegion-class.html">TextFieldTapRegion</a>
+group when the text field is focused.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onTapUpOutside" class="property">
+  <span class="name"><a href="widgets/EditableText/onTapUpOutside.html">onTapUpOutside</a></span>
+  <span class="signature">&#8594; <a href="widgets/TapRegionUpCallback.html">TapRegionUpCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called for each tap up that occurs outside of the <a href="widgets/TextFieldTapRegion-class.html">TextFieldTapRegion</a>
+group when the text field is focused.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="paintCursorAboveText" class="property">
+  <span class="name"><a href="widgets/EditableText/paintCursorAboveText.html">paintCursorAboveText</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  If the cursor should be painted on top of the text or underneath it.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="readOnly" class="property">
+  <span class="name"><a href="widgets/EditableText/readOnly.html">readOnly</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the text can be changed.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="rendererIgnoresPointer" class="property">
+  <span class="name"><a href="widgets/EditableText/rendererIgnoresPointer.html">rendererIgnoresPointer</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the caller will provide gesture handling (true), or if the
+<a href="widgets/EditableText-class.html">EditableText</a> is expected to handle basic gestures (false).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="restorationId" class="property">
+  <span class="name"><a href="widgets/EditableText/restorationId.html">restorationId</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Restoration ID to save and restore the scroll offset of the
+<a href="widgets/EditableText-class.html">EditableText</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scribbleEnabled" class="property">
+  <span class="name"><a class="deprecated" href="widgets/EditableText/scribbleEnabled.html">scribbleEnabled</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether iOS 14 Scribble features are enabled for this widget.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="scrollBehavior" class="property">
+  <span class="name"><a href="widgets/EditableText/scrollBehavior.html">scrollBehavior</a></span>
+  <span class="signature">&#8594; <a href="widgets/ScrollBehavior-class.html">ScrollBehavior</a>?</span>
+  
+
+</dt>
+<dd>
+  A <a href="widgets/ScrollBehavior-class.html">ScrollBehavior</a> that will be applied to this widget individually.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="scrollController" class="property">
+  <span class="name"><a href="widgets/EditableText/scrollController.html">scrollController</a></span>
+  <span class="signature">&#8594; <a href="widgets/ScrollController-class.html">ScrollController</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="widgets/ScrollController-class.html">ScrollController</a> to use when vertically scrolling the input.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="scrollPadding" class="property">
+  <span class="name"><a href="widgets/EditableText/scrollPadding.html">scrollPadding</a></span>
+  <span class="signature">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a></span>
+  
+
+</dt>
+<dd>
+  Configures the padding for the edges surrounding a <a href="widgets/Scrollable-class.html">Scrollable</a> when the
+text field scrolls into view.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="scrollPhysics" class="property">
+  <span class="name"><a href="widgets/EditableText/scrollPhysics.html">scrollPhysics</a></span>
+  <span class="signature">&#8594; <a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a> to use when vertically scrolling the input.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectAllOnFocus" class="property">
+  <span class="name"><a href="widgets/EditableText/selectAllOnFocus.html">selectAllOnFocus</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this field should select all text when gaining focus.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectionColor" class="property">
+  <span class="name"><a href="widgets/EditableText/selectionColor.html">selectionColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  The color to use when painting the selection.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectionControls" class="property">
+  <span class="name"><a href="widgets/EditableText/selectionControls.html">selectionControls</a></span>
+  <span class="signature">&#8594; <a href="widgets/TextSelectionControls-class.html">TextSelectionControls</a>?</span>
+  
+
+</dt>
+<dd>
+  Optional delegate for building the text selection handles.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectionEnabled" class="property">
+  <span class="name"><a href="widgets/EditableText/selectionEnabled.html">selectionEnabled</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Same as <a href="widgets/EditableText/enableInteractiveSelection.html">enableInteractiveSelection</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="selectionHeightStyle" class="property">
+  <span class="name"><a href="widgets/EditableText/selectionHeightStyle.html">selectionHeightStyle</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/BoxHeightStyle.html">BoxHeightStyle</a></span>
+  
+
+</dt>
+<dd>
+  Controls how tall the selection highlight boxes are computed to be.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectionWidthStyle" class="property">
+  <span class="name"><a href="widgets/EditableText/selectionWidthStyle.html">selectionWidthStyle</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/BoxWidthStyle.html">BoxWidthStyle</a></span>
+  
+
+</dt>
+<dd>
+  Controls how wide the selection highlight boxes are computed to be.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="showCursor" class="property">
+  <span class="name"><a href="widgets/EditableText/showCursor.html">showCursor</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to show cursor.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="showSelectionHandles" class="property">
+  <span class="name"><a href="widgets/EditableText/showSelectionHandles.html">showSelectionHandles</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to show selection handles.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="smartDashesType" class="property">
+  <span class="name"><a href="widgets/EditableText/smartDashesType.html">smartDashesType</a></span>
+  <span class="signature">&#8594; <a href="services/SmartDashesType.html">SmartDashesType</a></span>
+  
+
+</dt>
+<dd>
+  Whether to allow the platform to automatically format dashes.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="smartQuotesType" class="property">
+  <span class="name"><a href="widgets/EditableText/smartQuotesType.html">smartQuotesType</a></span>
+  <span class="signature">&#8594; <a href="services/SmartQuotesType.html">SmartQuotesType</a></span>
+  
+
+</dt>
+<dd>
+  Whether to allow the platform to automatically format quotes.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="spellCheckConfiguration" class="property">
+  <span class="name"><a href="widgets/EditableText/spellCheckConfiguration.html">spellCheckConfiguration</a></span>
+  <span class="signature">&#8594; <a href="widgets/SpellCheckConfiguration-class.html">SpellCheckConfiguration</a>?</span>
+  
+
+</dt>
+<dd>
+  Configuration that details how spell check should be performed.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="strutStyle" class="property">
+  <span class="name"><a href="widgets/EditableText/strutStyle.html">strutStyle</a></span>
+  <span class="signature">&#8594; <a href="painting/StrutStyle-class.html">StrutStyle</a></span>
+  
+
+</dt>
+<dd>
+  The strut style used for the vertical layout.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="style" class="property">
+  <span class="name"><a href="widgets/EditableText/style.html">style</a></span>
+  <span class="signature">&#8594; <a href="painting/TextStyle-class.html">TextStyle</a></span>
+  
+
+</dt>
+<dd>
+  The text style to use for the editable text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="stylusHandwritingEnabled" class="property">
+  <span class="name"><a href="widgets/EditableText/stylusHandwritingEnabled.html">stylusHandwritingEnabled</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this input supports stylus handwriting, where the user can write
+directly on top of a field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textAlign" class="property">
+  <span class="name"><a href="widgets/EditableText/textAlign.html">textAlign</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/TextAlign.html">TextAlign</a></span>
+  
+
+</dt>
+<dd>
+  How the text should be aligned horizontally.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textCapitalization" class="property">
+  <span class="name"><a href="widgets/EditableText/textCapitalization.html">textCapitalization</a></span>
+  <span class="signature">&#8594; <a href="services/TextCapitalization.html">TextCapitalization</a></span>
+  
+
+</dt>
+<dd>
+  Configures how the platform keyboard will select an uppercase or
+lowercase keyboard.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textDirection" class="property">
+  <span class="name"><a href="widgets/EditableText/textDirection.html">textDirection</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/TextDirection.html">TextDirection</a>?</span>
+  
+
+</dt>
+<dd>
+  The directionality of the text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textHeightBehavior" class="property">
+  <span class="name"><a href="widgets/EditableText/textHeightBehavior.html">textHeightBehavior</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/TextHeightBehavior-class.html">TextHeightBehavior</a>?</span>
+  
+
+</dt>
+<dd>
+  Defines how to apply <a href="painting/TextStyle/height.html">TextStyle.height</a> over and under text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textInputAction" class="property">
+  <span class="name"><a href="widgets/EditableText/textInputAction.html">textInputAction</a></span>
+  <span class="signature">&#8594; <a href="flutter_test/TextInputAction.html">TextInputAction</a>?</span>
+  
+
+</dt>
+<dd>
+  The type of action button to use with the soft keyboard.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textScaleFactor" class="property">
+  <span class="name"><a class="deprecated" href="widgets/EditableText/textScaleFactor.html">textScaleFactor</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  Deprecated. Will be removed in a future version of Flutter. Use
+<a href="widgets/EditableText/textScaler.html">textScaler</a> instead.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textScaler" class="property">
+  <span class="name"><a href="widgets/EditableText/textScaler.html">textScaler</a></span>
+  <span class="signature">&#8594; <a href="painting/TextScaler-class.html">TextScaler</a>?</span>
+  
+
+</dt>
+<dd>
+  The font scaling strategy to use when laying out and rendering the text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textWidthBasis" class="property">
+  <span class="name"><a href="widgets/EditableText/textWidthBasis.html">textWidthBasis</a></span>
+  <span class="signature">&#8594; <a href="painting/TextWidthBasis.html">TextWidthBasis</a></span>
+  
+
+</dt>
+<dd>
+  Defines how to measure the width of the rendered text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="toolbarOptions" class="property">
+  <span class="name"><a href="widgets/EditableText/toolbarOptions.html">toolbarOptions</a></span>
+  <span class="signature">&#8594; <a class="deprecated" href="widgets/ToolbarOptions-class.html">ToolbarOptions</a></span>
+  
+
+</dt>
+<dd>
+  Configuration of toolbar options.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="undoController" class="property">
+  <span class="name"><a href="widgets/EditableText/undoController.html">undoController</a></span>
+  <span class="signature">&#8594; <a href="widgets/UndoHistoryController-class.html">UndoHistoryController</a>?</span>
+  
+
+</dt>
+<dd>
+  Controls the undo state of the current editable text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="widgets/EditableText/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/EditableTextState-class.html">EditableTextState</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable">
+  <span class="name"><a href="widgets/EditableText/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="debugDeterministicCursor" class="property">
+  <span class="name"><a href="widgets/EditableText/debugDeterministicCursor.html">debugDeterministicCursor</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Setting this property to true makes the cursor stop blinking or fading
+on and off once the cursor appears on focus. This property is useful for
+testing purposes.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="defaultSelectionHeightStyle" class="property">
+  <span class="name"><a href="widgets/EditableText/defaultSelectionHeightStyle.html">defaultSelectionHeightStyle</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/BoxHeightStyle.html">BoxHeightStyle</a></span>
+  
+
+</dt>
+<dd>
+  The default value for <a href="widgets/EditableText/selectionHeightStyle.html">selectionHeightStyle</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="defaultSelectionWidthStyle" class="property">
+  <span class="name"><a href="widgets/EditableText/defaultSelectionWidthStyle.html">defaultSelectionWidthStyle</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/BoxWidthStyle.html">BoxWidthStyle</a></span>
+  
+
+</dt>
+<dd>
+  The default value for <a href="widgets/EditableText/selectionWidthStyle.html">selectionWidthStyle</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="getEditableButtonItems" class="callable">
+  <span class="name"><a href="widgets/EditableText/getEditableButtonItems.html">getEditableButtonItems</a></span><span class="signature">(<wbr>{<span class="parameter" id="getEditableButtonItems-param-clipboardStatus"><span>required</span> <span class="type-annotation"><a href="widgets/ClipboardStatus.html">ClipboardStatus</a>?</span> <span class="parameter-name">clipboardStatus</span>, </span><span class="parameter" id="getEditableButtonItems-param-onCopy"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onCopy</span>, </span><span class="parameter" id="getEditableButtonItems-param-onCut"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onCut</span>, </span><span class="parameter" id="getEditableButtonItems-param-onPaste"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onPaste</span>, </span><span class="parameter" id="getEditableButtonItems-param-onSelectAll"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onSelectAll</span>, </span><span class="parameter" id="getEditableButtonItems-param-onLookUp"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onLookUp</span>, </span><span class="parameter" id="getEditableButtonItems-param-onSearchWeb"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onSearchWeb</span>, </span><span class="parameter" id="getEditableButtonItems-param-onShare"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onShare</span>, </span><span class="parameter" id="getEditableButtonItems-param-onLiveTextInput"><span>required</span> <span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onLiveTextInput</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/ContextMenuButtonItem-class.html">ContextMenuButtonItem</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/ContextMenuButtonItem-class.html">ContextMenuButtonItem</a>s representing the buttons in this
+platform's default selection menu for an editable field.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>常量</h2>
+    <dl class="properties">
+        <dt id="defaultStylusHandwritingEnabled" class="constant">
+    <span class="name "><a href="widgets/EditableText/defaultStylusHandwritingEnabled-constant.html">defaultStylusHandwritingEnabled</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  The default value for <a href="widgets/EditableText/stylusHandwritingEnabled.html">stylusHandwritingEnabled</a>.
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">EditableText 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

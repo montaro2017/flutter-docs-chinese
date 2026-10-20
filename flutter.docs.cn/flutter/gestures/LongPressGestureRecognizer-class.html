@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="gestures 库中 LongPressGestureRecognizer 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>LongPressGestureRecognizer 类 - gestures 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="gestures/">gestures.dart</a></li>
+    <li class="self-crumb">LongPressGestureRecognizer 类</li>
+  </ol>
+  <div class="self-name">LongPressGestureRecognizer</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="gestures&#47;gestures-library-sidebar.html"
+    data-below-sidebar="gestures&#47;LongPressGestureRecognizer-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/gestures/long_press.dart#L262"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">LongPressGestureRecognizer</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>识别用户在同一位置按住一段时间的手势。</p>
+<p>手势被识别前，触点必须在 500 毫秒内保持在按下位置附近。手势被接受后，手指可以移动并触发 <a href="gestures/LongPressGestureRecognizer/onLongPressMoveUpdate.html">onLongPressMoveUpdate</a> 回调；但如果指定了构造函数参数 <a href="gestures/PrimaryPointerGestureRecognizer/postAcceptSlopTolerance.html">postAcceptSlopTolerance</a>，则不适用。</p>
+<p>只要至少有一个对应回调非 null，<a href="gestures/LongPressGestureRecognizer-class.html">LongPressGestureRecognizer</a> 就可能参与 <a href="gestures/kPrimaryButton-constant.html">kPrimaryButton</a>、<a href="gestures/kSecondaryButton-constant.html">kSecondaryButton</a> 和/或 <a href="gestures/kTertiaryButton-constant.html">kTertiaryButton</a> 的指针事件竞争。如果没有任何回调，它不会执行操作。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="gestures/GestureArenaMember-class.html">GestureArenaMember</a></li>
+        <li><a href="gestures/GestureRecognizer-class.html">GestureRecognizer</a></li>
+        <li><a href="gestures/OneSequenceGestureRecognizer-class.html">OneSequenceGestureRecognizer</a></li>
+        <li><a href="gestures/PrimaryPointerGestureRecognizer-class.html">PrimaryPointerGestureRecognizer</a></li>
+      <li>LongPressGestureRecognizer</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="LongPressGestureRecognizer.new" class="callable">
+          <span class="name"><a href="gestures/LongPressGestureRecognizer/LongPressGestureRecognizer.html">LongPressGestureRecognizer</a></span><span class="signature">({<span class="parameter" id="-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="-param-postAcceptSlopTolerance"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">postAcceptSlopTolerance</span> = <span class="default-value">null</span>, </span><span class="parameter" id="-param-supportedDevices"><span class="type-annotation"><a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/PointerDeviceKind.html">PointerDeviceKind</a></span>&gt;</span>?</span> <span class="parameter-name">supportedDevices</span>, </span><span class="parameter" id="-param-debugOwner"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">debugOwner</span>, </span><span class="parameter" id="-param-allowedButtonsFilter"><span class="type-annotation"><a href="gestures/AllowedButtonsFilter.html">AllowedButtonsFilter</a>?</span> <span class="parameter-name">allowedButtonsFilter</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a long-press gesture recognizer.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="allowedButtonsFilter" class="property inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/allowedButtonsFilter.html">allowedButtonsFilter</a></span>
+  <span class="signature">&#8594; <a href="gestures/AllowedButtonsFilter.html">AllowedButtonsFilter</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when interaction starts. This limits the dragging behavior
+for custom clicks (such as scroll click). Its parameter comes
+from <a href="gestures/PointerEvent/buttons.html">PointerEvent.buttons</a>.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="deadline" class="property inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/deadline.html">deadline</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Duration-class.html">Duration</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  If non-null, the recognizer will call <a href="gestures/PrimaryPointerGestureRecognizer/didExceedDeadline.html">didExceedDeadline</a> after this
+amount of time has elapsed since starting to track the primary pointer.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugDescription" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/debugDescription.html">debugDescription</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Returns a very short pretty description of the gesture that the
+recognizer looks for, like 'tap' or 'horizontal drag'.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugOwner" class="property inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/debugOwner.html">debugOwner</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Object-class.html">Object</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The recognizer's owner.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="gestureSettings" class="property inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/gestureSettings.html">gestureSettings</a></span>
+  <span class="signature">&#8596; <a href="gestures/DeviceGestureSettings-class.html">DeviceGestureSettings</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Optional device specific configuration for device gestures that will
+take precedence over framework defaults.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="initialPosition" class="property inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/initialPosition.html">initialPosition</a></span>
+  <span class="signature">&#8594; <a href="gestures/OffsetPair-class.html">OffsetPair</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The location at which the primary pointer contacted the screen.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onLongPress" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onLongPress.html">onLongPress</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressCallback.html">GestureLongPressCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a long press gesture by a primary button has been recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onLongPressCancel" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onLongPressCancel.html">onLongPressCancel</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressCancelCallback.html">GestureLongPressCancelCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a pointer that previously triggered <a href="gestures/LongPressGestureRecognizer/onLongPressDown.html">onLongPressDown</a> will
+not end up causing a long-press.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onLongPressDown" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onLongPressDown.html">onLongPressDown</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressDownCallback.html">GestureLongPressDownCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a pointer has contacted the screen at a particular location
+with a primary button, which might be the start of a long-press.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onLongPressEnd" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onLongPressEnd.html">onLongPressEnd</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressEndCallback.html">GestureLongPressEndCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when the pointer stops contacting the screen after a long-press
+by a primary button.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onLongPressMoveUpdate" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onLongPressMoveUpdate.html">onLongPressMoveUpdate</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressMoveUpdateCallback.html">GestureLongPressMoveUpdateCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when moving after the long press by a primary button is recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onLongPressStart" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onLongPressStart.html">onLongPressStart</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressStartCallback.html">GestureLongPressStartCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a long press gesture by a primary button has been recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onLongPressUp" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onLongPressUp.html">onLongPressUp</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressUpCallback.html">GestureLongPressUpCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when the pointer stops contacting the screen after a long-press
+by a primary button.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onSecondaryLongPress" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onSecondaryLongPress.html">onSecondaryLongPress</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressCallback.html">GestureLongPressCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a long press gesture by a secondary button has been
+recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onSecondaryLongPressCancel" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onSecondaryLongPressCancel.html">onSecondaryLongPressCancel</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressCancelCallback.html">GestureLongPressCancelCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a pointer that previously triggered <a href="gestures/LongPressGestureRecognizer/onSecondaryLongPressDown.html">onSecondaryLongPressDown</a>
+will not end up causing a long-press.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onSecondaryLongPressDown" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onSecondaryLongPressDown.html">onSecondaryLongPressDown</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressDownCallback.html">GestureLongPressDownCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a pointer has contacted the screen at a particular location
+with a secondary button, which might be the start of a long-press.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onSecondaryLongPressEnd" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onSecondaryLongPressEnd.html">onSecondaryLongPressEnd</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressEndCallback.html">GestureLongPressEndCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when the pointer stops contacting the screen after a long-press by
+a secondary button.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onSecondaryLongPressMoveUpdate" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onSecondaryLongPressMoveUpdate.html">onSecondaryLongPressMoveUpdate</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressMoveUpdateCallback.html">GestureLongPressMoveUpdateCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when moving after the long press by a secondary button is
+recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onSecondaryLongPressStart" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onSecondaryLongPressStart.html">onSecondaryLongPressStart</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressStartCallback.html">GestureLongPressStartCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a long press gesture by a secondary button has been recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onSecondaryLongPressUp" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onSecondaryLongPressUp.html">onSecondaryLongPressUp</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressUpCallback.html">GestureLongPressUpCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when the pointer stops contacting the screen after a long-press by
+a secondary button.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onTertiaryLongPress" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onTertiaryLongPress.html">onTertiaryLongPress</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressCallback.html">GestureLongPressCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a long press gesture by a tertiary button has been
+recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onTertiaryLongPressCancel" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onTertiaryLongPressCancel.html">onTertiaryLongPressCancel</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressCancelCallback.html">GestureLongPressCancelCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a pointer that previously triggered <a href="gestures/LongPressGestureRecognizer/onTertiaryLongPressDown.html">onTertiaryLongPressDown</a>
+will not end up causing a long-press.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onTertiaryLongPressDown" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onTertiaryLongPressDown.html">onTertiaryLongPressDown</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressDownCallback.html">GestureLongPressDownCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a pointer has contacted the screen at a particular location
+with a tertiary button, which might be the start of a long-press.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onTertiaryLongPressEnd" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onTertiaryLongPressEnd.html">onTertiaryLongPressEnd</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressEndCallback.html">GestureLongPressEndCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when the pointer stops contacting the screen after a long-press by
+a tertiary button.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onTertiaryLongPressMoveUpdate" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onTertiaryLongPressMoveUpdate.html">onTertiaryLongPressMoveUpdate</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressMoveUpdateCallback.html">GestureLongPressMoveUpdateCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when moving after the long press by a tertiary button is
+recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onTertiaryLongPressStart" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onTertiaryLongPressStart.html">onTertiaryLongPressStart</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressStartCallback.html">GestureLongPressStartCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a long press gesture by a tertiary button has been recognized.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="onTertiaryLongPressUp" class="property">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/onTertiaryLongPressUp.html">onTertiaryLongPressUp</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureLongPressUpCallback.html">GestureLongPressUpCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when the pointer stops contacting the screen after a long-press by
+a tertiary button.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="postAcceptSlopTolerance" class="property inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/postAcceptSlopTolerance.html">postAcceptSlopTolerance</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The maximum distance in logical pixels the gesture is allowed to drift
+after the gesture has been accepted.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="preAcceptSlopTolerance" class="property inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/preAcceptSlopTolerance.html">preAcceptSlopTolerance</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The maximum distance in logical pixels the gesture is allowed to drift
+from the initial touch down position before the gesture is accepted.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="primaryPointer" class="property inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/primaryPointer.html">primaryPointer</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The ID of the primary pointer this recognizer is tracking.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="state" class="property inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/state.html">state</a></span>
+  <span class="signature">&#8594; <a href="gestures/GestureRecognizerState.html">GestureRecognizerState</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The current state of the recognizer.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="supportedDevices" class="property inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/supportedDevices.html">supportedDevices</a></span>
+  <span class="signature">&#8596; <a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/PointerDeviceKind.html">PointerDeviceKind</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The kind of devices that are allowed to be recognized as provided by
+<code>supportedDevices</code> in the constructor, or the currently deprecated <code>kind</code>.
+These cannot both be set. If both are null, events from all device kinds will be
+tracked and recognized.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="team" class="property inherited">
+  <span class="name"><a href="gestures/OneSequenceGestureRecognizer/team.html">team</a></span>
+  <span class="signature">&#8596; <a href="gestures/GestureArenaTeam-class.html">GestureArenaTeam</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The team that this recognizer belongs to, if any.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="acceptGesture" class="callable">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/acceptGesture.html">acceptGesture</a></span><span class="signature">(<wbr><span class="parameter" id="acceptGesture-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when this member wins the arena for the given pointer id.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="addAllowedPointer" class="callable inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/addAllowedPointer.html">addAllowedPointer</a></span><span class="signature">(<wbr><span class="parameter" id="addAllowedPointer-param-event"><span class="type-annotation"><a href="gestures/PointerDownEvent-class.html">PointerDownEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a new pointer that's been checked to be allowed by this gesture
+recognizer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addAllowedPointerPanZoom" class="callable inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/addAllowedPointerPanZoom.html">addAllowedPointerPanZoom</a></span><span class="signature">(<wbr><span class="parameter" id="addAllowedPointerPanZoom-param-event"><span class="type-annotation"><a href="gestures/PointerPanZoomStartEvent-class.html">PointerPanZoomStartEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a new pointer pan/zoom that's been checked to be allowed by this
+gesture recognizer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addPointer" class="callable inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/addPointer.html">addPointer</a></span><span class="signature">(<wbr><span class="parameter" id="addPointer-param-event"><span class="type-annotation"><a href="gestures/PointerDownEvent-class.html">PointerDownEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a new pointer that might be relevant to this gesture
+detector.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addPointerPanZoom" class="callable inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/addPointerPanZoom.html">addPointerPanZoom</a></span><span class="signature">(<wbr><span class="parameter" id="addPointerPanZoom-param-event"><span class="type-annotation"><a href="gestures/PointerPanZoomStartEvent-class.html">PointerPanZoomStartEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a new pointer pan/zoom that might be relevant to this gesture
+detector.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTreeMixin/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="didExceedDeadline" class="callable">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/didExceedDeadline.html">didExceedDeadline</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Override to be notified when <a href="gestures/PrimaryPointerGestureRecognizer/deadline.html">deadline</a> is exceeded.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="didExceedDeadlineWithEvent" class="callable inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/didExceedDeadlineWithEvent.html">didExceedDeadlineWithEvent</a></span><span class="signature">(<wbr><span class="parameter" id="didExceedDeadlineWithEvent-param-event"><span class="type-annotation"><a href="gestures/PointerDownEvent-class.html">PointerDownEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Same as <a href="gestures/PrimaryPointerGestureRecognizer/didExceedDeadline.html">didExceedDeadline</a> but receives the <code>event</code> that initiated the
+gesture.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="didStopTrackingLastPointer" class="callable inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/didStopTrackingLastPointer.html">didStopTrackingLastPointer</a></span><span class="signature">(<wbr><span class="parameter" id="didStopTrackingLastPointer-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the number of pointers this recognizer is tracking changes from one to zero.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="dispose" class="callable inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Releases any resources used by the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="getButtonsForPointer" class="callable inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/getButtonsForPointer.html">getButtonsForPointer</a></span><span class="signature">(<wbr><span class="parameter" id="getButtonsForPointer-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  For a given pointer ID, returns the buttons associated with it.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="getKindForPointer" class="callable inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/getKindForPointer.html">getKindForPointer</a></span><span class="signature">(<wbr><span class="parameter" id="getKindForPointer-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/PointerDeviceKind.html">PointerDeviceKind</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  For a given pointer ID, returns the device kind associated with it.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleEvent" class="callable inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/handleEvent.html">handleEvent</a></span><span class="signature">(<wbr><span class="parameter" id="handleEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when a pointer event is routed to this recognizer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleNonAllowedPointer" class="callable inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/handleNonAllowedPointer.html">handleNonAllowedPointer</a></span><span class="signature">(<wbr><span class="parameter" id="handleNonAllowedPointer-param-event"><span class="type-annotation"><a href="gestures/PointerDownEvent-class.html">PointerDownEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Handles a pointer being added that's not allowed by this recognizer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleNonAllowedPointerPanZoom" class="callable inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/handleNonAllowedPointerPanZoom.html">handleNonAllowedPointerPanZoom</a></span><span class="signature">(<wbr><span class="parameter" id="handleNonAllowedPointerPanZoom-param-event"><span class="type-annotation"><a href="gestures/PointerPanZoomStartEvent-class.html">PointerPanZoomStartEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Handles a pointer pan/zoom being added that's not allowed by this recognizer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handlePrimaryPointer" class="callable">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/handlePrimaryPointer.html">handlePrimaryPointer</a></span><span class="signature">(<wbr><span class="parameter" id="handlePrimaryPointer-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Override to provide behavior for the primary pointer when the gesture is still possible.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="invokeCallback" class="callable inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/invokeCallback.html">invokeCallback</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="invokeCallback-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="invokeCallback-param-callback"><span class="type-annotation"><a href="gestures/RecognizerCallback.html">RecognizerCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">callback</span>, {</span><span class="parameter" id="invokeCallback-param-debugReport"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">debugReport</span>()?</span>})
+    <span class="returntype parameter">&#8594; T?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoke a callback provided by the application, catching and logging any
+exceptions.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isPointerAllowed" class="callable">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/isPointerAllowed.html">isPointerAllowed</a></span><span class="signature">(<wbr><span class="parameter" id="isPointerAllowed-param-event"><span class="type-annotation"><a href="gestures/PointerDownEvent-class.html">PointerDownEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks whether or not a pointer is allowed to be tracked by this recognizer.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="isPointerPanZoomAllowed" class="callable inherited">
+  <span class="name"><a href="gestures/GestureRecognizer/isPointerPanZoomAllowed.html">isPointerPanZoomAllowed</a></span><span class="signature">(<wbr><span class="parameter" id="isPointerPanZoomAllowed-param-event"><span class="type-annotation"><a href="gestures/PointerPanZoomStartEvent-class.html">PointerPanZoomStartEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Checks whether or not a pointer pan/zoom is allowed to be tracked by this recognizer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="rejectGesture" class="callable inherited">
+  <span class="name"><a href="gestures/PrimaryPointerGestureRecognizer/rejectGesture.html">rejectGesture</a></span><span class="signature">(<wbr><span class="parameter" id="rejectGesture-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when this member loses the arena for the given pointer id.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resolve" class="callable">
+  <span class="name"><a href="gestures/LongPressGestureRecognizer/resolve.html">resolve</a></span><span class="signature">(<wbr><span class="parameter" id="resolve-param-disposition"><span class="type-annotation"><a href="gestures/GestureDisposition.html">GestureDisposition</a></span> <span class="parameter-name">disposition</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Resolves this recognizer's participation in each gesture arena with the
+given disposition.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="resolvePointer" class="callable inherited">
+  <span class="name"><a href="gestures/OneSequenceGestureRecognizer/resolvePointer.html">resolvePointer</a></span><span class="signature">(<wbr><span class="parameter" id="resolvePointer-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span>, </span><span class="parameter" id="resolvePointer-param-disposition"><span class="type-annotation"><a href="gestures/GestureDisposition.html">GestureDisposition</a></span> <span class="parameter-name">disposition</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Resolves this recognizer's participation in the given gesture arena with
+the given disposition.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="startTrackingPointer" class="callable inherited">
+  <span class="name"><a href="gestures/OneSequenceGestureRecognizer/startTrackingPointer.html">startTrackingPointer</a></span><span class="signature">(<wbr><span class="parameter" id="startTrackingPointer-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span>, [</span><span class="parameter" id="startTrackingPointer-param-transform"><span class="type-annotation"><a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a>?</span> <span class="parameter-name">transform</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Causes events related to the given pointer ID to be routed to this recognizer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="stopTrackingIfPointerNoLongerDown" class="callable inherited">
+  <span class="name"><a href="gestures/OneSequenceGestureRecognizer/stopTrackingIfPointerNoLongerDown.html">stopTrackingIfPointerNoLongerDown</a></span><span class="signature">(<wbr><span class="parameter" id="stopTrackingIfPointerNoLongerDown-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Stops tracking the pointer associated with the given event if the event is
+a <a href="gestures/PointerUpEvent-class.html">PointerUpEvent</a> or a <a href="gestures/PointerCancelEvent-class.html">PointerCancelEvent</a> event.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="stopTrackingPointer" class="callable inherited">
+  <span class="name"><a href="gestures/OneSequenceGestureRecognizer/stopTrackingPointer.html">stopTrackingPointer</a></span><span class="signature">(<wbr><span class="parameter" id="stopTrackingPointer-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Stops events related to the given pointer ID from being routed to this recognizer.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTreeMixin/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTreeMixin/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTreeMixin/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTreeMixin/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTreeMixin/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A brief description of this object, usually just the <a href="dart-core/Object/runtimeType.html">runtimeType</a> and the
+<a href="dart-core/Object/hashCode.html">hashCode</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="gestures/">gestures</a></li>
+    <li class="self-crumb">LongPressGestureRecognizer 类</li>
+</ol>
+
+    <h5>gestures 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

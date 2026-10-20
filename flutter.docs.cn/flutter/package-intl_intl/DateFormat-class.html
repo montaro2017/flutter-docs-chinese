@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="intl 库中 DateFormat 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>DateFormat 类 - intl 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-intl_intl/">intl.dart</a></li>
+    <li class="self-crumb">DateFormat 类</li>
+  </ol>
+  <div class="self-name">DateFormat</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-intl_intl&#47;package-intl_intl-library-sidebar.html"
+    data-below-sidebar="package-intl_intl&#47;DateFormat-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">DateFormat</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>DateFormat 用于根据区域设置格式化和解析日期。</p>
+<p>它允许用户从一组标准日期时间格式中选择，也可以在特定区域设置下指定自定义模式。不同区域的日期元素可能有所不同，包括月份名称、星期名称和字段顺序等。用户还可以使用任意自定义模式，在特定区域设置下解析或格式化日期时间字符串。</p>
+<p>使用默认的 'en_US' 格式化日期无需初始化。例如：</p>
+<pre class="language-dart"><code class="language-dart">print(DateFormat.yMMMd().format(DateTime.now()));
+</code></pre>
+<p>对于其他区域设置，必须先获取该区域的格式化数据。目前可通过三种方式完成，具体取决于导入的库。无论采用哪种方式，都必须调用 initializeDateFormatting 方法；该方法返回一个 Future，在区域数据可用时完成。无需关心 Future 的结果；完成后，该区域数据即可用于日期格式化与解析。</p>
+<p>最简单的方式是从包含所有区域数据的库中导入本地数据。</p>
+<pre class="language-dart"><code class="language-dart">import 'package:intl/date_symbol_data_local.dart';
+initializeDateFormatting('fr_FR', null).then((_) =&gt; runMyCode());
+</code></pre>
+<p>如果程序运行在浏览器之外，可以从文件系统读取数据。</p>
+<pre class="language-dart"><code class="language-dart">import 'package:intl/date_symbol_data_file.dart';
+initializeDateFormatting('de_DE', null).then((_) =&gt; runMyCode());
+</code></pre>
+<p>如果程序运行在浏览器中，可以通过 XmlHttpRequest 机制从服务器读取数据。</p>
+<pre class="language-dart"><code class="language-dart">import 'package:intl/date_symbol_data_http_request.dart';
+initializeDateFormatting('pt_BR', null).then((_) =&gt; runMyCode());
+</code></pre>
+<p>获取区域数据后，需要指定具体格式。本库对完整格式和缩略的“骨架”格式都采用 ICU/JDK 日期时间模式规范。骨架格式也能适配不同区域设置，在可用时优先使用。</p>
+<p>骨架可以用 ICU 常量名称指定，也可以直接使用其对应的骨架字符串。支持的骨架如下，每种骨架都有对应的命名构造函数。虽然也可以直接传入骨架字符串，但推荐使用构造函数。</p>
+<pre class="language-dart"><code> ICU Name                   Skeleton
+ --------                   --------
+ DAY                          d
+ ABBR_WEEKDAY                 E
+ WEEKDAY                      EEEE
+ ABBR_STANDALONE_MONTH        LLL
+ STANDALONE_MONTH             LLLL
+ NUM_MONTH                    M
+ NUM_MONTH_DAY                Md
+ NUM_MONTH_WEEKDAY_DAY        MEd
+ ABBR_MONTH                   MMM
+ ABBR_MONTH_DAY               MMMd
+ ABBR_MONTH_WEEKDAY_DAY       MMMEd
+ MONTH                        MMMM
+ MONTH_DAY                    MMMMd
+ MONTH_WEEKDAY_DAY            MMMMEEEEd
+ ABBR_QUARTER                 QQQ
+ QUARTER                      QQQQ
+ YEAR                         y
+ YEAR_NUM_MONTH               yM
+ YEAR_NUM_MONTH_DAY           yMd
+ YEAR_NUM_MONTH_WEEKDAY_DAY   yMEd
+ YEAR_ABBR_MONTH              yMMM
+ YEAR_ABBR_MONTH_DAY          yMMMd
+ YEAR_ABBR_MONTH_WEEKDAY_DAY  yMMMEd
+ YEAR_MONTH                   yMMMM
+ YEAR_MONTH_DAY               yMMMMd
+ YEAR_MONTH_WEEKDAY_DAY       yMMMMEEEEd
+ YEAR_ABBR_QUARTER            yQQQ
+ YEAR_QUARTER                 yQQQQ
+ HOUR24                       H
+ HOUR24_MINUTE                Hm
+ HOUR24_MINUTE_SECOND         Hms
+ HOUR                         j
+ HOUR_MINUTE                  jm
+ HOUR_MINUTE_SECOND           jms
+ HOUR_MINUTE_GENERIC_TZ       jmv   (not yet implemented)
+ HOUR_MINUTE_TZ               jmz   (not yet implemented)
+ HOUR_GENERIC_TZ              jv    (not yet implemented)
+ HOUR_TZ                      jz    (not yet implemented)
+ MINUTE                       m
+ MINUTE_SECOND                ms
+ SECOND                       s
+</code></pre>
+<p>使用美国区域设置的示例：</p>
+<pre class="language-dart"><code> Pattern                           Result
+ ----------------                  -------
+ DateFormat.yMd()                 -&gt; 7/10/1996
+ DateFormat('yMd')                -&gt; 7/10/1996
+ DateFormat.yMMMMd('en_US')       -&gt; July 10, 1996
+ DateFormat.jm()                  -&gt; 5:08 PM
+ DateFormat.yMd().add_jm()        -&gt; 7/10/1996 5:08 PM
+ DateFormat.Hm()                  -&gt; 17:08 // force 24 hour time
+</code></pre>
+<p>显式模式语法：也可以通过模式字符串指定格式。这适用于没有对应骨架的格式，但不会适配不同区域设置。例如，显式模式中的字母 'H' 和 'h' 分别表示 24 小时制和 12 小时制。显式模式无法实现 'j' 骨架的行为；'j' 会根据区域习惯选择 24 或 12 小时制，并在适当时包含上午/下午标记。因此，优先使用骨架更合适。</p>
+<p>显式模式支持以下字符：</p>
+<pre class="language-dart"><code>Symbol   Meaning                Presentation       Example
+------   -------                ------------       -------
+G        era designator         (Text)             AD
+y        year                   (Number)           1996
+M        month in year          (Text &amp; Number)    July &amp; 07
+L        standalone month       (Text &amp; Number)    July &amp; 07
+d        day in month           (Number)           10
+c        standalone day         (Number)           10
+h        hour in am/pm (1~12)   (Number)           12
+H        hour in day (0~23)     (Number)           0
+m        minute in hour         (Number)           30
+s        second in minute       (Number)           55
+S        fractional second      (Number)           978
+E        day of week            (Text)             Tuesday
+D        day in year            (Number)           189
+a        am/pm marker           (Text)             PM
+k        hour in day (1~24)     (Number)           24
+K        hour in am/pm (0~11)   (Number)           0
+Q        quarter                (Text)             Q3
+'        escape for text        (Delimiter)        'Date='
+''       single quote           (Literal)          'o''clock'
+</code></pre>
+<p>以下字符为保留字符，目前尚未实现：</p>
+<pre class="language-dart"><code>Symbol   Meaning                Presentation       Example
+------   -------                ------------       -------
+z        time zone              (Text)             Pacific Standard Time
+Z        time zone (RFC 822)    (Number)           -0800
+v        time zone (generic)    (Text)             Pacific Time
+</code></pre>
+<p>模式字母的数量决定格式。</p>
+<p><strong>文本</strong>：</p>
+<ul>
+<li>5 pattern letters--use narrow form for standalone. Otherwise not used.</li>
+<li>4 or more pattern letters--use full form,</li>
+<li>3 pattern letters--use short or abbreviated form if one exists</li>
+<li>less than 3--use numeric form if one exists</li>
+</ul>
+<p><strong>数字</strong>：表示最少数字位数。较短的数字会在左侧补零至指定长度（例如，'m' 生成 '6'，而 'mm' 生成 '06'）。年份有特殊处理：若 'y' 的数量为 2，年份将截取为两位数字（例如，'yyyy' 生成 '1997'，'yy' 生成 '97'）。与其他字段不同，秒的小数部分会在右侧补零。</p>
+<p><strong>（文本与数字）</strong>：数量为 3 或更多时使用文本，否则使用数字。</p>
+<p>模式中未出现的字符会被视为带引号的文本。例如，冒号、句点、空格、# 和 @ 等字符即使没有用单引号括起，也会原样出现在结果中。目前模式中并非所有字母都有含义，但强烈不建议不加引号地使用这些未定义字母，因为将来可能会把它们用作模式字符。</p>
+<p>使用美国区域设置的示例：</p>
+<pre class="language-dart"><code>Format Pattern                    Result
+--------------                    -------
+"EEE, MMM d, ''yy"                Wed, Jul 10, '96
+'h:mm a'                          12:08 PM
+'yyyyy.MMMM.dd GGG hh:mm aaa'     01996.July.10 AD 12:08 PM
+</code></pre>
+<p>使用两位年份模式（'yy'）解析日期字符串时，DateFormat 必须根据某个世纪来解释缩写年份。它会调整日期，使其落在调用解析函数时刻之前 80 年至之后 20 年的范围内。例如，使用模式 'MM/dd/yy'，并在 1997 年 1 月 1 日创建 DateFormat 实例时，字符串 '01/11/12' 会解析为 2012 年 1 月 11 日，而 '05/04/64' 会解析为 1964 年 5 月 4 日。解析时，只有恰好由两位数字组成的字符串才会按默认世纪解释；其他数字字符串（如一位或三位以上数字）都按其字面值解释。测试两位年份解析时，可以通过 package:clock 控制当前日期。</p>
+<p>如果年份模式不恰好包含两个 'y' 字符，则无论数字位数多少，年份都按字面值解释。因此，使用模式 'MM/dd/yyyy' 时，'01/11/12' 会解析为公元 12 年 1 月 11 日。</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="DateFormat.new" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.html">DateFormat</a></span><span class="signature">([<span class="parameter" id="-param-newPattern"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">newPattern</span>, </span><span class="parameter" id="-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          Creates a new DateFormat, using the format specified by <code>newPattern</code>.
+        </dd>
+        <dt id="DateFormat.d" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.d.html">DateFormat.d</a></span><span class="signature">([<span class="parameter" id="d-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          The named constructors for this class are all conveniences for creating
+instances using one of the known 'skeleton' formats, and having code
+completion support for discovering those formats.
+So,
+        </dd>
+        <dt id="DateFormat.E" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.E.html">DateFormat.E</a></span><span class="signature">([<span class="parameter" id="E-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.EEEE" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.EEEE.html">DateFormat.EEEE</a></span><span class="signature">([<span class="parameter" id="EEEE-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.EEEEE" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.EEEEE.html">DateFormat.EEEEE</a></span><span class="signature">([<span class="parameter" id="EEEEE-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.H" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.H.html">DateFormat.H</a></span><span class="signature">([<span class="parameter" id="H-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.Hm" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.Hm.html">DateFormat.Hm</a></span><span class="signature">([<span class="parameter" id="Hm-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.Hms" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.Hms.html">DateFormat.Hms</a></span><span class="signature">([<span class="parameter" id="Hms-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.j" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.j.html">DateFormat.j</a></span><span class="signature">([<span class="parameter" id="j-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.jm" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.jm.html">DateFormat.jm</a></span><span class="signature">([<span class="parameter" id="jm-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.jms" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.jms.html">DateFormat.jms</a></span><span class="signature">([<span class="parameter" id="jms-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.jmv" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.jmv.html">DateFormat.jmv</a></span><span class="signature">([<span class="parameter" id="jmv-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          NOT YET IMPLEMENTED.
+        </dd>
+        <dt id="DateFormat.jmz" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.jmz.html">DateFormat.jmz</a></span><span class="signature">([<span class="parameter" id="jmz-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          NOT YET IMPLEMENTED.
+        </dd>
+        <dt id="DateFormat.jv" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.jv.html">DateFormat.jv</a></span><span class="signature">([<span class="parameter" id="jv-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          NOT YET IMPLEMENTED.
+        </dd>
+        <dt id="DateFormat.jz" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.jz.html">DateFormat.jz</a></span><span class="signature">([<span class="parameter" id="jz-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          NOT YET IMPLEMENTED.
+        </dd>
+        <dt id="DateFormat.LLL" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.LLL.html">DateFormat.LLL</a></span><span class="signature">([<span class="parameter" id="LLL-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.LLLL" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.LLLL.html">DateFormat.LLLL</a></span><span class="signature">([<span class="parameter" id="LLLL-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.M" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.M.html">DateFormat.M</a></span><span class="signature">([<span class="parameter" id="M-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.m" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.m.case-3a572b01.html">DateFormat.m</a></span><span class="signature">([<span class="parameter" id="m-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.Md" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.Md.html">DateFormat.Md</a></span><span class="signature">([<span class="parameter" id="Md-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.MEd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.MEd.html">DateFormat.MEd</a></span><span class="signature">([<span class="parameter" id="MEd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.MMM" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.MMM.html">DateFormat.MMM</a></span><span class="signature">([<span class="parameter" id="MMM-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.MMMd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.MMMd.html">DateFormat.MMMd</a></span><span class="signature">([<span class="parameter" id="MMMd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.MMMEd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.MMMEd.html">DateFormat.MMMEd</a></span><span class="signature">([<span class="parameter" id="MMMEd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.MMMM" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.MMMM.html">DateFormat.MMMM</a></span><span class="signature">([<span class="parameter" id="MMMM-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.MMMMd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.MMMMd.html">DateFormat.MMMMd</a></span><span class="signature">([<span class="parameter" id="MMMMd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.MMMMEEEEd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.MMMMEEEEd.html">DateFormat.MMMMEEEEd</a></span><span class="signature">([<span class="parameter" id="MMMMEEEEd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.ms" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.ms.html">DateFormat.ms</a></span><span class="signature">([<span class="parameter" id="ms-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.QQQ" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.QQQ.html">DateFormat.QQQ</a></span><span class="signature">([<span class="parameter" id="QQQ-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.QQQQ" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.QQQQ.html">DateFormat.QQQQ</a></span><span class="signature">([<span class="parameter" id="QQQQ-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.s" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.s.html">DateFormat.s</a></span><span class="signature">([<span class="parameter" id="s-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.y" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.y.html">DateFormat.y</a></span><span class="signature">([<span class="parameter" id="y-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yM" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yM.html">DateFormat.yM</a></span><span class="signature">([<span class="parameter" id="yM-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yMd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yMd.html">DateFormat.yMd</a></span><span class="signature">([<span class="parameter" id="yMd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yMEd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yMEd.html">DateFormat.yMEd</a></span><span class="signature">([<span class="parameter" id="yMEd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yMMM" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yMMM.html">DateFormat.yMMM</a></span><span class="signature">([<span class="parameter" id="yMMM-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yMMMd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yMMMd.html">DateFormat.yMMMd</a></span><span class="signature">([<span class="parameter" id="yMMMd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yMMMEd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yMMMEd.html">DateFormat.yMMMEd</a></span><span class="signature">([<span class="parameter" id="yMMMEd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yMMMM" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yMMMM.html">DateFormat.yMMMM</a></span><span class="signature">([<span class="parameter" id="yMMMM-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yMMMMd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yMMMMd.html">DateFormat.yMMMMd</a></span><span class="signature">([<span class="parameter" id="yMMMMd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yMMMMEEEEd" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yMMMMEEEEd.html">DateFormat.yMMMMEEEEd</a></span><span class="signature">([<span class="parameter" id="yMMMMEEEEd-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yQQQ" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yQQQ.html">DateFormat.yQQQ</a></span><span class="signature">([<span class="parameter" id="yQQQ-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="DateFormat.yQQQQ" class="callable">
+          <span class="name"><a href="package-intl_intl/DateFormat/DateFormat.yQQQQ.html">DateFormat.yQQQQ</a></span><span class="signature">([<span class="parameter" id="yQQQQ-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="dateOnly" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/dateOnly.html">dateOnly</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Does our format only date fields, and no time fields.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="dateSymbols" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/dateSymbols.html">dateSymbols</a></span>
+  <span class="signature">&#8594; <a href="package-intl_date_symbols/DateSymbols-class.html">DateSymbols</a></span>
+  
+
+</dt>
+<dd>
+  Return the <a href="package-intl_date_symbols/DateSymbols-class.html">DateSymbols</a> information for the locale.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="dateTimeConstructor" class="property">
+  <span class="name"><a class="deprecated" href="package-intl_intl/DateFormat/dateTimeConstructor.html">dateTimeConstructor</a></span>
+  <span class="signature">&#8596; _DateTimeConstructor</span>
+  
+
+</dt>
+<dd>
+  Allows specifying a different way of creating a DateTime instance for
+testing.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="digitMatcher" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/digitMatcher.html">digitMatcher</a></span>
+  <span class="signature">&#8594; <a href="dart-core/RegExp-class.html">RegExp</a></span>
+  
+
+</dt>
+<dd>
+  A regular expression which matches against digits for this locale.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="locale" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/locale.html">locale</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Return the locale code in which we operate, e.g. 'en_US' or 'pt'.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="localeZero" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/localeZero.html">localeZero</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  For performance, keep the zero digit available.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="localeZeroCodeUnit" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/localeZeroCodeUnit.html">localeZeroCodeUnit</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  For performance, keep the code unit of the zero digit available.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="pattern" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/pattern.html">pattern</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Return the pattern that we use to format dates.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="useNativeDigits" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/useNativeDigits.html">useNativeDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Should we use native digits for printing DateTime, or ASCII.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="usesAsciiDigits" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/usesAsciiDigits.html">usesAsciiDigits</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Does this use ASCII digits
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="usesNativeDigits" class="property">
+  <span class="name"><a href="package-intl_intl/DateFormat/usesNativeDigits.html">usesNativeDigits</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="add_d" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_d.html">add_d</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The 'add_*' methods append a particular skeleton to the format, or set
+it as the only format if none was previously set. These are primarily
+useful for creating compound formats. For example
+  
+
+</dd>
+
+        <dt id="add_E" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_E.html">add_E</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_EEEE" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_EEEE.html">add_EEEE</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_H" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_H.html">add_H</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_Hm" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_Hm.html">add_Hm</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_Hms" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_Hms.html">add_Hms</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_j" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_j.html">add_j</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_jm" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_jm.html">add_jm</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_jms" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_jms.html">add_jms</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_jmv" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_jmv.html">add_jmv</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  NOT YET IMPLEMENTED.
+  
+
+</dd>
+
+        <dt id="add_jmz" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_jmz.html">add_jmz</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  NOT YET IMPLEMENTED.
+  
+
+</dd>
+
+        <dt id="add_jv" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_jv.html">add_jv</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  NOT YET IMPLEMENTED.
+  
+
+</dd>
+
+        <dt id="add_jz" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_jz.html">add_jz</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  NOT YET IMPLEMENTED.
+  
+
+</dd>
+
+        <dt id="add_LLL" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_LLL.html">add_LLL</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_LLLL" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_LLLL.html">add_LLLL</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_m" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_m.html">add_m</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_M" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_M.case-105ee93c.html">add_M</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_Md" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_Md.html">add_Md</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_MEd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_MEd.html">add_MEd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_MMM" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_MMM.html">add_MMM</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_MMMd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_MMMd.html">add_MMMd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_MMMEd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_MMMEd.html">add_MMMEd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_MMMM" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_MMMM.html">add_MMMM</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_MMMMd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_MMMMd.html">add_MMMMd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_MMMMEEEEd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_MMMMEEEEd.html">add_MMMMEEEEd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_ms" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_ms.html">add_ms</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_QQQ" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_QQQ.html">add_QQQ</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_QQQQ" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_QQQQ.html">add_QQQQ</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_s" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_s.html">add_s</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_y" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_y.html">add_y</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yM" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yM.html">add_yM</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yMd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yMd.html">add_yMd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yMEd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yMEd.html">add_yMEd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yMMM" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yMMM.html">add_yMMM</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yMMMd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yMMMd.html">add_yMMMd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yMMMEd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yMMMEd.html">add_yMMMEd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yMMMM" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yMMMM.html">add_yMMMM</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yMMMMd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yMMMMd.html">add_yMMMMd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yMMMMEEEEd" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yMMMMEEEEd.html">add_yMMMMEEEEd</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yQQQ" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yQQQ.html">add_yQQQ</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="add_yQQQQ" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/add_yQQQQ.html">add_yQQQQ</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="addPattern" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/addPattern.html">addPattern</a></span><span class="signature">(<wbr><span class="parameter" id="addPattern-param-inputPattern"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">inputPattern</span>, [</span><span class="parameter" id="addPattern-param-separator"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">separator</span> = <span class="default-value">&#39; &#39;</span></span>])
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/DateFormat-class.html">DateFormat</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add <code>inputPattern</code> to this instance as a pattern.
+  
+
+</dd>
+
+        <dt id="format" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/format.html">format</a></span><span class="signature">(<wbr><span class="parameter" id="format-param-date"><span class="type-annotation"><a href="dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">date</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return a string representing <code>date</code> formatted according to our locale
+and internal format.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="parse" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/parse.html">parse</a></span><span class="signature">(<wbr><span class="parameter" id="parse-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span>, [</span><span class="parameter" id="parse-param-utc"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">utc</span> = <span class="default-value">false</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> into the anticipated
+format, treating it as being in the local timezone.
+  
+
+</dd>
+
+        <dt id="parseLoose" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/parseLoose.html">parseLoose</a></span><span class="signature">(<wbr><span class="parameter" id="parseLoose-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span>, [</span><span class="parameter" id="parseLoose-param-utc"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">utc</span> = <span class="default-value">false</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> 'loosely' into the
+anticipated format, accepting some variations from the strict format.
+  
+
+</dd>
+
+        <dt id="parsePattern" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="package-intl_intl/DateFormat/parsePattern.html">parsePattern</a></span><span class="signature">(<wbr><span class="parameter" id="parsePattern-param-pattern"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">pattern</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">_DateFormatField</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Parse the template pattern and return a list of field objects.
+  
+
+</dd>
+
+        <dt id="parseStrict" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/parseStrict.html">parseStrict</a></span><span class="signature">(<wbr><span class="parameter" id="parseStrict-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span>, [</span><span class="parameter" id="parseStrict-param-utc"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">utc</span> = <span class="default-value">false</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> into the anticipated
+format, treating it as being in the local timezone.
+  
+
+</dd>
+
+        <dt id="parseUtc" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/parseUtc.case-35c8abbe.html">parseUtc</a></span><span class="signature">(<wbr><span class="parameter" id="parseUtc-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> into the anticipated
+format, treating it as being in UTC.
+If <code>inputString</code> does not match our format, throws a <a href="dart-core/FormatException-class.html">FormatException</a>.
+  
+
+</dd>
+
+        <dt id="parseUTC" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/parseUTC.html">parseUTC</a></span><span class="signature">(<wbr><span class="parameter" id="parseUTC-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> into the anticipated
+format, treating it as being in UTC.
+If <code>inputString</code> does not match our format, throws a <a href="dart-core/FormatException-class.html">FormatException</a>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="tryParse" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/tryParse.html">tryParse</a></span><span class="signature">(<wbr><span class="parameter" id="tryParse-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span>, [</span><span class="parameter" id="tryParse-param-utc"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">utc</span> = <span class="default-value">false</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> into the anticipated
+format, treating it as being in the local timezone.
+  
+
+</dd>
+
+        <dt id="tryParseLoose" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/tryParseLoose.html">tryParseLoose</a></span><span class="signature">(<wbr><span class="parameter" id="tryParseLoose-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span>, [</span><span class="parameter" id="tryParseLoose-param-utc"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">utc</span> = <span class="default-value">false</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> 'loosely' into the
+anticipated format, accepting some variations from the strict format.
+  
+
+</dd>
+
+        <dt id="tryParseStrict" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/tryParseStrict.html">tryParseStrict</a></span><span class="signature">(<wbr><span class="parameter" id="tryParseStrict-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span>, [</span><span class="parameter" id="tryParseStrict-param-utc"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">utc</span> = <span class="default-value">false</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> into the anticipated
+format, treating it as being in the local timezone.
+  
+
+</dd>
+
+        <dt id="tryParseUtc" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/tryParseUtc.html">tryParseUtc</a></span><span class="signature">(<wbr><span class="parameter" id="tryParseUtc-param-inputString"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inputString</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given user input, attempt to parse the <code>inputString</code> into the anticipated
+format, treating it as being in UTC.
+If <code>inputString</code> does not match our format, returns <code>null</code>.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="allLocalesWithSymbols" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/allLocalesWithSymbols.html">allLocalesWithSymbols</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a list of all locales for which we have date formatting
+information.
+  
+
+</dd>
+
+        <dt id="localeExists" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/localeExists.html">localeExists</a></span><span class="signature">(<wbr><span class="parameter" id="localeExists-param-localeName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">localeName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return true if the locale exists, or if it is null. The null case
+is interpreted to mean that we use the default locale.
+  
+
+</dd>
+
+        <dt id="shouldUseNativeDigitsByDefaultFor" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/shouldUseNativeDigitsByDefaultFor.html">shouldUseNativeDigitsByDefaultFor</a></span><span class="signature">(<wbr><span class="parameter" id="shouldUseNativeDigitsByDefaultFor-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">locale</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Should a new DateFormat for <code>locale</code> have useNativeDigits true.
+  
+
+</dd>
+
+        <dt id="useNativeDigitsByDefaultFor" class="callable">
+  <span class="name"><a href="package-intl_intl/DateFormat/useNativeDigitsByDefaultFor.html">useNativeDigitsByDefaultFor</a></span><span class="signature">(<wbr><span class="parameter" id="useNativeDigitsByDefaultFor-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="useNativeDigitsByDefaultFor-param-value"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Indicate if a new DateFormat for <code>locale</code> should have useNativeDigits
+true.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>常量</h2>
+    <dl class="properties">
+        <dt id="ABBR_MONTH" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/ABBR_MONTH-constant.html">ABBR_MONTH</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  For each of the skeleton formats we also allow the use of the
+corresponding ICU constant names.
+  
+
+</dd>
+
+        <dt id="ABBR_MONTH_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/ABBR_MONTH_DAY-constant.html">ABBR_MONTH_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ABBR_MONTH_WEEKDAY_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/ABBR_MONTH_WEEKDAY_DAY-constant.html">ABBR_MONTH_WEEKDAY_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ABBR_QUARTER" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/ABBR_QUARTER-constant.html">ABBR_QUARTER</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ABBR_STANDALONE_MONTH" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/ABBR_STANDALONE_MONTH-constant.html">ABBR_STANDALONE_MONTH</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ABBR_WEEKDAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/ABBR_WEEKDAY-constant.html">ABBR_WEEKDAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/DAY-constant.html">DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="HOUR" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR-constant.html">HOUR</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="HOUR24" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR24-constant.html">HOUR24</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="HOUR24_MINUTE" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR24_MINUTE-constant.html">HOUR24_MINUTE</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="HOUR24_MINUTE_SECOND" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR24_MINUTE_SECOND-constant.html">HOUR24_MINUTE_SECOND</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="HOUR_GENERIC_TZ" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR_GENERIC_TZ-constant.html">HOUR_GENERIC_TZ</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  NOT YET IMPLEMENTED.
+  
+
+</dd>
+
+        <dt id="HOUR_MINUTE" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR_MINUTE-constant.html">HOUR_MINUTE</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="HOUR_MINUTE_GENERIC_TZ" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR_MINUTE_GENERIC_TZ-constant.html">HOUR_MINUTE_GENERIC_TZ</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  NOT YET IMPLEMENTED.
+  
+
+</dd>
+
+        <dt id="HOUR_MINUTE_SECOND" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR_MINUTE_SECOND-constant.html">HOUR_MINUTE_SECOND</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="HOUR_MINUTE_TZ" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR_MINUTE_TZ-constant.html">HOUR_MINUTE_TZ</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  NOT YET IMPLEMENTED.
+  
+
+</dd>
+
+        <dt id="HOUR_TZ" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/HOUR_TZ-constant.html">HOUR_TZ</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  NOT YET IMPLEMENTED.
+  
+
+</dd>
+
+        <dt id="MINUTE" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/MINUTE-constant.html">MINUTE</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="MINUTE_SECOND" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/MINUTE_SECOND-constant.html">MINUTE_SECOND</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="MONTH" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/MONTH-constant.html">MONTH</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="MONTH_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/MONTH_DAY-constant.html">MONTH_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="MONTH_WEEKDAY_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/MONTH_WEEKDAY_DAY-constant.html">MONTH_WEEKDAY_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="NUM_MONTH" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/NUM_MONTH-constant.html">NUM_MONTH</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="NUM_MONTH_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/NUM_MONTH_DAY-constant.html">NUM_MONTH_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="NUM_MONTH_WEEKDAY_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/NUM_MONTH_WEEKDAY_DAY-constant.html">NUM_MONTH_WEEKDAY_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="QUARTER" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/QUARTER-constant.html">QUARTER</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="SECOND" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/SECOND-constant.html">SECOND</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="STANDALONE_MONTH" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/STANDALONE_MONTH-constant.html">STANDALONE_MONTH</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="WEEKDAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/WEEKDAY-constant.html">WEEKDAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR-constant.html">YEAR</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_ABBR_MONTH" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_ABBR_MONTH-constant.html">YEAR_ABBR_MONTH</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_ABBR_MONTH_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_ABBR_MONTH_DAY-constant.html">YEAR_ABBR_MONTH_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_ABBR_MONTH_WEEKDAY_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_ABBR_MONTH_WEEKDAY_DAY-constant.html">YEAR_ABBR_MONTH_WEEKDAY_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_ABBR_QUARTER" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_ABBR_QUARTER-constant.html">YEAR_ABBR_QUARTER</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_MONTH" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_MONTH-constant.html">YEAR_MONTH</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_MONTH_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_MONTH_DAY-constant.html">YEAR_MONTH_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_MONTH_WEEKDAY_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_MONTH_WEEKDAY_DAY-constant.html">YEAR_MONTH_WEEKDAY_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_NUM_MONTH" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_NUM_MONTH-constant.html">YEAR_NUM_MONTH</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_NUM_MONTH_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_NUM_MONTH_DAY-constant.html">YEAR_NUM_MONTH_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_NUM_MONTH_WEEKDAY_DAY" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_NUM_MONTH_WEEKDAY_DAY-constant.html">YEAR_NUM_MONTH_WEEKDAY_DAY</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="YEAR_QUARTER" class="constant">
+    <span class="name "><a href="package-intl_intl/DateFormat/YEAR_QUARTER-constant.html">YEAR_QUARTER</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-intl_intl/">intl</a></li>
+    <li class="self-crumb">DateFormat 类</li>
+</ol>
+
+    <h5>intl 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the Router class from the widgets library, for the Dart programming language.">
+  <title>Router class - widgets library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">Router<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class</li>
+  </ol>
+  <div class="self-name">Router</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;Router-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/router.dart#L358"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">Router&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>The dispatcher for opening and closing pages of an application.</p>
+<p>This widget listens for routing information from the operating system (e.g.
+an initial route provided on app startup, a new route obtained when an
+intent is received, or a notification that the user hit the system back
+button), parses route information into data of type <code>T</code>, and then converts
+that data into <a href="widgets/Page-class.html">Page</a> objects that it passes to a <a href="widgets/Navigator-class.html">Navigator</a>.</p>
+<p>Each part of this process can be overridden and configured as desired.</p>
+<p>The <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a> can be overridden to change how the name of
+the route is obtained. The <a href="foundation/ValueListenable/value.html">RouteInformationProvider.value</a> is used as the
+initial route when the <a href="widgets/Router-class.html">Router</a> is first created. Subsequent notifications
+from the <a href="widgets/RouteInformationProvider-class.html">RouteInformationProvider</a> to its listeners are treated as
+notifications that the route information has changed.</p>
+<p>The <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a> can be overridden to change how back button
+notifications are received. This must be a <a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a>, which is
+an object where callbacks can be registered, and which can be chained so
+that back button presses are delegated to subsidiary routers. The callbacks
+are invoked to indicate that the user is trying to close the current route
+(by pressing the system back button); the <a href="widgets/Router-class.html">Router</a> ensures that when this
+callback is invoked, the message is passed to the <a href="widgets/Router/routerDelegate.html">routerDelegate</a> and its
+result is provided back to the <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a>. Some platforms don't
+have back buttons (e.g. iOS and desktop platforms); on those platforms this
+notification is never sent. Typically, the <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a> for the
+root router is an instance of <a href="widgets/RootBackButtonDispatcher-class.html">RootBackButtonDispatcher</a>, which uses a
+<a href="widgets/WidgetsBindingObserver-class.html">WidgetsBindingObserver</a> to listen to the <code>popRoute</code> notifications from
+<a href="services/SystemChannels/navigation-constant.html">SystemChannels.navigation</a>. Nested <a href="widgets/Router-class.html">Router</a>s typically use a
+<a href="widgets/ChildBackButtonDispatcher-class.html">ChildBackButtonDispatcher</a>, which must be provided the
+<a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a> of its ancestor <a href="widgets/Router-class.html">Router</a> (available via <a href="widgets/Router/of.html">Router.of</a>).</p>
+<p>The <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> can be overridden to change how names obtained
+from the <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a> are interpreted. It must implement the
+<a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> interface, specialized with the same type as the
+<a href="widgets/Router-class.html">Router</a> itself. This type, <code>T</code>, represents the data type that the
+<a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> will generate.</p>
+<p>The <a href="widgets/Router/routerDelegate.html">routerDelegate</a> can be overridden to change how the output of the
+<a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> is interpreted. It must implement the
+<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> interface, also specialized with <code>T</code>; it takes as input
+the data (of type <code>T</code>) from the <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a>, and is responsible
+for providing a navigating widget to insert into the widget tree. The
+<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> interface is also <a href="foundation/Listenable-class.html">Listenable</a>; notifications are taken
+to mean that the <a href="widgets/Router-class.html">Router</a> needs to rebuild.</p>
+<h2 id="concerns-regarding-asynchrony">Concerns regarding asynchrony</h2>
+<p>Some of the APIs (notably those involving <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> and
+<a href="widgets/RouterDelegate-class.html">RouterDelegate</a>) are asynchronous.</p>
+<p>When developing objects implementing these APIs, if the work can be done
+entirely synchronously, then consider using <a href="foundation/SynchronousFuture-class.html">SynchronousFuture</a> for the
+future returned from the relevant methods. This will allow the <a href="widgets/Router-class.html">Router</a> to
+proceed in a completely synchronous way, which removes a number of
+complications.</p>
+<p>Using asynchronous computation is entirely reasonable, however, and the API
+is designed to support it. For example, maybe a set of images need to be
+loaded before a route can be shown; waiting for those images to be loaded
+before <a href="widgets/RouterDelegate/setNewRoutePath.html">RouterDelegate.setNewRoutePath</a> returns is a reasonable approach to
+handle this case.</p>
+<p>If an asynchronous operation is ongoing when a new one is to be started, the
+precise behavior will depend on the exact circumstances, as follows:</p>
+<p>If the active operation is a <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> parsing a new route information:
+that operation's result, if it ever completes, will be discarded.</p>
+<p>If the active operation is a <a href="widgets/Router/routerDelegate.html">routerDelegate</a> handling a pop request:
+the previous pop is immediately completed with "false", claiming that the
+previous pop was not handled (this may cause the application to close).</p>
+<p>If the active operation is a <a href="widgets/Router/routerDelegate.html">routerDelegate</a> handling an initial route
+or a pushed route, the result depends on the new operation. If the new
+operation is a pop request, then the original operation's result, if it ever
+completes, will be discarded. If the new operation is a push request,
+however, the <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> will be requested to start the parsing, and
+only if that finishes before the original <a href="widgets/Router/routerDelegate.html">routerDelegate</a> request
+completes will that original request's result be discarded.</p>
+<p>If the identity of the <a href="widgets/Router-class.html">Router</a> widget's delegates change while an
+asynchronous operation is in progress, to keep matters simple, all active
+asynchronous operations will have their results discarded. It is generally
+considered unusual for these delegates to change during the lifetime of the
+<a href="widgets/Router-class.html">Router</a>.</p>
+<p>If the <a href="widgets/Router-class.html">Router</a> itself is disposed while an asynchronous operation is in
+progress, all active asynchronous operations will have their results
+discarded also.</p>
+<p>No explicit signals are provided to the <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> or
+<a href="widgets/Router/routerDelegate.html">routerDelegate</a> to indicate when any of the above happens, so it is
+strongly recommended that <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> and <a href="widgets/RouterDelegate-class.html">RouterDelegate</a>
+implementations not perform extensive computation.</p>
+<h2 id="application-architectural-design">Application architectural design</h2>
+<p>An application can have zero, one, or many <a href="widgets/Router-class.html">Router</a> widgets, depending on
+its needs.</p>
+<p>An application might have no <a href="widgets/Router-class.html">Router</a> widgets if it has only one "screen",
+or if the facilities provided by <a href="widgets/Navigator-class.html">Navigator</a> are sufficient. This is common
+for desktop applications, where subsidiary "screens" are represented using
+different windows rather than changing the active interface.</p>
+<p>A particularly elaborate application might have multiple <a href="widgets/Router-class.html">Router</a> widgets,
+in a tree configuration, with the first handling the entire route parsing
+and making the result available for routers in the subtree. The routers in
+the subtree do not participate in route information parsing but merely take the
+result from the first router to build their sub routes.</p>
+<p>Most applications only need a single <a href="widgets/Router-class.html">Router</a>.</p>
+<h2 id="url-updates-for-web-applications">URL updates for web applications</h2>
+<p>In the web platform, keeping the URL in the browser's location bar up to
+date with the application state ensures that the browser constructs its
+history entry correctly, allowing its back and forward buttons to function
+as the user expects.</p>
+<p>If an app state change leads to the <a href="widgets/Router-class.html">Router</a> rebuilding, the <a href="widgets/Router-class.html">Router</a> will
+retrieve the new route information from the <a href="widgets/Router/routerDelegate.html">routerDelegate</a>'s
+<a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> method and the
+<a href="widgets/Router/routeInformationParser.html">routeInformationParser</a>'s <a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a>
+method.</p>
+<p>If the location in the new route information is different from the
+current location, this is considered to be a navigation event, the
+<a href="widgets/PlatformRouteInformationProvider/routerReportsNewRouteInformation.html">PlatformRouteInformationProvider.routerReportsNewRouteInformation</a> method
+calls <a href="services/SystemNavigator/routeInformationUpdated.html">SystemNavigator.routeInformationUpdated</a> with <code>replace = false</code> to
+notify the engine, and through that the browser, to create a history entry
+with the new url. Otherwise,
+<a href="widgets/PlatformRouteInformationProvider/routerReportsNewRouteInformation.html">PlatformRouteInformationProvider.routerReportsNewRouteInformation</a> calls
+<a href="services/SystemNavigator/routeInformationUpdated.html">SystemNavigator.routeInformationUpdated</a> with <code>replace = true</code> to update
+the current history entry with the latest <a href="widgets/RouteInformation-class.html">RouteInformation</a>.</p>
+<p>One can force the <a href="widgets/Router-class.html">Router</a> to report new route information as navigation
+event to the <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a> (and thus the browser) even if the
+<a href="widgets/RouteInformation/uri.html">RouteInformation.uri</a> has not changed by calling the <a href="widgets/Router/navigate.html">Router.navigate</a>
+method with a callback that performs the state change. This causes <a href="widgets/Router-class.html">Router</a>
+to call the <a href="widgets/RouteInformationProvider/routerReportsNewRouteInformation.html">RouteInformationProvider.routerReportsNewRouteInformation</a> with
+<a href="widgets/RouteInformationReportingType.html">RouteInformationReportingType.navigate</a>, and thus causes
+<a href="widgets/PlatformRouteInformationProvider-class.html">PlatformRouteInformationProvider</a> to push a new history entry regardlessly.
+This allows one to support the browser's back and forward buttons without
+changing the URL. For example, the scroll position of a scroll view may be
+saved in the <a href="widgets/RouteInformation/state.html">RouteInformation.state</a>. Using <a href="widgets/Router/navigate.html">Router.navigate</a> to update the
+scroll position causes the browser to create a new history entry with the
+<a href="widgets/RouteInformation/state.html">RouteInformation.state</a> that stores this new scroll position. When the user
+clicks the back button, the app will go back to the previous scroll position
+without changing the URL in the location bar.</p>
+<p>One can also force the <a href="widgets/Router-class.html">Router</a> to ignore a navigation event by making
+those changes during a callback passed to <a href="widgets/Router/neglect.html">Router.neglect</a>. The <a href="widgets/Router-class.html">Router</a>
+calls the <a href="widgets/RouteInformationProvider/routerReportsNewRouteInformation.html">RouteInformationProvider.routerReportsNewRouteInformation</a> with
+<a href="widgets/RouteInformationReportingType.html">RouteInformationReportingType.neglect</a>, and thus causes
+<a href="widgets/PlatformRouteInformationProvider-class.html">PlatformRouteInformationProvider</a> to replace the current history entry
+regardlessly even if it detects location change.</p>
+<p>To opt out of URL updates entirely, pass null for <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a>
+and <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a>. This is not recommended in general, but may be
+appropriate in the following cases:</p>
+<ul>
+<li>
+<p>The application does not target the web platform.</p>
+</li>
+<li>
+<p>There are multiple router widgets in the application. Only one <a href="widgets/Router-class.html">Router</a>
+widget should update the URL (typically the top-most one created by the
+<a href="widgets/WidgetsApp/WidgetsApp.router.html">WidgetsApp.router</a>, <a href="material/MaterialApp/MaterialApp.router.html">MaterialApp.router</a>, or <a href="cupertino/CupertinoApp/CupertinoApp.router.html">CupertinoApp.router</a>).</p>
+</li>
+<li>
+<p>The application does not need to implement in-app navigation using the
+browser's back and forward buttons.</p>
+</li>
+</ul>
+<p>In other cases, it is strongly recommended to implement the
+<a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> and
+<a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a> APIs to provide an optimal
+user experience when running on the web platform.</p>
+<h2 id="state-restoration">State Restoration</h2>
+<p>The <a href="widgets/Router-class.html">Router</a> will restore the current configuration of the <a href="widgets/Router/routerDelegate.html">routerDelegate</a>
+during state restoration if it is configured with a <a href="widgets/Router/restorationScopeId.html">restorationScopeId</a> and
+state restoration is enabled for the subtree. For that, the value of
+<a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> is serialized and persisted before the
+app is killed by the operating system. After the app is restarted, the value
+is deserialized and passed back to the <a href="widgets/RouterDelegate-class.html">RouterDelegate</a> via a call to
+<a href="widgets/RouterDelegate/setRestoredRoutePath.html">RouterDelegate.setRestoredRoutePath</a> (which by default just calls
+<a href="widgets/RouterDelegate/setNewRoutePath.html">RouterDelegate.setNewRoutePath</a>). It is the responsibility of the
+<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> to use the configuration information provided to restore
+its internal state.</p>
+<p>To serialize <a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> and to deserialize it
+again, the <a href="widgets/Router-class.html">Router</a> calls <a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a>
+and <a href="widgets/RouteInformationParser/parseRouteInformation.html">RouteInformationParser.parseRouteInformation</a>, respectively. Therefore,
+if a <a href="widgets/Router/restorationScopeId.html">restorationScopeId</a> is provided, a <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> must be
+configured as well.</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>Router</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Router.new" class="callable">
+          <span class="name"><a href="widgets/Router/Router.html">Router</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-routeInformationProvider"><span class="type-annotation"><a href="widgets/RouteInformationProvider-class.html">RouteInformationProvider</a>?</span> <span class="parameter-name">routeInformationProvider</span>, </span><span class="parameter" id="-param-routeInformationParser"><span class="type-annotation"><a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">routeInformationParser</span>, </span><span class="parameter" id="-param-routerDelegate"><span>required</span> <span class="type-annotation"><a href="widgets/RouterDelegate-class.html">RouterDelegate</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">routerDelegate</span>, </span><span class="parameter" id="-param-backButtonDispatcher"><span class="type-annotation"><a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a>?</span> <span class="parameter-name">backButtonDispatcher</span>, </span><span class="parameter" id="-param-restorationScopeId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationScopeId</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a router.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="Router.withConfig" class="callable">
+          <span class="name"><a href="widgets/Router/Router.withConfig.html">Router.withConfig</a></span><span class="signature">({<span class="parameter" id="withConfig-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="withConfig-param-config"><span>required</span> <span class="type-annotation"><a href="widgets/RouterConfig-class.html">RouterConfig</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">config</span>, </span><span class="parameter" id="withConfig-param-restorationScopeId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationScopeId</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a router with a <a href="widgets/RouterConfig-class.html">RouterConfig</a>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="backButtonDispatcher" class="property">
+  <span class="name"><a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a></span>
+  <span class="signature">&#8594; <a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a>?</span>
+  
+
+</dt>
+<dd>
+  The back button dispatcher for the router.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="restorationScopeId" class="property">
+  <span class="name"><a href="widgets/Router/restorationScopeId.html">restorationScopeId</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Restoration ID to save and restore the state of the <a href="widgets/Router-class.html">Router</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="routeInformationParser" class="property">
+  <span class="name"><a href="widgets/Router/routeInformationParser.html">routeInformationParser</a></span>
+  <span class="signature">&#8594; <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  The route information parser for the router.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="routeInformationProvider" class="property">
+  <span class="name"><a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a></span>
+  <span class="signature">&#8594; <a href="widgets/RouteInformationProvider-class.html">RouteInformationProvider</a>?</span>
+  
+
+</dt>
+<dd>
+  The route information provider for the router.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="routerDelegate" class="property">
+  <span class="name"><a href="widgets/Router/routerDelegate.html">routerDelegate</a></span>
+  <span class="signature">&#8594; <a href="widgets/RouterDelegate-class.html">RouterDelegate</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The router delegate for the router.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates a <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="widgets/Router/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Router-class.html">Router</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="maybeOf" class="callable">
+  <span class="name"><a href="widgets/Router/maybeOf.html">maybeOf</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="maybeOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/Router-class.html">Router</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Retrieves the immediate <a href="widgets/Router-class.html">Router</a> ancestor from the given context.
+  
+
+</dd>
+
+        <dt id="navigate" class="callable">
+  <span class="name"><a href="widgets/Router/navigate.html">navigate</a></span><span class="signature">(<wbr><span class="parameter" id="navigate-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="navigate-param-callback"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Forces the <a href="widgets/Router-class.html">Router</a> to run the <code>callback</code> and create a new history
+entry in the browser.
+  
+
+</dd>
+
+        <dt id="neglect" class="callable">
+  <span class="name"><a href="widgets/Router/neglect.html">neglect</a></span><span class="signature">(<wbr><span class="parameter" id="neglect-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="neglect-param-callback"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Forces the <a href="widgets/Router-class.html">Router</a> to run the <code>callback</code> without creating a new history
+entry in the browser.
+  
+
+</dd>
+
+        <dt id="of" class="callable">
+  <span class="name"><a href="widgets/Router/of.html">of</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="of-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/Router-class.html">Router</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Retrieves the immediate <a href="widgets/Router-class.html">Router</a> ancestor from the given context.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">Router<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class</li>
+</ol>
+
+    <h5>widgets library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

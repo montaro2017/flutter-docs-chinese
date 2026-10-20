@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the WidgetsBindingObserver class from the widgets library, for the Dart programming language.">
+  <title>WidgetsBindingObserver class - widgets library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">WidgetsBindingObserver class</li>
+  </ol>
+  <div class="self-name">WidgetsBindingObserver</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;WidgetsBindingObserver-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/binding.dart#L86"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">WidgetsBindingObserver</span> class 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">abstract</a>
+    <a href="https://dart.dev/language/mixins" class="feature feature-mixin" title="This class can be used as a class and a mixin.">mixin</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Interface for classes that register with the Widgets layer binding.</p>
+<p>This can be used by any class, not just widgets. It provides an interface
+which is used by <a href="widgets/WidgetsBinding/addObserver.html">WidgetsBinding.addObserver</a> and
+<a href="widgets/WidgetsBinding/removeObserver.html">WidgetsBinding.removeObserver</a> to notify objects of changes in the
+environment, such as changes to the device metrics or accessibility
+settings. It is used to implement features such as <a href="widgets/MediaQuery-class.html">MediaQuery</a>.</p>
+<p>This class can be extended directly, or mixed in, to get default behaviors
+for all of the handlers. Alternatively it can be used with the
+<code>implements</code> keyword, in which case all the handlers must be implemented
+(and the analyzer will list those that have been omitted).</p>
+<p>To start receiving notifications, call <code>WidgetsBinding.instance.addObserver</code>
+with a reference to the object implementing the <a href="widgets/WidgetsBindingObserver-class.html">WidgetsBindingObserver</a>
+interface. To avoid memory leaks, call
+<code>WidgetsBinding.instance.removeObserver</code> to unregister the object when it
+reaches the end of its lifecycle.</p>
+<p>
+<a name="widgets.WidgetsBindingObserver.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">
+This sample shows how to implement parts of the <a href="widgets/State-class.html">State</a> and
+<a href="widgets/WidgetsBindingObserver-class.html">WidgetsBindingObserver</a> protocols necessary to react to application
+lifecycle messages. See <a href="widgets/WidgetsBindingObserver/didChangeAppLifecycleState.html">didChangeAppLifecycleState</a>.</p>
+<p>To respond to other notifications, replace the <a href="widgets/WidgetsBindingObserver/didChangeAppLifecycleState.html">didChangeAppLifecycleState</a>
+method in this example with other methods from this class.
+</div>
+    <a class="anchor-button-overlay anchor-button" title="Copy link to clipboard"
+        onmouseenter="fixHref(this, 'widgets.WidgetsBindingObserver.1');" onclick="fixHref(this, 'widgets.WidgetsBindingObserver.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>To create a local project with this code sample, run:<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.WidgetsBindingObserver.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.WidgetsBindingObserver.1&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+          <dt>Implementers</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="widgets/AppLifecycleListener-class.html">AppLifecycleListener</a></li>
+              <li><a href="widgets/ClipboardStatusNotifier-class.html">ClipboardStatusNotifier</a></li>
+              <li><a href="widgets/EditableTextState-class.html">EditableTextState</a></li>
+              <li><a href="widgets/LiveTextInputStatusNotifier-class.html">LiveTextInputStatusNotifier</a></li>
+              <li><a href="widgets/LocalizationsResolver-class.html">LocalizationsResolver</a></li>
+              <li><a href="widgets/PlatformRouteInformationProvider-class.html">PlatformRouteInformationProvider</a></li>
+              <li><a href="widgets/RootBackButtonDispatcher-class.html">RootBackButtonDispatcher</a></li>
+              <li><a href="material/ScaffoldState-class.html">ScaffoldState</a></li>
+          </ul></dd>
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="WidgetsBindingObserver.new" class="callable">
+          <span class="name"><a href="widgets/WidgetsBindingObserver/WidgetsBindingObserver.html">WidgetsBindingObserver</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="didChangeAccessibilityFeatures" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didChangeAccessibilityFeatures.html">didChangeAccessibilityFeatures</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the system changes the set of currently active accessibility
+features.
+  
+
+</dd>
+
+        <dt id="didChangeAppLifecycleState" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didChangeAppLifecycleState.html">didChangeAppLifecycleState</a></span><span class="signature">(<wbr><span class="parameter" id="didChangeAppLifecycleState-param-state"><span class="type-annotation"><a href="dart-ui/AppLifecycleState.html">AppLifecycleState</a></span> <span class="parameter-name">state</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the system puts the app in the background or returns
+the app to the foreground.
+  
+
+</dd>
+
+        <dt id="didChangeLocales" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didChangeLocales.html">didChangeLocales</a></span><span class="signature">(<wbr><span class="parameter" id="didChangeLocales-param-locales"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Locale-class.html">Locale</a></span>&gt;</span>?</span> <span class="parameter-name">locales</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the system tells the app that the user's locale has
+changed. For example, if the user changes the system language
+settings.
+  
+
+</dd>
+
+        <dt id="didChangeMetrics" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didChangeMetrics.html">didChangeMetrics</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the application's dimensions change. For example,
+when a phone is rotated.
+  
+
+</dd>
+
+        <dt id="didChangePlatformBrightness" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didChangePlatformBrightness.html">didChangePlatformBrightness</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the platform brightness changes.
+  
+
+</dd>
+
+        <dt id="didChangeTextScaleFactor" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didChangeTextScaleFactor.html">didChangeTextScaleFactor</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the platform's text scale factor changes.
+  
+
+</dd>
+
+        <dt id="didChangeViewFocus" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didChangeViewFocus.html">didChangeViewFocus</a></span><span class="signature">(<wbr><span class="parameter" id="didChangeViewFocus-param-event"><span class="type-annotation"><a href="dart-ui/ViewFocusEvent-class.html">ViewFocusEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called whenever the <a href="dart-ui/PlatformDispatcher-class.html">PlatformDispatcher</a> receives a notification that the
+focus state on a view has changed.
+  
+
+</dd>
+
+        <dt id="didHaveMemoryPressure" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didHaveMemoryPressure.html">didHaveMemoryPressure</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the system is running low on memory.
+  
+
+</dd>
+
+        <dt id="didPopRoute" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didPopRoute.html">didPopRoute</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the system tells the app to pop the current route, such as
+after a system back button press or back gesture.
+  
+
+</dd>
+
+        <dt id="didPushRoute" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="widgets/WidgetsBindingObserver/didPushRoute.html">didPushRoute</a></span><span class="signature">(<wbr><span class="parameter" id="didPushRoute-param-route"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">route</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the host tells the application to push a new route onto the
+navigator.
+  
+
+</dd>
+
+        <dt id="didPushRouteInformation" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didPushRouteInformation.html">didPushRouteInformation</a></span><span class="signature">(<wbr><span class="parameter" id="didPushRouteInformation-param-routeInformation"><span class="type-annotation"><a href="widgets/RouteInformation-class.html">RouteInformation</a></span> <span class="parameter-name">routeInformation</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the host tells the application to push a new
+<a href="widgets/RouteInformation-class.html">RouteInformation</a> and a restoration state onto the router.
+  
+
+</dd>
+
+        <dt id="didRequestAppExit" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/didRequestAppExit.html">didRequestAppExit</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/AppExitResponse.html">AppExitResponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when a request is received from the system to exit the application.
+  
+
+</dd>
+
+        <dt id="handleCancelBackGesture" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/handleCancelBackGesture.html">handleCancelBackGesture</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when a predictive back gesture is canceled, indicating that no
+navigation should occur.
+  
+
+</dd>
+
+        <dt id="handleCommitBackGesture" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/handleCommitBackGesture.html">handleCommitBackGesture</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when a predictive back gesture is finished successfully, indicating
+that the current route should be popped.
+  
+
+</dd>
+
+        <dt id="handleStartBackGesture" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/handleStartBackGesture.html">handleStartBackGesture</a></span><span class="signature">(<wbr><span class="parameter" id="handleStartBackGesture-param-backEvent"><span class="type-annotation"><a href="services/PredictiveBackEvent-class.html">PredictiveBackEvent</a></span> <span class="parameter-name">backEvent</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called at the start of a predictive back gesture.
+  
+
+</dd>
+
+        <dt id="handleStatusBarTap" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/handleStatusBarTap.html">handleStatusBarTap</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the user taps the status bar on iOS, to scroll a scroll
+view to the top.
+  
+
+</dd>
+
+        <dt id="handleUpdateBackGestureProgress" class="callable">
+  <span class="name"><a href="widgets/WidgetsBindingObserver/handleUpdateBackGestureProgress.html">handleUpdateBackGestureProgress</a></span><span class="signature">(<wbr><span class="parameter" id="handleUpdateBackGestureProgress-param-backEvent"><span class="type-annotation"><a href="services/PredictiveBackEvent-class.html">PredictiveBackEvent</a></span> <span class="parameter-name">backEvent</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when a predictive back gesture moves.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">WidgetsBindingObserver class</li>
+</ol>
+
+    <h5>widgets library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

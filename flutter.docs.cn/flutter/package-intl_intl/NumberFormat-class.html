@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="intl 库中 NumberFormat 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>NumberFormat 类 - intl 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-intl_intl/">intl.dart</a></li>
+    <li class="self-crumb">NumberFormat 类</li>
+  </ol>
+  <div class="self-name">NumberFormat</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-intl_intl&#47;package-intl_intl-library-sidebar.html"
+    data-below-sidebar="package-intl_intl&#47;NumberFormat-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">NumberFormat</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>提供按特定区域设置格式化数字的功能。</p>
+<p>格式由 ICU 格式模式的一个子集指定。</p>
+<ul>
+<li><code>0</code> A single digit</li>
+<li><code>#</code> A single digit, omitted if the value is zero</li>
+<li><code>.</code> Decimal separator</li>
+<li><code>-</code> Minus sign</li>
+<li><code>,</code> Grouping separator</li>
+<li><code>E</code> Separates mantissa and expontent</li>
+<li><code>+</code> - Before an exponent, to say it should be prefixed with a plus sign.</li>
+<li><code>%</code> - In prefix or suffix, multiply by 100 and show as percentage</li>
+<li><code>‰ (\u2030)</code> In prefix or suffix, multiply by 1000 and show as per mille</li>
+<li><code>¤ (\u00A4)</code> Currency sign, replaced by currency name</li>
+<li><code>'</code> Used to quote special characters</li>
+<li><code>;</code> Used to separate the positive and negative patterns (if both present)</li>
+</ul>
+<p>例如：</p>
+<pre class="language-dart"><code>  var f = NumberFormat("###.0#", "en_US");
+  print(f.format(12.345));
+      ==&gt; 12.34
+</code></pre>
+<p>如果未指定区域设置，则默认使用当前区域设置。如果未指定格式，则使用基本格式打印数字，至少包含一位整数和三位小数。</p>
+<p>也可以通过特殊构造函数使用标准格式。例如：</p>
+<pre class="language-dart"><code>  var percent = NumberFormat.percentPattern("ar");
+  var eurosInUSFormat = NumberFormat.currency(locale: "en_US",
+      symbol: "€");
+</code></pre>
+<p>此类还提供多个类似构造函数，但其中一些功能有限。例如，目前 scientificPattern 只按等效于“#E0”的格式打印，不会考虑有效数字位数。</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="NumberFormat.new" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.html">NumberFormat</a></span><span class="signature">([<span class="parameter" id="-param-newPattern"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">newPattern</span>, </span><span class="parameter" id="-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          Create a number format that prints using <code>newPattern</code> as it applies in
+<code>locale</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.compact" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.compact.html">NumberFormat.compact</a></span><span class="signature">({<span class="parameter" id="compact-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="compact-param-explicitSign"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">explicitSign</span> = <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          A number format for compact representations, e.g. "1.2M" instead
+of "1,200,000".
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.compactCurrency" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.compactCurrency.html">NumberFormat.compactCurrency</a></span><span class="signature">({<span class="parameter" id="compactCurrency-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="compactCurrency-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="compactCurrency-param-symbol"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">symbol</span>, </span><span class="parameter" id="compactCurrency-param-decimalDigits"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">decimalDigits</span></span>})</span>
+        </dt>
+        <dd>
+          A number format for compact currency representations, e.g. "$1.2M" instead
+of "$1,200,000".
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.compactLong" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.compactLong.html">NumberFormat.compactLong</a></span><span class="signature">({<span class="parameter" id="compactLong-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="compactLong-param-explicitSign"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">explicitSign</span> = <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          A number format for "long" compact representations, e.g. "1.2 million"
+instead of "1,200,000".
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.compactSimpleCurrency" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.compactSimpleCurrency.html">NumberFormat.compactSimpleCurrency</a></span><span class="signature">({<span class="parameter" id="compactSimpleCurrency-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="compactSimpleCurrency-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="compactSimpleCurrency-param-decimalDigits"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">decimalDigits</span></span>})</span>
+        </dt>
+        <dd>
+          A number format for compact currency representations, e.g. "$1.2M" instead
+of "$1,200,000", and which will automatically determine a currency symbol
+based on the currency name or the locale. See
+<a href="package-intl_intl/NumberFormat/NumberFormat.simpleCurrency.html">NumberFormat.simpleCurrency</a>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.currency" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.currency.html">NumberFormat.currency</a></span><span class="signature">({<span class="parameter" id="currency-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="currency-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="currency-param-symbol"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">symbol</span>, </span><span class="parameter" id="currency-param-decimalDigits"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">decimalDigits</span>, </span><span class="parameter" id="currency-param-customPattern"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">customPattern</span></span>})</span>
+        </dt>
+        <dd>
+          Create a <a href="package-intl_intl/NumberFormat-class.html">NumberFormat</a> that formats using the locale's CURRENCY_PATTERN.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.currencyPattern" class="callable">
+          <span class="name"><a class="deprecated" href="package-intl_intl/NumberFormat/NumberFormat.currencyPattern.html">NumberFormat.currencyPattern</a></span><span class="signature">([<span class="parameter" id="currencyPattern-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="currencyPattern-param-currencyNameOrSymbol"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">currencyNameOrSymbol</span></span>])</span>
+        </dt>
+        <dd>
+          Create a number format that prints as CURRENCY_PATTERN. (Deprecated:
+prefer NumberFormat.currency)
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.decimalPattern" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.decimalPattern.html">NumberFormat.decimalPattern</a></span><span class="signature">([<span class="parameter" id="decimalPattern-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          Create a number format that prints as DECIMAL_PATTERN.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.decimalPatternDigits" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.decimalPatternDigits.html">NumberFormat.decimalPatternDigits</a></span><span class="signature">({<span class="parameter" id="decimalPatternDigits-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="decimalPatternDigits-param-decimalDigits"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">decimalDigits</span></span>})</span>
+        </dt>
+        <dd>
+          Create a number format that prints as DECIMAL_PATTERN.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.decimalPercentPattern" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.decimalPercentPattern.html">NumberFormat.decimalPercentPattern</a></span><span class="signature">({<span class="parameter" id="decimalPercentPattern-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="decimalPercentPattern-param-decimalDigits"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">decimalDigits</span></span>})</span>
+        </dt>
+        <dd>
+          Create a number format that prints as PERCENT_PATTERN.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.percentPattern" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.percentPattern.html">NumberFormat.percentPattern</a></span><span class="signature">([<span class="parameter" id="percentPattern-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          Create a number format that prints as PERCENT_PATTERN.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.scientificPattern" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.scientificPattern.html">NumberFormat.scientificPattern</a></span><span class="signature">([<span class="parameter" id="scientificPattern-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span></span>])</span>
+        </dt>
+        <dd>
+          Create a number format that prints as SCIENTIFIC_PATTERN.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="NumberFormat.simpleCurrency" class="callable">
+          <span class="name"><a href="package-intl_intl/NumberFormat/NumberFormat.simpleCurrency.html">NumberFormat.simpleCurrency</a></span><span class="signature">({<span class="parameter" id="simpleCurrency-param-locale"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="simpleCurrency-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="simpleCurrency-param-decimalDigits"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">decimalDigits</span></span>})</span>
+        </dt>
+        <dd>
+          创建一个 <a href="package-intl_intl/NumberFormat-class.html">NumberFormat</a> for currencies, using the simple symbol for the
+currency if one is available (e.g. $, €), so it should only be used if the
+short currency symbol will be unambiguous.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="currencyName" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/currencyName.html">currencyName</a></span>
+  <span class="signature">&#8596; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  The name of the currency to print, in ISO 4217 form.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="currencySymbol" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/currencySymbol.html">currencySymbol</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The symbol to be used when formatting this as currency.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="decimalDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/decimalDigits.html">decimalDigits</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  The number of decimal places to use when formatting.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="locale" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/locale.html">locale</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Return the locale code in which we operate, e.g. 'en_US' or 'pt'.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="localeZero" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/localeZero.html">localeZero</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The code point for the locale's zero digit.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="maximumFractionDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/maximumFractionDigits.html">maximumFractionDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="maximumIntegerDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/maximumIntegerDigits.html">maximumIntegerDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="maximumSignificantDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/maximumSignificantDigits.html">maximumSignificantDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="minimumExponentDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/minimumExponentDigits.html">minimumExponentDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="minimumFractionDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/minimumFractionDigits.html">minimumFractionDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="minimumIntegerDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/minimumIntegerDigits.html">minimumIntegerDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="minimumSignificantDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/minimumSignificantDigits.html">minimumSignificantDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="minimumSignificantDigitsStrict" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/minimumSignificantDigitsStrict.html">minimumSignificantDigitsStrict</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether minimumSignificantDigits should cause trailing 0 in fraction part.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="multiplier" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/multiplier.html">multiplier</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  For percent and permille, what are we multiplying by in order to
+get the printed value, e.g. 100 for percent.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="negativePrefix" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/negativePrefix.html">negativePrefix</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Variables to determine how number printing behaves.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="negativeSuffix" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/negativeSuffix.html">negativeSuffix</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="positivePrefix" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/positivePrefix.html">positivePrefix</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="positiveSuffix" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/positiveSuffix.html">positiveSuffix</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="significantDigits" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/significantDigits.html">significantDigits</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  How many significant digits should we print.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="significantDigitsInUse" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/significantDigitsInUse.html">significantDigitsInUse</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="symbols" class="property">
+  <span class="name"><a href="package-intl_intl/NumberFormat/symbols.html">symbols</a></span>
+  <span class="signature">&#8594; <a href="package-intl_number_symbols/NumberSymbols-class.html">NumberSymbols</a></span>
+  
+
+</dt>
+<dd>
+  Return the symbols which are used in our locale. Cache them to avoid
+repeated lookup.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="format" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/format.html">format</a></span><span class="signature">(<wbr><span class="parameter" id="format-param-number"><span class="type-annotation">dynamic</span> <span class="parameter-name">number</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Format <code>number</code> according to our pattern and return the formatted string.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="parse" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/parse.html">parse</a></span><span class="signature">(<wbr><span class="parameter" id="parse-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/num-class.html">num</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Parse the number represented by the string. If it's not
+parseable, throws a <a href="dart-core/FormatException-class.html">FormatException</a>.
+  
+
+</dd>
+
+        <dt id="parseWith" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/parseWith.html">parseWith</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R</span>, <span class="type-parameter">P extends <a href="package-intl_intl/NumberParserBase-class.html">NumberParserBase</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="parseWith-param-parserGenerator"><span class="type-annotation">P</span> <span class="parameter-name">parserGenerator</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="package-intl_intl/NumberFormat-class.html">NumberFormat</a></span>, </span><span class="parameter" id="param-"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span></span>), </span><span class="parameter" id="parseWith-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span></span>)
+    <span class="returntype parameter">&#8594; R</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Parse the number represented by the string using the parser created by the supplied parser generator. If it's not
+parseable, throws a <a href="dart-core/FormatException-class.html">FormatException</a>.
+  
+
+</dd>
+
+        <dt id="simpleCurrencySymbol" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/simpleCurrencySymbol.html">simpleCurrencySymbol</a></span><span class="signature">(<wbr><span class="parameter" id="simpleCurrencySymbol-param-currencyCode"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">currencyCode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the simple currency symbol for given currency code, or
+<code>currencyCode</code> if no simple symbol is listed.
+  
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="tryParse" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/tryParse.html">tryParse</a></span><span class="signature">(<wbr><span class="parameter" id="tryParse-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/num-class.html">num</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Parse the number represented by the string. If it's not
+parsable, returns <code>null</code>.
+  
+
+</dd>
+
+        <dt id="tryParseWith" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/tryParseWith.html">tryParseWith</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R</span>, <span class="type-parameter">P extends <a href="package-intl_intl/NumberParserBase-class.html">NumberParserBase</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="tryParseWith-param-parserGenerator"><span class="type-annotation">P</span> <span class="parameter-name">parserGenerator</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="package-intl_intl/NumberFormat-class.html">NumberFormat</a></span>, </span><span class="parameter" id="param-"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span></span>), </span><span class="parameter" id="tryParseWith-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span></span>)
+    <span class="returntype parameter">&#8594; R?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Parse the number represented by the string using the parser created by the supplied parser generator. If it's not
+parsable, returns <code>null</code>.
+  
+
+</dd>
+
+        <dt id="turnOffGrouping" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/turnOffGrouping.html">turnOffGrouping</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Explicitly turn off any grouping (e.g. by thousands) in this format.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="localeExists" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/localeExists.html">localeExists</a></span><span class="signature">(<wbr><span class="parameter" id="localeExists-param-localeName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">localeName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return true if the locale exists, or if it is null. The null case
+is interpreted to mean that we use the default locale.
+  
+
+</dd>
+
+        <dt id="numberOfIntegerDigits" class="callable">
+  <span class="name"><a href="package-intl_intl/NumberFormat/numberOfIntegerDigits.html">numberOfIntegerDigits</a></span><span class="signature">(<wbr><span class="parameter" id="numberOfIntegerDigits-param-number"><span class="type-annotation">dynamic</span> <span class="parameter-name">number</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-intl_intl/">intl</a></li>
+    <li class="self-crumb">NumberFormat 类</li>
+</ol>
+
+    <h5>intl 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

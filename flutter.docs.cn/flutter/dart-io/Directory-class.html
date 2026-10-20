@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:io 库中 Directory 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Directory class - dart:io library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-io/">dart:io</a></li>
+    <li class="self-crumb">Directory 类</li>
+  </ol>
+  <div class="self-name">Directory</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-io&#47;dart-io-library-sidebar.html"
+    data-below-sidebar="dart-io&#47;Directory-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Directory</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#interface" class="feature feature-interface" title="This class can only be implemented (not extended or mixed in).">interface</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  文件系统中目录（或<em>文件夹</em>）的引用。
+<p><a href="dart-io/Directory-class.html">Directory</a> 是一个包含 <a href="dart-io/Directory/path.html">path</a> 的对象，可以对该路径执行操作。目录路径可以是 <a href="dart-io/Directory/absolute.html">绝对路径</a>，也可以是相对路径。Directory 是 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a>，因此可以访问其 <a href="dart-io/FileSystemEntity/parent.html">父目录</a>。</p>
+<p><a href="dart-io/Directory-class.html">Directory</a> 还提供对系统临时文件目录 <a href="dart-io/Directory/systemTemp.html">systemTemp</a> 的静态访问，以及访问和更改 <a href="dart-io/Directory/current.html">当前目录</a> 的功能。</p>
+<p>创建新的 <a href="dart-io/Directory-class.html">Directory</a>，以访问指定路径对应的目录：</p>
+<pre class="language-dart"><code class="language-dart">var myDir = Directory('myDir');
+</code></pre>
+<p><a href="dart-io/Directory-class.html">Directory</a> 的大多数实例方法都提供同步和异步版本，例如 <a href="dart-io/Directory/create.html">create</a> 和 <a href="dart-io/Directory/createSync.html">createSync</a>。除非有特殊原因必须使用同步版本，否则建议优先使用异步版本，以避免阻塞程序。</p>
+<h2 id="create-a-directory">创建目录</h2>
+<p>以下代码示例使用 <a href="dart-io/Directory/create.html">create</a> 方法创建目录。将 <code>recursive</code> 参数设为 true，可以创建指定目录及其所有必需的父目录（如果这些目录尚不存在）。</p>
+<pre class="language-dart"><code class="language-dart">import 'dart:io';
+
+void main() async {
+  // Creates dir/ and dir/subdir/.
+  var directory = await Directory('dir/subdir').create(recursive: true);
+  print(directory.path);
+}
+</code></pre>
+<h2 id="list-the-entries-of-a-directory">列出目录条目</h2>
+<p>使用 <a href="dart-io/Directory/list.html">list</a> 或 <a href="dart-io/Directory/listSync.html">listSync</a> 方法获取目录中包含的文件和目录。将 <code>recursive</code> 设为 true 可递归列出所有子目录；将 <code>followLinks</code> 设为 true 可跟随符号链接。list 方法会返回由 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 对象组成的 <a href="dart-async/Stream-class.html">Stream</a>。可以监听该流，在每个对象被找到时访问它：</p>
+<pre class="language-dart"><code class="language-dart">import 'dart:io';
+
+void main() async {
+  // Get the system temp directory.
+  var systemTempDir = Directory.systemTemp;
+
+  // List directory contents, recursing into sub-directories,
+  // but not following symbolic links.
+  await for (var entity in
+      systemTempDir.list(recursive: true, followLinks: false)) {
+    print(entity.path);
+  }
+}
+</code></pre>
+<h2 id="the-use-of-asynchronous-methods">使用异步方法</h2>
+<p>I/O 操作在等待完成期间可能会阻塞程序一段时间。为避免这种情况，所有涉及 I/O 的方法都提供异步版本，并返回一个 <a href="dart-async/Future-class.html">Future</a>。I/O 操作完成时，该 future 会完成。操作进行期间，Dart 程序不会被阻塞，可以执行其他操作。</p>
+<p>例如，<a href="dart-io/FileSystemEntity/exists.html">exists</a> 方法用于确定目录是否存在，它通过 <a href="dart-async/Future-class.html">Future</a> 异步返回布尔值。</p>
+<pre class="language-dart"><code class="language-dart">import 'dart:io';
+
+void main() async {
+  final myDir = Directory('dir');
+  var isThere = await myDir.exists();
+  print(isThere ? 'exists' : 'nonexistent');
+}
+</code></pre>
+<p>除了 <a href="dart-io/FileSystemEntity/exists.html">exists</a>，<a href="dart-io/FileSystemEntity/stat.html">stat</a>、<a href="dart-io/Directory/rename.html">rename</a> 等方法也都是异步方法。</p>
+<h2 id="other-resources">其他资源</h2>
+<ul>
+<li>
+<p>库导览中的<a href="https://dart.dev/guides/libraries/library-tour#files-and-directories">文件和目录</a>一节。</p>
+</li>
+<li>
+<p><a href="https://dart.dev/tutorials/server/cmdline">编写命令行应用</a>教程介绍如何编写命令行应用，其中也包含有关文件和目录的信息。</p>
+</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a></li>
+    </ul>
+  </dd>
+        
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="package-file_file/Directory-class.html">Directory</a></li>
+          </ul></dd>
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Directory.new" class="callable">
+          <span class="name"><a href="dart-io/Directory/Directory.html">Directory</a></span><span class="signature">(<span class="parameter" id="-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)</span>
+        </dt>
+        <dd>
+          创建一个 <a href="dart-io/Directory-class.html">Directory</a> object.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Directory.fromRawPath" class="callable">
+          <span class="name"><a href="dart-io/Directory/Directory.fromRawPath.html">Directory.fromRawPath</a></span><span class="signature">(<span class="parameter" id="fromRawPath-param-path"><span class="type-annotation"><a href="dart-typed_data/Uint8List-class.html">Uint8List</a></span> <span class="parameter-name">path</span></span>)</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Directory.fromUri" class="callable">
+          <span class="name"><a href="dart-io/Directory/Directory.fromUri.html">Directory.fromUri</a></span><span class="signature">(<span class="parameter" id="fromUri-param-uri"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">uri</span></span>)</span>
+        </dt>
+        <dd>
+          Create a <a href="dart-io/Directory-class.html">Directory</a> from a URI.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="absolute" class="property">
+  <span class="name"><a href="dart-io/Directory/absolute.html">absolute</a></span>
+  <span class="signature">&#8594; <a href="dart-io/Directory-class.html">Directory</a></span>
+  
+
+</dt>
+<dd>
+  A <a href="dart-io/Directory-class.html">Directory</a> whose path is the absolute path of this <a href="dart-io/Directory-class.html">Directory</a>.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isAbsolute" class="property inherited">
+  <span class="name"><a href="dart-io/FileSystemEntity/isAbsolute.html">isAbsolute</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether this object's path is absolute.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="parent" class="property inherited">
+  <span class="name"><a href="dart-io/FileSystemEntity/parent.html">parent</a></span>
+  <span class="signature">&#8594; <a href="dart-io/Directory-class.html">Directory</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The parent directory of this entity.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="path" class="property">
+  <span class="name"><a href="dart-io/Directory/path.html">path</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Gets the path of this directory.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="uri" class="property">
+  <span class="name"><a href="dart-io/Directory/uri.html">uri</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Uri-class.html">Uri</a></span>
+  
+
+</dt>
+<dd>
+  A <a href="dart-core/Uri-class.html">Uri</a> representing the directory's location.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="create" class="callable">
+  <span class="name"><a href="dart-io/Directory/create.html">create</a></span><span class="signature">(<wbr>{<span class="parameter" id="create-param-recursive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">recursive</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/Directory-class.html">Directory</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the directory if it doesn't exist.
+  
+
+</dd>
+
+        <dt id="createSync" class="callable">
+  <span class="name"><a href="dart-io/Directory/createSync.html">createSync</a></span><span class="signature">(<wbr>{<span class="parameter" id="createSync-param-recursive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">recursive</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Synchronously creates the directory if it doesn't exist.
+  
+
+</dd>
+
+        <dt id="createTemp" class="callable">
+  <span class="name"><a href="dart-io/Directory/createTemp.html">createTemp</a></span><span class="signature">(<wbr>[<span class="parameter" id="createTemp-param-prefix"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefix</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/Directory-class.html">Directory</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates a temporary directory in this directory.
+  
+
+</dd>
+
+        <dt id="createTempSync" class="callable">
+  <span class="name"><a href="dart-io/Directory/createTempSync.html">createTempSync</a></span><span class="signature">(<wbr>[<span class="parameter" id="createTempSync-param-prefix"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefix</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-io/Directory-class.html">Directory</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Synchronously creates a temporary directory in this directory.
+  
+
+</dd>
+
+        <dt id="delete" class="callable">
+  <span class="name"><a href="dart-io/Directory/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-recursive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">recursive</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Deletes this <a href="dart-io/Directory-class.html">Directory</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="deleteSync" class="callable">
+  <span class="name"><a href="dart-io/Directory/deleteSync.html">deleteSync</a></span><span class="signature">(<wbr>{<span class="parameter" id="deleteSync-param-recursive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">recursive</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Synchronously deletes this <a href="dart-io/Directory-class.html">Directory</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="exists" class="callable inherited">
+  <span class="name"><a href="dart-io/FileSystemEntity/exists.html">exists</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Checks whether the file system entity with this path exists.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="existsSync" class="callable inherited">
+  <span class="name"><a href="dart-io/FileSystemEntity/existsSync.html">existsSync</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Synchronously checks whether the file system entity with this path
+exists.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="list" class="callable">
+  <span class="name"><a href="dart-io/Directory/list.html">list</a></span><span class="signature">(<wbr>{<span class="parameter" id="list-param-recursive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">recursive</span> = <span class="default-value">false</span>, </span><span class="parameter" id="list-param-followLinks"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">followLinks</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Lists the sub-directories and files of this <a href="dart-io/Directory-class.html">Directory</a>.
+  
+
+</dd>
+
+        <dt id="listSync" class="callable">
+  <span class="name"><a href="dart-io/Directory/listSync.html">listSync</a></span><span class="signature">(<wbr>{<span class="parameter" id="listSync-param-recursive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">recursive</span> = <span class="default-value">false</span>, </span><span class="parameter" id="listSync-param-followLinks"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">followLinks</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Lists the sub-directories and files of this <a href="dart-io/Directory-class.html">Directory</a>.
+Optionally recurses into sub-directories.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="rename" class="callable">
+  <span class="name"><a href="dart-io/Directory/rename.html">rename</a></span><span class="signature">(<wbr><span class="parameter" id="rename-param-newPath"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">newPath</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/Directory-class.html">Directory</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Renames this directory.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="renameSync" class="callable">
+  <span class="name"><a href="dart-io/Directory/renameSync.html">renameSync</a></span><span class="signature">(<wbr><span class="parameter" id="renameSync-param-newPath"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">newPath</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-io/Directory-class.html">Directory</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Synchronously renames this directory.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="resolveSymbolicLinks" class="callable">
+  <span class="name"><a href="dart-io/Directory/resolveSymbolicLinks.html">resolveSymbolicLinks</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Resolves the path of a file system object relative to the
+current working directory.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="resolveSymbolicLinksSync" class="callable">
+  <span class="name"><a href="dart-io/Directory/resolveSymbolicLinksSync.html">resolveSymbolicLinksSync</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Resolves the path of a file system object relative to the
+current working directory.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="stat" class="callable inherited">
+  <span class="name"><a href="dart-io/FileSystemEntity/stat.html">stat</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/FileStat-class.html">FileStat</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Calls the operating system's <code>stat()</code> function on <a href="dart-io/FileSystemEntity/path.html">path</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="statSync" class="callable inherited">
+  <span class="name"><a href="dart-io/FileSystemEntity/statSync.html">statSync</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-io/FileStat-class.html">FileStat</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Synchronously calls the operating system's <code>stat()</code> function on <a href="dart-io/FileSystemEntity/path.html">path</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="dart-io/Directory/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a human readable representation of this <a href="dart-io/Directory-class.html">Directory</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="watch" class="callable inherited">
+  <span class="name"><a href="dart-io/FileSystemEntity/watch.html">watch</a></span><span class="signature">(<wbr>{<span class="parameter" id="watch-param-events"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">events</span> = <span class="default-value">FileSystemEvent.all</span>, </span><span class="parameter" id="watch-param-recursive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">recursive</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/FileSystemEvent-class.html">FileSystemEvent</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Start watching the <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> for changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="current" class="property">
+  <span class="name"><a href="dart-io/Directory/current.html">current</a></span>
+  <span class="signature">&#8596; <a href="dart-io/Directory-class.html">Directory</a></span>
+  
+
+</dt>
+<dd>
+  Creates a directory object pointing to the current working
+directory.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="systemTemp" class="property">
+  <span class="name"><a href="dart-io/Directory/systemTemp.html">systemTemp</a></span>
+  <span class="signature">&#8594; <a href="dart-io/Directory-class.html">Directory</a></span>
+  
+
+</dt>
+<dd>
+  The system temp directory.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-io/">dart:io</a></li>
+    <li class="self-crumb">Directory 类</li>
+</ol>
+
+    <h5>dart:io library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

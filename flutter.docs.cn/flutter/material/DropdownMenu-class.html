@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="material 库中 DropdownMenu 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>DropdownMenu 类 - material 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="material/">material.dart</a></li>
+    <li class="self-crumb">DropdownMenu<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+  </ol>
+  <div class="self-name">DropdownMenu</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="material&#47;material-library-sidebar.html"
+    data-below-sidebar="material&#47;DropdownMenu-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/material/dropdown_menu.dart#L176"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">DropdownMenu&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一种可从 <a href="material/TextField-class.html">TextField</a> 打开的下拉菜单。选中的菜单项会显示在该文本字段中。</p>
+<iframe src="https://www.youtube.com/embed/giV9AbM2gd8?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
+autoplay; 
+clipboard-write; 
+encrypted-media; 
+gyroscope; 
+picture-in-picture" allowfullscreen="" style="max-width: 560px;
+max-height: 315px;
+width: 100%;
+height: 100%;
+aspect-ratio: 560 / 315;">
+</iframe>
+<p>此组件用于帮助用户从菜单中进行选择，并将所选项目填入文本输入框。用户也可以根据输入的文本筛选列表，或在菜单列表中搜索项目。</p>
+<p>菜单由一组 <a href="material/DropdownMenuEntry-class.html">DropdownMenuEntry</a> 构成。用户可以为每个条目提供标签、前置图标或后置图标等信息。选择菜单条目后，<a href="material/TextField-class.html">TextField</a> 中的内容会随之更新；如果所选条目已禁用，文本字段将保持为空。</p>
+<p>下拉菜单获得焦点后，可按向上或向下键遍历条目。遍历时，相应条目会高亮显示，文本字段也会更新。遍历会跳过已禁用的条目。</p>
+<p>如果列表中的条目无法一次全部显示，菜单可以滚动。</p>
+<p>
+<a name="material.DropdownMenu.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">
+此示例展示如何显示描边样式和填充样式的 <a href="material/DropdownMenu-class.html">DropdownMenu</a> and filled <a href="material/DropdownMenu-class.html">DropdownMenu</a>.
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'material.DropdownMenu.1');" onclick="fixHref(this, 'material.DropdownMenu.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>若要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=material.DropdownMenu.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=material.DropdownMenu.1&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="material/MenuAnchor-class.html">MenuAnchor</a>, which is a widget used to mark the "anchor" for a set of submenus.
+The <a href="material/DropdownMenu-class.html">DropdownMenu</a> uses a <a href="material/TextField-class.html">TextField</a> as the "anchor".</li>
+<li><a href="material/TextField-class.html">TextField</a>, which is a text input widget that uses an <a href="material/InputDecoration-class.html">InputDecoration</a>.</li>
+<li><a href="material/DropdownMenuEntry-class.html">DropdownMenuEntry</a>, which is used to build the <a href="material/MenuItemButton-class.html">MenuItemButton</a> in the <a href="material/DropdownMenu-class.html">DropdownMenu</a> list.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>DropdownMenu</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="DropdownMenu.new" class="callable">
+          <span class="name"><a href="material/DropdownMenu/DropdownMenu.html">DropdownMenu</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-enabled"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enabled</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-width"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">width</span>, </span><span class="parameter" id="-param-menuHeight"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">menuHeight</span>, </span><span class="parameter" id="-param-leadingIcon"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">leadingIcon</span>, </span><span class="parameter" id="-param-trailingIcon"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">trailingIcon</span>, </span><span class="parameter" id="-param-showTrailingIcon"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showTrailingIcon</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-trailingIconFocusNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">trailingIconFocusNode</span>, </span><span class="parameter" id="-param-label"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">label</span>, </span><span class="parameter" id="-param-hintText"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hintText</span>, </span><span class="parameter" id="-param-helperText"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helperText</span>, </span><span class="parameter" id="-param-errorText"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorText</span>, </span><span class="parameter" id="-param-selectedTrailingIcon"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">selectedTrailingIcon</span>, </span><span class="parameter" id="-param-enableFilter"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enableFilter</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-enableSearch"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enableSearch</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-keyboardType"><span class="type-annotation"><a href="services/TextInputType-class.html">TextInputType</a>?</span> <span class="parameter-name">keyboardType</span>, </span><span class="parameter" id="-param-textStyle"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">textStyle</span>, </span><span class="parameter" id="-param-textAlign"><span class="type-annotation"><a href="dart-ui/TextAlign.html">TextAlign</a></span> <span class="parameter-name">textAlign</span> = <span class="default-value">TextAlign.start</span>, </span><span class="parameter" id="-param-inputDecorationTheme"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">inputDecorationTheme</span>, </span><span class="parameter" id="-param-decorationBuilder"><span class="type-annotation"><a href="material/DropdownMenuDecorationBuilder.html">DropdownMenuDecorationBuilder</a>?</span> <span class="parameter-name">decorationBuilder</span>, </span><span class="parameter" id="-param-menuStyle"><span class="type-annotation"><a href="material/MenuStyle-class.html">MenuStyle</a>?</span> <span class="parameter-name">menuStyle</span>, </span><span class="parameter" id="-param-controller"><span class="type-annotation"><a href="widgets/TextEditingController-class.html">TextEditingController</a>?</span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="-param-initialSelection"><span class="type-annotation">T?</span> <span class="parameter-name">initialSelection</span>, </span><span class="parameter" id="-param-onSelected"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span>?</span> <span class="parameter-name">onSelected</span>, </span><span class="parameter" id="-param-focusNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">focusNode</span>, </span><span class="parameter" id="-param-requestFocusOnTap"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">requestFocusOnTap</span>, </span><span class="parameter" id="-param-selectOnly"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">selectOnly</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-expandedInsets"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">expandedInsets</span>, </span><span class="parameter" id="-param-filterCallback"><span class="type-annotation"><a href="material/FilterCallback.html">FilterCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">filterCallback</span>, </span><span class="parameter" id="-param-searchCallback"><span class="type-annotation"><a href="material/SearchCallback.html">SearchCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">searchCallback</span>, </span><span class="parameter" id="-param-alignmentOffset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a>?</span> <span class="parameter-name">alignmentOffset</span>, </span><span class="parameter" id="-param-dropdownMenuEntries"><span>required</span> <span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="material/DropdownMenuEntry-class.html">DropdownMenuEntry</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">dropdownMenuEntries</span>, </span><span class="parameter" id="-param-inputFormatters"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/TextInputFormatter-class.html">TextInputFormatter</a></span>&gt;</span>?</span> <span class="parameter-name">inputFormatters</span>, </span><span class="parameter" id="-param-closeBehavior"><span class="type-annotation"><a href="material/DropdownMenuCloseBehavior.html">DropdownMenuCloseBehavior</a></span> <span class="parameter-name">closeBehavior</span> = <span class="default-value">DropdownMenuCloseBehavior.all</span>, </span><span class="parameter" id="-param-maxLines"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span> = <span class="default-value">1</span>, </span><span class="parameter" id="-param-textInputAction"><span class="type-annotation"><a href="flutter_test/TextInputAction.html">TextInputAction</a>?</span> <span class="parameter-name">textInputAction</span>, </span><span class="parameter" id="-param-cursorHeight"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cursorHeight</span>, </span><span class="parameter" id="-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="-param-menuController"><span class="type-annotation"><a href="widgets/MenuController-class.html">MenuController</a>?</span> <span class="parameter-name">menuController</span>, </span><span class="parameter" id="-param-scrollPadding"><span class="type-annotation"><a href="painting/EdgeInsets-class.html">EdgeInsets</a></span> <span class="parameter-name">scrollPadding</span> = <span class="default-value">const EdgeInsets.all(20.0)</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a const <a href="material/DropdownMenu-class.html">DropdownMenu</a>.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="alignmentOffset" class="property">
+  <span class="name"><a href="material/DropdownMenu/alignmentOffset.html">alignmentOffset</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Offset-class.html">Offset</a>?</span>
+  
+
+</dt>
+<dd>
+  The offset of the menu relative to the alignment origin determined by
+<a href="material/MenuStyle/alignment.html">MenuStyle.alignment</a> on the <code>style</code> attribute and the ambient
+<a href="widgets/Directionality-class.html">Directionality</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="closeBehavior" class="property">
+  <span class="name"><a href="material/DropdownMenu/closeBehavior.html">closeBehavior</a></span>
+  <span class="signature">&#8594; <a href="material/DropdownMenuCloseBehavior.html">DropdownMenuCloseBehavior</a></span>
+  
+
+</dt>
+<dd>
+  Defines the behavior for closing the dropdown menu when an item is selected.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="controller" class="property">
+  <span class="name"><a href="material/DropdownMenu/controller.html">controller</a></span>
+  <span class="signature">&#8594; <a href="widgets/TextEditingController-class.html">TextEditingController</a>?</span>
+  
+
+</dt>
+<dd>
+  Controls the text being edited or selected in the menu.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="cursorHeight" class="property">
+  <span class="name"><a href="material/DropdownMenu/cursorHeight.html">cursorHeight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  How tall the cursor will be.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="decorationBuilder" class="property">
+  <span class="name"><a href="material/DropdownMenu/decorationBuilder.html">decorationBuilder</a></span>
+  <span class="signature">&#8594; <a href="material/DropdownMenuDecorationBuilder.html">DropdownMenuDecorationBuilder</a>?</span>
+  
+
+</dt>
+<dd>
+  The builder function used to create the <a href="material/InputDecoration-class.html">InputDecoration</a> passed to the text field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="dropdownMenuEntries" class="property">
+  <span class="name"><a href="material/DropdownMenu/dropdownMenuEntries.html">dropdownMenuEntries</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="material/DropdownMenuEntry-class.html">DropdownMenuEntry</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  Descriptions of the menu items in the <a href="material/DropdownMenu-class.html">DropdownMenu</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="enabled" class="property">
+  <span class="name"><a href="material/DropdownMenu/enabled.html">enabled</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Determine if the <a href="material/DropdownMenu-class.html">DropdownMenu</a> is enabled.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="enableFilter" class="property">
+  <span class="name"><a href="material/DropdownMenu/enableFilter.html">enableFilter</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Determine if the menu list can be filtered by the text input.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="enableSearch" class="property">
+  <span class="name"><a href="material/DropdownMenu/enableSearch.html">enableSearch</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Determine if the first item that matches the text input can be highlighted.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="errorText" class="property">
+  <span class="name"><a href="material/DropdownMenu/errorText.html">errorText</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Text that appears below the input field and the border to show the error message.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="expandedInsets" class="property">
+  <span class="name"><a href="material/DropdownMenu/expandedInsets.html">expandedInsets</a></span>
+  <span class="signature">&#8594; <a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span>
+  
+
+</dt>
+<dd>
+  Defines the menu text field's width to be equal to its parent's width
+plus the horizontal width of the specified insets.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="filterCallback" class="property">
+  <span class="name"><a href="material/DropdownMenu/filterCallback.html">filterCallback</a></span>
+  <span class="signature">&#8594; <a href="material/FilterCallback.html">FilterCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  When <a href="material/DropdownMenu/enableFilter.html">DropdownMenu.enableFilter</a> is true, this callback is used to
+compute the list of filtered items.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="focusNode" class="property">
+  <span class="name"><a href="material/DropdownMenu/focusNode.html">focusNode</a></span>
+  <span class="signature">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a>?</span>
+  
+
+</dt>
+<dd>
+  Defines the keyboard focus for this widget.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="helperText" class="property">
+  <span class="name"><a href="material/DropdownMenu/helperText.html">helperText</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Text that provides context about the <a href="material/DropdownMenu-class.html">DropdownMenu</a>'s value, such
+as how the value will be used.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hintText" class="property">
+  <span class="name"><a href="material/DropdownMenu/hintText.html">hintText</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Text that suggests what sort of input the field accepts.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="initialSelection" class="property">
+  <span class="name"><a href="material/DropdownMenu/initialSelection.html">initialSelection</a></span>
+  <span class="signature">&#8594; T?</span>
+  
+
+</dt>
+<dd>
+  The value used for an initial selection.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="inputDecorationTheme" class="property">
+  <span class="name"><a href="material/DropdownMenu/inputDecorationTheme.html">inputDecorationTheme</a></span>
+  <span class="signature">&#8594; <a href="material/InputDecorationThemeData-class.html">InputDecorationThemeData</a>?</span>
+  
+
+</dt>
+<dd>
+  Defines the default appearance of <a href="material/InputDecoration-class.html">InputDecoration</a> to show around the text field.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="inputFormatters" class="property">
+  <span class="name"><a href="material/DropdownMenu/inputFormatters.html">inputFormatters</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/TextInputFormatter-class.html">TextInputFormatter</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  Optional input validation and formatting overrides.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="keyboardType" class="property">
+  <span class="name"><a href="material/DropdownMenu/keyboardType.html">keyboardType</a></span>
+  <span class="signature">&#8594; <a href="services/TextInputType-class.html">TextInputType</a>?</span>
+  
+
+</dt>
+<dd>
+  The type of keyboard to use for editing the text.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="label" class="property">
+  <span class="name"><a href="material/DropdownMenu/label.html">label</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  Optional widget that describes the input field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="leadingIcon" class="property">
+  <span class="name"><a href="material/DropdownMenu/leadingIcon.html">leadingIcon</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  An optional Icon at the front of the text input field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="maxLines" class="property">
+  <span class="name"><a href="material/DropdownMenu/maxLines.html">maxLines</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  Specifies the maximum number of lines the selected value can display
+in the <a href="material/DropdownMenu-class.html">DropdownMenu</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="menuController" class="property">
+  <span class="name"><a href="material/DropdownMenu/menuController.html">menuController</a></span>
+  <span class="signature">&#8594; <a href="widgets/MenuController-class.html">MenuController</a>?</span>
+  
+
+</dt>
+<dd>
+  An optional controller that allows opening and closing of the menu from
+other widgets.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="menuHeight" class="property">
+  <span class="name"><a href="material/DropdownMenu/menuHeight.html">menuHeight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  Determine the height of the menu.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="menuStyle" class="property">
+  <span class="name"><a href="material/DropdownMenu/menuStyle.html">menuStyle</a></span>
+  <span class="signature">&#8594; <a href="material/MenuStyle-class.html">MenuStyle</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="material/MenuStyle-class.html">MenuStyle</a> that defines the visual attributes of the menu.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onSelected" class="property">
+  <span class="name"><a href="material/DropdownMenu/onSelected.html">onSelected</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  The callback is called when a selection is made.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="requestFocusOnTap" class="property">
+  <span class="name"><a href="material/DropdownMenu/requestFocusOnTap.html">requestFocusOnTap</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  
+
+</dt>
+<dd>
+  Determine if the dropdown menu requests focus and the on-screen virtual
+keyboard is shown in response to a touch event.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="restorationId" class="property">
+  <span class="name"><a href="material/DropdownMenu/restorationId.html">restorationId</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Restoration ID to save and restore the state of the text field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scrollPadding" class="property">
+  <span class="name"><a href="material/DropdownMenu/scrollPadding.html">scrollPadding</a></span>
+  <span class="signature">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a></span>
+  
+
+</dt>
+<dd>
+  Configures the padding for the edges surrounding a <a href="widgets/Scrollable-class.html">Scrollable</a> when the
+text field scrolls into view.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="searchCallback" class="property">
+  <span class="name"><a href="material/DropdownMenu/searchCallback.html">searchCallback</a></span>
+  <span class="signature">&#8594; <a href="material/SearchCallback.html">SearchCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  When <a href="material/DropdownMenu/enableSearch.html">DropdownMenu.enableSearch</a> is true, this callback is used to compute
+the index of the search result to be highlighted.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectedTrailingIcon" class="property">
+  <span class="name"><a href="material/DropdownMenu/selectedTrailingIcon.html">selectedTrailingIcon</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  An optional icon at the end of the text field to indicate that the text
+field is pressed.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectOnly" class="property">
+  <span class="name"><a href="material/DropdownMenu/selectOnly.html">selectOnly</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Determines if the dropdown menu behaves as a 'select' component.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="showTrailingIcon" class="property">
+  <span class="name"><a href="material/DropdownMenu/showTrailingIcon.html">showTrailingIcon</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Specifies if the <a href="material/DropdownMenu-class.html">DropdownMenu</a> should show the <a href="material/DropdownMenu/trailingIcon.html">trailingIcon</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textAlign" class="property">
+  <span class="name"><a href="material/DropdownMenu/textAlign.html">textAlign</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/TextAlign.html">TextAlign</a></span>
+  
+
+</dt>
+<dd>
+  The text align for the <a href="material/TextField-class.html">TextField</a> of the <a href="material/DropdownMenu-class.html">DropdownMenu</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textInputAction" class="property">
+  <span class="name"><a href="material/DropdownMenu/textInputAction.html">textInputAction</a></span>
+  <span class="signature">&#8594; <a href="flutter_test/TextInputAction.html">TextInputAction</a>?</span>
+  
+
+</dt>
+<dd>
+  The type of action button to use for the keyboard.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textStyle" class="property">
+  <span class="name"><a href="material/DropdownMenu/textStyle.html">textStyle</a></span>
+  <span class="signature">&#8594; <a href="painting/TextStyle-class.html">TextStyle</a>?</span>
+  
+
+</dt>
+<dd>
+  The text style for the <a href="material/TextField-class.html">TextField</a> of the <a href="material/DropdownMenu-class.html">DropdownMenu</a>;
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="trailingIcon" class="property">
+  <span class="name"><a href="material/DropdownMenu/trailingIcon.html">trailingIcon</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  An optional icon at the end of the text field.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="trailingIconFocusNode" class="property">
+  <span class="name"><a href="material/DropdownMenu/trailingIconFocusNode.html">trailingIconFocusNode</a></span>
+  <span class="signature">&#8594; <a href="widgets/FocusNode-class.html">FocusNode</a>?</span>
+  
+
+</dt>
+<dd>
+  Defines the FocusNode for the trailing icon.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="width" class="property">
+  <span class="name"><a href="material/DropdownMenu/width.html">width</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  Determine the width of the <a href="material/DropdownMenu-class.html">DropdownMenu</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="material/DropdownMenu/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="material/DropdownMenu-class.html">DropdownMenu</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="material/">material</a></li>
+    <li class="self-crumb">DropdownMenu<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+</ol>
+
+    <h5>material 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

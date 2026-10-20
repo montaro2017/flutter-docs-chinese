@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the Frame.parseV8 constructor from Class Frame from the stack_trace library, for the Dart programming language.">
+  <title>Frame.parseV8 构造函数 - Frame - stack_trace 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-stack_trace_stack_trace/">stack_trace.dart</a></li>
+    <li><a href="package-stack_trace_stack_trace/Frame-class.html">Frame</a></li>
+    <li class="self-crumb">Frame.parseV8 factory constructor</li>
+  </ol>
+  <div class="self-name">Frame.parseV8</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="package-stack_trace_stack_trace&#47;Frame-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-constructor">Frame.parseV8</span> 构造函数 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+      <span class="name ">Frame.parseV8</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="parseV8-param-frame"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">frame</span></span></li>
+</ol>)
+    </section>
+    
+<section class="desc markdown">
+  <p>解析 Chrome/V8 堆栈帧的字符串表示形式。</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>实现</span></h2>
+  <pre class="language-dart"><code class="language-dart">factory Frame.parseV8(String frame) =&gt; _catchFormatException(frame, () {
+      &#47;&#47; Try to match a Wasm frame first: the Wasm frame regex won&#39;t match a
+      &#47;&#47; JS frame but the JS frame regex may match a Wasm frame.
+      var match = _v8WasmFrame.firstMatch(frame);
+      if (match != null) {
+        final member = match.namedGroup(&#39;member&#39;);
+        final uri = _uriOrPathToUri(match.namedGroup(&#39;uri&#39;)!);
+        final functionIndex = match.namedGroup(&#39;index&#39;)!;
+        final functionOffset =
+            int.parse(match.namedGroup(&#39;offset&#39;)!, radix: 16);
+        return Frame(uri, 1, functionOffset + 1, member ?? functionIndex);
+      }
+
+      match = _v8JsFrame.firstMatch(frame);
+      if (match != null) {
+        &#47;&#47; v8 location strings can be arbitrarily-nested, since it adds a
+        &#47;&#47; layer of nesting for each eval performed on that line.
+        Frame parseJsLocation(String location, String member) {
+          var evalMatch = _v8EvalLocation.firstMatch(location);
+          while (evalMatch != null) {
+            location = evalMatch[1]!;
+            evalMatch = _v8EvalLocation.firstMatch(location);
+          }
+
+          if (location == &#39;native&#39;) {
+            return Frame(Uri.parse(&#39;native&#39;), null, null, member);
+          }
+
+          var urlMatch = _v8JsUrlLocation.firstMatch(location);
+          if (urlMatch == null) return UnparsedFrame(frame);
+
+          final uri = _uriOrPathToUri(urlMatch[1]!);
+          final line = int.parse(urlMatch[2]!);
+          final columnMatch = urlMatch[3];
+          final column = columnMatch != null ? int.parse(columnMatch) : null;
+          return Frame(uri, line, column, member);
+        }
+
+        &#47;&#47; V8 stack frames can be in two forms.
+        if (match[2] != null) {
+          &#47;&#47; The first form looks like &quot; at FUNCTION (LOCATION)&quot;. V8 proper
+          &#47;&#47; lists anonymous functions within eval as &quot;&lt;anonymous&gt;&quot;, while
+          &#47;&#47; IE10 lists them as &quot;Anonymous function&quot;.
+          return parseJsLocation(
+              match[2]!,
+              match[1]!
+                  .replaceAll(&#39;&lt;anonymous&gt;&#39;, &#39;&lt;fn&gt;&#39;)
+                  .replaceAll(&#39;Anonymous function&#39;, &#39;&lt;fn&gt;&#39;)
+                  .replaceAll(&#39;(anonymous function)&#39;, &#39;&lt;fn&gt;&#39;));
+        } else {
+          &#47;&#47; The second form looks like &quot; at LOCATION&quot;, and is used for
+          &#47;&#47; anonymous functions.
+          return parseJsLocation(match[3]!, &#39;&lt;fn&gt;&#39;);
+        }
+      }
+
+      return UnparsedFrame(frame);
+    });</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-stack_trace_stack_trace/">stack_trace</a></li>
+    <li><a href="package-stack_trace_stack_trace/Frame-class.html">Frame</a></li>
+    <li class="self-crumb">Frame.parseV8 factory constructor</li>
+</ol>
+
+    <h5>Frame 类</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

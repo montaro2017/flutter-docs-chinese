@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:js_interop 库 API 文档，适用于 Dart 编程语言。">
+  <title>dart:js_interop 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li class="self-crumb">dart:js_interop</li>
+  </ol>
+  <div class="self-name">dart:js_interop</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar=""
+    data-below-sidebar="dart-js_interop&#47;dart-js_interop-library-sidebar.html">
+  
+    <div>
+      
+
+      <h1>
+        <span class="kind-library">dart:js_interop</span>
+        库 
+ 
+
+      </h1>
+    </div>
+
+    
+<section class="desc markdown">
+  <p>与 JavaScript 和浏览器 API 互操作（简称“interop”）。</p>
+<p>JavaScript 互操作让 Dart 程序能够与 JavaScript 运行时交互。例如，可以访问 JavaScript 声明并与 JavaScript 值交互，也可以转换 Dart 值，以便将它们传递给 JavaScript 代码并供其使用。</p>
+<p>此 JavaScript 互操作库通过以下方式实现：为 JavaScript 值提供抽象；定义一套映射已知 JavaScript 类型的 Dart 类型层次结构（“JS 类型”）；并提供框架，用于声明将 Dart 类型绑定到 JavaScript 值的新 Dart 类型，以及将外部成员声明绑定到 JavaScript API。</p>
+<p>有了此抽象，同一套互操作 API 既可用于编译为 JavaScript 的 Dart 代码，也可用于编译为 Wasm 的 Dart 代码。</p>
+<p>有关用法、类型和早期 JavaScript 互操作方式的详情，请参阅 <a href="https://dart.dev/interop/js-interop">https://dart.dev/interop/js-interop</a>。</p>
+<div class="markdown-alert markdown-alert-note">
+<p class="markdown-alert-title">注意</p>
+<p>此库定义的类型只提供静态保证。运行时类型会因后端而异，因此应依赖转换函数等静态功能。同样，不要依赖涉及 JS 类型或 JS 类型化值的 <code>is</code> 检查。此外，同一个 JS 值的 <code>identical</code> 结果也可能因编译器而异。检查两个 JS 类型化值是否相等时请使用 <code>==</code>，但不要比较 Dart 值与 JS 类型化值是否相等。</p>
+</div>
+</section>
+
+
+    <section class="summary offset-anchor" id="classes">
+      <h2>类</h2>
+      <dl>
+          <dt id="JS">
+  <span class="name "><a href="dart-js_interop/JS-class.html">JS</a></span> 
+
+</dt>
+<dd>
+  An annotation on a JavaScript interop declaration.
+</dd>
+
+          <dt id="JSExport">
+  <span class="name "><a href="dart-js_interop/JSExport-class.html">JSExport</a></span> 
+
+</dt>
+<dd>
+  Annotation to allow Dart classes to be wrapped with a JS object using
+<code>dart:js_interop</code>'s <code>createJSInteropWrapper</code>.
+</dd>
+
+      </dl>
+    </section>
+
+
+
+    <section class="summary offset-anchor" id="extension-types">
+      <h2>扩展类型</h2>
+      <dl>
+          <dt id="ExternalDartReference">
+    <span class="name "><a href="dart-js_interop/ExternalDartReference-extension-type.html">ExternalDartReference</a></span> 
+
+</dt>
+<dd>
+    An opaque reference to a Dart object that can be passed to JavaScript.
+</dd>
+
+          <dt id="JSAny">
+    <span class="name "><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> 
+
+</dt>
+<dd>
+    A non-nullish JavaScript value.
+</dd>
+
+          <dt id="JSArray">
+    <span class="name "><a href="dart-js_interop/JSArray-extension-type.html">JSArray</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <a href="https://tc39.es/ecma262/#sec-array-objects"><code>Array</code></a>.
+</dd>
+
+          <dt id="JSArrayBuffer">
+    <span class="name "><a href="dart-js_interop/JSArrayBuffer-extension-type.html">JSArrayBuffer</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>ArrayBuffer</code>.
+</dd>
+
+          <dt id="JSBigInt">
+    <span class="name "><a href="dart-js_interop/JSBigInt-extension-type.html">JSBigInt</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>BigInt</code>.
+</dd>
+
+          <dt id="JSBoolean">
+    <span class="name "><a href="dart-js_interop/JSBoolean-extension-type.html">JSBoolean</a></span> 
+
+</dt>
+<dd>
+    A JavaScript boolean.
+</dd>
+
+          <dt id="JSBoxedDartObject">
+    <span class="name "><a href="dart-js_interop/JSBoxedDartObject-extension-type.html">JSBoxedDartObject</a></span> 
+
+</dt>
+<dd>
+    A Dart object that is wrapped with a JavaScript object so that it can be
+passed to JavaScript safely.
+</dd>
+
+          <dt id="JSDataView">
+    <span class="name "><a href="dart-js_interop/JSDataView-extension-type.html">JSDataView</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>DataView</code>.
+</dd>
+
+          <dt id="JSExportedDartFunction">
+    <span class="name "><a href="dart-js_interop/JSExportedDartFunction-extension-type.html">JSExportedDartFunction</a></span> 
+
+</dt>
+<dd>
+    A JavaScript function created from a Dart function.
+</dd>
+
+          <dt id="JSFloat32Array">
+    <span class="name "><a href="dart-js_interop/JSFloat32Array-extension-type.html">JSFloat32Array</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Float32Array</code>.
+</dd>
+
+          <dt id="JSFloat64Array">
+    <span class="name "><a href="dart-js_interop/JSFloat64Array-extension-type.html">JSFloat64Array</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Float64Array</code>.
+</dd>
+
+          <dt id="JSFunction">
+    <span class="name "><a href="dart-js_interop/JSFunction-extension-type.html">JSFunction</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <a href="https://tc39.es/ecma262/#sec-function-objects"><code>Function</code></a>
+value.
+</dd>
+
+          <dt id="JSInt16Array">
+    <span class="name "><a href="dart-js_interop/JSInt16Array-extension-type.html">JSInt16Array</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Int16Array</code>.
+</dd>
+
+          <dt id="JSInt32Array">
+    <span class="name "><a href="dart-js_interop/JSInt32Array-extension-type.html">JSInt32Array</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Int32Array</code>.
+</dd>
+
+          <dt id="JSInt8Array">
+    <span class="name "><a href="dart-js_interop/JSInt8Array-extension-type.html">JSInt8Array</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Int8Array</code>.
+</dd>
+
+          <dt id="JSIterable">
+    <span class="name "><a href="dart-js_interop/JSIterable-extension-type.html">JSIterable</a></span> 
+
+</dt>
+<dd>
+    A <a href="dart-js_interop/JSIterableProtocol-extension-type.html">JSIterableProtocol</a> whose <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator">iterator</a> is a <a href="dart-js_interop/JSIterator-extension-type.html">JSIterator</a>.
+</dd>
+
+          <dt id="JSIterableProtocol">
+    <span class="name "><a href="dart-js_interop/JSIterableProtocol-extension-type.html">JSIterableProtocol</a></span> 
+
+</dt>
+<dd>
+    The synchronous <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol">JS iterable protocol</a>.
+</dd>
+
+          <dt id="JSIterator">
+    <span class="name "><a href="dart-js_interop/JSIterator-extension-type.html">JSIterator</a></span> 
+
+</dt>
+<dd>
+    A proper JS iterator.
+</dd>
+
+          <dt id="JSIteratorProtocol">
+    <span class="name "><a href="dart-js_interop/JSIteratorProtocol-extension-type.html">JSIteratorProtocol</a></span> 
+
+</dt>
+<dd>
+    The synchronous <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol">JS iterator protocol</a>.
+</dd>
+
+          <dt id="JSIteratorResult">
+    <span class="name "><a href="dart-js_interop/JSIteratorResult-extension-type.html">JSIteratorResult</a></span> 
+
+</dt>
+<dd>
+    A synchronous <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#done">JS <code>IteratorResult</code></a>.
+</dd>
+
+          <dt id="JSNumber">
+    <span class="name "><a href="dart-js_interop/JSNumber-extension-type.html">JSNumber</a></span> 
+
+</dt>
+<dd>
+    A JavaScript number.
+</dd>
+
+          <dt id="JSObject">
+    <span class="name "><a href="dart-js_interop/JSObject-extension-type.html">JSObject</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Object</code>.
+</dd>
+
+          <dt id="JSPromise">
+    <span class="name "><a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Promise</code> or a promise-like object.
+</dd>
+
+          <dt id="JSString">
+    <span class="name "><a href="dart-js_interop/JSString-extension-type.html">JSString</a></span> 
+
+</dt>
+<dd>
+    A JavaScript string.
+</dd>
+
+          <dt id="JSSymbol">
+    <span class="name "><a href="dart-js_interop/JSSymbol-extension-type.html">JSSymbol</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Symbol</code>.
+</dd>
+
+          <dt id="JSTypedArray">
+    <span class="name "><a href="dart-js_interop/JSTypedArray-extension-type.html">JSTypedArray</a></span> 
+
+</dt>
+<dd>
+    Abstract supertype of all JavaScript typed arrays.
+</dd>
+
+          <dt id="JSUint16Array">
+    <span class="name "><a href="dart-js_interop/JSUint16Array-extension-type.html">JSUint16Array</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Uint16Array</code>.
+</dd>
+
+          <dt id="JSUint32Array">
+    <span class="name "><a href="dart-js_interop/JSUint32Array-extension-type.html">JSUint32Array</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Uint32Array</code>.
+</dd>
+
+          <dt id="JSUint8Array">
+    <span class="name "><a href="dart-js_interop/JSUint8Array-extension-type.html">JSUint8Array</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Uint8Array</code>.
+</dd>
+
+          <dt id="JSUint8ClampedArray">
+    <span class="name "><a href="dart-js_interop/JSUint8ClampedArray-extension-type.html">JSUint8ClampedArray</a></span> 
+
+</dt>
+<dd>
+    A JavaScript <code>Uint8ClampedArray</code>.
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="extensions">
+      <h2>扩展</h2>
+      <dl>
+          <dt id="BoolToJSBoolean">
+  <span class="name "><a href="dart-js_interop/BoolToJSBoolean.html">BoolToJSBoolean</a></span>
+  on <a href="dart-core/bool-class.html">bool</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-core/bool-class.html">bool</a> to <a href="dart-js_interop/JSBoolean-extension-type.html">JSBoolean</a>.
+</dd>
+
+          <dt id="ByteBufferToJSArrayBuffer">
+  <span class="name "><a href="dart-js_interop/ByteBufferToJSArrayBuffer.html">ByteBufferToJSArrayBuffer</a></span>
+  on <a href="dart-typed_data/ByteBuffer-class.html">ByteBuffer</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/ByteBuffer-class.html">ByteBuffer</a> to <a href="dart-js_interop/JSArrayBuffer-extension-type.html">JSArrayBuffer</a>.
+</dd>
+
+          <dt id="ByteDataToJSDataView">
+  <span class="name "><a href="dart-js_interop/ByteDataToJSDataView.html">ByteDataToJSDataView</a></span>
+  on <a href="dart-typed_data/ByteData-class.html">ByteData</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/ByteData-class.html">ByteData</a> to <a href="dart-js_interop/JSDataView-extension-type.html">JSDataView</a>.
+</dd>
+
+          <dt id="DoubleToJSNumber">
+  <span class="name "><a href="dart-js_interop/DoubleToJSNumber.html">DoubleToJSNumber</a></span>
+  on <a href="dart-core/double-class.html">double</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-core/double-class.html">double</a> to <a href="dart-js_interop/JSNumber-extension-type.html">JSNumber</a>.
+</dd>
+
+          <dt id="ExternalDartReferenceToObject">
+  <span class="name "><a href="dart-js_interop/ExternalDartReferenceToObject.html">ExternalDartReferenceToObject</a></span>
+  on <a href="dart-js_interop/ExternalDartReference-extension-type.html">ExternalDartReference</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/ExternalDartReference-extension-type.html">ExternalDartReference</a> to the value of type <code>T</code>.
+</dd>
+
+          <dt id="Float32ListToJSFloat32Array">
+  <span class="name "><a href="dart-js_interop/Float32ListToJSFloat32Array.html">Float32ListToJSFloat32Array</a></span>
+  on <a href="dart-typed_data/Float32List-class.html">Float32List</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Float32List-class.html">Float32List</a> to <a href="dart-js_interop/JSFloat32Array-extension-type.html">JSFloat32Array</a>.
+</dd>
+
+          <dt id="Float64ListToJSFloat64Array">
+  <span class="name "><a href="dart-js_interop/Float64ListToJSFloat64Array.html">Float64ListToJSFloat64Array</a></span>
+  on <a href="dart-typed_data/Float64List-class.html">Float64List</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Float64List-class.html">Float64List</a> to <a href="dart-js_interop/JSFloat64Array-extension-type.html">JSFloat64Array</a>.
+</dd>
+
+          <dt id="FunctionToJSExportedDartFunction">
+  <span class="name "><a href="dart-js_interop/FunctionToJSExportedDartFunction.html">FunctionToJSExportedDartFunction</a></span>
+  on T
+  
+
+</dt>
+<dd>
+  Conversions from <code>T</code> to <code><a href="dart-js_interop/JSExportedDartFunction-extension-type.html">JSExportedDartFunction</a>&lt;T&gt;</code>.
+</dd>
+
+          <dt id="FutureOfJSAnyToJSPromise">
+  <span class="name "><a href="dart-js_interop/FutureOfJSAnyToJSPromise.html">FutureOfJSAnyToJSPromise</a></span>
+  on <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-async/Future-class.html">Future</a> to <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a> where the <a href="dart-async/Future-class.html">Future</a> returns a value.
+</dd>
+
+          <dt id="FutureOfVoidToJSPromise">
+  <span class="name "><a href="dart-js_interop/FutureOfVoidToJSPromise.html">FutureOfVoidToJSPromise</a></span>
+  on <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-async/Future-class.html">Future</a> to <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a> where the <a href="dart-async/Future-class.html">Future</a> does not return
+a value.
+</dd>
+
+          <dt id="Int16ListToJSInt16Array">
+  <span class="name "><a href="dart-js_interop/Int16ListToJSInt16Array.html">Int16ListToJSInt16Array</a></span>
+  on <a href="dart-typed_data/Int16List-class.html">Int16List</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Int16List-class.html">Int16List</a> to <a href="dart-js_interop/JSInt16Array-extension-type.html">JSInt16Array</a>.
+</dd>
+
+          <dt id="Int32ListToJSInt32Array">
+  <span class="name "><a href="dart-js_interop/Int32ListToJSInt32Array.html">Int32ListToJSInt32Array</a></span>
+  on <a href="dart-typed_data/Int32List-class.html">Int32List</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Int32List-class.html">Int32List</a> to <a href="dart-js_interop/JSInt32Array-extension-type.html">JSInt32Array</a>.
+</dd>
+
+          <dt id="Int8ListToJSInt8Array">
+  <span class="name "><a href="dart-js_interop/Int8ListToJSInt8Array.html">Int8ListToJSInt8Array</a></span>
+  on <a href="dart-typed_data/Int8List-class.html">Int8List</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Int8List-class.html">Int8List</a> to <a href="dart-js_interop/JSInt8Array-extension-type.html">JSInt8Array</a>.
+</dd>
+
+          <dt id="IterableToJSIterable">
+  <span class="name "><a href="dart-js_interop/IterableToJSIterable.html">IterableToJSIterable</a></span>
+  on <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversion from <a href="dart-core/Iterable-class.html">Iterable</a> to <a href="dart-js_interop/JSIterable-extension-type.html">JSIterable</a>.
+</dd>
+
+          <dt id="IteratorToJSIterator">
+  <span class="name "><a href="dart-js_interop/IteratorToJSIterator.html">IteratorToJSIterator</a></span>
+  on <a href="dart-core/Iterator-class.html">Iterator</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversion from <a href="dart-core/Iterator-class.html">Iterator</a> to <a href="dart-js_interop/JSIterator-extension-type.html">JSIterator</a>.
+</dd>
+
+          <dt id="JSAnyOperatorExtension">
+  <span class="name "><a href="dart-js_interop/JSAnyOperatorExtension.html">JSAnyOperatorExtension</a></span>
+  on <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?
+  
+
+</dt>
+<dd>
+  General-purpose JavaScript operators.
+</dd>
+
+          <dt id="JSAnyUtilityExtension">
+  <span class="name "><a href="dart-js_interop/JSAnyUtilityExtension.html">JSAnyUtilityExtension</a></span>
+  on <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?
+  
+
+</dt>
+<dd>
+  Common utility functions that are useful for any JavaScript value.
+</dd>
+
+          <dt id="JSArrayBufferToByteBuffer">
+  <span class="name "><a href="dart-js_interop/JSArrayBufferToByteBuffer.html">JSArrayBufferToByteBuffer</a></span>
+  on <a href="dart-js_interop/JSArrayBuffer-extension-type.html">JSArrayBuffer</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSArrayBuffer-extension-type.html">JSArrayBuffer</a> to <a href="dart-typed_data/ByteBuffer-class.html">ByteBuffer</a>.
+</dd>
+
+          <dt id="JSArrayToList">
+  <span class="name "><a href="dart-js_interop/JSArrayToList.html">JSArrayToList</a></span>
+  on <a href="dart-js_interop/JSArray-extension-type.html">JSArray</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSArray-extension-type.html">JSArray</a> to <a href="dart-core/List-class.html">List</a>.
+</dd>
+
+          <dt id="JSBooleanToBool">
+  <span class="name "><a href="dart-js_interop/JSBooleanToBool.html">JSBooleanToBool</a></span>
+  on <a href="dart-js_interop/JSBoolean-extension-type.html">JSBoolean</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSBoolean-extension-type.html">JSBoolean</a> to <a href="dart-core/bool-class.html">bool</a>.
+</dd>
+
+          <dt id="JSBoxedDartObjectToObject">
+  <span class="name "><a href="dart-js_interop/JSBoxedDartObjectToObject.html">JSBoxedDartObjectToObject</a></span>
+  on <a href="dart-js_interop/JSBoxedDartObject-extension-type.html">JSBoxedDartObject</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSBoxedDartObject-extension-type.html">JSBoxedDartObject</a> to <a href="dart-core/Object-class.html">Object</a>.
+</dd>
+
+          <dt id="JSDataViewToByteData">
+  <span class="name "><a href="dart-js_interop/JSDataViewToByteData.html">JSDataViewToByteData</a></span>
+  on <a href="dart-js_interop/JSDataView-extension-type.html">JSDataView</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSDataView-extension-type.html">JSDataView</a> to <a href="dart-typed_data/ByteData-class.html">ByteData</a>.
+</dd>
+
+          <dt id="JSExportedDartFunctionToFunction">
+  <span class="name "><a href="dart-js_interop/JSExportedDartFunctionToFunction.html">JSExportedDartFunctionToFunction</a></span>
+  on <a href="dart-js_interop/JSExportedDartFunction-extension-type.html">JSExportedDartFunction</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversions from <code><a href="dart-js_interop/JSExportedDartFunction-extension-type.html">JSExportedDartFunction</a>&lt;T&gt;</code> to <code>T</code>.
+</dd>
+
+          <dt id="JSFloat32ArrayToFloat32List">
+  <span class="name "><a href="dart-js_interop/JSFloat32ArrayToFloat32List.html">JSFloat32ArrayToFloat32List</a></span>
+  on <a href="dart-js_interop/JSFloat32Array-extension-type.html">JSFloat32Array</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSFloat32Array-extension-type.html">JSFloat32Array</a> to <a href="dart-typed_data/Float32List-class.html">Float32List</a>.
+</dd>
+
+          <dt id="JSFloat64ArrayToFloat64List">
+  <span class="name "><a href="dart-js_interop/JSFloat64ArrayToFloat64List.html">JSFloat64ArrayToFloat64List</a></span>
+  on <a href="dart-js_interop/JSFloat64Array-extension-type.html">JSFloat64Array</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSFloat64Array-extension-type.html">JSFloat64Array</a> to <a href="dart-typed_data/Float64List-class.html">Float64List</a>.
+</dd>
+
+          <dt id="JSFunctionUtilExtension">
+  <span class="name "><a href="dart-js_interop/JSFunctionUtilExtension.html">JSFunctionUtilExtension</a></span>
+  on <a href="dart-js_interop/JSFunction-extension-type.html">JSFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Function-class.html">Function</a></span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Utility extensions for <a href="dart-js_interop/JSFunction-extension-type.html">JSFunction</a>.
+</dd>
+
+          <dt id="JSInt16ArrayToInt16List">
+  <span class="name "><a href="dart-js_interop/JSInt16ArrayToInt16List.html">JSInt16ArrayToInt16List</a></span>
+  on <a href="dart-js_interop/JSInt16Array-extension-type.html">JSInt16Array</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSInt16Array-extension-type.html">JSInt16Array</a> to <a href="dart-typed_data/Int16List-class.html">Int16List</a>.
+</dd>
+
+          <dt id="JSInt32ArrayToInt32List">
+  <span class="name "><a href="dart-js_interop/JSInt32ArrayToInt32List.html">JSInt32ArrayToInt32List</a></span>
+  on <a href="dart-js_interop/JSInt32Array-extension-type.html">JSInt32Array</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSInt32Array-extension-type.html">JSInt32Array</a> to <a href="dart-typed_data/Int32List-class.html">Int32List</a>.
+</dd>
+
+          <dt id="JSInt8ArrayToInt8List">
+  <span class="name "><a href="dart-js_interop/JSInt8ArrayToInt8List.html">JSInt8ArrayToInt8List</a></span>
+  on <a href="dart-js_interop/JSInt8Array-extension-type.html">JSInt8Array</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSInt8Array-extension-type.html">JSInt8Array</a> to <a href="dart-typed_data/Int8List-class.html">Int8List</a>.
+</dd>
+
+          <dt id="JSIterableToIterable">
+  <span class="name "><a href="dart-js_interop/JSIterableToIterable.html">JSIterableToIterable</a></span>
+  on <a href="dart-js_interop/JSIterable-extension-type.html">JSIterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversion from <a href="dart-js_interop/JSIterable-extension-type.html">JSIterable</a> to <a href="dart-core/Iterable-class.html">Iterable</a>.
+</dd>
+
+          <dt id="JSIteratorToIterator">
+  <span class="name "><a href="dart-js_interop/JSIteratorToIterator.html">JSIteratorToIterator</a></span>
+  on <a href="dart-js_interop/JSIterator-extension-type.html">JSIterator</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversion from <a href="dart-js_interop/JSIterator-extension-type.html">JSIterator</a> to <a href="dart-core/Iterator-class.html">Iterator</a>.
+</dd>
+
+          <dt id="JSNumberToNumber">
+  <span class="name "><a href="dart-js_interop/JSNumberToNumber.html">JSNumberToNumber</a></span>
+  on <a href="dart-js_interop/JSNumber-extension-type.html">JSNumber</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSNumber-extension-type.html">JSNumber</a> to <a href="dart-core/double-class.html">double</a> or <a href="dart-core/int-class.html">int</a>.
+</dd>
+
+          <dt id="JSPromiseToFuture">
+  <span class="name "><a href="dart-js_interop/JSPromiseToFuture.html">JSPromiseToFuture</a></span>
+  on <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a> to <a href="dart-async/Future-class.html">Future</a>.
+</dd>
+
+          <dt id="JSStringToString">
+  <span class="name "><a href="dart-js_interop/JSStringToString.html">JSStringToString</a></span>
+  on <a href="dart-js_interop/JSString-extension-type.html">JSString</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSString-extension-type.html">JSString</a> to <a href="dart-core/String-class.html">String</a>.
+</dd>
+
+          <dt id="JSUint16ArrayToUint16List">
+  <span class="name "><a href="dart-js_interop/JSUint16ArrayToUint16List.html">JSUint16ArrayToUint16List</a></span>
+  on <a href="dart-js_interop/JSUint16Array-extension-type.html">JSUint16Array</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSUint16Array-extension-type.html">JSUint16Array</a> to <a href="dart-typed_data/Uint16List-class.html">Uint16List</a>.
+</dd>
+
+          <dt id="JSUint32ArrayToUint32List">
+  <span class="name "><a href="dart-js_interop/JSUint32ArrayToUint32List.html">JSUint32ArrayToUint32List</a></span>
+  on <a href="dart-js_interop/JSUint32Array-extension-type.html">JSUint32Array</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSUint32Array-extension-type.html">JSUint32Array</a> to <a href="dart-typed_data/Uint32List-class.html">Uint32List</a>.
+</dd>
+
+          <dt id="JSUint8ArrayToUint8List">
+  <span class="name "><a href="dart-js_interop/JSUint8ArrayToUint8List.html">JSUint8ArrayToUint8List</a></span>
+  on <a href="dart-js_interop/JSUint8Array-extension-type.html">JSUint8Array</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSUint8Array-extension-type.html">JSUint8Array</a> to <a href="dart-typed_data/Uint8List-class.html">Uint8List</a>.
+</dd>
+
+          <dt id="JSUint8ClampedArrayToUint8ClampedList">
+  <span class="name "><a href="dart-js_interop/JSUint8ClampedArrayToUint8ClampedList.html">JSUint8ClampedArrayToUint8ClampedList</a></span>
+  on <a href="dart-js_interop/JSUint8ClampedArray-extension-type.html">JSUint8ClampedArray</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-js_interop/JSUint8ClampedArray-extension-type.html">JSUint8ClampedArray</a> to <a href="dart-typed_data/Uint8ClampedList-class.html">Uint8ClampedList</a>.
+</dd>
+
+          <dt id="ListToJSArray">
+  <span class="name "><a href="dart-js_interop/ListToJSArray.html">ListToJSArray</a></span>
+  on <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-core/List-class.html">List</a> to <a href="dart-js_interop/JSArray-extension-type.html">JSArray</a>.
+</dd>
+
+          <dt id="NullableObjectUtilExtension">
+  <span class="name "><a href="dart-js_interop/NullableObjectUtilExtension.html">NullableObjectUtilExtension</a></span>
+  on <a href="dart-core/Object-class.html">Object</a>?
+  
+
+</dt>
+<dd>
+  Common utility functions for <code><a href="dart-core/Object-class.html">Object</a>?</code>。
+</dd>
+
+          <dt id="NullableUndefineableJSAnyExtension">
+  <span class="name "><a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a></span>
+  on <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?
+  
+
+</dt>
+<dd>
+  Helper members to determine if a value is JavaScript <code>undefined</code> or <code>null</code>.
+</dd>
+
+          <dt id="NumToJSExtension">
+  <span class="name "><a href="dart-js_interop/NumToJSExtension.html">NumToJSExtension</a></span>
+  on <a href="dart-core/num-class.html">num</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-core/num-class.html">num</a> to <a href="dart-js_interop/JSNumber-extension-type.html">JSNumber</a>.
+</dd>
+
+          <dt id="ObjectToExternalDartReference">
+  <span class="name "><a href="dart-js_interop/ObjectToExternalDartReference.html">ObjectToExternalDartReference</a></span>
+  on T
+  
+
+</dt>
+<dd>
+  Conversions from a value of type <code>T</code> to <a href="dart-js_interop/ExternalDartReference-extension-type.html">ExternalDartReference</a>.
+</dd>
+
+          <dt id="ObjectToJSBoxedDartObject">
+  <span class="name "><a href="dart-js_interop/ObjectToJSBoxedDartObject.html">ObjectToJSBoxedDartObject</a></span>
+  on <a href="dart-core/Object-class.html">Object</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-core/Object-class.html">Object</a> to <a href="dart-js_interop/JSBoxedDartObject-extension-type.html">JSBoxedDartObject</a>.
+</dd>
+
+          <dt id="StringToJSString">
+  <span class="name "><a href="dart-js_interop/StringToJSString.html">StringToJSString</a></span>
+  on <a href="dart-core/String-class.html">String</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-core/String-class.html">String</a> to <a href="dart-js_interop/JSString-extension-type.html">JSString</a>.
+</dd>
+
+          <dt id="Uint16ListToJSUint16Array">
+  <span class="name "><a href="dart-js_interop/Uint16ListToJSUint16Array.html">Uint16ListToJSUint16Array</a></span>
+  on <a href="dart-typed_data/Uint16List-class.html">Uint16List</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Uint16List-class.html">Uint16List</a> to <a href="dart-js_interop/JSUint16Array-extension-type.html">JSUint16Array</a>.
+</dd>
+
+          <dt id="Uint32ListToJSUint32Array">
+  <span class="name "><a href="dart-js_interop/Uint32ListToJSUint32Array.html">Uint32ListToJSUint32Array</a></span>
+  on <a href="dart-typed_data/Uint32List-class.html">Uint32List</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Uint32List-class.html">Uint32List</a> to <a href="dart-js_interop/JSUint32Array-extension-type.html">JSUint32Array</a>.
+</dd>
+
+          <dt id="Uint8ClampedListToJSUint8ClampedArray">
+  <span class="name "><a href="dart-js_interop/Uint8ClampedListToJSUint8ClampedArray.html">Uint8ClampedListToJSUint8ClampedArray</a></span>
+  on <a href="dart-typed_data/Uint8ClampedList-class.html">Uint8ClampedList</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Uint8ClampedList-class.html">Uint8ClampedList</a> to <a href="dart-js_interop/JSUint8ClampedArray-extension-type.html">JSUint8ClampedArray</a>.
+</dd>
+
+          <dt id="Uint8ListToJSUint8Array">
+  <span class="name "><a href="dart-js_interop/Uint8ListToJSUint8Array.html">Uint8ListToJSUint8Array</a></span>
+  on <a href="dart-typed_data/Uint8List-class.html">Uint8List</a>
+  
+
+</dt>
+<dd>
+  Conversions from <a href="dart-typed_data/Uint8List-class.html">Uint8List</a> to <a href="dart-js_interop/JSUint8Array-extension-type.html">JSUint8Array</a>.
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="constants">
+      <h2>常量</h2>
+      <dl class="properties">
+          <dt id="anonymous" class="constant">
+    <span class="name "><a href="dart-js_interop/anonymous-constant.html">anonymous</a></span>
+  <span class="signature">&#8594; const _Anonymous</span>
+  
+
+</dt>
+<dd>
+  An annotation that indicates a <a href="dart-js_interop/JS-class.html">JS</a> annotated class is structural and does
+not have a known JavaScript prototype.
+  
+
+</dd>
+
+          <dt id="staticInterop" class="constant">
+    <span class="name "><a href="dart-js_interop/staticInterop-constant.html">staticInterop</a></span>
+  <span class="signature">&#8594; const _StaticInterop</span>
+  
+
+</dt>
+<dd>
+  <a href="dart-js_interop/staticInterop-constant.html">staticInterop</a> enables the <a href="dart-js_interop/JS-class.html">JS</a> annotated class to be treated as a "static"
+interop class.
+  
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="properties">
+      <h2>属性</h2>
+      <dl class="properties">
+          <dt id="globalContext" class="property">
+  <span class="name"><a href="dart-js_interop/globalContext.html">globalContext</a></span>
+  <span class="signature">&#8594; <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a></span>
+  
+
+</dt>
+<dd>
+  The global scope that is used to find user-declared interop members.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="functions">
+      <h2>函数</h2>
+      <dl class="callables">
+          <dt id="createJSInteropWrapper" class="callable">
+  <span class="name"><a href="dart-js_interop/createJSInteropWrapper.html">createJSInteropWrapper</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="dart-core/Object-class.html">Object</a></span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="createJSInteropWrapper-param-dartObject"><span class="type-annotation">T</span> <span class="parameter-name">dartObject</span>, [</span><span class="parameter" id="createJSInteropWrapper-param-prototype"><span class="type-annotation"><a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>?</span> <span class="parameter-name">prototype</span> = <span class="default-value">null</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Given a instance of a Dart class that contains an <code>@<a href="dart-js_interop/JSExport-class.html">JSExport</a></code>
+annotation, creates a JavaScript object that wraps the given Dart object.
+  
+
+</dd>
+
+          <dt id="importModule" class="callable">
+  <span class="name"><a href="dart-js_interop/importModule.html">importModule</a></span><span class="signature">(<wbr><span class="parameter" id="importModule-param-moduleName"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">moduleName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-js_interop/JSObject-extension-type.html">JSObject</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Dynamically imports a JavaScript module with the given <code>moduleName</code> using
+the JavaScript <code>import()</code> syntax.
+  
+
+</dd>
+
+          <dt id="jsIdentical" class="callable">
+  <span class="name"><a href="dart-js_interop/jsIdentical.html">jsIdentical</a></span><span class="signature">(<wbr><span class="parameter" id="jsIdentical-param-a"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">a</span>, </span><span class="parameter" id="jsIdentical-param-b"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">b</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns true if the underlying JavaScript values of <code>a</code> 和 <code>b</code> are
+identical.
+  
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="typedefs">
+      <h2>类型定义</h2>
+      <dl>
+          
+  <dt id="JSVoid" class="">
+  <span class="name"><a href="dart-js_interop/JSVoid.html">JSVoid</a></span>
+    = void
+  </span>
+  
+
+</dt>
+<dd>
+  JS type equivalent for <code>undefined</code> for interop member return types.
+  
+
+</dd>
+
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="exceptions">
+      <h2>异常与错误</h2>
+      <dl>
+          <dt id="NullRejectionException">
+  <span class="name "><a href="dart-js_interop/NullRejectionException-class.html">NullRejectionException</a></span> 
+
+</dt>
+<dd>
+  Exception for when a <a href="dart-js_interop/JSPromise-extension-type.html">JSPromise</a> that is converted via
+<a href="dart-js_interop/JSPromiseToFuture/toDart.html">JSPromiseToFuture.toDart</a> is rejected with a <code>null</code> or <code>undefined</code> value.
+</dd>
+
+      </dl>
+    </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li class="self-crumb">dart:js_interop</li>
+</ol>
+
+    <h5><span class="package-name">Flutter</span> <span class="package-kind">包</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="animation/">animation</a></li>
+      <li><a href="cupertino/">cupertino</a></li>
+      <li><a href="foundation/">foundation</a></li>
+      <li><a href="gestures/">gestures</a></li>
+      <li><a href="material/">material</a></li>
+      <li><a href="painting/">painting</a></li>
+      <li><a href="physics/">physics</a></li>
+      <li><a href="rendering/">rendering</a></li>
+      <li><a href="scheduler/">scheduler</a></li>
+      <li><a href="semantics/">semantics</a></li>
+      <li><a href="services/">services</a></li>
+      <li><a href="widget_previews/">widget_previews</a></li>
+      <li><a href="widgets/">widgets</a></li>
+      <li class="section-title">Dart</li>
+      <li><a href="dart-ui/">dart:ui</a></li>
+      <li><a href="dart-ui_web/">dart:ui_web</a></li>
+      <li class="section-subtitle">Core</li>
+        <li class="section-subitem"><a href="dart-async/">dart:async</a></li>
+        <li class="section-subitem"><a href="dart-collection/">dart:collection</a></li>
+        <li class="section-subitem"><a href="dart-convert/">dart:convert</a></li>
+        <li class="section-subitem"><a href="dart-core/">dart:core</a></li>
+        <li class="section-subitem"><a href="dart-developer/">dart:developer</a></li>
+        <li class="section-subitem"><a href="dart-math/">dart:math</a></li>
+        <li class="section-subitem"><a href="dart-typed_data/">dart:typed_data</a></li>
+      <li class="section-subtitle">VM</li>
+        <li class="section-subitem"><a href="dart-ffi/">dart:ffi</a></li>
+        <li class="section-subitem"><a href="dart-io/">dart:io</a></li>
+        <li class="section-subitem"><a href="dart-isolate/">dart:isolate</a></li>
+      <li class="section-subtitle">Web</li>
+        <li class="section-subitem">
+          <a href="https:&#47;&#47;pub.dev&#47;documentation&#47;web&#47;latest&#47;" target="_blank">
+            package:web
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </li>
+        <li class="section-subitem"><a href="dart-js_interop/">dart:js_interop</a></li>
+        <li class="section-subitem"><a href="dart-js_interop_unsafe/">dart:js_interop_unsafe</a></li>
+      <li class="section-subtitle">Web (Legacy)</li>
+        <li class="section-subitem"><a class="deprecated" href="dart-html/">dart:html</a></li>
+        <li class="section-subitem"><a class="deprecated" href="dart-js/">dart:js</a></li>
+      <li class="section-title">platform_integration</li>
+      <li><a href="Android/">android</a></li>
+      <li><a href="iOS/">ios</a></li>
+      <li><a href="Linux/">linux</a></li>
+      <li><a href="macOS/">macos</a></li>
+      <li><a href="Windows/">windows</a></li>
+      <li class="section-title">flutter_test</li>
+      <li><a href="flutter_test/">flutter_test</a></li>
+      <li class="section-title">flutter_driver</li>
+      <li><a href="flutter_driver_extension/">driver_extension</a></li>
+      <li><a href="flutter_driver/">flutter_driver</a></li>
+      <li class="section-title">Flutter</li>
+      <li class="section-title">flutter_gpu</li>
+      <li><a href="flutter_gpu/">gpu</a></li>
+      <li class="section-title">flutter_localizations</li>
+      <li><a href="flutter_localizations/">flutter_localizations</a></li>
+      <li class="section-title">flutter_web_plugins</li>
+      <li><a href="flutter_web_plugins/">flutter_web_plugins</a></li>
+      <li><a href="package-flutter_web_plugins_url_strategy/">url_strategy</a></li>
+      <li class="section-title">leak_tracker_flutter_testing</li>
+      <li><a href="package-leak_tracker_flutter_testing_leak_tracker_flutter_testing/">leak_tracker_flutter_testing</a></li>
+      <li class="section-title">async</li>
+      <li><a href="package-async_async/">async</a></li>
+      <li class="section-title">boolean_selector</li>
+      <li><a href="package-boolean_selector_boolean_selector/">boolean_selector</a></li>
+      <li class="section-title">characters</li>
+      <li><a href="package-characters_characters/">characters</a></li>
+      <li class="section-title">clock</li>
+      <li><a href="package-clock_clock/">clock</a></li>
+      <li class="section-title">collection</li>
+      <li><a class="deprecated" href="package-collection_algorithms/">algorithms</a></li>
+      <li><a href="package-collection_collection/">collection</a></li>
+      <li><a class="deprecated" href="package-collection_equality/">equality</a></li>
+      <li><a class="deprecated" href="package-collection_iterable_zip/">iterable_zip</a></li>
+      <li><a class="deprecated" href="package-collection_priority_queue/">priority_queue</a></li>
+      <li><a class="deprecated" href="package-collection_wrappers/">wrappers</a></li>
+      <li class="section-title">crypto</li>
+      <li><a href="package-crypto_crypto/">crypto</a></li>
+      <li class="section-title">fake_async</li>
+      <li><a href="package-fake_async_fake_async/">fake_async</a></li>
+      <li class="section-title">file</li>
+      <li><a href="package-file_chroot/">chroot</a></li>
+      <li><a href="package-file_file/">file</a></li>
+      <li><a href="package-file_local/">local</a></li>
+      <li><a href="package-file_memory/">memory</a></li>
+      <li class="section-title">integration_test</li>
+      <li><a href="package-integration_test_common/">common</a></li>
+      <li><a href="package-integration_test_integration_test/">integration_test</a></li>
+      <li><a href="package-integration_test_integration_test_driver/">integration_test_driver</a></li>
+      <li><a href="package-integration_test_integration_test_driver_extended/">integration_test_driver_extended</a></li>
+      <li class="section-title">intl</li>
+      <li><a href="package-intl_date_symbol_data_custom/">date_symbol_data_custom</a></li>
+      <li><a href="package-intl_date_symbol_data_file/">date_symbol_data_file</a></li>
+      <li><a href="package-intl_date_symbol_data_http_request/">date_symbol_data_http_request</a></li>
+      <li><a href="package-intl_date_symbol_data_local/">date_symbol_data_local</a></li>
+      <li><a href="package-intl_date_symbols/">date_symbols</a></li>
+      <li><a href="package-intl_date_time_patterns/">date_time_patterns</a></li>
+      <li><a href="package-intl_find_locale/">find_locale</a></li>
+      <li><a href="package-intl_intl/">intl</a></li>
+      <li><a href="package-intl_intl_default/">intl_default</a></li>
+      <li><a href="package-intl_intl_standalone/">intl_standalone</a></li>
+      <li><a href="package-intl_locale/">locale</a></li>
+      <li><a href="package-intl_message_format/">message_format</a></li>
+      <li><a href="package-intl_message_lookup_by_library/">message_lookup_by_library</a></li>
+      <li><a href="package-intl_number_symbols/">number_symbols</a></li>
+      <li><a href="package-intl_number_symbols_data/">number_symbols_data</a></li>
+      <li class="section-title">leak_tracker</li>
+      <li><a href="package-leak_tracker_leak_tracker/">leak_tracker</a></li>
+      <li class="section-title">leak_tracker_testing</li>
+      <li><a href="package-leak_tracker_testing_leak_tracker_testing/">leak_tracker_testing</a></li>
+      <li class="section-title">matcher</li>
+      <li><a href="package-matcher_expect/">expect</a></li>
+      <li><a href="package-matcher_matcher/">matcher</a></li>
+      <li class="section-title">material_color_utilities</li>
+      <li><a href="package-material_color_utilities_blend_blend/">blend/blend</a></li>
+      <li><a href="package-material_color_utilities_contrast_contrast/">contrast/contrast</a></li>
+      <li><a href="package-material_color_utilities_dislike_dislike_analyzer/">dislike/dislike_analyzer</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_dynamic_color/">dynamiccolor/dynamic_color</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_dynamic_scheme/">dynamiccolor/dynamic_scheme</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_material_dynamic_colors/">dynamiccolor/material_dynamic_colors</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_src_contrast_curve/">dynamiccolor/src/contrast_curve</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_src_tone_delta_pair/">dynamiccolor/src/tone_delta_pair</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_variant/">dynamiccolor/variant</a></li>
+      <li><a href="package-material_color_utilities_hct_cam16/">hct/cam16</a></li>
+      <li><a href="package-material_color_utilities_hct_hct/">hct/hct</a></li>
+      <li><a href="package-material_color_utilities_hct_src_hct_solver/">hct/src/hct_solver</a></li>
+      <li><a href="package-material_color_utilities_hct_viewing_conditions/">hct/viewing_conditions</a></li>
+      <li><a href="package-material_color_utilities_material_color_utilities/">material_color_utilities</a></li>
+      <li><a href="package-material_color_utilities_palettes_core_palette/">palettes/core_palette</a></li>
+      <li><a href="package-material_color_utilities_palettes_core_palettes/">palettes/core_palettes</a></li>
+      <li><a href="package-material_color_utilities_palettes_tonal_palette/">palettes/tonal_palette</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer/">quantize/quantizer</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_celebi/">quantize/quantizer_celebi</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_map/">quantize/quantizer_map</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_wsmeans/">quantize/quantizer_wsmeans</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_wu/">quantize/quantizer_wu</a></li>
+      <li><a href="package-material_color_utilities_quantize_src_point_provider/">quantize/src/point_provider</a></li>
+      <li><a href="package-material_color_utilities_quantize_src_point_provider_lab/">quantize/src/point_provider_lab</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme/">scheme/scheme</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_content/">scheme/scheme_content</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_expressive/">scheme/scheme_expressive</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_fidelity/">scheme/scheme_fidelity</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_fruit_salad/">scheme/scheme_fruit_salad</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_monochrome/">scheme/scheme_monochrome</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_neutral/">scheme/scheme_neutral</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_rainbow/">scheme/scheme_rainbow</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_tonal_spot/">scheme/scheme_tonal_spot</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_vibrant/">scheme/scheme_vibrant</a></li>
+      <li><a href="package-material_color_utilities_score_score/">score/score</a></li>
+      <li><a href="package-material_color_utilities_temperature_temperature_cache/">temperature/temperature_cache</a></li>
+      <li><a href="package-material_color_utilities_utils_color_utils/">utils/color_utils</a></li>
+      <li><a href="package-material_color_utilities_utils_math_utils/">utils/math_utils</a></li>
+      <li><a href="package-material_color_utilities_utils_string_utils/">utils/string_utils</a></li>
+      <li class="section-title">meta</li>
+      <li><a href="meta_dart2js/">dart2js</a></li>
+      <li><a href="meta/">meta</a></li>
+      <li><a href="meta_meta/">meta_meta</a></li>
+      <li class="section-title">path</li>
+      <li><a href="package-path_path/">path</a></li>
+      <li class="section-title">platform</li>
+      <li><a href="package-platform_platform/">platform</a></li>
+      <li><a href="package-platform_testing/">testing</a></li>
+      <li class="section-title">process</li>
+      <li><a href="package-process_process/">process</a></li>
+      <li class="section-title">source_span</li>
+      <li><a href="package-source_span_source_span/">source_span</a></li>
+      <li class="section-title">stack_trace</li>
+      <li><a href="package-stack_trace_stack_trace/">stack_trace</a></li>
+      <li class="section-title">stream_channel</li>
+      <li><a href="package-stream_channel_isolate_channel/">isolate_channel</a></li>
+      <li><a href="package-stream_channel_stream_channel/">stream_channel</a></li>
+      <li class="section-title">string_scanner</li>
+      <li><a href="package-string_scanner_string_scanner/">string_scanner</a></li>
+      <li class="section-title">sync_http</li>
+      <li><a href="sync.http/">sync_http</a></li>
+      <li class="section-title">term_glyph</li>
+      <li><a href="package-term_glyph_term_glyph/">term_glyph</a></li>
+      <li class="section-title">test_api</li>
+      <li><a href="package-test_api_backend/">backend</a></li>
+      <li><a class="deprecated" href="package-test_api_fake/">fake</a></li>
+      <li><a href="package-test_api_hooks/">hooks</a></li>
+      <li><a href="package-test_api_hooks_testing/">hooks_testing</a></li>
+      <li><a href="package-test_api_scaffolding/">scaffolding</a></li>
+      <li><a class="deprecated" href="package-test_api_test_api/">test_api</a></li>
+      <li class="section-title">typed_data</li>
+      <li><a href="package-typed_data_typed_buffers/">typed_buffers</a></li>
+      <li><a href="package-typed_data_typed_data/">typed_data</a></li>
+      <li class="section-title">vector_math</li>
+      <li><a class="deprecated" href="package-vector_math_hash/">hash</a></li>
+      <li><a href="package-vector_math_vector_math/">vector_math</a></li>
+      <li><a href="package-vector_math_vector_math_64/">vector_math_64</a></li>
+      <li><a href="package-vector_math_vector_math_geometry/">vector_math_geometry</a></li>
+      <li><a href="package-vector_math_vector_math_lists/">vector_math_lists</a></li>
+      <li><a href="package-vector_math_vector_math_operations/">vector_math_operations</a></li>
+      <li class="section-title">vm_service</li>
+      <li><a href="package-vm_service_utils/">utils</a></li>
+      <li><a href="vm_service/">vm_service</a></li>
+      <li><a href="package-vm_service_vm_service_io/">vm_service_io</a></li>
+      <li class="section-title">web</li>
+      <li><a class="deprecated" href="package-web_helpers/">helpers</a></li>
+      <li><a href="package-web_web/">web</a></li>
+      <li class="section-title">webdriver</li>
+      <li><a href="package-webdriver_async_core/">async_core</a></li>
+      <li><a href="package-webdriver_async_html/">async_html</a></li>
+      <li><a href="package-webdriver_async_io/">async_io</a></li>
+      <li><a class="deprecated" href="package-webdriver_core/">core</a></li>
+      <li><a class="deprecated" href="package-webdriver_io/">io</a></li>
+      <li><a href="package-webdriver_support_async/">support/async</a></li>
+      <li><a href="package-webdriver_support_firefox_profile/">support/firefox_profile</a></li>
+      <li><a href="package-webdriver_support_stdio_stepper/">support/stdio_stepper</a></li>
+      <li><a href="package-webdriver_sync_core/">sync_core</a></li>
+      <li><a href="package-webdriver_sync_io/">sync_io</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>dart:js_interop library</h5>
+  </div><!--/sidebar-offcanvas-right-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="painting 库中 StrutStyle 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>StrutStyle 类 - painting 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="painting/">painting.dart</a></li>
+    <li class="self-crumb">StrutStyle 类</li>
+  </ol>
+  <div class="self-name">StrutStyle</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="painting&#47;painting-library-sidebar.html"
+    data-below-sidebar="painting&#47;StrutStyle-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/painting/strut_style.dart#L291"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">StrutStyle</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>定义文本支架，用于设置文本行相对于基线的最小高度。</p>
+<p>文本支架会应用于段落中的所有行，用来设定最小行高。其效果相当于在段落每一行的开头插入一个零宽空格。此虚拟空格会根据本类定义的属性进行“整形”。Flutter 的文本支架基于<a href="https://en.wikipedia.org/wiki/Strut_(typesetting)">排版中的支架</a>以及 CSS 的 <a href="https://www.w3.org/TR/CSS2/visudet.html#line-height">line-height</a>。</p>
+<p>任何一行都不会比文本支架更矮。系统会计算文本支架的上升高度和下降高度；如果已布局文本的上升高度或下降高度小于文本支架对应的值，就会采用文本支架的度量值。若文本的上升高度或下降高度大于文本支架的对应值，则按正常方式布局，并超出文本支架范围。</p>
+<p>文本支架独立于任何文本内容或 <a href="painting/TextStyle-class.html">TextStyle</a> 定义。</p>
+<p>文本支架包含以下垂直分量：</p>
+<ul>
+<li>字体定义行距的一半</li>
+<li><code>ascent * height</code></li>
+<li><code>descent * height</code></li>
+<li>字体定义行距的一半</li>
+</ul>
+<p>以上四个值的总和就是文本行的总高度。</p>
+<p>上升高度是基线上方、不含行距的字体间距；下降高度是基线下方、不含行距的字体间距。行距平均分布在顶部和底部。<code>ascent</code> 和 <code>descent</code> 的值由 <a href="painting/StrutStyle/fontFamily.html">fontFamily</a> 指定的字体提供。如果没有指定 <a href="painting/StrutStyle/fontFamily.html">fontFamily</a> 或 <a href="painting/StrutStyle/fontFamilyFallback.html">fontFamilyFallback</a>，则使用平台默认字体系列。许多字体的行距为零，因此实际使用中，行距分量通常没有影响。</p>
+<p>省略 <a href="painting/StrutStyle/height.html">height</a> 或将其设为 null 时，使用字体定义的上升高度和下降高度。两者之和可能大于或小于 <a href="painting/StrutStyle/fontSize.html">fontSize</a>。如果指定了 <a href="painting/StrutStyle/height.html">height</a>，则会按 <a href="painting/StrutStyle/fontSize.html">height</a> 缩放行的 EM 方框上升高度和下降高度（两者之和等于 <a href="painting/StrutStyle/height.html">fontSize</a>），使最终行高为 <code>fontSize * height + fontSize * leading</code> 个逻辑像素。指定 <a href="painting/StrutStyle/height.html">height</a> 后，上升高度与下降高度的比例仍与字体度量定义的比例相同。</p>
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/painting/text_height_diagram.png" alt="文字高度示意图"></p>
+<p>每行基线上方的间距至少等于半个行距加上上升高度；基线下方的间距至少等于半个行距加上下降高度。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="dart-ui/StrutStyle-class.html">StrutStyle</a>, the class in the <a href="dart-ui/">dart:ui</a> library.</li>
+</ul>
+<h3 id="fields-and-their-default-values">字段及其默认值</h3>
+<p>省略或设为 null 的属性将使用以下默认值：</p>
+<ul>
+<li>
+<p><a href="painting/StrutStyle/fontFamily.html">fontFamily</a>：计算文本支架时使用的字体名称（例如 Roboto）。不会绘制该字体的字形；该字体仅用于提供度量值。</p>
+</li>
+<li>
+<p><a href="painting/StrutStyle/fontFamilyFallback.html">fontFamilyFallback</a>：当 <a href="painting/StrutStyle/fontFamily.html">fontFamily</a> 中指定的字体不可用时，按顺序搜索的字体系列名称列表。所有指定字体系列都尝试完仍未找到匹配项时，将使用平台默认字体。</p>
+</li>
+<li>
+<p><a href="painting/StrutStyle/fontSize.html">fontSize</a>：上升高度与下降高度之和，以逻辑像素表示。它也用于计算自定义行距。此值不能为负数。<br>默认值为 14 个逻辑像素。</p>
+</li>
+<li>
+<p><a href="painting/StrutStyle/height.html">height</a>：行高相对于 <a href="painting/StrutStyle/fontSize.html">fontSize</a> 的倍数。如果省略 <a href="painting/StrutStyle/height.html">height</a> 或将其设为 null，行高将采用字体的上升高度和下降高度；如果指定了该值，则按 <a href="painting/StrutStyle/fontSize.html">height</a> 缩放 EM 方框的上升高度和下降高度（两者之和等于 <a href="painting/StrutStyle/height.html">fontSize</a>）。<a href="painting/StrutStyle/height.html">height</a> 对基线上下间距的影响取决于字体上升高度和下降高度的比例。此属性独立于通过 <a href="painting/StrutStyle/leading.html">leading</a> 控制的行距倍数。<br>默认值为 null。</p>
+</li>
+<li>
+<p><a href="painting/StrutStyle/leading.html">leading</a>：要应用于文本支架的自定义行距，以 <a href="painting/StrutStyle/fontSize.html">fontSize</a> 的倍数表示。行距是行与行之间的额外间隔，其中一半加在行高顶部，另一半加在底部。这不同于 <a href="painting/StrutStyle/height.html">height</a>：行距会平均分布在基线上下。<br>默认值为 null，此时使用字体指定的行距。</p>
+</li>
+<li>
+<p><a href="painting/StrutStyle/fontWeight.html">fontWeight</a>：计算文本支架时使用的字体粗细（例如粗体）。<br>默认值为 <a href="dart-ui/FontWeight/w400-constant.html">FontWeight.w400</a>。</p>
+</li>
+<li>
+<p><a href="painting/StrutStyle/fontStyle.html">fontStyle</a>：计算文本支架时使用的字体样式变体（例如斜体）。<br>默认值为 <a href="dart-ui/FontStyle.html">FontStyle.normal</a>。</p>
+</li>
+<li>
+<p><a href="painting/StrutStyle/forceStrutHeight.html">forceStrutHeight</a>：为 true 时，所有文本行都会按照文本支架的高度进行布局。所有行级和文本片段级的度量值都会被忽略或覆盖，改用文本支架的度量值。此属性可确保行距一致，但相邻行中的文本可能会相互重叠。启用时应谨慎，因为它会绕过垂直布局系统中的大部分处理。默认值为 false。</p>
+</li>
+</ul>
+<h3 id="examples">示例</h3>
+<p>
+<a name="painting.StrutStyle.1"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+在这个简单示例中，文本将以 10 号字体渲染；不过，由于文本本身比支架矮，每行的垂直高度将采用文本支架的高度（Roboto 字体大小 30 × 1.5）。
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'painting.StrutStyle.1');" onclick="fixHref(this, 'painting.StrutStyle.1'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">const Text(
+  &#39;Hello, world!\nSecond line!&#39;,
+  style: TextStyle(
+    fontSize: 10,
+    fontFamily: &#39;Raleway&#39;,
+  ),
+  strutStyle: StrutStyle(
+    fontFamily: &#39;Roboto&#39;,
+    fontSize: 30,
+    height: 1.5,
+  ),
+)</code></pre>
+  </div>
+</div>
+</p>
+<p>
+<a name="painting.StrutStyle.2"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+这里使用文本支架吸收第二行增加的行高。文本支架的 <a href="painting/StrutStyle/height.html">height</a> 设为 1.5（默认字号为 14），因此所有行的布局高度都比不使用文本支架时更高。额外空间容纳了字号较大的 <code>Second line!</code>，避免只有第二行的行高发生变化。因此，此示例中的所有行高度相同（<code>14 * 1.5</code>）。
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'painting.StrutStyle.2');" onclick="fixHref(this, 'painting.StrutStyle.2'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">const Text.rich(
+  TextSpan(
+    text: &#39;First line!\n&#39;,
+    style: TextStyle(
+      fontSize: 14,
+      fontFamily: &#39;Roboto&#39;
+    ),
+    children: &lt;TextSpan&gt;[
+      TextSpan(
+        text: &#39;Second line!\n&#39;,
+        style: TextStyle(
+          fontSize: 16,
+          fontFamily: &#39;Roboto&#39;,
+        ),
+      ),
+      TextSpan(
+        text: &#39;Third line!\n&#39;,
+        style: TextStyle(
+          fontSize: 14,
+          fontFamily: &#39;Roboto&#39;,
+        ),
+      ),
+    ],
+  ),
+  strutStyle: StrutStyle(
+    fontFamily: &#39;Roboto&#39;,
+    height: 1.5,
+  ),
+)</code></pre>
+  </div>
+</div>
+</p>
+<p>
+<a name="painting.StrutStyle.3"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+这里使用文本支架让文本产生奇特的重叠效果，从而实现独特的视觉表现。第 2 行和第 3 行中的 <code>M</code> 可以延伸到各自行的上方，填充上方行中的空白。<a href="painting/StrutStyle/forceStrutHeight.html">forceStrutHeight</a> 已启用，并作为字形绘制所依循的“网格”。</p>
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/painting/strut_force_example.png" alt="以下示例的效果。">
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'painting.StrutStyle.3');" onclick="fixHref(this, 'painting.StrutStyle.3'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">const Text.rich(
+  TextSpan(
+    text: &#39;---------         ---------\n&#39;,
+    style: TextStyle(
+      fontSize: 14,
+      fontFamily: &#39;Roboto&#39;,
+    ),
+    children: &lt;TextSpan&gt;[
+      TextSpan(
+        text: &#39;^^^M^^^\n&#39;,
+        style: TextStyle(
+          fontSize: 30,
+          fontFamily: &#39;Roboto&#39;,
+        ),
+      ),
+      TextSpan(
+        text: &#39;M------M\n&#39;,
+        style: TextStyle(
+          fontSize: 30,
+          fontFamily: &#39;Roboto&#39;,
+        ),
+      ),
+    ],
+  ),
+  strutStyle: StrutStyle(
+    fontFamily: &#39;Roboto&#39;,
+    fontSize: 14,
+    height: 1,
+    forceStrutHeight: true,
+  ),
+)</code></pre>
+  </div>
+</div>
+</p>
+<p>
+<a name="painting.StrutStyle.4"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+此示例使用 forceStrutHeight 为“The”中的字母“T”创建首字下沉效果。将行高锁定为 14 磅衬线字体的度量值后，就可以在第二行布局一个较大的 37 磅“T”，让它同时占据第一行和第二行的空间。</p>
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/painting/strut_force_example_2.png" alt="以下示例的效果。">
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'painting.StrutStyle.4');" onclick="fixHref(this, 'painting.StrutStyle.4'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">const Text.rich(
+  TextSpan(
+    text: &#39;       he candle flickered\n&#39;,
+    style: TextStyle(
+      fontSize: 14,
+      fontFamily: &#39;Serif&#39;
+    ),
+    children: &lt;TextSpan&gt;[
+      TextSpan(
+        text: &#39;T&#39;,
+        style: TextStyle(
+          fontSize: 37,
+          fontFamily: &#39;Serif&#39;
+        ),
+      ),
+      TextSpan(
+        text: &#39;in the moonlight as\n&#39;,
+        style: TextStyle(
+          fontSize: 14,
+          fontFamily: &#39;Serif&#39;
+        ),
+      ),
+      TextSpan(
+        text: &#39;Dash the bird fluttered\n&#39;,
+        style: TextStyle(
+          fontSize: 14,
+          fontFamily: &#39;Serif&#39;
+        ),
+      ),
+      TextSpan(
+        text: &#39;off into the distance.&#39;,
+        style: TextStyle(
+          fontSize: 14,
+          fontFamily: &#39;Serif&#39;
+        ),
+      ),
+    ],
+  ),
+  strutStyle: StrutStyle(
+    fontFamily: &#39;Serif&#39;,
+    fontSize: 14,
+    forceStrutHeight: true,
+  ),
+)</code></pre>
+  </div>
+</div>
+</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+  <dt>混入的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="foundation/Diagnosticable-mixin.html">Diagnosticable</a></li>
+    </ul>
+  </dd>
+
+
+        
+        
+  <dt>注解</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@<a href="meta/immutable-constant.html">immutable</a></li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="StrutStyle.new" class="callable">
+          <span class="name"><a href="painting/StrutStyle/StrutStyle.html">StrutStyle</a></span><span class="signature">({<span class="parameter" id="-param-fontFamily"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">fontFamily</span>, </span><span class="parameter" id="-param-fontFamilyFallback"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">fontFamilyFallback</span>, </span><span class="parameter" id="-param-fontSize"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">fontSize</span>, </span><span class="parameter" id="-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="-param-leadingDistribution"><span class="type-annotation"><a href="dart-ui/TextLeadingDistribution.html">TextLeadingDistribution</a>?</span> <span class="parameter-name">leadingDistribution</span>, </span><span class="parameter" id="-param-leading"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">leading</span>, </span><span class="parameter" id="-param-fontWeight"><span class="type-annotation"><a href="dart-ui/FontWeight-class.html">FontWeight</a>?</span> <span class="parameter-name">fontWeight</span>, </span><span class="parameter" id="-param-fontStyle"><span class="type-annotation"><a href="dart-ui/FontStyle.html">FontStyle</a>?</span> <span class="parameter-name">fontStyle</span>, </span><span class="parameter" id="-param-forceStrutHeight"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">forceStrutHeight</span>, </span><span class="parameter" id="-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugLabel</span>, </span><span class="parameter" id="-param-package"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">包</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a strut style.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="StrutStyle.fromTextStyle" class="callable">
+          <span class="name"><a href="painting/StrutStyle/StrutStyle.fromTextStyle.html">StrutStyle.fromTextStyle</a></span><span class="signature">(<span class="parameter" id="fromTextStyle-param-textStyle"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a></span> <span class="parameter-name">textStyle</span>, {</span><span class="parameter" id="fromTextStyle-param-fontFamily"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">fontFamily</span>, </span><span class="parameter" id="fromTextStyle-param-fontFamilyFallback"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">fontFamilyFallback</span>, </span><span class="parameter" id="fromTextStyle-param-fontSize"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">fontSize</span>, </span><span class="parameter" id="fromTextStyle-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="fromTextStyle-param-leadingDistribution"><span class="type-annotation"><a href="dart-ui/TextLeadingDistribution.html">TextLeadingDistribution</a>?</span> <span class="parameter-name">leadingDistribution</span>, </span><span class="parameter" id="fromTextStyle-param-leading"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">leading</span>, </span><span class="parameter" id="fromTextStyle-param-fontWeight"><span class="type-annotation"><a href="dart-ui/FontWeight-class.html">FontWeight</a>?</span> <span class="parameter-name">fontWeight</span>, </span><span class="parameter" id="fromTextStyle-param-fontStyle"><span class="type-annotation"><a href="dart-ui/FontStyle.html">FontStyle</a>?</span> <span class="parameter-name">fontStyle</span>, </span><span class="parameter" id="fromTextStyle-param-forceStrutHeight"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">forceStrutHeight</span>, </span><span class="parameter" id="fromTextStyle-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugLabel</span>, </span><span class="parameter" id="fromTextStyle-param-package"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">包</span></span>})</span>
+        </dt>
+        <dd>
+          Builds a StrutStyle that contains values of the equivalent properties in
+the provided <code>textStyle</code>.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="debugLabel" class="property">
+  <span class="name"><a href="painting/StrutStyle/debugLabel.html">debugLabel</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  A human-readable description of this strut style.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="fontFamily" class="property">
+  <span class="name"><a href="painting/StrutStyle/fontFamily.html">fontFamily</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  The name of the font to use when calculating the strut (e.g., Roboto). If
+the font is defined in a package, this will be prefixed with
+'packages/package_name/' (e.g. 'packages/cool_fonts/Roboto'). The
+prefixing is done by the constructor when the <code>package</code> argument is
+provided.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="fontFamilyFallback" class="property">
+  <span class="name"><a href="painting/StrutStyle/fontFamilyFallback.html">fontFamilyFallback</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  The ordered list of font families to fall back on when a higher priority
+font family cannot be found.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="fontSize" class="property">
+  <span class="name"><a href="painting/StrutStyle/fontSize.html">fontSize</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  The size of text (in logical pixels) to use when obtaining metrics from the font.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="fontStyle" class="property">
+  <span class="name"><a href="painting/StrutStyle/fontStyle.html">fontStyle</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/FontStyle.html">FontStyle</a>?</span>
+  
+
+</dt>
+<dd>
+  The typeface variant to use when calculating the strut (e.g., italics).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="fontWeight" class="property">
+  <span class="name"><a href="painting/StrutStyle/fontWeight.html">fontWeight</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/FontWeight-class.html">FontWeight</a>?</span>
+  
+
+</dt>
+<dd>
+  The typeface thickness to use when calculating the strut (e.g., bold).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="forceStrutHeight" class="property">
+  <span class="name"><a href="painting/StrutStyle/forceStrutHeight.html">forceStrutHeight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  
+
+</dt>
+<dd>
+  Whether the strut height should be forced.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property">
+  <span class="name"><a href="painting/StrutStyle/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="height" class="property">
+  <span class="name"><a href="painting/StrutStyle/height.html">height</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  The minimum height of the strut, as a multiple of <a href="painting/StrutStyle/fontSize.html">fontSize</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="leading" class="property">
+  <span class="name"><a href="painting/StrutStyle/leading.html">leading</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  The additional leading to apply to the strut as a multiple of <a href="painting/StrutStyle/fontSize.html">fontSize</a>,
+independent of <a href="painting/StrutStyle/height.html">height</a> 和 <a href="painting/StrutStyle/leadingDistribution.html">leadingDistribution</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="leadingDistribution" class="property">
+  <span class="name"><a href="painting/StrutStyle/leadingDistribution.html">leadingDistribution</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/TextLeadingDistribution.html">TextLeadingDistribution</a>?</span>
+  
+
+</dt>
+<dd>
+  How the vertical space added by the <a href="painting/StrutStyle/height.html">height</a> multiplier should be
+distributed over and under the strut.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="compareTo" class="callable">
+  <span class="name"><a href="painting/StrutStyle/compareTo.html">compareTo</a></span><span class="signature">(<wbr><span class="parameter" id="compareTo-param-other"><span class="type-annotation"><a href="painting/StrutStyle-class.html">StrutStyle</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/RenderComparison.html">RenderComparison</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Describe the difference between this style and another, in terms of how
+much damage it will make to the rendering.
+  
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable">
+  <span class="name"><a href="painting/StrutStyle/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span>, {</span><span class="parameter" id="debugFillProperties-param-prefix"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefix</span> = <span class="default-value">&#39;&#39;</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds all properties prefixing property names with the optional <code>prefix</code>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="inheritFromTextStyle" class="callable">
+  <span class="name"><a href="painting/StrutStyle/inheritFromTextStyle.html">inheritFromTextStyle</a></span><span class="signature">(<wbr><span class="parameter" id="inheritFromTextStyle-param-other"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/StrutStyle-class.html">StrutStyle</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a new strut style that inherits its null values from
+corresponding properties in the <code>other</code> <a href="painting/TextStyle-class.html">TextStyle</a>.
+  
+
+</dd>
+
+        <dt id="merge" class="callable">
+  <span class="name"><a href="painting/StrutStyle/merge.html">merge</a></span><span class="signature">(<wbr><span class="parameter" id="merge-param-other"><span class="type-annotation"><a href="painting/StrutStyle-class.html">StrutStyle</a>?</span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/StrutStyle-class.html">StrutStyle</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a new strut style that is a combination of this style and the given
+<code>other</code> style.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable">
+  <span class="name"><a href="painting/StrutStyle/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  A brief description of this object, usually just the <a href="dart-core/Object/runtimeType.html">runtimeType</a> and the
+<a href="painting/StrutStyle/hashCode.html">hashCode</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable">
+  <span class="name"><a href="painting/StrutStyle/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  相等运算符。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>常量</h2>
+    <dl class="properties">
+        <dt id="disabled" class="constant">
+    <span class="name "><a href="painting/StrutStyle/disabled-constant.html">disabled</a></span>
+  <span class="signature">&#8594; const <a href="painting/StrutStyle-class.html">StrutStyle</a></span>
+  
+
+</dt>
+<dd>
+  A <a href="painting/StrutStyle-class.html">StrutStyle</a> that will have no impact on the text layout.
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="painting/">painting</a></li>
+    <li class="self-crumb">StrutStyle 类</li>
+</ol>
+
+    <h5>painting 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

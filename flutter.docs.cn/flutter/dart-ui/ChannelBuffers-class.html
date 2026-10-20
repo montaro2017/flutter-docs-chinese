@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:ui 库中 ChannelBuffers 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>ChannelBuffers class - dart:ui 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li class="self-crumb">ChannelBuffers 类</li>
+  </ol>
+  <div class="self-name">ChannelBuffers</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-ui&#47;dart-ui-library-sidebar.html"
+    data-below-sidebar="dart-ui&#47;ChannelBuffers-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">ChannelBuffers</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>用于缓冲和分发消息的机制：消息由引擎侧的插件发送给框架侧对应的插件代码。</p>
+<p>某个通道的消息会一直存储，直到通过 <a href="dart-ui/ChannelBuffers/setListener.html">setListener</a> 为该通道设置监听器。每个通道只能设置一个监听器。</p>
+<p>通常，在 Flutter 框架的 <a href="services/BinaryMessenger-class.html">BinaryMessenger</a> 上设置回调后，这些缓冲区就会被清空（参见 <a href="dart-ui/ChannelBuffers/setListener.html">setListener</a>）。</p>
+<h2 id="channel-names">通道名称</h2>
+<p>按照惯例，通道通常使用反向 DNS 前缀、斜线和领域专用名称组成。例如：<code>com.example/demo</code>。</p>
+<p>通道名称不能包含 U+0000 NULL 字符，因为名称会传递给使用以 null 结尾字符串的 API。</p>
+<h2 id="buffer-capacity-and-overflow">缓冲区容量与溢出</h2>
+<p>每个通道的缓冲区容量有限；超出容量时，消息会按先进先出（FIFO）的顺序被删除。</p>
+<p>默认情况下，每个通道的缓冲区只存储一条消息。消息溢出时，调试模式下会在控制台打印提示，内容如下：</p>
+<blockquote>
+<p>com.example 通道中的一条消息在得到处理前已被丢弃。<br>这是因为插件在框架有机会注册监听器之前就向框架侧发送了消息。有关如何配置通道以容纳更多消息或允许丢弃消息的详情，请参见 ChannelBuffers API 文档：<a href="https://api.flutter.dev/flutter/dart-ui/ChannelBuffers-class.html">https://api.flutter.dev/flutter/dart-ui/ChannelBuffers-class.html</a></p>
+</blockquote>
+<p>缓冲区容量的设置各有取舍。应根据通道的语义选择合适的容量。插件可以按照下文所述，通过控制通道发送消息来更改容量。</p>
+<p>如果引擎和框架就绪前发送的消息应被忽略，则容量设为 0 是合适的。例如，辐射传感器检测到电离事件时会通知框架的插件，可以将容量设为零，因为过去发生的电离事件通常没有意义，只有即时读数值得跟踪。</p>
+<p>对于电平触发型插件，容量设为 1 较为合适。例如，持续向框架报告压力传感器当前值的插件可以将容量保持为 1（默认值）。框架侧插件在通道上注册后，会立即收到最新值，之前的消息则已被丢弃。</p>
+<p>如果每条消息都很重要，则适合将容量设为大于 1。例如，插件本身向另一个系统注册，而该系统会缓冲事件；插件注册后立即转发所有先前缓冲的事件，此时通常应避免丢失任何消息。在这种情况下，应选择足以避免溢出的容量。还应考虑框架侧可能永远无法完全初始化的情况（例如，用户启动应用后很快就将其终止，使插件的平台侧有时间运行，而框架侧却没有）。</p>
+<h2 id="the-control-channel">控制通道</h2>
+<p>插件可以向控制通道 <code>dev.flutter/channel-buffers</code> 发送消息，以配置其通道的缓冲区（参见 <a href="dart-ui/ChannelBuffers/kControlChannelName-constant.html">kControlChannelName</a>）。</p>
+<p>可以向此控制通道发送两种消息，用于调整缓冲区大小和关闭溢出警告。有关这些消息的详情，请参见 <a href="dart-ui/ChannelBuffers/handleMessage.html">handleMessage</a>。</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="ChannelBuffers.new" class="callable">
+          <span class="name"><a href="dart-ui/ChannelBuffers/ChannelBuffers.html">ChannelBuffers</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          Create a buffer pool for platform messages.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="allowOverflow" class="callable">
+  <span class="name"><a href="dart-ui/ChannelBuffers/allowOverflow.html">allowOverflow</a></span><span class="signature">(<wbr><span class="parameter" id="allowOverflow-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="allowOverflow-param-allowed"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">allowed</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Toggles whether the channel should show warning messages when discarding
+messages due to overflow.
+  
+
+</dd>
+
+        <dt id="clearListener" class="callable">
+  <span class="name"><a href="dart-ui/ChannelBuffers/clearListener.html">clearListener</a></span><span class="signature">(<wbr><span class="parameter" id="clearListener-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Clears the listener for the specified channel.
+  
+
+</dd>
+
+        <dt id="drain" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="dart-ui/ChannelBuffers/drain.html">drain</a></span><span class="signature">(<wbr><span class="parameter" id="drain-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="drain-param-callback"><span class="type-annotation"><a class="deprecated" href="dart-ui/DrainChannelCallback.html">DrainChannelCallback</a></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Deprecated. Migrate to <a href="dart-ui/ChannelBuffers/setListener.html">setListener</a> instead.
+  
+
+</dd>
+
+        <dt id="handleMessage" class="callable">
+  <span class="name"><a href="dart-ui/ChannelBuffers/handleMessage.html">handleMessage</a></span><span class="signature">(<wbr><span class="parameter" id="handleMessage-param-data"><span class="type-annotation"><a href="dart-typed_data/ByteData-class.html">ByteData</a></span> <span class="parameter-name">data</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Handle a control message.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="push" class="callable">
+  <span class="name"><a href="dart-ui/ChannelBuffers/push.html">push</a></span><span class="signature">(<wbr><span class="parameter" id="push-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="push-param-data"><span class="type-annotation"><a href="dart-typed_data/ByteData-class.html">ByteData</a>?</span> <span class="parameter-name">data</span>, </span><span class="parameter" id="push-param-callback"><span class="type-annotation"><a href="dart-ui/PlatformMessageResponseCallback.html">PlatformMessageResponseCallback</a></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a message (<code>data</code>) to the named channel buffer (<code>name</code>).
+  
+
+</dd>
+
+        <dt id="resize" class="callable">
+  <span class="name"><a href="dart-ui/ChannelBuffers/resize.html">resize</a></span><span class="signature">(<wbr><span class="parameter" id="resize-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="resize-param-newSize"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">newSize</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Changes the capacity of the queue associated with the given channel.
+  
+
+</dd>
+
+        <dt id="sendChannelUpdate" class="callable">
+  <span class="name"><a href="dart-ui/ChannelBuffers/sendChannelUpdate.html">sendChannelUpdate</a></span><span class="signature">(<wbr><span class="parameter" id="sendChannelUpdate-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, {</span><span class="parameter" id="sendChannelUpdate-param-listening"><span>required</span> <span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">listening</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="setListener" class="callable">
+  <span class="name"><a href="dart-ui/ChannelBuffers/setListener.html">setListener</a></span><span class="signature">(<wbr><span class="parameter" id="setListener-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="setListener-param-callback"><span class="type-annotation"><a href="dart-ui/ChannelCallback.html">ChannelCallback</a></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the listener for the specified channel.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>常量</h2>
+    <dl class="properties">
+        <dt id="kControlChannelName" class="constant">
+    <span class="name "><a href="dart-ui/ChannelBuffers/kControlChannelName-constant.html">kControlChannelName</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The name of the channel that plugins can use to communicate with the
+channel buffers system.
+  
+
+</dd>
+
+        <dt id="kDefaultBufferSize" class="constant">
+    <span class="name "><a href="dart-ui/ChannelBuffers/kDefaultBufferSize-constant.html">kDefaultBufferSize</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The number of messages that channel buffers will store by default.
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li class="self-crumb">ChannelBuffers 类</li>
+</ol>
+
+    <h5>dart:ui library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

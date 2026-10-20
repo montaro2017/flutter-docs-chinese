@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 OverlayEntry 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>OverlayEntry 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">OverlayEntry 类</li>
+  </ol>
+  <div class="self-name">OverlayEntry</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;OverlayEntry-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/overlay.dart#L109"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">OverlayEntry</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p><a href="widgets/Overlay-class.html">Overlay</a> 中可用于容纳 widget 的位置。</p>
+<p>使用 <a href="widgets/OverlayState/insert.html">OverlayState.insert</a> 或 <a href="widgets/OverlayState/insertAll.html">OverlayState.insertAll</a> 函数将 Overlay 条目插入 <a href="widgets/Overlay-class.html">Overlay</a>。若要查找包围给定 <a href="widgets/BuildContext-class.html">BuildContext</a> 的最近 Overlay，请使用 <a href="widgets/Overlay/of.html">Overlay.of</a> 函数。</p>
+<p>一个 Overlay 条目同时最多只能属于一个 Overlay。要从所属 Overlay 中移除条目，请对该条目调用 <a href="widgets/OverlayEntry/remove.html">remove</a> 函数。</p>
+<p>Because an <a href="widgets/Overlay-class.html">Overlay</a> uses a <a href="widgets/Stack-class.html">Stack</a> layout, overlay entries can use
+<a href="widgets/Positioned-class.html">Positioned</a> 和 <a href="widgets/AnimatedPositioned-class.html">AnimatedPositioned</a> to position themselves within the
+overlay.</p>
+<p>例如，拖动开始后，<a href="widgets/Draggable-class.html">Draggable</a> 会使用 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 显示拖动头像，并让它跟随用户的手指在屏幕上移动。使用 Overlay 显示拖动头像，可使其浮在应用中其他 widget 上方。手指移动时，Draggable 会对该 Overlay 条目调用 <a href="widgets/OverlayEntry/markNeedsBuild.html">markNeedsBuild</a> 以触发重建。构建条目时，会包含一个 <a href="widgets/Positioned-class.html">Positioned</a>，并设置其 top 和 left 属性，将拖动头像定位在手指附近。拖动结束后，<a href="widgets/Draggable-class.html">Draggable</a> 会从 Overlay 中移除该条目，使拖动头像不再显示。</p>
+<p>默认情况下，如果此条目上方有完全<a href="widgets/OverlayEntry/opaque.html">不透明</a>的条目，就不会将此条目加入 widget 树（尤其是不会实例化 overlay 条目中的有状态 widget）。若要确保 overlay 条目即使不可见也仍然构建，请将 <a href="widgets/OverlayEntry/maintainState.html">maintainState</a> 设为 true。这样会增加开销，应谨慎使用。特别是，如果启用了 <a href="widgets/OverlayEntry/maintainState.html">maintainState</a> 的 overlay 条目中的 widget 反复调用 <a href="widgets/State/setState.html">State.setState</a>，会无谓地消耗用户设备的电量。</p>
+<p><a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 是一个 <a href="foundation/Listenable-class.html">Listenable</a>：当 <a href="widgets/OverlayEntry/builder.html">builder</a> 构建的 widget 挂载或卸载时，它会发出通知；具体状态可通过 <a href="widgets/OverlayEntry/mounted.html">mounted</a> 查询。<a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的所有者调用 <a href="widgets/OverlayEntry/remove.html">remove</a>，随后调用 <a href="widgets/OverlayEntry/dispose.html">dispose</a> 后，widget 可能不会立即从 widget 树中移除。因此，当 widget 最终卸载时，<a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的监听器可能会在 <a href="widgets/OverlayEntry/dispose.html">dispose</a> 调用后最后收到一次通知。</p>
+<h3 id="differences-between-overlayportal-and-overlayentry"> <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 与 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的区别</h3>
+<p>The main difference between <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 和 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> is that
+<a href="widgets/OverlayEntry-class.html">OverlayEntry</a> builds its widget subtree as a child of the target <a href="widgets/Overlay-class.html">Overlay</a>,
+while <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> uses <a href="widgets/OverlayPortal/overlayChildBuilder.html">OverlayPortal.overlayChildBuilder</a> to build a
+child widget of itself. This allows <a href="widgets/OverlayPortal-class.html">OverlayPortal</a>'s overlay child to depend
+on the same set of <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>s as <a href="widgets/OverlayPortal-class.html">OverlayPortal</a>, and it's also
+guaranteed that the overlay child will not outlive its <a href="widgets/OverlayPortal-class.html">OverlayPortal</a>.</p>
+<p>另一方面，<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 的实现更复杂。例如，在全局键重新挂接期间，它比常规 widget 需要执行更多工作。如果要显示在 <a href="widgets/Overlay-class.html">Overlay</a> 上的内容并不需要成为 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 子树的一部分，请考虑改用 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a>。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/OverlayPortal-class.html">OverlayPortal</a>, an alternative API for inserting widgets into an
+<a href="widgets/Overlay-class.html">Overlay</a> using a builder callback.</li>
+<li><a href="widgets/Overlay-class.html">Overlay</a>, a stack of entries that can be managed independently.</li>
+<li><a href="widgets/OverlayState-class.html">OverlayState</a>, the current state of an Overlay.</li>
+<li><a href="widgets/WidgetsApp-class.html">WidgetsApp</a>, a convenience widget that wraps a number of widgets that
+are commonly required for an application.</li>
+<li><a href="material/MaterialApp-class.html">MaterialApp</a>, a convenience widget that wraps a number of widgets that
+are commonly required for Material Design applications.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="foundation/Listenable-class.html">Listenable</a></li>
+    </ul>
+  </dd>
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="OverlayEntry.new" class="callable">
+          <span class="name"><a href="widgets/OverlayEntry/OverlayEntry.html">OverlayEntry</a></span><span class="signature">({<span class="parameter" id="-param-builder"><span>required</span> <span class="type-annotation"><a href="widgets/WidgetBuilder.html">WidgetBuilder</a></span> <span class="parameter-name">builder</span>, </span><span class="parameter" id="-param-opaque"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">opaque</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-maintainState"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">maintainState</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-canSizeOverlay"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">canSizeOverlay</span> = <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          Creates an overlay entry.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="builder" class="property">
+  <span class="name"><a href="widgets/OverlayEntry/builder.html">builder</a></span>
+  <span class="signature">&#8594; <a href="widgets/WidgetBuilder.html">WidgetBuilder</a></span>
+  
+
+</dt>
+<dd>
+  This entry will include the widget built by this builder in the overlay at
+the entry's position.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="canSizeOverlay" class="property">
+  <span class="name"><a href="widgets/OverlayEntry/canSizeOverlay.html">canSizeOverlay</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the content of this <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> can be used to size the
+<a href="widgets/Overlay-class.html">Overlay</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="maintainState" class="property">
+  <span class="name"><a href="widgets/OverlayEntry/maintainState.html">maintainState</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this entry must be included in the tree even if there is a fully
+<a href="widgets/OverlayEntry/opaque.html">opaque</a> entry above it.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="mounted" class="property">
+  <span class="name"><a href="widgets/OverlayEntry/mounted.html">mounted</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> is currently mounted in the widget tree.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="opaque" class="property">
+  <span class="name"><a href="widgets/OverlayEntry/opaque.html">opaque</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this entry occludes the entire overlay.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="addListener" class="callable">
+  <span class="name"><a href="widgets/OverlayEntry/addListener.html">addListener</a></span><span class="signature">(<wbr><span class="parameter" id="addListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Register a closure to be called when the object notifies its listeners.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="widgets/OverlayEntry/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Discards any resources used by this <a href="widgets/OverlayEntry-class.html">OverlayEntry</a>.
+  
+
+</dd>
+
+        <dt id="markNeedsBuild" class="callable">
+  <span class="name"><a href="widgets/OverlayEntry/markNeedsBuild.html">markNeedsBuild</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Cause this entry to rebuild during the next pipeline flush.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="remove" class="callable">
+  <span class="name"><a href="widgets/OverlayEntry/remove.html">remove</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Remove this entry from the overlay.
+  
+
+</dd>
+
+        <dt id="removeListener" class="callable">
+  <span class="name"><a href="widgets/OverlayEntry/removeListener.html">removeListener</a></span><span class="signature">(<wbr><span class="parameter" id="removeListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Remove a previously registered closure from the list of closures that the
+object notifies.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="widgets/OverlayEntry/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">OverlayEntry 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

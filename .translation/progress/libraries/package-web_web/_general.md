@@ -1,0 +1,4252 @@
+# package-web_web / _general 待翻译清单
+
+模块共 12,442 页：已完整 0 页，部分翻译 3 页，未翻译 4,243 页；正文已译 5/7,831 段。
+
+只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
+
+- `flutter/package-web_web/$CSS-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/$Console-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ANGLE_instanced_arrays-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ANGLE_instanced_arrays/drawArraysInstancedANGLE.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ANGLE_instanced_arrays/drawElementsInstancedANGLE.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ANGLE_instanced_arrays/vertexAttribDivisorANGLE.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AbortController-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AbortController/abort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AbortController/signal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AbortSignal-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AbortSignal/abort.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AbortSignal/aborted.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AbortSignal/any.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AbortSignal/reason.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AbortSignal/throwIfAborted.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AbortSignal/timeout.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AbsoluteOrientationSensor-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AbstractRange-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AbstractRange/collapsed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AbstractRange/endContainer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AbstractRange/endOffset.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AbstractRange/startContainer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AbstractRange/startOffset.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnalyserNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AnalyserNode/fftSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnalyserNode/frequencyBinCount.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnalyserNode/getByteFrequencyData.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AnalyserNode/getByteTimeDomainData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AnalyserNode/getFloatFrequencyData.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AnalyserNode/getFloatTimeDomainData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnalyserNode/maxDecibels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnalyserNode/minDecibels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnalyserNode/smoothingTimeConstant.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Animation/cancel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Animation/commitStyles.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Animation/currentTime.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Animation/effect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/finish.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Animation/finished.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Animation/id.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/pause.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/pending.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/persist.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/play.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/playState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/playbackRate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Animation/ready.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Animation/replaceState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/reverse.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/startTime.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Animation/timeline.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Animation/updatePlaybackRate.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AnimationEffect-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AnimationEffect/getComputedTiming.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AnimationEffect/getTiming.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AnimationEffect/updateTiming.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnimationEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AnimationEvent/animationName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnimationEvent/elapsedTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnimationEvent/pseudoElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnimationPlaybackEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AnimationPlaybackEvent/currentTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnimationPlaybackEvent/timelineTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AnimationTimeline-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AnimationTimeline/currentTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Attr-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Attr/localName.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Attr/name.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Attr/namespaceURI.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Attr/ownerElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Attr/prefix.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Attr/specified.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Attr/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBuffer-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioBuffer/copyFromChannel.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBuffer/copyToChannel.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBuffer/duration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBuffer/getChannelData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBuffer/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBuffer/numberOfChannels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBuffer/sampleRate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBufferSourceNode-extension-type.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/AudioBufferSourceNode/buffer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioBufferSourceNode/detune.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioBufferSourceNode/loop.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioBufferSourceNode/loopEnd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioBufferSourceNode/loopStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioBufferSourceNode/playbackRate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioBufferSourceNode/start.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioContext-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioContext/baseLatency.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioContext/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioContext/createMediaElementSource.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioContext/createMediaStreamDestination.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioContext/createMediaStreamSource.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioContext/createMediaStreamTrackSource.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioContext/getOutputTimestamp.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioContext/outputLatency.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioContext/resume.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioContext/suspend.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioDestinationNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioDestinationNode/maxChannelCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioListener-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioListener/forwardX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioListener/forwardY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioListener/forwardZ.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioListener/positionX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioListener/positionY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioListener/positionZ.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioListener/setOrientation.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioListener/setPosition.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioListener/upX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioListener/upY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioListener/upZ.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioNode/channelCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioNode/channelCountMode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioNode/channelInterpretation.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioNode/connect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioNode/context.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioNode/disconnect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioNode/numberOfInputs.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioNode/numberOfOutputs.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioParam/cancelAndHoldAtTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam/cancelScheduledValues.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam/defaultValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam/exponentialRampToValueAtTime.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioParam/linearRampToValueAtTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam/maxValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam/minValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam/setTargetAtTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam/setValueAtTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioParam/setValueCurveAtTime.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioParam/value.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioParamMap-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioProcessingEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioProcessingEvent/inputBuffer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioProcessingEvent/outputBuffer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioProcessingEvent/playbackTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioScheduledSourceNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioScheduledSourceNode/start.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioScheduledSourceNode/stop.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioTrack-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioTrack/enabled.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioTrack/id.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioTrack/kind.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioTrack/label.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioTrack/language.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioTrack/sourceBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioTrackList-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioTrackList/getTrackById.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioTrackList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioWorklet-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioWorkletGlobalScope-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/AudioWorkletGlobalScope/currentFrame.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioWorkletGlobalScope/currentTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioWorkletGlobalScope/registerProcessor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioWorkletGlobalScope/sampleRate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioWorkletNode-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/AudioWorkletNode/parameters.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AudioWorkletNode/port.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioWorkletProcessor-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AudioWorkletProcessor/port.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorAssertionResponse-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/AuthenticatorAssertionResponse/authenticatorData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/AuthenticatorAssertionResponse/signature.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorAssertionResponse/userHandle.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorAttestationResponse-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/AuthenticatorAttestationResponse/attestationObject.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorAttestationResponse/getAuthenticatorData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorAttestationResponse/getPublicKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorAttestationResponse/getPublicKeyAlgorithm.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorAttestationResponse/getTransports.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorResponse-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/AuthenticatorResponse/clientDataJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BarProp-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BarProp/visible.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BaseAudioContext-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BaseAudioContext/audioWorklet.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BaseAudioContext/createAnalyser.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BaseAudioContext/createBiquadFilter.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createBuffer.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BaseAudioContext/createBufferSource.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createChannelMerger.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createChannelSplitter.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createConstantSource.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createConvolver.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createDelay.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createDynamicsCompressor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BaseAudioContext/createGain.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createIIRFilter.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createOscillator.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createPanner.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BaseAudioContext/createPeriodicWave.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BaseAudioContext/createScriptProcessor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createStereoPanner.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/createWaveShaper.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BaseAudioContext/currentTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BaseAudioContext/decodeAudioData.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BaseAudioContext/destination.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BaseAudioContext/listener.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BaseAudioContext/sampleRate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BaseAudioContext/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BatteryManager-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BatteryManager/charging.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BatteryManager/chargingTime.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BatteryManager/dischargingTime.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BatteryManager/level.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BeforeUnloadEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BeforeUnloadEvent/returnValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BiquadFilterNode-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BiquadFilterNode/Q.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BiquadFilterNode/detune.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BiquadFilterNode/frequency.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BiquadFilterNode/gain.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/BiquadFilterNode/getFrequencyResponse.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BiquadFilterNode/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Blob-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Blob/arrayBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Blob/size.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Blob/slice.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Blob/stream.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Blob/text.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Blob/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BlobEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BlobEvent/data.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BlobEvent/timecode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BluetoothUUID-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BroadcastChannel-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/BroadcastChannel/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BroadcastChannel/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/BroadcastChannel/postMessage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ByteLengthQueuingStrategy-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ByteLengthQueuingStrategy/highWaterMark.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ByteLengthQueuingStrategy/size.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CDATASection-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/CSPViolationReportBody-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSPViolationReportBody/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSAnimation-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSAnimation/animationName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSConditionRule-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSConditionRule/conditionText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSContainerRule-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSContainerRule/containerName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSContainerRule/containerQuery.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSCounterStyleRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSCounterStyleRule/additiveSymbols.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/fallback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/negative.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/pad.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/prefix.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/range.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/speakAs.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/suffix.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/symbols.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSCounterStyleRule/system.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSFontFaceRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSFontFaceRule/style.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSFontFeatureValuesRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSFontFeatureValuesRule/fontFamily.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSFontPaletteValuesRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSFontPaletteValuesRule/basePalette.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSFontPaletteValuesRule/fontFamily.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSFontPaletteValuesRule/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSFontPaletteValuesRule/overrideColors.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSGroupingRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSGroupingRule/cssRules.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSGroupingRule/deleteRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSGroupingRule/insertRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSImageValue-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSImportRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSImportRule/href.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSImportRule/layerName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSImportRule/media.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSImportRule/styleSheet.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSImportRule/supportsText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSKeyframeRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSKeyframeRule/keyText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSKeyframeRule/style.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSKeyframesRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSKeyframesRule/appendRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSKeyframesRule/cssRules.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSKeyframesRule/deleteRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSKeyframesRule/findRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSKeyframesRule/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSKeywordValue-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSKeywordValue/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSLayerBlockRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSLayerBlockRule/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSLayerStatementRule-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSLayerStatementRule/nameList.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSMathInvert-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMathInvert/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSMathMax-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMathMax/values.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSMathMin-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMathMin/values.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSMathNegate-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMathNegate/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSMathProduct-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMathProduct/values.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSMathSum-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSMathSum/values.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSMathValue-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMathValue/operator.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSMatrixComponent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMatrixComponent/matrix.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMediaRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSMediaRule/media.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNamespaceRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSNamespaceRule/namespaceURI.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNamespaceRule/prefix.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericArray-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSNumericArray/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSNumericValue/add.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/div.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/equals.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/max.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/min.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/mul.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/parse.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/sub.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/to.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/toSum.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSNumericValue/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSPageRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSPageRule/selectorText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSPageRule/style.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSPerspective-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSPerspective/length.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSPropertyRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSPropertyRule/inherits.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSPropertyRule/initialValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSPropertyRule/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSPropertyRule/syntax.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSRotate-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSRotate/angle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSRotate/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSRotate/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSRotate/z.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSRule/cssText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSRule/parentRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSRule/parentStyleSheet.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSRule/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSRuleList-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/CSSRuleList/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSRuleList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSScale-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSScale/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSScale/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSScale/z.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSScopeRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSScopeRule/end.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSScopeRule/start.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSSkew-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSSkew/ax.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSSkew/ay.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSSkewX-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSSkewX/ax.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSSkewY-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSSkewY/ay.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStartingStyleRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleDeclaration-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSStyleDeclaration/cssText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSStyleDeclaration/getPropertyPriority.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleDeclaration/getPropertyValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleDeclaration/item.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleDeclaration/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleDeclaration/parentRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleDeclaration/removeProperty.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleDeclaration/setProperty.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleRule/selectorText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleRule/style.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleRule/styleMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleSheet-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/CSSStyleSheet/addRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleSheet/cssRules.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleSheet/deleteRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleSheet/insertRule.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleSheet/ownerRule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleSheet/removeRule.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleSheet/replace.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleSheet/replaceSync.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleSheet/rules.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleValue-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSStyleValue/parse.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSStyleValue/parseAll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSSupportsRule-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSTransformComponent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSTransformComponent/is2D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSTransformComponent/toMatrix.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSTransformValue-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSTransformValue/is2D.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSTransformValue/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSTransformValue/toMatrix.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSTransition-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSTransition/transitionProperty.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSTranslate-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSTranslate/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSTranslate/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSTranslate/z.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSUnitValue-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSUnitValue/unit.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSUnitValue/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSUnparsedValue-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CSSUnparsedValue/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSVariableReferenceValue-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CSSVariableReferenceValue/fallback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CSSVariableReferenceValue/variable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Cache-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/Cache/add.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Cache/addAll.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Cache/delete.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Cache/keys.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Cache/match.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Cache/matchAll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Cache/put.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CacheStorage-extension-type.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
+- `flutter/package-web_web/CacheStorage/delete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CacheStorage/has.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CacheStorage/keys.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CacheStorage/match.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CacheStorage/open.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasCaptureMediaStreamTrack-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasCaptureMediaStreamTrack/canvas.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasCaptureMediaStreamTrack/requestFrame.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasGradient-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasGradient/addColorStop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasPattern-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasPattern/setTransform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CanvasRenderingContext2D/arc.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/arcTo.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/beginPath.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/bezierCurveTo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/canvas.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/clearRect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/clip.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/CanvasRenderingContext2D/closePath.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/createConicGradient.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/createImageData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/createLinearGradient.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CanvasRenderingContext2D/createPattern.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/createRadialGradient.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/direction.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/drawFocusIfNeeded.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/drawImage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/ellipse.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/fill.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/fillRect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/fillStyle.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/fillText.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CanvasRenderingContext2D/filter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/font.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/fontKerning.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/fontStretch.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/fontVariantCaps.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/getContextAttributes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/getImageData.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CanvasRenderingContext2D/getLineDash.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/getTransform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/globalAlpha.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/globalCompositeOperation.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/imageSmoothingEnabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/imageSmoothingQuality.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/isContextLost.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/isPointInPath.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/isPointInStroke.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/letterSpacing.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/lineCap.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/lineDashOffset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/lineJoin.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/lineTo.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/lineWidth.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/measureText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/miterLimit.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/moveTo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/putImageData.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/quadraticCurveTo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/rect.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/reset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/resetTransform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/restore.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/rotate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/roundRect.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/save.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/scale.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/setLineDash.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/setTransform.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/shadowBlur.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/shadowColor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/shadowOffsetX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/shadowOffsetY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/stroke.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/strokeRect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/strokeStyle.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/strokeText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CanvasRenderingContext2D/textAlign.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/textBaseline.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/textRendering.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/transform.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CanvasRenderingContext2D/translate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CanvasRenderingContext2D/wordSpacing.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ChannelMergerNode-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ChannelSplitterNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CharacterData-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CharacterData/after.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CharacterData/appendData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/before.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CharacterData/data.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/deleteData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/insertData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/nextElementSibling.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/previousElementSibling.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/remove.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/replaceData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CharacterData/replaceWith.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CharacterData/substringData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Client-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Client/frameType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Client/id.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Client/postMessage.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Client/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Client/url.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Clients-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Clients/claim.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Clients/get.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Clients/matchAll.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Clients/openWindow.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Clipboard-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Clipboard/read.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Clipboard/readText.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Clipboard/write.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Clipboard/writeText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ClipboardEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ClipboardEvent/clipboardData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ClipboardItem-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ClipboardItem/getType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ClipboardItem/presentationStyle.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ClipboardItem/supports.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ClipboardItem/types.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CloseEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CloseEvent/code.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CloseEvent/reason.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CloseEvent/wasClean.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Comment-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CompositionEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CompositionEvent/data.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CompositionEvent/initCompositionEvent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CompressionStream-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CompressionStream/readable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CompressionStream/writable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ConstantSourceNode-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ConstantSourceNode/offset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ContentVisibilityAutoStateChangeEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ContentVisibilityAutoStateChangeEvent/skipped.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ContextEvent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ConvolverNode-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ConvolverNode/buffer.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ConvolverNode/normalize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CookieChangeEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CookieChangeEvent/changed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CookieChangeEvent/deleted.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CookieStore-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CookieStore/delete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CookieStore/get.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CookieStore/getAll.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CookieStore/set.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CookieStoreManager-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/CookieStoreManager/getSubscriptions.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CookieStoreManager/subscribe.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CookieStoreManager/unsubscribe.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CountQueuingStrategy-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CountQueuingStrategy/highWaterMark.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CountQueuingStrategy/size.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Credential-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Credential/id.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Credential/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CredentialsContainer-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CredentialsContainer/create.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CredentialsContainer/get.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CredentialsContainer/preventSilentAccess.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CredentialsContainer/store.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CrossOriginContentWindowExtension/contentWindowCrossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginLocation-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CrossOriginLocation/href.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginLocation/replace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginLocation/unsafeLocation.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CrossOriginWindow-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CrossOriginWindow/blur.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/closed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/focus.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/location.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/opener.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/parent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/postMessage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/top.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindow/unsafeWindow.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CrossOriginWindowExtension.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CrossOriginWindowExtension/openCrossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindowExtension/openerCrossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindowExtension/parentCrossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CrossOriginWindowExtension/topCrossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Crypto-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Crypto/getRandomValues.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Crypto/randomUUID.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Crypto/subtle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CryptoKey-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CryptoKey/algorithm.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CryptoKey/extractable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CryptoKey/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CryptoKey/usages.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CssStyleDeclaration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CustomElementRegistry-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/CustomElementRegistry/define.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CustomElementRegistry/get.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CustomElementRegistry/getName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CustomElementRegistry/upgrade.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CustomElementRegistry/whenDefined.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CustomEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/CustomEvent/detail.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CustomEvent/initCustomEvent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/CustomEventProviders/mouseWheelEvent-constant.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/CustomStateSet-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DOMException-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/DOMException/code.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMException/message.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMException/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMImplementation-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMImplementation/createDocument.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMImplementation/createDocumentType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMImplementation/createHTMLDocument.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMImplementation/hasFeature.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMMatrix-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/DOMMatrixReadOnly-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DOMMatrixReadOnly/flipX.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMMatrixReadOnly/scale.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMMatrixReadOnly/translate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMParser-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/DOMParser/parseFromString.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMPoint-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DOMPoint/fromPoint.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DOMPoint/w.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMPoint/x.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMPoint/y.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMPoint/z.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMPointReadOnly-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/DOMPointReadOnly/fromPoint.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMPointReadOnly/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMPointReadOnly/w.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMPointReadOnly/x.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMPointReadOnly/y.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DOMPointReadOnly/z.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DOMQuad-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMRect-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/DOMRect/fromRect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRect/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRect/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRect/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRect/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMRectReadOnly/bottom.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly/fromRect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly/left.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly/right.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly/top.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMRectReadOnly/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMStringList-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/DOMStringList/contains.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMStringList/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMStringList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMStringMap-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMTokenList-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DOMTokenList/add.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMTokenList/contains.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMTokenList/item.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DOMTokenList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMTokenList/remove.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMTokenList/replace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMTokenList/supports.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMTokenList/toggle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DOMTokenList/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DataTransfer-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DataTransfer/clearData.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/DataTransfer/dropEffect.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/DataTransfer/effectAllowed.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DataTransfer/files.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DataTransfer/getData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DataTransfer/items.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DataTransfer/setData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DataTransfer/setDragImage.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DataTransfer/types.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DataTransferItem-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DataTransferItem/getAsFile.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DataTransferItem/getAsString.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DataTransferItem/kind.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DataTransferItem/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DataTransferItem/webkitGetAsEntry.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DataTransferItemList-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/DataTransferItemList/add.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DataTransferItemList/clear.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DataTransferItemList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DataTransferItemList/remove.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DecompressionStream-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DecompressionStream/readable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DecompressionStream/writable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DedicatedWorkerGlobalScope-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DedicatedWorkerGlobalScope/cancelAnimationFrame.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DedicatedWorkerGlobalScope/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DedicatedWorkerGlobalScope/name.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DedicatedWorkerGlobalScope/postMessage.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/DedicatedWorkerGlobalScope/requestAnimationFrame.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/DelayNode-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/DelayNode/delayTime.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DeviceMotionEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DeviceMotionEvent/acceleration.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DeviceMotionEvent/accelerationIncludingGravity.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DeviceMotionEvent/interval.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceMotionEvent/rotationRate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DeviceMotionEventAcceleration-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DeviceMotionEventAcceleration/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceMotionEventAcceleration/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceMotionEventAcceleration/z.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceMotionEventRotationRate-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DeviceMotionEventRotationRate/alpha.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceMotionEventRotationRate/beta.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceMotionEventRotationRate/gamma.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceOrientationEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DeviceOrientationEvent/absolute.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceOrientationEvent/alpha.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceOrientationEvent/beta.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DeviceOrientationEvent/gamma.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Document/URL.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/activeElement.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Document/adoptNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/adoptedStyleSheets.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Document/alinkColor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/all.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/anchors.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/append.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/applets.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/bgColor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/body.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/caretPositionFromPoint.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/characterSet.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/childElementCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/children.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/clear.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/compatMode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/contentType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/cookie.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createAttribute.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/createAttributeNS.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createCDATASection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createComment.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createDocumentFragment.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createElementNS.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/createEvent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/createExpression.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/createNSResolver.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createNodeIterator.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createProcessingInstruction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/createRange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createTextNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/createTreeWalker.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/currentScript.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/defaultView.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/designMode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/dir.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/doctype.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/documentElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/documentURI.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/domain.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/elementFromPoint.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/Document/elementsFromPoint.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/embeds.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/evaluate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/execCommand.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Document/exitFullscreen.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/exitPictureInPicture.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/exitPointerLock.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/fgColor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/firstElementChild.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/fonts.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/forms.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/fullscreen.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/fullscreenElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/fullscreenEnabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/getAnimations.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/getElementById.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/getElementsByClassName.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/getElementsByName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/getElementsByTagName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/getElementsByTagNameNS.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/getSelection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/hasFocus.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/hasStorageAccess.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/hasUnpartitionedCookieAccess.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/head.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/hidden.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/images.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/implementation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/importNode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/lastElementChild.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/lastModified.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/linkColor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/links.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/location.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Document/open.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/parseHTMLUnsafe.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/pictureInPictureElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/pictureInPictureEnabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/plugins.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/pointerLockElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/prepend.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/querySelector.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/querySelectorAll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/readyState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/referrer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/replaceChildren.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/requestStorageAccess.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/rootElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/scripts.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/scrollingElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/startViewTransition.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Document/styleSheets.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/timeline.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Document/title.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/visibilityState.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Document/vlinkColor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Document/write.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/Document/writeln.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/DocumentFragment-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DocumentFragment/append.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DocumentFragment/childElementCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DocumentFragment/children.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DocumentFragment/firstElementChild.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DocumentFragment/getElementById.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DocumentFragment/lastElementChild.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DocumentFragment/prepend.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DocumentFragment/querySelector.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DocumentFragment/querySelectorAll.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DocumentFragment/replaceChildren.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DocumentTimeline-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DocumentType-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DocumentType/after.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DocumentType/before.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DocumentType/name.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DocumentType/publicId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DocumentType/remove.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DocumentType/replaceWith.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DocumentType/systemId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DragEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DragEvent/dataTransfer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/DynamicsCompressorNode-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DynamicsCompressorNode/attack.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DynamicsCompressorNode/knee.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DynamicsCompressorNode/ratio.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/DynamicsCompressorNode/reduction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DynamicsCompressorNode/release.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/DynamicsCompressorNode/threshold.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Element/after.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/animate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/append.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaAtomic.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaAutoComplete.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaBrailleLabel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaBrailleRoleDescription.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaBusy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaChecked.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaColCount.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaColIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaColSpan.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaCurrent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaDescription.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaDisabled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaExpanded.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaHasPopup.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaHidden.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaKeyShortcuts.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaLabel.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaLevel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaLive.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaModal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaMultiLine.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaMultiSelectable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaOrientation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaPlaceholder.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaPosInSet.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaPressed.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaReadOnly.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaRequired.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/ariaRoleDescription.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaRowCount.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaRowIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaRowSpan.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaSelected.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaSetSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaSort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaValueMax.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaValueMin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaValueNow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/ariaValueText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/assignedSlot.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/attachShadow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/attributes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/before.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/checkVisibility.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/childElementCount.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/children.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/classList.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/className.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/clientHeight.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Element/clientLeft.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/clientTop.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/clientWidth.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/closest.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/computedStyleMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/firstElementChild.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/getAnimations.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/getAttribute.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/getAttributeNS.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/getAttributeNames.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/getAttributeNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/getAttributeNodeNS.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/getBoundingClientRect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/getClientRects.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/getElementsByClassName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/getElementsByTagName.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Element/getElementsByTagNameNS.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/getHTML.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/hasAttribute.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/hasAttributeNS.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/hasAttributes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/hasPointerCapture.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/id.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Element/innerHTML.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Element/insertAdjacentElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/insertAdjacentHTML.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/insertAdjacentText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/lastElementChild.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/localName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/matches.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/namespaceURI.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/nextElementSibling.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/outerHTML.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/part.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/prefix.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/prepend.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/previousElementSibling.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/querySelector.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/querySelectorAll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/releasePointerCapture.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/remove.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/removeAttribute.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/removeAttributeNS.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/removeAttributeNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/replaceChildren.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/replaceWith.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/requestFullscreen.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/requestPointerLock.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/scroll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/scrollBy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/scrollHeight.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Element/scrollIntoView.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/scrollLeft.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/scrollTo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/scrollTop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Element/scrollWidth.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/setAttribute.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/setAttributeNS.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/setAttributeNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/setAttributeNodeNS.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Element/setHTMLUnsafe.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Element/setPointerCapture.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Element/shadowRoot.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/slot.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/tagName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Element/toggleAttribute.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaAtomic.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaAutoComplete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaBusy.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaChecked.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaColCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaColIndex.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaColSpan.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaCurrent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaDescription.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaDisabled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaExpanded.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaHasPopup.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaHidden.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaKeyShortcuts.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaLabel.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ElementInternals/ariaLevel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaLive.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaModal.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaMultiLine.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaMultiSelectable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaOrientation.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaPlaceholder.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaPosInSet.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaPressed.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaReadOnly.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaRequired.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaRoleDescription.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaRowCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaRowIndex.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaRowSpan.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaSelected.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaSetSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaSort.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaValueMax.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaValueMin.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaValueNow.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/ariaValueText.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/checkValidity.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementInternals/form.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/labels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/reportValidity.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ElementInternals/role.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/setFormValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/setValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/shadowRoot.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/states.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/validationMessage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/validity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ElementInternals/willValidate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementStream-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ElementStream/capture.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/EncodedVideoChunk-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/EncodedVideoChunk/byteLength.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/EncodedVideoChunk/copyTo.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/EncodedVideoChunk/duration.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/EncodedVideoChunk/timestamp.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/EncodedVideoChunk/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ErrorEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Event-extension-type.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/Event/bubbles.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Event/cancelBubble.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/cancelable.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/Event/composed.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Event/composedPath.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/currentTarget.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Event/defaultPrevented.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/eventPhase.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/initEvent.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Event/isTrusted.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/preventDefault.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Event/returnValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Event/srcElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/stopImmediatePropagation.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Event/stopPropagation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/target.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/timeStamp.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Event/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/EventCounts-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/EventGlue/client.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/EventSource-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/EventSource/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/EventSource/readyState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/EventSource/url.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/EventSource/withCredentials.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/EventStreamProvider-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/EventStreamProvider/forElement.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/EventStreamProvider/forTarget.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/EventStreamProvider/getEventType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/EventStreamProviders-class.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/EventTarget-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/EventTarget/addEventListener.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
+- `flutter/package-web_web/EventTarget/dispatchEvent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/EventTarget/removeEventListener.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ExtendableCookieChangeEvent-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ExtendableCookieChangeEvent/changed.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ExtendableCookieChangeEvent/deleted.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ExtendableEvent-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/ExtendableEvent/waitUntil.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ExtendableMessageEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ExtendableMessageEvent/data.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ExtendableMessageEvent/lastEventId.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ExtendableMessageEvent/origin.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ExtendableMessageEvent/ports.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ExtendableMessageEvent/source.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FederatedCredentialInit-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/FetchEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FetchEvent/clientId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FetchEvent/handled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FetchEvent/preloadResponse.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/FetchEvent/replacesClientId.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/FetchEvent/request.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FetchEvent/respondWith.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
+- `flutter/package-web_web/FetchEvent/resultingClientId.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/File-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/File/lastModified.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/File/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/File/webkitRelativePath.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileList-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/FileList/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileReader-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/FileReader/abort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileReader/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileReader/readAsArrayBuffer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileReader/readAsBinaryString.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileReader/readAsDataURL.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileReader/readAsText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileReader/readyState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileReader/result.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileReaderSync-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileReaderSync/readAsArrayBuffer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileReaderSync/readAsBinaryString.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileReaderSync/readAsDataURL.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileReaderSync/readAsText.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystem-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystem/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystem/root.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemDirectoryEntry-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemDirectoryEntry/createReader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemDirectoryEntry/getDirectory.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemDirectoryEntry/getFile.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemDirectoryHandle-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemDirectoryHandle/getDirectoryHandle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemDirectoryHandle/getFileHandle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemDirectoryHandle/removeEntry.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemDirectoryHandle/resolve.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemDirectoryReader-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemDirectoryReader/readEntries.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemEntry-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemEntry/filesystem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemEntry/fullPath.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemEntry/getParent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemEntry/isDirectory.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemEntry/isFile.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemEntry/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemFileEntry-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemFileEntry/file.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemFileHandle-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemFileHandle/createSyncAccessHandle.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemFileHandle/createWritable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemFileHandle/getFile.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemHandle-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemHandle/isSameEntry.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemHandle/kind.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemHandle/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemSyncAccessHandle-extension-type.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/FileSystemSyncAccessHandle/close.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemSyncAccessHandle/flush.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/FileSystemSyncAccessHandle/getSize.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemSyncAccessHandle/read.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemSyncAccessHandle/truncate.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemSyncAccessHandle/write.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FileSystemWritableFileStream-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FileSystemWritableFileStream/seek.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FileSystemWritableFileStream/truncate.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/FileSystemWritableFileStream/write.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FocusEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FocusEvent/relatedTarget.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FontFace-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FontFace/ascentOverride.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFace/descentOverride.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFace/display.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFace/family.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FontFace/featureSettings.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFace/lineGapOverride.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFace/load.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFace/loaded.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFace/status.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFace/stretch.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFace/style.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFace/unicodeRange.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFace/weight.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFaceSet-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/FontFaceSet/add.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFaceSet/check.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFaceSet/clear.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFaceSet/delete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFaceSet/load.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFaceSet/ready.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FontFaceSet/status.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FontFaceSetLoadEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FontFaceSetLoadEvent/fontfaces.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FormData-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/FormData/append.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FormData/delete.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FormData/get.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FormData/getAll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FormData/has.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/FormData/set.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/FormDataEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/FormDataEvent/formData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GainNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/GainNode/gain.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Gamepad-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Gamepad/axes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Gamepad/buttons.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Gamepad/connected.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Gamepad/id.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Gamepad/index.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Gamepad/mapping.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Gamepad/timestamp.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/GamepadButton-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/GamepadButton/pressed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GamepadButton/touched.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/GamepadButton/value.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/GamepadEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/GamepadEvent/gamepad.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GamepadHapticActuator-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/GamepadHapticActuator/playEffect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GamepadHapticActuator/pulse.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Geolocation-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Geolocation/clearWatch.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Geolocation/getCurrentPosition.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Geolocation/watchPosition.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationCoordinates-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/GeolocationCoordinates/accuracy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationCoordinates/altitude.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationCoordinates/altitudeAccuracy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationCoordinates/heading.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationCoordinates/latitude.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationCoordinates/longitude.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationCoordinates/speed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationCoordinates/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationPosition-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/GeolocationPosition/coords.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationPosition/timestamp.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationPosition/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GeolocationPositionError-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/GeolocationPositionError/code.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/GeolocationPositionError/message.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/GravitySensor-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Gyroscope-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Gyroscope/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Gyroscope/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Gyroscope/z.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAllCollection-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLAllCollection/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAllCollection/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAllCollection/namedItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/HTMLAnchorElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/download.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/hash.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/host.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/hostname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/href.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/hreflang.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLAnchorElement/origin.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/password.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/pathname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/ping.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLAnchorElement/port.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/protocol.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/referrerPolicy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/rel.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/relList.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/search.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/target.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/text.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAnchorElement/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAnchorElement/username.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAreaElement/HTMLAreaElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/hash.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAreaElement/host.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/hostname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/href.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/origin.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAreaElement/password.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAreaElement/pathname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/ping.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLAreaElement/port.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/protocol.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/referrerPolicy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/rel.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAreaElement/relList.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAreaElement/search.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAreaElement/target.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLAreaElement/username.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLAudioElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLAudioElement/HTMLAudioElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLBRElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLBRElement/HTMLBRElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLBaseElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLBaseElement/HTMLBaseElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLBaseElement/target.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLBodyElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLBodyElement/HTMLBodyElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLButtonElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLButtonElement/HTMLButtonElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLButtonElement/disabled.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLButtonElement/labels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLButtonElement/popoverTargetAction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLButtonElement/popoverTargetElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLButtonElement/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLCanvasElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLCanvasElement/HTMLCanvasElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLCanvasElement/captureStream.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLCanvasElement/getContext.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLCanvasElement/height.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLCanvasElement/toBlob.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLCanvasElement/toDataURL.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLCanvasElement/transferControlToOffscreen.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLCanvasElement/width.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLCollection-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/HTMLCollection/item.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLCollection/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLCollection/namedItem.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLDListElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLDListElement/HTMLDListElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDataElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLDataElement/HTMLDataElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDataElement/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDataListElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLDataListElement/HTMLDataListElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDetailsElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLDetailsElement/HTMLDetailsElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDetailsElement/open.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDialogElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLDialogElement/HTMLDialogElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDialogElement/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDialogElement/open.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDialogElement/returnValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDialogElement/show.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDialogElement/showModal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDirectoryElement/HTMLDirectoryElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLDivElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLDivElement/HTMLDivElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/HTMLElement.abbr.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.acronym.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.address.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.article.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.aside.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.b.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.basefont.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.bdi.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.bdo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.big.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.center.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.cite.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.code.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.dd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.dfn.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.dt.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.em.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.figcaption.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.figure.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.footer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.header.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.hgroup.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.i.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.kbd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.main.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.mark.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.menuitem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.nav.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.nobr.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.noembed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.noframes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.noscript.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.plaintext.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.rb.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.rp.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.rt.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.rtc.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.ruby.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.s.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.samp.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.search.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.section.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.small.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.strike.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.strong.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.sub.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.summary.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.sup.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.tt.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.u.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.var_.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/HTMLElement.wbr.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/accessKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/accessKeyLabel.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/attachInternals.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/attributeStyleMap.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLElement/autocapitalize.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLElement/autofocus.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLElement/blur.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/click.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/contentEditable.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLElement/dataset.html` — 未译；已译 0/12 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+- `flutter/package-web_web/HTMLElement/dir.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/HTMLElement/draggable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/enterKeyHint.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/focus.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/hidden.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/hidePopover.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/inert.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/innerText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLElement/inputMode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLElement/isContentEditable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/lang.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLElement/nonce.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/offsetHeight.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLElement/offsetLeft.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLElement/offsetParent.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/HTMLElement/offsetTop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/offsetWidth.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLElement/outerText.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/popover.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/showPopover.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/spellcheck.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/style.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/HTMLElement/tabIndex.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLElement/title.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLElement/togglePopover.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLElement/translate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLEmbedElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLEmbedElement/HTMLEmbedElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLEmbedElement/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLEmbedElement/src.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLEmbedElement/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFieldSetElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFieldSetElement/HTMLFieldSetElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFontElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFontElement/HTMLFontElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFontElement/color.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFontElement/face.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLFontElement/size.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFormControlsCollection-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLFormControlsCollection/namedItem.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFormElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFormElement/HTMLFormElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFormElement/acceptCharset.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFormElement/action.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFormElement/elements.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/HTMLFormElement/encoding.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFormElement/enctype.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFormElement/length.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLFormElement/method.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFormElement/name.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFormElement/reportValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFormElement/requestSubmit.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFormElement/reset.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLFormElement/submit.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/HTMLFormElement/target.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFrameElement/HTMLFrameElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLFrameSetElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLFrameSetElement/HTMLFrameSetElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHRElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLHRElement/HTMLHRElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHeadElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLHeadElement/HTMLHeadElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHeadingElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLHeadingElement/HTMLHeadingElement.h1.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHeadingElement/HTMLHeadingElement.h2.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHeadingElement/HTMLHeadingElement.h3.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHeadingElement/HTMLHeadingElement.h4.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHeadingElement/HTMLHeadingElement.h5.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHeadingElement/HTMLHeadingElement.h6.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHtmlElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLHtmlElement/HTMLHtmlElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLHtmlElement/version.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLIFrameElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLIFrameElement/HTMLIFrameElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLIFrameElement/allow.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLIFrameElement/allowFullscreen.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLIFrameElement/contentDocument.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLIFrameElement/contentWindow.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLIFrameElement/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLIFrameElement/loading.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLIFrameElement/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLIFrameElement/referrerPolicy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLIFrameElement/sandbox.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLIFrameElement/src.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLIFrameElement/srcdoc.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLIFrameElement/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLImageElement/HTMLImageElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/align.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLImageElement/alt.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/HTMLImageElement/border.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLImageElement/complete.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/crossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/currentSrc.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/decode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLImageElement/decoding.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/fetchPriority.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/hspace.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLImageElement/isMap.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLImageElement/loading.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLImageElement/longDesc.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/naturalHeight.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLImageElement/naturalWidth.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLImageElement/referrerPolicy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/sizes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLImageElement/src.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/srcset.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLImageElement/useMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/vspace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLImageElement/x.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLImageElement/y.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLInputElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLInputElement/HTMLInputElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/checkValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/disabled.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/files.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/labels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/multiple.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/popoverTargetAction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLInputElement/popoverTargetElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLInputElement/reportValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/select.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/selectionDirection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/selectionEnd.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLInputElement/selectionStart.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLInputElement/setCustomValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/setRangeText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLInputElement/setSelectionRange.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/HTMLInputElement/showPicker.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLInputElement/stepDown.html` — 未译；已译 0/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+- `flutter/package-web_web/HTMLInputElement/stepUp.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLInputElement/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLInputElement/webkitEntries.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLInputElement/webkitdirectory.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLIElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLIElement/HTMLLIElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLLabelElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLabelElement/HTMLLabelElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLLabelElement/control.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLLabelElement/form.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLabelElement/htmlFor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLLegendElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLegendElement/HTMLLegendElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLLinkElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLinkElement/HTMLLinkElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLLinkElement/as.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLLinkElement/crossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLLinkElement/disabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLLinkElement/fetchPriority.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLLinkElement/hreflang.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLinkElement/integrity.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLinkElement/referrerPolicy.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLinkElement/rel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLinkElement/relList.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLinkElement/sheet.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLLinkElement/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMapElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMapElement/HTMLMapElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMapElement/name.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMarqueeElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLMarqueeElement/HTMLMarqueeElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLMediaElement/audioTracks.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLMediaElement/autoplay.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLMediaElement/buffered.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/canPlayType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/captureStream.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/controls.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/crossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/currentSrc.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/currentTime.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/defaultMuted.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/defaultPlaybackRate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/disableRemotePlayback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/duration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/ended.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/fastSeek.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/load.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLMediaElement/loop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/mediaKeys.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/muted.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/networkState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/pause.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/paused.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/play.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/playbackRate.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLMediaElement/preload.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/preservesPitch.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/readyState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/remote.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/seekable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMediaElement/setMediaKeys.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/setSinkId.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/sinkId.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/src.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/srcObject.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLMediaElement/textTracks.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLMediaElement/videoTracks.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMediaElement/volume.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMenuElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMenuElement/HTMLMenuElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMetaElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMetaElement/HTMLMetaElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMetaElement/content.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMetaElement/httpEquiv.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMetaElement/media.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMetaElement/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMetaElement/scheme.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMeterElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLMeterElement/HTMLMeterElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLMeterElement/labels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLModElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLModElement/HTMLModElement.del.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLModElement/HTMLModElement.ins.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLOListElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLOListElement/HTMLOListElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLOListElement/reversed.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLOListElement/start.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLOListElement/type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLObjectElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLObjectElement/HTMLObjectElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/checkValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/contentDocument.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/contentWindow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/data.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/form.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/setCustomValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/useMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/validationMessage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/validity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLObjectElement/willValidate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLOptGroupElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLOptGroupElement/HTMLOptGroupElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLOptionElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLOptionElement/HTMLOptionElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLOptionsCollection-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLOptionsCollection/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLOutputElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLOutputElement/HTMLOutputElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLOutputElement/labels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLParagraphElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLParagraphElement/HTMLParagraphElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLParamElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLParamElement/HTMLParamElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLPictureElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLPictureElement/HTMLPictureElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLPreElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLPreElement/HTMLPreElement.listing.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLPreElement/HTMLPreElement.pre.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLPreElement/HTMLPreElement.xmp.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLProgressElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLProgressElement/HTMLProgressElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLProgressElement/labels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLProgressElement/max.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLProgressElement/position.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLProgressElement/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLQuoteElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLQuoteElement/HTMLQuoteElement.blockquote.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLQuoteElement/HTMLQuoteElement.q.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLScriptElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLScriptElement/HTMLScriptElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLScriptElement/async.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLScriptElement/crossOrigin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLScriptElement/defer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLScriptElement/fetchPriority.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLScriptElement/integrity.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLScriptElement/noModule.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLScriptElement/referrerPolicy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLScriptElement/src.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLScriptElement/supports.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLScriptElement/text.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLScriptElement/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSelectElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSelectElement/HTMLSelectElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/add.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/checkValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/disabled.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/form.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/item.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSelectElement/labels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/namedItem.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSelectElement/options.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/remove.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/selectedIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/selectedOptions.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSelectElement/setCustomValidity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/showPicker.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSelectElement/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSelectElement/value.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSlotElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSlotElement/HTMLSlotElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSlotElement/assign.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSlotElement/assignedElements.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSlotElement/assignedNodes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSlotElement/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSourceElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSourceElement/HTMLSourceElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLSourceElement/height.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLSourceElement/width.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLSpanElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLSpanElement/HTMLSpanElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLStyleElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLStyleElement/HTMLStyleElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLStyleElement/disabled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLStyleElement/media.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLStyleElement/sheet.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLStyleElement/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableCaptionElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableCaptionElement/HTMLTableCaptionElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableCellElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableCellElement/HTMLTableCellElement.td.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableCellElement/HTMLTableCellElement.th.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableCellElement/abbr.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableCellElement/align.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableCellElement/bgColor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableCellElement/cellIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableCellElement/ch.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableCellElement/chOff.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableCellElement/colSpan.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableCellElement/headers.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableCellElement/noWrap.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableCellElement/rowSpan.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableCellElement/scope.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableCellElement/vAlign.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableColElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableColElement/HTMLTableColElement.col.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableColElement/HTMLTableColElement.colgroup.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableColElement/align.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableColElement/ch.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableColElement/chOff.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableColElement/span.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableColElement/vAlign.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableElement/HTMLTableElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/align.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/bgColor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableElement/border.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/caption.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/cellPadding.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/cellSpacing.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/createCaption.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableElement/createTBody.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableElement/createTFoot.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableElement/createTHead.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableElement/deleteCaption.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/deleteRow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/deleteTFoot.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/deleteTHead.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/frame.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/insertRow.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableElement/rows.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableElement/rules.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/summary.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/tBodies.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HTMLTableElement/tFoot.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/tHead.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableElement/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableRowElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableRowElement/HTMLTableRowElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableRowElement/bgColor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableRowElement/cells.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableRowElement/ch.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableRowElement/chOff.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableRowElement/deleteCell.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableRowElement/insertCell.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableRowElement/rowIndex.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableRowElement/sectionRowIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableSectionElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableSectionElement/HTMLTableSectionElement.tbody.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableSectionElement/HTMLTableSectionElement.tfoot.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableSectionElement/HTMLTableSectionElement.thead.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableSectionElement/ch.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableSectionElement/chOff.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTableSectionElement/deleteRow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTableSectionElement/insertRow.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTableSectionElement/rows.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTemplateElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLTemplateElement/HTMLTemplateElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTemplateElement/content.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTemplateElement/shadowRootClonable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTemplateElement/shadowRootDelegatesFocus.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTemplateElement/shadowRootMode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTemplateElement/shadowRootSerializable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTextAreaElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTextAreaElement/HTMLTextAreaElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTextAreaElement/labels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTextAreaElement/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTimeElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTimeElement/HTMLTimeElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTimeElement/dateTime.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTitleElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTitleElement/HTMLTitleElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTitleElement/text.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTrackElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLTrackElement/HTMLTrackElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLTrackElement/src.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUListElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLUListElement/HTMLUListElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUnknownElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLUnknownElement/HTMLUnknownElement.applet.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUnknownElement/HTMLUnknownElement.bgsound.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUnknownElement/HTMLUnknownElement.blink.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUnknownElement/HTMLUnknownElement.isindex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUnknownElement/HTMLUnknownElement.keygen.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUnknownElement/HTMLUnknownElement.multicol.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUnknownElement/HTMLUnknownElement.nextid.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLUnknownElement/HTMLUnknownElement.spacer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLVideoElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HTMLVideoElement/HTMLVideoElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLVideoElement/cancelVideoFrameCallback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLVideoElement/disablePictureInPicture.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLVideoElement/getVideoPlaybackQuality.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLVideoElement/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLVideoElement/poster.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLVideoElement/requestPictureInPicture.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLVideoElement/requestVideoFrameCallback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLVideoElement/videoHeight.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HTMLVideoElement/videoWidth.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HTMLVideoElement/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HashChangeEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/HashChangeEvent/newURL.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HashChangeEvent/oldURL.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Headers-extension-type.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
+- `flutter/package-web_web/Headers/append.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Headers/delete.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Headers/get.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Headers/getSetCookie.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Headers/has.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Headers/set.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Highlight-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Highlight/priority.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/Highlight/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/HighlightRegistry-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/History-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/History/back.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/History/forward.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/History/go.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/History/length.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/History/pushState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/History/replaceState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/History/scrollRestoration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/History/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HtmlElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/HttpRequest-class.html` — 未译；已译 0/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+- `flutter/package-web_web/HttpRequest/getString.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/HttpRequest/postFormData.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/HttpRequest/request.html` — 未译；已译 0/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+- `flutter/package-web_web/HttpStatus-class.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBCursor-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/IDBCursor/advance.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBCursor/continuePrimaryKey.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/IDBCursor/continue_.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBCursor/delete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBCursor/direction.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBCursor/key.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBCursor/primaryKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBCursor/request.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBCursor/source.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBCursor/update.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBCursorWithValue-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/IDBCursorWithValue/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBDatabase-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBDatabase/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBDatabase/createObjectStore.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBDatabase/deleteObjectStore.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBDatabase/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBDatabase/objectStoreNames.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBDatabase/transaction.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBDatabase/version.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBFactory-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBFactory/cmp.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBFactory/databases.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBFactory/deleteDatabase.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBFactory/open.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBIndex-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/IDBIndex/count.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBIndex/get.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBIndex/getAll.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBIndex/getAllKeys.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBIndex/getKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBIndex/keyPath.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBIndex/multiEntry.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBIndex/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBIndex/objectStore.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBIndex/openCursor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBIndex/openKeyCursor.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/IDBIndex/unique.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBKeyRange-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/IDBKeyRange/bound.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBKeyRange/includes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBKeyRange/lower.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBKeyRange/lowerBound.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBKeyRange/lowerOpen.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBKeyRange/only.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBKeyRange/upper.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBKeyRange/upperBound.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBKeyRange/upperOpen.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBObjectStore-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBObjectStore/add.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBObjectStore/autoIncrement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBObjectStore/clear.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBObjectStore/count.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBObjectStore/createIndex.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBObjectStore/delete.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBObjectStore/deleteIndex.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBObjectStore/get.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBObjectStore/getAll.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/IDBObjectStore/getAllKeys.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/IDBObjectStore/getKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBObjectStore/index.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBObjectStore/indexNames.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBObjectStore/keyPath.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBObjectStore/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBObjectStore/openCursor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBObjectStore/openKeyCursor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBObjectStore/put.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/IDBObjectStore/transaction.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBOpenDBRequest-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBRequest-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/IDBRequest/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBRequest/readyState.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBRequest/result.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBRequest/source.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBRequest/transaction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBTransaction-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/IDBTransaction/abort.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBTransaction/commit.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IDBTransaction/db.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBTransaction/durability.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBTransaction/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBTransaction/mode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBTransaction/objectStore.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBTransaction/objectStoreNames.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBVersionChangeEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IDBVersionChangeEvent/newVersion.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IDBVersionChangeEvent/oldVersion.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IIRFilterNode-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/IIRFilterNode/getFrequencyResponse.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IdleDeadline-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IdleDeadline/didTimeout.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IdleDeadline/timeRemaining.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ImageBitmap-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ImageBitmap/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ImageBitmap/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ImageBitmap/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ImageBitmapRenderingContext-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ImageBitmapRenderingContext/transferFromImageBitmap.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ImageData-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ImageData/colorSpace.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ImageData/data.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ImageData/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ImageData/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ImageElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/InputDeviceInfo-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/InputDeviceInfo/getCapabilities.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/InputEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/InputEvent/data.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/InputEvent/dataTransfer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/InputEvent/getTargetRanges.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/InputEvent/inputType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/InputEvent/isComposing.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/InstallEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/IntersectionObserver-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IntersectionObserver/disconnect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IntersectionObserver/observe.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/IntersectionObserver/root.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IntersectionObserver/rootMargin.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IntersectionObserver/takeRecords.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IntersectionObserver/thresholds.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/IntersectionObserver/unobserve.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IntersectionObserverEntry-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/IntersectionObserverEntry/boundingClientRect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IntersectionObserverEntry/intersectionRatio.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IntersectionObserverEntry/intersectionRect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IntersectionObserverEntry/isIntersecting.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IntersectionObserverEntry/rootBounds.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IntersectionObserverEntry/target.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/IntersectionObserverEntry/time.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/JSImmutableListWrapper-class.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/JSImmutableListWrapper/elementAt.html` — 部分；已译 3/4 段；待译段落：1
+- `flutter/package-web_web/JSImmutableListWrapper/first.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/JSImmutableListWrapper/last.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/JSImmutableListWrapper/length.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/JSImmutableListWrapper/operator_get.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/JSImmutableListWrapper/operator_put.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/JSImmutableListWrapper/single.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/KeyboardEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/KeyboardEvent/altKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyboardEvent/charCode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/KeyboardEvent/code.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/KeyboardEvent/ctrlKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyboardEvent/getModifierState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyboardEvent/initKeyboardEvent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyboardEvent/isComposing.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyboardEvent/key.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyboardEvent/keyCode.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/KeyboardEvent/location.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/KeyboardEvent/metaKey.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/KeyboardEvent/repeat.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyboardEvent/shiftKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/KeyframeEffect-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/KeyframeEffect/composite.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyframeEffect/getKeyframes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyframeEffect/iterationComposite.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyframeEffect/pseudoElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/KeyframeEffect/setKeyframes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/KeyframeEffect/target.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/LargestContentfulPaint-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/LargestContentfulPaint/element.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/LargestContentfulPaint/id.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/LargestContentfulPaint/loadTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/LargestContentfulPaint/renderTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/LargestContentfulPaint/size.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/LargestContentfulPaint/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/LargestContentfulPaint/url.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/LinearAccelerationSensor-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Location-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Location/ancestorOrigins.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Location/assign.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Location/hash.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Location/host.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Location/hostname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Location/href.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Location/origin.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Location/pathname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Location/port.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Location/protocol.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Location/reload.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Location/replace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Location/search.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Lock-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Lock/mode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Lock/name.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/LockManager-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/LockManager/query.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/LockManager/request.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/MIDIAccess-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MIDIAccess/inputs.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIAccess/outputs.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIAccess/sysexEnabled.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIConnectionEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MIDIConnectionEvent/port.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIInput-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MIDIInputMap-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MIDIMessageEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MIDIMessageEvent/data.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIOutput-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MIDIOutput/clear.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIOutput/send.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIOutputMap-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MIDIPort-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MIDIPort/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MIDIPort/connection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIPort/id.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIPort/manufacturer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIPort/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIPort/open.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MIDIPort/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIPort/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MIDIPort/version.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MathMLElement/MathMLElement.annotation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.annotation_xml.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.maction.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.math.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.merror.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mfrac.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mi.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mmultiscripts.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mn.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mover.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mpadded.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mphantom.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mprescripts.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mroot.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mrow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.ms.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mspace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.msqrt.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mstyle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.msub.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.msubsup.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.msup.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mtable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mtd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mtext.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.mtr.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.munder.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.munderover.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/MathMLElement.semantics.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MathMLElement/attributeStyleMap.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MathMLElement/style.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/MediaCapabilities-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaCapabilities/decodingInfo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaCapabilities/encodingInfo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaDeviceInfo-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaDeviceInfo/deviceId.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaDeviceInfo/groupId.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaDeviceInfo/kind.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaDeviceInfo/label.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaDeviceInfo/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaDevices-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaDevices/enumerateDevices.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaDevices/getDisplayMedia.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaDevices/getSupportedConstraints.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaDevices/getUserMedia.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MediaElementAudioSourceNode-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaElementAudioSourceNode/mediaElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaEncryptedEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaEncryptedEvent/initData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaEncryptedEvent/initDataType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaError-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaError/code.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaError/message.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeyMessageEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaKeyMessageEvent/message.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeyMessageEvent/messageType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySession-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaKeySession/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySession/closed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySession/expiration.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaKeySession/generateRequest.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySession/keyStatuses.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySession/load.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySession/remove.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySession/sessionId.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySession/update.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeyStatusMap-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaKeyStatusMap/get.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeyStatusMap/has.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeyStatusMap/size.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySystemAccess-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaKeySystemAccess/createMediaKeys.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySystemAccess/getConfiguration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeySystemAccess/keySystem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeys-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaKeys/createSession.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaKeys/setServerCertificate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaList-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaList/appendMedium.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaList/deleteMedium.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaList/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaList/mediaText.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaMetadata-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaMetadata/album.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaMetadata/artist.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaMetadata/artwork.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaMetadata/title.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaQueryList-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MediaQueryList/addListener.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaQueryList/matches.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaQueryList/media.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaQueryList/removeListener.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaQueryListEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaQueryListEvent/matches.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaQueryListEvent/media.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaRecorder-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaRecorder/audioBitsPerSecond.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaRecorder/isTypeSupported.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaRecorder/mimeType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaRecorder/pause.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaRecorder/requestData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaRecorder/resume.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaRecorder/start.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/MediaRecorder/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaRecorder/stop.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaRecorder/stream.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaRecorder/videoBitsPerSecond.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaSession-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaSession/metadata.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSession/playbackState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSession/setActionHandler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSession/setPositionState.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaSource-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaSource/activeSourceBuffers.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSource/addSourceBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSource/canConstructInDedicatedWorker.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaSource/clearLiveSeekableRange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSource/duration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSource/endOfStream.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSource/handle.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaSource/isTypeSupported.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaSource/readyState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSource/removeSourceBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSource/setLiveSeekableRange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSource/sourceBuffers.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaSourceHandle-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MediaStream-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaStream/active.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStream/addTrack.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStream/clone.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStream/getAudioTracks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStream/getTrackById.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStream/getTracks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStream/getVideoTracks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStream/id.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStream/removeTrack.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStreamAudioDestinationNode-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaStreamAudioDestinationNode/stream.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamAudioSourceNode-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/MediaStreamAudioSourceNode/mediaStream.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamTrack-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaStreamTrack/applyConstraints.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamTrack/clone.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStreamTrack/contentHint.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStreamTrack/enabled.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/MediaStreamTrack/getCapabilities.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamTrack/getConstraints.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamTrack/getSettings.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamTrack/id.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStreamTrack/kind.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStreamTrack/label.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamTrack/muted.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamTrack/readyState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStreamTrack/stop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStreamTrackAudioSourceNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MediaStreamTrackEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaStreamTrackEvent/track.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaStreamTrackProcessor-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaStreamTrackProcessor/readable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaTrackConstraints-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSettings-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSettings/aspectRatio.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSettings/autoGainControl.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSettings/channelCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSettings/cursor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaTrackSettings/deviceId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSettings/displaySurface.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaTrackSettings/echoCancellation.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MediaTrackSettings/facingMode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSettings/frameRate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSettings/groupId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSettings/height.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSettings/latency.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MediaTrackSettings/logicalSurface.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MediaTrackSettings/noiseSuppression.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSettings/sampleRate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSettings/sampleSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSettings/suppressLocalAudioPlayback.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSettings/width.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/MediaTrackSupportedConstraints/aspectRatio.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/autoGainControl.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSupportedConstraints/channelCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/deviceId.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/displaySurface.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/echoCancellation.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/facingMode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/frameRate.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSupportedConstraints/groupId.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/height.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/latency.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/logicalSurface.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/noiseSuppression.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MediaTrackSupportedConstraints/sampleRate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/sampleSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/suppressLocalAudioPlayback.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MediaTrackSupportedConstraints/width.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MessageChannel-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MessageChannel/port1.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessageChannel/port2.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessageEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MessageEvent/data.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessageEvent/lastEventId.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessageEvent/origin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessageEvent/ports.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessageEvent/source.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessagePort-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MessagePort/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessagePort/postMessage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MessagePort/start.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MimeType-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MimeTypeArray-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MouseEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MouseEvent/altKey.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MouseEvent/button.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MouseEvent/buttons.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MouseEvent/clientX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MouseEvent/clientY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MouseEvent/ctrlKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MouseEvent/getModifierState.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MouseEvent/initMouseEvent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MouseEvent/metaKey.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MouseEvent/movementX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MouseEvent/movementY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MouseEvent/offsetX.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MouseEvent/offsetY.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MouseEvent/pageX.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MouseEvent/pageY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MouseEvent/relatedTarget.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MouseEvent/screenX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MouseEvent/screenY.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MouseEvent/shiftKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MouseEvent/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MouseEvent/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/MutationEvent/attrChange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationEvent/attrName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationEvent/initMutationEvent.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MutationEvent/newValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationEvent/prevValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationEvent/relatedNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationObserver-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MutationObserver/disconnect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MutationObserver/observe.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/MutationObserver/takeRecords.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MutationRecord-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/MutationRecord/addedNodes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationRecord/attributeName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationRecord/attributeNamespace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationRecord/nextSibling.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationRecord/oldValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationRecord/previousSibling.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationRecord/removedNodes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationRecord/target.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/MutationRecord/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NamedNodeMap-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/NamedNodeMap/getNamedItem.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NamedNodeMap/getNamedItemNS.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NamedNodeMap/item.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NamedNodeMap/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NamedNodeMap/removeNamedItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NamedNodeMap/removeNamedItemNS.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NamedNodeMap/setNamedItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NamedNodeMap/setNamedItemNS.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NavigationPreloadManager-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/NavigationPreloadManager/disable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NavigationPreloadManager/enable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NavigationPreloadManager/getState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NavigationPreloadManager/setHeaderValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/appCodeName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/appName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/appVersion.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/canShare.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/clearAppBadge.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/clipboard.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/connection.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/cookieEnabled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/credentials.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/deviceMemory.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/geolocation.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/getBattery.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/getGamepads.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/hardwareConcurrency.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/javaEnabled.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/language.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/languages.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Navigator/locks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/maxTouchPoints.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/mediaCapabilities.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/mediaDevices.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/mediaSession.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/mimeTypes.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Navigator/onLine.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Navigator/oscpu.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/pdfViewerEnabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/permissions.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/platform.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/plugins.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Navigator/presentation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/product.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/productSub.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/registerProtocolHandler.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/requestMIDIAccess.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/requestMediaKeySystemAccess.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/sendBeacon.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/serviceWorker.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/setAppBadge.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/share.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/storage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/taintEnabled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/unregisterProtocolHandler.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/usb.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/userActivation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/userAgent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Navigator/vendor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/vendorSub.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/vibrate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Navigator/wakeLock.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Navigator/webdriver.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Navigator/windowControlsOverlay.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/NetworkInformation-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NetworkInformation/downlink.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NetworkInformation/effectiveType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NetworkInformation/rtt.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NetworkInformation/saveData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Node/appendChild.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Node/baseURI.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Node/childNodes.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/Node/cloneNode.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/Node/compareDocumentPosition.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/contains.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Node/firstChild.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Node/getRootNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/hasChildNodes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/insertBefore.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Node/isConnected.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/isDefaultNamespace.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Node/isEqualNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/isSameNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Node/lastChild.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Node/lookupNamespaceURI.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/lookupPrefix.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/nextSibling.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Node/nodeName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/nodeType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/nodeValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/normalize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/ownerDocument.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/parentElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/parentNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Node/previousSibling.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Node/removeChild.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Node/replaceChild.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Node/textContent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NodeIterator-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NodeIterator/detach.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NodeIterator/filter.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NodeIterator/nextNode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/NodeIterator/pointerBeforeReferenceNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NodeIterator/previousNode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/NodeIterator/referenceNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NodeIterator/root.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NodeIterator/whatToShow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NodeList-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/NodeList/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NodeList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Notification-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Notification/badge.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Notification/body.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Notification/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Notification/data.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Notification/dir.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Notification/icon.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Notification/lang.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Notification/permission.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Notification/requestPermission.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Notification/requireInteraction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Notification/silent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Notification/tag.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Notification/title.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/NotificationEvent-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/NotificationEvent/action.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/NotificationEvent/notification.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OES_draw_buffers_indexed-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/OES_draw_buffers_indexed/blendEquationSeparateiOES.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OES_draw_buffers_indexed/blendEquationiOES.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OES_draw_buffers_indexed/blendFuncSeparateiOES.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OES_draw_buffers_indexed/blendFunciOES.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OES_draw_buffers_indexed/colorMaskiOES.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OES_draw_buffers_indexed/disableiOES.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OES_draw_buffers_indexed/enableiOES.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OfflineAudioCompletionEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/OfflineAudioCompletionEvent/renderedBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OfflineAudioContext-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OfflineAudioContext/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OfflineAudioContext/resume.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OfflineAudioContext/startRendering.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/OfflineAudioContext/suspend.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OffscreenCanvas-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/OffscreenCanvas/convertToBlob.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/OffscreenCanvas/getContext.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OffscreenCanvas/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OffscreenCanvas/transferToImageBitmap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OffscreenCanvas/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OffscreenCanvasRenderingContext2D-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OrientationSensor-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/OrientationSensor/populateMatrix.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/OrientationSensor/quaternion.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OscillatorNode-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OscillatorNode/detune.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OscillatorNode/frequency.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OscillatorNode/setPeriodicWave.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OscillatorNode/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/OverconstrainedError-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/OverconstrainedError/constraint.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PageTransitionEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PageTransitionEvent/persisted.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PannerNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PannerNode/coneInnerAngle.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PannerNode/coneOuterAngle.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PannerNode/coneOuterGain.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PannerNode/distanceModel.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PannerNode/maxDistance.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PannerNode/orientationX.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PannerNode/orientationY.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PannerNode/orientationZ.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PannerNode/panningModel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PannerNode/positionX.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PannerNode/positionY.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PannerNode/positionZ.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PannerNode/refDistance.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PannerNode/rolloffFactor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PannerNode/setOrientation.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PannerNode/setPosition.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Path2D-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Path2D/addPath.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PaymentMethodChangeEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentMethodChangeEvent/methodDetails.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PaymentMethodChangeEvent/methodName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PaymentRequest-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentRequest/abort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PaymentRequest/canMakePayment.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PaymentRequest/id.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentRequest/show.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/PaymentRequestUpdateEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentRequestUpdateEvent/updateWith.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PaymentResponse-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentResponse/complete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentResponse/details.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentResponse/methodName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentResponse/requestId.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PaymentResponse/retry.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PaymentResponse/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Performance-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Performance/clearMarks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Performance/clearMeasures.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Performance/clearResourceTimings.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Performance/eventCounts.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Performance/getEntries.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Performance/getEntriesByName.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Performance/getEntriesByType.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Performance/mark.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Performance/measure.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Performance/navigation.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Performance/now.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Performance/setResourceTimingBufferSize.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Performance/timeOrigin.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Performance/timing.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Performance/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceEntry-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/PerformanceEntry/duration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceEntry/entryType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceEntry/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceEntry/startTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceEntry/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceEventTiming-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceEventTiming/cancelable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceEventTiming/processingEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceEventTiming/processingStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceEventTiming/target.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceEventTiming/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceMark-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceMark/detail.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceMeasure-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceMeasure/detail.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceNavigation-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PerformanceNavigation/redirectCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceNavigation/toJSON.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceNavigation/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceNavigationTiming-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/PerformanceNavigationTiming/domComplete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceNavigationTiming/domContentLoadedEventEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceNavigationTiming/domContentLoadedEventStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceNavigationTiming/domInteractive.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PerformanceNavigationTiming/loadEventEnd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceNavigationTiming/loadEventStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceNavigationTiming/redirectCount.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PerformanceNavigationTiming/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceNavigationTiming/type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceNavigationTiming/unloadEventEnd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceNavigationTiming/unloadEventStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceObserver-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceObserver/disconnect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceObserver/observe.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceObserver/supportedEntryTypes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceObserver/takeRecords.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceObserverEntryList-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceObserverEntryList/getEntries.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceObserverEntryList/getEntriesByName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceObserverEntryList/getEntriesByType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformancePaintTiming-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/PerformanceResourceTiming-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceResourceTiming/connectEnd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceResourceTiming/connectStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceResourceTiming/decodedBodySize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceResourceTiming/domainLookupEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceResourceTiming/domainLookupStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceResourceTiming/encodedBodySize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceResourceTiming/fetchStart.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceResourceTiming/initiatorType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceResourceTiming/nextHopProtocol.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceResourceTiming/redirectEnd.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceResourceTiming/redirectStart.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceResourceTiming/renderBlockingStatus.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceResourceTiming/requestStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceResourceTiming/responseEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceResourceTiming/responseStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceResourceTiming/secureConnectionStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceResourceTiming/serverTiming.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceResourceTiming/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceResourceTiming/transferSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceResourceTiming/workerStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceServerTiming-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceServerTiming/description.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceServerTiming/duration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceServerTiming/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceServerTiming/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PerformanceTiming-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceTiming/connectEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/connectStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/domComplete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/domContentLoadedEventEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/domContentLoadedEventStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/domInteractive.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PerformanceTiming/domLoading.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/domainLookupEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/domainLookupStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/fetchStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/loadEventEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/loadEventStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/navigationStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/redirectEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/redirectStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/requestStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/responseEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/responseStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/secureConnectionStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/toJSON.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/unloadEventEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PerformanceTiming/unloadEventStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PeriodicWave-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PermissionStatus-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PermissionStatus/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PermissionStatus/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Permissions-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Permissions/query.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Permissions/revoke.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PictureInPictureEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PictureInPictureEvent/pictureInPictureWindow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PictureInPictureWindow-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PictureInPictureWindow/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PictureInPictureWindow/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Plugin-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PluginArray-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PointerEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PointerEvent/getCoalescedEvents.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PointerEvent/getPredictedEvents.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PointerEvent/height.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PointerEvent/isPrimary.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/PointerEvent/pointerId.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PointerEvent/pointerType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PointerEvent/pressure.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PointerEvent/tangentialPressure.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PointerEvent/tiltX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PointerEvent/tiltY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PointerEvent/twist.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PointerEvent/width.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PopStateEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PopStateEvent/state.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ProcessingInstruction-extension-type.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/ProcessingInstruction/sheet.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ProcessingInstruction/target.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ProgressEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ProgressEvent/lengthComputable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ProgressEvent/loaded.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ProgressEvent/total.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PromiseRejectionEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PromiseRejectionEvent/promise.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PromiseRejectionEvent/reason.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PublicKeyCredential-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PublicKeyCredential/authenticatorAttachment.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PublicKeyCredential/getClientExtensionResults.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PublicKeyCredential/isUserVerifyingPlatformAuthenticatorAvailable.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PublicKeyCredential/rawId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PublicKeyCredential/response.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/PublicKeyCredentialCreationOptions-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PushEvent/data.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushManager-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PushManager/getSubscription.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushManager/permissionState.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushManager/subscribe.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushManager/supportedContentEncodings.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PushMessageData-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/PushMessageData/arrayBuffer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushMessageData/blob.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushMessageData/json.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushMessageData/text.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushSubscription-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PushSubscription/endpoint.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/PushSubscription/expirationTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PushSubscription/getKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PushSubscription/options.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PushSubscription/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PushSubscription/unsubscribe.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PushSubscriptionOptions-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/PushSubscriptionOptions/applicationServerKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/PushSubscriptionOptions/userVisibleOnly.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCCertificate-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCCertificate/expires.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCCertificate/getFingerprints.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCDTMFSender-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCDTMFSender/canInsertDTMF.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCDTMFSender/insertDTMF.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCDTMFSender/toneBuffer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCDTMFToneChangeEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCDTMFToneChangeEvent/tone.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCDataChannel-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCDataChannel/binaryType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCDataChannel/bufferedAmount.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCDataChannel/bufferedAmountLowThreshold.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCDataChannel/close.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCDataChannel/id.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCDataChannel/label.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCDataChannel/maxPacketLifeTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCDataChannel/maxRetransmits.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCDataChannel/negotiated.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCDataChannel/ordered.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCDataChannel/protocol.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCDataChannel/readyState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCDataChannel/send.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCDataChannelEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCDataChannelEvent/channel.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCDtlsTransport-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCDtlsTransport/iceTransport.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCDtlsTransport/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCEncodedAudioFrame-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/RTCEncodedAudioFrame/data.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCEncodedAudioFrame/getMetadata.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCEncodedVideoFrame-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCEncodedVideoFrame/data.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCEncodedVideoFrame/getMetadata.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCEncodedVideoFrame/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCError-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCError/errorDetail.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCError/receivedAlert.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCError/sctpCauseCode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCError/sdpLineNumber.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCError/sentAlert.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCErrorEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCErrorEvent/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCIceCandidate-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCIceCandidate/address.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/candidate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/component.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/foundation.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/port.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/priority.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/protocol.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCIceCandidate/relatedAddress.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCIceCandidate/relatedPort.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCIceCandidate/sdpMLineIndex.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/sdpMid.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/tcpType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/toJSON.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceCandidate/usernameFragment.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCIceParameters-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCIceParameters/password.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCIceParameters/usernameFragment.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCIceTransport-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceTransport/gatheringState.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCIceTransport/getLocalCandidates.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceTransport/getLocalParameters.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceTransport/getRemoteCandidates.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceTransport/getRemoteParameters.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceTransport/getSelectedCandidatePair.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCIceTransport/role.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCIceTransport/state.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/addIceCandidate.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/RTCPeerConnection/addTrack.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/addTransceiver.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/canTrickleIceCandidates.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/connectionState.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/createAnswer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/createDataChannel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/createOffer.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/currentLocalDescription.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/currentRemoteDescription.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/generateCertificate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/getConfiguration.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/getIdentityAssertion.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/getReceivers.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/getSenders.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/getStats.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/getTransceivers.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/iceConnectionState.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/iceGatheringState.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/localDescription.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/peerIdentity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnection/pendingLocalDescription.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/pendingRemoteDescription.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/remoteDescription.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/removeTrack.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/restartIce.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCPeerConnection/sctp.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/setConfiguration.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/setIdentityProvider.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/setLocalDescription.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnection/setRemoteDescription.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnection/signalingState.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCPeerConnectionIceErrorEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCPeerConnectionIceErrorEvent/address.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCPeerConnectionIceEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCPeerConnectionIceEvent/candidate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpReceiver-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpReceiver/getCapabilities.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpReceiver/getContributingSources.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpReceiver/getParameters.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpReceiver/getStats.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpReceiver/getSynchronizationSources.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpReceiver/jitterBufferTarget.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpReceiver/track.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpReceiver/transform.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCRtpReceiver/transport.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpScriptTransform-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpScriptTransformer-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCRtpScriptTransformer/generateKeyFrame.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpScriptTransformer/options.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpScriptTransformer/readable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpScriptTransformer/sendKeyFrameRequest.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCRtpScriptTransformer/writable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpSender-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCRtpSender/dtmf.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpSender/getCapabilities.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpSender/getParameters.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpSender/getStats.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpSender/replaceTrack.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCRtpSender/setParameters.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpSender/setStreams.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpSender/track.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpSender/transform.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCRtpSender/transport.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpTransceiver-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCRtpTransceiver/currentDirection.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCRtpTransceiver/direction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCRtpTransceiver/mid.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpTransceiver/receiver.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpTransceiver/sender.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCRtpTransceiver/setCodecPreferences.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCRtpTransceiver/stop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCSctpTransport-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCSctpTransport/maxChannels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCSctpTransport/maxMessageSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCSctpTransport/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCSctpTransport/transport.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCSessionDescription-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCSessionDescription/sdp.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCSessionDescription/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCSessionDescription/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCStatsReport-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RTCTrackEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCTrackEvent/receiver.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCTrackEvent/streams.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCTrackEvent/track.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RTCTrackEvent/transceiver.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RTCTransformEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/RTCTransformEvent/transformer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RadioNodeList-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RadioNodeList/value.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Range/cloneContents.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Range/cloneRange.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Range/collapse.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Range/commonAncestorContainer.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Range/compareBoundaryPoints.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/comparePoint.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Range/createContextualFragment.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/deleteContents.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Range/detach.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/extractContents.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Range/getBoundingClientRect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Range/getClientRects.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/insertNode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Range/intersectsNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/isPointInRange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/selectNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/selectNodeContents.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Range/setEnd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/setEndAfter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/setEndBefore.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/setStart.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Range/setStartAfter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/setStartBefore.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Range/surroundContents.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ReadableByteStreamController-extension-type.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/ReadableByteStreamController/byobRequest.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableByteStreamController/close.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ReadableByteStreamController/desiredSize.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ReadableByteStreamController/enqueue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableByteStreamController/error.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStream-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ReadableStream/cancel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStream/getReader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReadableStream/locked.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStream/pipeThrough.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStream/pipeTo.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStream/tee.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ReadableStreamBYOBReader-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ReadableStreamBYOBReader/cancel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStreamBYOBReader/closed.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStreamBYOBReader/read.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ReadableStreamBYOBReader/releaseLock.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ReadableStreamBYOBRequest-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/ReadableStreamBYOBRequest/respond.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStreamBYOBRequest/respondWithNewView.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ReadableStreamBYOBRequest/view.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReadableStreamDefaultController-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStreamDefaultController/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStreamDefaultController/desiredSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReadableStreamDefaultController/enqueue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReadableStreamDefaultController/error.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReadableStreamDefaultReader-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ReadableStreamDefaultReader/cancel.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ReadableStreamDefaultReader/closed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReadableStreamDefaultReader/read.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReadableStreamDefaultReader/releaseLock.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RelativeOrientationSensor-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RemotePlayback-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/RemotePlayback/cancelWatchAvailability.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RemotePlayback/prompt.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/RemotePlayback/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/RemotePlayback/watchAvailability.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Report-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Report/body.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Report/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Report/url.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReportBody-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ReportBody/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReportingObserver-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReportingObserver/disconnect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ReportingObserver/observe.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ReportingObserver/takeRecords.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Request/arrayBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/blob.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/body.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/bodyUsed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/bytes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/cache.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/clone.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Request/credentials.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/destination.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Request/formData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/headers.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/integrity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/json.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Request/method.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/mode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/redirect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/referrer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Request/referrerPolicy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/signal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/text.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Request/url.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserver-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ResizeObserver/disconnect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserver/observe.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserver/unobserve.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserverEntry-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ResizeObserverEntry/borderBoxSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserverEntry/contentBoxSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserverEntry/contentRect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserverEntry/devicePixelContentBoxSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserverEntry/target.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ResizeObserverSize-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ResizeObserverSize/blockSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ResizeObserverSize/inlineSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Response/arrayBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Response/blob.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Response/body.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Response/bodyUsed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Response/bytes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Response/clone.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Response/error.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Response/formData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response/headers.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Response/json.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response/json_.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response/ok.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Response/redirect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response/redirected.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response/status.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response/statusText.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response/text.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Response/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Response/url.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAElement/SVGAElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAElement/target.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAngle-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/SVGAnimateElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAnimateElement/SVGAnimateElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimateMotionElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAnimateMotionElement/SVGAnimateMotionElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimateTransformElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAnimateTransformElement/SVGAnimateTransformElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedAngle-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedBoolean-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedEnumeration-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAnimatedEnumeration/animVal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedEnumeration/baseVal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedInteger-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedLength-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAnimatedLength/animVal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedLength/baseVal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedLengthList-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedNumber-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedNumberList-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedPreserveAspectRatio-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedRect-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SVGAnimatedString-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAnimatedString/animVal.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAnimatedString/baseVal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimatedTransformList-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGAnimationElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGAnimationElement/targetElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGCircleElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGCircleElement/SVGCircleElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGCircleElement/cx.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGCircleElement/cy.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGCircleElement/r.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGClipPathElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGClipPathElement/SVGClipPathElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGClipPathElement/clipPathUnits.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGClipPathElement/transform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGComponentTransferFunctionElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGDefsElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGDefsElement/SVGDefsElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGDescElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGDescElement/SVGDescElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGElement/attributeStyleMap.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/SVGElement/dataset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGElement/style.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/SVGEllipseElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGEllipseElement/SVGEllipseElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEBlendElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEBlendElement/SVGFEBlendElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEColorMatrixElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEColorMatrixElement/SVGFEColorMatrixElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEComponentTransferElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEComponentTransferElement/SVGFEComponentTransferElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFECompositeElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFECompositeElement/SVGFECompositeElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEConvolveMatrixElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEConvolveMatrixElement/SVGFEConvolveMatrixElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEDiffuseLightingElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEDiffuseLightingElement/SVGFEDiffuseLightingElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEDisplacementMapElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEDisplacementMapElement/SVGFEDisplacementMapElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEDistantLightElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEDistantLightElement/SVGFEDistantLightElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEDropShadowElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEDropShadowElement/SVGFEDropShadowElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEFloodElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEFloodElement/SVGFEFloodElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEFuncAElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEFuncAElement/SVGFEFuncAElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEFuncBElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEFuncBElement/SVGFEFuncBElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEFuncGElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEFuncGElement/SVGFEFuncGElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEFuncRElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEFuncRElement/SVGFEFuncRElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEGaussianBlurElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEGaussianBlurElement/SVGFEGaussianBlurElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEImageElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEImageElement/SVGFEImageElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEMergeElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEMergeElement/SVGFEMergeElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEMergeNodeElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEMergeNodeElement/SVGFEMergeNodeElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEMorphologyElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEMorphologyElement/SVGFEMorphologyElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEOffsetElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEOffsetElement/SVGFEOffsetElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFEPointLightElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFEPointLightElement/SVGFEPointLightElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFESpecularLightingElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFESpecularLightingElement/SVGFESpecularLightingElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFESpotLightElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFESpotLightElement/SVGFESpotLightElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFETileElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFETileElement/SVGFETileElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFETurbulenceElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFETurbulenceElement/SVGFETurbulenceElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGFilterElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGFilterElement/SVGFilterElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGForeignObjectElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGForeignObjectElement/SVGForeignObjectElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGGElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGGElement/SVGGElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGGeometryElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGGeometryElement/getPointAtLength.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGGeometryElement/getTotalLength.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGGeometryElement/isPointInFill.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGGeometryElement/isPointInStroke.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGGeometryElement/pathLength.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGGradientElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGGraphicsElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGGraphicsElement/getBBox.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SVGImageElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGImageElement/SVGImageElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGImageElement/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGImageElement/preserveAspectRatio.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGImageElement/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGImageElement/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGImageElement/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGLength-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGLengthList-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGLineElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGLineElement/SVGLineElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGLinearGradientElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGLinearGradientElement/SVGLinearGradientElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMPathElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMPathElement/SVGMPathElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SVGMarkerElement/SVGMarkerElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/markerHeight.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/markerUnits.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/markerWidth.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/orientAngle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/orientType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMarkerElement/preserveAspectRatio.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/refX.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/refY.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/setOrientToAngle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/setOrientToAuto.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMarkerElement/viewBox.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMaskElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMaskElement/SVGMaskElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGMaskElement/height.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMaskElement/maskContentUnits.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMaskElement/maskUnits.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMaskElement/width.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMaskElement/x.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMaskElement/y.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMetadataElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGMetadataElement/SVGMetadataElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGNumber-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SVGNumberList-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPathElement-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SVGPathElement/SVGPathElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPatternElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGPatternElement/SVGPatternElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SVGPointList/appendItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList/clear.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList/getItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList/initialize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList/insertItemBefore.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList/numberOfItems.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList/removeItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPointList/replaceItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPolygonElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGPolygonElement/SVGPolygonElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPolylineElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGPolylineElement/SVGPolylineElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGPreserveAspectRatio-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGRadialGradientElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGRadialGradientElement/SVGRadialGradientElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGRectElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGRectElement/SVGRectElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGSVGElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGSVGElement/SVGSVGElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGScriptElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGScriptElement/SVGScriptElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGSetElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGSetElement/SVGSetElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGStopElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGStopElement/SVGStopElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGStringList-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGStyleElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGStyleElement/SVGStyleElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGStyleElement/media.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGStyleElement/sheet.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGStyleElement/title.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGStyleElement/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGSwitchElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGSwitchElement/SVGSwitchElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGSymbolElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGSymbolElement/SVGSymbolElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGTSpanElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGTSpanElement/SVGTSpanElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGTextContentElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGTextElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGTextElement/SVGTextElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGTextPathElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGTextPathElement/SVGTextPathElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGTextPositioningElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGTitleElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGTitleElement/SVGTitleElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGTransform-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGTransformList-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGUnitTypes-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGUseElement-extension-type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGUseElement/SVGUseElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SVGViewElement-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SVGViewElement/SVGViewElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Sanitizer-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Scheduler-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Scheduler/postTask.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/Screen-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Screen/availHeight.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Screen/availWidth.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Screen/colorDepth.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Screen/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Screen/orientation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Screen/pixelDepth.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Screen/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ScreenOrientation-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ScreenOrientation/angle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ScreenOrientation/lock.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ScreenOrientation/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ScreenOrientation/unlock.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ScriptProcessorNode-extension-type.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/ScriptProcessorNode/bufferSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SecurityPolicyViolationEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SecurityPolicyViolationEvent/blockedURI.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/columnNumber.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/disposition.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/documentURI.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/effectiveDirective.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/lineNumber.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/originalPolicy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/referrer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/sample.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/sourceFile.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/statusCode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SecurityPolicyViolationEvent/violatedDirective.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Selection/addRange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/anchorNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/anchorOffset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/collapse.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/collapseToEnd.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/collapseToStart.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/containsNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/deleteFromDocument.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/direction.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Selection/empty.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/extend.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/focusNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/focusOffset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/getRangeAt.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Selection/isCollapsed.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/modify.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/rangeCount.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Selection/removeAllRanges.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/removeRange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/selectAllChildren.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Selection/setBaseAndExtent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/setPosition.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Selection/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Sensor-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Sensor/activated.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Sensor/hasReading.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Sensor/start.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Sensor/stop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Sensor/timestamp.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SensorErrorEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SensorErrorEvent/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorker-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/ServiceWorker/postMessage.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ServiceWorker/scriptURL.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorker/state.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerContainer-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ServiceWorkerContainer/controller.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerContainer/getRegistration.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerContainer/getRegistrations.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerContainer/ready.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerContainer/register.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ServiceWorkerContainer/startMessages.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerGlobalScope-extension-type.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/ServiceWorkerGlobalScope/clients.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ServiceWorkerGlobalScope/registration.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ServiceWorkerGlobalScope/serviceWorker.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ServiceWorkerGlobalScope/skipWaiting.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ServiceWorkerRegistration-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ServiceWorkerRegistration/active.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ServiceWorkerRegistration/getNotifications.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/installing.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/navigationPreload.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ServiceWorkerRegistration/pushManager.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/scope.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/showNotification.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/sync.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/unregister.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/update.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/updateViaCache.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ServiceWorkerRegistration/waiting.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ShadowRoot/activeElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot/adoptedStyleSheets.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ShadowRoot/clonable.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ShadowRoot/delegatesFocus.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ShadowRoot/fullscreenElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot/getAnimations.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot/getHTML.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ShadowRoot/host.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot/innerHTML.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot/mode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ShadowRoot/pictureInPictureElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot/pointerLockElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot/serializable.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ShadowRoot/setHTMLUnsafe.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ShadowRoot/slotAssignment.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ShadowRoot/styleSheets.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SharedWorker-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SharedWorker/port.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SharedWorkerGlobalScope-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SharedWorkerGlobalScope/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SharedWorkerGlobalScope/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SourceBuffer-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SourceBuffer/abort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SourceBuffer/appendBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SourceBuffer/appendWindowEnd.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SourceBuffer/appendWindowStart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SourceBuffer/audioTracks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SourceBuffer/buffered.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SourceBuffer/changeType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SourceBuffer/mode.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/SourceBuffer/remove.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SourceBuffer/timestampOffset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SourceBuffer/updating.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SourceBuffer/videoTracks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SourceBufferList-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/SourceBufferList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognition-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SpeechRecognition/abort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognition/continuous.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognition/grammars.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognition/interimResults.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognition/lang.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognition/maxAlternatives.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognition/start.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognition/stop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognitionAlternative-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionAlternative/confidence.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionAlternative/transcript.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionErrorEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionErrorEvent/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognitionErrorEvent/message.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognitionEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionEvent/resultIndex.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionEvent/results.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionResult-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionResult/isFinal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognitionResult/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognitionResult/length.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionResultList-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechRecognitionResultList/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechRecognitionResultList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesis-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesis/cancel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesis/getVoices.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesis/pause.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesis/paused.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesis/pending.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesis/resume.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesis/speak.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesis/speaking.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesisErrorEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisErrorEvent/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesisEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisEvent/charIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesisEvent/charLength.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisEvent/elapsedTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesisEvent/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesisEvent/utterance.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesisUtterance-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisUtterance/lang.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisUtterance/pitch.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisUtterance/rate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisUtterance/text.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisUtterance/voice.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisUtterance/volume.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisVoice-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisVoice/lang.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesisVoice/localService.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SpeechSynthesisVoice/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SpeechSynthesisVoice/voiceURI.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StaticRange-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/StereoPannerNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/StereoPannerNode/pan.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Storage-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Storage/clear.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Storage/getItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Storage/key.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Storage/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Storage/removeItem.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Storage/setItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StorageAccessHandle/BroadcastChannel_.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/SharedWorker_.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/caches.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/createObjectURL.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/estimate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/getDirectory.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/indexedDB.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/localStorage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/locks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/revokeObjectURL.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageAccessHandle/sessionStorage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StorageEvent/initStorageEvent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageEvent/key.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageEvent/newValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageEvent/oldValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageEvent/storageArea.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageEvent/url.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageManager-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StorageManager/estimate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StorageManager/getDirectory.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StorageManager/persist.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StorageManager/persisted.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StylePropertyMap-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StylePropertyMap/append.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StylePropertyMap/clear.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StylePropertyMap/delete.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StylePropertyMap/set.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StylePropertyMapReadOnly-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StylePropertyMapReadOnly/get.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StylePropertyMapReadOnly/getAll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StylePropertyMapReadOnly/has.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StylePropertyMapReadOnly/size.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StyleSheet-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StyleSheet/disabled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StyleSheet/href.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StyleSheet/media.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StyleSheet/ownerNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StyleSheet/parentStyleSheet.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StyleSheet/title.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/StyleSheet/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StyleSheetList-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/StyleSheetList/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/StyleSheetList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SubmitEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SubmitEvent/submitter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SubtleCrypto-extension-type.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/SubtleCrypto/decrypt.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SubtleCrypto/deriveBits.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/SubtleCrypto/deriveKey.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SubtleCrypto/digest.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SubtleCrypto/encrypt.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SubtleCrypto/exportKey.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/SubtleCrypto/generateKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SubtleCrypto/importKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SubtleCrypto/sign.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/SubtleCrypto/unwrapKey.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/SubtleCrypto/verify.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SubtleCrypto/wrapKey.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/SyncEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/SyncEvent/lastChance.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SyncEvent/tag.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SyncManager-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/SyncManager/getTags.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/SyncManager/register.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TaskController-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/TaskController/setPriority.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TaskPriorityChangeEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TaskPriorityChangeEvent/previousPriority.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TaskSignal-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/TaskSignal/priority.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Text-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/Text/assignedSlot.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Text/splitText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Text/wholeText.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextDecoder-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextDecoder/decode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextDecoder/encoding.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextDecoder/fatal.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextDecoder/ignoreBOM.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextDecoderStream-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextDecoderStream/encoding.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextDecoderStream/fatal.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextDecoderStream/ignoreBOM.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextDecoderStream/readable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextDecoderStream/writable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextEncoder-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextEncoder/encode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextEncoder/encodeInto.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextEncoder/encoding.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextEncoderStream-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextEncoderStream/encoding.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextEncoderStream/readable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextEncoderStream/writable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextMetrics/actualBoundingBoxAscent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/actualBoundingBoxDescent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/actualBoundingBoxLeft.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/actualBoundingBoxRight.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/alphabeticBaseline.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/emHeightAscent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/emHeightDescent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/fontBoundingBoxAscent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/fontBoundingBoxDescent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/hangingBaseline.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/ideographicBaseline.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextMetrics/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrack-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextTrack/activeCues.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrack/addCue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrack/cues.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrack/id.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrack/inBandMetadataTrackDispatchType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TextTrack/kind.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrack/label.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrack/language.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextTrack/mode.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/TextTrack/removeCue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackCue-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TextTrackCue/endTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackCue/id.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackCue/pauseOnExit.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackCue/startTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackCue/track.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackCueList-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TextTrackCueList/getCueById.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackCueList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackList-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/TextTrackList/getTrackById.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TextTrackList/length.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TimeEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TimeRanges-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TimeRanges/end.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TimeRanges/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TimeRanges/start.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ToggleEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ToggleEvent/newState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ToggleEvent/oldState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Touch/clientX.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/clientY.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/force.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/identifier.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/pageX.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/pageY.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/radiusX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Touch/radiusY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Touch/rotationAngle.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/screenX.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/screenY.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Touch/target.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TouchEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TouchEvent/altKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TouchEvent/changedTouches.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TouchEvent/ctrlKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TouchEvent/metaKey.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TouchEvent/shiftKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TouchEvent/targetTouches.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TouchEvent/touches.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TouchGlue/client.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TouchList-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/TouchList/item.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TouchList/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrackEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/TrackEvent/track.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TransformStream-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/TransformStream/readable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TransformStream/writable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TransformStreamDefaultController-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TransformStreamDefaultController/desiredSize.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TransformStreamDefaultController/enqueue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TransformStreamDefaultController/error.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TransformStreamDefaultController/terminate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TransitionEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TransitionEvent/elapsedTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TransitionEvent/propertyName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TransitionEvent/pseudoElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TreeWalker/currentNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/filter.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TreeWalker/firstChild.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/lastChild.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/nextNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/nextSibling.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/parentNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/previousNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/previousSibling.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/root.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TreeWalker/whatToShow.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedHTML-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TrustedHTML/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedScript-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TrustedScript/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedScriptURL-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TrustedScriptURL/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedTypePolicy-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/TrustedTypePolicy/createHTML.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedTypePolicy/createScript.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedTypePolicy/createScriptURL.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedTypePolicy/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedTypePolicyFactory-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TrustedTypePolicyFactory/createPolicy.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/TrustedTypePolicyFactory/defaultPolicy.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TrustedTypePolicyFactory/emptyHTML.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TrustedTypePolicyFactory/emptyScript.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TrustedTypePolicyFactory/getAttributeType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedTypePolicyFactory/getPropertyType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/TrustedTypePolicyFactory/isHTML.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TrustedTypePolicyFactory/isScript.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/TrustedTypePolicyFactory/isScriptURL.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/UIEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/UIEvent/detail.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/UIEvent/initUIEvent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/UIEvent/view.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/UIEvent/which.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URL-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/URL/canParse.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URL/createObjectURL.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/URL/hash.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URL/host.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URL/hostname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URL/href.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URL/origin.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URL/parse.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URL/password.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URL/pathname.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/URL/port.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URL/protocol.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URL/revokeObjectURL.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/URL/search.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URL/searchParams.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URL/toJSON.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URL/username.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URLSearchParams-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/URLSearchParams/append.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URLSearchParams/delete.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URLSearchParams/get.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URLSearchParams/getAll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URLSearchParams/has.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/URLSearchParams/set.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URLSearchParams/size.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/URLSearchParams/sort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/UserActivation-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/UserActivation/hasBeenActive.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/UserActivation/isActive.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VTTCue/align.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/getCueAsHTML.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/line.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/lineAlign.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/position.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/positionAlign.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/region.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/size.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/snapToLines.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/text.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTCue/vertical.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VTTRegion-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ValidityState-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ValidityState/badInput.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ValidityState/patternMismatch.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ValidityState/rangeOverflow.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ValidityState/rangeUnderflow.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ValidityState/stepMismatch.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/ValidityState/tooLong.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ValidityState/tooShort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ValidityState/typeMismatch.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ValidityState/valueMissing.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoColorSpace-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VideoColorSpace/fullRange.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoColorSpace/matrix.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoColorSpace/primaries.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoColorSpace/toJSON.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoColorSpace/transfer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoDecoder-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VideoDecoder/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoDecoder/configure.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoDecoder/decode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoDecoder/decodeQueueSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoDecoder/flush.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoDecoder/isConfigSupported.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoDecoder/reset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoDecoder/state.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoElement.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VideoEncoder-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VideoEncoder/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoEncoder/configure.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VideoEncoder/encode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoEncoder/encodeQueueSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoEncoder/flush.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoEncoder/isConfigSupported.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoEncoder/reset.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VideoEncoder/state.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/VideoFrame/allocationSize.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/clone.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/codedHeight.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/codedRect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/codedWidth.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/colorSpace.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/copyTo.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/displayHeight.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/displayWidth.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/duration.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/format.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/timestamp.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoFrame/visibleRect.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoPlaybackQuality-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoPlaybackQuality/corruptedVideoFrames.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VideoPlaybackQuality/creationTime.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VideoPlaybackQuality/droppedVideoFrames.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VideoPlaybackQuality/totalVideoFrames.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VideoTrack-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VideoTrack/id.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VideoTrack/kind.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoTrack/label.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VideoTrack/language.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoTrack/selected.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VideoTrack/sourceBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VideoTrackList-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VideoTrackList/getTrackById.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoTrackList/length.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/VideoTrackList/selectedIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ViewTransition-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/ViewTransition/finished.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/ViewTransition/ready.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/ViewTransition/skipTransition.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/ViewTransition/updateCallbackDone.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/VisualViewport-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/VisualViewport/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VisualViewport/offsetLeft.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VisualViewport/offsetTop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VisualViewport/pageLeft.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VisualViewport/pageTop.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VisualViewport/scale.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/VisualViewport/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WakeLock-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WakeLock/request.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WakeLockSentinel-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/WakeLockSentinel/release.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WakeLockSentinel/released.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WakeLockSentinel/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WaveShaperNode-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WaveShaperNode/curve.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WaveShaperNode/oversample.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WebGL.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/WebGL2RenderingContext/beginQuery.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/beginTransformFeedback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/bindBufferBase.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/bindBufferRange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/bindSampler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/bindTransformFeedback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/bindVertexArray.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/blitFramebuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/bufferData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/bufferSubData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/clientWaitSync.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/compressedTexSubImage3D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/copyBufferSubData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/copyTexSubImage3D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/createQuery.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/createSampler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/createTransformFeedback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/createVertexArray.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/deleteQuery.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/deleteSampler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/deleteSync.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/deleteTransformFeedback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/deleteVertexArray.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/drawArraysInstanced.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGL2RenderingContext/drawBuffers.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/drawElementsInstanced.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGL2RenderingContext/drawRangeElements.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/endQuery.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/endTransformFeedback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/fenceSync.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/framebufferTextureLayer.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGL2RenderingContext/getActiveUniformBlockName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getActiveUniformBlockParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getActiveUniforms.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getBufferSubData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getFragDataLocation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getIndexedParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getInternalformatParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getQuery.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getQueryParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getSamplerParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getSyncParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getTransformFeedbackVarying.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getUniformBlockIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/getUniformIndices.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/invalidateFramebuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/invalidateSubFramebuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/isQuery.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/isSampler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/isSync.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/isTransformFeedback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/isVertexArray.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/pauseTransformFeedback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/readBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/renderbufferStorageMultisample.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/resumeTransformFeedback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/texImage3D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/texStorage2D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/texStorage3D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/texSubImage3D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/transformFeedbackVaryings.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/uniformBlockBinding.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/vertexAttribDivisor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGL2RenderingContext/vertexAttribIPointer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGL2RenderingContext/waitSync.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLActiveInfo-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLActiveInfo/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLActiveInfo/size.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLActiveInfo/type.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLBuffer-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLContextEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLContextEvent/statusMessage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLFramebuffer-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLProgram-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WebGLQuery-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WebGLRenderbuffer-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/WebGLRenderingContext/activeTexture.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/attachShader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/bindAttribLocation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/bindBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/bindFramebuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/bindRenderbuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/bindTexture.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/blendColor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/blendEquation.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/blendEquationSeparate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/blendFunc.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/blendFuncSeparate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/bufferData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/bufferSubData.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/canvas.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/checkFramebufferStatus.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/clear.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WebGLRenderingContext/clearColor.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/clearDepth.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/clearStencil.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/colorMask.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/compileShader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/compressedTexImage2D.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/compressedTexSubImage2D.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/copyTexImage2D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/copyTexSubImage2D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/createBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/createFramebuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/createProgram.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/createRenderbuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/createShader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/createTexture.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/cullFace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/deleteBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/deleteFramebuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/deleteProgram.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/deleteRenderbuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/deleteShader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/deleteTexture.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/depthFunc.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/depthMask.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/depthRange.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/detachShader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/disable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/disableVertexAttribArray.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/drawArrays.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/drawElements.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/drawingBufferColorSpace.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/drawingBufferHeight.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/drawingBufferWidth.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/enable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/enableVertexAttribArray.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WebGLRenderingContext/finish.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/flush.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/framebufferRenderbuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/framebufferTexture2D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/frontFace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/generateMipmap.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/getActiveAttrib.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getActiveUniform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getAttachedShaders.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getAttribLocation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getBufferParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getContextAttributes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getError.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getExtension.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getFramebufferAttachmentParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getProgramInfoLog.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getProgramParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getRenderbufferParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getShaderInfoLog.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getShaderParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getShaderPrecisionFormat.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getShaderSource.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getSupportedExtensions.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getTexParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getUniform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getUniformLocation.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WebGLRenderingContext/getVertexAttrib.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/getVertexAttribOffset.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/hint.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/isBuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/isContextLost.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/isEnabled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/isFramebuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/isProgram.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/isRenderbuffer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/isShader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/isTexture.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/lineWidth.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WebGLRenderingContext/linkProgram.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/makeXRCompatible.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/pixelStorei.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/polygonOffset.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/readPixels.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/renderbufferStorage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/sampleCoverage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/scissor.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/shaderSource.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/stencilFunc.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/stencilFuncSeparate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/stencilMask.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/stencilMaskSeparate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLRenderingContext/stencilOp.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/stencilOpSeparate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/texImage2D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/texSubImage2D.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/useProgram.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/validateProgram.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/vertexAttribPointer.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLRenderingContext/viewport.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLSampler-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WebGLShader-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLShaderPrecisionFormat-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLShaderPrecisionFormat/precision.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLShaderPrecisionFormat/rangeMax.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLShaderPrecisionFormat/rangeMin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebGLSync-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WebGLTexture-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLTransformFeedback-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WebGLUniformLocation-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebGLVertexArrayObject-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WebSocket-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WebSocket/binaryType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebSocket/bufferedAmount.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebSocket/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebSocket/extensions.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebSocket/protocol.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebSocket/readyState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebSocket/send.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebSocket/url.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransport-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebTransport/close.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransport/closed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransport/createBidirectionalStream.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WebTransport/createUnidirectionalStream.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WebTransport/datagrams.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebTransport/incomingBidirectionalStreams.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebTransport/incomingUnidirectionalStreams.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebTransport/ready.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportBidirectionalStream-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebTransportBidirectionalStream/readable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportBidirectionalStream/writable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportDatagramDuplexStream-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WebTransportDatagramDuplexStream/incomingHighWaterMark.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportDatagramDuplexStream/incomingMaxAge.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportDatagramDuplexStream/maxDatagramSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportDatagramDuplexStream/outgoingHighWaterMark.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportDatagramDuplexStream/outgoingMaxAge.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportDatagramDuplexStream/readable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebTransportDatagramDuplexStream/writable.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebTransportError-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WebTransportError/source.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WebTransportError/streamErrorCode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WheelEvent-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WheelEvent/deltaMode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WheelEvent/deltaX.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WheelEvent/deltaY.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WheelEvent/deltaZ.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/Window/alert.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/atob.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/blur.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/btoa.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/caches.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/cancelAnimationFrame.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/cancelIdleCallback.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/captureEvents.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/close.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/closed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/confirm.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/crossOriginIsolated.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/crypto.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/customElements.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/devicePixelRatio.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Window/document.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/event.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/external.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/focus.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/frameElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/frames.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/getComputedStyle.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/getSelection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/history.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/indexedDB.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/innerHeight.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/innerWidth.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/isSecureContext.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/localStorage.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/location.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/locationbar.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/matchMedia.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/menubar.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/moveBy.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/moveTo.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/name.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/navigator.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/open.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/opener.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/orientation.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/origin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/outerHeight.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/outerWidth.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/parent.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/performance.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/personalbar.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/postMessage.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Window/print.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/prompt.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/releaseEvents.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/requestAnimationFrame.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Window/requestIdleCallback.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/resizeBy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/resizeTo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/scheduler.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/screen.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/screenLeft.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/screenTop.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/screenX.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/screenY.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/scroll.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/scrollBy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/scrollTo.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/scrollX.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/scrollY.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/scrollbars.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/self.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/sessionStorage.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/speechSynthesis.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/status.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/statusbar.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/stop.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Window/toolbar.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/Window/top.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/trustedTypes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/visualViewport.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/Window/window.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/WindowClient-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WindowClient/focus.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WindowClient/focused.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WindowClient/navigate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WindowClient/visibilityState.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/Worker-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/Worker/postMessage.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Worker/terminate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerGlobalScope-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WorkerGlobalScope/atob.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerGlobalScope/btoa.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerGlobalScope/caches.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerGlobalScope/crossOriginIsolated.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerGlobalScope/crypto.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WorkerGlobalScope/fonts.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerGlobalScope/importScripts.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerGlobalScope/indexedDB.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerGlobalScope/isSecureContext.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerGlobalScope/location.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerGlobalScope/navigator.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerGlobalScope/origin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerGlobalScope/performance.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WorkerGlobalScope/scheduler.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerGlobalScope/self.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerGlobalScope/trustedTypes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WorkerLocation/hash.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation/host.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation/hostname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation/href.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation/origin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation/pathname.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation/port.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation/protocol.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerLocation/search.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerNavigator/appCodeName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerNavigator/appName.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerNavigator/appVersion.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerNavigator/connection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/deviceMemory.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerNavigator/hardwareConcurrency.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/language.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/languages.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/WorkerNavigator/locks.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/mediaCapabilities.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/onLine.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/WorkerNavigator/permissions.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/platform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/product.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerNavigator/serviceWorker.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WorkerNavigator/storage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/usb.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkerNavigator/userAgent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Worklet-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/Worklet/addModule.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WorkletGlobalScope-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WritableStream-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/WritableStream/abort.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WritableStream/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WritableStream/getWriter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WritableStream/locked.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WritableStreamDefaultController-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WritableStreamDefaultController/error.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WritableStreamDefaultController/signal.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WritableStreamDefaultWriter-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WritableStreamDefaultWriter/abort.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WritableStreamDefaultWriter/close.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/WritableStreamDefaultWriter/closed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WritableStreamDefaultWriter/desiredSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WritableStreamDefaultWriter/ready.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WritableStreamDefaultWriter/releaseLock.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/WritableStreamDefaultWriter/write.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XMLDocument-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XMLHttpRequest-extension-type.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/XMLHttpRequest/abort.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XMLHttpRequest/getAllResponseHeaders.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/XMLHttpRequest/getResponseHeader.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/XMLHttpRequest/open.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XMLHttpRequest/overrideMimeType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XMLHttpRequest/readyState.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XMLHttpRequest/response.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XMLHttpRequest/responseText.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XMLHttpRequest/responseType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XMLHttpRequest/responseURL.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XMLHttpRequest/responseXML.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/XMLHttpRequest/send.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/XMLHttpRequest/setRequestHeader.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/package-web_web/XMLHttpRequest/status.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XMLHttpRequest/statusText.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/XMLHttpRequest/timeout.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/XMLHttpRequest/upload.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/XMLHttpRequest/withCredentials.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/XMLHttpRequestEventTarget-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/XMLHttpRequestGlue/responseHeaders.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XMLHttpRequestUpload-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XMLSerializer-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XMLSerializer/serializeToString.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathEvaluator-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XPathEvaluator/createExpression.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathEvaluator/createNSResolver.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XPathEvaluator/evaluate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathExpression-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/XPathExpression/evaluate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XPathResult/booleanValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult/invalidIteratorState.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult/iterateNext.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult/numberValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult/resultType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult/singleNodeValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult/snapshotItem.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult/snapshotLength.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XPathResult/stringValue.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRHand-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XRInputSource-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRInputSource/gamepad.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRInputSource/gripSpace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRInputSource/hand.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRInputSource/handedness.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRInputSource/profiles.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRInputSource/targetRayMode.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/package-web_web/XRInputSource/targetRaySpace.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRInputSourceEvent-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XRInputSourceEvent/frame.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRInputSourceEvent/inputSource.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRInputSourcesChangeEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRInputSourcesChangeEvent/added.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRInputSourcesChangeEvent/removed.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRInputSourcesChangeEvent/session.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRJointPose-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRJointPose/radius.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRJointSpace-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRJointSpace/jointName.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRPose-extension-type.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/package-web_web/XRPose/angularVelocity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRPose/emulatedPosition.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRPose/linearVelocity.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRPose/transform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRReferenceSpace-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XRReferenceSpace/getOffsetReferenceSpace.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XRReferenceSpaceEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRReferenceSpaceEvent/referenceSpace.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRReferenceSpaceEvent/transform.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRRigidTransform-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/XRRigidTransform/inverse.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRRigidTransform/matrix.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRRigidTransform/orientation.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRRigidTransform/position.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRSessionEvent-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRSessionEvent/session.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRSpace-extension-type.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/package-web_web/XRViewerPose-extension-type.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XRViewerPose/views.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/package-web_web/XRViewport-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XRViewport/height.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRViewport/width.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRViewport/x.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XRViewport/y.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XSLTProcessor-extension-type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/XSLTProcessor/clearParameters.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XSLTProcessor/getParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XSLTProcessor/importStylesheet.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XSLTProcessor/removeParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XSLTProcessor/reset.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XSLTProcessor/setParameter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XSLTProcessor/transformToDocument.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/XSLTProcessor/transformToFragment.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/package-web_web/createCanvasElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/createElementTag.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/createIFrameElement.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/package-web_web/querySelector.html` — 未译；已译 0/2 段；待译段落：0, 1

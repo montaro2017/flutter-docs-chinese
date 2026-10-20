@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:core 库中 Function 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Function class - dart:core 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-core/">dart:core</a></li>
+    <li class="self-crumb">Function 类</li>
+  </ol>
+  <div class="self-name">Function</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-core&#47;dart-core-library-sidebar.html"
+    data-below-sidebar="dart-core&#47;Function-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Function</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#final" class="feature feature-final" title="This class can neither be extended, implemented, nor mixed in.">final</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一个函数值。</p>
+<p><code>Function</code> 类是所有<em>函数类型</em>的超类型，本身不包含任何值。所有实现 <code>Function</code> 的对象，其运行时类型都是函数类型。</p>
+<p><code>Function</code> 类型不包含函数的参数签名或返回类型信息。若要表达更精确的函数类型，请使用函数类型语法：关键字 <code>Function</code> 后接参数列表，或类型参数列表和参数列表，并且还可以指定可选的返回类型。</p>
+<p>函数类型语法与函数定义类似，只是将函数名称替换为“Function”。</p>
+<p>示例：</p>
+<pre class="language-dart"><code class="language-dart">String numberToString(int n) =&gt; "$n";
+String Function(int n) fun = numberToString; // Type annotation
+assert(fun is String Function(int)); // Type check.
+List&lt;String Function(int)&gt; functions = [fun]; // Type argument.
+</code></pre>
+<p><code>String Function(int)</code> 是一种函数类型，表示该函数接受一个位置参数 <code>int</code> 并返回 <code>String</code>。</p>
+<p>泛型函数类型示例：</p>
+<pre class="language-dart"><code class="language-dart">T id&lt;T&gt;(T value) =&gt; value;
+X Function&lt;X&gt;(X) anotherId = id; // Parameter name may be omitted.
+int Function(int) intId = id&lt;int&gt;;
+</code></pre>
+<p>凡是允许使用类型的地方都可以使用函数类型；它也常用作接受其他函数（即“回调”）作为参数的函数的参数类型。</p>
+<pre class="language-dart"><code class="language-dart">void doSomething(String Function(int) callback) {
+  print(callback(1));
+}
+</code></pre>
+<p>函数类型具有 <a href="dart-core/Object-class.html">Object</a> 声明的所有成员，因为函数类型是 <a href="dart-core/Object-class.html">Object</a> 的子类型。</p>
+<p>函数类型还有一个 <code>call</code> 方法，其签名与函数类型本身相同。调用 <code>call</code> 方法的行为与直接调用函数相同。它主要用于有条件地调用可空函数值。</p>
+<pre class="language-dart"><code class="language-dart">String Function(int) fun = (n) =&gt; "$n";
+String Function(int) fun2 = fun.call; // Valid.
+print(fun2.call(1)); // Prints "1".
+
+String Function(int)? maybeFun = Random().nextBool() ? fun : null;
+print(maybeFun?.call(1)); // Prints "1" or "null".
+</code></pre>
+<p><a href="dart-core/Function-class.html">Function</a> 类型有若干在此 <code>class</code> 声明中不可见的特殊特性。</p>
+<p><code>Function</code> 类型是所有函数类型的超类型，因此允许将任意函数赋给它，但它不会说明如何调用该函数。</p>
+<p>不过，静态类型为 <code>Function</code> 的值仍然<em>可以</em>像函数一样调用。</p>
+<pre class="language-dart"><code class="language-dart">Function f = (int x) =&gt; "$x";
+print(f(1)); // Prints "1".
+
+f("not", "one", "int"); // Throws! No static warning.
+</code></pre>
+<p>此类调用属于<em>动态</em>调用，效果与函数值的静态类型为 <code>dynamic</code> 时完全相同，也同样不安全。运行时会检查参数列表是否与函数参数匹配；如果不匹配，调用将以 <a href="dart-core/Error-class.html">Error</a> 失败。此类调用不进行静态类型检查，任何参数列表都会被接受并在运行时检查。</p>
+<p>每种函数类型都有一个类型为自身函数类型的 <code>call</code> 方法；<code>Function</code> 类型也有一个特殊的 <code>call</code> 成员，其行为如同一个函数类型为 <code>Function</code> 的方法（这种方法签名无法用普通 Dart 代码表达）。</p>
+<pre class="language-dart"><code class="language-dart">Function fun = (int x) =&gt; "$x";
+
+var fun2 = fun.call; // Inferred type of `fun2` is `Function`.
+
+print(fun2.call(1)); // Prints "1";
+
+Function? maybeFun = Random().nextBool() ? fun : null;
+print(maybeFun?.call(1)); // Prints "1" or "null".
+</code></pre>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+
+        
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="dart-js_interop/FunctionToJSExportedDartFunction.html">FunctionToJSExportedDartFunction</a></li>
+  </ul></dd>
+        
+
+
+      </dl>
+    </section>
+
+    
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property">
+  <span class="name"><a href="dart-core/Function/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  A hash code value that is compatible with <code>operator==</code>.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toJS" class="property">
+  <span class="name"><a href="dart-js_interop/FunctionToJSExportedDartFunction/toJS.html">toJS</a></span>
+  <span class="signature">&#8594; <a href="dart-js_interop/JSExportedDartFunction-extension-type.html">JSExportedDartFunction</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on T,
+        provided by the <a href="dart-js_interop/FunctionToJSExportedDartFunction.html">FunctionToJSExportedDartFunction</a> extension</span>
+      </p>
+  A JavaScript function that forwards to the <code>T</code>-typed <a href="dart-core/Function-class.html">Function</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="toJSCaptureThis" class="property">
+  <span class="name"><a href="dart-js_interop/FunctionToJSExportedDartFunction/toJSCaptureThis.html">toJSCaptureThis</a></span>
+  <span class="signature">&#8594; <a href="dart-js_interop/JSExportedDartFunction-extension-type.html">JSExportedDartFunction</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on T,
+        provided by the <a href="dart-js_interop/FunctionToJSExportedDartFunction.html">FunctionToJSExportedDartFunction</a> extension</span>
+      </p>
+  A JavaScript function that captures the <code>this</code> value when called and
+forwards to the <code>T</code>-typed <a href="dart-core/Function-class.html">Function</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable">
+  <span class="name"><a href="dart-core/Function/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Test whether another object is equal to this function.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="apply" class="callable">
+  <span class="name"><a href="dart-core/Function/apply.html">apply</a></span><span class="signature">(<wbr><span class="parameter" id="apply-param-function"><span class="type-annotation"><a href="dart-core/Function-class.html">Function</a></span> <span class="parameter-name">function</span>, </span><span class="parameter" id="apply-param-positionalArguments"><span class="type-annotation"><a href="dart-core/List-class.html">List</a>?</span> <span class="parameter-name">positionalArguments</span>, [</span><span class="parameter" id="apply-param-namedArguments"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Symbol-class.html">Symbol</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> <span class="parameter-name">namedArguments</span></span>])
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Dynamically call <code>function</code> with the specified arguments.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-core/">dart:core</a></li>
+    <li class="self-crumb">Function 类</li>
+</ol>
+
+    <h5>dart:core library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

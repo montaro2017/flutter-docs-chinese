@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="leak_tracker_testing 库中 LeakTesting 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>LeakTesting 类 - leak_tracker_testing 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-leak_tracker_testing_leak_tracker_testing/">leak_tracker_testing.dart</a></li>
+    <li class="self-crumb">LeakTesting 类</li>
+  </ol>
+  <div class="self-name">LeakTesting</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-leak_tracker_testing_leak_tracker_testing&#47;package-leak_tracker_testing_leak_tracker_testing-library-sidebar.html"
+    data-below-sidebar="package-leak_tracker_testing_leak_tracker_testing&#47;LeakTesting-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">LeakTesting</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>用于测试的 leak_tracker 设置。</p>
+<p>设置 <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/settings.html">LeakTesting.settings</a> 可更改测试的默认泄漏跟踪设置。可在 flutter_test_config.dart 中为包或文件夹设置，也可在测试文件的 <code>setUpAll</code> 中设置。</p>
+<p>如果要为一组测试更新设置，请记得将原值保存到局部变量，并在该组的 <code>tearDownAll</code> 中恢复。</p>
+<p>要自定义单个测试的默认设置，请使用返回调整后 <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/settings.html">LeakTesting.settings</a> 的方法：</p>
+<pre class="language-dart"><code class="language-dart">testWidgets(
+    'initialTimerDuration falls within limit',
+    leakTracking: LeakTesting.settings.withIgnoredAll(),
+    (WidgetTester tester) async {
+      ...
+</code></pre>
+<p>如果在测试运行期间更新了 <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/settings.html">LeakTesting.settings</a>，新值将在下一个测试中生效。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+
+        
+        
+  <dt>注解</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@<a href="meta/immutable-constant.html">immutable</a></li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="baselining" class="property">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/baselining.html">baselining</a></span>
+  <span class="signature">&#8594; <a href="package-leak_tracker_leak_tracker/MemoryBaselining-class.html">MemoryBaselining</a></span>
+  
+
+</dt>
+<dd>
+  Settings to measure the test's memory footprint.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="ignore" class="property">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/ignore.html">ignore</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  If true, leak tracking is paused.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="ignoredLeaks" class="property">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/ignoredLeaks.html">ignoredLeaks</a></span>
+  <span class="signature">&#8594; <a href="package-leak_tracker_leak_tracker/IgnoredLeaks-class.html">IgnoredLeaks</a></span>
+  
+
+</dt>
+<dd>
+  Leaks to ignore.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="leakDiagnosticConfig" class="property">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/leakDiagnosticConfig.html">leakDiagnosticConfig</a></span>
+  <span class="signature">&#8594; <a href="package-leak_tracker_leak_tracker/LeakDiagnosticConfig-class.html">LeakDiagnosticConfig</a></span>
+  
+
+</dt>
+<dd>
+  Defines which diagnostics information to collect.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="copyWith" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/copyWith.html">copyWith</a></span><span class="signature">(<wbr>{<span class="parameter" id="copyWith-param-ignoredLeaks"><span class="type-annotation"><a href="package-leak_tracker_leak_tracker/IgnoredLeaks-class.html">IgnoredLeaks</a>?</span> <span class="parameter-name">ignoredLeaks</span>, </span><span class="parameter" id="copyWith-param-leakDiagnosticConfig"><span class="type-annotation"><a href="package-leak_tracker_leak_tracker/LeakDiagnosticConfig-class.html">LeakDiagnosticConfig</a>?</span> <span class="parameter-name">leakDiagnosticConfig</span>, </span><span class="parameter" id="copyWith-param-ignore"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">ignore</span>, </span><span class="parameter" id="copyWith-param-baselining"><span class="type-annotation"><a href="package-leak_tracker_leak_tracker/MemoryBaselining-class.html">MemoryBaselining</a>?</span> <span class="parameter-name">baselining</span></span>})
+    <span class="returntype parameter">&#8594; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates a copy of this object with the given fields replaced
+with the new values.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="withCreationStackTrace" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/withCreationStackTrace.html">withCreationStackTrace</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Copies with enabled collection of creation stack trace.
+  
+
+</dd>
+
+        <dt id="withDisposalStackTrace" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/withDisposalStackTrace.html">withDisposalStackTrace</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Copies with enabled collection of disposal stack trace.
+  
+
+</dd>
+
+        <dt id="withIgnored" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/withIgnored.html">withIgnored</a></span><span class="signature">(<wbr>{<span class="parameter" id="withIgnored-param-notGCed"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="dart-core/int-class.html">int</a>?</span>&gt;</span></span> <span class="parameter-name">notGCed</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="withIgnored-param-allNotGCed"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">allNotGCed</span> = <span class="default-value">false</span>, </span><span class="parameter" id="withIgnored-param-notDisposed"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="dart-core/int-class.html">int</a>?</span>&gt;</span></span> <span class="parameter-name">notDisposed</span> = <span class="default-value">const {}</span>, </span><span class="parameter" id="withIgnored-param-allNotDisposed"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">allNotDisposed</span> = <span class="default-value">false</span>, </span><span class="parameter" id="withIgnored-param-classes"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">classes</span> = <span class="default-value">const []</span>, </span><span class="parameter" id="withIgnored-param-createdByTestHelpers"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">createdByTestHelpers</span> = <span class="default-value">false</span>, </span><span class="parameter" id="withIgnored-param-testHelperExceptions"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/RegExp-class.html">RegExp</a></span>&gt;</span></span> <span class="parameter-name">testHelperExceptions</span> = <span class="default-value">const []</span></span>})
+    <span class="returntype parameter">&#8594; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns copy of <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/settings.html">settings</a> with extended ignore lists.
+  
+
+</dd>
+
+        <dt id="withIgnoredAll" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/withIgnoredAll.html">withIgnoredAll</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Copies with <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/ignore.html">ignore</a> set to true.
+  
+
+</dd>
+
+        <dt id="withRetainingPath" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/withRetainingPath.html">withRetainingPath</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates copy of <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/settings.html">settings</a>, that
+collects the retaining path for not GCed objects.
+  
+
+</dd>
+
+        <dt id="withTracked" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/withTracked.html">withTracked</a></span><span class="signature">(<wbr>{<span class="parameter" id="withTracked-param-experimentalNotGCed"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">experimentalNotGCed</span> = <span class="default-value">const []</span>, </span><span class="parameter" id="withTracked-param-notDisposed"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">notDisposed</span> = <span class="default-value">const []</span>, </span><span class="parameter" id="withTracked-param-classes"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">classes</span> = <span class="default-value">const []</span>, </span><span class="parameter" id="withTracked-param-experimentalAllNotGCed"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">experimentalAllNotGCed</span> = <span class="default-value">false</span>, </span><span class="parameter" id="withTracked-param-allNotDisposed"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">allNotDisposed</span> = <span class="default-value">false</span>, </span><span class="parameter" id="withTracked-param-createdByTestHelpers"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">createdByTestHelpers</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns copy of <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/settings.html">settings</a> with reduced ignore lists.
+  
+
+</dd>
+
+        <dt id="withTrackedAll" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/withTrackedAll.html">withTrackedAll</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Copies with <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/ignore.html">ignore</a> set to false.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  相等运算符。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="collectedLeaksReporter" class="property">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/collectedLeaksReporter.html">collectedLeaksReporter</a></span>
+  <span class="signature">&#8596; <a href="package-leak_tracker_leak_tracker/LeaksCallback.html">LeaksCallback</a></span>
+  
+
+</dt>
+<dd>
+  Handler for memory leaks found in tests.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="enabled" class="property">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/enabled.html">enabled</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  If true, leak tracking is enabled.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="settings" class="property">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/settings.html">settings</a></span>
+  <span class="signature">&#8596; <a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting-class.html">LeakTesting</a></span>
+  
+
+</dt>
+<dd>
+  Current configuration for leak tracking.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="enable" class="callable">
+  <span class="name"><a href="package-leak_tracker_testing_leak_tracker_testing/LeakTesting/enable.html">enable</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Invoke in flutter_test_config.dart to enable leak tracking.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-leak_tracker_testing_leak_tracker_testing/">leak_tracker_testing</a></li>
+    <li class="self-crumb">LeakTesting 类</li>
+</ol>
+
+    <h5>leak_tracker_testing 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

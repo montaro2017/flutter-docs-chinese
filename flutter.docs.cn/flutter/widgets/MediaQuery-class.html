@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 MediaQuery 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>MediaQuery 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">MediaQuery 类</li>
+  </ol>
+  <div class="self-name">MediaQuery</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;MediaQuery-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/media_query.dart#L1276"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">MediaQuery</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>建立一个子树，使其中的媒体查询返回给定数据。</p>
+<p>例如，若要获取当前视图（如包含应用的 <a href="dart-ui/FlutterView-class.html">FlutterView</a>）的大小，可以使用 <a href="widgets/MediaQuery/sizeOf.html">MediaQuery.sizeOf</a>：<code>MediaQuery.sizeOf(context)</code>。</p>
+<p>使用特定方法查询当前媒体信息（例如 <a href="widgets/MediaQuery/sizeOf.html">MediaQuery.sizeOf</a> 或 <a href="widgets/MediaQuery/paddingOf.html">MediaQuery.paddingOf</a>）时，只要对应属性发生变化，组件就会自动重建。</p>
+<p>使用 <a href="widgets/MediaQuery/of.html">MediaQuery.of</a> 查询时，只要 <a href="widgets/MediaQueryData-class.html">MediaQueryData</a> 的<em>任意</em>字段发生变化（例如用户旋转设备），组件就会自动重建。因此，除非需要关注整个 <a href="widgets/MediaQueryData-class.html">MediaQueryData</a> 对象的变化，否则应优先使用特定方法（例如 <a href="widgets/MediaQuery/sizeOf.html">MediaQuery.sizeOf</a> 和 <a href="widgets/MediaQuery/paddingOf.html">MediaQuery.paddingOf</a>），这样重建效率更高。</p>
+<p>如果作用域内没有 <a href="widgets/MediaQuery-class.html">MediaQuery</a>，调用 <a href="widgets/MediaQuery/of.html">MediaQuery.of</a> 和类似 <a href="widgets/MediaQuery/sizeOf.html">MediaQuery.sizeOf</a> 的“...Of”方法会抛出异常。也可以使用“maybe-”变体方法（例如 <a href="widgets/MediaQuery/maybeOf.html">MediaQuery.maybeOf</a> 和 <a href="widgets/MediaQuery/maybeSizeOf.html">MediaQuery.maybeSizeOf</a>）；当作用域内没有 <a href="widgets/MediaQuery-class.html">MediaQuery</a> 时，这些方法会返回 null，而不是抛出异常。</p>
+<iframe src="https://www.youtube.com/embed/A3WrA4zAaPw?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
+autoplay; 
+clipboard-write; 
+encrypted-media; 
+gyroscope; 
+picture-in-picture" allowfullscreen="" style="max-width: 560px;
+max-height: 315px;
+width: 100%;
+height: 100%;
+aspect-ratio: 560 / 315;">
+</iframe>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/WidgetsApp-class.html">WidgetsApp</a> 和 <a href="material/MaterialApp-class.html">MaterialApp</a>, which introduce a <a href="widgets/MediaQuery-class.html">MediaQuery</a> and keep
+it up to date with the current screen metrics as they change.</li>
+<li><a href="widgets/MediaQueryData-class.html">MediaQueryData</a>, the data structure that represents the metrics.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/ProxyWidget-class.html">ProxyWidget</a></li>
+        <li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a></li>
+        <li><a href="widgets/InheritedModel-class.html">InheritedModel</a><span class="signature">&lt;<wbr><span class="type-parameter">_MediaQueryAspect</span>&gt;</span></li>
+      <li>MediaQuery</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="MediaQuery.new" class="callable">
+          <span class="name"><a href="widgets/MediaQuery/MediaQuery.html">MediaQuery</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-data"><span>required</span> <span class="type-annotation"><a href="widgets/MediaQueryData-class.html">MediaQueryData</a></span> <span class="parameter-name">data</span>, </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a widget that provides <a href="widgets/MediaQueryData-class.html">MediaQueryData</a> to its descendants.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="MediaQuery.removePadding" class="callable">
+          <span class="name"><a href="widgets/MediaQuery/MediaQuery.removePadding.html">MediaQuery.removePadding</a></span><span class="signature">({<span class="parameter" id="removePadding-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="removePadding-param-context"><span>required</span> <span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="removePadding-param-removeLeft"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeLeft</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removePadding-param-removeTop"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeTop</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removePadding-param-removeRight"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeRight</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removePadding-param-removeBottom"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeBottom</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removePadding-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a new <a href="widgets/MediaQuery-class.html">MediaQuery</a> that inherits from the ambient <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+from the given context, but removes the specified padding.
+        </dd>
+        <dt id="MediaQuery.removeViewInsets" class="callable">
+          <span class="name"><a href="widgets/MediaQuery/MediaQuery.removeViewInsets.html">MediaQuery.removeViewInsets</a></span><span class="signature">({<span class="parameter" id="removeViewInsets-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="removeViewInsets-param-context"><span>required</span> <span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="removeViewInsets-param-removeLeft"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeLeft</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removeViewInsets-param-removeTop"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeTop</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removeViewInsets-param-removeRight"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeRight</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removeViewInsets-param-removeBottom"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeBottom</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removeViewInsets-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a new <a href="widgets/MediaQuery-class.html">MediaQuery</a> that inherits from the ambient <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+from the given context, but removes the specified view insets.
+        </dd>
+        <dt id="MediaQuery.removeViewPadding" class="callable">
+          <span class="name"><a href="widgets/MediaQuery/MediaQuery.removeViewPadding.html">MediaQuery.removeViewPadding</a></span><span class="signature">({<span class="parameter" id="removeViewPadding-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="removeViewPadding-param-context"><span>required</span> <span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="removeViewPadding-param-removeLeft"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeLeft</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removeViewPadding-param-removeTop"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeTop</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removeViewPadding-param-removeRight"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeRight</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removeViewPadding-param-removeBottom"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">removeBottom</span> = <span class="default-value">false</span>, </span><span class="parameter" id="removeViewPadding-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a new <a href="widgets/MediaQuery-class.html">MediaQuery</a> that inherits from the ambient <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+from the given context, but removes the specified view padding.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="child" class="property inherited">
+  <span class="name"><a href="widgets/ProxyWidget/child.html">child</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The widget below this widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="data" class="property">
+  <span class="name"><a href="widgets/MediaQuery/data.html">data</a></span>
+  <span class="signature">&#8594; <a href="widgets/MediaQueryData-class.html">MediaQueryData</a></span>
+  
+
+</dt>
+<dd>
+  Contains information about the current media.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/InheritedModel/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/InheritedModelElement-class.html">InheritedModelElement</a><span class="signature">&lt;<wbr><span class="type-parameter">_MediaQueryAspect</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Inflates this configuration to a concrete instance.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="isSupportedAspect" class="callable inherited">
+  <span class="name"><a href="widgets/InheritedModel/isSupportedAspect.html">isSupportedAspect</a></span><span class="signature">(<wbr><span class="parameter" id="isSupportedAspect-param-aspect"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">aspect</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns true if this model supports the given <code>aspect</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="updateShouldNotify" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/updateShouldNotify.html">updateShouldNotify</a></span><span class="signature">(<wbr><span class="parameter" id="updateShouldNotify-param-oldWidget"><span>covariant</span> <span class="type-annotation"><a href="widgets/MediaQuery-class.html">MediaQuery</a></span> <span class="parameter-name">oldWidget</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether the framework should notify widgets that inherit from this widget.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="updateShouldNotifyDependent" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/updateShouldNotifyDependent.html">updateShouldNotifyDependent</a></span><span class="signature">(<wbr><span class="parameter" id="updateShouldNotifyDependent-param-oldWidget"><span>covariant</span> <span class="type-annotation"><a href="widgets/MediaQuery-class.html">MediaQuery</a></span> <span class="parameter-name">oldWidget</span>, </span><span class="parameter" id="updateShouldNotifyDependent-param-dependencies"><span class="type-annotation"><a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>&gt;</span></span> <span class="parameter-name">dependencies</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return true if the changes between this model and <code>oldWidget</code> match any
+of the <code>dependencies</code>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="accessibleNavigationOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/accessibleNavigationOf.html">accessibleNavigationOf</a></span><span class="signature">(<wbr><span class="parameter" id="accessibleNavigationOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/accessibleNavigation.html">MediaQueryData.accessibleNavigation</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="alwaysUse24HourFormatOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/alwaysUse24HourFormatOf.html">alwaysUse24HourFormatOf</a></span><span class="signature">(<wbr><span class="parameter" id="alwaysUse24HourFormatOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/alwaysUse24HourFormat.html">MediaQueryData.alwaysUse24HourFormat</a> for the nearest
+<a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="applyTextStyleOverrides" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/applyTextStyleOverrides.html">applyTextStyleOverrides</a></span><span class="signature">(<wbr>{<span class="parameter" id="applyTextStyleOverrides-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="applyTextStyleOverrides-param-lineHeightScaleFactorOverride"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">lineHeightScaleFactorOverride</span>, </span><span class="parameter" id="applyTextStyleOverrides-param-letterSpacingOverride"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">letterSpacingOverride</span>, </span><span class="parameter" id="applyTextStyleOverrides-param-wordSpacingOverride"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">wordSpacingOverride</span>, </span><span class="parameter" id="applyTextStyleOverrides-param-paragraphSpacingOverride"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">paragraphSpacingOverride</span>, </span><span class="parameter" id="applyTextStyleOverrides-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Wraps the <code>child</code> in a <a href="widgets/MediaQuery-class.html">MediaQuery</a> with its <a href="widgets/MediaQueryData/lineHeightScaleFactorOverride.html">MediaQueryData.lineHeightScaleFactorOverride</a>,
+<a href="widgets/MediaQueryData/letterSpacingOverride.html">MediaQueryData.letterSpacingOverride</a>, <a href="widgets/MediaQueryData/wordSpacingOverride.html">MediaQueryData.wordSpacingOverride</a>,
+<a href="widgets/MediaQueryData/paragraphSpacingOverride.html">MediaQueryData.paragraphSpacingOverride</a> set to the specified values.
+  
+
+</dd>
+
+        <dt id="boldTextOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/boldTextOf.html">boldTextOf</a></span><span class="signature">(<wbr><span class="parameter" id="boldTextOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/boldText.html">MediaQueryData.boldText</a> accessibility setting for the
+nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or false, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="devicePixelRatioOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/devicePixelRatioOf.html">devicePixelRatioOf</a></span><span class="signature">(<wbr><span class="parameter" id="devicePixelRatioOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/devicePixelRatio.html">MediaQueryData.devicePixelRatio</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or
+throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="disableAnimationsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/disableAnimationsOf.html">disableAnimationsOf</a></span><span class="signature">(<wbr><span class="parameter" id="disableAnimationsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/disableAnimations.html">MediaQueryData.disableAnimations</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or false, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="displayCornerRadiiOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/displayCornerRadiiOf.html">displayCornerRadiiOf</a></span><span class="signature">(<wbr><span class="parameter" id="displayCornerRadiiOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/BorderRadius-class.html">BorderRadius</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/displayCornerRadii.html">MediaQueryData.displayCornerRadii</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="displayFeaturesOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/displayFeaturesOf.html">displayFeaturesOf</a></span><span class="signature">(<wbr><span class="parameter" id="displayFeaturesOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/DisplayFeature-class.html">DisplayFeature</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/displayFeatures.html">MediaQueryData.displayFeatures</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="fromView" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/fromView.html">fromView</a></span><span class="signature">(<wbr>{<span class="parameter" id="fromView-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="fromView-param-view"><span>required</span> <span class="type-annotation"><a href="dart-ui/FlutterView-class.html">FlutterView</a></span> <span class="parameter-name">view</span>, </span><span class="parameter" id="fromView-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Wraps the <code>child</code> in a <a href="widgets/MediaQuery-class.html">MediaQuery</a> which is built using data from the
+provided <code>view</code>.
+  
+
+</dd>
+
+        <dt id="fromWindow" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="widgets/MediaQuery/fromWindow.html">fromWindow</a></span><span class="signature">(<wbr>{<span class="parameter" id="fromWindow-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="fromWindow-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Deprecated. Use <a href="widgets/MediaQuery/fromView.html">MediaQuery.fromView</a> instead.
+  
+
+</dd>
+
+        <dt id="gestureSettingsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/gestureSettingsOf.html">gestureSettingsOf</a></span><span class="signature">(<wbr><span class="parameter" id="gestureSettingsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="gestures/DeviceGestureSettings-class.html">DeviceGestureSettings</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/gestureSettings.html">MediaQueryData.gestureSettings</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="heightOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/heightOf.html">heightOf</a></span><span class="signature">(<wbr><span class="parameter" id="heightOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns height of <a href="widgets/MediaQueryData/size.html">MediaQueryData.size</a> from the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="highContrastOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/highContrastOf.html">highContrastOf</a></span><span class="signature">(<wbr><span class="parameter" id="highContrastOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/highContrast.html">MediaQueryData.highContrast</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or false, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="invertColorsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/invertColorsOf.html">invertColorsOf</a></span><span class="signature">(<wbr><span class="parameter" id="invertColorsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/invertColors.html">MediaQueryData.invertColors</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeAccessibleNavigationOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeAccessibleNavigationOf.html">maybeAccessibleNavigationOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeAccessibleNavigationOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/accessibleNavigation.html">MediaQueryData.accessibleNavigation</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeAlwaysUse24HourFormatOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeAlwaysUse24HourFormatOf.html">maybeAlwaysUse24HourFormatOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeAlwaysUse24HourFormatOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/alwaysUse24HourFormat.html">MediaQueryData.alwaysUse24HourFormat</a> for the nearest
+<a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeBoldTextOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeBoldTextOf.html">maybeBoldTextOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeBoldTextOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/boldText.html">MediaQueryData.boldText</a> accessibility setting for the
+nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeDevicePixelRatioOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeDevicePixelRatioOf.html">maybeDevicePixelRatioOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeDevicePixelRatioOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/devicePixelRatio.html">MediaQueryData.devicePixelRatio</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or
+null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeDisableAnimationsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeDisableAnimationsOf.html">maybeDisableAnimationsOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeDisableAnimationsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/disableAnimations.html">MediaQueryData.disableAnimations</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeDisplayCornerRadiiOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeDisplayCornerRadiiOf.html">maybeDisplayCornerRadiiOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeDisplayCornerRadiiOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/BorderRadius-class.html">BorderRadius</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/displayCornerRadii.html">MediaQueryData.displayCornerRadii</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeDisplayFeaturesOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeDisplayFeaturesOf.html">maybeDisplayFeaturesOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeDisplayFeaturesOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/DisplayFeature-class.html">DisplayFeature</a></span>&gt;</span>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/displayFeatures.html">MediaQueryData.displayFeatures</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeGestureSettingsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeGestureSettingsOf.html">maybeGestureSettingsOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeGestureSettingsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="gestures/DeviceGestureSettings-class.html">DeviceGestureSettings</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/gestureSettings.html">MediaQueryData.gestureSettings</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeHeightOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeHeightOf.html">maybeHeightOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeHeightOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns height of <a href="widgets/MediaQueryData/size.html">MediaQueryData.size</a> from the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeHighContrastOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeHighContrastOf.html">maybeHighContrastOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeHighContrastOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/highContrast.html">MediaQueryData.highContrast</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeInvertColorsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeInvertColorsOf.html">maybeInvertColorsOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeInvertColorsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/invertColors.html">MediaQueryData.invertColors</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeLetterSpacingOverrideOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeLetterSpacingOverrideOf.html">maybeLetterSpacingOverrideOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeLetterSpacingOverrideOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/letterSpacingOverride.html">MediaQueryData.letterSpacingOverride</a> for the nearest
+<a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or null, if no such ancestor exists or if the platform
+has not specified an override.
+  
+
+</dd>
+
+        <dt id="maybeLineHeightScaleFactorOverrideOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeLineHeightScaleFactorOverrideOf.html">maybeLineHeightScaleFactorOverrideOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeLineHeightScaleFactorOverrideOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/lineHeightScaleFactorOverride.html">MediaQueryData.lineHeightScaleFactorOverride</a> for the nearest
+<a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or null, if no such ancestor exists or if the platform
+has not specified an override.
+  
+
+</dd>
+
+        <dt id="maybeNavigationModeOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeNavigationModeOf.html">maybeNavigationModeOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeNavigationModeOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/NavigationMode.html">NavigationMode</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/navigationMode.html">MediaQueryData.navigationMode</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeOf.html">maybeOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/MediaQueryData-class.html">MediaQueryData</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  The data from the closest instance of this class that encloses the given
+context, if any.
+  
+
+</dd>
+
+        <dt id="maybeOnOffSwitchLabelsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeOnOffSwitchLabelsOf.html">maybeOnOffSwitchLabelsOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeOnOffSwitchLabelsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/onOffSwitchLabels.html">MediaQueryData.onOffSwitchLabels</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeOrientationOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeOrientationOf.html">maybeOrientationOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeOrientationOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/Orientation.html">Orientation</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/orientation.html">MediaQueryData.orientation</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or
+null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybePaddingOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybePaddingOf.html">maybePaddingOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybePaddingOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/padding.html">MediaQueryData.padding</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor
+or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeParagraphSpacingOverrideOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeParagraphSpacingOverrideOf.html">maybeParagraphSpacingOverrideOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeParagraphSpacingOverrideOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/paragraphSpacingOverride.html">MediaQueryData.paragraphSpacingOverride</a> for the nearest
+<a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or null, if no such ancestor exists or if the platform
+has not specified an override.
+  
+
+</dd>
+
+        <dt id="maybePlatformBrightnessOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybePlatformBrightnessOf.html">maybePlatformBrightnessOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybePlatformBrightnessOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Brightness.html">Brightness</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/platformBrightness.html">MediaQueryData.platformBrightness</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeSizeOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeSizeOf.html">maybeSizeOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeSizeOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Size-class.html">Size</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/size.html">MediaQueryData.size</a> from the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or
+null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeSupportsAnnounceOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeSupportsAnnounceOf.html">maybeSupportsAnnounceOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeSupportsAnnounceOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/supportsAnnounce.html">MediaQueryData.supportsAnnounce</a> accessibility setting for the
+nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeSupportsShowingSystemContextMenu" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeSupportsShowingSystemContextMenu.html">maybeSupportsShowingSystemContextMenu</a></span><span class="signature">(<wbr><span class="parameter" id="maybeSupportsShowingSystemContextMenu-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/supportsShowingSystemContextMenu.html">MediaQueryData.supportsShowingSystemContextMenu</a> for the nearest
+<a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeSystemGestureInsetsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeSystemGestureInsetsOf.html">maybeSystemGestureInsetsOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeSystemGestureInsetsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/systemGestureInsets.html">MediaQueryData.systemGestureInsets</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeTextScaleFactorOf" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="widgets/MediaQuery/maybeTextScaleFactorOf.html">maybeTextScaleFactorOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeTextScaleFactorOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Deprecated. Will be removed in a future version of Flutter. Use
+<a href="widgets/MediaQuery/maybeTextScalerOf.html">maybeTextScalerOf</a> instead.
+  
+
+</dd>
+
+        <dt id="maybeTextScalerOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeTextScalerOf.html">maybeTextScalerOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeTextScalerOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/TextScaler-class.html">TextScaler</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/textScaler.html">MediaQueryData.textScaler</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeViewInsetsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeViewInsetsOf.html">maybeViewInsetsOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeViewInsetsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/viewInsets.html">MediaQueryData.viewInsets</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor
+or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeViewPaddingOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeViewPaddingOf.html">maybeViewPaddingOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeViewPaddingOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/viewPadding.html">MediaQueryData.viewPadding</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor
+or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeWidthOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeWidthOf.html">maybeWidthOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeWidthOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns width of <a href="widgets/MediaQueryData/size.html">MediaQueryData.size</a> from the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or null, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="maybeWordSpacingOverrideOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/maybeWordSpacingOverrideOf.html">maybeWordSpacingOverrideOf</a></span><span class="signature">(<wbr><span class="parameter" id="maybeWordSpacingOverrideOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/wordSpacingOverride.html">MediaQueryData.wordSpacingOverride</a> for the nearest
+<a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or null, if no such ancestor exists or if the platform
+has not specified an override.
+  
+
+</dd>
+
+        <dt id="navigationModeOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/navigationModeOf.html">navigationModeOf</a></span><span class="signature">(<wbr><span class="parameter" id="navigationModeOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/NavigationMode.html">NavigationMode</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/navigationMode.html">MediaQueryData.navigationMode</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="of" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/of.html">of</a></span><span class="signature">(<wbr><span class="parameter" id="of-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/MediaQueryData-class.html">MediaQueryData</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The data from the closest instance of this class that encloses the given
+context.
+  
+
+</dd>
+
+        <dt id="onOffSwitchLabelsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/onOffSwitchLabelsOf.html">onOffSwitchLabelsOf</a></span><span class="signature">(<wbr><span class="parameter" id="onOffSwitchLabelsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/onOffSwitchLabels.html">MediaQueryData.onOffSwitchLabels</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or false, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="orientationOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/orientationOf.html">orientationOf</a></span><span class="signature">(<wbr><span class="parameter" id="orientationOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/Orientation.html">Orientation</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/orientation.html">MediaQueryData.orientation</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or
+throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="paddingOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/paddingOf.html">paddingOf</a></span><span class="signature">(<wbr><span class="parameter" id="paddingOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/padding.html">MediaQueryData.padding</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or
+throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="platformBrightnessOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/platformBrightnessOf.html">platformBrightnessOf</a></span><span class="signature">(<wbr><span class="parameter" id="platformBrightnessOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Brightness.html">Brightness</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/platformBrightness.html">MediaQueryData.platformBrightness</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or <a href="dart-ui/Brightness.html">Brightness.light</a>, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="sizeOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/sizeOf.html">sizeOf</a></span><span class="signature">(<wbr><span class="parameter" id="sizeOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Size-class.html">Size</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/size.html">MediaQueryData.size</a> from the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or
+throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="supportsAnnounceOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/supportsAnnounceOf.html">supportsAnnounceOf</a></span><span class="signature">(<wbr><span class="parameter" id="supportsAnnounceOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/supportsAnnounce.html">MediaQueryData.supportsAnnounce</a> accessibility setting for the
+nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or false, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="supportsShowingSystemContextMenu" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/supportsShowingSystemContextMenu.html">supportsShowingSystemContextMenu</a></span><span class="signature">(<wbr><span class="parameter" id="supportsShowingSystemContextMenu-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/supportsShowingSystemContextMenu.html">MediaQueryData.supportsShowingSystemContextMenu</a> for the nearest
+<a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="systemGestureInsetsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/systemGestureInsetsOf.html">systemGestureInsetsOf</a></span><span class="signature">(<wbr><span class="parameter" id="systemGestureInsetsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/systemGestureInsets.html">MediaQueryData.systemGestureInsets</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="textScaleFactorOf" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="widgets/MediaQuery/textScaleFactorOf.html">textScaleFactorOf</a></span><span class="signature">(<wbr><span class="parameter" id="textScaleFactorOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Deprecated. Will be removed in a future version of Flutter. Use
+<a href="widgets/MediaQuery/maybeTextScalerOf.html">maybeTextScalerOf</a> instead.
+  
+
+</dd>
+
+        <dt id="textScalerOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/textScalerOf.html">textScalerOf</a></span><span class="signature">(<wbr><span class="parameter" id="textScalerOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/TextScaler-class.html">TextScaler</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/MediaQueryData/textScaler.html">MediaQueryData.textScaler</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or <a href="painting/TextScaler/noScaling-constant.html">TextScaler.noScaling</a> if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="viewInsetsOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/viewInsetsOf.html">viewInsetsOf</a></span><span class="signature">(<wbr><span class="parameter" id="viewInsetsOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/viewInsets.html">MediaQueryData.viewInsets</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor
+or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="viewPaddingOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/viewPaddingOf.html">viewPaddingOf</a></span><span class="signature">(<wbr><span class="parameter" id="viewPaddingOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/EdgeInsets-class.html">EdgeInsets</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <a href="widgets/MediaQueryData/viewPadding.html">MediaQueryData.viewPadding</a> for the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a> ancestor
+or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="widthOf" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/widthOf.html">widthOf</a></span><span class="signature">(<wbr><span class="parameter" id="widthOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns width of <a href="widgets/MediaQueryData/size.html">MediaQueryData.size</a> from the nearest <a href="widgets/MediaQuery-class.html">MediaQuery</a>
+ancestor or throws an exception, if no such ancestor exists.
+  
+
+</dd>
+
+        <dt id="withClampedTextScaling" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/withClampedTextScaling.html">withClampedTextScaling</a></span><span class="signature">(<wbr>{<span class="parameter" id="withClampedTextScaling-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="withClampedTextScaling-param-minScaleFactor"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">minScaleFactor</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="withClampedTextScaling-param-maxScaleFactor"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">maxScaleFactor</span> = <span class="default-value">double.infinity</span>, </span><span class="parameter" id="withClampedTextScaling-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Wraps the <code>child</code> in a <a href="widgets/MediaQuery-class.html">MediaQuery</a> and applies <a href="painting/TextScaler/clamp.html">TextScaler.clamp</a> on the
+current <a href="widgets/MediaQueryData/textScaler.html">MediaQueryData.textScaler</a>.
+  
+
+</dd>
+
+        <dt id="withNoTextScaling" class="callable">
+  <span class="name"><a href="widgets/MediaQuery/withNoTextScaling.html">withNoTextScaling</a></span><span class="signature">(<wbr>{<span class="parameter" id="withNoTextScaling-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="withNoTextScaling-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Wraps the <code>child</code> in a <a href="widgets/MediaQuery-class.html">MediaQuery</a> with its <a href="widgets/MediaQueryData/textScaler.html">MediaQueryData.textScaler</a>
+set to <a href="painting/TextScaler/noScaling-constant.html">TextScaler.noScaling</a>.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">MediaQuery 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

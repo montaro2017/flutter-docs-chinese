@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the saveLayer method from the Canvas class, for the Dart programming language.">
+  <title>saveLayer method - Canvas class - dart:ui 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li><a href="dart-ui/Canvas-class.html">Canvas</a></li>
+    <li class="self-crumb">saveLayer abstract method</li>
+  </ol>
+  <div class="self-name">saveLayer</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-ui&#47;Canvas-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">saveLayer</span> abstract 方法 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype">void</span>
+<span class="name ">saveLayer</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="saveLayer-param-bounds"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a>?</span> <span class="parameter-name">bounds</span>, </span></li>
+<li><span class="parameter" id="saveLayer-param-paint"><span class="type-annotation"><a href="dart-ui/Paint-class.html">Paint</a></span> <span class="parameter-name">paint</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>将当前变换和裁剪状态的副本保存到保存栈中，然后创建一个新组，后续调用都会绘制到该组中。之后弹出保存栈时，该组会展平到一个图层中，并应用给定 <code>paint</code> 的 <a href="dart-ui/Paint/colorFilter.html">Paint.colorFilter</a> 和 <a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a>。</p>
+<p>这样可以创建合成效果，例如让一组绘图命令呈现半透明效果。如果不使用 <a href="dart-ui/Canvas/saveLayer.html">saveLayer</a>，组内各部分会分别绘制，因此重叠区域会比非重叠区域更暗。使用 <a href="dart-ui/Canvas/saveLayer.html">saveLayer</a> 将它们编为一组后，可以先以不透明颜色绘制整个组，再通过 <a href="dart-ui/Canvas/saveLayer.html">saveLayer</a> 的画笔使整个组透明。</p>
+<p>调用 <a href="dart-ui/Canvas/restore.html">restore</a> 可弹出保存栈，并将画笔应用到该组。</p>
+<h2 id="using-savelayer-with-clips">将 saveLayer 与裁剪配合使用</h2>
+<p>当矩形裁剪操作（通过 <a href="dart-ui/Canvas/clipRect.html">clipRect</a> 执行）与光栅缓冲区的坐标轴不对齐，或裁剪操作不是直线边界（例如由 <a href="dart-ui/Canvas/clipRRect.html">clipRRect</a> 创建的圆角矩形裁剪，或由 <a href="dart-ui/Canvas/clipPath.html">clipPath</a> 创建的任意复杂路径裁剪）时，裁剪边缘需要进行抗锯齿处理。</p>
+<p>如果两个绘制调用在此类裁剪区域的边缘重叠，且没有使用 <a href="dart-ui/Canvas/saveLayer.html">saveLayer</a>，第一次绘制会先与背景进行抗锯齿混合；随后第二次绘制会与第一次绘制和背景混合后的结果进行抗锯齿混合。相反，如果在建立裁剪后立即使用 <a href="dart-ui/Canvas/saveLayer.html">saveLayer</a>，第二次绘制会在图层中覆盖第一次绘制。因此图层被裁剪并合成时（调用 <a href="dart-ui/Canvas/restore.html">restore</a> 时），只有第二次绘制会与背景进行抗锯齿混合。</p>
+<p>例如，下面这个 <a href="rendering/CustomPainter/paint.html">CustomPainter.paint</a> 方法会绘制一个边缘干净的白色圆角矩形：</p>
+<pre class="language-dart"><code class="language-dart">void paint(Canvas canvas, Size size) {
+  Rect rect = Offset.zero &amp; size;
+  canvas.save();
+  canvas.clipRRect(RRect.fromRectXY(rect, 100.0, 100.0));
+  canvas.saveLayer(rect, Paint());
+  canvas.drawPaint(Paint()..color = Colors.red);
+  canvas.drawPaint(Paint()..color = Colors.white);
+  canvas.restore();
+  canvas.restore();
+}
+</code></pre>
+<p>而下面这个方法会绘制红色轮廓：红色画笔先在裁剪边缘与背景进行抗锯齿混合，随后白色画笔也与背景（其中包括已裁剪的红色绘制结果）进行类似的抗锯齿混合：</p>
+<pre class="language-dart"><code class="language-dart">void paint(Canvas canvas, Size size) {
+  // (this example renders poorly, prefer the example above)
+  Rect rect = Offset.zero &amp; size;
+  canvas.save();
+  canvas.clipRRect(RRect.fromRectXY(rect, 100.0, 100.0));
+  canvas.drawPaint(Paint()..color = Colors.red);
+  canvas.drawPaint(Paint()..color = Colors.white);
+  canvas.restore();
+}
+</code></pre>
+<p>如果裁剪只影响一次绘制操作，则无需考虑这个问题。例如，下面的绘制方法会画出两个边缘干净的白色圆角矩形，即使裁剪没有放在单独的图层中执行：</p>
+<pre class="language-dart"><code class="language-dart">void paint(Canvas canvas, Size size) {
+  canvas.save();
+  canvas.clipRRect(RRect.fromRectXY(Offset.zero &amp; (size / 2.0), 50.0, 50.0));
+  canvas.drawPaint(Paint()..color = Colors.white);
+  canvas.restore();
+  canvas.save();
+  canvas.clipRRect(RRect.fromRectXY(size.center(Offset.zero) &amp; (size / 2.0), 50.0, 50.0));
+  canvas.drawPaint(Paint()..color = Colors.white);
+  canvas.restore();
+}
+</code></pre>
+<p>顺便一提，像这样绘制圆角矩形时，不必使用 <a href="dart-ui/Canvas/clipRRect.html">clipRRect</a> 和 <a href="dart-ui/Canvas/drawPaint.html">drawPaint</a>，优先使用 <a href="dart-ui/Canvas/drawRRect.html">drawRRect</a> 方法。这些示例使用 <a href="dart-ui/Canvas/drawPaint.html">drawPaint</a> 代指“会被裁剪的复杂绘制操作”，以说明上述问题。</p>
+<h2 id="performance-considerations">性能注意事项</h2>
+<p>一般来说，<a href="dart-ui/Canvas/saveLayer.html">saveLayer</a> 的开销相对较大。</p>
+<p>GPU（图形处理器，即负责处理图形的硬件）有多种硬件架构，但大多数都会批量处理命令并重新排序以提升性能。使用图层时，渲染管线必须切换渲染目标（从一个图层切换到另一个图层）。切换渲染目标可能会刷新 GPU 命令缓冲区，这通常会使大批量处理带来的优化失效。切换渲染目标还会产生大量内存开销：GPU 需要将当前帧缓冲区内容从针对写入优化的内存区域复制出来，并在恢复先前的渲染目标（图层）时再复制回去。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="dart-ui/Canvas/save.html">save</a>, which saves the current state, but does not create a new layer
+for subsequent commands.</li>
+<li><a href="dart-ui/BlendMode.html">BlendMode</a>, which discusses the use of <a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a> with
+<a href="dart-ui/Canvas/saveLayer.html">saveLayer</a>.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>实现</span></h2>
+  <pre class="language-dart"><code class="language-dart">void saveLayer(Rect? bounds, Paint paint);</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li><a href="dart-ui/Canvas-class.html">Canvas</a></li>
+    <li class="self-crumb">saveLayer abstract method</li>
+</ol>
+
+    <h5>Canvas 类</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

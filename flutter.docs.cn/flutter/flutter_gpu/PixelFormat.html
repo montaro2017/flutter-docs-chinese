@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the PixelFormat enum from the flutter_gpu library, for the Dart programming language.">
+  <title>PixelFormat enum - flutter_gpu 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_gpu/">gpu.dart</a></li>
+    <li class="self-crumb">PixelFormat enum</li>
+  </ol>
+  <div class="self-name">PixelFormat</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="flutter_gpu&#47;flutter_gpu-library-sidebar.html"
+    data-below-sidebar="flutter_gpu&#47;PixelFormat-enum-sidebar.html">
+    <div>
+
+      <h1>
+        <span class="kind-enum">PixelFormat</span>
+        enum 
+ 
+
+      </h1>
+    </div>
+
+    
+<section class="desc markdown">
+  <p><a href="flutter_gpu/Texture-class.html">Texture</a> 中纹素的内存布局。</p>
+<p>每个名称都按顺序列出纹理的组成分量、每个分量的位宽，以及这些位的解释方式。例如，<a href="flutter_gpu/PixelFormat.html">r8g8b8a8UNormInt</a> 是一种每像素 32 位的格式，包含红、绿、蓝、透明度四个 8 位分量，每个分量都存储为无符号归一化整数。</p>
+<p>分量标识：</p>
+<ul>
+<li><code>r</code>、<code>g</code>、<code>b</code>：红、绿、蓝颜色分量。</li>
+<li><code>a</code>：透明度分量。</li>
+<li><code>d</code>：深度分量。</li>
+<li><code>s</code>：模板分量。</li>
+<li><code>UNorm</code>：无符号整数；读取时会将其从 <code>[0, 2^bits - 1]</code> 范围映射到浮点数范围 <code>[0.0, 1.0]</code>。</li>
+<li><code>UInt</code>：读取时不进行归一化处理的无符号整数。</li>
+<li><code>Float</code>：IEEE 754 浮点数。</li>
+<li><code>SRGB</code>：颜色分量以 sRGB 色彩空间存储，读写时会在 sRGB 与线性空间之间转换。</li>
+</ul>
+<p>块压缩格式根据其压缩方案（BC、ETC2 或 ASTC）和块尺寸命名。块几何信息请参阅 <a href="flutter_gpu/PixelFormatProperties.html">PixelFormatProperties</a>；硬件支持的分组方式请参阅 <a href="flutter_gpu/TextureCompressionFamily.html">TextureCompressionFamily</a>。</p>
+</section>
+
+
+      <section>
+        <dl class="dl-horizontal">
+          
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark eNum-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="dart-core/Enum-class.html">Enum</a></li>
+      <li>PixelFormat</li>
+    </ul>
+  </dd>
+
+          
+          
+          
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="dart-core/EnumName.html">EnumName</a></li>
+      <li><a href="flutter_gpu/PixelFormatProperties.html">PixelFormatProperties</a></li>
+  </ul></dd>
+          
+
+
+        </dl>
+      </section>
+
+      <section class="summary offset-anchor" id="values">
+        <h2>Values</h2>
+        <dl class="properties">
+            <dt id="unknown" class="constant">
+    <span class="name ">unknown</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>An invalid or unspecified format.</p>
+<p>Used as a placeholder and never as the format of a real texture.</p>
+  
+
+</dd>
+
+            <dt id="a8UNormInt" class="constant">
+    <span class="name ">a8UNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>A single 8 bit alpha component, stored as an unsigned normalized integer.</p>
+  
+
+</dd>
+
+            <dt id="r8UNormInt" class="constant">
+    <span class="name ">r8UNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>A single 8 bit red component, stored as an unsigned normalized integer.</p>
+  
+
+</dd>
+
+            <dt id="r8g8UNormInt" class="constant">
+    <span class="name ">r8g8UNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>Two 8 bit components (red, green), stored as unsigned normalized integers.</p>
+  
+
+</dd>
+
+            <dt id="r8g8b8a8UNormInt" class="constant">
+    <span class="name ">r8g8b8a8UNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>Four 8 bit components (red, green, blue, alpha), stored as unsigned
+normalized integers.</p>
+<p>This is the most common 32 bit per pixel color format and the default for
+<a href="flutter_gpu/GpuContext/createTexture.html">GpuContext.createTexture</a>.</p>
+  
+
+</dd>
+
+            <dt id="r8g8b8a8UNormIntSRGB" class="constant">
+    <span class="name ">r8g8b8a8UNormIntSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>Like <a href="flutter_gpu/PixelFormat.html">r8g8b8a8UNormInt</a>, but the color components are stored in the sRGB
+color space.</p>
+  
+
+</dd>
+
+            <dt id="b8g8r8a8UNormInt" class="constant">
+    <span class="name ">b8g8r8a8UNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>Four 8 bit components ordered blue, green, red, alpha, stored as unsigned
+normalized integers.</p>
+  
+
+</dd>
+
+            <dt id="b8g8r8a8UNormIntSRGB" class="constant">
+    <span class="name ">b8g8r8a8UNormIntSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>Like <a href="flutter_gpu/PixelFormat.html">b8g8r8a8UNormInt</a>, but the color components are stored in the sRGB
+color space.</p>
+  
+
+</dd>
+
+            <dt id="r32g32b32a32Float" class="constant">
+    <span class="name ">r32g32b32a32Float</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>Four 32 bit floating point components (red, green, blue, alpha), for a
+total of 128 bits per pixel.</p>
+  
+
+</dd>
+
+            <dt id="r16g16b16a16Float" class="constant">
+    <span class="name ">r16g16b16a16Float</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>Four 16 bit (half precision) floating point components (red, green, blue,
+alpha), for a total of 64 bits per pixel.</p>
+  
+
+</dd>
+
+            <dt id="r32Float" class="constant">
+    <span class="name ">r32Float</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>A single-channel 32-bit floating-point pixel format.</p>
+  
+
+</dd>
+
+            <dt id="s8UInt" class="constant">
+    <span class="name ">s8UInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>A single 8 bit stencil component, stored as an unsigned integer.</p>
+  
+
+</dd>
+
+            <dt id="d24UnormS8Uint" class="constant">
+    <span class="name ">d24UnormS8Uint</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>A 24 bit depth component stored as an unsigned normalized integer, packed
+together with an 8 bit unsigned integer stencil component.</p>
+  
+
+</dd>
+
+            <dt id="d32FloatS8UInt" class="constant">
+    <span class="name ">d32FloatS8UInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>A 32 bit floating point depth component, packed together with an 8 bit
+unsigned integer stencil component.</p>
+  
+
+</dd>
+
+            <dt id="bc1RGBAUNormInt" class="constant">
+    <span class="name ">bc1RGBAUNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>BC1 RGBA, 4x4 blocks, 8 bytes per block. Desktop BC family.</p>
+  
+
+</dd>
+
+            <dt id="bc1RGBAUNormIntSRGB" class="constant">
+    <span class="name ">bc1RGBAUNormIntSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>BC1 RGBA sRGB, 4x4 blocks, 8 bytes per block. Desktop BC family.</p>
+  
+
+</dd>
+
+            <dt id="bc3RGBAUNormInt" class="constant">
+    <span class="name ">bc3RGBAUNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>BC3 RGBA, 4x4 blocks, 16 bytes per block. Desktop BC family.</p>
+  
+
+</dd>
+
+            <dt id="bc3RGBAUNormIntSRGB" class="constant">
+    <span class="name ">bc3RGBAUNormIntSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>BC3 RGBA sRGB, 4x4 blocks, 16 bytes per block. Desktop BC family.</p>
+  
+
+</dd>
+
+            <dt id="bc5RGUNormInt" class="constant">
+    <span class="name ">bc5RGUNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>BC5 RG, 4x4 blocks, 16 bytes per block. Desktop BC family.</p>
+  
+
+</dd>
+
+            <dt id="bc7RGBAUNormInt" class="constant">
+    <span class="name ">bc7RGBAUNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>BC7 RGBA, 4x4 blocks, 16 bytes per block. Desktop BC family.</p>
+  
+
+</dd>
+
+            <dt id="bc7RGBAUNormIntSRGB" class="constant">
+    <span class="name ">bc7RGBAUNormIntSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>BC7 RGBA sRGB, 4x4 blocks, 16 bytes per block. Desktop BC family.</p>
+  
+
+</dd>
+
+            <dt id="etc2RGB8UNormInt" class="constant">
+    <span class="name ">etc2RGB8UNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ETC2 RGB8, 4x4 blocks, 8 bytes per block. Mobile ETC2 family.</p>
+  
+
+</dd>
+
+            <dt id="etc2RGB8UNormIntSRGB" class="constant">
+    <span class="name ">etc2RGB8UNormIntSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ETC2 RGB8 sRGB, 4x4 blocks, 8 bytes per block. Mobile ETC2 family.</p>
+  
+
+</dd>
+
+            <dt id="etc2RGBA8UNormInt" class="constant">
+    <span class="name ">etc2RGBA8UNormInt</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ETC2 RGBA8, 4x4 blocks, 16 bytes per block. Mobile ETC2 family.</p>
+  
+
+</dd>
+
+            <dt id="etc2RGBA8UNormIntSRGB" class="constant">
+    <span class="name ">etc2RGBA8UNormIntSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ETC2 RGBA8 sRGB, 4x4 blocks, 16 bytes per block. Mobile ETC2 family.</p>
+  
+
+</dd>
+
+            <dt id="astc4x4LDR" class="constant">
+    <span class="name ">astc4x4LDR</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ASTC LDR, 4x4 blocks, 16 bytes per block. Modern mobile ASTC family.</p>
+  
+
+</dd>
+
+            <dt id="astc4x4LDRSRGB" class="constant">
+    <span class="name ">astc4x4LDRSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ASTC LDR sRGB, 4x4 blocks, 16 bytes per block. Modern mobile ASTC family.</p>
+  
+
+</dd>
+
+            <dt id="astc8x8LDR" class="constant">
+    <span class="name ">astc8x8LDR</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ASTC LDR, 8x8 blocks, 16 bytes per block. Modern mobile ASTC family.</p>
+  
+
+</dd>
+
+            <dt id="astc8x8LDRSRGB" class="constant">
+    <span class="name ">astc8x8LDRSRGB</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ASTC LDR sRGB, 8x8 blocks, 16 bytes per block. Modern mobile ASTC family.</p>
+  
+
+</dd>
+
+            <dt id="astc4x4HDR" class="constant">
+    <span class="name ">astc4x4HDR</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ASTC HDR, 4x4 blocks, 16 bytes per block. Modern mobile ASTC HDR family.
+HDR samples are linear floating point, so there is no sRGB variant.</p>
+  
+
+</dd>
+
+            <dt id="astc8x8HDR" class="constant">
+    <span class="name ">astc8x8HDR</span>
+  <span class="signature">&#8594; const <a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>
+  
+
+</dt>
+<dd>
+  <p>ASTC HDR, 8x8 blocks, 16 bytes per block. Modern mobile ASTC HDR family.
+HDR samples are linear floating point, so there is no sRGB variant.</p>
+  
+
+</dd>
+
+        </dl>
+      </section>
+
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="blockHeight" class="property">
+  <span class="name"><a href="flutter_gpu/PixelFormatProperties/blockHeight.html">blockHeight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="flutter_gpu/PixelFormat.html">PixelFormat</a>,
+        provided by the <a href="flutter_gpu/PixelFormatProperties.html">PixelFormatProperties</a> extension</span>
+      </p>
+  The height, in texels, of a single block. Uncompressed formats return 1.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="blockWidth" class="property">
+  <span class="name"><a href="flutter_gpu/PixelFormatProperties/blockWidth.html">blockWidth</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="flutter_gpu/PixelFormat.html">PixelFormat</a>,
+        provided by the <a href="flutter_gpu/PixelFormatProperties.html">PixelFormatProperties</a> extension</span>
+      </p>
+  The width, in texels, of a single block. Uncompressed formats return 1.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="bytesPerBlock" class="property">
+  <span class="name"><a href="flutter_gpu/PixelFormatProperties/bytesPerBlock.html">bytesPerBlock</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="flutter_gpu/PixelFormat.html">PixelFormat</a>,
+        provided by the <a href="flutter_gpu/PixelFormatProperties.html">PixelFormatProperties</a> extension</span>
+      </p>
+  The number of bytes used to store one block. For uncompressed formats a
+block is a single texel, so this matches the bytes per texel.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="compressionFamily" class="property">
+  <span class="name"><a href="flutter_gpu/PixelFormatProperties/compressionFamily.html">compressionFamily</a></span>
+  <span class="signature">&#8594; <a href="flutter_gpu/TextureCompressionFamily.html">TextureCompressionFamily</a>?</span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="flutter_gpu/PixelFormat.html">PixelFormat</a>,
+        provided by the <a href="flutter_gpu/PixelFormatProperties.html">PixelFormatProperties</a> extension</span>
+      </p>
+  The compression family this format belongs to. Returns null for
+uncompressed formats.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="index" class="property inherited">
+  <span class="name"><a href="dart-core/Enum/index.html">index</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A numeric identifier for the enumerated value.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isCompressed" class="property">
+  <span class="name"><a href="flutter_gpu/PixelFormatProperties/isCompressed.html">isCompressed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="flutter_gpu/PixelFormat.html">PixelFormat</a>,
+        provided by the <a href="flutter_gpu/PixelFormatProperties.html">PixelFormatProperties</a> extension</span>
+      </p>
+  Whether this is a block-compressed pixel format.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="name" class="property">
+  <span class="name"><a href="dart-core/EnumName/name.html">name</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-core/Enum-class.html">Enum</a>,
+        provided by the <a href="dart-core/EnumName.html">EnumName</a> extension</span>
+      </p>
+  枚举值的名称。
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>常量</h2>
+    <dl class="properties">
+        <dt id="values" class="constant">
+    <span class="name "><a href="flutter_gpu/PixelFormat/values-constant.html">values</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="flutter_gpu/PixelFormat.html">PixelFormat</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  包含此枚举所有值的常量列表，按声明顺序排列。
+  
+
+</dd>
+
+    </dl>
+  </section>
+</div><!-- /.main-content -->
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_gpu/">flutter_gpu</a></li>
+    <li class="self-crumb">PixelFormat enum</li>
+</ol>
+
+  <h5>flutter_gpu 库</h5>
+  <div id="dartdoc-sidebar-left-content"></div>
+</div>
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!-- /.sidebar-offcanvas -->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

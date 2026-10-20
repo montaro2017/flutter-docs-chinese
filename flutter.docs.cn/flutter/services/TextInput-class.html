@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="services 库中 TextInput 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>TextInput 类 - services 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services.dart</a></li>
+    <li class="self-crumb">TextInput 类</li>
+  </ol>
+  <div class="self-name">TextInput</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services&#47;services-library-sidebar.html"
+    data-below-sidebar="services&#47;TextInput-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/services/text_input.dart#L1966"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">TextInput</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>用于访问系统文本输入控件的底层接口。</p>
+<p>若要开始与系统文本输入控件交互，请调用 <a href="services/TextInput/attach.html">attach</a>，在系统文本输入控件与 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 之间建立 <a href="services/TextInputConnection-class.html">TextInputConnection</a>。与文本输入控件交互的大多数命令都由返回的 <a href="services/TextInputConnection-class.html">TextInputConnection</a> 提供。系统文本输入与 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 之间的通信是异步的。</p>
+<p>平台文本输入插件（代表系统文本输入）与 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 通常分别维护自己的文本编辑状态（<a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a>）。只要 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 处于连接状态，双方就必须保持同步。当任一方的文本编辑状态发生变化时，可以通过以下方法向另一方发送 <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a> 以更新状态：</p>
+<ul>
+<li>
+<p><a href="services/TextInput/attach.html">TextInput.attach</a> 方法允许 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 建立文本输入连接。其 <code>configuration</code> 参数中的可选字段可用于指定平台文本输入插件的初始 <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a>。</p>
+</li>
+<li>
+<p><a href="services/TextInputClient-mixin.html">TextInputClient</a> 通过 <a href="services/TextInputConnection/setEditingState.html">TextInputConnection.setEditingState</a> 将自己的 <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a> 发送给平台文本输入插件。</p>
+</li>
+<li>
+<p>平台文本输入插件会通过“TextInput.setEditingState”消息，将自己的 <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a> 发送给已连接的 <a href="services/TextInputClient-mixin.html">TextInputClient</a>。</p>
+</li>
+<li>
+<p>当自动填充发生在未连接的 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 上时，平台文本输入插件会将 <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a> 发送给已连接的 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 的 <a href="services/AutofillScope-class.html">AutofillScope</a>；随后 <a href="services/AutofillScope-class.html">AutofillScope</a> 会将该值转发给正确的 <a href="services/TextInputClient-mixin.html">TextInputClient</a>。</p>
+</li>
+</ul>
+<p>同步 <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a> 时，如果双方都尝试发送各自的更新，通信可能陷入无限循环。为缓解此问题，只有 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 可以修改收到的 <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a>；平台文本输入插件则必须原样接受收到的 <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a>。具体规则如下：</p>
+<ul>
+<li>
+<p>When a <a href="services/TextInputClient-mixin.html">TextInputClient</a> receives a new <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a> from the
+platform text input plugin, it's allowed to modify the value (for example,
+apply <a href="services/TextInputFormatter-class.html">TextInputFormatter</a>s). If it decides to do so, it must send the
+updated <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a> back to the platform text input plugin to keep
+the <a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a>s in sync.</p>
+</li>
+<li>
+<p>平台文本输入插件从已连接的 <a href="services/TextInputClient-mixin.html">TextInputClient</a> 收到新值时，必须原样接受该值，以避免再发送回一个更新后的值。</p>
+</li>
+</ul>
+<p>另请参阅：</p>
+<ul>
+<li><a href="material/TextField-class.html">TextField</a>, a widget in which the user may enter text.</li>
+<li><a href="widgets/EditableText-class.html">EditableText</a>, a <a href="services/TextInputClient-mixin.html">TextInputClient</a> that connects to <a href="services/TextInput-class.html">TextInput</a> when it
+wants to take user input from the keyboard.</li>
+</ul>
+</section>
+
+
+
+    
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scribbleInProgress" class="property">
+  <span class="name"><a href="services/TextInput/scribbleInProgress.html">scribbleInProgress</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Returns true if a scribble interaction is currently happening.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="scribbleClients" class="property">
+  <span class="name"><a href="services/TextInput/scribbleClients.html">scribbleClients</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="services/ScribbleClient-class.html">ScribbleClient</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  Used for testing within the Flutter SDK to get the currently registered <a href="services/ScribbleClient-class.html">ScribbleClient</a> list.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="attach" class="callable">
+  <span class="name"><a href="services/TextInput/attach.html">attach</a></span><span class="signature">(<wbr><span class="parameter" id="attach-param-client"><span class="type-annotation"><a href="services/TextInputClient-mixin.html">TextInputClient</a></span> <span class="parameter-name">client</span>, </span><span class="parameter" id="attach-param-configuration"><span class="type-annotation"><a href="services/TextInputConfiguration-class.html">TextInputConfiguration</a></span> <span class="parameter-name">configuration</span></span>)
+    <span class="returntype parameter">&#8594; <a href="services/TextInputConnection-class.html">TextInputConnection</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Begin interacting with the text input control.
+  
+
+</dd>
+
+        <dt id="ensureInitialized" class="callable">
+  <span class="name"><a href="services/TextInput/ensureInitialized.html">ensureInitialized</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Ensure that a <a href="services/TextInput-class.html">TextInput</a> instance has been set up so that the platform
+can handle messages on the text input method channel.
+  
+
+</dd>
+
+        <dt id="finishAutofillContext" class="callable">
+  <span class="name"><a href="services/TextInput/finishAutofillContext.html">finishAutofillContext</a></span><span class="signature">(<wbr>{<span class="parameter" id="finishAutofillContext-param-shouldSave"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">shouldSave</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Finishes the current autofill context, and potentially saves the user
+input for future use if <code>shouldSave</code> is true.
+  
+
+</dd>
+
+        <dt id="registerScribbleElement" class="callable">
+  <span class="name"><a href="services/TextInput/registerScribbleElement.html">registerScribbleElement</a></span><span class="signature">(<wbr><span class="parameter" id="registerScribbleElement-param-elementIdentifier"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">elementIdentifier</span>, </span><span class="parameter" id="registerScribbleElement-param-scribbleClient"><span class="type-annotation"><a href="services/ScribbleClient-class.html">ScribbleClient</a></span> <span class="parameter-name">scribbleClient</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Registers a <a href="services/ScribbleClient-class.html">ScribbleClient</a> with <code>elementIdentifier</code> that can be focused
+by the engine.
+  
+
+</dd>
+
+        <dt id="restorePlatformInputControl" class="callable">
+  <span class="name"><a href="services/TextInput/restorePlatformInputControl.html">restorePlatformInputControl</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Restores the default platform text input control.
+  
+
+</dd>
+
+        <dt id="setChannel" class="callable">
+  <span class="name"><a href="services/TextInput/setChannel.html">setChannel</a></span><span class="signature">(<wbr><span class="parameter" id="setChannel-param-newChannel"><span class="type-annotation"><a href="services/MethodChannel-class.html">MethodChannel</a></span> <span class="parameter-name">newChannel</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the <a href="services/MethodChannel-class.html">MethodChannel</a> used to communicate with the system's text input
+control.
+  
+
+</dd>
+
+        <dt id="setInputControl" class="callable">
+  <span class="name"><a href="services/TextInput/setInputControl.html">setInputControl</a></span><span class="signature">(<wbr><span class="parameter" id="setInputControl-param-newControl"><span class="type-annotation"><a href="services/TextInputControl-mixin.html">TextInputControl</a>?</span> <span class="parameter-name">newControl</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the current text input control.
+  
+
+</dd>
+
+        <dt id="unregisterScribbleElement" class="callable">
+  <span class="name"><a href="services/TextInput/unregisterScribbleElement.html">unregisterScribbleElement</a></span><span class="signature">(<wbr><span class="parameter" id="unregisterScribbleElement-param-elementIdentifier"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">elementIdentifier</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Unregisters a <a href="services/ScribbleClient-class.html">ScribbleClient</a> with <code>elementIdentifier</code>.
+  
+
+</dd>
+
+        <dt id="updateEditingValue" class="callable">
+  <span class="name"><a href="services/TextInput/updateEditingValue.html">updateEditingValue</a></span><span class="signature">(<wbr><span class="parameter" id="updateEditingValue-param-value"><span class="type-annotation"><a href="flutter_test/TextEditingValue-class.html">TextEditingValue</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Updates the editing value of the attached input client.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services</a></li>
+    <li class="self-crumb">TextInput 类</li>
+</ol>
+
+    <h5>services 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

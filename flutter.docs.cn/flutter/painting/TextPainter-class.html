@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="painting 库中 TextPainter 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>TextPainter 类 - painting 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="painting/">painting.dart</a></li>
+    <li class="self-crumb">TextPainter 类</li>
+  </ol>
+  <div class="self-name">TextPainter</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="painting&#47;painting-library-sidebar.html"
+    data-below-sidebar="painting&#47;TextPainter-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/painting/text_painter.dart#L589"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">TextPainter</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>将 <a href="painting/TextSpan-class.html">TextSpan</a> 树绘制到 <a href="dart-ui/Canvas-class.html">Canvas</a> 上的对象。</p>
+<p>使用 <a href="painting/TextPainter-class.html">TextPainter</a> 的步骤如下：</p>
+<ol>
+<li>
+<p>创建 <a href="painting/TextSpan-class.html">TextSpan</a> 树，并将其传给 <a href="painting/TextPainter-class.html">TextPainter</a> 构造函数。</p>
+</li>
+<li>
+<p>调用 <a href="painting/TextPainter/layout.html">layout</a> 来准备段落。</p>
+</li>
+<li>
+<p>根据需要多次调用 <a href="painting/TextPainter/paint.html">paint</a> 来绘制段落。</p>
+</li>
+<li>
+<p>对象不再使用时，调用 <a href="painting/TextPainter/dispose.html">dispose</a> 以释放原生资源。对于会重复使用并保存在 <a href="painting/TextPainter-class.html">State</a> 或 <a href="widgets/State-class.html">RenderObject</a> 中的 <a href="rendering/RenderObject-class.html">TextPainter</a> 对象，应在 <a href="painting/TextPainter/dispose.html">State.dispose</a>、<a href="widgets/State/dispose.html">RenderObject.dispose</a> 或类似生命周期方法中调用 <a href="rendering/RenderObject/dispose.html">dispose</a>。对于仅临时使用的 <a href="painting/TextPainter-class.html">TextPainter</a> 对象，在最后一次调用其方法或属性后立即释放是安全的。</p>
+</li>
+</ol>
+<p>如果绘制文本的区域宽度发生变化，请返回第 2 步。如果要绘制的文本发生变化，请返回第 1 步。</p>
+<p>在非 Web 平台上，默认文本样式颜色为白色；在 Web 上则为黑色。如果要同时支持这两类平台，请务必显式设置文本颜色。</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="TextPainter.new" class="callable">
+          <span class="name"><a href="painting/TextPainter/TextPainter.html">TextPainter</a></span><span class="signature">({<span class="parameter" id="-param-text"><span class="type-annotation"><a href="painting/InlineSpan-class.html">InlineSpan</a>?</span> <span class="parameter-name">text</span>, </span><span class="parameter" id="-param-textAlign"><span class="type-annotation"><a href="dart-ui/TextAlign.html">TextAlign</a></span> <span class="parameter-name">textAlign</span> = <span class="default-value">TextAlign.start</span>, </span><span class="parameter" id="-param-textDirection"><span class="type-annotation"><a href="dart-ui/TextDirection.html">TextDirection</a>?</span> <span class="parameter-name">textDirection</span>, </span><span class="parameter" id="-param-textScaleFactor"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use textScaler instead. &#39; &#39;Use of textScaleFactor was deprecated in preparation for the upcoming nonlinear text scaling support. &#39; &#39;This feature was deprecated after v3.12.0-2.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">textScaleFactor</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="-param-textScaler"><span class="type-annotation"><a href="painting/TextScaler-class.html">TextScaler</a></span> <span class="parameter-name">textScaler</span> = <span class="default-value">const _UnspecifiedTextScaler()</span>, </span><span class="parameter" id="-param-maxLines"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span>, </span><span class="parameter" id="-param-ellipsis"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">ellipsis</span>, </span><span class="parameter" id="-param-locale"><span class="type-annotation"><a href="dart-ui/Locale-class.html">Locale</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="-param-strutStyle"><span class="type-annotation"><a href="painting/StrutStyle-class.html">StrutStyle</a>?</span> <span class="parameter-name">strutStyle</span>, </span><span class="parameter" id="-param-textWidthBasis"><span class="type-annotation"><a href="painting/TextWidthBasis.html">TextWidthBasis</a></span> <span class="parameter-name">textWidthBasis</span> = <span class="default-value">TextWidthBasis.parent</span>, </span><span class="parameter" id="-param-textHeightBehavior"><span class="type-annotation"><a href="dart-ui/TextHeightBehavior-class.html">TextHeightBehavior</a>?</span> <span class="parameter-name">textHeightBehavior</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a text painter that paints the given text.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="debugDisposed" class="property">
+  <span class="name"><a href="painting/TextPainter/debugDisposed.html">debugDisposed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this object has been disposed or not.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugPaintTextLayoutBoxes" class="property">
+  <span class="name"><a href="painting/TextPainter/debugPaintTextLayoutBoxes.html">debugPaintTextLayoutBoxes</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Causes the paragraph to paint the layout boxes of the text.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="didExceedMaxLines" class="property">
+  <span class="name"><a href="painting/TextPainter/didExceedMaxLines.html">didExceedMaxLines</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether any text was truncated or ellipsized.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="ellipsis" class="property">
+  <span class="name"><a href="painting/TextPainter/ellipsis.html">ellipsis</a></span>
+  <span class="signature">&#8596; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  The string used to ellipsize overflowing text. Setting this to a non-empty
+string will cause this string to be substituted for the remaining text
+if the text can not fit within the specified maximum width.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="height" class="property">
+  <span class="name"><a href="painting/TextPainter/height.html">height</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The vertical space required to paint this text.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="inlinePlaceholderBoxes" class="property">
+  <span class="name"><a href="painting/TextPainter/inlinePlaceholderBoxes.html">inlinePlaceholderBoxes</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/TextBox-class.html">TextBox</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  An ordered list of <a href="dart-ui/TextBox-class.html">TextBox</a>es that bound the positions of the placeholders
+in the paragraph.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="locale" class="property">
+  <span class="name"><a href="painting/TextPainter/locale.html">locale</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/Locale-class.html">Locale</a>?</span>
+  
+
+</dt>
+<dd>
+  The locale used to select region-specific glyphs.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="maxIntrinsicWidth" class="property">
+  <span class="name"><a href="painting/TextPainter/maxIntrinsicWidth.html">maxIntrinsicWidth</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The width at which increasing the width of the text no longer decreases the height.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="maxLines" class="property">
+  <span class="name"><a href="painting/TextPainter/maxLines.html">maxLines</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  An optional maximum number of lines for the text to span, wrapping if
+necessary.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="minIntrinsicWidth" class="property">
+  <span class="name"><a href="painting/TextPainter/minIntrinsicWidth.html">minIntrinsicWidth</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The width at which decreasing the width of the text would prevent it from
+painting itself completely within its bounds.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="plainText" class="property">
+  <span class="name"><a href="painting/TextPainter/plainText.html">plainText</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Returns a plain text version of the text to paint.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="preferredLineHeight" class="property">
+  <span class="name"><a href="painting/TextPainter/preferredLineHeight.html">preferredLineHeight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The height of a space in <a href="painting/TextPainter/text.html">text</a> in logical pixels.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="size" class="property">
+  <span class="name"><a href="painting/TextPainter/size.html">size</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Size-class.html">Size</a></span>
+  
+
+</dt>
+<dd>
+  The amount of space required to paint this text.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="strutStyle" class="property">
+  <span class="name"><a href="painting/TextPainter/strutStyle.html">strutStyle</a></span>
+  <span class="signature">&#8596; <a href="painting/StrutStyle-class.html">StrutStyle</a>?</span>
+  
+
+</dt>
+<dd>
+  The strut style to use. Strut style defines the strut, which sets minimum
+vertical layout metrics.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="text" class="property">
+  <span class="name"><a href="painting/TextPainter/text.html">text</a></span>
+  <span class="signature">&#8596; <a href="painting/InlineSpan-class.html">InlineSpan</a>?</span>
+  
+
+</dt>
+<dd>
+  The (potentially styled) text to paint.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="textAlign" class="property">
+  <span class="name"><a href="painting/TextPainter/textAlign.html">textAlign</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/TextAlign.html">TextAlign</a></span>
+  
+
+</dt>
+<dd>
+  How the text should be aligned horizontally.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="textDirection" class="property">
+  <span class="name"><a href="painting/TextPainter/textDirection.html">textDirection</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/TextDirection.html">TextDirection</a>?</span>
+  
+
+</dt>
+<dd>
+  The default directionality of the text.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="textHeightBehavior" class="property">
+  <span class="name"><a href="painting/TextPainter/textHeightBehavior.html">textHeightBehavior</a></span>
+  <span class="signature">&#8596; <a href="dart-ui/TextHeightBehavior-class.html">TextHeightBehavior</a>?</span>
+  
+
+</dt>
+<dd>
+  Defines how to apply <a href="painting/TextStyle/height.html">TextStyle.height</a> over and under text.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="textScaleFactor" class="property">
+  <span class="name"><a class="deprecated" href="painting/TextPainter/textScaleFactor.html">textScaleFactor</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Deprecated. Will be removed in a future version of Flutter. Use
+<a href="painting/TextPainter/textScaler.html">textScaler</a> instead.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="textScaler" class="property">
+  <span class="name"><a href="painting/TextPainter/textScaler.html">textScaler</a></span>
+  <span class="signature">&#8596; <a href="painting/TextScaler-class.html">TextScaler</a></span>
+  
+
+</dt>
+<dd>
+  The font scaling strategy to use when laying out and rendering the text.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="textWidthBasis" class="property">
+  <span class="name"><a href="painting/TextPainter/textWidthBasis.html">textWidthBasis</a></span>
+  <span class="signature">&#8596; <a href="painting/TextWidthBasis.html">TextWidthBasis</a></span>
+  
+
+</dt>
+<dd>
+  Defines how to measure the width of the rendered text.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="width" class="property">
+  <span class="name"><a href="painting/TextPainter/width.html">width</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The horizontal space required to paint this text.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="wordBoundaries" class="property">
+  <span class="name"><a href="painting/TextPainter/wordBoundaries.html">wordBoundaries</a></span>
+  <span class="signature">&#8594; <a href="painting/WordBoundary-class.html">WordBoundary</a></span>
+  
+
+</dt>
+<dd>
+  Returns a <a href="services/TextBoundary-class.html">TextBoundary</a> that can be used to perform word boundary analysis
+on the current <a href="painting/TextPainter/text.html">text</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="computeDistanceToActualBaseline" class="callable">
+  <span class="name"><a href="painting/TextPainter/computeDistanceToActualBaseline.html">computeDistanceToActualBaseline</a></span><span class="signature">(<wbr><span class="parameter" id="computeDistanceToActualBaseline-param-baseline"><span class="type-annotation"><a href="dart-ui/TextBaseline.html">TextBaseline</a></span> <span class="parameter-name">baseline</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the distance from the top of the text to the first baseline of the
+given type.
+  
+
+</dd>
+
+        <dt id="computeLineMetrics" class="callable">
+  <span class="name"><a href="painting/TextPainter/computeLineMetrics.html">computeLineMetrics</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/LineMetrics-class.html">LineMetrics</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the full list of <a href="dart-ui/LineMetrics-class.html">LineMetrics</a> that describe in detail the various
+metrics of each laid out line.
+  
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="painting/TextPainter/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Releases the resources associated with this painter.
+  
+
+</dd>
+
+        <dt id="getBoxesForSelection" class="callable">
+  <span class="name"><a href="painting/TextPainter/getBoxesForSelection.html">getBoxesForSelection</a></span><span class="signature">(<wbr><span class="parameter" id="getBoxesForSelection-param-selection"><span class="type-annotation"><a href="services/TextSelection-class.html">TextSelection</a></span> <span class="parameter-name">selection</span>, {</span><span class="parameter" id="getBoxesForSelection-param-boxHeightStyle"><span class="type-annotation"><a href="dart-ui/BoxHeightStyle.html">BoxHeightStyle</a></span> <span class="parameter-name">boxHeightStyle</span> = <span class="default-value">ui.BoxHeightStyle.tight</span>, </span><span class="parameter" id="getBoxesForSelection-param-boxWidthStyle"><span class="type-annotation"><a href="dart-ui/BoxWidthStyle.html">BoxWidthStyle</a></span> <span class="parameter-name">boxWidthStyle</span> = <span class="default-value">ui.BoxWidthStyle.tight</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/TextBox-class.html">TextBox</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a list of rects that bound the given selection.
+  
+
+</dd>
+
+        <dt id="getClosestGlyphForOffset" class="callable">
+  <span class="name"><a href="painting/TextPainter/getClosestGlyphForOffset.html">getClosestGlyphForOffset</a></span><span class="signature">(<wbr><span class="parameter" id="getClosestGlyphForOffset-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/GlyphInfo-class.html">GlyphInfo</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="dart-ui/GlyphInfo-class.html">GlyphInfo</a> of the glyph closest to the given <code>offset</code> in the
+paragraph coordinate system, or null if the text is empty, or is entirely
+clipped or ellipsized away.
+  
+
+</dd>
+
+        <dt id="getFullHeightForCaret" class="callable">
+  <span class="name"><a href="painting/TextPainter/getFullHeightForCaret.html">getFullHeightForCaret</a></span><span class="signature">(<wbr><span class="parameter" id="getFullHeightForCaret-param-position"><span class="type-annotation"><a href="dart-ui/TextPosition-class.html">TextPosition</a></span> <span class="parameter-name">position</span>, </span><span class="parameter" id="getFullHeightForCaret-param-caretPrototype"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">caretPrototype</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the strut bounded height of the glyph at the given <code>position</code>.
+  
+
+</dd>
+
+        <dt id="getLineBoundary" class="callable">
+  <span class="name"><a href="painting/TextPainter/getLineBoundary.html">getLineBoundary</a></span><span class="signature">(<wbr><span class="parameter" id="getLineBoundary-param-position"><span class="type-annotation"><a href="dart-ui/TextPosition-class.html">TextPosition</a></span> <span class="parameter-name">position</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/TextRange-class.html">TextRange</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the text range of the line at the given offset.
+  
+
+</dd>
+
+        <dt id="getOffsetAfter" class="callable">
+  <span class="name"><a href="painting/TextPainter/getOffsetAfter.html">getOffsetAfter</a></span><span class="signature">(<wbr><span class="parameter" id="getOffsetAfter-param-offset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">offset</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the closest offset after <code>offset</code> at which the input cursor can be
+positioned.
+  
+
+</dd>
+
+        <dt id="getOffsetBefore" class="callable">
+  <span class="name"><a href="painting/TextPainter/getOffsetBefore.html">getOffsetBefore</a></span><span class="signature">(<wbr><span class="parameter" id="getOffsetBefore-param-offset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">offset</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the closest offset before <code>offset</code> at which the input cursor can
+be positioned.
+  
+
+</dd>
+
+        <dt id="getOffsetForCaret" class="callable">
+  <span class="name"><a href="painting/TextPainter/getOffsetForCaret.html">getOffsetForCaret</a></span><span class="signature">(<wbr><span class="parameter" id="getOffsetForCaret-param-position"><span class="type-annotation"><a href="dart-ui/TextPosition-class.html">TextPosition</a></span> <span class="parameter-name">position</span>, </span><span class="parameter" id="getOffsetForCaret-param-caretPrototype"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">caretPrototype</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Offset-class.html">Offset</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the offset at which to paint the caret.
+  
+
+</dd>
+
+        <dt id="getPositionForOffset" class="callable">
+  <span class="name"><a href="painting/TextPainter/getPositionForOffset.html">getPositionForOffset</a></span><span class="signature">(<wbr><span class="parameter" id="getPositionForOffset-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/TextPosition-class.html">TextPosition</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the closest position within the text for the given pixel offset.
+  
+
+</dd>
+
+        <dt id="getWordBoundary" class="callable">
+  <span class="name"><a href="painting/TextPainter/getWordBoundary.html">getWordBoundary</a></span><span class="signature">(<wbr><span class="parameter" id="getWordBoundary-param-position"><span class="type-annotation"><a href="dart-ui/TextPosition-class.html">TextPosition</a></span> <span class="parameter-name">position</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/TextRange-class.html">TextRange</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the text range of the word at the given offset. Characters not
+part of a word, such as spaces, symbols, and punctuation, have word breaks
+on both sides. In such cases, this method will return a text range that
+contains the given text position.
+  
+
+</dd>
+
+        <dt id="layout" class="callable">
+  <span class="name"><a href="painting/TextPainter/layout.html">layout</a></span><span class="signature">(<wbr>{<span class="parameter" id="layout-param-minWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">minWidth</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="layout-param-maxWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">maxWidth</span> = <span class="default-value">double.infinity</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Computes the visual position of the glyphs for painting the text.
+  
+
+</dd>
+
+        <dt id="markNeedsLayout" class="callable">
+  <span class="name"><a href="painting/TextPainter/markNeedsLayout.html">markNeedsLayout</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Marks this text painter's layout information as dirty and removes cached
+information.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="paint" class="callable">
+  <span class="name"><a href="painting/TextPainter/paint.html">paint</a></span><span class="signature">(<wbr><span class="parameter" id="paint-param-canvas"><span class="type-annotation"><a href="dart-ui/Canvas-class.html">Canvas</a></span> <span class="parameter-name">canvas</span>, </span><span class="parameter" id="paint-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Paints the text onto the given canvas at the given offset.
+  
+
+</dd>
+
+        <dt id="setPlaceholderDimensions" class="callable">
+  <span class="name"><a href="painting/TextPainter/setPlaceholderDimensions.html">setPlaceholderDimensions</a></span><span class="signature">(<wbr><span class="parameter" id="setPlaceholderDimensions-param-value"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="painting/PlaceholderDimensions-class.html">PlaceholderDimensions</a></span>&gt;</span>?</span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the dimensions of each placeholder in <a href="painting/TextPainter/text.html">text</a>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="computeMaxIntrinsicWidth" class="callable">
+  <span class="name"><a href="painting/TextPainter/computeMaxIntrinsicWidth.html">computeMaxIntrinsicWidth</a></span><span class="signature">(<wbr>{<span class="parameter" id="computeMaxIntrinsicWidth-param-text"><span>required</span> <span class="type-annotation"><a href="painting/InlineSpan-class.html">InlineSpan</a></span> <span class="parameter-name">text</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-textDirection"><span>required</span> <span class="type-annotation"><a href="dart-ui/TextDirection.html">TextDirection</a></span> <span class="parameter-name">textDirection</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-textAlign"><span class="type-annotation"><a href="dart-ui/TextAlign.html">TextAlign</a></span> <span class="parameter-name">textAlign</span> = <span class="default-value">TextAlign.start</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-textScaleFactor"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">textScaleFactor</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-textScaler"><span class="type-annotation"><a href="painting/TextScaler-class.html">TextScaler</a></span> <span class="parameter-name">textScaler</span> = <span class="default-value">TextScaler.noScaling</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-maxLines"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-ellipsis"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">ellipsis</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-locale"><span class="type-annotation"><a href="dart-ui/Locale-class.html">Locale</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-strutStyle"><span class="type-annotation"><a href="painting/StrutStyle-class.html">StrutStyle</a>?</span> <span class="parameter-name">strutStyle</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-textWidthBasis"><span class="type-annotation"><a href="painting/TextWidthBasis.html">TextWidthBasis</a></span> <span class="parameter-name">textWidthBasis</span> = <span class="default-value">TextWidthBasis.parent</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-textHeightBehavior"><span class="type-annotation"><a href="dart-ui/TextHeightBehavior-class.html">TextHeightBehavior</a>?</span> <span class="parameter-name">textHeightBehavior</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-minWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">minWidth</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="computeMaxIntrinsicWidth-param-maxWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">maxWidth</span> = <span class="default-value">double.infinity</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Computes the max intrinsic width of a configured <a href="painting/TextPainter-class.html">TextPainter</a>.
+  
+
+</dd>
+
+        <dt id="computeWidth" class="callable">
+  <span class="name"><a href="painting/TextPainter/computeWidth.html">computeWidth</a></span><span class="signature">(<wbr>{<span class="parameter" id="computeWidth-param-text"><span>required</span> <span class="type-annotation"><a href="painting/InlineSpan-class.html">InlineSpan</a></span> <span class="parameter-name">text</span>, </span><span class="parameter" id="computeWidth-param-textDirection"><span>required</span> <span class="type-annotation"><a href="dart-ui/TextDirection.html">TextDirection</a></span> <span class="parameter-name">textDirection</span>, </span><span class="parameter" id="computeWidth-param-textAlign"><span class="type-annotation"><a href="dart-ui/TextAlign.html">TextAlign</a></span> <span class="parameter-name">textAlign</span> = <span class="default-value">TextAlign.start</span>, </span><span class="parameter" id="computeWidth-param-textScaleFactor"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">textScaleFactor</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="computeWidth-param-textScaler"><span class="type-annotation"><a href="painting/TextScaler-class.html">TextScaler</a></span> <span class="parameter-name">textScaler</span> = <span class="default-value">TextScaler.noScaling</span>, </span><span class="parameter" id="computeWidth-param-maxLines"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span>, </span><span class="parameter" id="computeWidth-param-ellipsis"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">ellipsis</span>, </span><span class="parameter" id="computeWidth-param-locale"><span class="type-annotation"><a href="dart-ui/Locale-class.html">Locale</a>?</span> <span class="parameter-name">locale</span>, </span><span class="parameter" id="computeWidth-param-strutStyle"><span class="type-annotation"><a href="painting/StrutStyle-class.html">StrutStyle</a>?</span> <span class="parameter-name">strutStyle</span>, </span><span class="parameter" id="computeWidth-param-textWidthBasis"><span class="type-annotation"><a href="painting/TextWidthBasis.html">TextWidthBasis</a></span> <span class="parameter-name">textWidthBasis</span> = <span class="default-value">TextWidthBasis.parent</span>, </span><span class="parameter" id="computeWidth-param-textHeightBehavior"><span class="type-annotation"><a href="dart-ui/TextHeightBehavior-class.html">TextHeightBehavior</a>?</span> <span class="parameter-name">textHeightBehavior</span>, </span><span class="parameter" id="computeWidth-param-minWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">minWidth</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="computeWidth-param-maxWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">maxWidth</span> = <span class="default-value">double.infinity</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Computes the width of a configured <a href="painting/TextPainter-class.html">TextPainter</a>.
+  
+
+</dd>
+
+        <dt id="isHighSurrogate" class="callable">
+  <span class="name"><a href="painting/TextPainter/isHighSurrogate.html">isHighSurrogate</a></span><span class="signature">(<wbr><span class="parameter" id="isHighSurrogate-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns true iff the given value is a valid UTF-16 high (first) surrogate.
+The value must be a UTF-16 code unit, meaning it must be in the range
+0x0000-0xFFFF.
+  
+
+</dd>
+
+        <dt id="isLowSurrogate" class="callable">
+  <span class="name"><a href="painting/TextPainter/isLowSurrogate.html">isLowSurrogate</a></span><span class="signature">(<wbr><span class="parameter" id="isLowSurrogate-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns true iff the given value is a valid UTF-16 low (second) surrogate.
+The value must be a UTF-16 code unit, meaning it must be in the range
+0x0000-0xFFFF.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="painting/">painting</a></li>
+    <li class="self-crumb">TextPainter 类</li>
+</ol>
+
+    <h5>painting 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

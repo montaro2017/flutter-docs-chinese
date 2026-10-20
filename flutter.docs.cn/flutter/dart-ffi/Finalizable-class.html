@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:ffi 库中 Finalizable 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Finalizable class - dart:ffi 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ffi/">dart:ffi</a></li>
+    <li class="self-crumb">Finalizable 类</li>
+  </ol>
+  <div class="self-name">Finalizable</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-ffi&#47;dart-ffi-library-sidebar.html"
+    data-below-sidebar="dart-ffi&#47;Finalizable-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Finalizable</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#interface" class="feature feature-interface" title="This class can only be implemented (not extended or mixed in).">interface</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>用于标记不应过早被终结的对象的接口。</p>
+<p>任何静态类型<em>包含 <code>Finalizable</code></em> 的局部变量，都保证在执行离开该变量所在的代码块之前保持存活。</p>
+<p>如果满足以下任一条件，则类型<em>包含 <code>Finalizable</code></em>：</p>
+<ul>
+<li>the type is a non-<code>Never</code> subtype of <code>Finalizable</code>, or</li>
+<li>the type is <code>T?</code> or <code>FutureOr&lt;T&gt;</code> where <code>T</code> includes <code>Finalizable</code>.</li>
+</ul>
+<p>换言之，只要此类变量引用着某个对象，该对象就保证<em>不会</em>被视为不可达；即使变量最后一次被引用之后，变量本身也会在其整个作用域期间保持存活。</p>
+<p><em>如果变量的类型没有此标记接口，只要确定变量之后不会再被引用，即使外围作用域尚未执行完毕，该变量的值也可能被垃圾回收。这反过来可能触发 <code>NativeFinalizer</code> 执行回调。当变量的类型包含 <a href="dart-ffi/Finalizable-class.html">Finalizable</a> 时，在当前使用该变量的代码执行完毕之前，不会运行 <code>NativeFinalizer</code> 回调。</em></p>
+<p>例如，在执行 <code>someNativeCall</code> 期间，<code>finalizable</code> 会保持存活：</p>
+<pre class="language-dart"><code class="language-dart">void myFunction() {
+  final finalizable = MyFinalizable(Pointer.fromAddress(0));
+  someNativeCall(finalizable.nativeResource);
+}
+
+void someNativeCall(Pointer nativeResource) {
+  // ..
+}
+
+class MyFinalizable implements Finalizable {
+  final Pointer nativeResource;
+
+  MyFinalizable(this.nativeResource);
+}
+</code></pre>
+<p>实现 <code>Finalizable</code> 的类，其方法会在方法执行期间保持 <code>this</code> 对象存活。<em><code>this</code> 值会被视为局部变量。</em></p>
+<p>例如，在 <code>myFunction</code> 中执行 <code>someNativeCall</code> 期间，<code>this</code> 会保持存活：</p>
+<pre class="language-dart"><code class="language-dart">class MyFinalizable implements Finalizable {
+  final Pointer nativeResource;
+
+  MyFinalizable(this.nativeResource);
+
+  void myFunction() {
+    someNativeCall(nativeResource);
+  }
+}
+
+void someNativeCall(Pointer nativeResource) {
+  // ..
+}
+</code></pre>
+<p>最好将涉及可终结对象的逻辑实现为实现 <a href="dart-ffi/Finalizable-class.html">Finalizable</a> 的类的方法。</p>
+<p>如果在声明该变量的代码块作用域内创建闭包，并且闭包引用了该变量，那么只要闭包对象存在，或者该闭包正在执行，其函数体就会使该变量保持存活。</p>
+<p>例如，<code>finalizable</code> 会由闭包对象保持存活，并持续到闭包函数体执行结束：</p>
+<pre class="language-dart"><code class="language-dart">void doSomething() {
+  final resourceAction = myFunction();
+  resourceAction(); // `finalizable` is alive until this call returns.
+}
+
+void Function() myFunction() {
+  final finalizable = MyFinalizable(Pointer.fromAddress(0));
+  return () {
+    someNativeCall(finalizable.nativeResource);
+  };
+}
+
+void someNativeCall(Pointer nativeResource) {
+  // ..
+}
+
+class MyFinalizable implements Finalizable {
+  final Pointer nativeResource;
+
+  MyFinalizable(this.nativeResource);
+}
+</code></pre>
+<p>闭包只会保持捕获的变量存活，不会保持所有变量存活。</p>
+<p>例如，返回的闭包对象不会使 <code>finalizable</code> 保持存活：</p>
+<pre class="language-dart"><code class="language-dart">void Function() myFunction() {
+  final finalizable = MyFinalizable(Pointer.fromAddress(0));
+  final nativeResource = finalizable.nativeResource;
+  return () {
+    someNativeCall(nativeResource);
+  };
+}
+
+void someNativeCall(Pointer nativeResource) {
+  // ..
+}
+
+class MyFinalizable implements Finalizable {
+  final Pointer nativeResource;
+
+  MyFinalizable(this.nativeResource);
+}
+</code></pre>
+<p>如果从可终结对象中提取的资源逃逸出提取它的可终结变量的作用域，这很可能是错误。</p>
+<p><code>Finalizable</code> 变量的行为同样适用于异步函数。只要仍有代码可能在声明该变量的作用域内执行，或在捕获该变量的闭包中执行，这些变量就会保持存活；即使执行期间存在异步等待也一样。</p>
+<p>例如，在 <code>await someAsyncCall()</code> 执行期间，<code>finalizable</code> 会保持存活：</p>
+<pre class="language-dart"><code class="language-dart">Future&lt;void&gt; myFunction() async {
+  final finalizable = MyFinalizable();
+  await someAsyncCall();
+}
+
+Future&lt;void&gt; someAsyncCall() async {
+  // ..
+}
+
+class MyFinalizable implements Finalizable {
+  // ..
+}
+</code></pre>
+<p>在异步代码中，如果从可终结对象提取的资源逃逸出提取它的 <code>Finalizable</code> 作用域，也很可能是错误。如果必须从 Finalizable 中提取资源，应确保定义 Finalizable 的作用域长于使用该资源的过程；可以通过 <code>await</code> 等待所有使用该资源的异步代码来实现。</p>
+<p>例如，在 <code>useAsync1</code> 中，<code>this</code> 会一直保持存活，直到不再使用 <code>resource</code>；而在 <code>useAsync2</code> 和 <code>useAsync3</code> 中则不会：</p>
+<pre class="language-dart"><code class="language-dart">class MyFinalizable {
+  final Pointer&lt;Int8&gt; resource;
+
+  MyFinalizable(this.resource);
+
+  Future&lt;int&gt; useAsync1() async {
+    return await useResource(resource);
+  }
+
+  Future&lt;int&gt; useAsync2() async {
+    return useResource(resource);
+  }
+
+  Future&lt;int&gt; useAsync3() {
+    return useResource(resource);
+  }
+}
+
+/// Does not use [resource] after the returned future completes.
+Future&lt;int&gt; useResource(Pointer&lt;Int8&gt; resource) async {
+  return resource.value;
+}
+</code></pre>
+<p><em>异步函数可能会在某个 <code>await</code> 处<em>停滞</em>，运行时系统可能因此确定该 <code>await</code> 不可能完成。在这种情况下，<code>await</code> 之后的代码永远不会执行，包括 <code>finally</code> 代码块；该变量也可能与其他内容一起被视为已失效。</em></p>
+<p>如果不打算自行保持变量存活，请将可终结对象传递给其他函数，而不是只传递它的资源。</p>
+<p>例如，<code>finalizable</code> 在 <code>myFunction</code> 执行到其作用域末尾后不会继续保持存活，此时 <code>someAsyncCall</code> 仍可能继续执行。不过，<code>someAsyncCall</code> 本身会使 <code>finalizable</code> 保持存活：</p>
+<pre class="language-dart"><code class="language-dart">void myFunction() {
+  final finalizable = MyFinalizable();
+  someAsyncCall(finalizable);
+}
+
+Future&lt;void&gt; someAsyncCall(MyFinalizable finalizable) async {
+  // ..
+}
+
+class MyFinalizable implements Finalizable {
+  // ..
+}
+</code></pre>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+
+        
+        
+  <dt>注解</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@Since.new(&#39;2.17&#39;)</li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ffi/">dart:ffi</a></li>
+    <li class="self-crumb">Finalizable 类</li>
+</ol>
+
+    <h5>dart:ffi library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

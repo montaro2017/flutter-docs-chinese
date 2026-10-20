@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:io 库中 HttpClient 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>HttpClient class - dart:io library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-io/">dart:io</a></li>
+    <li class="self-crumb">HttpClient 类</li>
+  </ol>
+  <div class="self-name">HttpClient</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-io&#47;dart-io-library-sidebar.html"
+    data-below-sidebar="dart-io&#47;HttpClient-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">HttpClient</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#interface" class="feature feature-interface" title="This class can only be implemented (not extended or mixed in).">interface</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  用于与 HTTP 服务器通信的 HTTP 客户端。
+<blockquote>
+<strong>注意：</strong>应避免直接使用 <code>HttpClient</code> 发送 HTTP 请求。你可以通过 <code>HttpClient</code>，借助 <a href="https://pub.dev/documentation/http/latest/io_client/IOClient-class.html"><code>IOClient</code></a> 适配器，间接使用 <a href="https://pub.dev/packages/http"><code>package:http</code></a>。
+使用更高层次的库（例如 <a href="https://pub.dev/packages/http"><code>package:http</code></a>）可以让你以最少的代码改动切换实现。例如，<code>package:http</code> 的 <a href="https://pub.dev/documentation/http/latest/http/Client-class.html"><code>Client</code></a> 提供了适用于浏览器的实现，以及在 Android 和 iOS 上使用平台原生 HTTP 客户端的实现。与 <code>HttpClient</code> 不同，这些原生实现可以使用代理、VPN 等系统功能。
+</blockquote>
+向 HTTP 服务器发送请求并接收响应。在向同一服务器发送多个请求时，会维护会话 Cookie 及其他 Cookie 等状态。
+HttpClient 提供多种方法，用于向 HTTP 服务器发送 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 并接收 <a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a>。例如，GET 和 POST 请求分别可以使用 <a href="dart-io/HttpClient/get.html">get</a>、<a href="dart-io/HttpClient/getUrl.html">getUrl</a>、<a href="dart-io/HttpClient/post.html">post</a> 和 <a href="dart-io/HttpClient/postUrl.html">postUrl</a> 方法。
+<h2 id="making-a-simple-get-request-an-example">简单 GET 请求示例</h2>
+<code>getUrl</code> 请求分为两个步骤，由两个 <a href="dart-async/Future-class.html">Future</a> 触发。第一个 Future 完成并返回 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 时，底层网络连接已建立，但尚未发送任何数据。你可以在第一个 Future 的回调函数中设置请求的 HTTP 标头和正文。首次向请求对象写入数据或调用 <a href="dart-io/HttpClient/close.html">close</a> 时，请求会发送到服务器。
+从服务器收到 HTTP 响应后，由 close 返回的第二个 Future 会以 <a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a> 对象完成。此对象可用于访问响应的标头和正文。正文以 <code>HttpClientResponse</code> 实现的流形式提供。如果响应包含正文，就必须读取它，否则会导致资源泄漏。如果不需要正文，可以考虑使用 <a href="dart-async/Stream/drain.html">HttpClientResponse.drain</a>。
+<pre data-metadata="import:convert" class="language-dart"><code class="language-dart">var client = HttpClient();
+try {
+  HttpClientRequest request = await client.get('localhost', 80, '/file.txt');
+  // Optionally set up headers...
+  // Optionally write to the request object...
+  HttpClientResponse response = await request.close();
+  // Process the response
+  final stringData = await response.transform(utf8.decoder).join();
+  print(stringData);
+} finally {
+  client.close();
+}
+</code></pre>
+用于 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 的 Future 由 <a href="dart-io/HttpClient/getUrl.html">getUrl</a> 和 <a href="dart-io/HttpClient/open.html">open</a> 等方法创建。
+<h2 id="https-connections">HTTPS 连接</h2>
+<code>HttpClient</code> 可以通过 TLS（SSL）安全网络协议连接服务器并发送 HTTPS 请求。如果服务器证书由 Mozilla 编译的默认可信 CA（证书颁发机构）列表中的根 CA 签名，则使用 https: scheme 调用 <a href="dart-io/HttpClient/getUrl.html">getUrl</a> 即可自动建立连接。
+若要添加自定义可信证书颁发机构，或向要求客户端证书的服务器发送客户端证书，请将 <a href="dart-io/SecurityContext-class.html">SecurityContext</a> 对象作为可选的 <code>context</code> 参数传递给 <code>HttpClient</code> 构造函数。所需的安全选项可以在 <a href="dart-io/SecurityContext-class.html">SecurityContext</a> 对象上设置。
+<h2 id="headers">标头</h2>
+所有 <code>HttpClient</code> 请求默认都会设置以下标头：
+<pre class="language-dart"><code>Accept-Encoding: gzip
+</code></pre>
+这样一来，如果可能，HTTP 服务器就可以对正文使用 gzip 压缩。如果不需要此行为，请将 <code>Accept-Encoding</code> 标头设为其他值。若要关闭响应的 gzip 压缩，请清除此标头：
+<pre class="language-dart"><code> request.headers.removeAll(HttpHeaders.acceptEncodingHeader)
+</code></pre>
+<h2 id="closing-the-httpclient">关闭 <code>HttpClient</code></h2>
+<code>HttpClient</code> 支持持久连接，并会缓存网络连接，以便在可能时将其用于多个请求。因此，请求完成后，网络连接仍可能保持打开一段时间。使用 <a href="dart-io/HttpClient/close.html">HttpClient.close</a> 可以关闭 <code>HttpClient</code> 对象并断开空闲网络连接。
+<h2 id="turning-proxies-on-and-off">启用和禁用代理</h2>
+默认情况下，<code>HttpClient</code> 使用环境中提供的代理配置，详见 <a href="dart-io/HttpClient/findProxyFromEnvironment.html">findProxyFromEnvironment</a>。若要禁用代理，请将 <a href="dart-io/HttpClient/findProxy.html">findProxy</a> 属性设为 <code>null</code>。
+<pre class="language-dart"><code>HttpClient client = HttpClient();
+client.findProxy = null;
+</code></pre>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="HttpClient.new" class="callable">
+          <span class="name"><a href="dart-io/HttpClient/HttpClient.html">HttpClient</a></span><span class="signature">({<span class="parameter" id="-param-context"><span class="type-annotation"><a href="dart-io/SecurityContext-class.html">SecurityContext</a>?</span> <span class="parameter-name">context</span></span>})</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="authenticate" class="property">
+  <span class="name"><a href="dart-io/HttpClient/authenticate.html">authenticate</a></span>
+  <span class="signature">&#8592; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span>, </span><span class="parameter" id="param-scheme"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">scheme</span>, </span><span class="parameter" id="param-realm"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">realm</span></span>)</span>?</span>
+  
+
+</dt>
+<dd>
+  Sets the function to be called when a site is requesting
+authentication.
+  <div class="features"><span class="feature">no getter</span></div>
+
+</dd>
+
+        <dt id="authenticateProxy" class="property">
+  <span class="name"><a href="dart-io/HttpClient/authenticateProxy.html">authenticateProxy</a></span>
+  <span class="signature">&#8592; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="param-scheme"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">scheme</span>, </span><span class="parameter" id="param-realm"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">realm</span></span>)</span>?</span>
+  
+
+</dt>
+<dd>
+  Sets the function to be called when a proxy is requesting
+authentication.
+  <div class="features"><span class="feature">no getter</span></div>
+
+</dd>
+
+        <dt id="autoUncompress" class="property">
+  <span class="name"><a href="dart-io/HttpClient/autoUncompress.html">autoUncompress</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Gets and sets whether the body of a response will be automatically
+uncompressed.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="badCertificateCallback" class="property">
+  <span class="name"><a href="dart-io/HttpClient/badCertificateCallback.html">badCertificateCallback</a></span>
+  <span class="signature">&#8592; <a href="dart-core/bool-class.html">bool</a> Function<span class="signature">(<span class="parameter" id="param-cert"><span class="type-annotation"><a href="dart-io/X509Certificate-class.html">X509Certificate</a></span> <span class="parameter-name">cert</span>, </span><span class="parameter" id="param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span></span>)</span>?</span>
+  
+
+</dt>
+<dd>
+  Sets a callback that will decide whether to accept a secure connection
+with a server certificate that cannot be authenticated by any of our
+trusted root certificates.
+  <div class="features"><span class="feature">no getter</span></div>
+
+</dd>
+
+        <dt id="connectionFactory" class="property">
+  <span class="name"><a href="dart-io/HttpClient/connectionFactory.html">connectionFactory</a></span>
+  <span class="signature">&#8592; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/ConnectionTask-class.html">ConnectionTask</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/Socket-class.html">Socket</a></span>&gt;</span></span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span>, </span><span class="parameter" id="param-proxyHost"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">proxyHost</span>, </span><span class="parameter" id="param-proxyPort"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">proxyPort</span></span>)</span>?</span>
+  
+
+</dt>
+<dd>
+  Sets the function used to create socket connections.
+  <div class="features"><span class="feature">no getter</span></div>
+
+</dd>
+
+        <dt id="connectionTimeout" class="property">
+  <span class="name"><a href="dart-io/HttpClient/connectionTimeout.html">connectionTimeout</a></span>
+  <span class="signature">&#8596; <a href="dart-core/Duration-class.html">Duration</a>?</span>
+  
+
+</dt>
+<dd>
+  Gets and sets the connection timeout.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="findProxy" class="property">
+  <span class="name"><a href="dart-io/HttpClient/findProxy.html">findProxy</a></span>
+  <span class="signature">&#8592; <a href="dart-core/String-class.html">String</a> Function<span class="signature">(<span class="parameter" id="param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span></span>)</span>?</span>
+  
+
+</dt>
+<dd>
+  Sets the function used to resolve the proxy server to be used for
+opening an HTTP connection to the specified <code>url</code>. If this
+function is not set, direct connections will always be used.
+  <div class="features"><span class="feature">no getter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="idleTimeout" class="property">
+  <span class="name"><a href="dart-io/HttpClient/idleTimeout.html">idleTimeout</a></span>
+  <span class="signature">&#8596; <a href="dart-core/Duration-class.html">Duration</a></span>
+  
+
+</dt>
+<dd>
+  Gets and sets the idle timeout of non-active persistent (keep-alive)
+connections.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="keyLog" class="property">
+  <span class="name"><a href="dart-io/HttpClient/keyLog.html">keyLog</a></span>
+  <span class="signature">&#8592; dynamic Function<span class="signature">(<span class="parameter" id="param-line"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">line</span></span>)</span>?</span>
+  
+
+</dt>
+<dd>
+  Sets a callback that will be called when new TLS keys are exchanged with
+the server. It will receive one line of text in
+<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format">NSS Key Log Format</a>
+for each call. Writing these lines to a file will allow tools (such as
+<a href="https://gitlab.com/wireshark/wireshark/-/wikis/TLS#tls-decryption">Wireshark</a>)
+to decrypt communication between the this client and the server. This is
+meant to allow network-level debugging of secure sockets and should not
+be used in production code. For example:
+  <div class="features"><span class="feature">no getter</span></div>
+
+</dd>
+
+        <dt id="maxConnectionsPerHost" class="property">
+  <span class="name"><a href="dart-io/HttpClient/maxConnectionsPerHost.html">maxConnectionsPerHost</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  Gets and sets the maximum number of live connections, to a single host.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="userAgent" class="property">
+  <span class="name"><a href="dart-io/HttpClient/userAgent.html">userAgent</a></span>
+  <span class="signature">&#8596; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Gets and sets the default value of the <code>User-Agent</code> header for all requests
+generated by this <a href="dart-io/HttpClient-class.html">HttpClient</a>.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="addCredentials" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/addCredentials.html">addCredentials</a></span><span class="signature">(<wbr><span class="parameter" id="addCredentials-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span>, </span><span class="parameter" id="addCredentials-param-realm"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">realm</span>, </span><span class="parameter" id="addCredentials-param-credentials"><span class="type-annotation"><a href="dart-io/HttpClientCredentials-class.html">HttpClientCredentials</a></span> <span class="parameter-name">credentials</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add credentials to be used for authorizing HTTP requests.
+  
+
+</dd>
+
+        <dt id="addProxyCredentials" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/addProxyCredentials.html">addProxyCredentials</a></span><span class="signature">(<wbr><span class="parameter" id="addProxyCredentials-param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="addProxyCredentials-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="addProxyCredentials-param-realm"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">realm</span>, </span><span class="parameter" id="addProxyCredentials-param-credentials"><span class="type-annotation"><a href="dart-io/HttpClientCredentials-class.html">HttpClientCredentials</a></span> <span class="parameter-name">credentials</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add credentials to be used for authorizing HTTP proxies.
+  
+
+</dd>
+
+        <dt id="close" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/close.html">close</a></span><span class="signature">(<wbr>{<span class="parameter" id="close-param-force"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">force</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Shuts down the HTTP client.
+  
+
+</dd>
+
+        <dt id="delete" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/delete.html">delete</a></span><span class="signature">(<wbr><span class="parameter" id="delete-param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="delete-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="delete-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the DELETE method.
+  
+
+</dd>
+
+        <dt id="deleteUrl" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/deleteUrl.html">deleteUrl</a></span><span class="signature">(<wbr><span class="parameter" id="deleteUrl-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the DELETE method.
+  
+
+</dd>
+
+        <dt id="get" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/get.html">get</a></span><span class="signature">(<wbr><span class="parameter" id="get-param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="get-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="get-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the GET method.
+  
+
+</dd>
+
+        <dt id="getUrl" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/getUrl.html">getUrl</a></span><span class="signature">(<wbr><span class="parameter" id="getUrl-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the GET method.
+  
+
+</dd>
+
+        <dt id="head" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/head.html">head</a></span><span class="signature">(<wbr><span class="parameter" id="head-param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="head-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="head-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the HEAD method.
+  
+
+</dd>
+
+        <dt id="headUrl" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/headUrl.html">headUrl</a></span><span class="signature">(<wbr><span class="parameter" id="headUrl-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the HEAD method.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="open" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/open.html">open</a></span><span class="signature">(<wbr><span class="parameter" id="open-param-method"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">方法</span>, </span><span class="parameter" id="open-param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="open-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="open-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection.
+  
+
+</dd>
+
+        <dt id="openUrl" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/openUrl.html">openUrl</a></span><span class="signature">(<wbr><span class="parameter" id="openUrl-param-method"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">方法</span>, </span><span class="parameter" id="openUrl-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection.
+  
+
+</dd>
+
+        <dt id="patch" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/patch.html">patch</a></span><span class="signature">(<wbr><span class="parameter" id="patch-param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="patch-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="patch-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the PATCH method.
+  
+
+</dd>
+
+        <dt id="patchUrl" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/patchUrl.html">patchUrl</a></span><span class="signature">(<wbr><span class="parameter" id="patchUrl-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the PATCH method.
+  
+
+</dd>
+
+        <dt id="post" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/post.html">post</a></span><span class="signature">(<wbr><span class="parameter" id="post-param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="post-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="post-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the POST method.
+  
+
+</dd>
+
+        <dt id="postUrl" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/postUrl.html">postUrl</a></span><span class="signature">(<wbr><span class="parameter" id="postUrl-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the POST method.
+  
+
+</dd>
+
+        <dt id="put" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/put.html">put</a></span><span class="signature">(<wbr><span class="parameter" id="put-param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="put-param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span>, </span><span class="parameter" id="put-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the PUT method.
+  
+
+</dd>
+
+        <dt id="putUrl" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/putUrl.html">putUrl</a></span><span class="signature">(<wbr><span class="parameter" id="putUrl-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Opens an HTTP connection using the PUT method.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="enableTimelineLogging" class="property">
+  <span class="name"><a href="dart-io/HttpClient/enableTimelineLogging.html">enableTimelineLogging</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Current state of HTTP request logging from all <a href="dart-io/HttpClient-class.html">HttpClient</a>s to the
+developer timeline.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="findProxyFromEnvironment" class="callable">
+  <span class="name"><a href="dart-io/HttpClient/findProxyFromEnvironment.html">findProxyFromEnvironment</a></span><span class="signature">(<wbr><span class="parameter" id="findProxyFromEnvironment-param-url"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">url</span>, {</span><span class="parameter" id="findProxyFromEnvironment-param-environment"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">environment</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Function for resolving the proxy server to be used for an HTTP
+connection from the proxy configuration specified through
+environment variables.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>常量</h2>
+    <dl class="properties">
+        <dt id="defaultHttpPort" class="constant">
+    <span class="name "><a href="dart-io/HttpClient/defaultHttpPort-constant.html">defaultHttpPort</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="defaultHttpsPort" class="constant">
+    <span class="name "><a href="dart-io/HttpClient/defaultHttpsPort-constant.html">defaultHttpsPort</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-io/">dart:io</a></li>
+    <li class="self-crumb">HttpClient 类</li>
+</ol>
+
+    <h5>dart:io library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

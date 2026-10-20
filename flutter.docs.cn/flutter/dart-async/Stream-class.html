@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:async 库中 Stream 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Stream class - dart:async 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-async/">dart:async</a></li>
+    <li class="self-crumb">Stream<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+  </ol>
+  <div class="self-name">Stream</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-async&#47;dart-async-library-sidebar.html"
+    data-below-sidebar="dart-async&#47;Stream-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Stream&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/mixins" class="feature feature-mixin" title="This class can be used as a class and a mixin.">mixin</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>异步数据事件的来源。</p>
+<p>Stream 提供了一种接收事件序列的方式。每个事件要么是数据事件（也称为流的<em>元素</em>），要么是错误事件，用于通知某项操作失败。流发出所有事件后，会发送一个“done”事件，通知监听者流已结束。</p>
+<p>调用 <code>async*</code> 函数即可生成一个流。该函数会返回流；使用此流时，函数会持续发出事件，直到函数结束并关闭流。你可以通过 <code>await for</code> 循环消费流，该循环可用于 <code>async</code> 或 <code>async*</code> 函数；也可以使用 <code>yield*</code> 在 <code>async*</code> 函数中 直接转发流的事件。示例：</p>
+<pre class="language-dart"><code class="language-dart">Stream&lt;T&gt; optionalMap&lt;T&gt;(
+    Stream&lt;T&gt; source , [T Function(T)? convert]) async* {
+  if (convert == null) {
+    yield* source;
+  } else {
+    await for (var event in source) {
+      yield convert(event);
+    }
+  }
+}
+</code></pre>
+<p>调用此函数时，它会立即返回一个 <code>Stream&lt;T&gt;</code> 对象。在有人尝试消费该流之前，不会发生其他操作。此时，<code>async*</code> 函数体才开始运行。如果省略 <code>convert</code> 函数，<code>yield*</code> 会监听 <code>source</code> 流，并将所有事件（数据和错误）转发到返回的流。<code>source</code> 流关闭时，<code>yield*</code> 结束，<code>optionalMap</code> 函数体也随之结束，从而关闭返回的流。如果提供了 <code>convert</code>，函数则会监听 source 流，并进入 <code>await for</code> 循环，反复等待下一个数据事件。收到数据事件时，它会将值传给 <code>convert</code>，并把结果发送到返回的流。如果 <code>source</code> 流没有发出错误事件，循环会在 <code>source</code> 流结束时退出；随后 <code>optionalMap</code> 函数体完成并关闭返回的流。如果 <code>source</code> 流发出错误事件，<code>await for</code> 会重新抛出该错误并中断循环。由于错误未被捕获，它会到达 <code>optionalMap</code> 函数体末尾，继而在返回的流上发出该错误并关闭流。</p>
+<p><code>Stream</code> 类还提供了相关功能，允许你手动监听流中的事件，或将流转换为另一个流或 Future。</p>
+<p><a href="dart-async/Stream/forEach.html">forEach</a> 函数对应于 <code>await for</code> 循环，就像 <a href="dart-core/Iterable/forEach.html">Iterable.forEach</a> 对应普通的 <code>for</code>/<code>in</code> 循环一样。与循环相同，它会为每个数据事件调用函数，并在遇到错误时中断。</p>
+<p>底层级别较低的 <a href="dart-async/Stream/listen.html">listen</a> 方法是其他所有方法的基础。你可以对流调用 <code>listen</code>，表示要接收事件，并注册用于接收这些事件的回调。调用 <code>listen</code> 后会得到一个 <a href="dart-async/StreamSubscription-class.html">StreamSubscription</a> 对象，它负责提供事件，可用于停止监听，或暂时暂停此订阅的事件。</p>
+<p>流分为两种：“单订阅”流和“广播”流。</p>
+<p><em>单订阅流</em>在整个生命周期中只允许一个监听者。在有监听者之前，它不会开始生成事件；监听者取消订阅后，即使事件源还能提供更多事件，它也会停止发送事件。由 <code>async*</code> 函数创建的流属于单订阅流，但每次调用该函数都会创建一个新的此类流。</p>
+<p>单订阅流不允许被监听两次，即使第一次订阅已取消也不行。</p>
+<p>单订阅流通常用于传输较大连续数据的分块，例如文件 I/O。</p>
+<p><em>广播流</em>允许任意数量的监听者；事件就绪时会立即发出，无论当时是否有监听者。</p>
+<p>广播流用于独立事件或观察者。</p>
+<p>如果多个监听者都需要监听单订阅流，请使用 <a href="dart-async/Stream/asBroadcastStream.html">asBroadcastStream</a>，在非广播流之上创建广播流。</p>
+<p>对于这两种流，流转换（例如 <a href="dart-async/Stream/where.html">where</a> 和 <a href="dart-async/Stream/skip.html">skip</a>）都会返回与调用该方法的流相同类型的流，除非另有说明。</p>
+<p>事件发出时，当时的监听者会收到该事件。如果事件正在发出时向广播流添加监听者，该监听者不会收到当前正在发出的事件。取消监听后会立即停止接收事件。监听广播流可以视为监听一个新流，该新流只包含调用 <a href="dart-async/Stream/listen.html">listen</a> 时尚未发出的事件。例如，<a href="dart-async/Stream/first.html">first</a> getter 会监听流，然后返回该监听者收到的第一个事件。这不一定是流曾发出的第一个事件，而是广播流中<em>剩余</em>事件里的第一个。</p>
+<p>发出“done”事件时，订阅者会在收到事件前取消订阅。事件发送后，流将不再有订阅者。此后仍可向广播流添加新订阅者，但它们会尽快收到一个新的“done”事件。</p>
+<p>流订阅始终遵守“暂停”请求。如有必要，订阅需要缓冲输入；但通常最好直接请求输入源也暂停。</p>
+<p><a href="dart-async/Stream/isBroadcast.html">isBroadcast</a> 的默认实现返回 false。继承 <a href="dart-async/Stream-class.html">Stream</a> 的广播流必须重写 <a href="dart-async/Stream/isBroadcast.html">isBroadcast</a>，并在其行为类似广播流时返回 <code>true</code>。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="dart-html/CustomStream-class.html">CustomStream</a></li>
+              <li><a href="dart-html/ElementStream-class.html">ElementStream</a></li>
+              <li><a href="package-web_web/ElementStream-class.html">ElementStream</a></li>
+              <li><a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a></li>
+              <li><a href="dart-io/HttpRequest-class.html">HttpRequest</a></li>
+              <li><a href="dart-io/HttpServer-class.html">HttpServer</a></li>
+              <li><a href="package-async_async/LazyStream-class.html">LazyStream</a></li>
+              <li><a href="dart-io/RawDatagramSocket-class.html">RawDatagramSocket</a></li>
+              <li><a href="dart-io/RawSecureServerSocket-class.html">RawSecureServerSocket</a></li>
+              <li><a href="dart-io/RawServerSocket-class.html">RawServerSocket</a></li>
+              <li><a href="dart-io/RawSocket-class.html">RawSocket</a></li>
+              <li><a href="dart-io/ReadPipe-class.html">ReadPipe</a></li>
+              <li><a href="dart-isolate/ReceivePort-class.html">ReceivePort</a></li>
+              <li><a href="dart-io/SecureServerSocket-class.html">SecureServerSocket</a></li>
+              <li><a href="dart-io/ServerSocket-class.html">ServerSocket</a></li>
+              <li><a href="dart-io/Socket-class.html">Socket</a></li>
+              <li><a href="dart-io/Stdin-class.html">Stdin</a></li>
+              <li><a href="dart-async/StreamView-class.html">StreamView</a></li>
+              <li><a href="package-async_async/StreamZip-class.html">StreamZip</a></li>
+              <li><a href="package-async_async/SubscriptionStream-class.html">SubscriptionStream</a></li>
+              <li><a href="dart-io/WebSocket-class.html">WebSocket</a></li>
+          </ul></dd>
+
+        
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="package-async_async/StreamExtensions.html">StreamExtensions</a></li>
+  </ul></dd>
+        
+  <dt>注解</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@vmIsolateUnsendable</li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Stream.new" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.html">Stream</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="Stream.empty" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.empty.html">Stream.empty</a></span><span class="signature">({<span class="parameter" id="empty-param-broadcast"><span>@Since.new(&quot;3.2&quot;)</span> <span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">broadcast</span></span>})</span>
+        </dt>
+        <dd>
+          Creates an empty broadcast stream.
+            <div class="constructor-modifier features">const</div>
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Stream.error" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.error.html">Stream.error</a></span><span class="signature">(<span class="parameter" id="error-param-error"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span>, [</span><span class="parameter" id="error-param-stackTrace"><span class="type-annotation"><a href="dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span></span>])</span>
+        </dt>
+        <dd>
+          Creates a stream which emits a single error event before completing.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Stream.eventTransformed" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.eventTransformed.html">Stream.eventTransformed</a></span><span class="signature">(<span class="parameter" id="eventTransformed-param-source"><span class="type-annotation"><a href="dart-async/Stream-class.html">Stream</a></span> <span class="parameter-name">source</span>, </span><span class="parameter" id="eventTransformed-param-mapSink"><span class="type-annotation"><a href="dart-async/EventSink-class.html">EventSink</a></span> <span class="parameter-name">mapSink</span>(<span class="parameter" id="mapSink-param-sink"><span class="type-annotation"><a href="dart-async/EventSink-class.html">EventSink</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">sink</span></span>)</span>)</span>
+        </dt>
+        <dd>
+          Creates a stream where all events of an existing stream are piped through
+a sink-transformation.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Stream.fromFuture" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.fromFuture.html">Stream.fromFuture</a></span><span class="signature">(<span class="parameter" id="fromFuture-param-future"><span class="type-annotation"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">future</span></span>)</span>
+        </dt>
+        <dd>
+          Creates a new single-subscription stream from the future.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Stream.fromFutures" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.fromFutures.html">Stream.fromFutures</a></span><span class="signature">(<span class="parameter" id="fromFutures-param-futures"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">futures</span></span>)</span>
+        </dt>
+        <dd>
+          Create a single-subscription stream from a group of futures.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Stream.fromIterable" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.fromIterable.html">Stream.fromIterable</a></span><span class="signature">(<span class="parameter" id="fromIterable-param-elements"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">elements</span></span>)</span>
+        </dt>
+        <dd>
+          Creates a stream that gets its data from <code>elements</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Stream.multi" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.multi.html">Stream.multi</a></span><span class="signature">(<span class="parameter" id="multi-param-onListen"><span class="type-annotation">void</span> <span class="parameter-name">onListen</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="dart-async/MultiStreamController-class.html">MultiStreamController</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span></span>), {</span><span class="parameter" id="multi-param-isBroadcast"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isBroadcast</span> = <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a multi-subscription stream.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Stream.periodic" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.periodic.html">Stream.periodic</a></span><span class="signature">(<span class="parameter" id="periodic-param-period"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">period</span>, [</span><span class="parameter" id="periodic-param-computation"><span class="type-annotation">T</span> <span class="parameter-name">computation</span>(<span class="parameter" id="computation-param-computationCount"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">computationCount</span></span>)?</span>])</span>
+        </dt>
+        <dd>
+          Creates a stream that repeatedly emits events at <code>period</code> intervals.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Stream.value" class="callable">
+          <span class="name"><a href="dart-async/Stream/Stream.value.html">Stream.value</a></span><span class="signature">(<span class="parameter" id="value-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span></span>)</span>
+        </dt>
+        <dd>
+          Creates a stream which emits a single data event before closing.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="first" class="property">
+  <span class="name"><a href="dart-async/Stream/first.html">first</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The first element of this stream.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="firstOrNull" class="property">
+  <span class="name"><a href="package-async_async/StreamExtensions/firstOrNull.html">firstOrNull</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>,
+        provided by the <a href="package-async_async/StreamExtensions.html">StreamExtensions</a> extension</span>
+      </p>
+  A future which completes with the first event of this stream, or with
+<code>null</code>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isBroadcast" class="property">
+  <span class="name"><a href="dart-async/Stream/isBroadcast.html">isBroadcast</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this stream is a broadcast stream.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="isEmpty" class="property">
+  <span class="name"><a href="dart-async/Stream/isEmpty.html">isEmpty</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  Whether this stream contains any elements.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="last" class="property">
+  <span class="name"><a href="dart-async/Stream/last.html">last</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The last element of this stream.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="length" class="property">
+  <span class="name"><a href="dart-async/Stream/length.html">length</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The number of elements in this stream.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="single" class="property">
+  <span class="name"><a href="dart-async/Stream/single.html">single</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The single element of this stream.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="any" class="callable">
+  <span class="name"><a href="dart-async/Stream/any.html">any</a></span><span class="signature">(<wbr><span class="parameter" id="any-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks whether <code>test</code> accepts any element provided by this stream.
+  
+
+</dd>
+
+        <dt id="asBroadcastStream" class="callable">
+  <span class="name"><a href="dart-async/Stream/asBroadcastStream.html">asBroadcastStream</a></span><span class="signature">(<wbr>{<span class="parameter" id="asBroadcastStream-param-onListen"><span class="type-annotation">void</span> <span class="parameter-name">onListen</span>(<span class="parameter" id="onListen-param-subscription"><span class="type-annotation"><a href="dart-async/StreamSubscription-class.html">StreamSubscription</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">subscription</span></span>)?, </span><span class="parameter" id="asBroadcastStream-param-onCancel"><span class="type-annotation">void</span> <span class="parameter-name">onCancel</span>(<span class="parameter" id="onCancel-param-subscription"><span class="type-annotation"><a href="dart-async/StreamSubscription-class.html">StreamSubscription</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">subscription</span></span>)?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a multi-subscription stream that produces the same events as this.
+  
+
+</dd>
+
+        <dt id="asyncExpand" class="callable">
+  <span class="name"><a href="dart-async/Stream/asyncExpand.html">asyncExpand</a></span><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="asyncExpand-param-convert"><span class="type-annotation"><a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span>?</span> <span class="parameter-name">convert</span>(<span class="parameter" id="convert-param-event"><span class="type-annotation">T</span> <span class="parameter-name">event</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Transforms each element into a sequence of asynchronous events.
+  
+
+</dd>
+
+        <dt id="asyncMap" class="callable">
+  <span class="name"><a href="dart-async/Stream/asyncMap.html">asyncMap</a></span><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="asyncMap-param-convert"><span class="type-annotation"><a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></span> <span class="parameter-name">convert</span>(<span class="parameter" id="convert-param-event"><span class="type-annotation">T</span> <span class="parameter-name">event</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates a new stream with each data event of this stream asynchronously
+mapped to a new event.
+  
+
+</dd>
+
+        <dt id="cast" class="callable">
+  <span class="name"><a href="dart-async/Stream/cast.html">cast</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adapt this stream to be a <code>Stream&lt;R&gt;</code>.
+  
+
+</dd>
+
+        <dt id="contains" class="callable">
+  <span class="name"><a href="dart-async/Stream/contains.html">contains</a></span><span class="signature">(<wbr><span class="parameter" id="contains-param-needle"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">needle</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns whether <code>needle</code> occurs in the elements provided by this stream.
+  
+
+</dd>
+
+        <dt id="distinct" class="callable">
+  <span class="name"><a href="dart-async/Stream/distinct.html">distinct</a></span><span class="signature">(<wbr>[<span class="parameter" id="distinct-param-equals"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">equals</span>(<span class="parameter" id="equals-param-previous"><span class="type-annotation">T</span> <span class="parameter-name">previous</span>, </span><span class="parameter" id="equals-param-next"><span class="type-annotation">T</span> <span class="parameter-name">next</span></span>)?</span>])
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Skips data events if they are equal to the previous data event.
+  
+
+</dd>
+
+        <dt id="drain" class="callable">
+  <span class="name"><a href="dart-async/Stream/drain.html">drain</a></span><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span><span class="signature">(<wbr>[<span class="parameter" id="drain-param-futureValue"><span class="type-annotation">E?</span> <span class="parameter-name">futureValue</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Discards all data on this stream, but signals when it is done or an error
+occurred.
+  
+
+</dd>
+
+        <dt id="elementAt" class="callable">
+  <span class="name"><a href="dart-async/Stream/elementAt.html">elementAt</a></span><span class="signature">(<wbr><span class="parameter" id="elementAt-param-index"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">index</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the value of the <code>index</code>th data event of this stream.
+  
+
+</dd>
+
+        <dt id="every" class="callable">
+  <span class="name"><a href="dart-async/Stream/every.html">every</a></span><span class="signature">(<wbr><span class="parameter" id="every-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks whether <code>test</code> accepts all elements provided by this stream.
+  
+
+</dd>
+
+        <dt id="expand" class="callable">
+  <span class="name"><a href="dart-async/Stream/expand.html">expand</a></span><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="expand-param-convert"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span> <span class="parameter-name">convert</span>(<span class="parameter" id="convert-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Transforms each element of this stream into a sequence of elements.
+  
+
+</dd>
+
+        <dt id="firstWhere" class="callable">
+  <span class="name"><a href="dart-async/Stream/firstWhere.html">firstWhere</a></span><span class="signature">(<wbr><span class="parameter" id="firstWhere-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>), {</span><span class="parameter" id="firstWhere-param-orElse"><span class="type-annotation">T</span> <span class="parameter-name">orElse</span>()?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Finds the first element of this stream matching <code>test</code>.
+  
+
+</dd>
+
+        <dt id="fold" class="callable">
+  <span class="name"><a href="dart-async/Stream/fold.html">fold</a></span><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="fold-param-initialValue"><span class="type-annotation">S</span> <span class="parameter-name">initialValue</span>, </span><span class="parameter" id="fold-param-combine"><span class="type-annotation">S</span> <span class="parameter-name">combine</span>(<span class="parameter" id="combine-param-previous"><span class="type-annotation">S</span> <span class="parameter-name">previous</span>, </span><span class="parameter" id="combine-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Combines a sequence of values by repeatedly applying <code>combine</code>.
+  
+
+</dd>
+
+        <dt id="forEach" class="callable">
+  <span class="name"><a href="dart-async/Stream/forEach.html">forEach</a></span><span class="signature">(<wbr><span class="parameter" id="forEach-param-action"><span class="type-annotation">void</span> <span class="parameter-name">action</span>(<span class="parameter" id="action-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Executes <code>action</code> on each element of this stream.
+  
+
+</dd>
+
+        <dt id="handleError" class="callable">
+  <span class="name"><a href="dart-async/Stream/handleError.html">handleError</a></span><span class="signature">(<wbr><span class="parameter" id="handleError-param-onError"><span class="type-annotation"><a href="dart-core/Function-class.html">Function</a></span> <span class="parameter-name">onError</span>, {</span><span class="parameter" id="handleError-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-error"><span class="type-annotation">dynamic</span> <span class="parameter-name">error</span></span>)?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates a wrapper Stream that intercepts some errors from this stream.
+  
+
+</dd>
+
+        <dt id="join" class="callable">
+  <span class="name"><a href="dart-async/Stream/join.html">join</a></span><span class="signature">(<wbr>[<span class="parameter" id="join-param-separator"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">separator</span> = <span class="default-value">&quot;&quot;</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Combines the string representation of elements into a single string.
+  
+
+</dd>
+
+        <dt id="lastWhere" class="callable">
+  <span class="name"><a href="dart-async/Stream/lastWhere.html">lastWhere</a></span><span class="signature">(<wbr><span class="parameter" id="lastWhere-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>), {</span><span class="parameter" id="lastWhere-param-orElse"><span class="type-annotation">T</span> <span class="parameter-name">orElse</span>()?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Finds the last element in this stream matching <code>test</code>.
+  
+
+</dd>
+
+        <dt id="listen" class="callable">
+  <span class="name"><a href="dart-async/Stream/listen.html">listen</a></span><span class="signature">(<wbr><span class="parameter" id="listen-param-onData"><span class="type-annotation">void</span> <span class="parameter-name">onData</span>(<span class="parameter" id="onData-param-event"><span class="type-annotation">T</span> <span class="parameter-name">event</span></span>)?, {</span><span class="parameter" id="listen-param-onError"><span class="type-annotation"><a href="dart-core/Function-class.html">Function</a>?</span> <span class="parameter-name">onError</span>, </span><span class="parameter" id="listen-param-onDone"><span class="type-annotation">void</span> <span class="parameter-name">onDone</span>()?, </span><span class="parameter" id="listen-param-cancelOnError"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">cancelOnError</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/StreamSubscription-class.html">StreamSubscription</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a subscription to this stream.
+  
+
+</dd>
+
+        <dt id="listenAndBuffer" class="callable">
+  <span class="name"><a href="package-async_async/StreamExtensions/listenAndBuffer.html">listenAndBuffer</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>,
+        provided by the <a href="package-async_async/StreamExtensions.html">StreamExtensions</a> extension</span>
+      </p>
+  Eagerly listens to this stream and buffers events until needed.
+  
+
+</dd>
+
+        <dt id="map" class="callable">
+  <span class="name"><a href="dart-async/Stream/map.html">map</a></span><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="map-param-convert"><span class="type-annotation">S</span> <span class="parameter-name">convert</span>(<span class="parameter" id="convert-param-event"><span class="type-annotation">T</span> <span class="parameter-name">event</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Transforms each element of this stream into a new stream event.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="pipe" class="callable">
+  <span class="name"><a href="dart-async/Stream/pipe.html">pipe</a></span><span class="signature">(<wbr><span class="parameter" id="pipe-param-streamConsumer"><span class="type-annotation"><a href="dart-async/StreamConsumer-class.html">StreamConsumer</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">streamConsumer</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pipes the events of this stream into <code>streamConsumer</code>.
+  
+
+</dd>
+
+        <dt id="reduce" class="callable">
+  <span class="name"><a href="dart-async/Stream/reduce.html">reduce</a></span><span class="signature">(<wbr><span class="parameter" id="reduce-param-combine"><span class="type-annotation">T</span> <span class="parameter-name">combine</span>(<span class="parameter" id="combine-param-previous"><span class="type-annotation">T</span> <span class="parameter-name">previous</span>, </span><span class="parameter" id="combine-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Combines a sequence of values by repeatedly applying <code>combine</code>.
+  
+
+</dd>
+
+        <dt id="singleWhere" class="callable">
+  <span class="name"><a href="dart-async/Stream/singleWhere.html">singleWhere</a></span><span class="signature">(<wbr><span class="parameter" id="singleWhere-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>), {</span><span class="parameter" id="singleWhere-param-orElse"><span class="type-annotation">T</span> <span class="parameter-name">orElse</span>()?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Finds the single element in this stream matching <code>test</code>.
+  
+
+</dd>
+
+        <dt id="skip" class="callable">
+  <span class="name"><a href="dart-async/Stream/skip.html">skip</a></span><span class="signature">(<wbr><span class="parameter" id="skip-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Skips the first <code>count</code> data events from this stream.
+  
+
+</dd>
+
+        <dt id="skipWhile" class="callable">
+  <span class="name"><a href="dart-async/Stream/skipWhile.html">skipWhile</a></span><span class="signature">(<wbr><span class="parameter" id="skipWhile-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Skip data events from this stream while they are matched by <code>test</code>.
+  
+
+</dd>
+
+        <dt id="slices" class="callable">
+  <span class="name"><a href="package-async_async/StreamExtensions/slices.html">slices</a></span><span class="signature">(<wbr><span class="parameter" id="slices-param-length"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">length</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>,
+        provided by the <a href="package-async_async/StreamExtensions.html">StreamExtensions</a> extension</span>
+      </p>
+  Creates a stream whose elements are contiguous slices of <code>this</code>.
+  
+
+</dd>
+
+        <dt id="take" class="callable">
+  <span class="name"><a href="dart-async/Stream/take.html">take</a></span><span class="signature">(<wbr><span class="parameter" id="take-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Provides at most the first <code>count</code> data events of this stream.
+  
+
+</dd>
+
+        <dt id="takeWhile" class="callable">
+  <span class="name"><a href="dart-async/Stream/takeWhile.html">takeWhile</a></span><span class="signature">(<wbr><span class="parameter" id="takeWhile-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">T</span> <span class="parameter-name">element</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Forwards data events while <code>test</code> is successful.
+  
+
+</dd>
+
+        <dt id="timeout" class="callable">
+  <span class="name"><a href="dart-async/Stream/timeout.html">timeout</a></span><span class="signature">(<wbr><span class="parameter" id="timeout-param-timeLimit"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">timeLimit</span>, {</span><span class="parameter" id="timeout-param-onTimeout"><span class="type-annotation">void</span> <span class="parameter-name">onTimeout</span>(<span class="parameter" id="onTimeout-param-sink"><span class="type-annotation"><a href="dart-async/EventSink-class.html">EventSink</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">sink</span></span>)?</span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates a new stream with the same events as this stream.
+  
+
+</dd>
+
+        <dt id="toList" class="callable">
+  <span class="name"><a href="dart-async/Stream/toList.html">toList</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Collects all elements of this stream in a <a href="dart-core/List-class.html">List</a>.
+  
+
+</dd>
+
+        <dt id="toSet" class="callable">
+  <span class="name"><a href="dart-async/Stream/toSet.html">toSet</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Collects the data of this stream in a <a href="dart-core/Set-class.html">Set</a>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="transform" class="callable">
+  <span class="name"><a href="dart-async/Stream/transform.html">transform</a></span><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="transform-param-streamTransformer"><span class="type-annotation"><a href="dart-async/StreamTransformer-class.html">StreamTransformer</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>, <span class="type-parameter">S</span>&gt;</span></span> <span class="parameter-name">streamTransformer</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Applies <code>streamTransformer</code> to this stream.
+  
+
+</dd>
+
+        <dt id="where" class="callable">
+  <span class="name"><a href="dart-async/Stream/where.html">where</a></span><span class="signature">(<wbr><span class="parameter" id="where-param-test"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-event"><span class="type-annotation">T</span> <span class="parameter-name">event</span></span>)</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates a new stream from this stream that discards some elements.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="castFrom" class="callable">
+  <span class="name"><a href="dart-async/Stream/castFrom.html">castFrom</a></span><span class="signature">&lt;<wbr><span class="type-parameter">S</span>, <span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="castFrom-param-source"><span class="type-annotation"><a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span> <span class="parameter-name">source</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adapts <code>source</code> to be a <code>Stream&lt;T&gt;</code>.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-async/">dart:async</a></li>
+    <li class="self-crumb">Stream<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+</ol>
+
+    <h5>dart:async library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

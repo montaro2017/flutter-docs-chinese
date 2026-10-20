@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="cupertino 库中 CupertinoDatePicker 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>CupertinoDatePicker 类 - cupertino 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="cupertino/">cupertino.dart</a></li>
+    <li class="self-crumb">CupertinoDatePicker 类</li>
+  </ol>
+  <div class="self-name">CupertinoDatePicker</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="cupertino&#47;cupertino-library-sidebar.html"
+    data-below-sidebar="cupertino&#47;CupertinoDatePicker-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/cupertino/date_picker.dart#L248"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">CupertinoDatePicker</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>iOS 风格的日期选择器组件。</p>
+<p><a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode</a> 列出了日期选择器的多种模式。</p>
+<p>此类会将子项显示为连续的列。列的顺序根据国际化设置确定，也可通过 <a href="cupertino/CupertinoDatePicker/dateOrder.html">dateOrder</a> 属性指定。</p>
+<p>日期模式下的选择器示例：</p>
+<ul>
+<li>US-English: <code>| July | 13 | 2012 |</code></li>
+<li>Vietnamese: <code>| 13 | Tháng 7 | 2012 |</code></li>
+</ul>
+<p>可以与 <a href="cupertino/showCupertinoModalPopup.html">showCupertinoModalPopup</a> 搭配使用，在屏幕底部以模态方式显示选择器。</p>
+<p>组件会根据父级尺寸调整自身大小；如果未提供全屏宽度，可能无法正确渲染。内容文本使用 <a href="cupertino/CupertinoTextThemeData/dateTimePickerTextStyle.html">CupertinoTextThemeData.dateTimePickerTextStyle</a>。</p>
+<p>
+<a name="cupertino.CupertinoDatePicker.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">
+此示例展示如何通过不同的选择器模式实现 CupertinoDatePicker。可以为选择器提供要显示的初始日期时间值。用户拖动日期或时间滚轮进行更改时，选择器会调用 onDateTimeChanged 回调。</p>
+<p>CupertinoDatePicker 可以直接显示在屏幕上，也可以显示在弹出窗口中。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'cupertino.CupertinoDatePicker.1');" onclick="fixHref(this, 'cupertino.CupertinoDatePicker.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=cupertino.CupertinoDatePicker.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=cupertino.CupertinoDatePicker.1&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="cupertino/CupertinoTimerPicker-class.html">CupertinoTimerPicker</a>, the class that implements the iOS-style timer picker.</li>
+<li><a href="cupertino/CupertinoPicker-class.html">CupertinoPicker</a>, the class that implements a content agnostic spinner UI.</li>
+<li><a href="https://developer.apple.com/design/human-interface-guidelines/ios/controls/pickers/">developer.apple.com/design/human-interface-guidelines/ios/controls/pickers/</a></li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>CupertinoDatePicker</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="CupertinoDatePicker.new" class="callable">
+          <span class="name"><a href="cupertino/CupertinoDatePicker/CupertinoDatePicker.html">CupertinoDatePicker</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-mode"><span class="type-annotation"><a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode</a></span> <span class="parameter-name">mode</span> = <span class="default-value">CupertinoDatePickerMode.dateAndTime</span>, </span><span class="parameter" id="-param-onDateTimeChanged"><span>required</span> <span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/DateTime-class.html">DateTime</a></span>&gt;</span></span> <span class="parameter-name">onDateTimeChanged</span>, </span><span class="parameter" id="-param-initialDateTime"><span class="type-annotation"><a href="dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">initialDateTime</span>, </span><span class="parameter" id="-param-minimumDate"><span class="type-annotation"><a href="dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">minimumDate</span>, </span><span class="parameter" id="-param-maximumDate"><span class="type-annotation"><a href="dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">maximumDate</span>, </span><span class="parameter" id="-param-minimumYear"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minimumYear</span> = <span class="default-value">1</span>, </span><span class="parameter" id="-param-maximumYear"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maximumYear</span>, </span><span class="parameter" id="-param-minuteInterval"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minuteInterval</span> = <span class="default-value">1</span>, </span><span class="parameter" id="-param-use24hFormat"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">use24hFormat</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-dateOrder"><span class="type-annotation"><a href="cupertino/DatePickerDateOrder.html">DatePickerDateOrder</a>?</span> <span class="parameter-name">dateOrder</span>, </span><span class="parameter" id="-param-backgroundColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">backgroundColor</span>, </span><span class="parameter" id="-param-showDayOfWeek"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showDayOfWeek</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-showTimeSeparator"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showTimeSeparator</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-itemExtent"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">itemExtent</span> = <span class="default-value">_kItemExtent</span>, </span><span class="parameter" id="-param-selectionOverlayBuilder"><span class="type-annotation"><a href="cupertino/SelectionOverlayBuilder.html">SelectionOverlayBuilder</a>?</span> <span class="parameter-name">selectionOverlayBuilder</span>, </span><span class="parameter" id="-param-selectableDayPredicate"><span class="type-annotation"><a href="widgets/SelectableDayPredicate.html">SelectableDayPredicate</a>?</span> <span class="parameter-name">selectableDayPredicate</span>, </span><span class="parameter" id="-param-changeReportingBehavior"><span class="type-annotation"><a href="widgets/ChangeReportingBehavior.html">ChangeReportingBehavior</a></span> <span class="parameter-name">changeReportingBehavior</span> = <span class="default-value">ChangeReportingBehavior.onScrollUpdate</span></span>})</span>
+        </dt>
+        <dd>
+          Constructs an iOS style date picker.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="backgroundColor" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/backgroundColor.html">backgroundColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  Background color of date picker.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="changeReportingBehavior" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/changeReportingBehavior.html">changeReportingBehavior</a></span>
+  <span class="signature">&#8594; <a href="widgets/ChangeReportingBehavior.html">ChangeReportingBehavior</a></span>
+  
+
+</dt>
+<dd>
+  The behavior of reporting the selected date.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="dateOrder" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/dateOrder.html">dateOrder</a></span>
+  <span class="signature">&#8594; <a href="cupertino/DatePickerDateOrder.html">DatePickerDateOrder</a>?</span>
+  
+
+</dt>
+<dd>
+  Determines the order of the columns inside <a href="cupertino/CupertinoDatePicker-class.html">CupertinoDatePicker</a> in
+<a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode.date</a> 和 <a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode.monthYear</a>
+mode. When using monthYear mode, both <a href="cupertino/DatePickerDateOrder.html">DatePickerDateOrder.dmy</a> 和
+<a href="cupertino/DatePickerDateOrder.html">DatePickerDateOrder.mdy</a> will result in the month|year order.
+Defaults to the locale's default date format/order.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="initialDateTime" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/initialDateTime.html">initialDateTime</a></span>
+  <span class="signature">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  
+
+</dt>
+<dd>
+  The initial date and/or time of the picker. Defaults to the present date
+and time. The present must conform to the intervals set in <a href="cupertino/CupertinoDatePicker/minimumDate.html">minimumDate</a>,
+<a href="cupertino/CupertinoDatePicker/maximumDate.html">maximumDate</a>, <a href="cupertino/CupertinoDatePicker/minimumYear.html">minimumYear</a>, and <a href="cupertino/CupertinoDatePicker/maximumYear.html">maximumYear</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="itemExtent" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/itemExtent.html">itemExtent</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The uniform height of all children.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="maximumDate" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/maximumDate.html">maximumDate</a></span>
+  <span class="signature">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  
+
+</dt>
+<dd>
+  The maximum selectable date that the picker can settle on.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="maximumYear" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/maximumYear.html">maximumYear</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  Maximum year that the picker can be scrolled to in
+<a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode.date</a> mode. Null if there's no limit.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="minimumDate" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/minimumDate.html">minimumDate</a></span>
+  <span class="signature">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  
+
+</dt>
+<dd>
+  The minimum selectable date that the picker can settle on.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="minimumYear" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/minimumYear.html">minimumYear</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Minimum year that the picker can be scrolled to in
+<a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode.date</a> mode. Defaults to 1.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="minuteInterval" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/minuteInterval.html">minuteInterval</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The granularity of the minutes spinner, if it is shown in the current mode.
+Must be an integer factor of 60.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="mode" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/mode.html">mode</a></span>
+  <span class="signature">&#8594; <a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode</a></span>
+  
+
+</dt>
+<dd>
+  The mode of the date picker as one of <a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode</a>. Defaults
+to <a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode.dateAndTime</a>. Value cannot change after
+initial build.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onDateTimeChanged" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/onDateTimeChanged.html">onDateTimeChanged</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/DateTime-class.html">DateTime</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  Callback called when the selected date and/or time changes. If the new
+selected <a href="dart-core/DateTime-class.html">DateTime</a> is not valid, or is not in the <a href="cupertino/CupertinoDatePicker/minimumDate.html">minimumDate</a> through
+<a href="cupertino/CupertinoDatePicker/maximumDate.html">maximumDate</a> range, this callback will not be called.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="selectableDayPredicate" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/selectableDayPredicate.html">selectableDayPredicate</a></span>
+  <span class="signature">&#8594; <a href="widgets/SelectableDayPredicate.html">SelectableDayPredicate</a>?</span>
+  
+
+</dt>
+<dd>
+  Function to provide full control over which <a href="dart-core/DateTime-class.html">DateTime</a> can be selected.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectionOverlayBuilder" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/selectionOverlayBuilder.html">selectionOverlayBuilder</a></span>
+  <span class="signature">&#8594; <a href="cupertino/SelectionOverlayBuilder.html">SelectionOverlayBuilder</a>?</span>
+  
+
+</dt>
+<dd>
+  A function that returns a widget that is overlaid on the picker
+to highlight the currently selected entry.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="showDayOfWeek" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/showDayOfWeek.html">showDayOfWeek</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to show the day of week alongside the day in <a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode.date</a> mode.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="showTimeSeparator" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/showTimeSeparator.html">showTimeSeparator</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to show the time separator between hour and minute in the time
+<a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode.time</a> and datetime <a href="cupertino/CupertinoDatePickerMode.html">CupertinoDatePickerMode.dateAndTime</a>
+picker modes.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="use24hFormat" class="property">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/use24hFormat.html">use24hFormat</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to use 24 hour format. Defaults to false.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="getColumnWidth" class="callable">
+  <span class="name"><a href="cupertino/CupertinoDatePicker/getColumnWidth.html">getColumnWidth</a></span><span class="signature">(<wbr>{<span class="parameter" id="getColumnWidth-param-texts"><span>required</span> <span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">texts</span>, </span><span class="parameter" id="getColumnWidth-param-context"><span>required</span> <span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="getColumnWidth-param-textStyle"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">textStyle</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the width of column in the picker.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="cupertino/">cupertino</a></li>
+    <li class="self-crumb">CupertinoDatePicker 类</li>
+</ol>
+
+    <h5>cupertino 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

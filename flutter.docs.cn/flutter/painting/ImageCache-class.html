@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="painting 库中 ImageCache 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>ImageCache 类 - painting 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="painting/">painting.dart</a></li>
+    <li class="self-crumb">ImageCache 类</li>
+  </ol>
+  <div class="self-name">ImageCache</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="painting&#47;painting-library-sidebar.html"
+    data-below-sidebar="painting&#47;ImageCache-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/painting/image_cache.dart#L86"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">ImageCache</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>用于缓存图像的类。</p>
+<p>实现最多缓存 1000 张图像、总量最多 100 MB 的最近最少使用（LRU）缓存。可通过 <a href="painting/ImageCache/maximumSize.html">maximumSize</a> 和 <a href="painting/ImageCache/maximumSizeBytes.html">maximumSizeBytes</a> 调整最大容量。</p>
+<p>缓存还会维护一组“活动”引用。如果某个 <a href="painting/ImageStreamCompleter-class.html">ImageStreamCompleter</a> 至少添加过一个监听器，且监听器数量之后从未降至零，则对应图像会被视为活动图像。缓存通过 <a href="painting/ImageStreamCompleter/addOnLastListenerRemovedCallback.html">ImageStreamCompleter.addOnLastListenerRemovedCallback</a> 判断监听器是否发生过这种变化。</p>
+<p><a href="painting/ImageCache/putIfAbsent.html">putIfAbsent</a> 是缓存 API 的主要入口。如果给定键对应的 <a href="painting/ImageStreamCompleter-class.html">ImageStreamCompleter</a> 已缓存，则返回该对象；否则先调用给定回调获取对象。无论哪种情况，都会将该键移至“最近使用”位置。</p>
+<p>调用方可以使用 <a href="painting/ImageCache/containsKey.html">containsKey</a> 判断图像是否已在缓存中：如果缓存正在跟踪该图像，且图像处于等待中或已完成状态，则返回 true。若要获取更详细的信息，请使用 <a href="painting/ImageCache/statusForKey.html">statusForKey</a> 方法。</p>
+<p>通常不直接使用此类。<a href="painting/ImageProvider-class.html">ImageProvider</a> 类及其子类会自动处理图像缓存。</p>
+<p><a href="painting/PaintingBinding-mixin.html">PaintingBinding</a> 持有此缓存的共享实例，可通过 <a href="rendering/imageCache.html">imageCache</a> 库顶层属性（位于 <a href="painting/">painting</a> 库）获取。</p>
+<p>
+<a name="painting.ImageCache.1"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+此示例展示如何提供自定义缓存逻辑并替换全局 <a href="rendering/imageCache.html">imageCache</a> 变量。
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'painting.ImageCache.1');" onclick="fixHref(this, 'painting.ImageCache.1'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">&#47;&#47;&#47; This is the custom implementation of [ImageCache] where we can override
+&#47;&#47;&#47; the logic.
+class MyImageCache extends ImageCache {
+  @override
+  void clear() {
+    print(&#39;Clearing cache!&#39;);
+    super.clear();
+  }
+}
+
+class MyWidgetsBinding extends WidgetsFlutterBinding {
+  @override
+  ImageCache createImageCache() =&gt; MyImageCache();
+}
+
+void main() {
+  &#47;&#47; The constructor sets global variables.
+  MyWidgetsBinding();
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}</code></pre>
+  </div>
+</div>
+</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="ImageCache.new" class="callable">
+          <span class="name"><a href="painting/ImageCache/ImageCache.html">ImageCache</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="currentSize" class="property">
+  <span class="name"><a href="painting/ImageCache/currentSize.html">currentSize</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The current number of cached entries.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="currentSizeBytes" class="property">
+  <span class="name"><a href="painting/ImageCache/currentSizeBytes.html">currentSizeBytes</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The current size of cached entries in bytes.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="liveImageCount" class="property">
+  <span class="name"><a href="painting/ImageCache/liveImageCount.html">liveImageCount</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The number of live images being held by the <a href="painting/ImageCache-class.html">ImageCache</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="maximumSize" class="property">
+  <span class="name"><a href="painting/ImageCache/maximumSize.html">maximumSize</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Maximum number of entries to store in the cache.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="maximumSizeBytes" class="property">
+  <span class="name"><a href="painting/ImageCache/maximumSizeBytes.html">maximumSizeBytes</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Maximum size of entries to store in the cache in bytes.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="pendingImageCount" class="property">
+  <span class="name"><a href="painting/ImageCache/pendingImageCount.html">pendingImageCount</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The number of images being tracked as pending in the <a href="painting/ImageCache-class.html">ImageCache</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="clear" class="callable">
+  <span class="name"><a href="painting/ImageCache/clear.html">clear</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Evicts all pending and keepAlive entries from the cache.
+  
+
+</dd>
+
+        <dt id="clearLiveImages" class="callable">
+  <span class="name"><a href="painting/ImageCache/clearLiveImages.html">clearLiveImages</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Clears any live references to images in this cache.
+  
+
+</dd>
+
+        <dt id="containsKey" class="callable">
+  <span class="name"><a href="painting/ImageCache/containsKey.html">containsKey</a></span><span class="signature">(<wbr><span class="parameter" id="containsKey-param-key"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">key</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns whether this <code>key</code> has been previously added by <a href="painting/ImageCache/putIfAbsent.html">putIfAbsent</a>.
+  
+
+</dd>
+
+        <dt id="evict" class="callable">
+  <span class="name"><a href="painting/ImageCache/evict.html">evict</a></span><span class="signature">(<wbr><span class="parameter" id="evict-param-key"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">key</span>, {</span><span class="parameter" id="evict-param-includeLive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includeLive</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Evicts a single entry from the cache, returning true if successful.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="putIfAbsent" class="callable">
+  <span class="name"><a href="painting/ImageCache/putIfAbsent.html">putIfAbsent</a></span><span class="signature">(<wbr><span class="parameter" id="putIfAbsent-param-key"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="putIfAbsent-param-loader"><span class="type-annotation"><a href="painting/ImageStreamCompleter-class.html">ImageStreamCompleter</a></span> <span class="parameter-name">loader</span>(), {</span><span class="parameter" id="putIfAbsent-param-onError"><span class="type-annotation"><a href="painting/ImageErrorListener.html">ImageErrorListener</a>?</span> <span class="parameter-name">onError</span></span>})
+    <span class="returntype parameter">&#8594; <a href="painting/ImageStreamCompleter-class.html">ImageStreamCompleter</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the previously cached <a href="painting/ImageStream-class.html">ImageStream</a> for the given key, if available;
+if not, calls the given callback to obtain it first. In either case, the
+key is moved to the 'most recently used' position.
+  
+
+</dd>
+
+        <dt id="statusForKey" class="callable">
+  <span class="name"><a href="painting/ImageCache/statusForKey.html">statusForKey</a></span><span class="signature">(<wbr><span class="parameter" id="statusForKey-param-key"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">key</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/ImageCacheStatus-class.html">ImageCacheStatus</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The <a href="painting/ImageCacheStatus-class.html">ImageCacheStatus</a> information for the given <code>key</code>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="painting/">painting</a></li>
+    <li class="self-crumb">ImageCache 类</li>
+</ol>
+
+    <h5>painting 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

@@ -1,0 +1,457 @@
+# semantics / _general 待翻译清单
+
+模块共 498 页：已完整 26 页，部分翻译 70 页，未翻译 374 页；正文已译 240/1,340 段。
+
+只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
+
+- `flutter/semantics/AccessibilityFocusBlockType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/AnnounceSemanticsEvent-class.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/semantics/AnnounceSemanticsEvent/AnnounceSemanticsEvent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/AnnounceSemanticsEvent/assertiveness.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/AnnounceSemanticsEvent/getDataMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/AnnounceSemanticsEvent/message.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/AnnounceSemanticsEvent/textDirection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/AnnounceSemanticsEvent/viewId.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/Assertiveness.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/AttributedString-class.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/AttributedString/AttributedString.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/AttributedString/attributes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/AttributedString/hashCode.html` — 部分；已译 3/7 段；待译段落：1, 2, 4, 6
+- `flutter/semantics/AttributedString/operator_equals.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/AttributedString/operator_plus.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/AttributedString/string.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/AttributedStringProperty-class.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/AttributedStringProperty/AttributedStringProperty.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/AttributedStringProperty/showWhenEmpty.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/AttributedStringProperty/valueToString.html` — 部分；已译 3/4 段；待译段落：2
+- `flutter/semantics/ChildSemanticsConfigurationsDelegate.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/ChildSemanticsConfigurationsResult-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/ChildSemanticsConfigurationsResult/mergeUp.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/ChildSemanticsConfigurationsResult/siblingMergeGroups.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/ChildSemanticsConfigurationsResultBuilder-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/ChildSemanticsConfigurationsResultBuilder/ChildSemanticsConfigurationsResultBuilder.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/ChildSemanticsConfigurationsResultBuilder/build.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/ChildSemanticsConfigurationsResultBuilder/markAsMergeUp.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/ChildSemanticsConfigurationsResultBuilder/markAsSiblingMergeGroup.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/CustomSemanticsAction-class.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/CustomSemanticsAction/CustomSemanticsAction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/CustomSemanticsAction/CustomSemanticsAction.overridingAction.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/CustomSemanticsAction/action.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/CustomSemanticsAction/getAction.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/CustomSemanticsAction/getIdentifier.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/CustomSemanticsAction/hashCode.html` — 部分；已译 3/7 段；待译段落：1, 2, 4, 6
+- `flutter/semantics/CustomSemanticsAction/hint.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/CustomSemanticsAction/label.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/CustomSemanticsAction/operator_equals.html` — 部分；已译 8/9 段；待译段落：8
+- `flutter/semantics/CustomSemanticsAction/resetForTests.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/DebugSemanticsDumpOrder.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/FocusSemanticEvent-class.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/semantics/FocusSemanticEvent/FocusSemanticEvent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/FocusSemanticEvent/getDataMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/LongPressSemanticsEvent-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/LongPressSemanticsEvent/LongPressSemanticsEvent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/LongPressSemanticsEvent/getDataMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/MoveCursorHandler.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/OrdinalSortKey-class.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/OrdinalSortKey/OrdinalSortKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+
+- `flutter/semantics/OrdinalSortKey/doCompare.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/OrdinalSortKey/order.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/ScrollToOffsetHandler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsActionHandler.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsBinding-mixin.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsBinding/accessibilityFeatures.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/addSemanticsActionListener.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/addSemanticsEnabledListener.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/semantics/SemanticsBinding/createSemanticsUpdateBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/debugCheckZone.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
+- `flutter/semantics/SemanticsBinding/debugOutstandingSemanticsHandles.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsBinding/disableAnimations.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsBinding/ensureSemantics.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/getRectOfSemanticsNodeInViewCoordinates.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/handleAccessibilityFeaturesChanged.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsBinding/initInstances.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsBinding/initServiceExtensions.html` — 部分；已译 3/8 段；待译段落：0, 1, 2, 3, 6
+- `flutter/semantics/SemanticsBinding/instance.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsBinding/lockEvents.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsBinding/locked.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/performReassemble.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/performSemanticsAction.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsBinding/platformDispatcher.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/postEvent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsBinding/reassembleApplication.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/SemanticsBinding/registerBoolServiceExtension.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/semantics/SemanticsBinding/registerNumericServiceExtension.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/semantics/SemanticsBinding/registerServiceExtension.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/semantics/SemanticsBinding/registerSignalServiceExtension.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/semantics/SemanticsBinding/registerStringServiceExtension.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/semantics/SemanticsBinding/removeSemanticsActionListener.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsBinding/removeSemanticsEnabledListener.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/semantics/SemanticsBinding/semanticsEnabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsBinding/unlocked.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsBinding/window.html` — 部分；已译 1/7 段；待译段落：0, 1, 2, 3, 4, 5
+- `flutter/semantics/SemanticsConfiguration-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/absorb.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/accessibilityFocusBlockType.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/addTagForChildren.html` — 部分；已译 2/4 段；待译段落：1, 2
+- `flutter/semantics/SemanticsConfiguration/attributedDecreasedValue.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/attributedHint.html` — 部分；已译 2/4 段；待译段落：0, 2
+- `flutter/semantics/SemanticsConfiguration/attributedIncreasedValue.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/attributedLabel.html` — 部分；已译 2/4 段；待译段落：0, 2
+- `flutter/semantics/SemanticsConfiguration/attributedValue.html` — 部分；已译 2/4 段；待译段落：0, 2
+- `flutter/semantics/SemanticsConfiguration/childConfigurationsDelegate.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/controlsNodes.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/copy.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/currentValueLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/customSemanticsActions.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/decreasedValue.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/explicitChildNodes.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/getActionHandler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/hasBeenAnnotated.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/hasImplicitScrolling.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/headingLevel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/hint.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/hintOverrides.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/hitTestBehavior.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/identifier.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/semantics/SemanticsConfiguration/increasedValue.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/indexInParent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/inputType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/isBlockingSemanticsOfPreviouslyPaintedNodes.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/isBlockingUserActions.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/isButton.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isCheckStateMixed.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/isChecked.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/isCompatibleWith.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/isEnabled.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/SemanticsConfiguration/isExpanded.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/isFocusable.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isFocused.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isHeader.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isHidden.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/SemanticsConfiguration/isImage.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isInMutuallyExclusiveGroup.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/isKeyboardKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isLink.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isMergingSemanticsOfDescendants.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/isMultiline.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/isObscured.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/isReadOnly.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/isRequired.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/isSelected.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/isSemanticBoundary.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/isSlider.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isTextField.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/isToggled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/label.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/linkUrl.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/liveRegion.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/locale.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/localeForSubtree.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/maxValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/maxValueLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/minValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/namesRoute.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/onCollapse.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/onCopy.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onCut.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onDecrease.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/onDidGainAccessibilityFocus.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onDidLoseAccessibilityFocus.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onDismiss.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onExpand.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/onFocus.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onIncrease.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/onLongPress.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onMoveCursorBackwardByCharacter.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onMoveCursorBackwardByWord.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onMoveCursorForwardByCharacter.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onMoveCursorForwardByWord.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onPaste.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onScrollDown.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onScrollLeft.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onScrollRight.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onScrollToOffset.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onScrollUp.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onSetSelection.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onSetText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onShowOnScreen.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/onTap.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/platformViewId.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/role.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/scopesRoute.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/scrollChildCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/scrollExtentMax.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/scrollExtentMin.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/scrollIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/scrollPosition.html` — 部分；已译 2/3 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/sortKey.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsConfiguration/tagsChildrenWith.html` — 未译；已译 0/1 段；待译段落：0
+
+- `flutter/semantics/SemanticsConfiguration/textDirection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/textSelection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsConfiguration/tooltip.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsConfiguration/traversalChildIdentifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/traversalParentIdentifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/validationResult.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsConfiguration/value.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/SemanticsData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/actions.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/attributedDecreasedValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/attributedHint.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/attributedIncreasedValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/attributedLabel.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/attributedValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/controlsNodes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/currentValueLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/customSemanticsActionIds.html` — 部分；已译 1/3 段；待译段落：0, 1
+
+- `flutter/semantics/SemanticsData/decreasedValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/flags.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/flagsCollection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/hasAction.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/hasFlag.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/hashCode.html` — 部分；已译 3/7 段；待译段落：1, 2, 4, 6
+- `flutter/semantics/SemanticsData/headingLevel.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/hint.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/hitTestBehavior.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/identifier.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/semantics/SemanticsData/increasedValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/inputType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/label.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/linkUrl.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/semantics/SemanticsData/locale.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/maxValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/maxValueLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/minValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/operator_equals.html` — 部分；已译 8/9 段；待译段落：8
+- `flutter/semantics/SemanticsData/platformViewId.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/rect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/role.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsData/scrollChildCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/scrollExtentMax.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/scrollExtentMin.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/scrollIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/scrollPosition.html` — 部分；已译 2/3 段；待译段落：0
+- `flutter/semantics/SemanticsData/tags.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/textDirection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/textSelection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsData/toStringShort.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/semantics/SemanticsData/tooltip.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/transform.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsData/traversalChildIdentifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsData/traversalParentIdentifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsData/validationResult.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsData/value.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsEvent-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsEvent/SemanticsEvent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsEvent/getDataMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsEvent/toMap.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsEvent/type.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsHintOverrides-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsHintOverrides/SemanticsHintOverrides.html` — 未译；已译 0/1 段；待译段落：0
+
+- `flutter/semantics/SemanticsHintOverrides/hashCode.html` — 部分；已译 3/7 段；待译段落：1, 2, 4, 6
+- `flutter/semantics/SemanticsHintOverrides/isNotEmpty.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsHintOverrides/onLongPressHint.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsHintOverrides/onTapHint.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsHintOverrides/operator_equals.html` — 部分；已译 8/9 段；待译段落：8
+- `flutter/semantics/SemanticsLabelBuilder-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsLabelBuilder/SemanticsLabelBuilder.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsLabelBuilder/addPart.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsLabelBuilder/build.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsLabelBuilder/clear.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsLabelBuilder/isEmpty.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsLabelBuilder/length.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsLabelBuilder/separator.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsLabelBuilder/textDirection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/SemanticsNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/SemanticsNode.root.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/areUserActionsBlocked.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/attached.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/attributedDecreasedValue.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsNode/attributedHint.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/attributedIncreasedValue.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsNode/attributedLabel.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/attributedValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/childrenCount.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/childrenCountInTraversalOrder.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/controlsNodes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/currentValueLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/debugDescribeChildren.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
+
+- `flutter/semantics/SemanticsNode/debugIsDirty.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/debugListChildrenInOrder.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/decreasedValue.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsNode/depth.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/detach.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/flagsCollection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/getSemanticsData.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/hasChildren.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/hasFlag.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/headingLevel.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/hint.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/hintOverrides.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/hitTestBehavior.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/id.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/identifier.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/semantics/SemanticsNode/increasedValue.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsNode/indexInParent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/inputType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/isInvisible.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/isMergedIntoParent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/isMultiline.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/isPartOfNodeMerging.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/isTagged.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/key.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/label.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/linkUrl.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/maxValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/maxValueLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/mergeAllDescendantsIntoThisNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/minValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/owner.html` — 部分；已译 1/2 段；待译段落：1
+- `flutter/semantics/SemanticsNode/parent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/parentPaintClipRect.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/SemanticsNode/parentSemanticsClipRect.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/SemanticsNode/platformViewId.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/rect.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/role.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/scrollChildCount.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/scrollExtentMax.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/scrollExtentMin.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/scrollIndex.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/scrollPosition.html` — 部分；已译 2/3 段；待译段落：0
+- `flutter/semantics/SemanticsNode/sendEvent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/sortKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/tags.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/textDirection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/textSelection.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsNode/toDiagnosticsNode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/toStringDeep.html` — 部分；已译 1/2 段；待译段落：1
+- `flutter/semantics/SemanticsNode/tooltip.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/transform.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/traversalChildIdentifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsNode/traversalParent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNode/traversalParentIdentifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsNode/updateWith.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/validationResult.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsNode/value.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsNode/visitChildren.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsNodeVisitor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsOwner-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsOwner/SemanticsOwner.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsOwner/getSemanticsNode.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsOwner/onSemanticsUpdate.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsOwner/performAction.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsOwner/performActionAt.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsOwner/rootSemanticsNode.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsOwner/sendSemanticsUpdate.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsProperties-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/SemanticsProperties.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsProperties/accessibilityFocusBlockType.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/attributedDecreasedValue.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/attributedHint.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/attributedIncreasedValue.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/attributedLabel.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/attributedValue.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/button.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/checked.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/controlsNodes.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/currentValueLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/customSemanticsActions.html` — 部分；已译 1/3 段；待译段落：0, 1
+
+- `flutter/semantics/SemanticsProperties/decreasedValue.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/enabled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/expanded.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/focusable.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/focused.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/header.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/headingLevel.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/hidden.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/SemanticsProperties/hint.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/hintOverrides.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/semantics/SemanticsProperties/hitTestBehavior.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/identifier.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/semantics/SemanticsProperties/image.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/semantics/SemanticsProperties/inMutuallyExclusiveGroup.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/increasedValue.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/inputType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/isRequired.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/keyboardKey.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SemanticsProperties/label.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/link.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/linkUrl.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/liveRegion.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/maxValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/maxValueLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/minValue.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/mixed.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/multiline.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/namesRoute.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/semantics/SemanticsProperties/obscured.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/onCollapse.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onCopy.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onCut.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onDecrease.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/onDidGainAccessibilityFocus.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onDidLoseAccessibilityFocus.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onDismiss.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onExpand.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onFocus.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onIncrease.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/onLongPress.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/onMoveCursorBackwardByCharacter.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onMoveCursorBackwardByWord.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onMoveCursorForwardByCharacter.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onMoveCursorForwardByWord.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onPaste.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onScrollDown.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onScrollLeft.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onScrollRight.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onScrollUp.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onSetSelection.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onSetText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/onTap.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/readOnly.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/role.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/scopesRoute.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/selected.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/slider.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/sortKey.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/tagForChildren.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/textDirection.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/textField.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/toggled.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsProperties/tooltip.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsProperties/traversalChildIdentifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/traversalParentIdentifier.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/validationResult.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsProperties/value.html` — 部分；已译 2/4 段；待译段落：0, 1
+- `flutter/semantics/SemanticsService-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsService/announce.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
+- `flutter/semantics/SemanticsService/sendAnnouncement.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
+- `flutter/semantics/SemanticsService/tooltip.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsSortKey-class.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsSortKey/compareTo.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+
+- `flutter/semantics/SemanticsSortKey/doCompare.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsSortKey/name.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/semantics/SemanticsTag-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/semantics/SemanticsTag/SemanticsTag.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsTag/name.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SemanticsUpdateCallback.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/SetSelectionHandler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/SetTextHandler.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/TapSemanticEvent-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/TapSemanticEvent/TapSemanticEvent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/TapSemanticEvent/getDataMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/TooltipSemanticsEvent-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/TooltipSemanticsEvent/TooltipSemanticsEvent.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/TooltipSemanticsEvent/getDataMap.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/TooltipSemanticsEvent/message.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/debugResetSemanticsIdCounter.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/semantics/debugSemanticsDisableAnimations.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/semantics/index.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 Container 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Container 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">Container 类</li>
+  </ol>
+  <div class="self-name">Container</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;Container-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/container.dart#L246"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">Container</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一个便捷组件，可组合常见的绘制、定位和尺寸控制组件。</p>
+<iframe src="https://www.youtube.com/embed/c1xLMaTUWCY?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
+autoplay; 
+clipboard-write; 
+encrypted-media; 
+gyroscope; 
+picture-in-picture" allowfullscreen="" style="max-width: 560px;
+max-height: 315px;
+width: 100%;
+height: 100%;
+aspect-ratio: 560 / 315;">
+</iframe>
+<p>Container 首先在子组件周围添加 <a href="widgets/Container/padding.html">padding</a>（并将 <a href="widgets/Container/decoration.html">decoration</a> 中已有的边框计入内边距），然后对内边距区域施加额外的 <a href="widgets/Container/constraints.html">constraints</a>（如果指定了非 null 的 <code>width</code> 或 <code>height</code>，也会将其作为约束）。最后，Container 外围会增加由 <a href="widgets/Container/margin.html">margin</a> 描述的空白区域。</p>
+<p>绘制时，Container 会先应用指定的 <a href="widgets/Container/transform.html">transform</a>，然后在内边距区域绘制 <a href="widgets/Container/decoration.html">decoration</a>，接着绘制子组件，最后也在内边距区域绘制 <a href="widgets/Container/foregroundDecoration.html">foregroundDecoration</a>。</p>
+<p>没有子组件的 Container 会尽量扩展到最大尺寸；如果收到的约束没有边界，则会尽量缩小。有子组件时，Container 会根据子组件确定自身尺寸。构造函数中的 <code>width</code>、<code>height</code> 和 <a href="widgets/Container/constraints.html">constraints</a> 参数会覆盖此行为。</p>
+<p>默认情况下，Container 的所有命中测试都会返回 false。指定 <a href="widgets/Container/color.html">color</a> 后，命中测试由始终返回 true 的 <a href="widgets/ColoredBox-class.html">ColoredBox</a> 处理。指定 <a href="widgets/Container/decoration.html">decoration</a> 或 <a href="widgets/Container/foregroundDecoration.html">foregroundDecoration</a> 后，则由 <a href="painting/Decoration/hitTest.html">Decoration.hitTest</a> 处理。</p>
+<h2 id="layout-behavior">布局行为</h2>
+<p><em>盒子布局模型简介请参阅 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>。</em></p>
+<p><a href="widgets/Container-class.html">Container</a> 组合了多个各自具有布局行为的组件，因此 <a href="widgets/Container-class.html">Container</a> 的布局行为比较复杂。</p>
+<p>摘要：<a href="widgets/Container-class.html">Container</a> 会依次尝试遵循 <a href="widgets/Container/alignment.html">alignment</a>、根据 <a href="widgets/Container/child.html">child</a> 确定自身尺寸、遵循 <code>width</code>、<code>height</code> 和 <a href="widgets/Container/constraints.html">constraints</a>、扩展以填满父组件，最后尽可能缩小。</p>
+<p>具体来说：</p>
+<p>如果组件没有子组件、<code>height</code>、<code>width</code>、<a href="widgets/Container/constraints.html">constraints</a>，且父组件提供无边界约束，<a href="widgets/Container-class.html">Container</a> 会尽量缩小。</p>
+<p>如果组件没有子组件和 <a href="widgets/Container/alignment.html">alignment</a>，但指定了 <code>height</code>、<code>width</code> 或 <a href="widgets/Container/constraints.html">constraints</a>，<a href="widgets/Container-class.html">Container</a> 会根据这些约束与父组件约束的组合尽可能缩小。</p>
+<p>如果组件没有子组件、<code>height</code>、<code>width</code>、<a href="widgets/Container/constraints.html">constraints</a> 和 <a href="widgets/Container/alignment.html">alignment</a>，但父组件提供了有边界的约束，<a href="widgets/Container-class.html">Container</a> 会扩展以填满父组件提供的约束范围。</p>
+<p>如果组件设置了 <a href="widgets/Container/alignment.html">alignment</a>，而父组件提供无边界约束，则 <a href="widgets/Container-class.html">Container</a> 会围绕子组件确定自身尺寸。</p>
+<p>如果组件设置了 <a href="widgets/Container/alignment.html">alignment</a>，而父组件提供有边界的约束，则 <a href="widgets/Container-class.html">Container</a> 会扩展以填满父组件，再按 <a href="widgets/Container/alignment.html">alignment</a> 在内部放置子组件。</p>
+<p>其他情况下，组件有 <a href="widgets/Container/child.html">child</a>，但没有 <code>height</code>、<code>width</code>、<a href="widgets/Container/constraints.html">constraints</a> 或 <a href="widgets/Container/alignment.html">alignment</a>；此时 <a href="widgets/Container-class.html">Container</a> 会将父组件的约束传给子组件，并根据子组件确定自身尺寸。</p>
+<p><a href="widgets/Container/margin.html">margin</a> 和 <a href="widgets/Container/padding.html">padding</a> 属性也会影响布局，详情请参阅各自的说明（它们只会在上述规则基础上增加影响）。<a href="widgets/Container/decoration.html">decoration</a> 也可能隐式增加 <a href="widgets/Container/padding.html">padding</a>（例如，<a href="painting/BoxDecoration-class.html">BoxDecoration</a> 中的边框会计入 <a href="widgets/Container/padding.html">padding</a>）；参阅 <a href="painting/Decoration/padding.html">Decoration.padding</a>。</p>
+<h2 id="example">示例</h2>
+<p>
+<a name="widgets.Container.1"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+此示例展示一个 48×48 的琥珀色正方形（放在 <a href="widgets/Center-class.html">Center</a> widget 中，以适应父 widget 对 <a href="widgets/Container-class.html">Container</a> 尺寸的限制），并设置外边距使其与相邻 widget 保持距离：</p>
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/container_a.png" alt="一个尺寸为 48×48 像素的琥珀色容器。">
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'widgets.Container.1');" onclick="fixHref(this, 'widgets.Container.1'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">Center(
+  child: Container(
+    margin: const EdgeInsets.all(10.0),
+    color: Colors.amber[600],
+    width: 48.0,
+    height: 48.0,
+  ),
+)</code></pre>
+  </div>
+</div>
+</p>
+<p>
+<a name="widgets.Container.2"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+此示例展示如何同时使用 <a href="widgets/Container-class.html">Container</a> 的多项功能。<a href="widgets/Container/constraints.html">constraints</a> 适应字体大小并留出垂直空间，同时水平扩展以适应父项；<a href="widgets/Container/padding.html">padding</a> 在内容与文本之间留出间距；<a href="widgets/Container/color.html">color</a> 将容器设为蓝色；<a href="widgets/Container/alignment.html">alignment</a> 使 <a href="widgets/Container/child.html">child</a> 居中；最后，<a href="widgets/Container/transform.html">transform</a> 让整体轻微旋转。</p>
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/container_b.png" alt="蓝色矩形容器，中央显示 Hello World，并绕 z 轴轻微旋转。">
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'widgets.Container.2');" onclick="fixHref(this, 'widgets.Container.2'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">Container(
+  constraints: BoxConstraints.expand(
+    height: Theme.of(context).textTheme.headlineMedium!.fontSize! * 1.1 + 200.0,
+  ),
+  padding: const EdgeInsets.all(8.0),
+  color: Colors.blue[600],
+  alignment: Alignment.center,
+  transform: Matrix4.rotationZ(0.1),
+  child: Text(&#39;Hello World&#39;,
+    style: Theme.of(context)
+        .textTheme
+        .headlineMedium!
+        .copyWith(color: Colors.white)),
+)</code></pre>
+  </div>
+</div>
+</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/AnimatedContainer-class.html">AnimatedContainer</a>, a variant that smoothly animates the properties when
+they change.</li>
+<li><a href="painting/Border-class.html">Border</a>, which has a sample which uses <a href="widgets/Container-class.html">Container</a> heavily.</li>
+<li><a href="material/Ink-class.html">Ink</a>, which paints a <a href="painting/Decoration-class.html">Decoration</a> on a <a href="material/Material-class.html">Material</a>, allowing
+<a href="material/InkResponse-class.html">InkResponse</a> 和 <a href="material/InkWell-class.html">InkWell</a> splashes to paint over them.</li>
+<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/animation/animated-container">Animate the properties of a container</a></li>
+<li>The <a href="https://docs.flutter.dev/ui/widgets/layout">catalog of layout widgets</a>.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a></li>
+      <li>Container</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Container.new" class="callable">
+          <span class="name"><a href="widgets/Container/Container.html">Container</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-alignment"><span class="type-annotation"><a href="painting/AlignmentGeometry-class.html">AlignmentGeometry</a>?</span> <span class="parameter-name">alignment</span>, </span><span class="parameter" id="-param-padding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="-param-color"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">color</span>, </span><span class="parameter" id="-param-isAntiAlias"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isAntiAlias</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-decoration"><span class="type-annotation"><a href="painting/Decoration-class.html">Decoration</a>?</span> <span class="parameter-name">decoration</span>, </span><span class="parameter" id="-param-foregroundDecoration"><span class="type-annotation"><a href="painting/Decoration-class.html">Decoration</a>?</span> <span class="parameter-name">foregroundDecoration</span>, </span><span class="parameter" id="-param-width"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">width</span>, </span><span class="parameter" id="-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="-param-constraints"><span class="type-annotation"><a href="rendering/BoxConstraints-class.html">BoxConstraints</a>?</span> <span class="parameter-name">constraints</span>, </span><span class="parameter" id="-param-margin"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">margin</span>, </span><span class="parameter" id="-param-transform"><span class="type-annotation"><a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a>?</span> <span class="parameter-name">transform</span>, </span><span class="parameter" id="-param-transformAlignment"><span class="type-annotation"><a href="painting/AlignmentGeometry-class.html">AlignmentGeometry</a>?</span> <span class="parameter-name">transformAlignment</span>, </span><span class="parameter" id="-param-child"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.none</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a widget that combines common painting, positioning, and sizing widgets.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="alignment" class="property">
+  <span class="name"><a href="widgets/Container/alignment.html">alignment</a></span>
+  <span class="signature">&#8594; <a href="painting/AlignmentGeometry-class.html">AlignmentGeometry</a>?</span>
+  
+
+</dt>
+<dd>
+  Align the <a href="widgets/Container/child.html">child</a> within the container.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="child" class="property">
+  <span class="name"><a href="widgets/Container/child.html">child</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="widgets/Container/child.html">child</a> contained by the container.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="clipBehavior" class="property">
+  <span class="name"><a href="widgets/Container/clipBehavior.html">clipBehavior</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Clip.html">Clip</a></span>
+  
+
+</dt>
+<dd>
+  The clip behavior when <a href="widgets/Container/decoration.html">Container.decoration</a> is not null.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="color" class="property">
+  <span class="name"><a href="widgets/Container/color.html">color</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  The color to paint behind the <a href="widgets/Container/child.html">child</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="constraints" class="property">
+  <span class="name"><a href="widgets/Container/constraints.html">constraints</a></span>
+  <span class="signature">&#8594; <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>?</span>
+  
+
+</dt>
+<dd>
+  Additional constraints to apply to the child.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="decoration" class="property">
+  <span class="name"><a href="widgets/Container/decoration.html">decoration</a></span>
+  <span class="signature">&#8594; <a href="painting/Decoration-class.html">Decoration</a>?</span>
+  
+
+</dt>
+<dd>
+  The decoration to paint behind the <a href="widgets/Container/child.html">child</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="foregroundDecoration" class="property">
+  <span class="name"><a href="widgets/Container/foregroundDecoration.html">foregroundDecoration</a></span>
+  <span class="signature">&#8594; <a href="painting/Decoration-class.html">Decoration</a>?</span>
+  
+
+</dt>
+<dd>
+  The decoration to paint in front of the <a href="widgets/Container/child.html">child</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isAntiAlias" class="property">
+  <span class="name"><a href="widgets/Container/isAntiAlias.html">isAntiAlias</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to apply anti-aliasing when painting the box.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="margin" class="property">
+  <span class="name"><a href="widgets/Container/margin.html">margin</a></span>
+  <span class="signature">&#8594; <a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span>
+  
+
+</dt>
+<dd>
+  Empty space to surround the <a href="widgets/Container/decoration.html">decoration</a> 和 <a href="widgets/Container/child.html">child</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="padding" class="property">
+  <span class="name"><a href="widgets/Container/padding.html">padding</a></span>
+  <span class="signature">&#8594; <a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span>
+  
+
+</dt>
+<dd>
+  Empty space to inscribe inside the <a href="widgets/Container/decoration.html">decoration</a>. The <a href="widgets/Container/child.html">child</a>, if any, is
+placed inside this padding.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="transform" class="property">
+  <span class="name"><a href="widgets/Container/transform.html">transform</a></span>
+  <span class="signature">&#8594; <a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a>?</span>
+  
+
+</dt>
+<dd>
+  The transformation matrix to apply before painting the container.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="transformAlignment" class="property">
+  <span class="name"><a href="widgets/Container/transformAlignment.html">transformAlignment</a></span>
+  <span class="signature">&#8594; <a href="painting/AlignmentGeometry-class.html">AlignmentGeometry</a>?</span>
+  
+
+</dt>
+<dd>
+  The alignment of the origin, relative to the size of the container, if <a href="widgets/Container/transform.html">transform</a> is specified.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="build" class="callable">
+  <span class="name"><a href="widgets/Container/build.html">build</a></span><span class="signature">(<wbr><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Describes the part of the user interface represented by this widget.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatelessWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatelessElement-class.html">StatelessElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatelessElement-class.html">StatelessElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable">
+  <span class="name"><a href="widgets/Container/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">Container 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

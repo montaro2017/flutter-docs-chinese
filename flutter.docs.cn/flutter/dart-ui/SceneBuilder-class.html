@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:ui 库中 SceneBuilder 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>SceneBuilder class - dart:ui 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li class="self-crumb">SceneBuilder 类</li>
+  </ol>
+  <div class="self-name">SceneBuilder</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-ui&#47;dart-ui-library-sidebar.html"
+    data-below-sidebar="dart-ui&#47;SceneBuilder-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">SceneBuilder</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>构建一个包含给定视觉内容的 <a href="dart-ui/Scene-class.html">Scene</a>。</p>
+<p>随后可使用 <a href="dart-ui/Scene-class.html">FlutterView.render</a> 渲染此 <a href="dart-ui/FlutterView/render.html">Scene</a>。</p>
+<p>若要向 <a href="dart-ui/Scene-class.html">Scene</a> 绘制图形操作，请先使用 <a href="dart-ui/Picture-class.html">PictureRecorder</a> 和 <a href="dart-ui/PictureRecorder-class.html">Canvas</a> 创建 <a href="dart-ui/Canvas-class.html">Picture</a>，然后通过 <a href="dart-ui/SceneBuilder/addPicture.html">addPicture</a> 将其添加到场景中。</p>
+<h2 id="use-with-the-flutter-framework">与 Flutter 框架配合使用</h2>
+<p>Flutter 框架的 <a href="rendering/RendererBinding-mixin.html">RendererBinding</a> 提供了创建 <a href="dart-ui/SceneBuilder-class.html">SceneBuilder</a> 对象的钩子（<a href="rendering/RendererBinding/createSceneBuilder.html">RendererBinding.createSceneBuilder</a>），供测试接入场景创建逻辑。在 Flutter 框架上下文中创建 <a href="dart-ui/SceneBuilder-class.html">SceneBuilder</a> 时，可考虑调用 <a href="rendering/RendererBinding/createSceneBuilder.html">RendererBinding.createSceneBuilder</a>，而不是直接调用 <a href="dart-ui/SceneBuilder/SceneBuilder.html">SceneBuilder.new</a> 构造函数。</p>
+<p>如果直接使用 <code>dart:ui</code> API，而未使用 Flutter 框架绑定、<code>flutter_test</code> 框架等，则不适用上述建议。</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="SceneBuilder.new" class="callable">
+          <span class="name"><a href="dart-ui/SceneBuilder/SceneBuilder.html">SceneBuilder</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="addPerformanceOverlay" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/addPerformanceOverlay.html">addPerformanceOverlay</a></span><span class="signature">(<wbr><span class="parameter" id="addPerformanceOverlay-param-enabledOptions"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">enabledOptions</span>, </span><span class="parameter" id="addPerformanceOverlay-param-bounds"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">bounds</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds an object to the scene that displays performance statistics.
+  
+
+</dd>
+
+        <dt id="addPicture" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/addPicture.html">addPicture</a></span><span class="signature">(<wbr><span class="parameter" id="addPicture-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span>, </span><span class="parameter" id="addPicture-param-picture"><span class="type-annotation"><a href="dart-ui/Picture-class.html">Picture</a></span> <span class="parameter-name">picture</span>, {</span><span class="parameter" id="addPicture-param-isComplexHint"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isComplexHint</span> = <span class="default-value">false</span>, </span><span class="parameter" id="addPicture-param-willChangeHint"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">willChangeHint</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a <a href="dart-ui/Picture-class.html">Picture</a> to the scene.
+  
+
+</dd>
+
+        <dt id="addPlatformView" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/addPlatformView.html">addPlatformView</a></span><span class="signature">(<wbr><span class="parameter" id="addPlatformView-param-viewId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">viewId</span>, {</span><span class="parameter" id="addPlatformView-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span> = <span class="default-value">Offset.zero</span>, </span><span class="parameter" id="addPlatformView-param-width"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">width</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="addPlatformView-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span> = <span class="default-value">0.0</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a platform view (e.g an iOS UIView) to the scene.
+  
+
+</dd>
+
+        <dt id="addRetained" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/addRetained.html">addRetained</a></span><span class="signature">(<wbr><span class="parameter" id="addRetained-param-retainedLayer"><span class="type-annotation"><a href="dart-ui/EngineLayer-class.html">EngineLayer</a></span> <span class="parameter-name">retainedLayer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add a retained engine layer subtree from previous frames.
+  
+
+</dd>
+
+        <dt id="addTexture" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/addTexture.html">addTexture</a></span><span class="signature">(<wbr><span class="parameter" id="addTexture-param-textureId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">textureId</span>, {</span><span class="parameter" id="addTexture-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span> = <span class="default-value">Offset.zero</span>, </span><span class="parameter" id="addTexture-param-width"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">width</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="addTexture-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="addTexture-param-freeze"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">freeze</span> = <span class="default-value">false</span>, </span><span class="parameter" id="addTexture-param-filterQuality"><span class="type-annotation"><a href="dart-ui/FilterQuality.html">FilterQuality</a></span> <span class="parameter-name">filterQuality</span> = <span class="default-value">FilterQuality.low</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a backend texture to the scene.
+  
+
+</dd>
+
+        <dt id="build" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/build.html">build</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Scene-class.html">Scene</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Finishes building the scene.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="pop" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pop.html">pop</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Ends the effect of the most recently pushed operation.
+  
+
+</dd>
+
+        <dt id="pushBackdropFilter" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushBackdropFilter.html">pushBackdropFilter</a></span><span class="signature">(<wbr><span class="parameter" id="pushBackdropFilter-param-filter"><span class="type-annotation"><a href="dart-ui/ImageFilter-class.html">ImageFilter</a></span> <span class="parameter-name">filter</span>, {</span><span class="parameter" id="pushBackdropFilter-param-blendMode"><span class="type-annotation"><a href="dart-ui/BlendMode.html">BlendMode</a></span> <span class="parameter-name">blendMode</span> = <span class="default-value">BlendMode.srcOver</span>, </span><span class="parameter" id="pushBackdropFilter-param-oldLayer"><span class="type-annotation"><a href="dart-ui/BackdropFilterEngineLayer-class.html">BackdropFilterEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span>, </span><span class="parameter" id="pushBackdropFilter-param-backdropId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">backdropId</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/BackdropFilterEngineLayer-class.html">BackdropFilterEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes a backdrop filter operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushClipPath" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushClipPath.html">pushClipPath</a></span><span class="signature">(<wbr><span class="parameter" id="pushClipPath-param-path"><span class="type-annotation"><a href="dart-ui/Path-class.html">Path</a></span> <span class="parameter-name">path</span>, {</span><span class="parameter" id="pushClipPath-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.antiAlias</span>, </span><span class="parameter" id="pushClipPath-param-oldLayer"><span class="type-annotation"><a href="dart-ui/ClipPathEngineLayer-class.html">ClipPathEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/ClipPathEngineLayer-class.html">ClipPathEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes a path clip operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushClipRect" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushClipRect.html">pushClipRect</a></span><span class="signature">(<wbr><span class="parameter" id="pushClipRect-param-rect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">rect</span>, {</span><span class="parameter" id="pushClipRect-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.antiAlias</span>, </span><span class="parameter" id="pushClipRect-param-oldLayer"><span class="type-annotation"><a href="dart-ui/ClipRectEngineLayer-class.html">ClipRectEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/ClipRectEngineLayer-class.html">ClipRectEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes a rectangular clip operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushClipRRect" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushClipRRect.html">pushClipRRect</a></span><span class="signature">(<wbr><span class="parameter" id="pushClipRRect-param-rrect"><span class="type-annotation"><a href="dart-ui/RRect-class.html">RRect</a></span> <span class="parameter-name">rrect</span>, {</span><span class="parameter" id="pushClipRRect-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.antiAlias</span>, </span><span class="parameter" id="pushClipRRect-param-oldLayer"><span class="type-annotation"><a href="dart-ui/ClipRRectEngineLayer-class.html">ClipRRectEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/ClipRRectEngineLayer-class.html">ClipRRectEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes a rounded-rectangular clip operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushClipRSuperellipse" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushClipRSuperellipse.html">pushClipRSuperellipse</a></span><span class="signature">(<wbr><span class="parameter" id="pushClipRSuperellipse-param-rsuperellipse"><span class="type-annotation"><a href="dart-ui/RSuperellipse-class.html">RSuperellipse</a></span> <span class="parameter-name">rsuperellipse</span>, {</span><span class="parameter" id="pushClipRSuperellipse-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.antiAlias</span>, </span><span class="parameter" id="pushClipRSuperellipse-param-oldLayer"><span class="type-annotation"><a href="dart-ui/ClipRSuperellipseEngineLayer-class.html">ClipRSuperellipseEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/ClipRSuperellipseEngineLayer-class.html">ClipRSuperellipseEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes a rounded-superellipse clip operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushColorFilter" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushColorFilter.html">pushColorFilter</a></span><span class="signature">(<wbr><span class="parameter" id="pushColorFilter-param-filter"><span class="type-annotation"><a href="dart-ui/ColorFilter-class.html">ColorFilter</a></span> <span class="parameter-name">filter</span>, {</span><span class="parameter" id="pushColorFilter-param-oldLayer"><span class="type-annotation"><a href="dart-ui/ColorFilterEngineLayer-class.html">ColorFilterEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/ColorFilterEngineLayer-class.html">ColorFilterEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes a color filter operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushImageFilter" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushImageFilter.html">pushImageFilter</a></span><span class="signature">(<wbr><span class="parameter" id="pushImageFilter-param-filter"><span class="type-annotation"><a href="dart-ui/ImageFilter-class.html">ImageFilter</a></span> <span class="parameter-name">filter</span>, {</span><span class="parameter" id="pushImageFilter-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span> = <span class="default-value">Offset.zero</span>, </span><span class="parameter" id="pushImageFilter-param-oldLayer"><span class="type-annotation"><a href="dart-ui/ImageFilterEngineLayer-class.html">ImageFilterEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/ImageFilterEngineLayer-class.html">ImageFilterEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes an image filter operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushOffset" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushOffset.html">pushOffset</a></span><span class="signature">(<wbr><span class="parameter" id="pushOffset-param-dx"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">dx</span>, </span><span class="parameter" id="pushOffset-param-dy"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">dy</span>, {</span><span class="parameter" id="pushOffset-param-oldLayer"><span class="type-annotation"><a href="dart-ui/OffsetEngineLayer-class.html">OffsetEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/OffsetEngineLayer-class.html">OffsetEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes an offset operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushOpacity" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushOpacity.html">pushOpacity</a></span><span class="signature">(<wbr><span class="parameter" id="pushOpacity-param-alpha"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">alpha</span>, {</span><span class="parameter" id="pushOpacity-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a>?</span> <span class="parameter-name">offset</span> = <span class="default-value">Offset.zero</span>, </span><span class="parameter" id="pushOpacity-param-oldLayer"><span class="type-annotation"><a href="dart-ui/OpacityEngineLayer-class.html">OpacityEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/OpacityEngineLayer-class.html">OpacityEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes an opacity operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushShaderMask" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushShaderMask.html">pushShaderMask</a></span><span class="signature">(<wbr><span class="parameter" id="pushShaderMask-param-shader"><span class="type-annotation"><a href="dart-ui/Shader-class.html">Shader</a></span> <span class="parameter-name">shader</span>, </span><span class="parameter" id="pushShaderMask-param-maskRect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a></span> <span class="parameter-name">maskRect</span>, </span><span class="parameter" id="pushShaderMask-param-blendMode"><span class="type-annotation"><a href="dart-ui/BlendMode.html">BlendMode</a></span> <span class="parameter-name">blendMode</span>, {</span><span class="parameter" id="pushShaderMask-param-oldLayer"><span class="type-annotation"><a href="dart-ui/ShaderMaskEngineLayer-class.html">ShaderMaskEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span>, </span><span class="parameter" id="pushShaderMask-param-filterQuality"><span class="type-annotation"><a href="dart-ui/FilterQuality.html">FilterQuality</a></span> <span class="parameter-name">filterQuality</span> = <span class="default-value">FilterQuality.low</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/ShaderMaskEngineLayer-class.html">ShaderMaskEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes a shader mask operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="pushTransform" class="callable">
+  <span class="name"><a href="dart-ui/SceneBuilder/pushTransform.html">pushTransform</a></span><span class="signature">(<wbr><span class="parameter" id="pushTransform-param-matrix4"><span class="type-annotation"><a href="dart-typed_data/Float64List-class.html">Float64List</a></span> <span class="parameter-name">matrix4</span>, {</span><span class="parameter" id="pushTransform-param-oldLayer"><span class="type-annotation"><a href="dart-ui/TransformEngineLayer-class.html">TransformEngineLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-ui/TransformEngineLayer-class.html">TransformEngineLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Pushes a transform operation onto the operation stack.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li class="self-crumb">SceneBuilder 类</li>
+</ol>
+
+    <h5>dart:ui library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

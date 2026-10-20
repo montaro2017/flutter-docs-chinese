@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="painting 库中 AssetImage 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>AssetImage 类 - painting 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="painting/">painting.dart</a></li>
+    <li class="self-crumb">AssetImage 类</li>
+  </ol>
+  <div class="self-name">AssetImage</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="painting&#47;painting-library-sidebar.html"
+    data-below-sidebar="painting&#47;AssetImage-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/painting/image_resolution.dart#L236"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">AssetImage</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>从 <a href="services/AssetBundle-class.html">AssetBundle</a> 获取图像，并根据当前上下文确定要使用的具体图像。</p>
+<p>给定主资源和一组变体后，AssetImage 会根据当前上下文选择最合适的资源。上下文包括传递给 <a href="painting/ImageProvider/resolve.html">resolve</a> 的配置中的设备像素比和尺寸。</p>
+<p>如果要从资源包中显示特定图像而无需进行资源解析，请使用 <a href="painting/AssetBundleImageProvider-class.html">AssetBundleImageProvider</a>。</p>
+<h2 id="naming-assets-for-matching-with-different-pixel-densities">为不同像素密度匹配资源时的命名方式</h2>
+<p>主资源默认对应标称像素比 1.0。若要指定适用于其他像素比的资源变体，请将变体放入应用资源包中以“Nx”命名的子目录，其中 N 表示该资源对应的标称设备像素比。</p>
+<p>例如，假设应用要使用名为“heart.png”的图标。该图标有像素比为 1.0 的主图标，以及像素比为 2.0 和 4.0 的变体。那么资源包中应包含以下资源：</p>
+<pre class="language-dart"><code>heart.png
+2.0x/heart.png
+4.0x/heart.png
+</code></pre>
+<p>在设备像素比为 1.0 的设备上，将选择 heart.png；在设备像素比为 2.0 的设备上，将选择 2.0x/heart.png；在设备像素比为 4.0 的设备上，将选择 4.0x/heart.png。</p>
+<p>如果设备像素比与现有资源都不完全匹配，系统会选择“最合适”的资源。最佳匹配取决于屏幕类型：设备像素比严格小于 2.0 的低分辨率屏幕使用不同于高分辨率屏幕的匹配算法。低分辨率屏幕上，用户能看到物理像素，因此放大造成的瑕疵（例如边缘模糊）更明显；所以只要有更高分辨率的资源，就会优先选择它。对于用户看不到单个物理像素的高分辨率屏幕，则会选择像素比最接近设备像素比的资源变体。</p>
+<p>例如，设备像素比为 1.25 时会选择 2.0x/heart.png，尽管 heart.png（即 1.0）在数值上更接近，因为该屏幕被视为低分辨率屏幕。设备像素比为 2.25 时也会选择 2.0x/heart.png；因为该屏幕被视为高分辨率屏幕，将 2.0x 图像放大到 2.25x 不会产生可见的放大瑕疵。不过，当设备像素比为 3.25 时，会选择 4.0x/heart.png，因为它比 2.0x 更接近 3.25。</p>
+<p>若选用远高于所需分辨率的图像，而屏幕像素比与图像像素比相差很大，可能会显著增加内存消耗。可以通过提供更多图像变体来降低内存使用量。在上述示例中，增加 3.0x/heart.png 变体可以降低设备像素比在 3.0 到 3.5 之间的屏幕上的内存消耗。</p>
+<p>可以通过设置 <a href="painting/ImageConfiguration-class.html">ImageConfiguration.devicePixelRatio</a>，使用 <a href="painting/ImageConfiguration/devicePixelRatio.html">ImageConfiguration</a> 自定义图像变体的选择。其默认值由 <a href="widgets/MediaQueryData/devicePixelRatio.html">createLocalImageConfiguration</a> 根据 <a href="widgets/createLocalImageConfiguration.html">MediaQueryData.devicePixelRatio</a> 计算得出。</p>
+<p>只要各变体位于对应的目录层级，资源所在目录的层级本身并不重要；也就是说，以下资源包结构同样有效：</p>
+<pre class="language-dart"><code>icons/heart.png
+icons/1.5x/heart.png
+icons/2.0x/heart.png
+</code></pre>
+<p>assets/icons/3.0x/heart.png 可以作为 assets/icons/heart.png 的有效变体。</p>
+<h2 id="fetching-assets">获取资源</h2>
+<p>获取应用自身提供的图像时，使用 <a href="painting/AssetImage/assetName.html">assetName</a> 参数指定要选择的资源。例如，假设使用上面的目录结构。首先，项目的 <code>pubspec.yaml</code> 应在 <code>flutter</code> 部分声明这些资源：</p>
+<pre class="language-yaml"><code class="language-yaml">flutter:
+  assets:
+    - icons/heart.png
+</code></pre>
+<p>然后，使用以下方式获取图像：</p>
+<pre class="language-dart"><code class="language-dart">const AssetImage('icons/heart.png')
+</code></pre>
+<p>
+<a name="painting.AssetImage.1"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">
+以下示例展示了如何编写一个同时完整遵循 <a href="painting/AssetImage-class.html">AssetImage</a> 和 <a href="widgets/Widget-class.html">Widget</a> 协议的 widget。它本质上是一个精简版的 <a href="widgets/Image-class.html">Image</a> widget，专门用于配合 <a href="painting/AssetImage-class.html">AssetImage</a> 使用。
+</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'painting.AssetImage.1');" onclick="fixHref(this, 'painting.AssetImage.1'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">class MyImage extends StatefulWidget {
+  const MyImage({
+    super.key,
+    required this.assetImage,
+  });
+
+  final AssetImage assetImage;
+
+  @override
+  State&lt;MyImage&gt; createState() =&gt; _MyImageState();
+}
+
+class _MyImageState extends State&lt;MyImage&gt; {
+  ImageStream? _imageStream;
+  ImageInfo? _imageInfo;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    &#47;&#47; We call _getImage here because createLocalImageConfiguration() needs to
+    &#47;&#47; be called again if the dependencies changed, in case the changes relate
+    &#47;&#47; to the DefaultAssetBundle, MediaQuery, etc, which that method uses.
+    _getImage();
+  }
+
+  @override
+  void didUpdateWidget(MyImage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.assetImage != oldWidget.assetImage) {
+      _getImage();
+    }
+  }
+
+  void _getImage() {
+    final ImageStream? oldImageStream = _imageStream;
+    _imageStream = widget.assetImage.resolve(createLocalImageConfiguration(context));
+    if (_imageStream!.key != oldImageStream?.key) {
+      &#47;&#47; If the keys are the same, then we got the same image back, and so we don&#39;t
+      &#47;&#47; need to update the listeners. If the key changed, though, we must make sure
+      &#47;&#47; to switch our listeners to the new image stream.
+      final ImageStreamListener listener = ImageStreamListener(_updateImage);
+      oldImageStream?.removeListener(listener);
+      _imageStream!.addListener(listener);
+    }
+  }
+
+  void _updateImage(ImageInfo imageInfo, bool synchronousCall) {
+    setState(() {
+      &#47;&#47; Trigger a build whenever the image changes.
+      _imageInfo?.dispose();
+      _imageInfo = imageInfo;
+    });
+  }
+
+  @override
+  void dispose() {
+    _imageStream?.removeListener(ImageStreamListener(_updateImage));
+    _imageInfo?.dispose();
+    _imageInfo = null;
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RawImage(
+      image: _imageInfo?.image, &#47;&#47; this is a dart:ui Image object
+      scale: _imageInfo?.scale ?? 1.0,
+    );
+  }
+}</code></pre>
+  </div>
+</div>
+</p>
+<h2 id="assets-in-packages">程序包中的资源</h2>
+<p>要从程序包获取资源，必须提供 <a href="painting/AssetImage/package.html">包</a> 参数。例如，假设上面的目录结构位于名为 <code>my_icons</code> 的程序包中。要获取图像，请使用：</p>
+<pre class="language-dart"><code class="language-dart">const AssetImage('icons/heart.png', package: 'my_icons')
+</code></pre>
+<p>程序包自身使用的资源也应像上面那样通过 <a href="painting/AssetImage/package.html">包</a> 参数获取。</p>
+<p>如果所需资源已在程序包的 <code>pubspec.yaml</code> 中声明，它会自动随应用打包。特别是，程序包自身使用的资源必须在该程序包的 <code>pubspec.yaml</code> 中声明。</p>
+<p>程序包也可以选择在自身的 lib/ 文件夹中存放资源，而不必在 <code>pubspec.yaml</code> 中声明这些资源。若要将这些图像打包，应用必须指定要包含哪些图像。例如，名为 <code>fancy_backgrounds</code> 的程序包可以包含：</p>
+<pre class="language-dart"><code>lib/backgrounds/background1.png
+lib/backgrounds/background2.png
+lib/backgrounds/background3.png
+</code></pre>
+<p>例如，若要包含第一张图像，应用的 <code>pubspec.yaml</code> 应在 <code>assets</code> 部分声明该图像：</p>
+<pre class="language-yaml"><code class="language-yaml">  assets:
+    - packages/fancy_backgrounds/backgrounds/background1.png
+</code></pre>
+<p>路径中默认包含 <code>lib/</code>，因此资源路径中不应再写入它。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/Image/Image.asset.html">Image.asset</a> for a shorthand of an <a href="widgets/Image-class.html">Image</a> widget backed by <a href="painting/AssetImage-class.html">AssetImage</a>
+when used without a scale.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="painting/ImageProvider-class.html">ImageProvider</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="painting/AssetBundleImageKey-class.html">AssetBundleImageKey</a></span>&gt;</span></li>
+        <li><a href="painting/AssetBundleImageProvider-class.html">AssetBundleImageProvider</a></li>
+      <li>AssetImage</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+  <dt>注解</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@<a href="meta/immutable-constant.html">immutable</a></li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="AssetImage.new" class="callable">
+          <span class="name"><a href="painting/AssetImage/AssetImage.html">AssetImage</a></span><span class="signature">(<span class="parameter" id="-param-assetName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">assetName</span>, {</span><span class="parameter" id="-param-bundle"><span class="type-annotation"><a href="services/AssetBundle-class.html">AssetBundle</a>?</span> <span class="parameter-name">bundle</span>, </span><span class="parameter" id="-param-package"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">包</span></span>})</span>
+        </dt>
+        <dd>
+          Creates an object that fetches an image from an asset bundle.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="assetName" class="property">
+  <span class="name"><a href="painting/AssetImage/assetName.html">assetName</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The name of the main asset from the set of images to choose from. See the
+documentation for the <a href="painting/AssetImage-class.html">AssetImage</a> class itself for details.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="bundle" class="property">
+  <span class="name"><a href="painting/AssetImage/bundle.html">bundle</a></span>
+  <span class="signature">&#8594; <a href="services/AssetBundle-class.html">AssetBundle</a>?</span>
+  
+
+</dt>
+<dd>
+  The bundle from which the image will be obtained.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property">
+  <span class="name"><a href="painting/AssetImage/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="keyName" class="property">
+  <span class="name"><a href="painting/AssetImage/keyName.html">keyName</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The name used to generate the key to obtain the asset. For local assets
+this is <a href="painting/AssetImage/assetName.html">assetName</a>, and for assets from packages the <a href="painting/AssetImage/assetName.html">assetName</a> is
+prefixed <code>packages/&lt;package_name&gt;/</code>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="package" class="property">
+  <span class="name"><a href="painting/AssetImage/package.html">包</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  The name of the package from which the image is included. See the
+documentation for the <a href="painting/AssetImage-class.html">AssetImage</a> class itself for details.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createStream" class="callable inherited">
+  <span class="name"><a href="painting/ImageProvider/createStream.html">createStream</a></span><span class="signature">(<wbr><span class="parameter" id="createStream-param-configuration"><span class="type-annotation"><a href="painting/ImageConfiguration-class.html">ImageConfiguration</a></span> <span class="parameter-name">configuration</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/ImageStream-class.html">ImageStream</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called by <a href="painting/ImageProvider/resolve.html">resolve</a> to create the <a href="painting/ImageStream-class.html">ImageStream</a> it returns.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="evict" class="callable inherited">
+  <span class="name"><a href="painting/ImageProvider/evict.html">evict</a></span><span class="signature">(<wbr>{<span class="parameter" id="evict-param-cache"><span class="type-annotation"><a href="painting/ImageCache-class.html">ImageCache</a>?</span> <span class="parameter-name">cache</span>, </span><span class="parameter" id="evict-param-configuration"><span class="type-annotation"><a href="painting/ImageConfiguration-class.html">ImageConfiguration</a></span> <span class="parameter-name">configuration</span> = <span class="default-value">ImageConfiguration.empty</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Evicts an entry from the image cache.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="loadBuffer" class="callable inherited">
+  <span class="name"><a href="painting/AssetBundleImageProvider/loadBuffer.html">loadBuffer</a></span><span class="signature">(<wbr><span class="parameter" id="loadBuffer-param-key"><span class="type-annotation"><a href="painting/AssetBundleImageKey-class.html">AssetBundleImageKey</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="loadBuffer-param-decode"><span class="type-annotation"><a class="deprecated" href="painting/DecoderBufferCallback.html">DecoderBufferCallback</a></span> <span class="parameter-name">decode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/ImageStreamCompleter-class.html">ImageStreamCompleter</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Converts a key into an <a href="painting/ImageStreamCompleter-class.html">ImageStreamCompleter</a>, and begins fetching the
+image.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="loadImage" class="callable inherited">
+  <span class="name"><a href="painting/AssetBundleImageProvider/loadImage.html">loadImage</a></span><span class="signature">(<wbr><span class="parameter" id="loadImage-param-key"><span class="type-annotation"><a href="painting/AssetBundleImageKey-class.html">AssetBundleImageKey</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="loadImage-param-decode"><span class="type-annotation"><a href="painting/ImageDecoderCallback.html">ImageDecoderCallback</a></span> <span class="parameter-name">decode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/ImageStreamCompleter-class.html">ImageStreamCompleter</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Converts a key into an <a href="painting/ImageStreamCompleter-class.html">ImageStreamCompleter</a>, and begins fetching the
+image.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="obtainCacheStatus" class="callable inherited">
+  <span class="name"><a href="painting/ImageProvider/obtainCacheStatus.html">obtainCacheStatus</a></span><span class="signature">(<wbr>{<span class="parameter" id="obtainCacheStatus-param-configuration"><span>required</span> <span class="type-annotation"><a href="painting/ImageConfiguration-class.html">ImageConfiguration</a></span> <span class="parameter-name">configuration</span>, </span><span class="parameter" id="obtainCacheStatus-param-handleError"><span class="type-annotation"><a href="painting/ImageErrorListener.html">ImageErrorListener</a>?</span> <span class="parameter-name">handleError</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="painting/ImageCacheStatus-class.html">ImageCacheStatus</a>?</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the cache location for the key that this <a href="painting/ImageProvider-class.html">ImageProvider</a> creates.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="obtainKey" class="callable">
+  <span class="name"><a href="painting/AssetImage/obtainKey.html">obtainKey</a></span><span class="signature">(<wbr><span class="parameter" id="obtainKey-param-configuration"><span class="type-annotation"><a href="painting/ImageConfiguration-class.html">ImageConfiguration</a></span> <span class="parameter-name">configuration</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="painting/AssetBundleImageKey-class.html">AssetBundleImageKey</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Converts an <a href="painting/ImageProvider-class.html">ImageProvider</a>'s settings plus an <a href="painting/ImageConfiguration-class.html">ImageConfiguration</a> to a key
+that describes the precise image to load.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="resolve" class="callable inherited">
+  <span class="name"><a href="painting/ImageProvider/resolve.html">resolve</a></span><span class="signature">(<wbr><span class="parameter" id="resolve-param-configuration"><span class="type-annotation"><a href="painting/ImageConfiguration-class.html">ImageConfiguration</a></span> <span class="parameter-name">configuration</span></span>)
+    <span class="returntype parameter">&#8594; <a href="painting/ImageStream-class.html">ImageStream</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Resolves this image provider using the given <code>configuration</code>, returning
+an <a href="painting/ImageStream-class.html">ImageStream</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resolveStreamForKey" class="callable inherited">
+  <span class="name"><a href="painting/ImageProvider/resolveStreamForKey.html">resolveStreamForKey</a></span><span class="signature">(<wbr><span class="parameter" id="resolveStreamForKey-param-configuration"><span class="type-annotation"><a href="painting/ImageConfiguration-class.html">ImageConfiguration</a></span> <span class="parameter-name">configuration</span>, </span><span class="parameter" id="resolveStreamForKey-param-stream"><span class="type-annotation"><a href="painting/ImageStream-class.html">ImageStream</a></span> <span class="parameter-name">stream</span>, </span><span class="parameter" id="resolveStreamForKey-param-key"><span class="type-annotation"><a href="painting/AssetBundleImageKey-class.html">AssetBundleImageKey</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="resolveStreamForKey-param-handleError"><span class="type-annotation"><a href="painting/ImageErrorListener.html">ImageErrorListener</a></span> <span class="parameter-name">handleError</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called by <a href="painting/ImageProvider/resolve.html">resolve</a> with the key returned by <a href="painting/ImageProvider/obtainKey.html">obtainKey</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="painting/AssetImage/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable">
+  <span class="name"><a href="painting/AssetImage/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  相等运算符。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="painting/">painting</a></li>
+    <li class="self-crumb">AssetImage 类</li>
+</ol>
+
+    <h5>painting 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

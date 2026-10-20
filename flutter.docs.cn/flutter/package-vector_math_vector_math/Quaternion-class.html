@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="vector_math 库中 Quaternion 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Quaternion 类 - vector_math 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-vector_math_vector_math/">vector_math.dart</a></li>
+    <li class="self-crumb">Quaternion 类</li>
+  </ol>
+  <div class="self-name">Quaternion</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-vector_math_vector_math&#47;package-vector_math_vector_math-library-sidebar.html"
+    data-below-sidebar="package-vector_math_vector_math&#47;Quaternion-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Quaternion</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>定义一种 <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a>（四维向量），用于高效执行旋转计算。</p>
+<p>与欧拉旋转相比，四元数更适合在旋转之间进行插值，也能避免 <a href="http://de.wikipedia.org/wiki/Gimbal_Lock">万向节锁</a>问题。</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Quaternion.new" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.html">Quaternion</a></span><span class="signature">(<span class="parameter" id="-param-x"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">x</span>, </span><span class="parameter" id="-param-y"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">y</span>, </span><span class="parameter" id="-param-z"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">z</span>, </span><span class="parameter" id="-param-w"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">w</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion using the raw values <code>x</code>, <code>y</code>, <code>z</code>, and <code>w</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Quaternion.axisAngle" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.axisAngle.html">Quaternion.axisAngle</a></span><span class="signature">(<span class="parameter" id="axisAngle-param-axis"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">axis</span>, </span><span class="parameter" id="axisAngle-param-angle"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">angle</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion from a rotation of <code>angle</code> around <code>axis</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Quaternion.copy" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.copy.html">Quaternion.copy</a></span><span class="signature">(<span class="parameter" id="copy-param-original"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">original</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion as a copy of <code>original</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Quaternion.dq" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.dq.html">Quaternion.dq</a></span><span class="signature">(<span class="parameter" id="dq-param-q"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">q</span>, </span><span class="parameter" id="dq-param-omega"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">omega</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion from time derivative of <code>q</code> with angular
+velocity <code>omega</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Quaternion.euler" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.euler.html">Quaternion.euler</a></span><span class="signature">(<span class="parameter" id="euler-param-yaw"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">yaw</span>, </span><span class="parameter" id="euler-param-pitch"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">pitch</span>, </span><span class="parameter" id="euler-param-roll"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">roll</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion from <code>yaw</code>, <code>pitch</code> 和 <code>roll</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Quaternion.fromBuffer" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.fromBuffer.html">Quaternion.fromBuffer</a></span><span class="signature">(<span class="parameter" id="fromBuffer-param-buffer"><span class="type-annotation"><a href="dart-typed_data/ByteBuffer-class.html">ByteBuffer</a></span> <span class="parameter-name">buffer</span>, </span><span class="parameter" id="fromBuffer-param-offset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">offset</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion with a <a href="package-vector_math_vector_math/Quaternion/storage.html">storage</a> that views given <code>buffer</code>
+starting at <code>offset</code>. <code>offset</code> has to be multiple of
+<a href="dart-typed_data/Float32List/bytesPerElement-constant.html">Float32List.bytesPerElement</a>.
+        </dd>
+        <dt id="Quaternion.fromFloat32List" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.fromFloat32List.html">Quaternion.fromFloat32List</a></span><span class="signature">(<span class="parameter" id="fromFloat32List-param-_qStorage"><span class="type-annotation"><a href="dart-typed_data/Float32List-class.html">Float32List</a></span> <span class="parameter-name">_qStorage</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion with given Float32List as <a href="package-vector_math_vector_math/Quaternion/storage.html">storage</a>.
+        </dd>
+        <dt id="Quaternion.fromRotation" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.fromRotation.html">Quaternion.fromRotation</a></span><span class="signature">(<span class="parameter" id="fromRotation-param-rotationMatrix"><span class="type-annotation"><a href="package-vector_math_vector_math/Matrix3-class.html">Matrix3</a></span> <span class="parameter-name">rotationMatrix</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion from a rotation matrix <code>rotationMatrix</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Quaternion.fromTwoVectors" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.fromTwoVectors.html">Quaternion.fromTwoVectors</a></span><span class="signature">(<span class="parameter" id="fromTwoVectors-param-a"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">a</span>, </span><span class="parameter" id="fromTwoVectors-param-b"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">b</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion to be the rotation that rotates vector <code>a</code> to <code>b</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Quaternion.identity" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.identity.html">Quaternion.identity</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          Constructs a quaternion set to the identity quaternion.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Quaternion.random" class="callable">
+          <span class="name"><a href="package-vector_math_vector_math/Quaternion/Quaternion.random.html">Quaternion.random</a></span><span class="signature">(<span class="parameter" id="random-param-rn"><span class="type-annotation"><a href="dart-math/Random-class.html">Random</a></span> <span class="parameter-name">rn</span></span>)</span>
+        </dt>
+        <dd>
+          Constructs a quaternion with a random rotation. The random number
+generator <code>rn</code> is used to generate the random numbers for the rotation.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="axis" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/axis.html">axis</a></span>
+  <span class="signature">&#8594; <a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span>
+  
+
+</dt>
+<dd>
+  <a href="package-vector_math_vector_math/Quaternion/axis.html">axis</a> of rotation.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="length" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/length.html">length</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Length.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="length2" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/length2.html">length2</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Length squared.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="radians" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/radians.html">radians</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  <a href="package-vector_math_vector_math/Quaternion/radians.html">radians</a> of rotation around the <a href="package-vector_math_vector_math/Quaternion/axis.html">axis</a> of the rotation.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="storage" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/storage.html">storage</a></span>
+  <span class="signature">&#8594; <a href="dart-typed_data/Float32List-class.html">Float32List</a></span>
+  
+
+</dt>
+<dd>
+  Access the internal <a href="package-vector_math_vector_math/Quaternion/storage.html">storage</a> of the quaternions components.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="w" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/w.html">w</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Access the <a href="package-vector_math_vector_math/Quaternion/w.html">w</a> component of the quaternion.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="x" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/x.html">x</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Access the <a href="package-vector_math_vector_math/Quaternion/x.html">x</a> component of the quaternion.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="y" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/y.html">y</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Access the <a href="package-vector_math_vector_math/Quaternion/y.html">y</a> component of the quaternion.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="z" class="property">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/z.html">z</a></span>
+  <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Access the <a href="package-vector_math_vector_math/Quaternion/z.html">z</a> component of the quaternion.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="absoluteError" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/absoluteError.html">absoluteError</a></span><span class="signature">(<wbr><span class="parameter" id="absoluteError-param-correct"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">correct</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Absolute error between this and <code>correct</code>.
+  
+
+</dd>
+
+        <dt id="add" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-arg"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">arg</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add <code>arg</code> to this.
+  
+
+</dd>
+
+        <dt id="asRotationMatrix" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/asRotationMatrix.html">asRotationMatrix</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Matrix3-class.html">Matrix3</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a rotation matrix containing the same rotation as this.
+  
+
+</dd>
+
+        <dt id="clone" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/clone.html">clone</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a new copy of this.
+  
+
+</dd>
+
+        <dt id="conjugate" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/conjugate.html">conjugate</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Conjugate this.
+  
+
+</dd>
+
+        <dt id="conjugated" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/conjugated.html">conjugated</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Conjugated copy of this.
+  
+
+</dd>
+
+        <dt id="copyRotationInto" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/copyRotationInto.html">copyRotationInto</a></span><span class="signature">(<wbr><span class="parameter" id="copyRotationInto-param-rotationMatrix"><span class="type-annotation"><a href="package-vector_math_vector_math/Matrix3-class.html">Matrix3</a></span> <span class="parameter-name">rotationMatrix</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Matrix3-class.html">Matrix3</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set <code>rotationMatrix</code> to a rotation matrix containing the same rotation as
+this.
+  
+
+</dd>
+
+        <dt id="inverse" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/inverse.html">inverse</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Invert this.
+  
+
+</dd>
+
+        <dt id="inverted" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/inverted.html">inverted</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Inverted copy of this.
+  
+
+</dd>
+
+        <dt id="negate" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/negate.html">negate</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Negate this.
+  
+
+</dd>
+
+        <dt id="negated" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/negated.html">negated</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Negated copy of this.
+  
+
+</dd>
+
+        <dt id="normalize" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/normalize.html">normalize</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Normalize this.
+  
+
+</dd>
+
+        <dt id="normalized" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/normalized.html">normalized</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Normalized copy of this.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="relativeError" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/relativeError.html">relativeError</a></span><span class="signature">(<wbr><span class="parameter" id="relativeError-param-correct"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">correct</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Relative error between this and <code>correct</code>.
+  
+
+</dd>
+
+        <dt id="rotate" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/rotate.html">rotate</a></span><span class="signature">(<wbr><span class="parameter" id="rotate-param-v"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">v</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Rotates <code>v</code> by this.
+  
+
+</dd>
+
+        <dt id="rotated" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/rotated.html">rotated</a></span><span class="signature">(<wbr><span class="parameter" id="rotated-param-v"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">v</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a copy of <code>v</code> rotated by quaternion.
+  
+
+</dd>
+
+        <dt id="scale" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/scale.html">scale</a></span><span class="signature">(<wbr><span class="parameter" id="scale-param-scale"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">scale</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Scales this by <code>scale</code>.
+  
+
+</dd>
+
+        <dt id="scaled" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/scaled.html">scaled</a></span><span class="signature">(<wbr><span class="parameter" id="scaled-param-scale"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">scale</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Scaled copy of this.
+  
+
+</dd>
+
+        <dt id="setAxisAngle" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/setAxisAngle.html">setAxisAngle</a></span><span class="signature">(<wbr><span class="parameter" id="setAxisAngle-param-axis"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">axis</span>, </span><span class="parameter" id="setAxisAngle-param-radians"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">radians</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the quaternion with rotation of <code>radians</code> around <code>axis</code>.
+  
+
+</dd>
+
+        <dt id="setDQ" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/setDQ.html">setDQ</a></span><span class="signature">(<wbr><span class="parameter" id="setDQ-param-q"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">q</span>, </span><span class="parameter" id="setDQ-param-omega"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">omega</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the quaternion to the time derivative of <code>q</code> with angular velocity
+<code>omega</code>.
+  
+
+</dd>
+
+        <dt id="setEuler" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/setEuler.html">setEuler</a></span><span class="signature">(<wbr><span class="parameter" id="setEuler-param-yaw"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">yaw</span>, </span><span class="parameter" id="setEuler-param-pitch"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">pitch</span>, </span><span class="parameter" id="setEuler-param-roll"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">roll</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set quaternion with rotation of <code>yaw</code>, <code>pitch</code> 和 <code>roll</code>.
+  
+
+</dd>
+
+        <dt id="setFrom" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/setFrom.html">setFrom</a></span><span class="signature">(<wbr><span class="parameter" id="setFrom-param-source"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">source</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Copy <code>source</code> into this.
+  
+
+</dd>
+
+        <dt id="setFromRotation" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/setFromRotation.html">setFromRotation</a></span><span class="signature">(<wbr><span class="parameter" id="setFromRotation-param-rotationMatrix"><span class="type-annotation"><a href="package-vector_math_vector_math/Matrix3-class.html">Matrix3</a></span> <span class="parameter-name">rotationMatrix</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the quaternion with rotation from a rotation matrix <code>rotationMatrix</code>.
+  
+
+</dd>
+
+        <dt id="setFromTwoVectors" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/setFromTwoVectors.html">setFromTwoVectors</a></span><span class="signature">(<wbr><span class="parameter" id="setFromTwoVectors-param-a"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">a</span>, </span><span class="parameter" id="setFromTwoVectors-param-b"><span class="type-annotation"><a href="package-vector_math_vector_math/Vector3-class.html">Vector3</a></span> <span class="parameter-name">b</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="setRandom" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/setRandom.html">setRandom</a></span><span class="signature">(<wbr><span class="parameter" id="setRandom-param-rn"><span class="type-annotation"><a href="dart-math/Random-class.html">Random</a></span> <span class="parameter-name">rn</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the quaternion to a random rotation. The random number generator <code>rn</code>
+is used to generate the random numbers for the rotation.
+  
+
+</dd>
+
+        <dt id="setValues" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/setValues.html">setValues</a></span><span class="signature">(<wbr><span class="parameter" id="setValues-param-x"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">x</span>, </span><span class="parameter" id="setValues-param-y"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">y</span>, </span><span class="parameter" id="setValues-param-z"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">z</span>, </span><span class="parameter" id="setValues-param-w"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">w</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the quaternion to the raw values <code>x</code>, <code>y</code>, <code>z</code>, and <code>w</code>.
+  
+
+</dd>
+
+        <dt id="sub" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/sub.html">sub</a></span><span class="signature">(<wbr><span class="parameter" id="sub-param-arg"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">arg</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Subtracts <code>arg</code> from this.
+  
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Printable string.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator *" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/operator_multiply.html">operator *</a></span><span class="signature">(<wbr><span class="parameter" id="*-param-other"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  this rotated by <code>other</code>.
+  
+
+</dd>
+
+        <dt id="operator +" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/operator_plus.html">operator +</a></span><span class="signature">(<wbr><span class="parameter" id="+-param-other"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns copy of this + <code>other</code>.
+  
+
+</dd>
+
+        <dt id="operator -" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/operator_minus.html">operator -</a></span><span class="signature">(<wbr><span class="parameter" id="--param-other"><span class="type-annotation"><a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns copy of this - <code>other</code>.
+  
+
+</dd>
+
+        <dt id="operator ==" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Check if two quaternions are the same.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="operator []" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/operator_get.html">operator []</a></span><span class="signature">(<wbr><span class="parameter" id="[]-param-i"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">i</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Access the component of the quaternion at the index <code>i</code>.
+  
+
+</dd>
+
+        <dt id="operator []=" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/operator_put.html">operator []=</a></span><span class="signature">(<wbr><span class="parameter" id="[]=-param-i"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">i</span>, </span><span class="parameter" id="[]=-param-arg"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">arg</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the component of the quaternion at the index <code>i</code>.
+  
+
+</dd>
+
+        <dt id="operator unary-" class="callable">
+  <span class="name"><a href="package-vector_math_vector_math/Quaternion/operator_unary_minus.html">operator unary-</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math/Quaternion-class.html">Quaternion</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns negated copy of this.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-vector_math_vector_math/">vector_math</a></li>
+    <li class="self-crumb">Quaternion 类</li>
+</ol>
+
+    <h5>vector_math 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

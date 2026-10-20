@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="path library API docs, for the Dart programming language.">
+  <title>path library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li class="self-crumb">path.dart</li>
+  </ol>
+  <div class="self-name">path</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar=""
+    data-below-sidebar="package-path_path&#47;package-path_path-library-sidebar.html">
+  
+    <div>
+      
+
+      <h1>
+        <span class="kind-library">path</span>
+        库 
+ 
+
+      </h1>
+    </div>
+
+    
+<section class="desc markdown">
+  <p>功能全面、支持跨平台的路径操作库。</p>
+<p>此路径库的设计初衷是使用前缀导入，但如果不需要，也可以不加前缀：</p>
+<pre class="language-dart"><code>import 'package:path/path.dart' as p;
+</code></pre>
+<p>最常见的用法是调用顶层函数。这些函数会根据当前工作目录和宿主平台的路径风格（POSIX、Windows 或 URL）操作路径字符串。例如：</p>
+<pre class="language-dart"><code>p.join('directory', 'file.txt');
+</code></pre>
+<p>此代码调用顶层 <a href="package-path_path/join.html">join</a> 函数，使用当前平台的目录分隔符拼接“directory”和“file.txt”。</p>
+<p>如果希望无论程序运行在哪个平台，都按指定平台处理路径，可以创建 <a href="package-path_path/Context-class.html">Context</a> 并为其指定 <a href="package-path_path/Style-class.html">Style</a>：</p>
+<pre class="language-dart"><code>var context = p.Context(style: Style.windows);
+context.join('directory', 'file.txt');
+</code></pre>
+<p>即使程序运行在 POSIX 机器上，此代码也会使用 Windows 路径分隔符拼接“directory”和“file.txt”。</p>
+</section>
+
+
+    <section class="summary offset-anchor" id="classes">
+      <h2>类</h2>
+      <dl>
+          <dt id="Context">
+  <span class="name "><a href="package-path_path/Context-class.html">Context</a></span> 
+
+</dt>
+<dd>
+  An instantiable class for manipulating paths. Unlike the top-level
+functions, this lets you explicitly select what platform the paths will use.
+</dd>
+
+          <dt id="PathMap">
+  <span class="name "><a href="package-path_path/PathMap-class.html">PathMap</a><span class="signature">&lt;<wbr><span class="type-parameter">V</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  A map whose keys are paths, compared using <a href="package-path_path/equals.html">p.equals</a> 和 <a href="package-path_path/hash.html">p.hash</a>.
+</dd>
+
+          <dt id="PathSet">
+  <span class="name "><a href="package-path_path/PathSet-class.html">PathSet</a></span> 
+
+</dt>
+<dd>
+  A set containing paths, compared using <a href="package-path_path/equals.html">p.equals</a> 和 <a href="package-path_path/hash.html">p.hash</a>.
+</dd>
+
+          <dt id="Style">
+  <span class="name "><a href="package-path_path/Style-class.html">Style</a></span> 
+
+</dt>
+<dd>
+  An enum type describing a "flavor" of path.
+</dd>
+
+      </dl>
+    </section>
+
+
+
+
+
+
+    <section class="summary offset-anchor" id="properties">
+      <h2>属性</h2>
+      <dl class="properties">
+          <dt id="context" class="property">
+  <span class="name"><a href="package-path_path/context.html">context</a></span>
+  <span class="signature">&#8594; <a href="package-path_path/Context-class.html">Context</a></span>
+  
+
+</dt>
+<dd>
+  The system path context.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+          <dt id="current" class="property">
+  <span class="name"><a href="package-path_path/current.html">current</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Gets the path to the current working directory.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+          <dt id="posix" class="property">
+  <span class="name"><a href="package-path_path/posix.html">posix</a></span>
+  <span class="signature">&#8594; <a href="package-path_path/Context-class.html">Context</a></span>
+  
+
+</dt>
+<dd>
+  A default context for manipulating POSIX paths.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+          <dt id="separator" class="property">
+  <span class="name"><a href="package-path_path/separator.html">separator</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Gets the path separator for the current platform. This is <code>\</code> on Windows
+and <code>/</code> on other platforms (including the browser).
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+          <dt id="style" class="property">
+  <span class="name"><a href="package-path_path/style.html">style</a></span>
+  <span class="signature">&#8594; <a href="package-path_path/Style-class.html">Style</a></span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="package-path_path/Style-class.html">Style</a> of the current context.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+          <dt id="url" class="property">
+  <span class="name"><a href="package-path_path/url.html">url</a></span>
+  <span class="signature">&#8594; <a href="package-path_path/Context-class.html">Context</a></span>
+  
+
+</dt>
+<dd>
+  A default context for manipulating URLs.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+          <dt id="windows" class="property">
+  <span class="name"><a href="package-path_path/windows.html">windows</a></span>
+  <span class="signature">&#8594; <a href="package-path_path/Context-class.html">Context</a></span>
+  
+
+</dt>
+<dd>
+  A default context for manipulating Windows paths.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="functions">
+      <h2>Functions</h2>
+      <dl class="callables">
+          <dt id="absolute" class="callable">
+  <span class="name"><a href="package-path_path/absolute.html">absolute</a></span><span class="signature">(<wbr><span class="parameter" id="absolute-param-part1"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">part1</span>, [</span><span class="parameter" id="absolute-param-part2"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part2</span>, </span><span class="parameter" id="absolute-param-part3"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part3</span>, </span><span class="parameter" id="absolute-param-part4"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part4</span>, </span><span class="parameter" id="absolute-param-part5"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part5</span>, </span><span class="parameter" id="absolute-param-part6"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part6</span>, </span><span class="parameter" id="absolute-param-part7"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part7</span>, </span><span class="parameter" id="absolute-param-part8"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part8</span>, </span><span class="parameter" id="absolute-param-part9"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part9</span>, </span><span class="parameter" id="absolute-param-part10"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part10</span>, </span><span class="parameter" id="absolute-param-part11"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part11</span>, </span><span class="parameter" id="absolute-param-part12"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part12</span>, </span><span class="parameter" id="absolute-param-part13"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part13</span>, </span><span class="parameter" id="absolute-param-part14"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part14</span>, </span><span class="parameter" id="absolute-param-part15"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part15</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a new path with the given path parts appended to <a href="package-path_path/current.html">current</a>.
+  
+
+</dd>
+
+          <dt id="basename" class="callable">
+  <span class="name"><a href="package-path_path/basename.html">basename</a></span><span class="signature">(<wbr><span class="parameter" id="basename-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Gets the part of <code>path</code> after the last separator.
+  
+
+</dd>
+
+          <dt id="basenameWithoutExtension" class="callable">
+  <span class="name"><a href="package-path_path/basenameWithoutExtension.html">basenameWithoutExtension</a></span><span class="signature">(<wbr><span class="parameter" id="basenameWithoutExtension-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Gets the part of <code>path</code> after the last separator, and without any trailing
+file extension.
+  
+
+</dd>
+
+          <dt id="canonicalize" class="callable">
+  <span class="name"><a href="package-path_path/canonicalize.html">canonicalize</a></span><span class="signature">(<wbr><span class="parameter" id="canonicalize-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Canonicalizes <code>path</code>.
+  
+
+</dd>
+
+          <dt id="dirname" class="callable">
+  <span class="name"><a href="package-path_path/dirname.html">dirname</a></span><span class="signature">(<wbr><span class="parameter" id="dirname-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Gets the part of <code>path</code> before the last separator.
+  
+
+</dd>
+
+          <dt id="equals" class="callable">
+  <span class="name"><a href="package-path_path/equals.html">equals</a></span><span class="signature">(<wbr><span class="parameter" id="equals-param-path1"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path1</span>, </span><span class="parameter" id="equals-param-path2"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path2</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <code>true</code> if <code>path1</code> points to the same location as <code>path2</code>, and
+<code>false</code> otherwise.
+  
+
+</dd>
+
+          <dt id="extension" class="callable">
+  <span class="name"><a href="package-path_path/extension.html">extension</a></span><span class="signature">(<wbr><span class="parameter" id="extension-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span>, [</span><span class="parameter" id="extension-param-level"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">level</span> = <span class="default-value">1</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Gets the file extension of <code>path</code>: the portion of <a href="package-path_path/basename.html">basename</a> from the last
+<code>.</code> to the end (including the <code>.</code> itself).
+  
+
+</dd>
+
+          <dt id="fromUri" class="callable">
+  <span class="name"><a href="package-path_path/fromUri.html">fromUri</a></span><span class="signature">(<wbr><span class="parameter" id="fromUri-param-uri"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">uri</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the path represented by <code>uri</code>, which may be a <a href="dart-core/String-class.html">String</a> or a <a href="dart-core/Uri-class.html">Uri</a>.
+  
+
+</dd>
+
+          <dt id="hash" class="callable">
+  <span class="name"><a href="package-path_path/hash.html">hash</a></span><span class="signature">(<wbr><span class="parameter" id="hash-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a hash code for <code>path</code> such that, if <a href="package-path_path/equals.html">equals</a> returns <code>true</code> for two
+paths, their hash codes are the same.
+  
+
+</dd>
+
+          <dt id="isAbsolute" class="callable">
+  <span class="name"><a href="package-path_path/isAbsolute.html">isAbsolute</a></span><span class="signature">(<wbr><span class="parameter" id="isAbsolute-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <code>true</code> if <code>path</code> is an absolute path and <code>false</code> if it is a
+relative path.
+  
+
+</dd>
+
+          <dt id="isRelative" class="callable">
+  <span class="name"><a href="package-path_path/isRelative.html">isRelative</a></span><span class="signature">(<wbr><span class="parameter" id="isRelative-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <code>true</code> if <code>path</code> is a relative path and <code>false</code> if it is absolute.
+On POSIX systems, absolute paths start with a <code>/</code> (forward slash). On
+Windows, an absolute path starts with <code>\\</code>, or a drive letter followed by
+<code>:/</code> or <code>:\</code>.
+  
+
+</dd>
+
+          <dt id="isRootRelative" class="callable">
+  <span class="name"><a href="package-path_path/isRootRelative.html">isRootRelative</a></span><span class="signature">(<wbr><span class="parameter" id="isRootRelative-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <code>true</code> if <code>path</code> is a root-relative path and <code>false</code> if it's not.
+  
+
+</dd>
+
+          <dt id="isWithin" class="callable">
+  <span class="name"><a href="package-path_path/isWithin.html">isWithin</a></span><span class="signature">(<wbr><span class="parameter" id="isWithin-param-parent"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">parent</span>, </span><span class="parameter" id="isWithin-param-child"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <code>true</code> if <code>child</code> is a path beneath <code>parent</code>, and <code>false</code> otherwise.
+  
+
+</dd>
+
+          <dt id="join" class="callable">
+  <span class="name"><a href="package-path_path/join.html">join</a></span><span class="signature">(<wbr><span class="parameter" id="join-param-part1"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">part1</span>, [</span><span class="parameter" id="join-param-part2"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part2</span>, </span><span class="parameter" id="join-param-part3"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part3</span>, </span><span class="parameter" id="join-param-part4"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part4</span>, </span><span class="parameter" id="join-param-part5"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part5</span>, </span><span class="parameter" id="join-param-part6"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part6</span>, </span><span class="parameter" id="join-param-part7"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part7</span>, </span><span class="parameter" id="join-param-part8"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part8</span>, </span><span class="parameter" id="join-param-part9"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part9</span>, </span><span class="parameter" id="join-param-part10"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part10</span>, </span><span class="parameter" id="join-param-part11"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part11</span>, </span><span class="parameter" id="join-param-part12"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part12</span>, </span><span class="parameter" id="join-param-part13"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part13</span>, </span><span class="parameter" id="join-param-part14"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part14</span>, </span><span class="parameter" id="join-param-part15"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part15</span>, </span><span class="parameter" id="join-param-part16"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">part16</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Joins the given path parts into a single path using the current platform's
+<a href="package-path_path/separator.html">separator</a>. Example:
+  
+
+</dd>
+
+          <dt id="joinAll" class="callable">
+  <span class="name"><a href="package-path_path/joinAll.html">joinAll</a></span><span class="signature">(<wbr><span class="parameter" id="joinAll-param-parts"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">parts</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Joins the given path parts into a single path using the current platform's
+<a href="package-path_path/separator.html">separator</a>. Example:
+  
+
+</dd>
+
+          <dt id="normalize" class="callable">
+  <span class="name"><a href="package-path_path/normalize.html">normalize</a></span><span class="signature">(<wbr><span class="parameter" id="normalize-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Normalizes <code>path</code>, simplifying it by handling <code>..</code>, and <code>.</code>, and
+removing redundant path separators whenever possible.
+  
+
+</dd>
+
+          <dt id="prettyUri" class="callable">
+  <span class="name"><a href="package-path_path/prettyUri.html">prettyUri</a></span><span class="signature">(<wbr><span class="parameter" id="prettyUri-param-uri"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">uri</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a terse, human-readable representation of <code>uri</code>.
+  
+
+</dd>
+
+          <dt id="relative" class="callable">
+  <span class="name"><a href="package-path_path/relative.html">relative</a></span><span class="signature">(<wbr><span class="parameter" id="relative-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span>, {</span><span class="parameter" id="relative-param-from"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">from</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Attempts to convert <code>path</code> to an equivalent relative path from the current
+directory.
+  
+
+</dd>
+
+          <dt id="rootPrefix" class="callable">
+  <span class="name"><a href="package-path_path/rootPrefix.html">rootPrefix</a></span><span class="signature">(<wbr><span class="parameter" id="rootPrefix-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the root of <code>path</code>, if it's absolute, or the empty string if it's
+relative.
+  
+
+</dd>
+
+          <dt id="setExtension" class="callable">
+  <span class="name"><a href="package-path_path/setExtension.html">setExtension</a></span><span class="signature">(<wbr><span class="parameter" id="setExtension-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span>, </span><span class="parameter" id="setExtension-param-extension"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">extension</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <code>path</code> with the trailing extension set to <code>extension</code>.
+  
+
+</dd>
+
+          <dt id="split" class="callable">
+  <span class="name"><a href="package-path_path/split.html">split</a></span><span class="signature">(<wbr><span class="parameter" id="split-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Splits <code>path</code> into its components using the current platform's <a href="package-path_path/separator.html">separator</a>.
+  
+
+</dd>
+
+          <dt id="toUri" class="callable">
+  <span class="name"><a href="package-path_path/toUri.html">toUri</a></span><span class="signature">(<wbr><span class="parameter" id="toUri-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/Uri-class.html">Uri</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the URI that represents <code>path</code>.
+  
+
+</dd>
+
+          <dt id="withoutExtension" class="callable">
+  <span class="name"><a href="package-path_path/withoutExtension.html">withoutExtension</a></span><span class="signature">(<wbr><span class="parameter" id="withoutExtension-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Removes a trailing extension from the last part of <code>path</code>.
+  
+
+</dd>
+
+      </dl>
+    </section>
+
+
+    <section class="summary offset-anchor" id="exceptions">
+      <h2>异常与错误</h2>
+      <dl>
+          <dt id="PathException">
+  <span class="name "><a href="package-path_path/PathException-class.html">PathException</a></span> 
+
+</dt>
+<dd>
+  An exception class that's thrown when a path operation is unable to be
+computed accurately.
+</dd>
+
+      </dl>
+    </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li class="self-crumb">path.dart</li>
+</ol>
+
+    <h5><span class="package-name">Flutter</span> <span class="package-kind">包</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="animation/">animation</a></li>
+      <li><a href="cupertino/">cupertino</a></li>
+      <li><a href="foundation/">foundation</a></li>
+      <li><a href="gestures/">gestures</a></li>
+      <li><a href="material/">material</a></li>
+      <li><a href="painting/">painting</a></li>
+      <li><a href="physics/">physics</a></li>
+      <li><a href="rendering/">rendering</a></li>
+      <li><a href="scheduler/">scheduler</a></li>
+      <li><a href="semantics/">semantics</a></li>
+      <li><a href="services/">services</a></li>
+      <li><a href="widget_previews/">widget_previews</a></li>
+      <li><a href="widgets/">widgets</a></li>
+      <li class="section-title">Dart</li>
+      <li><a href="dart-ui/">dart:ui</a></li>
+      <li><a href="dart-ui_web/">dart:ui_web</a></li>
+      <li class="section-subtitle">Core</li>
+        <li class="section-subitem"><a href="dart-async/">dart:async</a></li>
+        <li class="section-subitem"><a href="dart-collection/">dart:collection</a></li>
+        <li class="section-subitem"><a href="dart-convert/">dart:convert</a></li>
+        <li class="section-subitem"><a href="dart-core/">dart:core</a></li>
+        <li class="section-subitem"><a href="dart-developer/">dart:developer</a></li>
+        <li class="section-subitem"><a href="dart-math/">dart:math</a></li>
+        <li class="section-subitem"><a href="dart-typed_data/">dart:typed_data</a></li>
+      <li class="section-subtitle">VM</li>
+        <li class="section-subitem"><a href="dart-ffi/">dart:ffi</a></li>
+        <li class="section-subitem"><a href="dart-io/">dart:io</a></li>
+        <li class="section-subitem"><a href="dart-isolate/">dart:isolate</a></li>
+      <li class="section-subtitle">Web</li>
+        <li class="section-subitem">
+          <a href="https:&#47;&#47;pub.dev&#47;documentation&#47;web&#47;latest&#47;" target="_blank">
+            package:web
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </li>
+        <li class="section-subitem"><a href="dart-js_interop/">dart:js_interop</a></li>
+        <li class="section-subitem"><a href="dart-js_interop_unsafe/">dart:js_interop_unsafe</a></li>
+      <li class="section-subtitle">Web (Legacy)</li>
+        <li class="section-subitem"><a class="deprecated" href="dart-html/">dart:html</a></li>
+        <li class="section-subitem"><a class="deprecated" href="dart-js/">dart:js</a></li>
+      <li class="section-title">platform_integration</li>
+      <li><a href="Android/">android</a></li>
+      <li><a href="iOS/">ios</a></li>
+      <li><a href="Linux/">linux</a></li>
+      <li><a href="macOS/">macos</a></li>
+      <li><a href="Windows/">windows</a></li>
+      <li class="section-title">flutter_test</li>
+      <li><a href="flutter_test/">flutter_test</a></li>
+      <li class="section-title">flutter_driver</li>
+      <li><a href="flutter_driver_extension/">driver_extension</a></li>
+      <li><a href="flutter_driver/">flutter_driver</a></li>
+      <li class="section-title">Flutter</li>
+      <li class="section-title">flutter_gpu</li>
+      <li><a href="flutter_gpu/">gpu</a></li>
+      <li class="section-title">flutter_localizations</li>
+      <li><a href="flutter_localizations/">flutter_localizations</a></li>
+      <li class="section-title">flutter_web_plugins</li>
+      <li><a href="flutter_web_plugins/">flutter_web_plugins</a></li>
+      <li><a href="package-flutter_web_plugins_url_strategy/">url_strategy</a></li>
+      <li class="section-title">leak_tracker_flutter_testing</li>
+      <li><a href="package-leak_tracker_flutter_testing_leak_tracker_flutter_testing/">leak_tracker_flutter_testing</a></li>
+      <li class="section-title">async</li>
+      <li><a href="package-async_async/">async</a></li>
+      <li class="section-title">boolean_selector</li>
+      <li><a href="package-boolean_selector_boolean_selector/">boolean_selector</a></li>
+      <li class="section-title">characters</li>
+      <li><a href="package-characters_characters/">characters</a></li>
+      <li class="section-title">clock</li>
+      <li><a href="package-clock_clock/">clock</a></li>
+      <li class="section-title">collection</li>
+      <li><a class="deprecated" href="package-collection_algorithms/">algorithms</a></li>
+      <li><a href="package-collection_collection/">collection</a></li>
+      <li><a class="deprecated" href="package-collection_equality/">equality</a></li>
+      <li><a class="deprecated" href="package-collection_iterable_zip/">iterable_zip</a></li>
+      <li><a class="deprecated" href="package-collection_priority_queue/">priority_queue</a></li>
+      <li><a class="deprecated" href="package-collection_wrappers/">wrappers</a></li>
+      <li class="section-title">crypto</li>
+      <li><a href="package-crypto_crypto/">crypto</a></li>
+      <li class="section-title">fake_async</li>
+      <li><a href="package-fake_async_fake_async/">fake_async</a></li>
+      <li class="section-title">file</li>
+      <li><a href="package-file_chroot/">chroot</a></li>
+      <li><a href="package-file_file/">file</a></li>
+      <li><a href="package-file_local/">local</a></li>
+      <li><a href="package-file_memory/">memory</a></li>
+      <li class="section-title">integration_test</li>
+      <li><a href="package-integration_test_common/">common</a></li>
+      <li><a href="package-integration_test_integration_test/">integration_test</a></li>
+      <li><a href="package-integration_test_integration_test_driver/">integration_test_driver</a></li>
+      <li><a href="package-integration_test_integration_test_driver_extended/">integration_test_driver_extended</a></li>
+      <li class="section-title">intl</li>
+      <li><a href="package-intl_date_symbol_data_custom/">date_symbol_data_custom</a></li>
+      <li><a href="package-intl_date_symbol_data_file/">date_symbol_data_file</a></li>
+      <li><a href="package-intl_date_symbol_data_http_request/">date_symbol_data_http_request</a></li>
+      <li><a href="package-intl_date_symbol_data_local/">date_symbol_data_local</a></li>
+      <li><a href="package-intl_date_symbols/">date_symbols</a></li>
+      <li><a href="package-intl_date_time_patterns/">date_time_patterns</a></li>
+      <li><a href="package-intl_find_locale/">find_locale</a></li>
+      <li><a href="package-intl_intl/">intl</a></li>
+      <li><a href="package-intl_intl_default/">intl_default</a></li>
+      <li><a href="package-intl_intl_standalone/">intl_standalone</a></li>
+      <li><a href="package-intl_locale/">locale</a></li>
+      <li><a href="package-intl_message_format/">message_format</a></li>
+      <li><a href="package-intl_message_lookup_by_library/">message_lookup_by_library</a></li>
+      <li><a href="package-intl_number_symbols/">number_symbols</a></li>
+      <li><a href="package-intl_number_symbols_data/">number_symbols_data</a></li>
+      <li class="section-title">leak_tracker</li>
+      <li><a href="package-leak_tracker_leak_tracker/">leak_tracker</a></li>
+      <li class="section-title">leak_tracker_testing</li>
+      <li><a href="package-leak_tracker_testing_leak_tracker_testing/">leak_tracker_testing</a></li>
+      <li class="section-title">matcher</li>
+      <li><a href="package-matcher_expect/">expect</a></li>
+      <li><a href="package-matcher_matcher/">matcher</a></li>
+      <li class="section-title">material_color_utilities</li>
+      <li><a href="package-material_color_utilities_blend_blend/">blend/blend</a></li>
+      <li><a href="package-material_color_utilities_contrast_contrast/">contrast/contrast</a></li>
+      <li><a href="package-material_color_utilities_dislike_dislike_analyzer/">dislike/dislike_analyzer</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_dynamic_color/">dynamiccolor/dynamic_color</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_dynamic_scheme/">dynamiccolor/dynamic_scheme</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_material_dynamic_colors/">dynamiccolor/material_dynamic_colors</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_src_contrast_curve/">dynamiccolor/src/contrast_curve</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_src_tone_delta_pair/">dynamiccolor/src/tone_delta_pair</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_variant/">dynamiccolor/variant</a></li>
+      <li><a href="package-material_color_utilities_hct_cam16/">hct/cam16</a></li>
+      <li><a href="package-material_color_utilities_hct_hct/">hct/hct</a></li>
+      <li><a href="package-material_color_utilities_hct_src_hct_solver/">hct/src/hct_solver</a></li>
+      <li><a href="package-material_color_utilities_hct_viewing_conditions/">hct/viewing_conditions</a></li>
+      <li><a href="package-material_color_utilities_material_color_utilities/">material_color_utilities</a></li>
+      <li><a href="package-material_color_utilities_palettes_core_palette/">palettes/core_palette</a></li>
+      <li><a href="package-material_color_utilities_palettes_core_palettes/">palettes/core_palettes</a></li>
+      <li><a href="package-material_color_utilities_palettes_tonal_palette/">palettes/tonal_palette</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer/">quantize/quantizer</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_celebi/">quantize/quantizer_celebi</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_map/">quantize/quantizer_map</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_wsmeans/">quantize/quantizer_wsmeans</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_wu/">quantize/quantizer_wu</a></li>
+      <li><a href="package-material_color_utilities_quantize_src_point_provider/">quantize/src/point_provider</a></li>
+      <li><a href="package-material_color_utilities_quantize_src_point_provider_lab/">quantize/src/point_provider_lab</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme/">scheme/scheme</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_content/">scheme/scheme_content</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_expressive/">scheme/scheme_expressive</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_fidelity/">scheme/scheme_fidelity</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_fruit_salad/">scheme/scheme_fruit_salad</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_monochrome/">scheme/scheme_monochrome</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_neutral/">scheme/scheme_neutral</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_rainbow/">scheme/scheme_rainbow</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_tonal_spot/">scheme/scheme_tonal_spot</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_vibrant/">scheme/scheme_vibrant</a></li>
+      <li><a href="package-material_color_utilities_score_score/">score/score</a></li>
+      <li><a href="package-material_color_utilities_temperature_temperature_cache/">temperature/temperature_cache</a></li>
+      <li><a href="package-material_color_utilities_utils_color_utils/">utils/color_utils</a></li>
+      <li><a href="package-material_color_utilities_utils_math_utils/">utils/math_utils</a></li>
+      <li><a href="package-material_color_utilities_utils_string_utils/">utils/string_utils</a></li>
+      <li class="section-title">meta</li>
+      <li><a href="meta_dart2js/">dart2js</a></li>
+      <li><a href="meta/">meta</a></li>
+      <li><a href="meta_meta/">meta_meta</a></li>
+      <li class="section-title">path</li>
+      <li><a href="package-path_path/">path</a></li>
+      <li class="section-title">platform</li>
+      <li><a href="package-platform_platform/">platform</a></li>
+      <li><a href="package-platform_testing/">testing</a></li>
+      <li class="section-title">process</li>
+      <li><a href="package-process_process/">process</a></li>
+      <li class="section-title">source_span</li>
+      <li><a href="package-source_span_source_span/">source_span</a></li>
+      <li class="section-title">stack_trace</li>
+      <li><a href="package-stack_trace_stack_trace/">stack_trace</a></li>
+      <li class="section-title">stream_channel</li>
+      <li><a href="package-stream_channel_isolate_channel/">isolate_channel</a></li>
+      <li><a href="package-stream_channel_stream_channel/">stream_channel</a></li>
+      <li class="section-title">string_scanner</li>
+      <li><a href="package-string_scanner_string_scanner/">string_scanner</a></li>
+      <li class="section-title">sync_http</li>
+      <li><a href="sync.http/">sync_http</a></li>
+      <li class="section-title">term_glyph</li>
+      <li><a href="package-term_glyph_term_glyph/">term_glyph</a></li>
+      <li class="section-title">test_api</li>
+      <li><a href="package-test_api_backend/">backend</a></li>
+      <li><a class="deprecated" href="package-test_api_fake/">fake</a></li>
+      <li><a href="package-test_api_hooks/">hooks</a></li>
+      <li><a href="package-test_api_hooks_testing/">hooks_testing</a></li>
+      <li><a href="package-test_api_scaffolding/">scaffolding</a></li>
+      <li><a class="deprecated" href="package-test_api_test_api/">test_api</a></li>
+      <li class="section-title">typed_data</li>
+      <li><a href="package-typed_data_typed_buffers/">typed_buffers</a></li>
+      <li><a href="package-typed_data_typed_data/">typed_data</a></li>
+      <li class="section-title">vector_math</li>
+      <li><a class="deprecated" href="package-vector_math_hash/">hash</a></li>
+      <li><a href="package-vector_math_vector_math/">vector_math</a></li>
+      <li><a href="package-vector_math_vector_math_64/">vector_math_64</a></li>
+      <li><a href="package-vector_math_vector_math_geometry/">vector_math_geometry</a></li>
+      <li><a href="package-vector_math_vector_math_lists/">vector_math_lists</a></li>
+      <li><a href="package-vector_math_vector_math_operations/">vector_math_operations</a></li>
+      <li class="section-title">vm_service</li>
+      <li><a href="package-vm_service_utils/">utils</a></li>
+      <li><a href="vm_service/">vm_service</a></li>
+      <li><a href="package-vm_service_vm_service_io/">vm_service_io</a></li>
+      <li class="section-title">web</li>
+      <li><a class="deprecated" href="package-web_helpers/">helpers</a></li>
+      <li><a href="package-web_web/">web</a></li>
+      <li class="section-title">webdriver</li>
+      <li><a href="package-webdriver_async_core/">async_core</a></li>
+      <li><a href="package-webdriver_async_html/">async_html</a></li>
+      <li><a href="package-webdriver_async_io/">async_io</a></li>
+      <li><a class="deprecated" href="package-webdriver_core/">core</a></li>
+      <li><a class="deprecated" href="package-webdriver_io/">io</a></li>
+      <li><a href="package-webdriver_support_async/">support/async</a></li>
+      <li><a href="package-webdriver_support_firefox_profile/">support/firefox_profile</a></li>
+      <li><a href="package-webdriver_support_stdio_stepper/">support/stdio_stepper</a></li>
+      <li><a href="package-webdriver_sync_core/">sync_core</a></li>
+      <li><a href="package-webdriver_sync_io/">sync_io</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>path 库</h5>
+  </div><!--/sidebar-offcanvas-right-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

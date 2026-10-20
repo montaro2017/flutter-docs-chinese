@@ -1,0 +1,2737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="flutter_test 库中 LiveTestWidgetsFlutterBinding 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>LiveTestWidgetsFlutterBinding 类 - flutter_test 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_test/">flutter_test.dart</a></li>
+    <li class="self-crumb">LiveTestWidgetsFlutterBinding 类</li>
+  </ol>
+  <div class="self-name">LiveTestWidgetsFlutterBinding</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="flutter_test&#47;flutter_test-library-sidebar.html"
+    data-below-sidebar="flutter_test&#47;LiveTestWidgetsFlutterBinding-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter_test/lib/src/binding.dart#L2687"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">LiveTestWidgetsFlutterBinding</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p><a href="flutter_test/TestWidgetsFlutterBinding-class.html">TestWidgetsFlutterBinding</a> 的一个变体，用于在设备上执行测试，通常通过 <code>flutter run</code> 或集成测试运行。此绑定旨在支持交互式测试开发。</p>
+<p>这不是运行远程控制测试的方式。若要从开发计算机在设备上运行测试，请参阅 <a href="flutter_driver/">flutter_driver</a> 包和 <code>flutter drive</code> 命令。</p>
+<p>使用 <code>flutter run</code> 运行测试时，可以考虑添加 <code>--use-test-fonts</code> 参数，使所用字体与 <code>flutter test</code> 中的字体一致。（此参数会强制所有文本使用“Ahem”字体；该字体覆盖 ASCII 字符，并将它们显示为与字号相同大小的方块。）</p>
+<p>此绑定会重写默认的 <a href="scheduler/SchedulerBinding-mixin.html">SchedulerBinding</a> 行为，确保测试在此环境中的运行方式与在 <a href="flutter_test/AutomatedTestWidgetsFlutterBinding-class.html">AutomatedTestWidgetsFlutterBinding</a> 下一致。若要重写此行为（并查看测试未明确触发的中间帧），请将 <a href="flutter_test/LiveTestWidgetsFlutterBinding/framePolicy.html">framePolicy</a> 设为 <a href="flutter_test/LiveTestWidgetsFlutterBindingFramePolicy.html">LiveTestWidgetsFlutterBindingFramePolicy.fullyLive</a>。（这可能导致测试失败，尤其是在测试特定组件的构建次数时。）默认情况下，此绑定会显示通过 pump 生成的帧，以及指针触发时额外生成的少量帧（用于动画显示指针十字线）。</p>
+<p>此绑定不支持 <a href="flutter_test/EnginePhase.html">EnginePhase</a> 参数传给 <a href="flutter_test/LiveTestWidgetsFlutterBinding/pump.html">pump</a>。（将其设为不会触发绘制的值毫无意义，因为那样无论如何都看不到任何内容。）</p>
+<p>有关测试框架运行期间活动绑定必须提供的 mixin 列表，请参阅 <a href="flutter_test/TestWidgetsFlutterBinding-class.html">TestWidgetsFlutterBinding</a>。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/BindingBase-class.html">BindingBase</a></li>
+        <li><a href="flutter_test/TestWidgetsFlutterBinding-class.html">TestWidgetsFlutterBinding</a></li>
+      <li>LiveTestWidgetsFlutterBinding</li>
+    </ul>
+  </dd>
+
+        
+        
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="package-integration_test_integration_test/IntegrationTestWidgetsFlutterBinding-class.html">IntegrationTestWidgetsFlutterBinding</a></li>
+          </ul></dd>
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="LiveTestWidgetsFlutterBinding.new" class="callable">
+          <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/LiveTestWidgetsFlutterBinding.html">LiveTestWidgetsFlutterBinding</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="accessibilityFeatures" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/accessibilityFeatures.html">accessibilityFeatures</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/AccessibilityFeatures-class.html">AccessibilityFeatures</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The currently active set of <a href="dart-ui/AccessibilityFeatures-class.html">ui.AccessibilityFeatures</a>.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="accessibilityFocus" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/accessibilityFocus.html">accessibilityFocus</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueNotifier-class.html">ValueNotifier</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a>?</span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  Listenable that notifies when the accessibility focus on the system have changed.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="buildOwner" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/buildOwner.html">buildOwner</a></span>
+  <span class="signature">&#8594; <a href="widgets/BuildOwner-class.html">BuildOwner</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="widgets/BuildOwner-class.html">BuildOwner</a> in charge of executing the build pipeline for the
+widget tree rooted at this binding.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="channelBuffers" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/channelBuffers.html">channelBuffers</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/ChannelBuffers-class.html">ChannelBuffers</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The low level buffering and dispatch mechanism for messages sent by
+plugins on the engine side to their corresponding plugin code on
+the framework side.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="clock" class="property">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/clock.html">clock</a></span>
+  <span class="signature">&#8594; <a href="package-clock_clock/Clock-class.html">Clock</a></span>
+  
+
+</dt>
+<dd>
+  The current time.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="currentFrameTimeStamp" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/currentFrameTimeStamp.html">currentFrameTimeStamp</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Duration-class.html">Duration</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The time stamp for the frame currently being processed.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="currentSystemFrameTimeStamp" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/currentSystemFrameTimeStamp.html">currentSystemFrameTimeStamp</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Duration-class.html">Duration</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The raw time stamp as provided by the engine to
+<a href="dart-ui/PlatformDispatcher/onBeginFrame.html">dart:ui.PlatformDispatcher.onBeginFrame</a> for the frame currently being
+processed.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugBuildingDirtyElements" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/debugBuildingDirtyElements.html">debugBuildingDirtyElements</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether we are currently in a frame. This is used to verify
+that frames are not scheduled redundantly.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugDidSendFirstFrameEvent" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/debugDidSendFirstFrameEvent.html">debugDidSendFirstFrameEvent</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the first frame has finished building.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugExcludeRootWidgetInspector" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/debugExcludeRootWidgetInspector.html">debugExcludeRootWidgetInspector</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  If true, <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> will not be automatically injected into the
+widget tree.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugOutstandingSemanticsHandles" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/debugOutstandingSemanticsHandles.html">debugOutstandingSemanticsHandles</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The number of clients registered to listen for semantics.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugPrintOverride" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/debugPrintOverride.html">debugPrintOverride</a></span>
+  <span class="signature">&#8594; <a href="foundation/DebugPrintCallback.html">DebugPrintCallback</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The value to set <a href="rendering/debugPrint.html">debugPrint</a> to while tests are running.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugSamplingClock" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/debugSamplingClock.html">debugSamplingClock</a></span>
+  <span class="signature">&#8594; <a href="gestures/SamplingClock-class.html">SamplingClock</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Overrides the sampling clock for debugging and testing.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugShowWidgetInspectorOverride" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/debugShowWidgetInspectorOverride.html">debugShowWidgetInspectorOverride</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  If true, forces the widget inspector to be visible.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugShowWidgetInspectorOverrideNotifier" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/debugShowWidgetInspectorOverrideNotifier.html">debugShowWidgetInspectorOverrideNotifier</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueNotifier-class.html">ValueNotifier</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  Notifier for <a href="widgets/WidgetsBinding/debugShowWidgetInspectorOverride.html">debugShowWidgetInspectorOverride</a>.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugWidgetInspectorSelectionOnTapEnabled" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/debugWidgetInspectorSelectionOnTapEnabled.html">debugWidgetInspectorSelectionOnTapEnabled</a></span>
+  <span class="signature">&#8594; <a href="foundation/ValueNotifier-class.html">ValueNotifier</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  The notifier for whether or not taps on the device are treated as widget
+selections when the widget inspector is enabled.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="defaultBinaryMessenger" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/defaultBinaryMessenger.html">defaultBinaryMessenger</a></span>
+  <span class="signature">&#8594; <a href="flutter_test/TestDefaultBinaryMessenger-class.html">TestDefaultBinaryMessenger</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The default instance of <a href="services/BinaryMessenger-class.html">BinaryMessenger</a>.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="defaultTestTimeout" class="property">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/defaultTestTimeout.html">defaultTestTimeout</a></span>
+  <span class="signature">&#8594; <a href="package-test_api_scaffolding/Timeout-class.html">Timeout</a></span>
+  
+
+</dt>
+<dd>
+  The default test timeout for tests when using this binding.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="deviceEventDispatcher" class="property">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/deviceEventDispatcher.html">deviceEventDispatcher</a></span>
+  <span class="signature">&#8596; <a href="gestures/HitTestDispatcher-class.html">HitTestDispatcher</a>?</span>
+  
+
+</dt>
+<dd>
+  An object to which real device events should be routed.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="disableAnimations" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/disableAnimations.html">disableAnimations</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The platform is requesting that animations be disabled or simplified.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="disableShadows" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/disableShadows.html">disableShadows</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The value to set <a href="rendering/debugDisableShadows.html">debugDisableShadows</a> to while tests are running.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="endOfFrame" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/endOfFrame.html">endOfFrame</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a Future that completes after the frame completes.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="firstFrameRasterized" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/firstFrameRasterized.html">firstFrameRasterized</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the Flutter engine has rasterized the first frame.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="focusedEditable" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/focusedEditable.html">focusedEditable</a></span>
+  <span class="signature">&#8596; <a href="widgets/EditableTextState-class.html">EditableTextState</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="widgets/State-class.html">State</a> of the current <a href="widgets/EditableText-class.html">EditableText</a> client of the onscreen keyboard.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="focusManager" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/focusManager.html">focusManager</a></span>
+  <span class="signature">&#8594; <a href="widgets/FocusManager-class.html">FocusManager</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The object in charge of the focus tree.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="framePolicy" class="property">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/framePolicy.html">framePolicy</a></span>
+  <span class="signature">&#8596; <a href="flutter_test/LiveTestWidgetsFlutterBindingFramePolicy.html">LiveTestWidgetsFlutterBindingFramePolicy</a></span>
+  
+
+</dt>
+<dd>
+  The strategy for <a href="flutter_test/LiveTestWidgetsFlutterBinding/pump.html">pump</a>ing and requesting new frames.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="framesEnabled" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/framesEnabled.html">framesEnabled</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether frames are currently being scheduled when <a href="flutter_test/LiveTestWidgetsFlutterBinding/scheduleFrame.html">scheduleFrame</a> is called.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="gestureArena" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/gestureArena.html">gestureArena</a></span>
+  <span class="signature">&#8594; <a href="gestures/GestureArenaManager-class.html">GestureArenaManager</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The gesture arenas used for disambiguating the meaning of sequences of
+pointer events.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hasScheduledFrame" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/hasScheduledFrame.html">hasScheduledFrame</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether this scheduler has requested that <a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a> be called soon.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="imageCache" class="property inherited">
+  <span class="name"><a href="painting/PaintingBinding/imageCache.html">imageCache</a></span>
+  <span class="signature">&#8594; <a href="painting/ImageCache-class.html">ImageCache</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The singleton that implements the Flutter framework's image cache.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="inTest" class="property">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/inTest.html">inTest</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether there is currently a test executing.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="isRootWidgetAttached" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/isRootWidgetAttached.html">isRootWidgetAttached</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the <a href="widgets/WidgetsBinding/rootElement.html">rootElement</a> has been initialized.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="keyboard" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/keyboard.html">keyboard</a></span>
+  <span class="signature">&#8594; <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The global singleton instance of <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a>, which can be used to
+query keyboard states.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="keyEventManager" class="property inherited">
+  <span class="name"><a class="deprecated" href="flutter_test/TestDefaultBinaryMessengerBinding/keyEventManager.html">keyEventManager</a></span>
+  <span class="signature">&#8594; <a class="deprecated" href="services/KeyEventManager-class.html">KeyEventManager</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The global singleton instance of <a class="deprecated" href="services/KeyEventManager-class.html">KeyEventManager</a>, which is used
+internally to dispatch key messages.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="label" class="property">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/label.html">label</a></span>
+  <span class="signature">&#8594; <a href="painting/TextPainter-class.html">TextPainter</a>?</span>
+  
+
+</dt>
+<dd>
+  Label describing the test.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="lifecycleState" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/lifecycleState.html">lifecycleState</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/AppLifecycleState.html">AppLifecycleState</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the application is visible, and if so, whether it is currently
+interactive.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="locked" class="property inherited">
+  <span class="name"><a href="foundation/BindingBase/locked.html">locked</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> is currently locking events.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="microtaskCount" class="property">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/microtaskCount.html">microtaskCount</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The number of outstanding microtasks in the queue.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="mouseTracker" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/mouseTracker.html">mouseTracker</a></span>
+  <span class="signature">&#8594; <a href="rendering/MouseTracker-class.html">MouseTracker</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The object that manages state about currently connected mice, for hover
+notification.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="overrideHttpClient" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/overrideHttpClient.html">overrideHttpClient</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Determines whether the Dart <a href="dart-io/HttpClient-class.html">HttpClient</a> class should be overridden to
+always return a failure response.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="pipelineOwner" class="property inherited">
+  <span class="name"><a class="deprecated" href="widgets/WidgetsBinding/pipelineOwner.html">pipelineOwner</a></span>
+  <span class="signature">&#8594; <a href="rendering/PipelineOwner-class.html">PipelineOwner</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Deprecated. Will be removed in a future version of Flutter.
+  <div class="features"><span class="feature">late</span><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="platformDispatcher" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/platformDispatcher.html">platformDispatcher</a></span>
+  <span class="signature">&#8594; <a href="flutter_test/TestPlatformDispatcher-class.html">TestPlatformDispatcher</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="dart-ui/PlatformDispatcher-class.html">ui.PlatformDispatcher</a> to which this binding is bound.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="platformMenuDelegate" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/platformMenuDelegate.html">platformMenuDelegate</a></span>
+  <span class="signature">&#8596; <a href="widgets/PlatformMenuDelegate-class.html">PlatformMenuDelegate</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A delegate that communicates with a platform plugin for serializing and
+managing platform-rendered menu bars created by <a href="widgets/PlatformMenuBar-class.html">PlatformMenuBar</a>.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="pointerEventSource" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/pointerEventSource.html">pointerEventSource</a></span>
+  <span class="signature">&#8594; <a href="flutter_test/TestBindingEventSource.html">TestBindingEventSource</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The source of the current pointer event.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="pointerRouter" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/pointerRouter.html">pointerRouter</a></span>
+  <span class="signature">&#8594; <a href="gestures/PointerRouter-class.html">PointerRouter</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A router that routes all pointer events received from the engine.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="pointerSignalResolver" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/pointerSignalResolver.html">pointerSignalResolver</a></span>
+  <span class="signature">&#8594; <a href="gestures/PointerSignalResolver-class.html">PointerSignalResolver</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The resolver used for determining which widget handles a
+<a href="gestures/PointerSignalEvent-class.html">PointerSignalEvent</a>.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerTestTextInput" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/registerTestTextInput.html">registerTestTextInput</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Determines whether the binding automatically registers <a href="flutter_test/TestWidgetsFlutterBinding/testTextInput.html">testTextInput</a> as
+a fake keyboard implementation.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerTestWindowingOwner" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/registerTestWindowingOwner.html">registerTestWindowingOwner</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Determines whether the binding automatically registers <code>windowingOwner</code> to
+the fake windowing owner implementation.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="renderView" class="property inherited">
+  <span class="name"><a class="deprecated" href="widgets/WidgetsBinding/renderView.html">renderView</a></span>
+  <span class="signature">&#8594; <a href="rendering/RenderView-class.html">RenderView</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Deprecated. Will be removed in a future version of Flutter.
+  <div class="features"><span class="feature">late</span><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="renderViewElement" class="property inherited">
+  <span class="name"><a class="deprecated" href="widgets/WidgetsBinding/renderViewElement.html">renderViewElement</a></span>
+  <span class="signature">&#8594; <a href="widgets/Element-class.html">Element</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Deprecated. Will be removed in a future version of Flutter.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="renderViews" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/renderViews.html">renderViews</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/RenderView-class.html">RenderView</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="rendering/RenderView-class.html">RenderView</a>s managed by this binding.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resamplingEnabled" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/resamplingEnabled.html">resamplingEnabled</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Enable pointer event resampling for touch devices by setting
+this to true.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="restorationManager" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/restorationManager.html">restorationManager</a></span>
+  <span class="signature">&#8594; <a href="flutter_test/TestRestorationManager-class.html">TestRestorationManager</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="services/RestorationManager-class.html">RestorationManager</a> synchronizes the restoration data between
+engine and framework.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="rootElement" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/rootElement.html">rootElement</a></span>
+  <span class="signature">&#8594; <a href="widgets/Element-class.html">Element</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="widgets/Element-class.html">Element</a> that is at the root of the element tree hierarchy.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="rootPipelineOwner" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/rootPipelineOwner.html">rootPipelineOwner</a></span>
+  <span class="signature">&#8594; <a href="rendering/PipelineOwner-class.html">PipelineOwner</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> that is the root of the PipelineOwner tree.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="samplingClock" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/samplingClock.html">samplingClock</a></span>
+  <span class="signature">&#8594; <a href="gestures/SamplingClock-class.html">SamplingClock</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Provides access to the current <a href="dart-core/DateTime-class.html">DateTime</a> 和 <code>StopWatch</code> objects for
+sampling.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="samplingOffset" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/samplingOffset.html">samplingOffset</a></span>
+  <span class="signature">&#8596; <a href="dart-core/Duration-class.html">Duration</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Offset relative to current frame time that should be used for
+resampling. The <a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a> is expected to be negative.
+Non-negative <a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a> is allowed but will effectively
+disable resampling.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="schedulerPhase" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/schedulerPhase.html">schedulerPhase</a></span>
+  <span class="signature">&#8594; <a href="scheduler/SchedulerPhase.html">SchedulerPhase</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The phase that the scheduler is currently operating under.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="schedulingStrategy" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/schedulingStrategy.html">schedulingStrategy</a></span>
+  <span class="signature">&#8596; <a href="scheduler/SchedulingStrategy.html">SchedulingStrategy</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The strategy to use when deciding whether to run a task or not.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="semanticsEnabled" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/semanticsEnabled.html">semanticsEnabled</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether semantics information must be collected.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="sendFramesToEngine" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/sendFramesToEngine.html">sendFramesToEngine</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether frames produced by <a href="rendering/RendererBinding/drawFrame.html">drawFrame</a> are sent to the engine.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="shouldPropagateDevicePointerEvents" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/shouldPropagateDevicePointerEvents.html">shouldPropagateDevicePointerEvents</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether pointer events from <a href="flutter_test/TestBindingEventSource.html">TestBindingEventSource.device</a> will be
+propagated to the framework, or dropped.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="showAppDumpInErrors" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/showAppDumpInErrors.html">showAppDumpInErrors</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether to include the output of debugDumpApp() when reporting
+test failures.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="systemFonts" class="property inherited">
+  <span class="name"><a href="painting/PaintingBinding/systemFonts.html">systemFonts</a></span>
+  <span class="signature">&#8594; <a href="foundation/Listenable-class.html">Listenable</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Listenable that notifies when the available fonts on the system have
+changed.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="testTextInput" class="property inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/testTextInput.html">testTextInput</a></span>
+  <span class="signature">&#8594; <a href="flutter_test/TestTextInput-class.html">TestTextInput</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A stub for the system's onscreen keyboard. Callers must set the
+<a href="flutter_test/TestWidgetsFlutterBinding/focusedEditable.html">focusedEditable</a> before using this value.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="transientCallbackCount" class="property inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/transientCallbackCount.html">transientCallbackCount</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The current number of transient frame callbacks scheduled.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="waitUntilFirstFrameRasterized" class="property inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/waitUntilFirstFrameRasterized.html">waitUntilFirstFrameRasterized</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  A future that completes when the Flutter engine has rasterized the first
+frame.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="window" class="property inherited">
+  <span class="name"><a class="deprecated" href="flutter_test/TestWidgetsFlutterBinding/window.html">window</a></span>
+  <span class="signature">&#8596; <a class="deprecated" href="flutter_test/TestWindow-class.html">TestWindow</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Deprecated. Will be removed in a future version of Flutter.
+  <div class="features"><span class="feature">late</span><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="addObserver" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/addObserver.html">addObserver</a></span><span class="signature">(<wbr><span class="parameter" id="addObserver-param-observer"><span class="type-annotation"><a href="widgets/WidgetsBindingObserver-class.html">WidgetsBindingObserver</a></span> <span class="parameter-name">observer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers the given object as a binding observer. Binding
+observers are notified when various application events occur,
+for example when the system locale changes. Generally, one
+widget in the widget tree registers itself as a binding
+observer, and converts the system state into inherited widgets.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addPersistentFrameCallback" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/addPersistentFrameCallback.html">addPersistentFrameCallback</a></span><span class="signature">(<wbr><span class="parameter" id="addPersistentFrameCallback-param-callback"><span class="type-annotation"><a href="scheduler/FrameCallback.html">FrameCallback</a></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds a persistent frame callback.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addPostFrameCallback" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/addPostFrameCallback.html">addPostFrameCallback</a></span><span class="signature">(<wbr><span class="parameter" id="addPostFrameCallback-param-callback"><span class="type-annotation"><a href="scheduler/FrameCallback.html">FrameCallback</a></span> <span class="parameter-name">callback</span>, {</span><span class="parameter" id="addPostFrameCallback-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">debugLabel</span> = <span class="default-value">&#39;callback&#39;</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Schedule a callback for the end of this frame.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addRenderView" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/addRenderView.html">addRenderView</a></span><span class="signature">(<wbr><span class="parameter" id="addRenderView-param-view"><span class="type-annotation"><a href="rendering/RenderView-class.html">RenderView</a></span> <span class="parameter-name">view</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds a <a href="rendering/RenderView-class.html">RenderView</a> to this binding.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addSemanticsActionListener" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/addSemanticsActionListener.html">addSemanticsActionListener</a></span><span class="signature">(<wbr><span class="parameter" id="addSemanticsActionListener-param-listener"><span class="type-annotation"><a href="foundation/ValueSetter.html">ValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/SemanticsActionEvent-class.html">SemanticsActionEvent</a></span>&gt;</span></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds a listener that is called for every <a href="dart-ui/SemanticsActionEvent-class.html">ui.SemanticsActionEvent</a> received.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addSemanticsEnabledListener" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/addSemanticsEnabledListener.html">addSemanticsEnabledListener</a></span><span class="signature">(<wbr><span class="parameter" id="addSemanticsEnabledListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds a <code>listener</code> to be called when <a href="semantics/SemanticsBinding/semanticsEnabled.html">semanticsEnabled</a> changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="addTimingsCallback" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/addTimingsCallback.html">addTimingsCallback</a></span><span class="signature">(<wbr><span class="parameter" id="addTimingsCallback-param-callback"><span class="type-annotation"><a href="dart-ui/TimingsCallback.html">TimingsCallback</a></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add a <a href="dart-ui/TimingsCallback.html">TimingsCallback</a> that receives <a href="dart-ui/FrameTiming-class.html">FrameTiming</a> sent from
+the engine.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="allowFirstFrame" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/allowFirstFrame.html">allowFirstFrame</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called after <a href="rendering/RendererBinding/deferFirstFrame.html">deferFirstFrame</a> to tell the framework that it is ok to
+send the first frame to the engine now.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="asyncBarrier" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/asyncBarrier.html">asyncBarrier</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  This is called during test execution before and after the body has been
+executed.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="attachRootWidget" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/attachRootWidget.html">attachRootWidget</a></span><span class="signature">(<wbr><span class="parameter" id="attachRootWidget-param-rootWidget"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">rootWidget</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Takes a widget and attaches it to the <a href="widgets/WidgetsBinding/rootElement.html">rootElement</a>, creating it if
+necessary.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="attachToBuildOwner" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/attachToBuildOwner.html">attachToBuildOwner</a></span><span class="signature">(<wbr><span class="parameter" id="attachToBuildOwner-param-widget"><span class="type-annotation"><a href="widgets/RootWidget-class.html">RootWidget</a></span> <span class="parameter-name">widget</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called by <a href="widgets/WidgetsBinding/attachRootWidget.html">attachRootWidget</a> to attach the provided <a href="widgets/RootWidget-class.html">RootWidget</a> to the
+<a href="widgets/WidgetsBinding/buildOwner.html">buildOwner</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="cancelFrameCallbackWithId" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/cancelFrameCallbackWithId.html">cancelFrameCallbackWithId</a></span><span class="signature">(<wbr><span class="parameter" id="cancelFrameCallbackWithId-param-id"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">id</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Cancels the transient frame callback with the given <code>id</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="cancelPointer" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/cancelPointer.html">cancelPointer</a></span><span class="signature">(<wbr><span class="parameter" id="cancelPointer-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Dispatch a <a href="gestures/PointerCancelEvent-class.html">PointerCancelEvent</a> for the given pointer soon.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="computePlatformResolvedLocale" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/computePlatformResolvedLocale.html">computePlatformResolvedLocale</a></span><span class="signature">(<wbr><span class="parameter" id="computePlatformResolvedLocale-param-supportedLocales"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Locale-class.html">Locale</a></span>&gt;</span></span> <span class="parameter-name">supportedLocales</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Locale-class.html">Locale</a>?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Computes the locale the current platform would resolve to.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createBinaryMessenger" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/createBinaryMessenger.html">createBinaryMessenger</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="flutter_test/TestDefaultBinaryMessenger-class.html">TestDefaultBinaryMessenger</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates a default <a href="services/BinaryMessenger-class.html">BinaryMessenger</a> instance that can be used for sending
+platform messages.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createCanvas" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/createCanvas.html">createCanvas</a></span><span class="signature">(<wbr><span class="parameter" id="createCanvas-param-recorder"><span class="type-annotation"><a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a></span> <span class="parameter-name">recorder</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Canvas-class.html">Canvas</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Create a <a href="dart-ui/Canvas-class.html">Canvas</a> from a <a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createImageCache" class="callable inherited">
+  <span class="name"><a href="painting/PaintingBinding/createImageCache.html">createImageCache</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="painting/ImageCache-class.html">ImageCache</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates the <a href="painting/ImageCache-class.html">ImageCache</a> singleton (accessible via <a href="painting/PaintingBinding/imageCache.html">imageCache</a>).
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createPictureRecorder" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/createPictureRecorder.html">createPictureRecorder</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Create a <a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createRestorationManager" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/createRestorationManager.html">createRestorationManager</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="flutter_test/TestRestorationManager-class.html">TestRestorationManager</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates the <a href="services/RestorationManager-class.html">RestorationManager</a> instance available via
+<a href="flutter_test/TestWidgetsFlutterBinding/restorationManager.html">restorationManager</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createRootPipelineOwner" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/createRootPipelineOwner.html">createRootPipelineOwner</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="rendering/PipelineOwner-class.html">PipelineOwner</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates the <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> that serves as the root of the pipeline owner
+tree (<a href="rendering/RendererBinding/rootPipelineOwner.html">rootPipelineOwner</a>).
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createSceneBuilder" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/createSceneBuilder.html">createSceneBuilder</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/SceneBuilder-class.html">SceneBuilder</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Create a <a href="dart-ui/SceneBuilder-class.html">SceneBuilder</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createSemanticsUpdateBuilder" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/createSemanticsUpdateBuilder.html">createSemanticsUpdateBuilder</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/SemanticsUpdateBuilder-class.html">SemanticsUpdateBuilder</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates an empty semantics update builder.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createViewConfigurationFor" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/createViewConfigurationFor.html">createViewConfigurationFor</a></span><span class="signature">(<wbr><span class="parameter" id="createViewConfigurationFor-param-renderView"><span class="type-annotation"><a href="rendering/RenderView-class.html">RenderView</a></span> <span class="parameter-name">renderView</span></span>)
+    <span class="returntype parameter">&#8594; <a href="rendering/ViewConfiguration-class.html">ViewConfiguration</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a <a href="rendering/ViewConfiguration-class.html">ViewConfiguration</a> configured for the provided <a href="rendering/RenderView-class.html">RenderView</a>
+based on the current environment.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugAssertNoPendingPerformanceModeRequests" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/debugAssertNoPendingPerformanceModeRequests.html">debugAssertNoPendingPerformanceModeRequests</a></span><span class="signature">(<wbr><span class="parameter" id="debugAssertNoPendingPerformanceModeRequests-param-reason"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">reason</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Asserts that there are no pending performance mode requests in debug mode.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugAssertNoTimeDilation" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/debugAssertNoTimeDilation.html">debugAssertNoTimeDilation</a></span><span class="signature">(<wbr><span class="parameter" id="debugAssertNoTimeDilation-param-reason"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">reason</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Asserts that there is no artificial time dilation in debug mode.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugAssertNoTransientCallbacks" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/debugAssertNoTransientCallbacks.html">debugAssertNoTransientCallbacks</a></span><span class="signature">(<wbr><span class="parameter" id="debugAssertNoTransientCallbacks-param-reason"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">reason</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Asserts that there are no registered transient callbacks; if
+there are, prints their locations and throws an exception.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugCheckZone" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/debugCheckZone.html">debugCheckZone</a></span><span class="signature">(<wbr><span class="parameter" id="debugCheckZone-param-entryPoint"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">entryPoint</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Checks that the current <a href="dart-async/Zone-class.html">Zone</a> is the same as that which was used
+to initialize the binding.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugGetRequestedPerformanceMode" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/debugGetRequestedPerformanceMode.html">debugGetRequestedPerformanceMode</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/DartPerformanceMode.html">DartPerformanceMode</a>?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the current <a href="dart-ui/DartPerformanceMode.html">DartPerformanceMode</a> requested or <code>null</code> if no requests have
+been made.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="deferFirstFrame" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/deferFirstFrame.html">deferFirstFrame</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Tell the framework to not send the first frames to the engine until there
+is a corresponding call to <a href="rendering/RendererBinding/allowFirstFrame.html">allowFirstFrame</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="delayed" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/delayed.html">delayed</a></span><span class="signature">(<wbr><span class="parameter" id="delayed-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Delay for <code>duration</code> of time.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="dispatchAccessibilityFeaturesChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/dispatchAccessibilityFeaturesChanged.html">dispatchAccessibilityFeaturesChanged</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Notify all the observers that the active set of <a href="dart-ui/AccessibilityFeatures-class.html">AccessibilityFeatures</a>
+has changed (using <a href="widgets/WidgetsBindingObserver/didChangeAccessibilityFeatures.html">WidgetsBindingObserver.didChangeAccessibilityFeatures</a>),
+giving them the <code>features</code> argument.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="dispatchEvent" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/dispatchEvent.html">dispatchEvent</a></span><span class="signature">(<wbr><span class="parameter" id="dispatchEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span>, </span><span class="parameter" id="dispatchEvent-param-hitTestResult"><span class="type-annotation"><a href="gestures/HitTestResult-class.html">HitTestResult</a>?</span> <span class="parameter-name">hitTestResult</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Dispatch an event to <a href="widgets/WidgetsBinding/pointerRouter.html">pointerRouter</a> and the path of a hit test result.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="dispatchLocalesChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/dispatchLocalesChanged.html">dispatchLocalesChanged</a></span><span class="signature">(<wbr><span class="parameter" id="dispatchLocalesChanged-param-locales"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Locale-class.html">Locale</a></span>&gt;</span>?</span> <span class="parameter-name">locales</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Notify all the observers that the locale has changed (using
+<a href="widgets/WidgetsBindingObserver/didChangeLocales.html">WidgetsBindingObserver.didChangeLocales</a>), giving them the
+<code>locales</code> argument.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="drawFrame" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/drawFrame.html">drawFrame</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Pump the build and rendering pipeline to generate a frame.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="ensureFrameCallbacksRegistered" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/ensureFrameCallbacksRegistered.html">ensureFrameCallbacksRegistered</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Ensures callbacks for <a href="dart-ui/PlatformDispatcher/onBeginFrame.html">PlatformDispatcher.onBeginFrame</a> 和
+<a href="dart-ui/PlatformDispatcher/onDrawFrame.html">PlatformDispatcher.onDrawFrame</a> are registered.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="ensureSemantics" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/ensureSemantics.html">ensureSemantics</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="flutter_test/SemanticsHandle-class.html">SemanticsHandle</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates a new <a href="flutter_test/SemanticsHandle-class.html">SemanticsHandle</a> and requests the collection of semantics
+information.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="ensureVisualUpdate" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/ensureVisualUpdate.html">ensureVisualUpdate</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Schedules a new frame using <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> if this object is not
+currently producing a frame.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="evict" class="callable inherited">
+  <span class="name"><a href="painting/PaintingBinding/evict.html">evict</a></span><span class="signature">(<wbr><span class="parameter" id="evict-param-asset"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">asset</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called in response to the <code>ext.flutter.evict</code> service extension.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="exitApplication" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/exitApplication.html">exitApplication</a></span><span class="signature">(<wbr><span class="parameter" id="exitApplication-param-exitType"><span class="type-annotation"><a href="dart-ui/AppExitType.html">AppExitType</a></span> <span class="parameter-name">exitType</span>, [</span><span class="parameter" id="exitApplication-param-exitCode"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">exitCode</span> = <span class="default-value">0</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/AppExitResponse.html">AppExitResponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Exits the application by calling the native application API method for
+exiting an application cleanly.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="getRectOfSemanticsNodeInViewCoordinates" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/getRectOfSemanticsNodeInViewCoordinates.html">getRectOfSemanticsNodeInViewCoordinates</a></span><span class="signature">(<wbr><span class="parameter" id="getRectOfSemanticsNodeInViewCoordinates-param-viewId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">viewId</span>, </span><span class="parameter" id="getRectOfSemanticsNodeInViewCoordinates-param-nodeId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">nodeId</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Rect-class.html">Rect</a>?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the global rect for the semantics node with the given <code>nodeId</code> in
+the view with the given <code>viewId</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="globalToLocal" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/globalToLocal.html">globalToLocal</a></span><span class="signature">(<wbr><span class="parameter" id="globalToLocal-param-point"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">point</span>, </span><span class="parameter" id="globalToLocal-param-view"><span class="type-annotation"><a href="rendering/RenderView-class.html">RenderView</a></span> <span class="parameter-name">view</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Offset-class.html">Offset</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Convert the given point from the global coordinate space of the provided
+<a href="rendering/RenderView-class.html">RenderView</a> to its local one.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="handleAccessibilityFeaturesChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleAccessibilityFeaturesChanged.html">handleAccessibilityFeaturesChanged</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the platform accessibility features change.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleAppLifecycleStateChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleAppLifecycleStateChanged.html">handleAppLifecycleStateChanged</a></span><span class="signature">(<wbr><span class="parameter" id="handleAppLifecycleStateChanged-param-state"><span class="type-annotation"><a href="dart-ui/AppLifecycleState.html">AppLifecycleState</a></span> <span class="parameter-name">state</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the application lifecycle state changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleBeginFrame" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/handleBeginFrame.html">handleBeginFrame</a></span><span class="signature">(<wbr><span class="parameter" id="handleBeginFrame-param-rawTimeStamp"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">rawTimeStamp</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called by the engine to prepare the framework to produce a new frame.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="handleDrawFrame" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/handleDrawFrame.html">handleDrawFrame</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called by the engine to produce a new frame.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="handleEvent" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleEvent.html">handleEvent</a></span><span class="signature">(<wbr><span class="parameter" id="handleEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span>, </span><span class="parameter" id="handleEvent-param-entry"><span class="type-annotation"><a href="gestures/HitTestEntry-class.html">HitTestEntry</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="gestures/HitTestTarget-class.html">HitTestTarget</a></span>&gt;</span></span> <span class="parameter-name">entry</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Override this method to receive events.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleEventLoopCallback" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/handleEventLoopCallback.html">handleEventLoopCallback</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Execute the highest-priority task, if it is of a high enough priority.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleLocaleChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleLocaleChanged.html">handleLocaleChanged</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the system locale changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleMemoryPressure" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleMemoryPressure.html">handleMemoryPressure</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the operating system notifies the application of a memory
+pressure situation.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleMetricsChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleMetricsChanged.html">handleMetricsChanged</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the system metrics change.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handlePlatformBrightnessChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handlePlatformBrightnessChanged.html">handlePlatformBrightnessChanged</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the platform brightness changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handlePointerEvent" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/handlePointerEvent.html">handlePointerEvent</a></span><span class="signature">(<wbr><span class="parameter" id="handlePointerEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Dispatch an event to the targets found by a hit test on its position.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="handlePointerEventForSource" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/handlePointerEventForSource.html">handlePointerEventForSource</a></span><span class="signature">(<wbr><span class="parameter" id="handlePointerEventForSource-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span>, {</span><span class="parameter" id="handlePointerEventForSource-param-source"><span class="type-annotation"><a href="flutter_test/TestBindingEventSource.html">TestBindingEventSource</a></span> <span class="parameter-name">source</span> = <span class="default-value">TestBindingEventSource.device</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Dispatch an event to the targets found by a hit test on its position,
+and remember its source as <a href="flutter_test/TestWidgetsFlutterBinding/pointerEventSource.html">pointerEventSource</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handlePopRoute" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handlePopRoute.html">handlePopRoute</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the system pops the current route.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handlePushRoute" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handlePushRoute.html">handlePushRoute</a></span><span class="signature">(<wbr><span class="parameter" id="handlePushRoute-param-route"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">route</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the host tells the app to push a new route onto the
+navigator.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleRequestAppExit" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleRequestAppExit.html">handleRequestAppExit</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/AppExitResponse.html">AppExitResponse</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Handles any requests for application exit that may be received on the
+<a href="services/SystemChannels/platform-constant.html">SystemChannels.platform</a> method channel.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleSystemMessage" class="callable inherited">
+  <span class="name"><a href="painting/PaintingBinding/handleSystemMessage.html">handleSystemMessage</a></span><span class="signature">(<wbr><span class="parameter" id="handleSystemMessage-param-systemMessage"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">systemMessage</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Handler called for messages received on the <a href="services/SystemChannels/system-constant.html">SystemChannels.system</a>
+message channel.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleTextScaleFactorChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleTextScaleFactorChanged.html">handleTextScaleFactorChanged</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the platform text scale factor changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="handleViewFocusChanged" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/handleViewFocusChanged.html">handleViewFocusChanged</a></span><span class="signature">(<wbr><span class="parameter" id="handleViewFocusChanged-param-event"><span class="type-annotation"><a href="dart-ui/ViewFocusEvent-class.html">ViewFocusEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever the <a href="dart-ui/PlatformDispatcher-class.html">PlatformDispatcher</a> receives a notification that the
+focus state on a view has changed.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hitTest" class="callable inherited">
+  <span class="name deprecated"><a class="deprecated" href="widgets/WidgetsBinding/hitTest.html">hitTest</a></span><span class="signature">(<wbr><span class="parameter" id="hitTest-param-result"><span class="type-annotation"><a href="gestures/HitTestResult-class.html">HitTestResult</a></span> <span class="parameter-name">result</span>, </span><span class="parameter" id="hitTest-param-position"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Deprecated. Use <a href="rendering/RendererBinding/hitTestInView.html">hitTestInView</a> instead.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hitTestInView" class="callable inherited">
+  <span class="name"><a href="rendering/RendererBinding/hitTestInView.html">hitTestInView</a></span><span class="signature">(<wbr><span class="parameter" id="hitTestInView-param-result"><span class="type-annotation"><a href="gestures/HitTestResult-class.html">HitTestResult</a></span> <span class="parameter-name">result</span>, </span><span class="parameter" id="hitTestInView-param-position"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span>, </span><span class="parameter" id="hitTestInView-param-viewId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">viewId</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Determine which <a href="gestures/HitTestTarget-class.html">HitTestTarget</a> objects are located at a given position in
+the specified view.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="idle" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/idle.html">idle</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Acts as if the application went idle.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="initializationComplete" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/initializationComplete.html">initializationComplete</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Alert the engine that the binding is registered. This instructs the engine to
+register its top level window handler on Windows. This signals that the app
+is able to process "System.requestAppExit" signals from the engine.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="initInstances" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/initInstances.html">initInstances</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  The initialization method.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="initLicenses" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/initLicenses.html">initLicenses</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds relevant licenses to the <a href="foundation/LicenseRegistry-class.html">LicenseRegistry</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="initMouseTracker" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/initMouseTracker.html">initMouseTracker</a></span><span class="signature">(<wbr>[<span class="parameter" id="initMouseTracker-param-tracker"><span class="type-annotation"><a href="rendering/MouseTracker-class.html">MouseTracker</a>?</span> <span class="parameter-name">tracker</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="rendering/MouseTracker-class.html">MouseTracker</a> which manages state about currently connected
+mice, for hover notification.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="initServiceExtensions" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/initServiceExtensions.html">initServiceExtensions</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the binding is initialized, to register service
+extensions.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="instantiateImageCodecFromBuffer" class="callable inherited">
+  <span class="name deprecated"><a class="deprecated" href="painting/PaintingBinding/instantiateImageCodecFromBuffer.html">instantiateImageCodecFromBuffer</a></span><span class="signature">(<wbr><span class="parameter" id="instantiateImageCodecFromBuffer-param-buffer"><span class="type-annotation"><a href="dart-ui/ImmutableBuffer-class.html">ImmutableBuffer</a></span> <span class="parameter-name">buffer</span>, {</span><span class="parameter" id="instantiateImageCodecFromBuffer-param-cacheWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">cacheWidth</span>, </span><span class="parameter" id="instantiateImageCodecFromBuffer-param-cacheHeight"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">cacheHeight</span>, </span><span class="parameter" id="instantiateImageCodecFromBuffer-param-allowUpscaling"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">allowUpscaling</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Codec-class.html">Codec</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Calls through to <a href="dart-ui/instantiateImageCodecFromBuffer.html">dart:ui.instantiateImageCodecFromBuffer</a> from <a href="painting/ImageCache-class.html">ImageCache</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="instantiateImageCodecWithSize" class="callable inherited">
+  <span class="name"><a href="painting/PaintingBinding/instantiateImageCodecWithSize.html">instantiateImageCodecWithSize</a></span><span class="signature">(<wbr><span class="parameter" id="instantiateImageCodecWithSize-param-buffer"><span class="type-annotation"><a href="dart-ui/ImmutableBuffer-class.html">ImmutableBuffer</a></span> <span class="parameter-name">buffer</span>, {</span><span class="parameter" id="instantiateImageCodecWithSize-param-getTargetSize"><span class="type-annotation"><a href="dart-ui/TargetImageSizeCallback.html">TargetImageSizeCallback</a>?</span> <span class="parameter-name">getTargetSize</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Codec-class.html">Codec</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Calls through to <a href="dart-ui/instantiateImageCodecWithSize.html">dart:ui.instantiateImageCodecWithSize</a> from <a href="painting/ImageCache-class.html">ImageCache</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="localToGlobal" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/localToGlobal.html">localToGlobal</a></span><span class="signature">(<wbr><span class="parameter" id="localToGlobal-param-point"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">point</span>, </span><span class="parameter" id="localToGlobal-param-view"><span class="type-annotation"><a href="rendering/RenderView-class.html">RenderView</a></span> <span class="parameter-name">view</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Offset-class.html">Offset</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Convert the given point from the local coordinate space to the global
+coordinate space of the <a href="rendering/RenderView-class.html">RenderView</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="lockEvents" class="callable inherited">
+  <span class="name"><a href="foundation/BindingBase/lockEvents.html">lockEvents</a></span><span class="signature">(<wbr><span class="parameter" id="lockEvents-param-callback"><span class="type-annotation"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span> <span class="parameter-name">callback</span>()</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Locks the dispatching of asynchronous events and callbacks until the
+callback's future completes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="performReassemble" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/performReassemble.html">performReassemble</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  This method is called by <a href="flutter_test/LiveTestWidgetsFlutterBinding/reassembleApplication.html">reassembleApplication</a> to actually cause the
+application to reassemble, e.g. after a hot reload.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="performSemanticsAction" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/performSemanticsAction.html">performSemanticsAction</a></span><span class="signature">(<wbr><span class="parameter" id="performSemanticsAction-param-action"><span class="type-annotation"><a href="dart-ui/SemanticsActionEvent-class.html">SemanticsActionEvent</a></span> <span class="parameter-name">action</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever the platform requests an action to be performed on a
+<a href="semantics/SemanticsNode-class.html">SemanticsNode</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="postEvent" class="callable inherited">
+  <span class="name"><a href="foundation/BindingBase/postEvent.html">postEvent</a></span><span class="signature">(<wbr><span class="parameter" id="postEvent-param-eventKind"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">eventKind</span>, </span><span class="parameter" id="postEvent-param-eventData"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">eventData</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  All events dispatched by a <a href="foundation/BindingBase-class.html">BindingBase</a> use this method instead of
+calling <a href="dart-developer/postEvent.html">developer.postEvent</a> directly so that tests for <a href="foundation/BindingBase-class.html">BindingBase</a>
+can track which events were dispatched by overriding this method.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="postTest" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/postTest.html">postTest</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called by the <a href="flutter_test/testWidgets.html">testWidgets</a> function after a test is executed.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="pump" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/pump.html">pump</a></span><span class="signature">(<wbr>[<span class="parameter" id="pump-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a>?</span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="pump-param-newPhase"><span class="type-annotation"><a href="flutter_test/EnginePhase.html">EnginePhase</a></span> <span class="parameter-name">newPhase</span> = <span class="default-value">EnginePhase.sendSemanticsUpdate</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Triggers a frame sequence (build/layout/paint/etc),
+then flushes microtasks.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="readInitialLifecycleStateFromNativeWindow" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/readInitialLifecycleStateFromNativeWindow.html">readInitialLifecycleStateFromNativeWindow</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Initializes the <a href="scheduler/SchedulerBinding/lifecycleState.html">lifecycleState</a> with the
+<a href="dart-ui/PlatformDispatcher/initialLifecycleState.html">dart:ui.PlatformDispatcher.initialLifecycleState</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="readTestInitialLifecycleStateFromNativeWindow" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/readTestInitialLifecycleStateFromNativeWindow.html">readTestInitialLifecycleStateFromNativeWindow</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Re-attempts the initialization of the lifecycle state after providing
+test values in <a href="flutter_test/TestPlatformDispatcher/initialLifecycleStateTestValue.html">TestPlatformDispatcher.initialLifecycleStateTestValue</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="reassembleApplication" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/reassembleApplication.html">reassembleApplication</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Cause the entire application to redraw, e.g. after a hot reload.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="registerBoolServiceExtension" class="callable inherited">
+  <span class="name"><a href="foundation/BindingBase/registerBoolServiceExtension.html">registerBoolServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerBoolServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerBoolServiceExtension-param-getter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueGetter.html">AsyncValueGetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span> <span class="parameter-name">getter</span>, </span><span class="parameter" id="registerBoolServiceExtension-param-setter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueSetter.html">AsyncValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span> <span class="parameter-name">setter</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full
+name "ext.flutter.name"), which takes a single argument
+"enabled" which can have the value "true" or the value "false"
+or can be omitted to read the current value. (Any value other
+than "true" is considered equivalent to "false". Other arguments
+are ignored.)
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerNumericServiceExtension" class="callable inherited">
+  <span class="name"><a href="foundation/BindingBase/registerNumericServiceExtension.html">registerNumericServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerNumericServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerNumericServiceExtension-param-getter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueGetter.html">AsyncValueGetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">getter</span>, </span><span class="parameter" id="registerNumericServiceExtension-param-setter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueSetter.html">AsyncValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">setter</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full
+name "ext.flutter.name"), which takes a single argument with the
+same name as the method which, if present, must have a value
+that can be parsed by <a href="dart-core/double/parse.html">double.parse</a>, and can be omitted to read
+the current value. (Other arguments are ignored.)
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerServiceExtension" class="callable inherited">
+  <span class="name"><a href="foundation/BindingBase/registerServiceExtension.html">registerServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerServiceExtension-param-callback"><span>required</span> <span class="type-annotation"><a href="foundation/ServiceExtensionCallback.html">ServiceExtensionCallback</a></span> <span class="parameter-name">callback</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full name
+"ext.flutter.name").
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerSignalServiceExtension" class="callable inherited">
+  <span class="name"><a href="foundation/BindingBase/registerSignalServiceExtension.html">registerSignalServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerSignalServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerSignalServiceExtension-param-callback"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncCallback.html">AsyncCallback</a></span> <span class="parameter-name">callback</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full
+name "ext.flutter.name"), which takes no arguments and returns
+no value.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerStringServiceExtension" class="callable inherited">
+  <span class="name"><a href="foundation/BindingBase/registerStringServiceExtension.html">registerStringServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerStringServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerStringServiceExtension-param-getter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueGetter.html">AsyncValueGetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">getter</span>, </span><span class="parameter" id="registerStringServiceExtension-param-setter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueSetter.html">AsyncValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">setter</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full name
+"ext.flutter.name"), which optionally takes a single argument with the
+name "value". If the argument is omitted, the value is to be read,
+otherwise it is to be set. Returns the current value.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeObserver" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/removeObserver.html">removeObserver</a></span><span class="signature">(<wbr><span class="parameter" id="removeObserver-param-observer"><span class="type-annotation"><a href="widgets/WidgetsBindingObserver-class.html">WidgetsBindingObserver</a></span> <span class="parameter-name">observer</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Unregisters the given observer. This should be used sparingly as
+it is relatively expensive (O(N) in the number of registered
+observers).
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeRenderView" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/removeRenderView.html">removeRenderView</a></span><span class="signature">(<wbr><span class="parameter" id="removeRenderView-param-view"><span class="type-annotation"><a href="rendering/RenderView-class.html">RenderView</a></span> <span class="parameter-name">view</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Removes a <a href="rendering/RenderView-class.html">RenderView</a> previously added with <a href="rendering/RendererBinding/addRenderView.html">addRenderView</a> from the
+binding.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeSemanticsActionListener" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/removeSemanticsActionListener.html">removeSemanticsActionListener</a></span><span class="signature">(<wbr><span class="parameter" id="removeSemanticsActionListener-param-listener"><span class="type-annotation"><a href="foundation/ValueSetter.html">ValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/SemanticsActionEvent-class.html">SemanticsActionEvent</a></span>&gt;</span></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Removes a listener previously added with <a href="semantics/SemanticsBinding/addSemanticsActionListener.html">addSemanticsActionListener</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeSemanticsEnabledListener" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/removeSemanticsEnabledListener.html">removeSemanticsEnabledListener</a></span><span class="signature">(<wbr><span class="parameter" id="removeSemanticsEnabledListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Removes a <code>listener</code> added by <a href="semantics/SemanticsBinding/addSemanticsEnabledListener.html">addSemanticsEnabledListener</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeTimingsCallback" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/removeTimingsCallback.html">removeTimingsCallback</a></span><span class="signature">(<wbr><span class="parameter" id="removeTimingsCallback-param-callback"><span class="type-annotation"><a href="dart-ui/TimingsCallback.html">TimingsCallback</a></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Removes a callback that was earlier added by <a href="scheduler/SchedulerBinding/addTimingsCallback.html">addTimingsCallback</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="reportExceptionNoticed" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/reportExceptionNoticed.html">reportExceptionNoticed</a></span><span class="signature">(<wbr><span class="parameter" id="reportExceptionNoticed-param-exception"><span class="type-annotation"><a href="foundation/FlutterErrorDetails-class.html">FlutterErrorDetails</a></span> <span class="parameter-name">exception</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when the framework catches an exception, even if that exception is
+being handled by <a href="flutter_test/TestWidgetsFlutterBinding/takeException.html">takeException</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="requestPerformanceMode" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/requestPerformanceMode.html">requestPerformanceMode</a></span><span class="signature">(<wbr><span class="parameter" id="requestPerformanceMode-param-mode"><span class="type-annotation"><a href="dart-ui/DartPerformanceMode.html">DartPerformanceMode</a></span> <span class="parameter-name">mode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="scheduler/PerformanceModeRequestHandle-class.html">PerformanceModeRequestHandle</a>?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Request a specific <a href="dart-ui/DartPerformanceMode.html">DartPerformanceMode</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="reset" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/reset.html">reset</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called by the test framework at the beginning of a widget test to
+prepare the binding for the next test.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resetEpoch" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/resetEpoch.html">resetEpoch</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Prepares the scheduler for a non-monotonic change to how time stamps are
+calculated.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resetFirstFrameSent" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/resetFirstFrameSent.html">resetFirstFrameSent</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Call this to pretend that no frames have been sent to the engine yet.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resetGestureBinding" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/resetGestureBinding.html">resetGestureBinding</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Reset states of <a href="gestures/GestureBinding-mixin.html">GestureBinding</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resetInternalState" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/resetInternalState.html">resetInternalState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Allows the test framework to reset the lifecycle state and framesEnabled
+back to their initial values.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resetLayers" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/resetLayers.html">resetLayers</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Replaces the root layers of all managed <a href="rendering/RendererBinding/renderViews.html">renderViews</a> with new, unused
+layers.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runAsync" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/runAsync.html">runAsync</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="runAsync-param-callback"><span class="type-annotation"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">callback</span>()</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Runs a <code>callback</code> that performs real asynchronous work.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="runTest" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/runTest.html">runTest</a></span><span class="signature">(<wbr><span class="parameter" id="runTest-param-testBody"><span class="type-annotation"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span> <span class="parameter-name">testBody</span>(), </span><span class="parameter" id="runTest-param-invariantTester"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">invariantTester</span>, {</span><span class="parameter" id="runTest-param-description"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">description</span> = <span class="default-value">&#39;&#39;</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Call the testBody inside a <a href="package-fake_async_fake_async/FakeAsync-class.html">FakeAsync</a> scope on which <a href="flutter_test/LiveTestWidgetsFlutterBinding/pump.html">pump</a> can
+advance time.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="scheduleAttachRootWidget" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/scheduleAttachRootWidget.html">scheduleAttachRootWidget</a></span><span class="signature">(<wbr><span class="parameter" id="scheduleAttachRootWidget-param-rootWidget"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">rootWidget</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Schedules a <a href="dart-async/Timer-class.html">Timer</a> for attaching the root widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scheduleForcedFrame" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/scheduleForcedFrame.html">scheduleForcedFrame</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Schedules a new frame by calling
+<a href="dart-ui/PlatformDispatcher/scheduleFrame.html">dart:ui.PlatformDispatcher.scheduleFrame</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="scheduleFrame" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/scheduleFrame.html">scheduleFrame</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  If necessary, schedules a new frame by calling
+<a href="dart-ui/PlatformDispatcher/scheduleFrame.html">dart:ui.PlatformDispatcher.scheduleFrame</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="scheduleFrameCallback" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/scheduleFrameCallback.html">scheduleFrameCallback</a></span><span class="signature">(<wbr><span class="parameter" id="scheduleFrameCallback-param-callback"><span class="type-annotation"><a href="scheduler/FrameCallback.html">FrameCallback</a></span> <span class="parameter-name">callback</span>, {</span><span class="parameter" id="scheduleFrameCallback-param-rescheduling"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">rescheduling</span> = <span class="default-value">false</span>, </span><span class="parameter" id="scheduleFrameCallback-param-scheduleNewFrame"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">scheduleNewFrame</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Schedules the given transient frame callback.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scheduleTask" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/scheduleTask.html">scheduleTask</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="scheduleTask-param-task"><span class="type-annotation"><a href="scheduler/TaskCallback.html">TaskCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">task</span>, </span><span class="parameter" id="scheduleTask-param-priority"><span class="type-annotation"><a href="scheduler/Priority-class.html">Priority</a></span> <span class="parameter-name">priority</span>, {</span><span class="parameter" id="scheduleTask-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugLabel</span>, </span><span class="parameter" id="scheduleTask-param-flow"><span class="type-annotation"><a href="dart-developer/Flow-class.html">Flow</a>?</span> <span class="parameter-name">flow</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Schedules the given <code>task</code> with the given <code>priority</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scheduleWarmUpFrame" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/scheduleWarmUpFrame.html">scheduleWarmUpFrame</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Schedule a frame to run as soon as possible, rather than waiting for
+the engine to request a frame in response to a system "Vsync" signal.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="setLabel" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/setLabel.html">setLabel</a></span><span class="signature">(<wbr><span class="parameter" id="setLabel-param-value"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set a description label that is drawn into the test output.
+  
+
+</dd>
+
+        <dt id="setLocale" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/setLocale.html">setLocale</a></span><span class="signature">(<wbr><span class="parameter" id="setLocale-param-languageCode"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">languageCode</span>, </span><span class="parameter" id="setLocale-param-countryCode"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">countryCode</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Artificially calls dispatchLocalesChanged on the Widget binding,
+then flushes microtasks.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="setLocales" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/setLocales.html">setLocales</a></span><span class="signature">(<wbr><span class="parameter" id="setLocales-param-locales"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Locale-class.html">Locale</a></span>&gt;</span></span> <span class="parameter-name">locales</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Artificially calls dispatchLocalesChanged on the Widget binding,
+then flushes microtasks.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="setSurfaceSize" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/setSurfaceSize.html">setSurfaceSize</a></span><span class="signature">(<wbr><span class="parameter" id="setSurfaceSize-param-size"><span class="type-annotation"><a href="dart-ui/Size-class.html">Size</a>?</span> <span class="parameter-name">size</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Artificially changes the logical size of <a href="flutter_test/WidgetController/view.html">WidgetTester.view</a> to the
+specified size, then flushes microtasks.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="setSystemUiChangeCallback" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestDefaultBinaryMessengerBinding/setSystemUiChangeCallback.html">setSystemUiChangeCallback</a></span><span class="signature">(<wbr><span class="parameter" id="setSystemUiChangeCallback-param-callback"><span class="type-annotation"><a href="services/SystemUiChangeCallback.html">SystemUiChangeCallback</a>?</span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Sets the callback for the <code>SystemChrome.systemUIChange</code> method call
+received on the <a href="services/SystemChannels/platform-constant.html">SystemChannels.platform</a> channel.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="takeAnnouncements" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/takeAnnouncements.html">takeAnnouncements</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="flutter_test/CapturedAccessibilityAnnouncement-class.html">CapturedAccessibilityAnnouncement</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of all the accessibility announcements made by the Flutter
+framework since the last time this function was called.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="takeException" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/takeException.html">takeException</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the exception most recently caught by the Flutter framework.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/BindingBase/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="unlocked" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/unlocked.html">unlocked</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called by <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> when events get unlocked.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="withPointerEventSource" class="callable inherited">
+  <span class="name"><a href="flutter_test/TestWidgetsFlutterBinding/withPointerEventSource.html">withPointerEventSource</a></span><span class="signature">(<wbr><span class="parameter" id="withPointerEventSource-param-source"><span class="type-annotation"><a href="flutter_test/TestBindingEventSource.html">TestBindingEventSource</a></span> <span class="parameter-name">source</span>, </span><span class="parameter" id="withPointerEventSource-param-task"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">task</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Sets <a href="flutter_test/TestWidgetsFlutterBinding/pointerEventSource.html">pointerEventSource</a> to <code>source</code>, runs <code>task</code>, then resets <code>source</code>
+to the previous value.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="wrapWithDefaultView" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetsBinding/wrapWithDefaultView.html">wrapWithDefaultView</a></span><span class="signature">(<wbr><span class="parameter" id="wrapWithDefaultView-param-rootWidget"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">rootWidget</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Used by <a href="widgets/runApp.html">runApp</a> to wrap the provided <code>rootWidget</code> in the default <a href="widgets/View-class.html">View</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="instance" class="property">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/instance.html">instance</a></span>
+  <span class="signature">&#8594; <a href="flutter_test/LiveTestWidgetsFlutterBinding-class.html">LiveTestWidgetsFlutterBinding</a></span>
+  
+
+</dt>
+<dd>
+  The current <a href="flutter_test/LiveTestWidgetsFlutterBinding-class.html">LiveTestWidgetsFlutterBinding</a>, if one has been created.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="ensureInitialized" class="callable">
+  <span class="name"><a href="flutter_test/LiveTestWidgetsFlutterBinding/ensureInitialized.html">ensureInitialized</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="flutter_test/LiveTestWidgetsFlutterBinding-class.html">LiveTestWidgetsFlutterBinding</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns an instance of the binding that implements
+<a href="flutter_test/LiveTestWidgetsFlutterBinding-class.html">LiveTestWidgetsFlutterBinding</a>. If no binding has yet been
+initialized, the a new instance is created.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_test/">flutter_test</a></li>
+    <li class="self-crumb">LiveTestWidgetsFlutterBinding 类</li>
+</ol>
+
+    <h5>flutter_test 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

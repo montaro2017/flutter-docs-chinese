@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the handleMessage method from the ChannelBuffers class, for the Dart programming language.">
+  <title>handleMessage method - ChannelBuffers class - dart:ui 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li><a href="dart-ui/ChannelBuffers-class.html">ChannelBuffers</a></li>
+    <li class="self-crumb">handleMessage 方法</li>
+  </ol>
+  <div class="self-name">handleMessage</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-ui&#47;ChannelBuffers-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">handleMessage</span> 方法 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype">void</span>
+<span class="name ">handleMessage</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="handleMessage-param-data"><span class="type-annotation"><a href="dart-typed_data/ByteData-class.html">ByteData</a></span> <span class="parameter-name">data</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>处理一条控制消息。</p>
+<p>此方法预期由平台消息分发器调用，用于转发插件发往 <a href="dart-ui/ChannelBuffers/kControlChannelName-constant.html">kControlChannelName</a> 通道的消息。</p>
+<p>消息使用 <a href="services/StandardMethodCodec-class.html">StandardMethodCodec</a> 格式。目前支持两种方法：<code>resize</code> 和 <code>overflow</code>。<code>resize</code> 用于更改缓冲区大小，<code>overflow</code> 用于控制是否允许发生溢出。</p>
+<h2 id="resize"><code>resize</code></h2>
+<p><code>resize</code> 方法接收一个包含两个值的列表：第一个是通道名称（UTF-8 字符串，长度小于 254 字节且不包含任何空字节）；第二个是通道缓冲区允许的大小（介于 0 和 2147483647 之间的整数）。</p>
+<p>收到消息后，会调整该通道的缓冲区大小。必要时会静默丢弃消息，以确保缓冲区不超过指定大小。</p>
+<p>由于历史原因，也可以使用一种专用格式发送此消息：将 UTF-8 编码的字符串分为三部分，并用 U+000D 回车符（CR）分隔。这三部分依次为字符串 <code>resize</code>、通道名称字符串，以及新通道缓冲区大小的十进制序列化字符串。例如：<code>resize\rchannel\r1</code></p>
+<h2 id="overflow"><code>overflow</code></h2>
+<p><code>overflow</code> 方法接收一个包含两个值的列表：第一个是通道名称（UTF-8 字符串，长度小于 254 字节且不包含任何空字节）；第二个是布尔值，true 表示允许发生溢出，false 表示不允许。</p>
+<p>此方法会在调试模式下为通道设置标志。在 release 模式下，消息会被静默忽略。该标志用于指示此通道是否允许溢出。设置标志后，消息被丢弃时不会发出提示；清除标志（默认状态）后，通道发生任何溢出都会在控制台打印警告，提示消息已丢失。</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>实现</span></h2>
+  <pre class="language-dart"><code class="language-dart">void handleMessage(ByteData data) {
+  &#47;&#47; We hard-code the deserialization here because the StandardMethodCodec class
+  &#47;&#47; is part of the framework, not dart:ui.
+  final Uint8List bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+  if (bytes[0] == 0x07) {
+    &#47;&#47; 7 = value code for string
+    final int methodNameLength = bytes[1];
+    if (methodNameLength &gt;= 254) {
+      &#47;&#47; lengths greater than 253 have more elaborate encoding
+      throw Exception(&#39;Unrecognized message sent to $kControlChannelName (method name too long)&#39;);
+    }
+    var index = 2; &#47;&#47; where we are in reading the bytes
+    final String methodName = utf8.decode(bytes.sublist(index, index + methodNameLength));
+    index += methodNameLength;
+    switch (methodName) {
+      case &#39;resize&#39;:
+        if (bytes[index] != 0x0C) {
+          &#47;&#47; 12 = value code for list
+          throw Exception(
+            &quot;Invalid arguments for &#39;resize&#39; method sent to $kControlChannelName (arguments must be a two-element list, channel name and new capacity)&quot;,
+          );
+        }
+        index += 1;
+        if (bytes[index] &lt; 0x02) {
+          &#47;&#47; We ignore extra arguments, in case we need to support them in the future, hence &lt;2 rather than !=2.
+          throw Exception(
+            &quot;Invalid arguments for &#39;resize&#39; method sent to $kControlChannelName (arguments must be a two-element list, channel name and new capacity)&quot;,
+          );
+        }
+        index += 1;
+        if (bytes[index] != 0x07) {
+          &#47;&#47; 7 = value code for string
+          throw Exception(
+            &quot;Invalid arguments for &#39;resize&#39; method sent to $kControlChannelName (first argument must be a string)&quot;,
+          );
+        }
+        index += 1;
+        final int channelNameLength = bytes[index];
+        if (channelNameLength &gt;= 254) {
+          &#47;&#47; lengths greater than 253 have more elaborate encoding
+          throw Exception(
+            &quot;Invalid arguments for &#39;resize&#39; method sent to $kControlChannelName (channel name must be less than 254 characters long)&quot;,
+          );
+        }
+        index += 1;
+        final String channelName = utf8.decode(bytes.sublist(index, index + channelNameLength));
+        if (channelName.contains(&#39;\u0000&#39;)) {
+          throw Exception(
+            &quot;Invalid arguments for &#39;resize&#39; method sent to $kControlChannelName (channel name must not contain any null bytes)&quot;,
+          );
+        }
+        index += channelNameLength;
+        if (bytes[index] != 0x03) {
+          &#47;&#47; 3 = value code for uint32
+          throw Exception(
+            &quot;Invalid arguments for &#39;resize&#39; method sent to $kControlChannelName (second argument must be an integer in the range 0 to 2147483647)&quot;,
+          );
+        }
+        index += 1;
+        resize(channelName, data.getUint32(index, Endian.host));
+      case &#39;overflow&#39;:
+        if (bytes[index] != 0x0C) {
+          &#47;&#47; 12 = value code for list
+          throw Exception(
+            &quot;Invalid arguments for &#39;overflow&#39; method sent to $kControlChannelName (arguments must be a two-element list, channel name and flag state)&quot;,
+          );
+        }
+        index += 1;
+        if (bytes[index] &lt; 0x02) {
+          &#47;&#47; We ignore extra arguments, in case we need to support them in the future, hence &lt;2 rather than !=2.
+          throw Exception(
+            &quot;Invalid arguments for &#39;overflow&#39; method sent to $kControlChannelName (arguments must be a two-element list, channel name and flag state)&quot;,
+          );
+        }
+        index += 1;
+        if (bytes[index] != 0x07) {
+          &#47;&#47; 7 = value code for string
+          throw Exception(
+            &quot;Invalid arguments for &#39;overflow&#39; method sent to $kControlChannelName (first argument must be a string)&quot;,
+          );
+        }
+        index += 1;
+        final int channelNameLength = bytes[index];
+        if (channelNameLength &gt;= 254) {
+          &#47;&#47; lengths greater than 253 have more elaborate encoding
+          throw Exception(
+            &quot;Invalid arguments for &#39;overflow&#39; method sent to $kControlChannelName (channel name must be less than 254 characters long)&quot;,
+          );
+        }
+        index += 1;
+        final String channelName = utf8.decode(bytes.sublist(index, index + channelNameLength));
+        index += channelNameLength;
+        if (bytes[index] != 0x01 &amp;&amp; bytes[index] != 0x02) {
+          &#47;&#47; 1 = value code for true, 2 = value code for false
+          throw Exception(
+            &quot;Invalid arguments for &#39;overflow&#39; method sent to $kControlChannelName (second argument must be a boolean)&quot;,
+          );
+        }
+        allowOverflow(channelName, bytes[index] == 0x01);
+      default:
+        throw Exception(&quot;Unrecognized method &#39;$methodName&#39; sent to $kControlChannelName&quot;);
+    }
+  } else {
+    final List&lt;String&gt; parts = utf8.decode(bytes).split(&#39;\r&#39;);
+    if (parts.length == 1 + &#47;*arity=*&#47; 2 &amp;&amp; parts[0] == &#39;resize&#39;) {
+      resize(parts[1], int.parse(parts[2]));
+    } else {
+      &#47;&#47; If the message couldn&#39;t be decoded as UTF-8, a FormatException will
+      &#47;&#47; have been thrown by utf8.decode() above.
+      throw Exception(&#39;Unrecognized message $parts sent to $kControlChannelName.&#39;);
+    }
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-ui/">dart:ui</a></li>
+    <li><a href="dart-ui/ChannelBuffers-class.html">ChannelBuffers</a></li>
+    <li class="self-crumb">handleMessage 方法</li>
+</ol>
+
+    <h5>ChannelBuffers 类</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

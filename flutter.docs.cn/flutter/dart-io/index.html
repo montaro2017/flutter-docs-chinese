@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:io 库 API 文档，适用于 Dart 编程语言。">
+  <title>dart:io 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li class="self-crumb">dart:io</li>
+  </ol>
+  <div class="self-name">dart:io</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar=""
+    data-below-sidebar="dart-io&#47;dart-io-library-sidebar.html">
+  
+    <div>
+      
+
+      <h1>
+        <span class="kind-library">dart:io</span>
+        库 
+ 
+
+      </h1>
+    </div>
+
+    
+<section class="desc markdown">
+  <p>为非 Web 应用提供文件、套接字、HTTP 及其他输入输出支持。</p>
+<p><strong>重要：</strong>基于浏览器的应用无法使用此库。只有以下环境可以导入并使用 dart:io 库：</p>
+<ul>
+<li>Servers</li>
+<li>Command-line scripts</li>
+<li>Flutter mobile apps</li>
+<li>Flutter desktop apps</li>
+</ul>
+<p>此库允许你操作文件、目录、套接字、进程、HTTP 服务器和客户端等。许多与输入输出相关的操作都是异步的，并通过 <a href="dart-async/Future-class.html">Future</a> 或 <a href="dart-async/Stream-class.html">Stream</a> 处理；这两个类型都定义在 <a href="../dart-async/dart-async-library.html">dart:async 库</a>中。</p>
+<p>在代码中使用 dart:io 库：</p>
+<pre class="language-dart"><code class="language-dart">import 'dart:io';
+</code></pre>
+<p>有关 Dart 输入输出的介绍，请参阅 <a href="https://dart.dev/guides/libraries/library-tour#dartio">dart:io 库概览</a>。</p>
+<h2 id="file-directory-and-link">File、Directory 和 Link</h2>
+<p><a href="dart-io/File-class.html">File</a>、<a href="dart-io/Directory-class.html">Directory</a> 或 <a href="dart-io/Link-class.html">Link</a> 实例分别表示本机文件系统中的文件、目录或链接。</p>
+<p>可以通过这些类型的对象操作文件系统。例如，可以重命名文件或目录：</p>
+<pre class="language-dart"><code class="language-dart">File myFile = File('myFile.txt');
+myFile.rename('yourFile.txt').then((_) =&gt; print('file renamed'));
+</code></pre>
+<p><a href="dart-io/File-class.html">File</a>、<a href="dart-io/Directory-class.html">Directory</a> 和 <a href="dart-io/Link-class.html">Link</a> 类提供的许多方法会异步运行并返回 <a href="dart-async/Future-class.html">Future</a>。</p>
+<h2 id="filesystementity">FileSystemEntity</h2>
+<p><a href="dart-io/File-class.html">File</a>、<a href="dart-io/Directory-class.html">Directory</a> 和 <a href="dart-io/Link-class.html">Link</a> 都继承自 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a>。除了作为这些类的父类之外，FileSystemEntity 还提供多个用于处理路径的静态方法。</p>
+<p>要获取路径信息，可以使用 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 的静态方法，例如 <a href="dart-io/FileSystemEntity/isDirectory.html">FileSystemEntity.isDirectory</a>、<a href="dart-io/FileSystemEntity/isFile.html">FileSystemEntity.isFile</a> 和 <a href="dart-io/FileSystemEntity/exists.html">FileSystemEntity.exists</a>。由于文件系统访问涉及输入输出，这些方法是异步的，并返回 <a href="dart-async/Future-class.html">Future</a>。</p>
+<pre class="language-dart"><code class="language-dart">FileSystemEntity.isDirectory(myPath).then((isDir) {
+  if (isDir) {
+    print('$myPath is a directory');
+  } else {
+    print('$myPath is not a directory');
+  }
+});
+</code></pre>
+<h2 id="httpserver-and-httpclient">HttpServer 和 HttpClient</h2>
+<p><a href="dart-io/HttpClient-class.html">HttpClient</a> 和 <a href="dart-io/HttpServer-class.html">HttpServer</a> 类提供底层 HTTP 功能。</p>
+<p>与直接使用这些类相比，可以考虑使用软件包中更便于开发者使用且更易组合的 API。</p>
+<p>对于 HTTP 客户端，请参阅 <a href="https://pub.dev/packages/http"><code>package:http</code></a>。</p>
+<p>对于 HTTP 服务器，请参阅 <a href="https://dart.dev/tutorials/server/httpserver">“编写 HTTP 服务器”</a>（位于 <a href="https://dart.dev/">dart.dev</a>）。</p>
+<h2 id="process">Process</h2>
+<p><a href="dart-io/Process-class.html">Process</a> 类提供了在本机运行进程的方法。例如，下面的代码会启动一个进程，递归列出 web 目录下 <code>web</code> 中的文件。</p>
+<pre class="language-dart"><code class="language-dart">Process.start('ls', ['-R', 'web']).then((process) {
+  stdout.addStream(process.stdout);
+  stderr.addStream(process.stderr);
+  process.exitCode.then(print);
+});
+</code></pre>
+<p>使用 <a href="dart-io/Process/start.html">Process.start</a> 会返回一个 <a href="dart-async/Future-class.html">Future</a>；进程启动后，该 Future 会以 <a href="dart-io/Process-class.html">Process</a> 对象完成。此 <a href="dart-io/Process-class.html">Process</a> 对象允许你在进程运行期间与其交互。使用 <a href="dart-io/Process/run.html">Process.run</a> 也会返回一个 <a href="dart-async/Future-class.html">Future</a>；启动的进程终止后，该 Future 会以 <a href="dart-io/ProcessResult-class.html">ProcessResult</a> 对象完成。此 <a href="dart-io/ProcessResult-class.html">ProcessResult</a> 对象会收集进程的输出和退出代码。</p>
+<p>使用 <a href="dart-io/Process/start.html">Process.start</a> 时，必须读取 <a href="dart-io/Process/stdout.html">Process.stdout</a> 和 <a href="dart-io/Process/stderr.html">Process.stderr</a> 流中的所有数据，否则系统资源将无法释放。</p>
+<h2 id="websocket">WebSocket</h2>
+<p><a href="dart-io/WebSocket-class.html">WebSocket</a> 类支持 WebSocket 协议，可实现客户端与服务器应用之间的全双工通信。</p>
+<p>WebSocket 服务器使用普通 HTTP 服务器接收 WebSocket 连接。初始握手是一个 HTTP 请求，随后会将其升级为 WebSocket 连接。服务器使用 <a href="dart-io/WebSocketTransformer-class.html">WebSocketTransformer</a> 升级请求，并监听返回的 WebSocket 上的数据。例如，下面是一个监听 WebSocket 上“ws”数据的简易服务器：</p>
+<pre data-metadata="import:async" class="language-dart"><code class="language-dart">runZoned(() async {
+  var server = await HttpServer.bind('127.0.0.1', 4040);
+  server.listen((HttpRequest req) async {
+    if (req.uri.path == '/ws') {
+      var socket = await WebSocketTransformer.upgrade(req);
+      socket.listen(handleMsg);
+    }
+  });
+}, onError: (e) =&gt; print("An error occurred."));
+</code></pre>
+<p>客户端使用 <a href="dart-io/WebSocket-class.html">WebSocket.connect</a> 方法和 WebSocket 协议 URI 连接到 <a href="dart-io/WebSocket/connect.html">WebSocket</a>。客户端可以通过 <a href="dart-io/WebSocket-class.html">WebSocket.add</a> 方法向 <a href="dart-io/WebSocket/add.html">WebSocket</a> 写入数据。例如：</p>
+<pre class="language-dart"><code class="language-dart">var socket = await WebSocket.connect('ws://127.0.0.1:4040/ws');
+socket.add('Hello, World!');
+</code></pre>
+<p>可以查看 <a href="https://github.com/dart-lang/dart-samples/tree/master/html5/web/websockets/basics">websocket_sample</a> 应用；它使用 <a href="dart-io/WebSocket-class.html">WebSocket</a> 与服务器通信。</p>
+<h2 id="socket-and-serversocket">Socket 和 ServerSocket</h2>
+<p>客户端和服务器使用 <a href="dart-io/Socket-class.html">Socket</a> 通过 TCP 协议通信。在服务器端使用 <a href="dart-io/ServerSocket-class.html">ServerSocket</a>，在客户端使用 <a href="dart-io/Socket-class.html">Socket</a>。服务器通过 <code>bind()</code> 方法创建监听套接字，然后在该套接字上监听传入连接。例如：</p>
+<pre data-metadata="import:convert" class="language-dart"><code class="language-dart">ServerSocket.bind('127.0.0.1', 4041)
+  .then((serverSocket) {
+    serverSocket.listen((socket) {
+      socket.transform(utf8.decoder).listen(print);
+    });
+  });
+</code></pre>
+<p>客户端使用 <code>connect()</code> 方法连接 <a href="dart-io/Socket-class.html">Socket</a>，该方法会返回一个 <a href="dart-async/Future-class.html">Future</a>。使用 <code>write()</code>、<code>writeln()</code> 或 <code>writeAll()</code> 是通过套接字发送数据最简单的方式。例如：</p>
+<pre class="language-dart"><code class="language-dart">Socket.connect('127.0.0.1', 4041).then((socket) {
+  socket.write('Hello, World!');
+});
+</code></pre>
+<p>除了 <a href="dart-io/Socket-class.html">Socket</a> 和 <a href="dart-io/ServerSocket-class.html">ServerSocket</a>，还提供 <a href="dart-io/RawSocket-class.html">RawSocket</a> 和 <a href="dart-io/RawServerSocket-class.html">RawServerSocket</a> 类，用于以更底层的方式访问异步套接字输入输出。</p>
+<h2 id="standard-output-error-and-input-streams">标准输出、错误和输入流</h2>
+<p>此库提供标准输出、错误和输入流，分别命名为 <a href="dart-io/stdout.html">stdout</a>、<a href="dart-io/stderr.html">stderr</a> 和 <a href="dart-io/stdin.html">stdin</a>。</p>
+<p><a href="dart-io/stdout.html">stdout</a> 和 <a href="dart-io/stderr.html">stderr</a> 都是 <a href="dart-io/IOSink-class.html">IOSink</a>，并拥有相同的一组方法和属性。</p>
+<p>向 <a href="dart-io/stdout.html">stdout</a> 写入字符串：</p>
+<pre class="language-dart"><code class="language-dart">stdout.writeln('Hello, World!');
+</code></pre>
+<p>向 <a href="dart-io/stderr.html">stderr</a> 写入对象列表：</p>
+<pre class="language-dart"><code class="language-dart">stderr.writeAll([ 'That ', 'is ', 'an ', 'error.', '\n']);
+</code></pre>
+<p>标准输入流是真正的 <a href="dart-async/Stream-class.html">Stream</a>，因此继承了 <a href="dart-async/Stream-class.html">Stream</a> 类的属性和方法。</p>
+<p>从命令行同步读取文本（程序会阻塞，等待用户输入信息）：</p>
+<pre class="language-dart"><code class="language-dart">String? inputText = stdin.readLineSync();
+</code></pre>
+</section>
+
+
+    <section class="summary offset-anchor" id="classes">
+      <h2>类</h2>
+      <dl>
+          <dt id="BytesBuilder">
+  <span class="name "><a href="dart-typed_data/BytesBuilder-class.html">BytesBuilder</a></span> 
+
+</dt>
+<dd>
+  Builds a list of bytes, allowing bytes and lists of bytes to be added at the
+end.
+</dd>
+
+          <dt id="CompressionOptions">
+  <span class="name "><a href="dart-io/CompressionOptions-class.html">CompressionOptions</a></span> 
+
+</dt>
+<dd>
+  Options controlling compression in a <a href="dart-io/WebSocket-class.html">WebSocket</a>.
+</dd>
+
+          <dt id="ConnectionTask">
+  <span class="name "><a href="dart-io/ConnectionTask-class.html">ConnectionTask</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  A cancelable connection attempt.
+</dd>
+
+          <dt id="ContentType">
+  <span class="name "><a href="dart-io/ContentType-class.html">ContentType</a></span> 
+
+</dt>
+<dd>
+  A MIME/IANA media type used as the value of the
+<a href="dart-io/HttpHeaders/contentTypeHeader-constant.html">HttpHeaders.contentTypeHeader</a> header.
+</dd>
+
+          <dt id="Cookie">
+  <span class="name "><a href="dart-io/Cookie-class.html">Cookie</a></span> 
+
+</dt>
+<dd>
+  Representation of a cookie. For cookies received by the server as Cookie
+header values only <a href="dart-io/Cookie/name.html">name</a> 和 <a href="dart-io/Cookie/value.html">value</a> properties will be set. When building a
+cookie for the 'set-cookie' header in the server and when receiving cookies
+in the client as 'set-cookie' headers all fields can be used.
+</dd>
+
+          <dt id="Datagram">
+  <span class="name "><a href="dart-io/Datagram-class.html">Datagram</a></span> 
+
+</dt>
+<dd>
+  A data packet received by a <a href="dart-io/RawDatagramSocket-class.html">RawDatagramSocket</a>.
+</dd>
+
+          <dt id="Directory">
+  <span class="name "><a href="dart-io/Directory-class.html">Directory</a></span> 
+
+</dt>
+<dd>
+  A reference to a directory (or <em>folder</em>) on the file system.
+</dd>
+
+          <dt id="File">
+  <span class="name "><a href="dart-io/File-class.html">File</a></span> 
+
+</dt>
+<dd>
+  A reference to a file on the file system.
+</dd>
+
+          <dt id="FileLock">
+  <span class="name "><a href="dart-io/FileLock-class.html">FileLock</a></span> 
+
+</dt>
+<dd>
+  Type of lock when requesting a lock on a file.
+</dd>
+
+          <dt id="FileMode">
+  <span class="name "><a href="dart-io/FileMode-class.html">FileMode</a></span> 
+
+</dt>
+<dd>
+  The modes in which a <a href="dart-io/File-class.html">File</a> can be opened.
+</dd>
+
+          <dt id="FileStat">
+  <span class="name "><a href="dart-io/FileStat-class.html">FileStat</a></span> 
+
+</dt>
+<dd>
+  The result of calling the POSIX <code>stat()</code> function on a file system object.
+</dd>
+
+          <dt id="FileSystemCreateEvent">
+  <span class="name "><a href="dart-io/FileSystemCreateEvent-class.html">FileSystemCreateEvent</a></span> 
+
+</dt>
+<dd>
+  File system event for newly created file system objects.
+</dd>
+
+          <dt id="FileSystemDeleteEvent">
+  <span class="name "><a href="dart-io/FileSystemDeleteEvent-class.html">FileSystemDeleteEvent</a></span> 
+
+</dt>
+<dd>
+  File system event for deletion of file system objects.
+</dd>
+
+          <dt id="FileSystemEntity">
+  <span class="name "><a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a></span> 
+
+</dt>
+<dd>
+  The common superclass of <a href="dart-io/File-class.html">File</a>, <a href="dart-io/Directory-class.html">Directory</a>, and <a href="dart-io/Link-class.html">Link</a>.
+</dd>
+
+          <dt id="FileSystemEntityType">
+  <span class="name "><a href="dart-io/FileSystemEntityType-class.html">FileSystemEntityType</a></span> 
+
+</dt>
+<dd>
+  The type of an entity on the file system,
+such as a file, directory, or link.
+</dd>
+
+          <dt id="FileSystemEvent">
+  <span class="name "><a href="dart-io/FileSystemEvent-class.html">FileSystemEvent</a></span> 
+
+</dt>
+<dd>
+  Base event class emitted by <a href="dart-io/FileSystemEntity/watch.html">FileSystemEntity.watch</a>.
+</dd>
+
+          <dt id="FileSystemModifyEvent">
+  <span class="name "><a href="dart-io/FileSystemModifyEvent-class.html">FileSystemModifyEvent</a></span> 
+
+</dt>
+<dd>
+  File system event for modifications of file system objects.
+</dd>
+
+          <dt id="FileSystemMoveEvent">
+  <span class="name "><a href="dart-io/FileSystemMoveEvent-class.html">FileSystemMoveEvent</a></span> 
+
+</dt>
+<dd>
+  File system event for moving of file system objects.
+</dd>
+
+          <dt id="GZipCodec">
+  <span class="name "><a href="dart-io/GZipCodec-class.html">GZipCodec</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/GZipCodec-class.html">GZipCodec</a> encodes raw bytes to GZip compressed bytes and decodes GZip
+compressed bytes to raw bytes.
+</dd>
+
+          <dt id="HeaderValue">
+  <span class="name "><a href="dart-io/HeaderValue-class.html">HeaderValue</a></span> 
+
+</dt>
+<dd>
+  Representation of a header value in the form:
+</dd>
+
+          <dt id="HttpClient">
+  <span class="name "><a href="dart-io/HttpClient-class.html">HttpClient</a></span> 
+
+</dt>
+<dd>
+  An HTTP client for communicating with an HTTP server.
+</dd>
+
+          <dt id="HttpClientBasicCredentials">
+  <span class="name "><a href="dart-io/HttpClientBasicCredentials-class.html">HttpClientBasicCredentials</a></span> 
+
+</dt>
+<dd>
+  Represents credentials for basic authentication.
+</dd>
+
+          <dt id="HttpClientBearerCredentials">
+  <span class="name "><a href="dart-io/HttpClientBearerCredentials-class.html">HttpClientBearerCredentials</a></span> 
+
+</dt>
+<dd>
+  Represents credentials for bearer token authentication.
+</dd>
+
+          <dt id="HttpClientCredentials">
+  <span class="name "><a href="dart-io/HttpClientCredentials-class.html">HttpClientCredentials</a></span> 
+
+</dt>
+<dd>
+  Represents credentials for authentication in <a href="dart-io/HttpClient-class.html">HttpClient</a>.
+</dd>
+
+          <dt id="HttpClientDigestCredentials">
+  <span class="name "><a href="dart-io/HttpClientDigestCredentials-class.html">HttpClientDigestCredentials</a></span> 
+
+</dt>
+<dd>
+  Represents credentials for digest authentication.
+</dd>
+
+          <dt id="HttpClientRequest">
+  <span class="name "><a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a></span> 
+
+</dt>
+<dd>
+  HTTP request for a client connection.
+</dd>
+
+          <dt id="HttpClientResponse">
+  <span class="name "><a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a></span> 
+
+</dt>
+<dd>
+  HTTP response for a client connection.
+</dd>
+
+          <dt id="HttpConnectionInfo">
+  <span class="name "><a href="dart-io/HttpConnectionInfo-class.html">HttpConnectionInfo</a></span> 
+
+</dt>
+<dd>
+  Information about an <a href="dart-io/HttpRequest-class.html">HttpRequest</a>, <a href="dart-io/HttpResponse-class.html">HttpResponse</a>, <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a>, or
+<a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a> connection.
+</dd>
+
+          <dt id="HttpConnectionsInfo">
+  <span class="name "><a href="dart-io/HttpConnectionsInfo-class.html">HttpConnectionsInfo</a></span> 
+
+</dt>
+<dd>
+  Summary statistics about an <a href="dart-io/HttpServer-class.html">HttpServer</a>s current socket connections.
+</dd>
+
+          <dt id="HttpDate">
+  <span class="name "><a href="dart-io/HttpDate-class.html">HttpDate</a></span> 
+
+</dt>
+<dd>
+  Utility functions for working with dates with HTTP specific date
+formats.
+</dd>
+
+          <dt id="HttpHeaders">
+  <span class="name "><a href="dart-io/HttpHeaders-class.html">HttpHeaders</a></span> 
+
+</dt>
+<dd>
+  Headers for HTTP requests and responses.
+</dd>
+
+          <dt id="HttpOverrides">
+  <span class="name "><a href="dart-io/HttpOverrides-class.html">HttpOverrides</a></span> 
+
+</dt>
+<dd>
+  This class facilitates overriding <a href="dart-io/HttpClient-class.html">HttpClient</a> with a mock implementation.
+It should be extended by another class in client code with overrides
+that construct a mock implementation. The implementation in this base class
+defaults to the actual <a href="dart-io/HttpClient-class.html">HttpClient</a> implementation. For example:
+</dd>
+
+          <dt id="HttpRequest">
+  <span class="name "><a href="dart-io/HttpRequest-class.html">HttpRequest</a></span> 
+
+</dt>
+<dd>
+  A server-side object
+that contains the content of and information about an HTTP request.
+</dd>
+
+          <dt id="HttpResponse">
+  <span class="name "><a href="dart-io/HttpResponse-class.html">HttpResponse</a></span> 
+
+</dt>
+<dd>
+  An HTTP response, which returns the headers and data
+from the server to the client in response to an HTTP request.
+</dd>
+
+          <dt id="HttpServer">
+  <span class="name "><a href="dart-io/HttpServer-class.html">HttpServer</a></span> 
+
+</dt>
+<dd>
+  A server that delivers content, such as web pages, using the HTTP protocol.
+</dd>
+
+          <dt id="HttpSession">
+  <span class="name "><a href="dart-io/HttpSession-class.html">HttpSession</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/HttpRequest/session.html">HttpRequest.session</a> of an <a href="dart-io/HttpRequest-class.html">HttpRequest</a>.
+</dd>
+
+          <dt id="HttpStatus">
+  <span class="name "><a href="dart-html/HttpStatus-class.html">HttpStatus</a></span> 
+
+</dt>
+<dd>
+  HTTP status codes.  Exported in dart:io and dart:html.
+</dd>
+
+          <dt id="InterfaceAddress">
+  <span class="name "><a href="dart-io/InterfaceAddress-class.html">InterfaceAddress</a></span> 
+
+</dt>
+<dd>
+  An <a href="dart-io/InternetAddress-class.html">InternetAddress</a> bound to a <a href="dart-io/NetworkInterface-class.html">NetworkInterface</a>, extended with
+network configuration details.
+</dd>
+
+          <dt id="InternetAddress">
+  <span class="name "><a href="dart-io/InternetAddress-class.html">InternetAddress</a></span> 
+
+</dt>
+<dd>
+  An internet address or a Unix domain address.
+</dd>
+
+          <dt id="InternetAddressType">
+  <span class="name "><a href="dart-io/InternetAddressType-class.html">InternetAddressType</a></span> 
+
+</dt>
+<dd>
+  The type, or address family, of an <a href="dart-io/InternetAddress-class.html">InternetAddress</a>.
+</dd>
+
+          <dt id="IOOverrides">
+  <span class="name "><a href="dart-io/IOOverrides-class.html">IOOverrides</a></span> 
+
+</dt>
+<dd>
+  Facilities for overriding various APIs of <code>dart:io</code> with mock
+implementations.
+</dd>
+
+          <dt id="IOSink">
+  <span class="name "><a href="dart-io/IOSink-class.html">IOSink</a></span> 
+
+</dt>
+<dd>
+  A combined byte and text output.
+</dd>
+
+          <dt id="Link">
+  <span class="name "><a href="dart-io/Link-class.html">Link</a></span> 
+
+</dt>
+<dd>
+  References to filesystem links.
+</dd>
+
+          <dt id="NetworkInterface">
+  <span class="name "><a href="dart-io/NetworkInterface-class.html">NetworkInterface</a></span> 
+
+</dt>
+<dd>
+  A <a href="dart-io/NetworkInterface-class.html">NetworkInterface</a> represents an active network interface on the current
+system. It contains a list of <a href="dart-io/InterfaceAddress-class.html">InterfaceAddress</a>es that are bound to the
+interface.
+</dd>
+
+          <dt id="Pipe">
+  <span class="name "><a href="dart-io/Pipe-class.html">Pipe</a></span> 
+
+</dt>
+<dd>
+  An anonymous pipe that can be used to send data in a single direction i.e.
+data written to <a href="dart-io/Pipe/write.html">write</a> can be read using <a href="dart-io/Pipe/read.html">read</a>.
+</dd>
+
+          <dt id="Platform">
+  <span class="name "><a href="dart-io/Platform-class.html">Platform</a></span> 
+
+</dt>
+<dd>
+  Information about the environment in which the current program is running.
+</dd>
+
+          <dt id="Process">
+  <span class="name "><a href="dart-io/Process-class.html">Process</a></span> 
+
+</dt>
+<dd>
+  The means to execute a program.
+</dd>
+
+          <dt id="ProcessInfo">
+  <span class="name "><a href="dart-io/ProcessInfo-class.html">ProcessInfo</a></span> 
+
+</dt>
+<dd>
+  Methods for retrieving information about the current process.
+</dd>
+
+          <dt id="ProcessResult">
+  <span class="name "><a href="dart-io/ProcessResult-class.html">ProcessResult</a></span> 
+
+</dt>
+<dd>
+  The result of running a non-interactive
+process started with <a href="dart-io/Process/run.html">Process.run</a> or <a href="dart-io/Process/runSync.html">Process.runSync</a>.
+</dd>
+
+          <dt id="ProcessSignal">
+  <span class="name "><a href="dart-io/ProcessSignal-class.html">ProcessSignal</a></span> 
+
+</dt>
+<dd>
+  On Posix systems, <a href="dart-io/ProcessSignal-class.html">ProcessSignal</a> is used to send a specific signal
+to a child process, see <code>Process.kill</code>.
+</dd>
+
+          <dt id="ProcessStartMode">
+  <span class="name "><a href="dart-io/ProcessStartMode-class.html">ProcessStartMode</a></span> 
+
+</dt>
+<dd>
+  Modes for running a new process.
+</dd>
+
+          <dt id="RandomAccessFile">
+  <span class="name "><a href="dart-io/RandomAccessFile-class.html">RandomAccessFile</a></span> 
+
+</dt>
+<dd>
+  Random access to the data in a file.
+</dd>
+
+          <dt id="RawDatagramSocket">
+  <span class="name "><a href="dart-io/RawDatagramSocket-class.html">RawDatagramSocket</a></span> 
+
+</dt>
+<dd>
+  An unbuffered interface to a UDP socket.
+</dd>
+
+          <dt id="RawSecureServerSocket">
+  <span class="name "><a href="dart-io/RawSecureServerSocket-class.html">RawSecureServerSocket</a></span> 
+
+</dt>
+<dd>
+  A server socket providing a stream of low-level <a href="dart-io/RawSecureSocket-class.html">RawSecureSocket</a>。
+</dd>
+
+          <dt id="RawSecureSocket">
+  <span class="name "><a href="dart-io/RawSecureSocket-class.html">RawSecureSocket</a></span> 
+
+</dt>
+<dd>
+  <code>RawSecureSocket</code> provides a secure (SSL or TLS) network connection.
+</dd>
+
+          <dt id="RawServerSocket">
+  <span class="name "><a href="dart-io/RawServerSocket-class.html">RawServerSocket</a></span> 
+
+</dt>
+<dd>
+  A listening socket.
+</dd>
+
+          <dt id="RawSocket">
+  <span class="name "><a href="dart-io/RawSocket-class.html">RawSocket</a></span> 
+
+</dt>
+<dd>
+  A TCP connection.
+</dd>
+
+          <dt id="RawSocketEvent">
+  <span class="name "><a href="dart-io/RawSocketEvent-class.html">RawSocketEvent</a></span> 
+
+</dt>
+<dd>
+  Events for the <a href="dart-io/RawDatagramSocket-class.html">RawDatagramSocket</a>, <a href="dart-io/RawSecureSocket-class.html">RawSecureSocket</a>, and <a href="dart-io/RawSocket-class.html">RawSocket</a>.
+</dd>
+
+          <dt id="RawSocketOption">
+  <span class="name "><a href="dart-io/RawSocketOption-class.html">RawSocketOption</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/RawSocketOption-class.html">RawSocketOption</a> is used as a parameter to <a href="dart-io/Socket/setRawOption.html">Socket.setRawOption</a> 和
+<a href="dart-io/RawSocket/setRawOption.html">RawSocket.setRawOption</a> to customize the behaviour of the underlying
+socket.
+</dd>
+
+          <dt id="RawSynchronousSocket">
+  <span class="name "><a href="dart-io/RawSynchronousSocket-class.html">RawSynchronousSocket</a></span> 
+
+</dt>
+<dd>
+  A low-level class for communicating synchronously over a TCP socket.
+</dd>
+
+          <dt id="RawZLibFilter">
+  <span class="name "><a href="dart-io/RawZLibFilter-class.html">RawZLibFilter</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/RawZLibFilter-class.html">RawZLibFilter</a> class provides a low-level interface to zlib.
+</dd>
+
+          <dt id="ReadPipe">
+  <span class="name "><a href="dart-io/ReadPipe-class.html">ReadPipe</a></span> 
+
+</dt>
+<dd>
+  The "read" end of an <a href="dart-io/Pipe-class.html">Pipe</a> created by <a href="dart-io/Pipe/create.html">Pipe.create</a>.
+</dd>
+
+          <dt id="RedirectInfo">
+  <span class="name "><a href="dart-io/RedirectInfo-class.html">RedirectInfo</a></span> 
+
+</dt>
+<dd>
+  Redirect information.
+</dd>
+
+          <dt id="ResourceHandle">
+  <span class="name "><a href="dart-io/ResourceHandle-class.html">ResourceHandle</a></span> 
+
+</dt>
+<dd>
+  A wrapper around OS resource handle so it can be passed via Socket
+as part of <a href="dart-io/SocketMessage-class.html">SocketMessage</a>.
+</dd>
+
+          <dt id="SameSite">
+  <span class="name "><a href="dart-io/SameSite-class.html">SameSite</a></span> 
+
+</dt>
+<dd>
+  Cookie cross-site availability configuration.
+</dd>
+
+          <dt id="SecureServerSocket">
+  <span class="name "><a href="dart-io/SecureServerSocket-class.html">SecureServerSocket</a></span> 
+
+</dt>
+<dd>
+  A server socket, providing a stream of high-level <a href="dart-io/Socket-class.html">Socket</a>。
+</dd>
+
+          <dt id="SecureSocket">
+  <span class="name "><a href="dart-io/SecureSocket-class.html">SecureSocket</a></span> 
+
+</dt>
+<dd>
+  A TCP socket using TLS and SSL.
+</dd>
+
+          <dt id="SecurityContext">
+  <span class="name "><a href="dart-io/SecurityContext-class.html">SecurityContext</a></span> 
+
+</dt>
+<dd>
+  The object containing the certificates to trust when making
+a secure client connection, and the certificate chain and
+private key to serve from a secure server.
+</dd>
+
+          <dt id="ServerSocket">
+  <span class="name "><a href="dart-io/ServerSocket-class.html">ServerSocket</a></span> 
+
+</dt>
+<dd>
+  A listening socket.
+</dd>
+
+          <dt id="Socket">
+  <span class="name "><a href="dart-io/Socket-class.html">Socket</a></span> 
+
+</dt>
+<dd>
+  A TCP connection between two sockets.
+</dd>
+
+          <dt id="SocketControlMessage">
+  <span class="name "><a href="dart-io/SocketControlMessage-class.html">SocketControlMessage</a></span> 
+
+</dt>
+<dd>
+  Control message part of the <a href="dart-io/SocketMessage-class.html">SocketMessage</a> received by a call to
+<a href="dart-io/RawSocket/readMessage.html">RawSocket.readMessage</a>.
+</dd>
+
+          <dt id="SocketDirection">
+  <span class="name "><a href="dart-io/SocketDirection-class.html">SocketDirection</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/SocketDirection-class.html">SocketDirection</a> is used as a parameter to <a href="dart-io/Socket/close.html">Socket.close</a> 和
+<a href="dart-io/RawSocket/close.html">RawSocket.close</a> to close a socket in the specified direction(s).
+</dd>
+
+          <dt id="SocketMessage">
+  <span class="name "><a href="dart-io/SocketMessage-class.html">SocketMessage</a></span> 
+
+</dt>
+<dd>
+  A socket message received by a <a href="dart-io/RawDatagramSocket-class.html">RawDatagramSocket</a>.
+</dd>
+
+          <dt id="SocketOption">
+  <span class="name "><a href="dart-io/SocketOption-class.html">SocketOption</a></span> 
+
+</dt>
+<dd>
+  An option for a socket which is configured using <a href="dart-io/Socket/setOption.html">Socket.setOption</a>.
+</dd>
+
+          <dt id="Stdin">
+  <span class="name "><a href="dart-io/Stdin-class.html">Stdin</a></span> 
+
+</dt>
+<dd>
+  The standard input stream of the process.
+</dd>
+
+          <dt id="StdioType">
+  <span class="name "><a href="dart-io/StdioType-class.html">StdioType</a></span> 
+
+</dt>
+<dd>
+  The type of object a standard IO stream can be attached to.
+</dd>
+
+          <dt id="Stdout">
+  <span class="name "><a href="dart-io/Stdout-class.html">Stdout</a></span> 
+
+</dt>
+<dd>
+  An <a href="dart-io/IOSink-class.html">IOSink</a> connected to either the standard out or error of the process.
+</dd>
+
+          <dt id="SystemEncoding">
+  <span class="name "><a href="dart-io/SystemEncoding-class.html">SystemEncoding</a></span> 
+
+</dt>
+<dd>
+  The system encoding is the current code page on Windows and UTF-8 on Linux
+and Mac.
+</dd>
+
+          <dt id="TlsProtocolVersion">
+  <span class="name "><a href="dart-io/TlsProtocolVersion-class.html">TlsProtocolVersion</a></span> 
+
+</dt>
+<dd>
+  A Transport Layer Security (TLS) version.
+</dd>
+
+          <dt id="WebSocket">
+  <span class="name "><a href="dart-io/WebSocket-class.html">WebSocket</a></span> 
+
+</dt>
+<dd>
+  A two-way HTTP communication object for client or server applications.
+</dd>
+
+          <dt id="WebSocketStatus">
+  <span class="name "><a href="dart-io/WebSocketStatus-class.html">WebSocketStatus</a></span> 
+
+</dt>
+<dd>
+  WebSocket status codes used when closing a WebSocket connection.
+</dd>
+
+          <dt id="WebSocketTransformer">
+  <span class="name "><a href="dart-io/WebSocketTransformer-class.html">WebSocketTransformer</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/WebSocketTransformer-class.html">WebSocketTransformer</a> provides the ability to upgrade a
+<a href="dart-io/HttpRequest-class.html">HttpRequest</a> to a <a href="dart-io/WebSocket-class.html">WebSocket</a> connection. It supports both
+upgrading a single <a href="dart-io/HttpRequest-class.html">HttpRequest</a> and upgrading a stream of
+<a href="dart-io/HttpRequest-class.html">HttpRequest</a>。
+</dd>
+
+          <dt id="WritePipe">
+  <span class="name "><a href="dart-io/WritePipe-class.html">WritePipe</a></span> 
+
+</dt>
+<dd>
+  The "write" end of an <a href="dart-io/Pipe-class.html">Pipe</a> created by <a href="dart-io/Pipe/create.html">Pipe.create</a>.
+</dd>
+
+          <dt id="X509Certificate">
+  <span class="name "><a href="dart-io/X509Certificate-class.html">X509Certificate</a></span> 
+
+</dt>
+<dd>
+  X509Certificate represents an SSL certificate, with accessors to
+get the fields of the certificate.
+</dd>
+
+          <dt id="ZLibCodec">
+  <span class="name "><a href="dart-io/ZLibCodec-class.html">ZLibCodec</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/ZLibCodec-class.html">ZLibCodec</a> encodes raw bytes to ZLib compressed bytes and decodes ZLib
+compressed bytes to raw bytes.
+</dd>
+
+          <dt id="ZLibDecoder">
+  <span class="name "><a href="dart-io/ZLibDecoder-class.html">ZLibDecoder</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/ZLibDecoder-class.html">ZLibDecoder</a> is used by <a href="dart-io/ZLibCodec-class.html">ZLibCodec</a> 和 <a href="dart-io/GZipCodec-class.html">GZipCodec</a> to decompress data.
+</dd>
+
+          <dt id="ZLibEncoder">
+  <span class="name "><a href="dart-io/ZLibEncoder-class.html">ZLibEncoder</a></span> 
+
+</dt>
+<dd>
+  The <a href="dart-io/ZLibEncoder-class.html">ZLibEncoder</a> encoder is used by <a href="dart-io/ZLibCodec-class.html">ZLibCodec</a> 和 <a href="dart-io/GZipCodec-class.html">GZipCodec</a> to compress
+data.
+</dd>
+
+          <dt id="ZLibOption">
+  <span class="name "><a href="dart-io/ZLibOption-class.html">ZLibOption</a></span> 
+
+</dt>
+<dd>
+  Exposes ZLib options for input parameters.
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="enums">
+      <h2>枚举</h2>
+      <dl>
+          <dt id="HttpClientResponseCompressionState">
+  <span class="name "><a href="dart-io/HttpClientResponseCompressionState.html">HttpClientResponseCompressionState</a></span> 
+
+</dt>
+<dd>
+  Enum that specifies the compression state of the byte stream of an
+<a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a>.
+</dd>
+
+      </dl>
+    </section>
+
+
+
+
+    <section class="summary offset-anchor" id="constants">
+      <h2>常量</h2>
+      <dl class="properties">
+          <dt id="gzip" class="constant">
+    <span class="name "><a href="dart-io/gzip-constant.html">gzip</a></span>
+  <span class="signature">&#8594; const <a href="dart-io/GZipCodec-class.html">GZipCodec</a></span>
+  
+
+</dt>
+<dd>
+  An instance of the default implementation of the <a href="dart-io/GZipCodec-class.html">GZipCodec</a>.
+  
+
+</dd>
+
+          <dt id="systemEncoding" class="constant">
+    <span class="name "><a href="dart-io/systemEncoding-constant.html">systemEncoding</a></span>
+  <span class="signature">&#8594; const <a href="dart-io/SystemEncoding-class.html">SystemEncoding</a></span>
+  
+
+</dt>
+<dd>
+  The current system encoding.
+  
+
+</dd>
+
+          <dt id="zlib" class="constant">
+    <span class="name "><a href="dart-io/zlib-constant.html">zlib</a></span>
+  <span class="signature">&#8594; const <a href="dart-io/ZLibCodec-class.html">ZLibCodec</a></span>
+  
+
+</dt>
+<dd>
+  An instance of the default implementation of the <a href="dart-io/ZLibCodec-class.html">ZLibCodec</a>.
+  
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="properties">
+      <h2>属性</h2>
+      <dl class="properties">
+          <dt id="exitCode" class="property">
+  <span class="name"><a href="dart-io/exitCode.html">exitCode</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Get the global exit code for the Dart VM.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+          <dt id="pid" class="property">
+  <span class="name"><a href="dart-io/pid.html">pid</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Returns the PID of the current process.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+          <dt id="stderr" class="property">
+  <span class="name"><a href="dart-io/stderr.html">stderr</a></span>
+  <span class="signature">&#8594; <a href="dart-io/Stdout-class.html">Stdout</a></span>
+  
+
+</dt>
+<dd>
+  The standard output stream of errors written by this program.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+          <dt id="stdin" class="property">
+  <span class="name"><a href="dart-io/stdin.html">stdin</a></span>
+  <span class="signature">&#8594; <a href="dart-io/Stdin-class.html">Stdin</a></span>
+  
+
+</dt>
+<dd>
+  The standard input stream of data read by this program.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+          <dt id="stdout" class="property">
+  <span class="name"><a href="dart-io/stdout.html">stdout</a></span>
+  <span class="signature">&#8594; <a href="dart-io/Stdout-class.html">Stdout</a></span>
+  
+
+</dt>
+<dd>
+  The standard output stream of data written by this program.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="functions">
+      <h2>函数</h2>
+      <dl class="callables">
+          <dt id="exit" class="callable">
+  <span class="name"><a href="dart-io/exit.html">exit</a></span><span class="signature">(<wbr><span class="parameter" id="exit-param-code"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">code</span></span>)
+    <span class="returntype parameter">&#8594; Never</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Exit the Dart VM process immediately with the given exit code.
+  
+
+</dd>
+
+          <dt id="sleep" class="callable">
+  <span class="name"><a href="dart-io/sleep.html">sleep</a></span><span class="signature">(<wbr><span class="parameter" id="sleep-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sleep for the duration specified in <code>duration</code>.
+  
+
+</dd>
+
+          <dt id="stdioType" class="callable">
+  <span class="name"><a href="dart-io/stdioType.html">stdioType</a></span><span class="signature">(<wbr><span class="parameter" id="stdioType-param-object"><span class="type-annotation">dynamic</span> <span class="parameter-name">object</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-io/StdioType-class.html">StdioType</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether a stream is attached to a file, pipe, terminal, or
+something else.
+  
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="typedefs">
+      <h2>类型定义</h2>
+      <dl>
+          
+  <dt id="BadCertificateCallback" class="callable">
+    <span class="name"><a href="dart-io/BadCertificateCallback.html">BadCertificateCallback</a></span><span class="signature">
+      <span class="returntype parameter">= <a href="dart-core/bool-class.html">bool</a> Function<span class="signature">(<span class="parameter" id="param-cr"><span class="type-annotation"><a href="dart-io/X509Certificate-class.html">X509Certificate</a></span> <span class="parameter-name">cr</span>, </span><span class="parameter" id="param-host"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">host</span>, </span><span class="parameter" id="param-port"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">port</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    
+    
+
+  </dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="exceptions">
+      <h2>异常与错误</h2>
+      <dl>
+          <dt id="CertificateException">
+  <span class="name "><a href="dart-io/CertificateException-class.html">CertificateException</a></span> 
+
+</dt>
+<dd>
+  An exception that happens in the handshake phase of establishing
+a secure network connection, when looking up or verifying a
+certificate.
+</dd>
+
+          <dt id="FileSystemException">
+  <span class="name "><a href="dart-io/FileSystemException-class.html">FileSystemException</a></span> 
+
+</dt>
+<dd>
+  Exception thrown when a file operation fails.
+</dd>
+
+          <dt id="HandshakeException">
+  <span class="name "><a href="dart-io/HandshakeException-class.html">HandshakeException</a></span> 
+
+</dt>
+<dd>
+  An exception that happens in the handshake phase of establishing
+a secure network connection.
+</dd>
+
+          <dt id="HttpException">
+  <span class="name "><a href="dart-io/HttpException-class.html">HttpException</a></span> 
+
+</dt>
+<dd>
+  
+</dd>
+
+          <dt id="IOException">
+  <span class="name "><a href="dart-io/IOException-class.html">IOException</a></span> 
+
+</dt>
+<dd>
+  Base class for all IO related exceptions.
+</dd>
+
+          <dt id="OSError">
+  <span class="name "><a href="dart-io/OSError-class.html">OSError</a></span> 
+
+</dt>
+<dd>
+  An <a href="dart-core/Exception-class.html">Exception</a> holding information about an error from the
+operating system.
+</dd>
+
+          <dt id="PathAccessException">
+  <span class="name "><a href="dart-io/PathAccessException-class.html">PathAccessException</a></span> 
+
+</dt>
+<dd>
+  Exception thrown when a file operation fails because the necessary access
+rights are not available.
+</dd>
+
+          <dt id="PathExistsException">
+  <span class="name "><a href="dart-io/PathExistsException-class.html">PathExistsException</a></span> 
+
+</dt>
+<dd>
+  Exception thrown when a file operation fails because the target path
+already exists.
+</dd>
+
+          <dt id="PathNotFoundException">
+  <span class="name "><a href="dart-io/PathNotFoundException-class.html">PathNotFoundException</a></span> 
+
+</dt>
+<dd>
+  Exception thrown when a file operation fails because a file or
+directory does not exist.
+</dd>
+
+          <dt id="ProcessException">
+  <span class="name "><a href="dart-io/ProcessException-class.html">ProcessException</a></span> 
+
+</dt>
+<dd>
+  
+</dd>
+
+          <dt id="RedirectException">
+  <span class="name "><a href="dart-io/RedirectException-class.html">RedirectException</a></span> 
+
+</dt>
+<dd>
+  
+</dd>
+
+          <dt id="SignalException">
+  <span class="name "><a href="dart-io/SignalException-class.html">SignalException</a></span> 
+
+</dt>
+<dd>
+  
+</dd>
+
+          <dt id="SocketException">
+  <span class="name "><a href="dart-io/SocketException-class.html">SocketException</a></span> 
+
+</dt>
+<dd>
+  Exception thrown when a socket operation fails.
+</dd>
+
+          <dt id="StdinException">
+  <span class="name "><a href="dart-io/StdinException-class.html">StdinException</a></span> 
+
+</dt>
+<dd>
+  Exception thrown by some operations of <a href="dart-io/Stdin-class.html">Stdin</a>
+</dd>
+
+          <dt id="StdoutException">
+  <span class="name "><a href="dart-io/StdoutException-class.html">StdoutException</a></span> 
+
+</dt>
+<dd>
+  Exception thrown by some operations of <a href="dart-io/Stdout-class.html">Stdout</a>
+</dd>
+
+          <dt id="TlsException">
+  <span class="name "><a href="dart-io/TlsException-class.html">TlsException</a></span> 
+
+</dt>
+<dd>
+  A secure networking exception caused by a failure in the
+TLS/SSL protocol.
+</dd>
+
+          <dt id="WebSocketException">
+  <span class="name "><a href="dart-io/WebSocketException-class.html">WebSocketException</a></span> 
+
+</dt>
+<dd>
+  
+</dd>
+
+      </dl>
+    </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li class="self-crumb">dart:io</li>
+</ol>
+
+    <h5><span class="package-name">Flutter</span> <span class="package-kind">包</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="animation/">animation</a></li>
+      <li><a href="cupertino/">cupertino</a></li>
+      <li><a href="foundation/">foundation</a></li>
+      <li><a href="gestures/">gestures</a></li>
+      <li><a href="material/">material</a></li>
+      <li><a href="painting/">painting</a></li>
+      <li><a href="physics/">physics</a></li>
+      <li><a href="rendering/">rendering</a></li>
+      <li><a href="scheduler/">scheduler</a></li>
+      <li><a href="semantics/">semantics</a></li>
+      <li><a href="services/">services</a></li>
+      <li><a href="widget_previews/">widget_previews</a></li>
+      <li><a href="widgets/">widgets</a></li>
+      <li class="section-title">Dart</li>
+      <li><a href="dart-ui/">dart:ui</a></li>
+      <li><a href="dart-ui_web/">dart:ui_web</a></li>
+      <li class="section-subtitle">Core</li>
+        <li class="section-subitem"><a href="dart-async/">dart:async</a></li>
+        <li class="section-subitem"><a href="dart-collection/">dart:collection</a></li>
+        <li class="section-subitem"><a href="dart-convert/">dart:convert</a></li>
+        <li class="section-subitem"><a href="dart-core/">dart:core</a></li>
+        <li class="section-subitem"><a href="dart-developer/">dart:developer</a></li>
+        <li class="section-subitem"><a href="dart-math/">dart:math</a></li>
+        <li class="section-subitem"><a href="dart-typed_data/">dart:typed_data</a></li>
+      <li class="section-subtitle">VM</li>
+        <li class="section-subitem"><a href="dart-ffi/">dart:ffi</a></li>
+        <li class="section-subitem"><a href="dart-io/">dart:io</a></li>
+        <li class="section-subitem"><a href="dart-isolate/">dart:isolate</a></li>
+      <li class="section-subtitle">Web</li>
+        <li class="section-subitem">
+          <a href="https:&#47;&#47;pub.dev&#47;documentation&#47;web&#47;latest&#47;" target="_blank">
+            package:web
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </li>
+        <li class="section-subitem"><a href="dart-js_interop/">dart:js_interop</a></li>
+        <li class="section-subitem"><a href="dart-js_interop_unsafe/">dart:js_interop_unsafe</a></li>
+      <li class="section-subtitle">Web (Legacy)</li>
+        <li class="section-subitem"><a class="deprecated" href="dart-html/">dart:html</a></li>
+        <li class="section-subitem"><a class="deprecated" href="dart-js/">dart:js</a></li>
+      <li class="section-title">platform_integration</li>
+      <li><a href="Android/">android</a></li>
+      <li><a href="iOS/">ios</a></li>
+      <li><a href="Linux/">linux</a></li>
+      <li><a href="macOS/">macos</a></li>
+      <li><a href="Windows/">windows</a></li>
+      <li class="section-title">flutter_test</li>
+      <li><a href="flutter_test/">flutter_test</a></li>
+      <li class="section-title">flutter_driver</li>
+      <li><a href="flutter_driver_extension/">driver_extension</a></li>
+      <li><a href="flutter_driver/">flutter_driver</a></li>
+      <li class="section-title">Flutter</li>
+      <li class="section-title">flutter_gpu</li>
+      <li><a href="flutter_gpu/">gpu</a></li>
+      <li class="section-title">flutter_localizations</li>
+      <li><a href="flutter_localizations/">flutter_localizations</a></li>
+      <li class="section-title">flutter_web_plugins</li>
+      <li><a href="flutter_web_plugins/">flutter_web_plugins</a></li>
+      <li><a href="package-flutter_web_plugins_url_strategy/">url_strategy</a></li>
+      <li class="section-title">leak_tracker_flutter_testing</li>
+      <li><a href="package-leak_tracker_flutter_testing_leak_tracker_flutter_testing/">leak_tracker_flutter_testing</a></li>
+      <li class="section-title">async</li>
+      <li><a href="package-async_async/">async</a></li>
+      <li class="section-title">boolean_selector</li>
+      <li><a href="package-boolean_selector_boolean_selector/">boolean_selector</a></li>
+      <li class="section-title">characters</li>
+      <li><a href="package-characters_characters/">characters</a></li>
+      <li class="section-title">clock</li>
+      <li><a href="package-clock_clock/">clock</a></li>
+      <li class="section-title">collection</li>
+      <li><a class="deprecated" href="package-collection_algorithms/">algorithms</a></li>
+      <li><a href="package-collection_collection/">collection</a></li>
+      <li><a class="deprecated" href="package-collection_equality/">equality</a></li>
+      <li><a class="deprecated" href="package-collection_iterable_zip/">iterable_zip</a></li>
+      <li><a class="deprecated" href="package-collection_priority_queue/">priority_queue</a></li>
+      <li><a class="deprecated" href="package-collection_wrappers/">wrappers</a></li>
+      <li class="section-title">crypto</li>
+      <li><a href="package-crypto_crypto/">crypto</a></li>
+      <li class="section-title">fake_async</li>
+      <li><a href="package-fake_async_fake_async/">fake_async</a></li>
+      <li class="section-title">file</li>
+      <li><a href="package-file_chroot/">chroot</a></li>
+      <li><a href="package-file_file/">file</a></li>
+      <li><a href="package-file_local/">local</a></li>
+      <li><a href="package-file_memory/">memory</a></li>
+      <li class="section-title">integration_test</li>
+      <li><a href="package-integration_test_common/">common</a></li>
+      <li><a href="package-integration_test_integration_test/">integration_test</a></li>
+      <li><a href="package-integration_test_integration_test_driver/">integration_test_driver</a></li>
+      <li><a href="package-integration_test_integration_test_driver_extended/">integration_test_driver_extended</a></li>
+      <li class="section-title">intl</li>
+      <li><a href="package-intl_date_symbol_data_custom/">date_symbol_data_custom</a></li>
+      <li><a href="package-intl_date_symbol_data_file/">date_symbol_data_file</a></li>
+      <li><a href="package-intl_date_symbol_data_http_request/">date_symbol_data_http_request</a></li>
+      <li><a href="package-intl_date_symbol_data_local/">date_symbol_data_local</a></li>
+      <li><a href="package-intl_date_symbols/">date_symbols</a></li>
+      <li><a href="package-intl_date_time_patterns/">date_time_patterns</a></li>
+      <li><a href="package-intl_find_locale/">find_locale</a></li>
+      <li><a href="package-intl_intl/">intl</a></li>
+      <li><a href="package-intl_intl_default/">intl_default</a></li>
+      <li><a href="package-intl_intl_standalone/">intl_standalone</a></li>
+      <li><a href="package-intl_locale/">locale</a></li>
+      <li><a href="package-intl_message_format/">message_format</a></li>
+      <li><a href="package-intl_message_lookup_by_library/">message_lookup_by_library</a></li>
+      <li><a href="package-intl_number_symbols/">number_symbols</a></li>
+      <li><a href="package-intl_number_symbols_data/">number_symbols_data</a></li>
+      <li class="section-title">leak_tracker</li>
+      <li><a href="package-leak_tracker_leak_tracker/">leak_tracker</a></li>
+      <li class="section-title">leak_tracker_testing</li>
+      <li><a href="package-leak_tracker_testing_leak_tracker_testing/">leak_tracker_testing</a></li>
+      <li class="section-title">matcher</li>
+      <li><a href="package-matcher_expect/">expect</a></li>
+      <li><a href="package-matcher_matcher/">matcher</a></li>
+      <li class="section-title">material_color_utilities</li>
+      <li><a href="package-material_color_utilities_blend_blend/">blend/blend</a></li>
+      <li><a href="package-material_color_utilities_contrast_contrast/">contrast/contrast</a></li>
+      <li><a href="package-material_color_utilities_dislike_dislike_analyzer/">dislike/dislike_analyzer</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_dynamic_color/">dynamiccolor/dynamic_color</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_dynamic_scheme/">dynamiccolor/dynamic_scheme</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_material_dynamic_colors/">dynamiccolor/material_dynamic_colors</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_src_contrast_curve/">dynamiccolor/src/contrast_curve</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_src_tone_delta_pair/">dynamiccolor/src/tone_delta_pair</a></li>
+      <li><a href="package-material_color_utilities_dynamiccolor_variant/">dynamiccolor/variant</a></li>
+      <li><a href="package-material_color_utilities_hct_cam16/">hct/cam16</a></li>
+      <li><a href="package-material_color_utilities_hct_hct/">hct/hct</a></li>
+      <li><a href="package-material_color_utilities_hct_src_hct_solver/">hct/src/hct_solver</a></li>
+      <li><a href="package-material_color_utilities_hct_viewing_conditions/">hct/viewing_conditions</a></li>
+      <li><a href="package-material_color_utilities_material_color_utilities/">material_color_utilities</a></li>
+      <li><a href="package-material_color_utilities_palettes_core_palette/">palettes/core_palette</a></li>
+      <li><a href="package-material_color_utilities_palettes_core_palettes/">palettes/core_palettes</a></li>
+      <li><a href="package-material_color_utilities_palettes_tonal_palette/">palettes/tonal_palette</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer/">quantize/quantizer</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_celebi/">quantize/quantizer_celebi</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_map/">quantize/quantizer_map</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_wsmeans/">quantize/quantizer_wsmeans</a></li>
+      <li><a href="package-material_color_utilities_quantize_quantizer_wu/">quantize/quantizer_wu</a></li>
+      <li><a href="package-material_color_utilities_quantize_src_point_provider/">quantize/src/point_provider</a></li>
+      <li><a href="package-material_color_utilities_quantize_src_point_provider_lab/">quantize/src/point_provider_lab</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme/">scheme/scheme</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_content/">scheme/scheme_content</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_expressive/">scheme/scheme_expressive</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_fidelity/">scheme/scheme_fidelity</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_fruit_salad/">scheme/scheme_fruit_salad</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_monochrome/">scheme/scheme_monochrome</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_neutral/">scheme/scheme_neutral</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_rainbow/">scheme/scheme_rainbow</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_tonal_spot/">scheme/scheme_tonal_spot</a></li>
+      <li><a href="package-material_color_utilities_scheme_scheme_vibrant/">scheme/scheme_vibrant</a></li>
+      <li><a href="package-material_color_utilities_score_score/">score/score</a></li>
+      <li><a href="package-material_color_utilities_temperature_temperature_cache/">temperature/temperature_cache</a></li>
+      <li><a href="package-material_color_utilities_utils_color_utils/">utils/color_utils</a></li>
+      <li><a href="package-material_color_utilities_utils_math_utils/">utils/math_utils</a></li>
+      <li><a href="package-material_color_utilities_utils_string_utils/">utils/string_utils</a></li>
+      <li class="section-title">meta</li>
+      <li><a href="meta_dart2js/">dart2js</a></li>
+      <li><a href="meta/">meta</a></li>
+      <li><a href="meta_meta/">meta_meta</a></li>
+      <li class="section-title">path</li>
+      <li><a href="package-path_path/">path</a></li>
+      <li class="section-title">platform</li>
+      <li><a href="package-platform_platform/">platform</a></li>
+      <li><a href="package-platform_testing/">testing</a></li>
+      <li class="section-title">process</li>
+      <li><a href="package-process_process/">process</a></li>
+      <li class="section-title">source_span</li>
+      <li><a href="package-source_span_source_span/">source_span</a></li>
+      <li class="section-title">stack_trace</li>
+      <li><a href="package-stack_trace_stack_trace/">stack_trace</a></li>
+      <li class="section-title">stream_channel</li>
+      <li><a href="package-stream_channel_isolate_channel/">isolate_channel</a></li>
+      <li><a href="package-stream_channel_stream_channel/">stream_channel</a></li>
+      <li class="section-title">string_scanner</li>
+      <li><a href="package-string_scanner_string_scanner/">string_scanner</a></li>
+      <li class="section-title">sync_http</li>
+      <li><a href="sync.http/">sync_http</a></li>
+      <li class="section-title">term_glyph</li>
+      <li><a href="package-term_glyph_term_glyph/">term_glyph</a></li>
+      <li class="section-title">test_api</li>
+      <li><a href="package-test_api_backend/">backend</a></li>
+      <li><a class="deprecated" href="package-test_api_fake/">fake</a></li>
+      <li><a href="package-test_api_hooks/">hooks</a></li>
+      <li><a href="package-test_api_hooks_testing/">hooks_testing</a></li>
+      <li><a href="package-test_api_scaffolding/">scaffolding</a></li>
+      <li><a class="deprecated" href="package-test_api_test_api/">test_api</a></li>
+      <li class="section-title">typed_data</li>
+      <li><a href="package-typed_data_typed_buffers/">typed_buffers</a></li>
+      <li><a href="package-typed_data_typed_data/">typed_data</a></li>
+      <li class="section-title">vector_math</li>
+      <li><a class="deprecated" href="package-vector_math_hash/">hash</a></li>
+      <li><a href="package-vector_math_vector_math/">vector_math</a></li>
+      <li><a href="package-vector_math_vector_math_64/">vector_math_64</a></li>
+      <li><a href="package-vector_math_vector_math_geometry/">vector_math_geometry</a></li>
+      <li><a href="package-vector_math_vector_math_lists/">vector_math_lists</a></li>
+      <li><a href="package-vector_math_vector_math_operations/">vector_math_operations</a></li>
+      <li class="section-title">vm_service</li>
+      <li><a href="package-vm_service_utils/">utils</a></li>
+      <li><a href="vm_service/">vm_service</a></li>
+      <li><a href="package-vm_service_vm_service_io/">vm_service_io</a></li>
+      <li class="section-title">web</li>
+      <li><a class="deprecated" href="package-web_helpers/">helpers</a></li>
+      <li><a href="package-web_web/">web</a></li>
+      <li class="section-title">webdriver</li>
+      <li><a href="package-webdriver_async_core/">async_core</a></li>
+      <li><a href="package-webdriver_async_html/">async_html</a></li>
+      <li><a href="package-webdriver_async_io/">async_io</a></li>
+      <li><a class="deprecated" href="package-webdriver_core/">core</a></li>
+      <li><a class="deprecated" href="package-webdriver_io/">io</a></li>
+      <li><a href="package-webdriver_support_async/">support/async</a></li>
+      <li><a href="package-webdriver_support_firefox_profile/">support/firefox_profile</a></li>
+      <li><a href="package-webdriver_support_stdio_stepper/">support/stdio_stepper</a></li>
+      <li><a href="package-webdriver_sync_core/">sync_core</a></li>
+      <li><a href="package-webdriver_sync_io/">sync_io</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>dart:io library</h5>
+  </div><!--/sidebar-offcanvas-right-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

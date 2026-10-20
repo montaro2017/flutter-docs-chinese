@@ -1,0 +1,5993 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="services 库中 LogicalKeyboardKey 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>LogicalKeyboardKey 类 - services 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services.dart</a></li>
+    <li class="self-crumb">LogicalKeyboardKey 类</li>
+  </ol>
+  <div class="self-name">LogicalKeyboardKey</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services&#47;services-library-sidebar.html"
+    data-below-sidebar="services&#47;LogicalKeyboardKey-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/services/keyboard_key.g.dart#L70"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">LogicalKeyboardKey</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>包含一组静态值，用于描述 <a href="services/RawKeyEvent/logicalKey.html">RawKeyEvent.logicalKey</a> 返回的按键。</p>
+<p>这些值表示<em>逻辑</em>按键，即根据当前生效的修饰键、输入模式或键盘布局来解释的按键。</p>
+<p>这与 <a href="services/PhysicalKeyboardKey-class.html">PhysicalKeyboardKey</a> 不同；后者表示键盘特定位置上的物理按键，不考虑修饰键状态、输入模式或键盘布局。</p>
+<p>例如，如果你要实现一个按下“Q”键就退出的应用，应检查逻辑键，因为你希望匹配标有“Q”的按键，而不是始终查找“TAB 键旁边的按键”：在法语键盘上，TAB 旁边的按键标有“A”。</p>
+<p>反过来，如果你要制作一个游戏，并希望按下 CAPS LOCK 旁边的按键（QWERTY 键盘上的“A”键）让角色向左移动，则应检查物理键。这样无论该按键产生什么字符，检测到的都是键盘上那个位置的按键。</p>
+<p>
+<a name="services.LogicalKeyboardKey.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">
+此示例演示如何检测用户是否选择了逻辑“Q”键，并在选中时处理该按键。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'services.LogicalKeyboardKey.1');" onclick="fixHref(this, 'services.LogicalKeyboardKey.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=services.LogicalKeyboardKey.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=services.LogicalKeyboardKey.1&amp;channel=stable">
+    </iframe>
+</div>
+
+另请参阅：</p>
+<ul>
+<li><a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a>, the keyboard event object received by widgets that listen
+to keyboard events.</li>
+<li><a class="deprecated" href="widgets/Focus/onKey.html">Focus.onKey</a>, the handler on a widget that lets you handle key events.</li>
+<li><a class="deprecated" href="widgets/RawKeyboardListener-class.html">RawKeyboardListener</a>, a widget used to listen to keyboard events (but
+not handle them).</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="services/KeyboardKey-class.html">KeyboardKey</a></li>
+      <li>LogicalKeyboardKey</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+  <dt>注解</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@<a href="meta/immutable-constant.html">immutable</a></li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="LogicalKeyboardKey.new" class="callable">
+          <span class="name"><a href="services/LogicalKeyboardKey/LogicalKeyboardKey.html">LogicalKeyboardKey</a></span><span class="signature">(<span class="parameter" id="-param-keyId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">keyId</span></span>)</span>
+        </dt>
+        <dd>
+          Creates a new LogicalKeyboardKey object for a key ID.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="debugName" class="property">
+  <span class="name"><a href="services/LogicalKeyboardKey/debugName.html">debugName</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  The debug string to print for this keyboard key, which will be null in
+release mode.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property">
+  <span class="name"><a href="services/LogicalKeyboardKey/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="isAutogenerated" class="property">
+  <span class="name"><a href="services/LogicalKeyboardKey/isAutogenerated.html">isAutogenerated</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Returns true if the <a href="services/LogicalKeyboardKey/keyId.html">keyId</a> of this object is one that is auto-generated by
+Flutter.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="keyId" class="property">
+  <span class="name"><a href="services/LogicalKeyboardKey/keyId.html">keyId</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  A unique code representing this key.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="keyLabel" class="property">
+  <span class="name"><a href="services/LogicalKeyboardKey/keyLabel.html">keyLabel</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  A description representing the character produced by a <a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="synonyms" class="property">
+  <span class="name"><a href="services/LogicalKeyboardKey/synonyms.html">synonyms</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  Returns a set of pseudo-key synonyms for the given <code>key</code>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="debugFillProperties" class="callable">
+  <span class="name"><a href="services/LogicalKeyboardKey/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A brief description of this object, usually just the <a href="dart-core/Object/runtimeType.html">runtimeType</a> and the
+<a href="dart-core/Object/hashCode.html">hashCode</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable">
+  <span class="name"><a href="services/LogicalKeyboardKey/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  相等运算符。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="knownLogicalKeys" class="property">
+  <span class="name"><a href="services/LogicalKeyboardKey/knownLogicalKeys.html">knownLogicalKeys</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  A list of all predefined constant <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a>。
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="collapseSynonyms" class="callable">
+  <span class="name"><a href="services/LogicalKeyboardKey/collapseSynonyms.html">collapseSynonyms</a></span><span class="signature">(<wbr><span class="parameter" id="collapseSynonyms-param-input"><span class="type-annotation"><a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>&gt;</span></span> <span class="parameter-name">input</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Takes a set of keys, and returns the same set, but with any keys that have
+synonyms replaced.
+  
+
+</dd>
+
+        <dt id="expandSynonyms" class="callable">
+  <span class="name"><a href="services/LogicalKeyboardKey/expandSynonyms.html">expandSynonyms</a></span><span class="signature">(<wbr><span class="parameter" id="expandSynonyms-param-input"><span class="type-annotation"><a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>&gt;</span></span> <span class="parameter-name">input</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the given set with any pseudo-keys expanded into their synonyms.
+  
+
+</dd>
+
+        <dt id="findKeyByKeyId" class="callable">
+  <span class="name"><a href="services/LogicalKeyboardKey/findKeyByKeyId.html">findKeyByKeyId</a></span><span class="signature">(<wbr><span class="parameter" id="findKeyByKeyId-param-keyId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">keyId</span></span>)
+    <span class="returntype parameter">&#8594; <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a> constant that matches the given ID, or
+null, if not found.
+  
+
+</dd>
+
+        <dt id="isControlCharacter" class="callable">
+  <span class="name"><a href="services/LogicalKeyboardKey/isControlCharacter.html">isControlCharacter</a></span><span class="signature">(<wbr><span class="parameter" id="isControlCharacter-param-label"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">label</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns true if the given label represents a Unicode control character.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>常量</h2>
+    <dl class="properties">
+        <dt id="abort" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/abort-constant.html">abort</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Abort" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="accel" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/accel-constant.html">accel</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Accel" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="accept" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/accept-constant.html">accept</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Accept" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="add" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/add-constant.html">add</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Add" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="again" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/again-constant.html">again</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Again" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="allCandidates" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/allCandidates-constant.html">allCandidates</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "All Candidates" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="alphanumeric" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/alphanumeric-constant.html">alphanumeric</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Alphanumeric" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="alt" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/alt-constant.html">alt</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Alt" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="altGraph" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/altGraph-constant.html">altGraph</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Alt Graph" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="altLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/altLeft-constant.html">altLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Alt Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="altRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/altRight-constant.html">altRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Alt Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="ampersand" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/ampersand-constant.html">ampersand</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Ampersand" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="androidPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/androidPlane-constant.html">androidPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for the private keys defined by the Android embedding.
+  
+
+</dd>
+
+        <dt id="appSwitch" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/appSwitch-constant.html">appSwitch</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "App Switch" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="arrowDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/arrowDown-constant.html">arrowDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Arrow Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="arrowLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/arrowLeft-constant.html">arrowLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Arrow Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="arrowRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/arrowRight-constant.html">arrowRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Arrow Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="arrowUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/arrowUp-constant.html">arrowUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Arrow Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="asterisk" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/asterisk-constant.html">asterisk</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Asterisk" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="at" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/at-constant.html">at</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "At" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="attn" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/attn-constant.html">attn</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Attn" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioBalanceLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioBalanceLeft-constant.html">audioBalanceLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Balance Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioBalanceRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioBalanceRight-constant.html">audioBalanceRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Balance Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioBassBoostDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioBassBoostDown-constant.html">audioBassBoostDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Bass Boost Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioBassBoostToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioBassBoostToggle-constant.html">audioBassBoostToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Bass Boost Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioBassBoostUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioBassBoostUp-constant.html">audioBassBoostUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Bass Boost Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioFaderFront" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioFaderFront-constant.html">audioFaderFront</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Fader Front" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioFaderRear" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioFaderRear-constant.html">audioFaderRear</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Fader Rear" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioSurroundModeNext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioSurroundModeNext-constant.html">audioSurroundModeNext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Surround Mode Next" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioTrebleDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioTrebleDown-constant.html">audioTrebleDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Treble Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioTrebleUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioTrebleUp-constant.html">audioTrebleUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Treble Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioVolumeDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioVolumeDown-constant.html">audioVolumeDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Volume Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioVolumeMute" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioVolumeMute-constant.html">audioVolumeMute</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Volume Mute" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="audioVolumeUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/audioVolumeUp-constant.html">audioVolumeUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Audio Volume Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="avrInput" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/avrInput-constant.html">avrInput</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "AVR Input" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="avrPower" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/avrPower-constant.html">avrPower</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "AVR Power" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="backquote" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/backquote-constant.html">backquote</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Backquote" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="backslash" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/backslash-constant.html">backslash</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Backslash" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="backspace" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/backspace-constant.html">backspace</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Backspace" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="bar" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/bar-constant.html">bar</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Bar" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="braceLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/braceLeft-constant.html">braceLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Brace Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="braceRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/braceRight-constant.html">braceRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Brace Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="bracketLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/bracketLeft-constant.html">bracketLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Bracket Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="bracketRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/bracketRight-constant.html">bracketRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Bracket Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="brightnessDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/brightnessDown-constant.html">brightnessDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Brightness Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="brightnessUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/brightnessUp-constant.html">brightnessUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Brightness Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="browserBack" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/browserBack-constant.html">browserBack</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Browser Back" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="browserFavorites" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/browserFavorites-constant.html">browserFavorites</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Browser Favorites" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="browserForward" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/browserForward-constant.html">browserForward</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Browser Forward" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="browserHome" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/browserHome-constant.html">browserHome</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Browser Home" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="browserRefresh" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/browserRefresh-constant.html">browserRefresh</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Browser Refresh" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="browserSearch" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/browserSearch-constant.html">browserSearch</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Browser Search" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="browserStop" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/browserStop-constant.html">browserStop</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Browser Stop" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="call" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/call-constant.html">call</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Call" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="camera" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/camera-constant.html">camera</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Camera" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="cameraFocus" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/cameraFocus-constant.html">cameraFocus</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Camera Focus" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="cancel" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/cancel-constant.html">cancel</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Cancel" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="capsLock" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/capsLock-constant.html">capsLock</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Caps Lock" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="caret" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/caret-constant.html">caret</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Caret" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="channelDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/channelDown-constant.html">channelDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Channel Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="channelUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/channelUp-constant.html">channelUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Channel Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="clear" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/clear-constant.html">clear</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Clear" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="close" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/close-constant.html">close</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Close" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="closedCaptionToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/closedCaptionToggle-constant.html">closedCaptionToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Closed Caption Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="codeInput" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/codeInput-constant.html">codeInput</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Code Input" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="colon" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/colon-constant.html">colon</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Colon" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="colorF0Red" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/colorF0Red-constant.html">colorF0Red</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Color F0 Red" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="colorF1Green" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/colorF1Green-constant.html">colorF1Green</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Color F1 Green" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="colorF2Yellow" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/colorF2Yellow-constant.html">colorF2Yellow</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Color F2 Yellow" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="colorF3Blue" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/colorF3Blue-constant.html">colorF3Blue</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Color F3 Blue" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="colorF4Grey" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/colorF4Grey-constant.html">colorF4Grey</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Color F4 Grey" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="colorF5Brown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/colorF5Brown-constant.html">colorF5Brown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Color F5 Brown" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="comma" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/comma-constant.html">comma</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Comma" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="compose" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/compose-constant.html">compose</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Compose" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="contextMenu" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/contextMenu-constant.html">contextMenu</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Context Menu" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="control" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/control-constant.html">control</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Control" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="controlLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/controlLeft-constant.html">controlLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Control Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="controlRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/controlRight-constant.html">controlRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Control Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="convert" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/convert-constant.html">convert</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Convert" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="copy" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/copy-constant.html">copy</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Copy" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="crSel" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/crSel-constant.html">crSel</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Cr Sel" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="cut" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/cut-constant.html">cut</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Cut" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="delete" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/delete-constant.html">delete</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Delete" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit0" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit0-constant.html">digit0</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 0" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit1-constant.html">digit1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit2-constant.html">digit2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit3-constant.html">digit3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit4" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit4-constant.html">digit4</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 4" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit5" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit5-constant.html">digit5</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 5" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit6" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit6-constant.html">digit6</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 6" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit7" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit7-constant.html">digit7</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 7" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit8" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit8-constant.html">digit8</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 8" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="digit9" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/digit9-constant.html">digit9</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Digit 9" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="dimmer" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/dimmer-constant.html">dimmer</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Dimmer" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="displaySwap" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/displaySwap-constant.html">displaySwap</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Display Swap" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="dollar" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/dollar-constant.html">dollar</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Dollar" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="dvr" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/dvr-constant.html">dvr</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "DVR" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="eisu" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/eisu-constant.html">eisu</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Eisu" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="eject" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/eject-constant.html">eject</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Eject" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="end" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/end-constant.html">end</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "End" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="endCall" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/endCall-constant.html">endCall</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "End Call" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="enter" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/enter-constant.html">enter</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Enter" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="equal" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/equal-constant.html">equal</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Equal" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="eraseEof" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/eraseEof-constant.html">eraseEof</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Erase Eof" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="escape" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/escape-constant.html">escape</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Escape" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="exclamation" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/exclamation-constant.html">exclamation</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Exclamation" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="execute" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/execute-constant.html">execute</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Execute" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="exit" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/exit-constant.html">exit</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Exit" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="exSel" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/exSel-constant.html">exSel</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Ex Sel" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f1-constant.html">f1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f2-constant.html">f2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f3-constant.html">f3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f4" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f4-constant.html">f4</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F4" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f5" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f5-constant.html">f5</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F5" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f6" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f6-constant.html">f6</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F6" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f7" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f7-constant.html">f7</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F7" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f8" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f8-constant.html">f8</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F8" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f9" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f9-constant.html">f9</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F9" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f10" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f10-constant.html">f10</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F10" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f11" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f11-constant.html">f11</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F11" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f12" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f12-constant.html">f12</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F12" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f13" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f13-constant.html">f13</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F13" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f14" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f14-constant.html">f14</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F14" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f15" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f15-constant.html">f15</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F15" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f16" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f16-constant.html">f16</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F16" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f17" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f17-constant.html">f17</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F17" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f18" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f18-constant.html">f18</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F18" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f19" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f19-constant.html">f19</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F19" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f20" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f20-constant.html">f20</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F20" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f21" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f21-constant.html">f21</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F21" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f22" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f22-constant.html">f22</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F22" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f23" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f23-constant.html">f23</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F23" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="f24" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/f24-constant.html">f24</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "F24" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteClear0" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteClear0-constant.html">favoriteClear0</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Clear 0" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteClear1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteClear1-constant.html">favoriteClear1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Clear 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteClear2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteClear2-constant.html">favoriteClear2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Clear 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteClear3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteClear3-constant.html">favoriteClear3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Clear 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteRecall0" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteRecall0-constant.html">favoriteRecall0</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Recall 0" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteRecall1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteRecall1-constant.html">favoriteRecall1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Recall 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteRecall2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteRecall2-constant.html">favoriteRecall2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Recall 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteRecall3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteRecall3-constant.html">favoriteRecall3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Recall 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteStore0" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteStore0-constant.html">favoriteStore0</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Store 0" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteStore1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteStore1-constant.html">favoriteStore1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Store 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteStore2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteStore2-constant.html">favoriteStore2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Store 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="favoriteStore3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/favoriteStore3-constant.html">favoriteStore3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Favorite Store 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="finalMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/finalMode-constant.html">finalMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Final Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="find" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/find-constant.html">find</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Find" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="flutterPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/flutterPlane-constant.html">flutterPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for keys defined by Flutter.
+  
+
+</dd>
+
+        <dt id="fn" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/fn-constant.html">fn</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Fn" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="fnLock" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/fnLock-constant.html">fnLock</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Fn Lock" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="fuchsiaPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/fuchsiaPlane-constant.html">fuchsiaPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for the private keys defined by the Fuchsia embedding.
+  
+
+</dd>
+
+        <dt id="gameButton1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton1-constant.html">gameButton1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton2-constant.html">gameButton2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton3-constant.html">gameButton3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton4" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton4-constant.html">gameButton4</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 4" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton5" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton5-constant.html">gameButton5</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 5" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton6" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton6-constant.html">gameButton6</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 6" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton7" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton7-constant.html">gameButton7</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 7" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton8" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton8-constant.html">gameButton8</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 8" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton9" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton9-constant.html">gameButton9</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 9" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton10" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton10-constant.html">gameButton10</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 10" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton11" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton11-constant.html">gameButton11</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 11" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton12" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton12-constant.html">gameButton12</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 12" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton13" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton13-constant.html">gameButton13</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 13" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton14" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton14-constant.html">gameButton14</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 14" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton15" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton15-constant.html">gameButton15</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 15" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButton16" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButton16-constant.html">gameButton16</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button 16" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonA" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonA-constant.html">gameButtonA</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button A" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonB" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonB-constant.html">gameButtonB</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button B" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonC" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonC-constant.html">gameButtonC</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button C" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonLeft1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonLeft1-constant.html">gameButtonLeft1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Left 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonLeft2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonLeft2-constant.html">gameButtonLeft2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Left 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonMode-constant.html">gameButtonMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonRight1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonRight1-constant.html">gameButtonRight1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Right 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonRight2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonRight2-constant.html">gameButtonRight2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Right 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonSelect" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonSelect-constant.html">gameButtonSelect</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Select" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonStart" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonStart-constant.html">gameButtonStart</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Start" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonThumbLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonThumbLeft-constant.html">gameButtonThumbLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Thumb Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonThumbRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonThumbRight-constant.html">gameButtonThumbRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Thumb Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonX" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonX-constant.html">gameButtonX</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button X" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonY" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonY-constant.html">gameButtonY</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Y" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gameButtonZ" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gameButtonZ-constant.html">gameButtonZ</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Game Button Z" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="glfwPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/glfwPlane-constant.html">glfwPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for the private keys defined by the GLFW embedding.
+  
+
+</dd>
+
+        <dt id="goBack" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/goBack-constant.html">goBack</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Go Back" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="goHome" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/goHome-constant.html">goHome</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Go Home" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="greater" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/greater-constant.html">greater</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Greater" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="groupFirst" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/groupFirst-constant.html">groupFirst</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Group First" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="groupLast" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/groupLast-constant.html">groupLast</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Group Last" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="groupNext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/groupNext-constant.html">groupNext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Group Next" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="groupPrevious" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/groupPrevious-constant.html">groupPrevious</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Group Previous" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="gtkPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/gtkPlane-constant.html">gtkPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for the private keys defined by the Gtk embedding.
+  
+
+</dd>
+
+        <dt id="guide" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/guide-constant.html">guide</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Guide" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="guideNextDay" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/guideNextDay-constant.html">guideNextDay</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Guide Next Day" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="guidePreviousDay" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/guidePreviousDay-constant.html">guidePreviousDay</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Guide Previous Day" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="hangulMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/hangulMode-constant.html">hangulMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Hangul Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="hanjaMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/hanjaMode-constant.html">hanjaMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Hanja Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="hankaku" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/hankaku-constant.html">hankaku</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Hankaku" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="headsetHook" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/headsetHook-constant.html">headsetHook</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Headset Hook" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="help" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/help-constant.html">help</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Help" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="hibernate" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/hibernate-constant.html">hibernate</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Hibernate" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="hiragana" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/hiragana-constant.html">hiragana</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Hiragana" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="hiraganaKatakana" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/hiraganaKatakana-constant.html">hiraganaKatakana</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Hiragana Katakana" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="home" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/home-constant.html">home</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Home" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="hyper" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/hyper-constant.html">hyper</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Hyper" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="info" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/info-constant.html">info</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Info" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="insert" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/insert-constant.html">insert</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Insert" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="instantReplay" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/instantReplay-constant.html">instantReplay</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Instant Replay" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="intlBackslash" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/intlBackslash-constant.html">intlBackslash</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Intl Backslash" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="intlRo" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/intlRo-constant.html">intlRo</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Intl Ro" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="intlYen" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/intlYen-constant.html">intlYen</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Intl Yen" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="iosPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/iosPlane-constant.html">iosPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for the private keys defined by the iOS embedding.
+  
+
+</dd>
+
+        <dt id="junjaMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/junjaMode-constant.html">junjaMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Junja Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="kanaMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/kanaMode-constant.html">kanaMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Kana Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="kanjiMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/kanjiMode-constant.html">kanjiMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Kanji Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="katakana" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/katakana-constant.html">katakana</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Katakana" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="key11" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/key11-constant.html">key11</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key 11" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="key12" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/key12-constant.html">key12</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key 12" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyA" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyA-constant.html">keyA</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key A" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyB" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyB-constant.html">keyB</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key B" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyC" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyC-constant.html">keyC</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key C" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyD" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyD-constant.html">keyD</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key D" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyE" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyE-constant.html">keyE</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key E" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyF" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyF-constant.html">keyF</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key F" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyG" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyG-constant.html">keyG</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key G" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyH" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyH-constant.html">keyH</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key H" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyI" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyI-constant.html">keyI</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key I" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyJ" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyJ-constant.html">keyJ</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key J" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyK" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyK-constant.html">keyK</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key K" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyL" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyL-constant.html">keyL</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key L" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyM" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyM-constant.html">keyM</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key M" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyN" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyN-constant.html">keyN</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key N" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyO" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyO-constant.html">keyO</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key O" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyP" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyP-constant.html">keyP</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key P" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyQ" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyQ-constant.html">keyQ</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key Q" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyR" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyR-constant.html">keyR</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key R" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyS" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyS-constant.html">keyS</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key S" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyT" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyT-constant.html">keyT</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key T" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyU" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyU-constant.html">keyU</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key U" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyV" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyV-constant.html">keyV</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key V" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyW" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyW-constant.html">keyW</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key W" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyX" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyX-constant.html">keyX</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key X" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyY" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyY-constant.html">keyY</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key Y" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="keyZ" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/keyZ-constant.html">keyZ</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Key Z" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="lang1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/lang1-constant.html">lang1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Lang 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="lang2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/lang2-constant.html">lang2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Lang 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="lang3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/lang3-constant.html">lang3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Lang 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="lang4" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/lang4-constant.html">lang4</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Lang 4" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="lang5" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/lang5-constant.html">lang5</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Lang 5" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="lastNumberRedial" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/lastNumberRedial-constant.html">lastNumberRedial</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Last Number Redial" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchApplication1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchApplication1-constant.html">launchApplication1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Application 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchApplication2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchApplication2-constant.html">launchApplication2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Application 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchAssistant" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchAssistant-constant.html">launchAssistant</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Assistant" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchCalendar" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchCalendar-constant.html">launchCalendar</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Calendar" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchContacts" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchContacts-constant.html">launchContacts</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Contacts" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchControlPanel" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchControlPanel-constant.html">launchControlPanel</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Control Panel" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchMail" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchMail-constant.html">launchMail</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Mail" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchMediaPlayer" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchMediaPlayer-constant.html">launchMediaPlayer</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Media Player" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchMusicPlayer" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchMusicPlayer-constant.html">launchMusicPlayer</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Music Player" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchPhone" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchPhone-constant.html">launchPhone</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Phone" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchScreenSaver" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchScreenSaver-constant.html">launchScreenSaver</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Screen Saver" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchSpreadsheet" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchSpreadsheet-constant.html">launchSpreadsheet</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Spreadsheet" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchWebBrowser" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchWebBrowser-constant.html">launchWebBrowser</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Web Browser" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchWebCam" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchWebCam-constant.html">launchWebCam</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Web Cam" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="launchWordProcessor" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/launchWordProcessor-constant.html">launchWordProcessor</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Launch Word Processor" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="less" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/less-constant.html">less</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Less" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="link" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/link-constant.html">link</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Link" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="listProgram" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/listProgram-constant.html">listProgram</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "List Program" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="liveContent" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/liveContent-constant.html">liveContent</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Live Content" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="lock" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/lock-constant.html">lock</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Lock" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="logOff" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/logOff-constant.html">logOff</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Log Off" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="macosPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/macosPlane-constant.html">macosPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for the private keys defined by the macOS embedding.
+  
+
+</dd>
+
+        <dt id="mailForward" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mailForward-constant.html">mailForward</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Mail Forward" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mailReply" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mailReply-constant.html">mailReply</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Mail Reply" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mailSend" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mailSend-constant.html">mailSend</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Mail Send" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mannerMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mannerMode-constant.html">mannerMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Manner Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaApps" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaApps-constant.html">mediaApps</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Apps" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaAudioTrack" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaAudioTrack-constant.html">mediaAudioTrack</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Audio Track" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaClose" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaClose-constant.html">mediaClose</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Close" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaFastForward" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaFastForward-constant.html">mediaFastForward</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Fast Forward" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaLast" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaLast-constant.html">mediaLast</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Last" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaPause" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaPause-constant.html">mediaPause</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Pause" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaPlay" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaPlay-constant.html">mediaPlay</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Play" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaPlayPause" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaPlayPause-constant.html">mediaPlayPause</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Play Pause" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaRecord" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaRecord-constant.html">mediaRecord</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Record" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaRewind" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaRewind-constant.html">mediaRewind</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Rewind" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaSkip" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaSkip-constant.html">mediaSkip</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Skip" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaSkipBackward" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaSkipBackward-constant.html">mediaSkipBackward</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Skip Backward" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaSkipForward" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaSkipForward-constant.html">mediaSkipForward</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Skip Forward" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaStepBackward" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaStepBackward-constant.html">mediaStepBackward</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Step Backward" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaStepForward" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaStepForward-constant.html">mediaStepForward</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Step Forward" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaStop" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaStop-constant.html">mediaStop</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Stop" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaTopMenu" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaTopMenu-constant.html">mediaTopMenu</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Top Menu" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaTrackNext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaTrackNext-constant.html">mediaTrackNext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Track Next" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="mediaTrackPrevious" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/mediaTrackPrevious-constant.html">mediaTrackPrevious</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Media Track Previous" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="meta" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/meta-constant.html">meta</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Meta" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="metaLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/metaLeft-constant.html">metaLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Meta Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="metaRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/metaRight-constant.html">metaRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Meta Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="microphoneToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/microphoneToggle-constant.html">microphoneToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Microphone Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="microphoneVolumeDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/microphoneVolumeDown-constant.html">microphoneVolumeDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Microphone Volume Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="microphoneVolumeMute" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/microphoneVolumeMute-constant.html">microphoneVolumeMute</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Microphone Volume Mute" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="microphoneVolumeUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/microphoneVolumeUp-constant.html">microphoneVolumeUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Microphone Volume Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="minus" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/minus-constant.html">minus</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Minus" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="modeChange" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/modeChange-constant.html">modeChange</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Mode Change" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="navigateIn" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/navigateIn-constant.html">navigateIn</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Navigate In" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="navigateNext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/navigateNext-constant.html">navigateNext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Navigate Next" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="navigateOut" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/navigateOut-constant.html">navigateOut</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Navigate Out" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="navigatePrevious" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/navigatePrevious-constant.html">navigatePrevious</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Navigate Previous" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="newKey" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/newKey-constant.html">newKey</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "New" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="nextCandidate" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/nextCandidate-constant.html">nextCandidate</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Next Candidate" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="nextFavoriteChannel" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/nextFavoriteChannel-constant.html">nextFavoriteChannel</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Next Favorite Channel" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="nextUserProfile" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/nextUserProfile-constant.html">nextUserProfile</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Next User Profile" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="nonConvert" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/nonConvert-constant.html">nonConvert</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Non Convert" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="notification" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/notification-constant.html">notification</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Notification" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numberSign" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numberSign-constant.html">numberSign</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Number Sign" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numLock" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numLock-constant.html">numLock</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Num Lock" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad0" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad0-constant.html">numpad0</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 0" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad1-constant.html">numpad1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad2-constant.html">numpad2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad3-constant.html">numpad3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad4" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad4-constant.html">numpad4</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 4" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad5" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad5-constant.html">numpad5</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 5" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad6" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad6-constant.html">numpad6</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 6" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad7" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad7-constant.html">numpad7</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 7" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad8" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad8-constant.html">numpad8</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 8" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpad9" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpad9-constant.html">numpad9</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad 9" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadAdd" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadAdd-constant.html">numpadAdd</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Add" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadComma" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadComma-constant.html">numpadComma</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Comma" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadDecimal" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadDecimal-constant.html">numpadDecimal</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Decimal" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadDivide" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadDivide-constant.html">numpadDivide</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Divide" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadEnter" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadEnter-constant.html">numpadEnter</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Enter" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadEqual" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadEqual-constant.html">numpadEqual</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Equal" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadMultiply" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadMultiply-constant.html">numpadMultiply</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Multiply" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadParenLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadParenLeft-constant.html">numpadParenLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Paren Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadParenRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadParenRight-constant.html">numpadParenRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Paren Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="numpadSubtract" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/numpadSubtract-constant.html">numpadSubtract</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Numpad Subtract" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="onDemand" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/onDemand-constant.html">onDemand</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "On Demand" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="open" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/open-constant.html">open</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Open" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="pageDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/pageDown-constant.html">pageDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Page Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="pageUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/pageUp-constant.html">pageUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Page Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="pairing" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/pairing-constant.html">pairing</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Pairing" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="parenthesisLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/parenthesisLeft-constant.html">parenthesisLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Parenthesis Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="parenthesisRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/parenthesisRight-constant.html">parenthesisRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Parenthesis Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="paste" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/paste-constant.html">paste</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Paste" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="pause" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/pause-constant.html">pause</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Pause" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="percent" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/percent-constant.html">percent</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Percent" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="period" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/period-constant.html">period</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Period" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="pInPDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/pInPDown-constant.html">pInPDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "P In P Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="pInPMove" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/pInPMove-constant.html">pInPMove</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "P In P Move" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="pInPToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/pInPToggle-constant.html">pInPToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "P In P Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="pInPUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/pInPUp-constant.html">pInPUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "P In P Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="planeMask" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/planeMask-constant.html">planeMask</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Mask for the plane prefix portion of the key code.
+  
+
+</dd>
+
+        <dt id="play" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/play-constant.html">play</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Play" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="playSpeedDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/playSpeedDown-constant.html">playSpeedDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Play Speed Down" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="playSpeedReset" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/playSpeedReset-constant.html">playSpeedReset</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Play Speed Reset" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="playSpeedUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/playSpeedUp-constant.html">playSpeedUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Play Speed Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="power" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/power-constant.html">power</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Power" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="powerOff" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/powerOff-constant.html">powerOff</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Power Off" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="previousCandidate" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/previousCandidate-constant.html">previousCandidate</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Previous Candidate" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="print" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/print-constant.html">print</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Print" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="printScreen" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/printScreen-constant.html">printScreen</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Print Screen" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="process" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/process-constant.html">process</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Process" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="props" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/props-constant.html">props</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Props" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="question" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/question-constant.html">question</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Question" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="quote" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/quote-constant.html">quote</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Quote" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="quoteSingle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/quoteSingle-constant.html">quoteSingle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Quote Single" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="randomToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/randomToggle-constant.html">randomToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Random Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="rcLowBattery" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/rcLowBattery-constant.html">rcLowBattery</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Rc Low Battery" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="recordSpeedNext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/recordSpeedNext-constant.html">recordSpeedNext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Record Speed Next" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="redo" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/redo-constant.html">redo</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Redo" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="resume" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/resume-constant.html">resume</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Resume" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="rfBypass" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/rfBypass-constant.html">rfBypass</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Rf Bypass" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="romaji" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/romaji-constant.html">romaji</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Romaji" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="save" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/save-constant.html">save</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Save" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="scanChannelsToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/scanChannelsToggle-constant.html">scanChannelsToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Scan Channels Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="screenModeNext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/screenModeNext-constant.html">screenModeNext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Screen Mode Next" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="scrollLock" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/scrollLock-constant.html">scrollLock</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Scroll Lock" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="select" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/select-constant.html">select</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Select" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="semicolon" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/semicolon-constant.html">semicolon</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Semicolon" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="settings" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/settings-constant.html">settings</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Settings" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="shift" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/shift-constant.html">shift</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Shift" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="shiftLeft" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/shiftLeft-constant.html">shiftLeft</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Shift Left" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="shiftLevel5" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/shiftLevel5-constant.html">shiftLevel5</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Shift Level 5" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="shiftRight" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/shiftRight-constant.html">shiftRight</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Shift Right" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="singleCandidate" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/singleCandidate-constant.html">singleCandidate</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Single Candidate" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="slash" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/slash-constant.html">slash</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Slash" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="sleep" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/sleep-constant.html">sleep</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Sleep" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="soft1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/soft1-constant.html">soft1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Soft 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="soft2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/soft2-constant.html">soft2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Soft 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="soft3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/soft3-constant.html">soft3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Soft 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="soft4" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/soft4-constant.html">soft4</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Soft 4" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="soft5" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/soft5-constant.html">soft5</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Soft 5" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="soft6" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/soft6-constant.html">soft6</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Soft 6" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="soft7" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/soft7-constant.html">soft7</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Soft 7" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="soft8" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/soft8-constant.html">soft8</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Soft 8" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="space" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/space-constant.html">space</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Space" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="speechCorrectionList" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/speechCorrectionList-constant.html">speechCorrectionList</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Speech Correction List" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="speechInputToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/speechInputToggle-constant.html">speechInputToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Speech Input Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="spellCheck" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/spellCheck-constant.html">spellCheck</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Spell Check" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="splitScreenToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/splitScreenToggle-constant.html">splitScreenToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Split Screen Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="standby" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/standby-constant.html">standby</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Standby" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="startOfPlatformPlanes" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/startOfPlatformPlanes-constant.html">startOfPlatformPlanes</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The platform plane with the lowest mask value, beyond which the keys are
+considered autogenerated.
+  
+
+</dd>
+
+        <dt id="stbInput" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/stbInput-constant.html">stbInput</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "STB Input" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="stbPower" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/stbPower-constant.html">stbPower</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "STB Power" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="subtitle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/subtitle-constant.html">subtitle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Subtitle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="superKey" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/superKey-constant.html">superKey</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Super" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="suspend" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/suspend-constant.html">suspend</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Suspend" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="symbol" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/symbol-constant.html">symbol</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Symbol" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="symbolLock" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/symbolLock-constant.html">symbolLock</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Symbol Lock" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tab" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tab-constant.html">tab</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Tab" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="teletext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/teletext-constant.html">teletext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Teletext" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tilde" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tilde-constant.html">tilde</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Tilde" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tv" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tv-constant.html">tv</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tv3DMode" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tv3DMode-constant.html">tv3DMode</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV 3 D Mode" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvAntennaCable" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvAntennaCable-constant.html">tvAntennaCable</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Antenna Cable" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvAudioDescription" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvAudioDescription-constant.html">tvAudioDescription</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Audio Description" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvAudioDescriptionMixDown" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvAudioDescriptionMixDown-constant.html">tvAudioDescriptionMixDown</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Audio Description Mix Down" key on the
+keyboard.
+  
+
+</dd>
+
+        <dt id="tvAudioDescriptionMixUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvAudioDescriptionMixUp-constant.html">tvAudioDescriptionMixUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Audio Description Mix Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvContentsMenu" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvContentsMenu-constant.html">tvContentsMenu</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Contents Menu" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvDataService" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvDataService-constant.html">tvDataService</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Data Service" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInput" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInput-constant.html">tvInput</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputComponent1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputComponent1-constant.html">tvInputComponent1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input Component 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputComponent2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputComponent2-constant.html">tvInputComponent2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input Component 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputComposite1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputComposite1-constant.html">tvInputComposite1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input Composite 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputComposite2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputComposite2-constant.html">tvInputComposite2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input Composite 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputHDMI1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputHDMI1-constant.html">tvInputHDMI1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input HDMI 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputHDMI2" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputHDMI2-constant.html">tvInputHDMI2</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input HDMI 2" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputHDMI3" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputHDMI3-constant.html">tvInputHDMI3</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input HDMI 3" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputHDMI4" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputHDMI4-constant.html">tvInputHDMI4</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input HDMI 4" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvInputVGA1" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvInputVGA1-constant.html">tvInputVGA1</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Input VGA 1" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvMediaContext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvMediaContext-constant.html">tvMediaContext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Media Context" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvNetwork" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvNetwork-constant.html">tvNetwork</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Network" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvNumberEntry" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvNumberEntry-constant.html">tvNumberEntry</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Number Entry" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvPower" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvPower-constant.html">tvPower</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Power" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvRadioService" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvRadioService-constant.html">tvRadioService</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Radio Service" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvSatellite" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvSatellite-constant.html">tvSatellite</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Satellite" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvSatelliteBS" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvSatelliteBS-constant.html">tvSatelliteBS</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Satellite BS" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvSatelliteCS" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvSatelliteCS-constant.html">tvSatelliteCS</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Satellite CS" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvSatelliteToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvSatelliteToggle-constant.html">tvSatelliteToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Satellite Toggle" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvTerrestrialAnalog" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvTerrestrialAnalog-constant.html">tvTerrestrialAnalog</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Terrestrial Analog" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvTerrestrialDigital" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvTerrestrialDigital-constant.html">tvTerrestrialDigital</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Terrestrial Digital" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="tvTimer" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/tvTimer-constant.html">tvTimer</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "TV Timer" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="underscore" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/underscore-constant.html">underscore</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Underscore" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="undo" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/undo-constant.html">undo</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Undo" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="unicodePlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/unicodePlane-constant.html">unicodePlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for keys which have a Unicode representation.
+  
+
+</dd>
+
+        <dt id="unidentified" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/unidentified-constant.html">unidentified</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Unidentified" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="unprintablePlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/unprintablePlane-constant.html">unprintablePlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for keys defined by Chromium and does not have a Unicode
+representation.
+  
+
+</dd>
+
+        <dt id="valueMask" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/valueMask-constant.html">valueMask</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Mask for the 32-bit value portion of the key code.
+  
+
+</dd>
+
+        <dt id="videoModeNext" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/videoModeNext-constant.html">videoModeNext</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Video Mode Next" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="voiceDial" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/voiceDial-constant.html">voiceDial</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Voice Dial" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="wakeUp" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/wakeUp-constant.html">wakeUp</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Wake Up" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="webPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/webPlane-constant.html">webPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for the private keys defined by the Web embedding.
+  
+
+</dd>
+
+        <dt id="windowsPlane" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/windowsPlane-constant.html">windowsPlane</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The plane value for the private keys defined by the Windows embedding.
+  
+
+</dd>
+
+        <dt id="wink" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/wink-constant.html">wink</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Wink" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="zenkaku" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/zenkaku-constant.html">zenkaku</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Zenkaku" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="zenkakuHankaku" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/zenkakuHankaku-constant.html">zenkakuHankaku</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Zenkaku Hankaku" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="zoomIn" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/zoomIn-constant.html">zoomIn</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Zoom In" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="zoomOut" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/zoomOut-constant.html">zoomOut</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Zoom Out" key on the keyboard.
+  
+
+</dd>
+
+        <dt id="zoomToggle" class="constant">
+    <span class="name "><a href="services/LogicalKeyboardKey/zoomToggle-constant.html">zoomToggle</a></span>
+  <span class="signature">&#8594; const <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>
+  
+
+</dt>
+<dd>
+  Represents the logical "Zoom Toggle" key on the keyboard.
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services</a></li>
+    <li class="self-crumb">LogicalKeyboardKey 类</li>
+</ol>
+
+    <h5>services 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

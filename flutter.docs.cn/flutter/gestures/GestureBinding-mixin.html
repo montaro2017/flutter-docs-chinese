@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the GestureBinding mixin from the gestures library, for the Dart programming language.">
+  <title>GestureBinding mixin - gestures library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="gestures/">gestures.dart</a></li>
+    <li class="self-crumb">GestureBinding mixin</li>
+  </ol>
+  <div class="self-name">GestureBinding</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="gestures&#47;gestures-library-sidebar.html"
+    data-below-sidebar="gestures&#47;GestureBinding-mixin-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/gestures/binding.dart#L276"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-mixin">GestureBinding</span> mixin 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>手势子系统的绑定。</p>
+<h2 id="lifecycle-of-pointer-events-and-the-gesture-arena">指针事件与手势竞技场的生命周期</h2>
+<h3 id="pointerdownevent"><a href="gestures/PointerDownEvent-class.html">PointerDownEvent</a></h3>
+<p>当 <a href="gestures/PointerDownEvent-class.html">PointerDownEvent</a> 被 <a href="gestures/GestureBinding-mixin.html">GestureBinding</a> 接收时（来自 <a href="dart-ui/PlatformDispatcher/onPointerDataPacket.html">dart:ui.PlatformDispatcher.onPointerDataPacket</a>，并由 <a href="gestures/PointerEventConverter-class.html">PointerEventConverter</a> 解析），会执行 <a class="deprecated" href="gestures/GestureBinding/hitTest.html">hitTest</a>，以确定哪些 <a href="gestures/HitTestTarget-class.html">HitTestTarget</a> 节点受到影响。（其他绑定应实现 <a class="deprecated" href="gestures/GestureBinding/hitTest.html">hitTest</a>，将命中测试委托给 <a href="gestures/HitTestable-class.html">HitTestable</a> 对象。例如，渲染层会将其委托给 <a href="rendering/RenderView-class.html">RenderView</a> 及其余渲染对象层级。）</p>
+<p>随后，受影响的节点会收到该事件并进行处理（<a href="gestures/GestureBinding/dispatchEvent.html">dispatchEvent</a> 会为每个受影响节点调用 <a href="gestures/HitTestTarget/handleEvent.html">HitTestTarget.handleEvent</a>）。如果其中有相关的 <a href="gestures/GestureRecognizer-class.html">GestureRecognizer</a>，则会通过 <a href="gestures/GestureRecognizer/addPointer.html">GestureRecognizer.addPointer</a> 将事件提供给它们。这通常会使识别器向 <a href="gestures/PointerRouter-class.html">PointerRouter</a> 注册，以接收有关该指针的通知。</p>
+<p>命中测试和分发逻辑完成后，事件会传递给前述 <a href="gestures/PointerRouter-class.html">PointerRouter</a>，再由它传递给所有已注册关注该事件的对象。</p>
+<p>最后，会关闭给定指针对应的 <a href="gestures/GestureBinding/gestureArena.html">gestureArena</a>（调用 <a href="gestures/GestureArenaManager/close.html">GestureArenaManager.close</a>），从而开始选择哪个手势赢得该指针的处理权。</p>
+<h3 id="other-events">其他事件</h3>
+<p>处于 <a href="gestures/PointerEvent/down.html">PointerEvent.down</a> 状态的指针可能会继续发送其他事件，例如 <a href="gestures/PointerMoveEvent-class.html">PointerMoveEvent</a>、<a href="gestures/PointerUpEvent-class.html">PointerUpEvent</a> 或 <a href="gestures/PointerCancelEvent-class.html">PointerCancelEvent</a>。这些事件会发送给接收 <a href="gestures/HitTestTarget-class.html">PointerDownEvent</a> 时发现的同一批 <a href="gestures/PointerDownEvent-class.html">HitTestTarget</a> 节点（即使这些节点后来已被释放；这些对象有责任处理这种情况）。</p>
+<p>之后，事件会路由给 <a href="gestures/PointerRouter-class.html">PointerRouter</a> 中该指针对应表格里仍然注册的条目。</p>
+<p>收到 <a href="gestures/PointerUpEvent-class.html">PointerUpEvent</a> 时，会调用 <a href="gestures/GestureArenaManager/sweep.html">GestureArenaManager.sweep</a> 方法，必要时强制结束手势竞技场的处理流程。</p>
+</section>
+
+
+      <section>
+        <dl class="dl-horizontal">
+            <dt>Superclass constraints</dt>
+            <dd><ul class="comma-separated dark mixin-relationships">
+                <li><a href="foundation/BindingBase-class.html">BindingBase</a></li>
+            </ul></dd>
+
+          
+
+          
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated mixin-relationships">
+        <li><a href="gestures/HitTestable-class.html">HitTestable</a></li>
+        <li><a href="gestures/HitTestDispatcher-class.html">HitTestDispatcher</a></li>
+        <li><a href="gestures/HitTestTarget-class.html">HitTestTarget</a></li>
+    </ul>
+  </dd>
+
+            <dt>Mixin applications</dt>
+            <dd>
+              <ul class="comma-separated mixin-relationships">
+                <li><a href="rendering/RendererBinding-mixin.html">RendererBinding</a></li>
+                <li><a href="rendering/RenderingFlutterBinding-class.html">RenderingFlutterBinding</a></li>
+                <li><a href="flutter_test/TestWidgetsFlutterBinding-class.html">TestWidgetsFlutterBinding</a></li>
+                <li><a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a></li>
+                <li><a href="widgets/WidgetsFlutterBinding-class.html">WidgetsFlutterBinding</a></li>
+              </ul>
+            </dd>
+          
+
+          
+        </dl>
+      </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="debugSamplingClock" class="property">
+  <span class="name"><a href="gestures/GestureBinding/debugSamplingClock.html">debugSamplingClock</a></span>
+  <span class="signature">&#8594; <a href="gestures/SamplingClock-class.html">SamplingClock</a>?</span>
+  
+
+</dt>
+<dd>
+  Overrides the sampling clock for debugging and testing.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="gestureArena" class="property">
+  <span class="name"><a href="gestures/GestureBinding/gestureArena.html">gestureArena</a></span>
+  <span class="signature">&#8594; <a href="gestures/GestureArenaManager-class.html">GestureArenaManager</a></span>
+  
+
+</dt>
+<dd>
+  The gesture arenas used for disambiguating the meaning of sequences of
+pointer events.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="locked" class="property inherited">
+  <span class="name"><a href="gestures/GestureBinding/locked.html">locked</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> is currently locking events.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="platformDispatcher" class="property inherited">
+  <span class="name"><a href="gestures/GestureBinding/platformDispatcher.html">platformDispatcher</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/PlatformDispatcher-class.html">PlatformDispatcher</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The <a href="dart-ui/PlatformDispatcher-class.html">ui.PlatformDispatcher</a> to which this binding is bound.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="pointerRouter" class="property">
+  <span class="name"><a href="gestures/GestureBinding/pointerRouter.html">pointerRouter</a></span>
+  <span class="signature">&#8594; <a href="gestures/PointerRouter-class.html">PointerRouter</a></span>
+  
+
+</dt>
+<dd>
+  A router that routes all pointer events received from the engine.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="pointerSignalResolver" class="property">
+  <span class="name"><a href="gestures/GestureBinding/pointerSignalResolver.html">pointerSignalResolver</a></span>
+  <span class="signature">&#8594; <a href="gestures/PointerSignalResolver-class.html">PointerSignalResolver</a></span>
+  
+
+</dt>
+<dd>
+  The resolver used for determining which widget handles a
+<a href="gestures/PointerSignalEvent-class.html">PointerSignalEvent</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="resamplingEnabled" class="property">
+  <span class="name"><a href="gestures/GestureBinding/resamplingEnabled.html">resamplingEnabled</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Enable pointer event resampling for touch devices by setting
+this to true.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="samplingClock" class="property">
+  <span class="name"><a href="gestures/GestureBinding/samplingClock.html">samplingClock</a></span>
+  <span class="signature">&#8594; <a href="gestures/SamplingClock-class.html">SamplingClock</a></span>
+  
+
+</dt>
+<dd>
+  Provides access to the current <a href="dart-core/DateTime-class.html">DateTime</a> 和 <code>StopWatch</code> objects for
+sampling.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="samplingOffset" class="property">
+  <span class="name"><a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a></span>
+  <span class="signature">&#8596; <a href="dart-core/Duration-class.html">Duration</a></span>
+  
+
+</dt>
+<dd>
+  Offset relative to current frame time that should be used for
+resampling. The <a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a> is expected to be negative.
+Non-negative <a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a> is allowed but will effectively
+disable resampling.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="window" class="property inherited">
+  <span class="name"><a class="deprecated" href="gestures/GestureBinding/window.html">window</a></span>
+  <span class="signature">&#8594; <a class="deprecated" href="dart-ui/SingletonFlutterWindow-class.html">SingletonFlutterWindow</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Deprecated; will be removed in a future version of Flutter.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="cancelPointer" class="callable">
+  <span class="name"><a href="gestures/GestureBinding/cancelPointer.html">cancelPointer</a></span><span class="signature">(<wbr><span class="parameter" id="cancelPointer-param-pointer"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">pointer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Dispatch a <a href="gestures/PointerCancelEvent-class.html">PointerCancelEvent</a> for the given pointer soon.
+  
+
+</dd>
+
+        <dt id="debugCheckZone" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/debugCheckZone.html">debugCheckZone</a></span><span class="signature">(<wbr><span class="parameter" id="debugCheckZone-param-entryPoint"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">entryPoint</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Checks that the current <a href="dart-async/Zone-class.html">Zone</a> is the same as that which was used
+to initialize the binding.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="dispatchEvent" class="callable">
+  <span class="name"><a href="gestures/GestureBinding/dispatchEvent.html">dispatchEvent</a></span><span class="signature">(<wbr><span class="parameter" id="dispatchEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span>, </span><span class="parameter" id="dispatchEvent-param-hitTestResult"><span class="type-annotation"><a href="gestures/HitTestResult-class.html">HitTestResult</a>?</span> <span class="parameter-name">hitTestResult</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Dispatch an event to <a href="gestures/GestureBinding/pointerRouter.html">pointerRouter</a> and the path of a hit test result.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="handleEvent" class="callable">
+  <span class="name"><a href="gestures/GestureBinding/handleEvent.html">handleEvent</a></span><span class="signature">(<wbr><span class="parameter" id="handleEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span>, </span><span class="parameter" id="handleEvent-param-entry"><span class="type-annotation"><a href="gestures/HitTestEntry-class.html">HitTestEntry</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="gestures/HitTestTarget-class.html">HitTestTarget</a></span>&gt;</span></span> <span class="parameter-name">entry</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Override this method to receive events.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="handlePointerEvent" class="callable">
+  <span class="name"><a href="gestures/GestureBinding/handlePointerEvent.html">handlePointerEvent</a></span><span class="signature">(<wbr><span class="parameter" id="handlePointerEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Dispatch an event to the targets found by a hit test on its position.
+  
+
+</dd>
+
+        <dt id="hitTest" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="gestures/GestureBinding/hitTest.html">hitTest</a></span><span class="signature">(<wbr><span class="parameter" id="hitTest-param-result"><span class="type-annotation"><a href="gestures/HitTestResult-class.html">HitTestResult</a></span> <span class="parameter-name">result</span>, </span><span class="parameter" id="hitTest-param-position"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Deprecated. Use <a href="gestures/GestureBinding/hitTestInView.html">hitTestInView</a> instead.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="hitTestInView" class="callable">
+  <span class="name"><a href="gestures/GestureBinding/hitTestInView.html">hitTestInView</a></span><span class="signature">(<wbr><span class="parameter" id="hitTestInView-param-result"><span class="type-annotation"><a href="gestures/HitTestResult-class.html">HitTestResult</a></span> <span class="parameter-name">result</span>, </span><span class="parameter" id="hitTestInView-param-position"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span>, </span><span class="parameter" id="hitTestInView-param-viewId"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">viewId</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Determine which <a href="gestures/HitTestTarget-class.html">HitTestTarget</a> objects are located at a given position in
+the specified view.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="initInstances" class="callable">
+  <span class="name"><a href="gestures/GestureBinding/initInstances.html">initInstances</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  The initialization method.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="initServiceExtensions" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/initServiceExtensions.html">initServiceExtensions</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called when the binding is initialized, to register service
+extensions.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="lockEvents" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/lockEvents.html">lockEvents</a></span><span class="signature">(<wbr><span class="parameter" id="lockEvents-param-callback"><span class="type-annotation"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span> <span class="parameter-name">callback</span>()</span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Locks the dispatching of asynchronous events and callbacks until the
+callback's future completes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="performReassemble" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/performReassemble.html">performReassemble</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  This method is called by <a href="foundation/BindingBase/reassembleApplication.html">reassembleApplication</a> to actually cause the
+application to reassemble, e.g. after a hot reload.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="postEvent" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/postEvent.html">postEvent</a></span><span class="signature">(<wbr><span class="parameter" id="postEvent-param-eventKind"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">eventKind</span>, </span><span class="parameter" id="postEvent-param-eventData"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">eventData</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  All events dispatched by a <a href="foundation/BindingBase-class.html">BindingBase</a> use this method instead of
+calling <a href="dart-developer/postEvent.html">developer.postEvent</a> directly so that tests for <a href="foundation/BindingBase-class.html">BindingBase</a>
+can track which events were dispatched by overriding this method.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="reassembleApplication" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/reassembleApplication.html">reassembleApplication</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Cause the entire application to redraw, e.g. after a hot reload.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerBoolServiceExtension" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/registerBoolServiceExtension.html">registerBoolServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerBoolServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerBoolServiceExtension-param-getter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueGetter.html">AsyncValueGetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span> <span class="parameter-name">getter</span>, </span><span class="parameter" id="registerBoolServiceExtension-param-setter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueSetter.html">AsyncValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span> <span class="parameter-name">setter</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full
+name "ext.flutter.name"), which takes a single argument
+"enabled" which can have the value "true" or the value "false"
+or can be omitted to read the current value. (Any value other
+than "true" is considered equivalent to "false". Other arguments
+are ignored.)
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerNumericServiceExtension" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/registerNumericServiceExtension.html">registerNumericServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerNumericServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerNumericServiceExtension-param-getter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueGetter.html">AsyncValueGetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">getter</span>, </span><span class="parameter" id="registerNumericServiceExtension-param-setter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueSetter.html">AsyncValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">setter</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full
+name "ext.flutter.name"), which takes a single argument with the
+same name as the method which, if present, must have a value
+that can be parsed by <a href="dart-core/double/parse.html">double.parse</a>, and can be omitted to read
+the current value. (Other arguments are ignored.)
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerServiceExtension" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/registerServiceExtension.html">registerServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerServiceExtension-param-callback"><span>required</span> <span class="type-annotation"><a href="foundation/ServiceExtensionCallback.html">ServiceExtensionCallback</a></span> <span class="parameter-name">callback</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full name
+"ext.flutter.name").
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerSignalServiceExtension" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/registerSignalServiceExtension.html">registerSignalServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerSignalServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerSignalServiceExtension-param-callback"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncCallback.html">AsyncCallback</a></span> <span class="parameter-name">callback</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full
+name "ext.flutter.name"), which takes no arguments and returns
+no value.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="registerStringServiceExtension" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/registerStringServiceExtension.html">registerStringServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerStringServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerStringServiceExtension-param-getter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueGetter.html">AsyncValueGetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">getter</span>, </span><span class="parameter" id="registerStringServiceExtension-param-setter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueSetter.html">AsyncValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">setter</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Registers a service extension method with the given name (full name
+"ext.flutter.name"), which optionally takes a single argument with the
+name "value". If the argument is omitted, the value is to be read,
+otherwise it is to be set. Returns the current value.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="resetGestureBinding" class="callable">
+  <span class="name"><a href="gestures/GestureBinding/resetGestureBinding.html">resetGestureBinding</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Reset states of <a href="gestures/GestureBinding-mixin.html">GestureBinding</a>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="gestures/GestureBinding/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="unlocked" class="callable">
+  <span class="name"><a href="gestures/GestureBinding/unlocked.html">unlocked</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called by <a href="gestures/GestureBinding/lockEvents.html">lockEvents</a> when events get unlocked.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="instance" class="property">
+  <span class="name"><a href="gestures/GestureBinding/instance.html">instance</a></span>
+  <span class="signature">&#8594; <a href="gestures/GestureBinding-mixin.html">GestureBinding</a></span>
+  
+
+</dt>
+<dd>
+  The singleton instance of this object.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+
+</div> <!-- /.main-content -->
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="gestures/">gestures</a></li>
+    <li class="self-crumb">GestureBinding mixin</li>
+</ol>
+
+  <h5>gestures 库</h5>
+  <div id="dartdoc-sidebar-left-content"></div>
+</div>
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

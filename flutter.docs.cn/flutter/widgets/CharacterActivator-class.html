@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 CharacterActivator 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>CharacterActivator 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">CharacterActivator 类</li>
+  </ol>
+  <div class="self-name">CharacterActivator</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;CharacterActivator-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/shortcuts.dart#L682"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">CharacterActivator</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一种由产生特定字符的按键事件触发的快捷键组合。</p>
+<p>按键与修饰键组合后通常会产生不同字符。例如，用户按下问号（“?”）时弹出帮助菜单可能很有用。但并没有直接表示问号的逻辑按键。虽然在美式键盘上按 Shift+斜杠会产生“?”，其逻辑按键仍被视为斜杠；在这种情况下硬编码“Shift+斜杠”会让使用其他键盘布局的用户感到不便。</p>
+<p>例如，在美式键盘上，按键组合产生问号时会触发 <code>CharacterActivator('?')</code>，该组合是 Shift+斜杠；而在法语键盘上则是 Shift+逗号。</p>
+<p>
+<a name="widgets.CharacterActivator.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">以下示例中，按键组合产生问号时会显示 <a href="material/SnackBar-class.html">SnackBar</a>：</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.CharacterActivator.1');" onclick="fixHref(this, 'widgets.CharacterActivator.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.CharacterActivator.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.CharacterActivator.1&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p><a href="widgets/CharacterActivator/alt.html">alt</a>、<a href="widgets/CharacterActivator/control.html">control</a> 和 <a href="widgets/CharacterActivator/meta.html">meta</a> 标志分别表示对应修饰键应按下（true）还是松开（false）；默认均为 false。<a href="widgets/CharacterActivator-class.html">CharacterActivator</a> 无法检查 Shift 键，因为 Shift 会影响产生的字符。只要按键事件产生了正确字符，无论任一 Shift 键是否按下都会接受该事件。</p>
+<p>默认情况下，activator 会检查所有 <a href="services/KeyDownEvent-class.html">KeyDownEvent</a> 或 <a href="services/KeyRepeatEvent-class.html">KeyRepeatEvent</a>，判断它们与请求的修饰键组合后是否产生指定的 <a href="widgets/CharacterActivator/character.html">character</a>。如果 <code>includeRepeats</code> 为 false，则只会考虑属于 <a href="widgets/CharacterActivator/character.html">KeyDownEvent</a> 的 <a href="services/KeyDownEvent-class.html">character</a> 事件。</p>
+<p>在 macOS 和 iOS 上，<a href="widgets/CharacterActivator/alt.html">alt</a> 标志表示 Option 键（⌥）已按下。由于 Option 键会影响这些平台上生成的字符，为它们定义 <a href="widgets/CharacterActivator-class.html">CharacterActivator</a> 可能不太直观。</p>
+<p>例如，如果希望按下 Option+s（⌥-s）时触发快捷键，且意图是在生成字符“ß”时触发，则应使用 <code>CharacterActivator('ß')</code> 或 <code>CharacterActivator('ß', alt: true)</code>，而不是 <code>CharacterActivator('s', alt: true)</code>。这是因为按住 Option 键时无法生成“s”，所以 <code>CharacterActivator('s', alt: true)</code> 永远不会触发。</p>
+<p>如果希望无论生成何种字符，只要按下 Option+s（⌥-s）就触发快捷键，则更适合使用 <a href="widgets/SingleActivator-class.html">SingleActivator</a>，例如 <code>SingleActivator(LogicalKeyboardKey.keyS, alt: true)</code>。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/SingleActivator-class.html">SingleActivator</a>, an activator that represents a single key combined
+with modifiers, such as <code>Ctrl+C</code> or <code>Ctrl-Right Arrow</code>.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a></li>
+    </ul>
+  </dd>
+        
+  <dt>混入的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="foundation/Diagnosticable-mixin.html">Diagnosticable</a></li>
+        <li><a href="widgets/MenuSerializableShortcut-mixin.html">MenuSerializableShortcut</a></li>
+    </ul>
+  </dd>
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="CharacterActivator.new" class="callable">
+          <span class="name"><a href="widgets/CharacterActivator/CharacterActivator.html">CharacterActivator</a></span><span class="signature">(<span class="parameter" id="-param-character"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">character</span>, {</span><span class="parameter" id="-param-alt"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">alt</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-control"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">control</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-meta"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">meta</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-includeRepeats"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includeRepeats</span> = <span class="default-value">true</span></span>})</span>
+        </dt>
+        <dd>
+          Triggered when the key event yields the given character.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="alt" class="property">
+  <span class="name"><a href="widgets/CharacterActivator/alt.html">alt</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether either (or both) Alt keys should be held for the <a href="widgets/CharacterActivator/character.html">character</a> to
+activate the shortcut.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="character" class="property">
+  <span class="name"><a href="widgets/CharacterActivator/character.html">character</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The character which triggers the shortcut.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="control" class="property">
+  <span class="name"><a href="widgets/CharacterActivator/control.html">control</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether either (or both) Control keys should be held for the <a href="widgets/CharacterActivator/character.html">character</a>
+to activate the shortcut.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="includeRepeats" class="property">
+  <span class="name"><a href="widgets/CharacterActivator/includeRepeats.html">includeRepeats</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this activator accepts repeat events of the <a href="widgets/CharacterActivator/character.html">character</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="meta" class="property">
+  <span class="name"><a href="widgets/CharacterActivator/meta.html">meta</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether either (or both) Meta keys should be held for the <a href="widgets/CharacterActivator/character.html">character</a> to
+activate the shortcut.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="triggers" class="property">
+  <span class="name"><a href="widgets/CharacterActivator/triggers.html">triggers</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  An optional property to provide all the keys that might be the final event
+to trigger this shortcut.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="accepts" class="callable">
+  <span class="name"><a href="widgets/CharacterActivator/accepts.html">accepts</a></span><span class="signature">(<wbr><span class="parameter" id="accepts-param-event"><span class="type-annotation"><a href="services/KeyEvent-class.html">KeyEvent</a></span> <span class="parameter-name">event</span>, </span><span class="parameter" id="accepts-param-state"><span class="type-annotation"><a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a></span> <span class="parameter-name">state</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether the triggering <code>event</code> and the keyboard <code>state</code> at the time of the
+event meet required conditions, providing that the event is a triggering
+event.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeKeys" class="callable">
+  <span class="name"><a href="widgets/CharacterActivator/debugDescribeKeys.html">debugDescribeKeys</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a description of the key set that is short and readable.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable">
+  <span class="name"><a href="widgets/CharacterActivator/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="serializeForMenu" class="callable">
+  <span class="name"><a href="widgets/CharacterActivator/serializeForMenu.html">serializeForMenu</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/ShortcutSerialization-class.html">ShortcutSerialization</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Implement this in a <a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a> subclass to allow it to be
+serialized for use in a <a href="widgets/PlatformMenuBar-class.html">PlatformMenuBar</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A brief description of this object, usually just the <a href="dart-core/Object/runtimeType.html">runtimeType</a> and the
+<a href="dart-core/Object/hashCode.html">hashCode</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">CharacterActivator 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

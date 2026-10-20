@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 Flex 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Flex 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">Flex 类</li>
+  </ol>
+  <div class="self-name">Flex</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;Flex-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/basic.dart#L5294"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">Flex</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>沿一维方向排列其子项的 widget。</p>
+<p><a href="widgets/Flex-class.html">Flex</a> widget 允许你控制子项排列的轴向（水平或垂直），称为<em>主轴</em>。如果主轴方向已知，可考虑改用 <a href="widgets/Row-class.html">Row</a>（水平）或 <a href="widgets/Column-class.html">Column</a>（垂直），因为写法更简洁。</p>
+<p>若要让子项沿此 widget 主轴的 <a href="widgets/Flex/direction.html">direction</a> 扩展并填满可用空间，可使用 <a href="widgets/Expanded-class.html">Expanded</a> widget 包装子项。</p>
+<p>The <a href="widgets/Flex-class.html">Flex</a> widget does not scroll (and in general it is considered an error
+to have more children in a <a href="widgets/Flex-class.html">Flex</a> than will fit in the available room). If
+you have some widgets and want them to be able to scroll if there is
+insufficient room, consider using a <a href="widgets/ListView-class.html">ListView</a>.</p>
+<p>The <a href="widgets/Flex-class.html">Flex</a> widget does not allow its children to wrap across multiple
+horizontal or vertical runs. For a widget that allows its children to wrap,
+consider using the <a href="widgets/Wrap-class.html">Wrap</a> widget instead of <a href="widgets/Flex-class.html">Flex</a>.</p>
+<p>如果只有一个子项，与其使用 <a href="widgets/Flex-class.html">Flex</a>、<a href="widgets/Row-class.html">Row</a> 或 <a href="widgets/Column-class.html">Column</a>，不如使用 <a href="widgets/Align-class.html">Align</a> 或 <a href="widgets/Center-class.html">Center</a> 来定位子项。</p>
+<h2 id="layout-algorithm">布局算法</h2>
+<p><em>本节介绍框架如何渲染 <a href="widgets/Flex-class.html">Flex</a>。</em><em>盒式布局模型简介请参阅 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>。</em></p>
+<p><a href="widgets/Flex-class.html">Flex</a> 的布局分为六个步骤：</p>
+<ol>
+<li>使用主轴无界约束和传入的交叉轴约束，对每个 flex 因子为 null 或零的子项进行布局（例如未使用 <a href="widgets/Expanded-class.html">Expanded</a> 的子项）。如果 <a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a> 为 <a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment.stretch</a>，则改用紧约束，使交叉轴约束与传入的交叉轴最大范围一致。</li>
+<li>根据 flex 因子，将主轴剩余空间分配给 flex 因子非零的子项（例如使用 <a href="widgets/Expanded-class.html">Expanded</a> 的子项）。例如，flex 因子为 2.0 的子项获得的主轴空间是因子为 1.0 子项的两倍。</li>
+<li>使用与步骤 1 相同的交叉轴约束布局其余子项，但不再使用无界主轴约束，而是根据步骤 2 分配的空间设置主轴最大约束。<a href="widgets/Flexible/fit.html">Flexible.fit</a> 为 <a href="rendering/FlexFit.html">FlexFit.tight</a> 的子项会受到紧约束（即必须填满所分配空间）；为 <a href="widgets/Flexible/fit.html">Flexible.fit</a> 属性为 <a href="rendering/FlexFit.html">FlexFit.loose</a> 的子项则受到松约束（即不必填满所分配空间）。</li>
+<li><a href="widgets/Flex-class.html">Flex</a> 的交叉轴范围取子项交叉轴范围的最大值（这始终满足传入的约束）。</li>
+<li><a href="widgets/Flex-class.html">Flex</a> 的主轴范围由 <a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> 属性决定。如果 <a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> 属性为 <a href="rendering/MainAxisSize.html">MainAxisSize.max</a>，则 <a href="widgets/Flex-class.html">Flex</a> 的主轴范围为传入主轴约束的最大范围。如果 <a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> 属性为 <a href="rendering/MainAxisSize.html">MainAxisSize.min</a>，则 <a href="widgets/Flex-class.html">Flex</a> 的主轴范围为子项主轴范围之和（但仍受传入约束限制）。</li>
+<li>根据 <a href="widgets/Flex/mainAxisAlignment.html">mainAxisAlignment</a> 和 <a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a> 确定每个子项的位置。例如，当 <a href="widgets/Flex/mainAxisAlignment.html">mainAxisAlignment</a> 为 <a href="rendering/MainAxisAlignment.html">MainAxisAlignment.spaceBetween</a> 时，未分配给子项的主轴空间会均匀分配并放置在子项之间。</li>
+</ol>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/Row-class.html">Row</a>：此 widget 的水平排列版本。</li>
+<li><a href="widgets/Column-class.html">Column</a>：此 widget 的垂直排列版本。</li>
+<li><a href="widgets/Expanded-class.html">Expanded</a>：指示子项应占用所有剩余空间。</li>
+<li><a href="widgets/Flexible-class.html">Flexible</a>：指示子项应共享剩余空间。</li>
+<li><a href="widgets/Spacer-class.html">Spacer</a>：按 flex 值比例占用空间的 widget；也可以缩小尺寸，从而留下一部分未使用的空间。</li>
+<li><a href="widgets/Wrap-class.html">Wrap</a>：允许子项换行到多个<em>行</em>中的 widget。</li>
+<li><a href="https://flutter.dev/widgets/layout/">布局 widget 目录</a>。</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a></li>
+        <li><a href="widgets/MultiChildRenderObjectWidget-class.html">MultiChildRenderObjectWidget</a></li>
+      <li>Flex</li>
+    </ul>
+  </dd>
+
+        
+        
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="widgets/Column-class.html">Column</a></li>
+              <li><a href="widgets/Row-class.html">Row</a></li>
+          </ul></dd>
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Flex.new" class="callable">
+          <span class="name"><a href="widgets/Flex/Flex.html">Flex</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-direction"><span>required</span> <span class="type-annotation"><a href="painting/Axis.html">Axis</a></span> <span class="parameter-name">direction</span>, </span><span class="parameter" id="-param-mainAxisAlignment"><span class="type-annotation"><a href="rendering/MainAxisAlignment.html">MainAxisAlignment</a></span> <span class="parameter-name">mainAxisAlignment</span> = <span class="default-value">MainAxisAlignment.start</span>, </span><span class="parameter" id="-param-mainAxisSize"><span class="type-annotation"><a href="rendering/MainAxisSize.html">MainAxisSize</a></span> <span class="parameter-name">mainAxisSize</span> = <span class="default-value">MainAxisSize.max</span>, </span><span class="parameter" id="-param-crossAxisAlignment"><span class="type-annotation"><a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment</a></span> <span class="parameter-name">crossAxisAlignment</span> = <span class="default-value">CrossAxisAlignment.center</span>, </span><span class="parameter" id="-param-textDirection"><span class="type-annotation"><a href="dart-ui/TextDirection.html">TextDirection</a>?</span> <span class="parameter-name">textDirection</span>, </span><span class="parameter" id="-param-verticalDirection"><span class="type-annotation"><a href="painting/VerticalDirection.html">VerticalDirection</a></span> <span class="parameter-name">verticalDirection</span> = <span class="default-value">VerticalDirection.down</span>, </span><span class="parameter" id="-param-textBaseline"><span class="type-annotation"><a href="dart-ui/TextBaseline.html">TextBaseline</a>?</span> <span class="parameter-name">textBaseline</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.none</span>, </span><span class="parameter" id="-param-spacing"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">spacing</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="-param-children"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span></span> <span class="parameter-name">children</span> = <span class="default-value">const &lt;Widget&gt;[]</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a flex layout.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="children" class="property inherited">
+  <span class="name"><a href="widgets/MultiChildRenderObjectWidget/children.html">children</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  The widgets below this widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="clipBehavior" class="property">
+  <span class="name"><a href="widgets/Flex/clipBehavior.html">clipBehavior</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Clip.html">Clip</a></span>
+  
+
+</dt>
+<dd>
+  The content will be clipped (or not) according to this option.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="crossAxisAlignment" class="property">
+  <span class="name"><a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a></span>
+  <span class="signature">&#8594; <a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment</a></span>
+  
+
+</dt>
+<dd>
+  How the children should be placed along the cross axis.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="direction" class="property">
+  <span class="name"><a href="widgets/Flex/direction.html">direction</a></span>
+  <span class="signature">&#8594; <a href="painting/Axis.html">Axis</a></span>
+  
+
+</dt>
+<dd>
+  The direction to use as the main axis.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="mainAxisAlignment" class="property">
+  <span class="name"><a href="widgets/Flex/mainAxisAlignment.html">mainAxisAlignment</a></span>
+  <span class="signature">&#8594; <a href="rendering/MainAxisAlignment.html">MainAxisAlignment</a></span>
+  
+
+</dt>
+<dd>
+  How the children should be placed along the main axis.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="mainAxisSize" class="property">
+  <span class="name"><a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a></span>
+  <span class="signature">&#8594; <a href="rendering/MainAxisSize.html">MainAxisSize</a></span>
+  
+
+</dt>
+<dd>
+  How much space should be occupied in the main axis.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="spacing" class="property">
+  <span class="name"><a href="widgets/Flex/spacing.html">spacing</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  How much space to place between children in the main axis.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textBaseline" class="property">
+  <span class="name"><a href="widgets/Flex/textBaseline.html">textBaseline</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/TextBaseline.html">TextBaseline</a>?</span>
+  
+
+</dt>
+<dd>
+  If aligning items according to their baseline, which baseline to use.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="textDirection" class="property">
+  <span class="name"><a href="widgets/Flex/textDirection.html">textDirection</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/TextDirection.html">TextDirection</a>?</span>
+  
+
+</dt>
+<dd>
+  Determines the order to lay children out horizontally and how to interpret
+<code>start</code> 和 <code>end</code> in the horizontal direction.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="verticalDirection" class="property">
+  <span class="name"><a href="widgets/Flex/verticalDirection.html">verticalDirection</a></span>
+  <span class="signature">&#8594; <a href="painting/VerticalDirection.html">VerticalDirection</a></span>
+  
+
+</dt>
+<dd>
+  Determines the order to lay children out vertically and how to interpret
+<code>start</code> 和 <code>end</code> in the vertical direction.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/MultiChildRenderObjectWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/MultiChildRenderObjectElement-class.html">MultiChildRenderObjectElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  RenderObjectWidgets always inflate to a <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a> subclass.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createRenderObject" class="callable">
+  <span class="name"><a href="widgets/Flex/createRenderObject.html">createRenderObject</a></span><span class="signature">(<wbr><span class="parameter" id="createRenderObject-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="rendering/RenderFlex-class.html">RenderFlex</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates an instance of the <a href="rendering/RenderObject-class.html">RenderObject</a> class that this
+<a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> represents, using the configuration described by this
+<a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable">
+  <span class="name"><a href="widgets/Flex/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="didUnmountRenderObject" class="callable inherited">
+  <span class="name"><a href="widgets/RenderObjectWidget/didUnmountRenderObject.html">didUnmountRenderObject</a></span><span class="signature">(<wbr><span class="parameter" id="didUnmountRenderObject-param-renderObject"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">renderObject</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  This method is called when a RenderObject that was previously
+associated with this widget is removed from the render tree.
+The provided <a href="rendering/RenderObject-class.html">RenderObject</a> will be of the same type as the one created by
+this widget's <a href="widgets/RenderObjectWidget/createRenderObject.html">createRenderObject</a> method.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="getEffectiveTextDirection" class="callable">
+  <span class="name"><a href="widgets/Flex/getEffectiveTextDirection.html">getEffectiveTextDirection</a></span><span class="signature">(<wbr><span class="parameter" id="getEffectiveTextDirection-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/TextDirection.html">TextDirection</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  The value to pass to <a href="rendering/RenderFlex/textDirection.html">RenderFlex.textDirection</a>.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="updateRenderObject" class="callable">
+  <span class="name"><a href="widgets/Flex/updateRenderObject.html">updateRenderObject</a></span><span class="signature">(<wbr><span class="parameter" id="updateRenderObject-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="updateRenderObject-param-renderObject"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderFlex-class.html">RenderFlex</a></span> <span class="parameter-name">renderObject</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Copies the configuration described by this <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> to the
+given <a href="rendering/RenderObject-class.html">RenderObject</a>, which will be of the same type as returned by this
+object's <a href="widgets/Flex/createRenderObject.html">createRenderObject</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">Flex 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

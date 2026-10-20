@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="clock 库中 Clock 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Clock 类 - clock 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-clock_clock/">clock.dart</a></li>
+    <li class="self-crumb">Clock 类</li>
+  </ol>
+  <div class="self-name">Clock</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-clock_clock&#47;package-clock_clock-library-sidebar.html"
+    data-below-sidebar="package-clock_clock&#47;Clock-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Clock</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>“当前时间”及相对于当前时间的时间点提供器。</p>
+<p>This class is designed with testability in mind. The current point in time
+(or <a href="package-clock_clock/Clock/now.html">now()</a>) is defined by a function that returns a <a href="dart-core/DateTime-class.html">DateTime</a>. By
+supplying your own time function or using <a href="package-clock_clock/Clock/Clock.fixed.html">Clock.fixed</a>, you can control
+exactly what time a <a href="package-clock_clock/Clock-class.html">Clock</a> returns and base your test expectations on that.</p>
+<p>Most users should use the top-level <a href="package-clock_clock/clock.html">clock</a> field, which provides access to
+a default implementation of <a href="package-clock_clock/Clock-class.html">Clock</a> which can be overridden using
+<a href="package-clock_clock/withClock.html">withClock</a>.</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Clock.new" class="callable">
+          <span class="name"><a href="package-clock_clock/Clock/Clock.html">Clock</a></span><span class="signature">([<span class="parameter" id="-param-currentTime"><span class="type-annotation"><a href="dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">currentTime</span>() = <span class="default-value">systemTime</span></span>])</span>
+        </dt>
+        <dd>
+          Creates a clock based on the given <code>currentTime</code>, or on the system clock
+by default.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="Clock.fixed" class="callable">
+          <span class="name"><a href="package-clock_clock/Clock/Clock.fixed.html">Clock.fixed</a></span><span class="signature">(<span class="parameter" id="fixed-param-time"><span class="type-annotation"><a href="dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">time</span></span>)</span>
+        </dt>
+        <dd>
+          Creates <a href="package-clock_clock/Clock-class.html">Clock</a> that always considers the current time to be <code>time</code>.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="ago" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/ago.html">ago</a></span><span class="signature">(<wbr>{<span class="parameter" id="ago-param-days"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">days</span> = <span class="default-value">0</span>, </span><span class="parameter" id="ago-param-hours"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">hours</span> = <span class="default-value">0</span>, </span><span class="parameter" id="ago-param-minutes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minutes</span> = <span class="default-value">0</span>, </span><span class="parameter" id="ago-param-seconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">seconds</span> = <span class="default-value">0</span>, </span><span class="parameter" id="ago-param-milliseconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">milliseconds</span> = <span class="default-value">0</span>, </span><span class="parameter" id="ago-param-microseconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">microseconds</span> = <span class="default-value">0</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the point in time that's given amount of time ago.
+  
+
+</dd>
+
+        <dt id="agoBy" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/agoBy.html">agoBy</a></span><span class="signature">(<wbr><span class="parameter" id="agoBy-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the point in time <a href="dart-core/Duration-class.html">Duration</a> amount of time ago.
+  
+
+</dd>
+
+        <dt id="daysAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/daysAgo.html">daysAgo</a></span><span class="signature">(<wbr><span class="parameter" id="daysAgo-param-days"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">days</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>days</code> ago.
+  
+
+</dd>
+
+        <dt id="daysFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/daysFromNow.html">daysFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="daysFromNow-param-days"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">days</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>days</code> from now.
+  
+
+</dd>
+
+        <dt id="fromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/fromNow.html">fromNow</a></span><span class="signature">(<wbr>{<span class="parameter" id="fromNow-param-days"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">days</span> = <span class="default-value">0</span>, </span><span class="parameter" id="fromNow-param-hours"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">hours</span> = <span class="default-value">0</span>, </span><span class="parameter" id="fromNow-param-minutes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minutes</span> = <span class="default-value">0</span>, </span><span class="parameter" id="fromNow-param-seconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">seconds</span> = <span class="default-value">0</span>, </span><span class="parameter" id="fromNow-param-milliseconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">milliseconds</span> = <span class="default-value">0</span>, </span><span class="parameter" id="fromNow-param-microseconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">microseconds</span> = <span class="default-value">0</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the point in time that's given amount of time from now.
+  
+
+</dd>
+
+        <dt id="fromNowBy" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/fromNowBy.html">fromNowBy</a></span><span class="signature">(<wbr><span class="parameter" id="fromNowBy-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the point in time <a href="dart-core/Duration-class.html">Duration</a> amount of time from now.
+  
+
+</dd>
+
+        <dt id="getStopwatch" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="package-clock_clock/Clock/getStopwatch.html">getStopwatch</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/Stopwatch-class.html">Stopwatch</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a new stopwatch that uses the current time as reported by <code>this</code>.
+  
+
+</dd>
+
+        <dt id="hoursAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/hoursAgo.html">hoursAgo</a></span><span class="signature">(<wbr><span class="parameter" id="hoursAgo-param-hours"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">hours</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>hours</code> ago.
+  
+
+</dd>
+
+        <dt id="hoursFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/hoursFromNow.html">hoursFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="hoursFromNow-param-hours"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">hours</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>hours</code> from now.
+  
+
+</dd>
+
+        <dt id="microsAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/microsAgo.html">microsAgo</a></span><span class="signature">(<wbr><span class="parameter" id="microsAgo-param-microseconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">microseconds</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>microseconds</code> ago.
+  
+
+</dd>
+
+        <dt id="microsFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/microsFromNow.html">microsFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="microsFromNow-param-microseconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">microseconds</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>microseconds</code> from now.
+  
+
+</dd>
+
+        <dt id="millisAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/millisAgo.html">millisAgo</a></span><span class="signature">(<wbr><span class="parameter" id="millisAgo-param-milliseconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">milliseconds</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>milliseconds</code> ago.
+  
+
+</dd>
+
+        <dt id="millisFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/millisFromNow.html">millisFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="millisFromNow-param-milliseconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">milliseconds</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>milliseconds</code> from now.
+  
+
+</dd>
+
+        <dt id="minutesAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/minutesAgo.html">minutesAgo</a></span><span class="signature">(<wbr><span class="parameter" id="minutesAgo-param-minutes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minutes</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>minutes</code> ago.
+  
+
+</dd>
+
+        <dt id="minutesFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/minutesFromNow.html">minutesFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="minutesFromNow-param-minutes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minutes</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>minutes</code> from now.
+  
+
+</dd>
+
+        <dt id="monthsAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/monthsAgo.html">monthsAgo</a></span><span class="signature">(<wbr><span class="parameter" id="monthsAgo-param-months"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">months</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>months</code> ago on the same date.
+  
+
+</dd>
+
+        <dt id="monthsFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/monthsFromNow.html">monthsFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="monthsFromNow-param-months"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">months</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>months</code> from now on the same date.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="now" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/now.html">now</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns current time.
+  
+
+</dd>
+
+        <dt id="secondsAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/secondsAgo.html">secondsAgo</a></span><span class="signature">(<wbr><span class="parameter" id="secondsAgo-param-seconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">seconds</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>seconds</code> ago.
+  
+
+</dd>
+
+        <dt id="secondsFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/secondsFromNow.html">secondsFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="secondsFromNow-param-seconds"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">seconds</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>seconds</code> from now.
+  
+
+</dd>
+
+        <dt id="stopwatch" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/stopwatch.html">stopwatch</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/Stopwatch-class.html">Stopwatch</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a new stopwatch that uses the current time as reported by <code>this</code>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="weeksAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/weeksAgo.html">weeksAgo</a></span><span class="signature">(<wbr><span class="parameter" id="weeksAgo-param-weeks"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">weeks</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>weeks</code> ago.
+  
+
+</dd>
+
+        <dt id="weeksFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/weeksFromNow.html">weeksFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="weeksFromNow-param-weeks"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">weeks</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>weeks</code> from now.
+  
+
+</dd>
+
+        <dt id="yearsAgo" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/yearsAgo.html">yearsAgo</a></span><span class="signature">(<wbr><span class="parameter" id="yearsAgo-param-years"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">years</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>years</code> ago on the same date.
+  
+
+</dd>
+
+        <dt id="yearsFromNow" class="callable">
+  <span class="name"><a href="package-clock_clock/Clock/yearsFromNow.html">yearsFromNow</a></span><span class="signature">(<wbr><span class="parameter" id="yearsFromNow-param-years"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">years</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/DateTime-class.html">DateTime</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Return the point in time <code>years</code> from now on the same date.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-clock_clock/">clock</a></li>
+    <li class="self-crumb">Clock 类</li>
+</ol>
+
+    <h5>clock 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

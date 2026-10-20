@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="services 库中 RestorationBucket 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>RestorationBucket 类 - services 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services.dart</a></li>
+    <li class="self-crumb">RestorationBucket 类</li>
+  </ol>
+  <div class="self-name">RestorationBucket</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services&#47;services-library-sidebar.html"
+    data-below-sidebar="services&#47;RestorationBucket-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/services/restoration.dart#L504"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">RestorationBucket</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p><a href="services/RestorationBucket-class.html">RestorationBucket</a> 保存应用某个部分恢复其状态所需的部分恢复数据。</p>
+<p>有关 Flutter 状态恢复工作方式的总体介绍，请参阅 <a href="services/RestorationManager-class.html">RestorationManager</a>。</p>
+<p><a href="services/RestorationBucket-class.html">RestorationBucket</a> 以树形结构组织，根节点为 <a href="services/RestorationManager/rootBucket.html">RestorationManager.rootBucket</a>，并由 <a href="services/RestorationManager-class.html">RestorationManager</a> 管理。该树可序列化，必须包含应用稍后恢复当前状态所需的全部数据。</p>
+<p><a href="services/RestorationBucket-class.html">RestorationBucket</a> 以键值对形式存储恢复数据。键是一个 <a href="dart-core/String-class.html">String</a>，表示用于在 bucket 中唯一标识数据的恢复 ID。值可以是任何能通过 <a href="services/StandardMessageCodec-class.html">StandardMessageCodec</a> 序列化的数据。此外，<a href="services/RestorationBucket-class.html">RestorationBucket</a> 还可以包含子 bucket，子 bucket 也通过在其父 bucket 中唯一的恢复 ID 标识。</p>
+<p>进行状态恢复时，之前存储在 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 层级中的数据会再次提供给应用，使其恢复到收集这些数据时的状态。恢复到之前状态可能发生在应用启动时（例如应用在后台运行期间正常终止后），也可能发生在应用已运行一段时间之后。</p>
+<h2 id="lifecycle">生命周期</h2>
+<p>通常不会直接通过构造函数实例化 <a href="services/RestorationBucket-class.html">RestorationBucket</a>。实体需要向恢复 bucket 存储或读取数据时，通常会调用 <a href="services/RestorationBucket/claimChild.html">claimChild</a>，从父 bucket 获取子 bucket。如果没有父 bucket，可以将 <a href="services/RestorationManager/rootBucket.html">RestorationManager.rootBucket</a> 用作父级。认领子 bucket 时，认领方必须提供希望拥有的子 bucket 的恢复 ID。具有同一恢复 ID 的子 bucket 最多只能有一个所有者。如果另一个所有者尝试从同一父级认领相同 ID 的 bucket，就会抛出异常（详见 <a href="services/RestorationBucket/claimChild.html">claimChild</a>）。所有者用于认领子 bucket（以及在其中存储数据，见下文）的恢复 ID 必须在应用不同启动期间保持稳定，以便应用重启后能取回之前运行时保存的数据。</p>
+<p>按照惯例，bucket 的所有者独占其中存储的值。所有者可以通过 <a href="services/RestorationBucket/read.html">read</a>、<a href="services/RestorationBucket/write.html">write</a> 和 <a href="services/RestorationBucket/remove.html">remove</a> 方法读取、添加、修改和删除值。通常，所有者应在 bucket 中保存恢复当前状态所需的全部数据；当前状态发生变化时，也必须更新其中的数据。同时，bucket 中的数据应尽量精简。例如，对于可从数据库或 Web 服务等其他来源获取的数据，只应保存重新获取这些数据所需的信息（如 ID 或资源定位符）。除了管理 bucket 中的数据，所有者还可以将 bucket 提供给其他实体，以便它们通过 <a href="services/RestorationBucket/claimChild.html">claimChild</a> 认领子 bucket，满足各自的恢复需求。</p>
+<p><a href="services/RestorationBucket/claimChild.html">claimChild</a> 返回的 bucket 可能包含所有者之前（例如在应用上一次运行时）存入的状态信息，也可能为空。如果 bucket 包含数据，所有者应使用之前存储的信息恢复状态。如果 bucket 为空，则可以将自身初始化为默认值。</p>
+<p>当 bucket 中的数据不再用于恢复应用的当前状态时（例如 bucket 所有者不再显示在屏幕上），必须调用 <a href="services/RestorationBucket/dispose.html">dispose</a>。这会从应用的恢复数据中移除 bucket 内的所有信息，应用日后恢复到此状态时也不会再提供这些信息。</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="RestorationBucket.child" class="callable">
+          <span class="name"><a href="services/RestorationBucket/RestorationBucket.child.html">RestorationBucket.child</a></span><span class="signature">({<span class="parameter" id="child-param-restorationId"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="child-param-parent"><span>required</span> <span class="type-annotation"><a href="services/RestorationBucket-class.html">RestorationBucket</a></span> <span class="parameter-name">parent</span>, </span><span class="parameter" id="child-param-debugOwner"><span>required</span> <span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">debugOwner</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a child bucket initialized with the data that the provided
+<code>parent</code> has stored under the provided <code>restorationId</code>.
+        </dd>
+        <dt id="RestorationBucket.empty" class="callable">
+          <span class="name"><a href="services/RestorationBucket/RestorationBucket.empty.html">RestorationBucket.empty</a></span><span class="signature">({<span class="parameter" id="empty-param-restorationId"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="empty-param-debugOwner"><span>required</span> <span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">debugOwner</span></span>})</span>
+        </dt>
+        <dd>
+          Creates an empty <a href="services/RestorationBucket-class.html">RestorationBucket</a> to be provided to <a href="services/RestorationBucket/adoptChild.html">adoptChild</a> to add
+it to the bucket hierarchy.
+        </dd>
+        <dt id="RestorationBucket.root" class="callable">
+          <span class="name"><a href="services/RestorationBucket/RestorationBucket.root.html">RestorationBucket.root</a></span><span class="signature">({<span class="parameter" id="root-param-manager"><span>required</span> <span class="type-annotation"><a href="services/RestorationManager-class.html">RestorationManager</a></span> <span class="parameter-name">manager</span>, </span><span class="parameter" id="root-param-rawData"><span>required</span> <span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a>?</span>, <span class="type-parameter"><a href="dart-core/Object-class.html">Object</a>?</span>&gt;</span>?</span> <span class="parameter-name">rawData</span></span>})</span>
+        </dt>
+        <dd>
+          Creates the root <a href="services/RestorationBucket-class.html">RestorationBucket</a> for the provided restoration
+<code>manager</code>.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="debugOwner" class="property">
+  <span class="name"><a href="services/RestorationBucket/debugOwner.html">debugOwner</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Object-class.html">Object</a>?</span>
+  
+
+</dt>
+<dd>
+  The owner of the bucket that was provided when the bucket was claimed via
+<a href="services/RestorationBucket/claimChild.html">claimChild</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isReplacing" class="property">
+  <span class="name"><a href="services/RestorationBucket/isReplacing.html">isReplacing</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Returns true when entities processing this bucket should restore their
+state from the information in the bucket (e.g. via <a href="services/RestorationBucket/read.html">read</a> 和
+<a href="services/RestorationBucket/claimChild.html">claimChild</a>) instead of copying their current state information into the
+bucket (e.g. via <a href="services/RestorationBucket/write.html">write</a> 和 <a href="services/RestorationBucket/adoptChild.html">adoptChild</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="restorationId" class="property">
+  <span class="name"><a href="services/RestorationBucket/restorationId.html">restorationId</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The restoration ID under which the bucket is currently stored in the
+parent of this bucket (or wants to be stored if it is currently
+parent-less).
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="adoptChild" class="callable">
+  <span class="name"><a href="services/RestorationBucket/adoptChild.html">adoptChild</a></span><span class="signature">(<wbr><span class="parameter" id="adoptChild-param-child"><span class="type-annotation"><a href="services/RestorationBucket-class.html">RestorationBucket</a></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adopts the provided <code>child</code> bucket.
+  
+
+</dd>
+
+        <dt id="claimChild" class="callable">
+  <span class="name"><a href="services/RestorationBucket/claimChild.html">claimChild</a></span><span class="signature">(<wbr><span class="parameter" id="claimChild-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">restorationId</span>, {</span><span class="parameter" id="claimChild-param-debugOwner"><span>required</span> <span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">debugOwner</span></span>})
+    <span class="returntype parameter">&#8594; <a href="services/RestorationBucket-class.html">RestorationBucket</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Claims ownership of the child with the provided <code>restorationId</code> from this
+bucket.
+  
+
+</dd>
+
+        <dt id="contains" class="callable">
+  <span class="name"><a href="services/RestorationBucket/contains.html">contains</a></span><span class="signature">(<wbr><span class="parameter" id="contains-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">restorationId</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks whether a value stored in the bucket under the provided
+<code>restorationId</code>.
+  
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="services/RestorationBucket/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Deletes the bucket and all the data stored in it from the bucket
+hierarchy.
+  
+
+</dd>
+
+        <dt id="finalize" class="callable">
+  <span class="name"><a href="services/RestorationBucket/finalize.html">finalize</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called by the <a href="services/RestorationManager-class.html">RestorationManager</a> just before the data of the bucket
+is serialized and send to the engine.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="read" class="callable">
+  <span class="name"><a href="services/RestorationBucket/read.html">read</a></span><span class="signature">&lt;<wbr><span class="type-parameter">P</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="read-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">restorationId</span></span>)
+    <span class="returntype parameter">&#8594; P?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the value of type <code>P</code> that is currently stored in the bucket under
+the provided <code>restorationId</code>.
+  
+
+</dd>
+
+        <dt id="remove" class="callable">
+  <span class="name"><a href="services/RestorationBucket/remove.html">remove</a></span><span class="signature">&lt;<wbr><span class="type-parameter">P</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="remove-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">restorationId</span></span>)
+    <span class="returntype parameter">&#8594; P?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Deletes the value currently stored under the provided <code>restorationId</code> from
+the bucket.
+  
+
+</dd>
+
+        <dt id="rename" class="callable">
+  <span class="name"><a href="services/RestorationBucket/rename.html">rename</a></span><span class="signature">(<wbr><span class="parameter" id="rename-param-newRestorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">newRestorationId</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Changes the restoration ID under which the bucket is (or will be) stored
+in its parent to <code>newRestorationId</code>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="services/RestorationBucket/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="write" class="callable">
+  <span class="name"><a href="services/RestorationBucket/write.html">write</a></span><span class="signature">&lt;<wbr><span class="type-parameter">P</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="write-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="write-param-value"><span class="type-annotation">P</span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Stores the provided <code>value</code> of type <code>P</code> under the provided <code>restorationId</code>
+in the bucket.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="services/">services</a></li>
+    <li class="self-crumb">RestorationBucket 类</li>
+</ol>
+
+    <h5>services 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

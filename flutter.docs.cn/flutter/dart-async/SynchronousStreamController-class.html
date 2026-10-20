@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:async 库中 SynchronousStreamController 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>SynchronousStreamController class - dart:async 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-async/">dart:async</a></li>
+    <li class="self-crumb">SynchronousStreamController<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+  </ol>
+  <div class="self-name">SynchronousStreamController</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-async&#47;dart-async-library-sidebar.html"
+    data-below-sidebar="dart-async&#47;SynchronousStreamController-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">SynchronousStreamController&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#interface" class="feature feature-interface" title="This class can only be implemented (not extended or mixed in).">interface</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>一种会同步分发事件的流控制器。</p>
+<p>同步流控制器适用于这样的情况：已有的异步事件触发了流上的另一个事件。</p>
+<p>事件不会被添加到数据流中并等到之后的微任务才分发（这会增加延迟），而是由同步流控制器立即触发，就像该流事件就是当前事件或微任务一样。</p>
+<p>同步流控制器可能会违反 <a href="dart-async/Stream-class.html">Stream</a> 的约定，因此必须谨慎使用以避免这种情况。</p>
+<p>使用 <a href="dart-async/SynchronousStreamController-class.html">SynchronousStreamController</a> 而非普通 <a href="dart-async/StreamController-class.html">StreamController</a> 的唯一优势是延迟更低。只有在延迟改善显著且使用安全时，才应使用同步版本。否则应使用普通流控制器；它始终能确保 <a href="dart-async/Stream-class.html">Stream</a> 行为正确，也不会意外破坏其他代码。</p>
+<p>向同步控制器添加事件应当是处理原始事件的最后一步。此时，将事件添加到流中等同于返回事件循环，并在下一个微任务中添加该事件。</p>
+<p>每个侦听器回调都会像顶层事件或微任务一样运行。这意味着如果回调抛出异常，系统会尽快将其报告为未捕获错误。因此，应在处理原始事件的最后添加事件：添加事件后执行的任何操作，都会延迟报告侦听器回调中的错误。</p>
+<p>如果在无法确定当前是否处于另一个事件处理过程中的位置添加事件，流侦听器可能会在尚未准备好处理时就收到该事件。我们保证，调用 <a href="dart-async/Stream/listen.html">Stream.listen</a> 后，在执行侦听的代码完成前不会收到任何事件。若对来源未知的函数调用作出响应时调用 <a href="dart-async/SynchronousStreamController/add.html">add</a>，就可能违反这一保证。</p>
+<p>控制器的 <a href="dart-async/StreamController/onListen.html">onListen</a> 回调<em>不是</em>异步事件，因此在 <code>onListen</code> 回调中向控制器添加事件始终是错误的。事件会在侦听器收到订阅之前就被分发。</p>
+<p>同步广播流控制器还受到普通流控制器没有的一项限制：分发事件期间<em>不得</em>调用 <a href="dart-async/SynchronousStreamController/add.html">add</a>、<a href="dart-async/SynchronousStreamController/addError.html">addError</a>、<a href="dart-async/SynchronousStreamController/close.html">close</a> 或 <a href="dart-async/StreamController/addStream.html">addStream</a> 方法。也就是说，如果控制器流的订阅回调触发了上述任一方法的调用，该调用就会失败。广播流可能有多个侦听器；如果在一个事件正在同步添加时又添加另一个事件，后一个事件可能先于前一个事件到达部分侦听器。为避免这种情况，前一个事件正在分发时不能添加新事件。这样可以保证第一次调用 <a href="dart-async/SynchronousStreamController/add.html">add</a>、<a href="dart-async/SynchronousStreamController/addError.html">addError</a> 或 <a href="dart-async/SynchronousStreamController/close.html">close</a> 返回时，事件已完整分发，后续事件也会按正确顺序分发。</p>
+<p>这仍然只保证事件已交付给订阅。如果订阅处于暂停状态，实际回调仍可能稍后才执行，事件会先由订阅缓冲。除暂停以及尚未交付的后续缓冲事件外，添加事件时会同步调用回调。</p>
+<p>当另一个事件正在处理时，向同步单订阅流控制器添加事件可能会导致第二个事件延迟，无法同步分发；在该事件分发之前，控制器也不会按同步方式运行。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="dart-async/StreamController-class.html">StreamController</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
+    </ul>
+  </dd>
+        
+
+
+        
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="package-async_async/StreamSinkExtensions.html">StreamSinkExtensions</a></li>
+  </ul></dd>
+        
+
+
+      </dl>
+    </section>
+
+    
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="done" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/done.html">done</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A future which is completed when the stream controller is done
+sending events.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hasListener" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/hasListener.html">hasListener</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether there is a subscriber on the <a href="dart-async/Stream-class.html">Stream</a>.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isClosed" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/isClosed.html">isClosed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the stream controller is closed for adding more events.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isPaused" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/isPaused.html">isPaused</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the subscription would need to buffer events.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onCancel" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/onCancel.html">onCancel</a></span>
+  <span class="signature">&#8596; <a href="dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span> Function<span class="signature">()</span>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The callback which is called when the stream is canceled.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onListen" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/onListen.html">onListen</a></span>
+  <span class="signature">&#8596; void Function<span class="signature">()</span>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The callback which is called when the stream is listened to.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onPause" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/onPause.html">onPause</a></span>
+  <span class="signature">&#8596; void Function<span class="signature">()</span>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The callback which is called when the stream is paused.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onResume" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/onResume.html">onResume</a></span>
+  <span class="signature">&#8596; void Function<span class="signature">()</span>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The callback which is called when the stream is resumed.
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="sink" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/sink.html">sink</a></span>
+  <span class="signature">&#8594; <a href="dart-async/StreamSink-class.html">StreamSink</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a view of this object that only exposes the <a href="dart-async/StreamSink-class.html">StreamSink</a> interface.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="stream" class="property inherited">
+  <span class="name"><a href="dart-async/StreamController/stream.html">stream</a></span>
+  <span class="signature">&#8594; <a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  The stream that this controller is controlling.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="add" class="callable">
+  <span class="name"><a href="dart-async/SynchronousStreamController/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-data"><span class="type-annotation">T</span> <span class="parameter-name">data</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds event to the controller's stream.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="addError" class="callable">
+  <span class="name"><a href="dart-async/SynchronousStreamController/addError.html">addError</a></span><span class="signature">(<wbr><span class="parameter" id="addError-param-error"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span>, [</span><span class="parameter" id="addError-param-stackTrace"><span class="type-annotation"><a href="dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds error to the controller's stream.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="addStream" class="callable inherited">
+  <span class="name"><a href="dart-async/StreamController/addStream.html">addStream</a></span><span class="signature">(<wbr><span class="parameter" id="addStream-param-source"><span class="type-annotation"><a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">source</span>, {</span><span class="parameter" id="addStream-param-cancelOnError"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">cancelOnError</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Receives events from <code>source</code> and puts them into this controller's stream.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="close" class="callable">
+  <span class="name"><a href="dart-async/SynchronousStreamController/close.html">close</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Closes the controller's stream.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="rejectErrors" class="callable">
+  <span class="name"><a href="package-async_async/StreamSinkExtensions/rejectErrors.html">rejectErrors</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/StreamSink-class.html">StreamSink</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/StreamSink-class.html">StreamSink</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>,
+        provided by the <a href="package-async_async/StreamSinkExtensions.html">StreamSinkExtensions</a> extension</span>
+      </p>
+  Returns a <a href="dart-async/StreamSink-class.html">StreamSink</a> that forwards to <code>this</code> but rejects errors.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="transform" class="callable">
+  <span class="name"><a href="package-async_async/StreamSinkExtensions/transform.html">transform</a></span><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="transform-param-transformer"><span class="type-annotation"><a href="package-async_async/StreamSinkTransformer-class.html">StreamSinkTransformer</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>, <span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">transformer</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/StreamSink-class.html">StreamSink</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-async/StreamSink-class.html">StreamSink</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>,
+        provided by the <a href="package-async_async/StreamSinkExtensions.html">StreamSinkExtensions</a> extension</span>
+      </p>
+  Transforms a <a href="dart-async/StreamSink-class.html">StreamSink</a> using <code>transformer</code>.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-async/">dart:async</a></li>
+    <li class="self-crumb">SynchronousStreamController<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
+</ol>
+
+    <h5>dart:async library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

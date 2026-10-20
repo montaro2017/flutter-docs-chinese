@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="stack_trace 库中 Chain 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Chain 类 - stack_trace 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-stack_trace_stack_trace/">stack_trace.dart</a></li>
+    <li class="self-crumb">Chain 类</li>
+  </ol>
+  <div class="self-name">Chain</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-stack_trace_stack_trace&#47;package-stack_trace_stack_trace-library-sidebar.html"
+    data-below-sidebar="package-stack_trace_stack_trace&#47;Chain-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Chain</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>由多个堆栈跟踪组成的调用链。</p>
+<p>堆栈链由一个或多个堆栈跟踪组成，共同表示从 <code>main</code> 经过嵌套函数调用到某个代码位置（通常是错误抛出位置）的路径。使用异步函数时需要多个堆栈跟踪，因为每次运行异步回调前，程序的堆栈都会重置。</p>
+<p>可以使用 <a href="package-stack_trace_stack_trace/Chain/capture.html">Chain.capture</a> 自动跟踪堆栈链。它会创建一个新的 <a href="dart-async/Zone-class.html">Zone</a>，在其中跟踪当前堆栈链，并可通过 <a href="package-stack_trace_stack_trace/Chain/Chain.current.html">Chain.current</a> 访问。在该 Zone 中成为顶层的错误可由 <code>onError</code> 回调及其关联的堆栈链共同处理。例如：</p>
+<pre class="language-dart"><code>Chain.capture(() {
+  // ...
+}, onError: (error, stackChain) {
+  print("Caught error $error\n"
+        "$stackChain");
+});
+</code></pre>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="dart-core/StackTrace-class.html">StackTrace</a></li>
+    </ul>
+  </dd>
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Chain.new" class="callable">
+          <span class="name"><a href="package-stack_trace_stack_trace/Chain/Chain.html">Chain</a></span><span class="signature">(<span class="parameter" id="-param-traces"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="package-stack_trace_stack_trace/Trace-class.html">Trace</a></span>&gt;</span></span> <span class="parameter-name">traces</span></span>)</span>
+        </dt>
+        <dd>
+          返回一个新的 <a href="package-stack_trace_stack_trace/Chain-class.html">Chain</a> comprised of <code>traces</code>.
+        </dd>
+        <dt id="Chain.current" class="callable">
+          <span class="name"><a href="package-stack_trace_stack_trace/Chain/Chain.current.html">Chain.current</a></span><span class="signature">([<span class="parameter" id="current-param-level"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">level</span> = <span class="default-value">0</span></span>])</span>
+        </dt>
+        <dd>
+          Returns the current stack chain.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Chain.forTrace" class="callable">
+          <span class="name"><a href="package-stack_trace_stack_trace/Chain/Chain.forTrace.html">Chain.forTrace</a></span><span class="signature">(<span class="parameter" id="forTrace-param-trace"><span class="type-annotation"><a href="dart-core/StackTrace-class.html">StackTrace</a></span> <span class="parameter-name">trace</span></span>)</span>
+        </dt>
+        <dd>
+          Returns the stack chain associated with <code>trace</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Chain.parse" class="callable">
+          <span class="name"><a href="package-stack_trace_stack_trace/Chain/Chain.parse.html">Chain.parse</a></span><span class="signature">(<span class="parameter" id="parse-param-chain"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">chain</span></span>)</span>
+        </dt>
+        <dd>
+          Parses a string representation of a stack chain.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="terse" class="property">
+  <span class="name"><a href="package-stack_trace_stack_trace/Chain/terse.html">terse</a></span>
+  <span class="signature">&#8594; <a href="package-stack_trace_stack_trace/Chain-class.html">Chain</a></span>
+  
+
+</dt>
+<dd>
+  Returns a terser version of this chain.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="traces" class="property">
+  <span class="name"><a href="package-stack_trace_stack_trace/Chain/traces.html">traces</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="package-stack_trace_stack_trace/Trace-class.html">Trace</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The stack traces that make up this chain.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="foldFrames" class="callable">
+  <span class="name"><a href="package-stack_trace_stack_trace/Chain/foldFrames.html">foldFrames</a></span><span class="signature">(<wbr><span class="parameter" id="foldFrames-param-predicate"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">predicate</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="package-stack_trace_stack_trace/Frame-class.html">Frame</a></span></span>), {</span><span class="parameter" id="foldFrames-param-terse"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">terse</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="package-stack_trace_stack_trace/Chain-class.html">Chain</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  返回一个新的 <a href="package-stack_trace_stack_trace/Chain-class.html">Chain</a> based on this chain where multiple stack frames
+matching <code>predicate</code> are folded together.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="package-stack_trace_stack_trace/Chain/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="toTrace" class="callable">
+  <span class="name"><a href="package-stack_trace_stack_trace/Chain/toTrace.html">toTrace</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="package-stack_trace_stack_trace/Trace-class.html">Trace</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Converts this chain to a <a href="package-stack_trace_stack_trace/Trace-class.html">Trace</a>.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="capture" class="callable">
+  <span class="name"><a href="package-stack_trace_stack_trace/Chain/capture.html">capture</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="capture-param-callback"><span class="type-annotation">T</span> <span class="parameter-name">callback</span>(), {</span><span class="parameter" id="capture-param-onError"><span class="type-annotation">void</span> <span class="parameter-name">onError</span>(<span class="parameter" id="param-error"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span>, </span><span class="parameter" id="param-"><span class="type-annotation"><a href="package-stack_trace_stack_trace/Chain-class.html">Chain</a></span></span>)?, </span><span class="parameter" id="capture-param-when"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">when</span> = <span class="default-value">true</span>, </span><span class="parameter" id="capture-param-errorZone"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">errorZone</span> = <span class="default-value">true</span>, </span><span class="parameter" id="capture-param-zoneValues"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a>?</span>, <span class="type-parameter"><a href="dart-core/Object-class.html">Object</a>?</span>&gt;</span>?</span> <span class="parameter-name">zoneValues</span></span>})
+    <span class="returntype parameter">&#8594; T</span>
+  </span>
+  
+
+</dt>
+<dd>
+  If <code>when</code> is <code>true</code>, runs <code>callback</code> in a <a href="dart-async/Zone-class.html">Zone</a> in which the current
+stack chain is tracked and automatically associated with (most) errors.
+  
+
+</dd>
+
+        <dt id="disable" class="callable">
+  <span class="name"><a href="package-stack_trace_stack_trace/Chain/disable.html">disable</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="disable-param-callback"><span class="type-annotation">T</span> <span class="parameter-name">callback</span>(), {</span><span class="parameter" id="disable-param-when"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">when</span> = <span class="default-value">true</span></span>})
+    <span class="returntype parameter">&#8594; T</span>
+  </span>
+  
+
+</dt>
+<dd>
+  If <code>when</code> is <code>true</code> and this is called within a <a href="package-stack_trace_stack_trace/Chain/capture.html">Chain.capture</a> zone, runs
+<code>callback</code> in a <a href="dart-async/Zone-class.html">Zone</a> in which chain capturing is disabled.
+  
+
+</dd>
+
+        <dt id="track" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="package-stack_trace_stack_trace/Chain/track.html">track</a></span><span class="signature">(<wbr><span class="parameter" id="track-param-futureOrStream"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">futureOrStream</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns <code>futureOrStream</code> unmodified.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-stack_trace_stack_trace/">stack_trace</a></li>
+    <li class="self-crumb">Chain 类</li>
+</ol>
+
+    <h5>stack_trace 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

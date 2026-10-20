@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 HtmlElementView 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>HtmlElementView 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">HtmlElementView 类</li>
+  </ol>
+  <div class="self-name">HtmlElementView</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;HtmlElementView-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/platform_view.dart#L653"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">HtmlElementView</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>在 Flutter Web 的组件树中嵌入 HTML 元素。</p>
+<p>嵌入的 HTML 会像其他 Flutter 组件一样参与布局，透明度、裁剪等变换也同样适用。</p>
+<p>此组件会填满所有可用空间，因此其父组件必须提供有界的布局约束。</p>
+<p>嵌入 HTML 是一项<strong>可能开销较大</strong>的操作；如果有 Flutter 等效实现，应避免使用。（请参阅下方的 <strong><code>isVisible</code> 参数</strong>。）此组件适用于将原生 HTML 元素集成到 Flutter Web 应用中，例如 <code>&lt;video&gt;</code> 标签，或用于渲染 <a href="https://pub.dev/packages/google_maps_flutter">Google Map</a> 的 <code>&lt;div&gt;</code>。</p>
+<p>此组件<strong>仅适用于 Flutter Web。</strong>若要在其他平台嵌入 Web 内容，请考虑使用 <a href="https://pub.dev/packages/webview_flutter"><code>webview_flutter</code> 插件</a>。</p>
+<h2 id="usage">用法</h2>
+<p>使用 <code>HtmlElementView</code> 组件有两种方式：</p>
+<h3 id="htmlelementviewfromtagname"><code>HtmlElementView.fromTagName</code></h3>
+<p><a href="widgets/HtmlElementView/HtmlElementView.fromTagName.html">HtmlElementView.fromTagName</a> 构造函数会创建由 <code>tagName</code> 指定的 HTML 元素，并将其传递给 <code>onElementCreated</code> 回调，以便进行自定义：</p>
+<pre class="language-dart"><code class="language-dart">// In a `build` method...
+HtmlElementView.fromTagName(
+  tagName: 'div',
+  onElementCreated: myOnElementCreated,
+);
+</code></pre>
+<p>此示例创建一个 <code>&lt;div&gt;</code> 元素，然后将新创建的 <code>&lt;div&gt;</code> 传递给 <code>onElementCreated</code> 回调，使其可以在附加到 DOM <strong>之前</strong>进行自定义。</p>
+<p>（有关 <code>onElementCreated</code> 的更多详情，请参阅下方的<strong>生命周期</strong>部分。）</p>
+<h3 id="using-the-platformviewregistry">使用 <code>PlatformViewRegistry</code></h3>
+<p>用于实现 <a href="widgets/HtmlElementView/HtmlElementView.fromTagName.html">HtmlElementView.fromTagName</a> 的基础 API 可通过 <code>dart:ui_web</code> 的 <code>platformViewRegistry</code> 通用使用。</p>
+<p>通过这些基础 API 创建 <code>HtmlElementView</code> 分为两个步骤：</p>
+<h4 id="1-registerviewfactory">1. <code>registerViewFactory</code></h4>
+<p>首先，需要为指定的 <code>viewType</code> 注册一个 <code>viewFactory</code> 函数。Flutter Web 会调用该工厂函数创建稍后要附加的 <code>element</code>：</p>
+<pre class="language-dart"><code class="language-dart">import 'dart:ui_web' as ui_web;
+import 'package:web/web.dart' as web;
+
+void registerRedDivFactory() {
+  ui_web.platformViewRegistry.registerViewFactory(
+    'my-view-type',
+    (int viewId, {Object? params}) {
+      // Create and return an HTML Element from here
+      final web.HTMLDivElement myDiv = web.HTMLDivElement()
+        ..id = 'some_id_$viewId'
+        ..style.backgroundColor = 'red'
+        ..style.width = '100%'
+        ..style.height = '100%';
+      return myDiv;
+    },
+  );
+}
+</code></pre>
+<p>必须在 <code>build</code> 方法之外调用 <code>registerViewFactory</code>，以确保执行 <code>build</code> 时注册的函数已可用。</p>
+<p>以下是可用作 <code>viewFactory</code> 的不同函数类型：</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/dart-ui_web/PlatformViewFactory.html"><code>typedef ui_web.PlatformViewFactory</code></a></li>
+<li><a href="https://api.flutter.dev/flutter/dart-ui_web/ParameterizedPlatformViewFactory.html"><code>typedef ui_web.ParameterizedPlatformViewFactory</code></a></li>
+</ul>
+<h4 id="2-htmlelementview-widget">2. <code>HtmlElementView</code> 组件</h4>
+<p>注册工厂后，可以将指定 <code>viewType</code> 的 <code>HtmlElementView</code> 组件添加到组件树中，例如：</p>
+<pre class="language-dart"><code class="language-dart">// In a `build` method...
+const HtmlElementView(
+  viewType: 'my-view-type',
+  onPlatformViewCreated: myOnPlatformViewCreated,
+  creationParams: &lt;String, Object?&gt;{
+    'key': 'someValue',
+  },
+);
+</code></pre>
+<p><a href="widgets/HtmlElementView/viewType.html">viewType</a> 必须与之前传递给 <code>registerViewFactory</code> 的值一致。</p>
+<p>如果 <code>viewFactory</code> 函数接受 <a href="widgets/HtmlElementView/creationParams.html">creationParams</a>，则会将其传入（此参数可选）。</p>
+<p><a href="widgets/HtmlElementView/onPlatformViewCreated.html">onPlatformViewCreated</a> 会在由 <code>viewFactory</code> 创建的平台视图（<code>element</code>）附加到 DOM 之前，接收其 <code>viewId</code>。</p>
+<p>The <code>viewId</code> can be used to retrieve the created <code>element</code> (The same one
+passed to <code>onElementCreated</code> in <a href="widgets/HtmlElementView/HtmlElementView.fromTagName.html">HtmlElementView.fromTagName</a>) with the
+<code>ui_web.platformViewRegistry.</code><a href="https://api.flutter.dev/flutter/dart-ui_web/PlatformViewRegistry/getViewById.html"><code>getViewById</code> 方法</a>.</p>
+<p>（有关 <code>onPlatformViewCreated</code> 的更多详情，请参阅下方的<strong>生命周期</strong>部分。）</p>
+<h2 id="lifecycle">生命周期</h2>
+<p><code>HtmlElementView</code> 组件与其他 Flutter 无状态组件类似，但额外提供一个生命周期回调：<code>onPlatformViewCreated</code> 或 <code>onElementCreated</code>（取决于使用的构造函数，参见上方的<strong>用法</strong>部分）。</p>
+<p>这两个回调的区别在于它们接收的参数不同：</p>
+<ul>
+<li><code>onPlatformViewCreated</code> will be called with the created <code>viewId</code> as a parameter,
+and needs <code>ui_web.platformViewRegistry.getViewById</code> to retrieve the created
+element (See <a href="services/PlatformViewCreatedCallback.html">PlatformViewCreatedCallback</a>).</li>
+<li><code>onElementCreated</code> will be called with the created <code>element</code> directly,
+skipping its <code>viewId</code> (See <a href="widgets/ElementCreatedCallback.html">ElementCreatedCallback</a>).</li>
+</ul>
+<p>两个回调都会在 HTML <code>element</code> 创建<strong>之后</strong>、附加到 DOM <strong>之前</strong>调用。</p>
+<h3 id="html-lifecycle">HTML 生命周期</h3>
+<p>浏览器 DOM API 为 <code>HtmlElementView</code> 的根 <code>element</code> 提供了额外的 HTML 生命周期回调。</p>
+<h4 id="element-attached-to-the-dom">元素附加到 DOM</h4>
+<p>JavaScript 代码通常通过选择器查找所需 DOM 元素，而不是直接接收这些元素。在这种情况下，<code>element</code> <strong>必须</strong>先附加到 DOM，选择器才能正常工作。</p>
+<p>下面的示例演示<strong>如何创建 <code>onElementAttached</code> 函数</strong>：使用 <code>onElementCreated</code> 生命周期方法，通过 <code>package:web</code> 中的 <code>ResizeObserver</code>，在根 <code>element</code> 附加到 DOM 时调用该函数：</p>
+<pre class="language-dart"><code class="language-dart">import 'dart:js_interop';
+import 'package:web/web.dart' as web;
+
+// Called after `element` is attached to the DOM.
+void onElementAttached(web.HTMLDivElement element) {
+  final web.Element? located = web.document.querySelector('#someIdThatICanFindLater');
+  assert(located == element, 'Wrong `element` located!');
+  // Do things with `element` or `located`, or call your code now...
+  element.style.backgroundColor = 'green';
+}
+
+void onElementCreated(Object element) {
+  element as web.HTMLDivElement;
+  element.style.backgroundColor = 'red';
+  element.id = 'someIdThatICanFindLater';
+
+  // Create the observer
+  final web.ResizeObserver observer = web.ResizeObserver((
+    JSArray&lt;web.ResizeObserverEntry&gt; entries,
+    web.ResizeObserver observer,
+  ) {
+    if (element.isConnected) {
+      // The observer is done, disconnect it.
+      observer.disconnect();
+      // Call our callback.
+      onElementAttached(element);
+    }
+  }.toJS);
+
+  // Connect the observer.
+  observer.observe(element);
+}
+</code></pre>
+<ul>
+<li>Read more about <a href="https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API"><code>ResizeObserver</code> in the MDN</a>.</li>
+</ul>
+<h4 id="other-observers">其他观察器</h4>
+<p>上面的示例使用 <code>ResizeObserver</code>，因为它可以直接应用于即将附加的 <code>element</code>。稍加编写更多代码后，也可以使用其他观察器，例如 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver"><code>MutationObserver</code></a>。</p>
+<p><code>MutationObserver</code> 需要知道将要插入 <code>HtmlElementView</code> 的父元素。安全地获取平台视图父元素的方法，是读取渲染该 <code>HtmlElementView</code> 的 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 的 <code>hostElement</code>。</p>
+<p>可以通过以下方式获取当前 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 的 <code>hostElement</code>：</p>
+<pre class="language-dart"><code class="language-dart">import 'dart:js_interop';
+import 'dart:ui_web' as ui_web;
+import 'package:flutter/widgets.dart';
+
+void useHostElement(BuildContext context) {
+  final int flutterViewId = View.of(context).viewId;
+  final JSAny? hostElement = ui_web.views.getHostElement(flutterViewId);
+  // Use `package:web` with `hostElement`...
+}
+</code></pre>
+<p><strong>重要提示：</strong><code>FlutterView.viewId</code> 与传递给 <code>viewFactory</code> 的 <code>viewId</code> 参数标识的是<strong>不同的对象</strong>：</p>
+<ul>
+<li><code>flutterViewId</code> (from <code>View.of(context)</code>) represents the <a href="dart-ui/FlutterView-class.html">FlutterView</a>
+where the web app is currently rendering.</li>
+<li><code>viewId</code> (passed to the <code>viewFactory</code> function) represents a unique ID
+for the <code>HtmlElementView</code> instance that is being attached to the app.</li>
+</ul>
+<p>请参阅 Flutter API 文档中有关 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 的更多信息：</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/View/of.html"><code>View.of</code></a></li>
+<li><a href="https://main-api.flutter.dev/flutter/dart-ui_web/FlutterViewManagerProxy/getHostElement.html"><code>getHostElement</code></a></li>
+</ul>
+<h2 id="pointer-events">指针事件</h2>
+<p>为了使 <code>HtmlElementView</code> 的内容可交互，它允许处理 <code>pointer-events</code>。这可能导致 Flutter 收不到部分事件，因为这些事件已由 <code>HtmlElementView</code> 处理，Flutter 因而无法观察到。</p>
+<p>当需要在 <code>HtmlElementView</code> 上方叠加 Flutter 内容时，<a href="https://pub.dev/packages/pointer_interceptor"><code>package:pointer_interceptor</code></a> 在某些情况下会有所帮助。也可以在 <code>onElementCreated</code> 中将 <code>pointer-events: none</code> 属性设为生效；但这会阻止对底层 HTML 内容进行<strong>所有</strong>交互。</p>
+<p>如果 <code>HtmlElementView</code> 是 <code>&lt;iframe&gt;</code> 元素，Flutter 将收不到落在该 <code>&lt;iframe&gt;</code> 中的指针事件（点击、轻点、拖动、放置等）。此时，<code>HtmlElementView</code> 看起来会像是<em>吞掉</em>了这些事件，Flutter 的手势检测也不会收到它们。</p>
+<h2 id="isvisible-parameter"><code>isVisible</code> 参数</h2>
+<p>在 <code>canvas</code> 像素之间渲染自定义 HTML 内容（来自 <code>HtmlElementView</code>）时，Flutter Web 引擎需要将画布绘制内容<em>拆分</em>为位于 HTML 内容<em>后方</em>和<em>前方</em>的元素。</p>
+<p>在 Flutter Web 引擎中，每次将画布<em>拆分以便在中间嵌入 HTML 内容</em>都称为一个<strong>覆盖层</strong>。</p>
+<p>场景中的每个<em>覆盖层</em>都会影响内存占用和执行性能，因此最好尽量减少覆盖层数量；浏览器在同一场景中同时支持的<em>覆盖层</em>数量有限。</p>
+<p><code>HtmlElementView</code> 对象具有 <code>isVisible</code> 属性，可通过 <code>registerViewFactory</code> 或 <code>fromTagName</code> 传入。<code>isVisible</code> 表示 <code>HtmlElementView</code> 是否会在屏幕上绘制像素。</p>
+<p>正确设置此值有助于 Flutter Web 渲染引擎优化绘制特定场景所需的<em>覆盖层</em>数量。</p>
+<p>通常应将 <code>isVisible</code> 保持为默认值 <code>true</code>；但对于某些 <code>HtmlElementView</code>（例如 <code>pointer_interceptor</code> 或 <code>Link</code> 组件），可以将其设为 <code>false</code>，这样引擎就不会为了在不绘制任何像素的视图上方渲染 Flutter 内容而<em>浪费</em>覆盖层。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a></li>
+      <li>HtmlElementView</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="HtmlElementView.new" class="callable">
+          <span class="name"><a href="widgets/HtmlElementView/HtmlElementView.html">HtmlElementView</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-viewType"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">viewType</span>, </span><span class="parameter" id="-param-onPlatformViewCreated"><span class="type-annotation"><a href="services/PlatformViewCreatedCallback.html">PlatformViewCreatedCallback</a>?</span> <span class="parameter-name">onPlatformViewCreated</span>, </span><span class="parameter" id="-param-creationParams"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">creationParams</span>, </span><span class="parameter" id="-param-hitTestBehavior"><span class="type-annotation"><a href="rendering/PlatformViewHitTestBehavior.html">PlatformViewHitTestBehavior</a></span> <span class="parameter-name">hitTestBehavior</span> = <span class="default-value">PlatformViewHitTestBehavior.opaque</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a platform view for Flutter web.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="HtmlElementView.fromTagName" class="callable">
+          <span class="name"><a href="widgets/HtmlElementView/HtmlElementView.fromTagName.html">HtmlElementView.fromTagName</a></span><span class="signature">({<span class="parameter" id="fromTagName-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="fromTagName-param-tagName"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">tagName</span>, </span><span class="parameter" id="fromTagName-param-isVisible"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isVisible</span> = <span class="default-value">true</span>, </span><span class="parameter" id="fromTagName-param-onElementCreated"><span class="type-annotation"><a href="widgets/ElementCreatedCallback.html">ElementCreatedCallback</a>?</span> <span class="parameter-name">onElementCreated</span>, </span><span class="parameter" id="fromTagName-param-hitTestBehavior"><span class="type-annotation"><a href="rendering/PlatformViewHitTestBehavior.html">PlatformViewHitTestBehavior</a></span> <span class="parameter-name">hitTestBehavior</span> = <span class="default-value">PlatformViewHitTestBehavior.opaque</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a platform view that creates a DOM element specified by <code>tagName</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="creationParams" class="property">
+  <span class="name"><a href="widgets/HtmlElementView/creationParams.html">creationParams</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Object-class.html">Object</a>?</span>
+  
+
+</dt>
+<dd>
+  Passed as the 2nd argument (i.e. <code>params</code>) of the registered view factory.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hitTestBehavior" class="property">
+  <span class="name"><a href="widgets/HtmlElementView/hitTestBehavior.html">hitTestBehavior</a></span>
+  <span class="signature">&#8594; <a href="rendering/PlatformViewHitTestBehavior.html">PlatformViewHitTestBehavior</a></span>
+  
+
+</dt>
+<dd>
+  How this widget should behave during hit testing.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="onPlatformViewCreated" class="property">
+  <span class="name"><a href="widgets/HtmlElementView/onPlatformViewCreated.html">onPlatformViewCreated</a></span>
+  <span class="signature">&#8594; <a href="services/PlatformViewCreatedCallback.html">PlatformViewCreatedCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Callback to invoke after the platform view has been created.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="viewType" class="property">
+  <span class="name"><a href="widgets/HtmlElementView/viewType.html">viewType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The unique identifier for the HTML view type to be embedded by this widget.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="build" class="callable">
+  <span class="name"><a href="widgets/HtmlElementView/build.html">build</a></span><span class="signature">(<wbr><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Describes the part of the user interface represented by this widget.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatelessWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatelessElement-class.html">StatelessElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatelessElement-class.html">StatelessElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">HtmlElementView 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

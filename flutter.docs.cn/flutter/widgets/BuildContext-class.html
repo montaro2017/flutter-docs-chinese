@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 BuildContext 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>BuildContext 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">BuildContext 类</li>
+  </ol>
+  <div class="self-name">BuildContext</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;BuildContext-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/framework.dart#L2308"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">BuildContext</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>用于指向 Widget 树中某个 Widget 所在位置的句柄。</p>
+<p>此类提供一组方法，可在 <a href="widgets/StatelessWidget/build.html">StatelessWidget.build</a> 方法以及 <a href="widgets/State-class.html">State</a> 对象的方法中使用。</p>
+<p><a href="widgets/BuildContext-class.html">BuildContext</a> 对象会传递给 <a href="widgets/WidgetBuilder.html">WidgetBuilder</a> 函数（例如 <a href="widgets/StatelessWidget/build.html">StatelessWidget.build</a>），也可通过 <a href="widgets/State/context.html">State.context</a> 成员访问。一些静态函数（例如 <a href="material/showDialog.html">showDialog</a>、<a href="material/Theme/of.html">Theme.of</a> 等）也会接收 build context，以便代表调用它们的 Widget 执行操作，或获取特定于给定 context 的数据。</p>
+<p>每个 Widget 都有自己的 <a href="widgets/BuildContext-class.html">BuildContext</a>；它会成为 <a href="widgets/StatelessWidget/build.html">StatelessWidget.build</a> 或 <a href="widgets/State/build.html">State.build</a> 函数所返回 Widget 的父级。（对于 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>，它同样是其所有子项的父级。）</p>
+<p>具体来说，在 build 方法中，拥有该方法的 Widget 的 build context，与该方法返回的 Widget 所具有的 build context 并不相同。这可能导致一些棘手的情况。例如，<a href="material/Theme/of.html">Theme.of(context)</a> 会查找给定 build context 最近的祖先 <a href="material/Theme-class.html">Theme</a>。如果 Widget Q 的 build 方法在其返回的 Widget 树中包含一个 <a href="material/Theme-class.html">Theme</a>，并使用自身的 context 调用 <a href="material/Theme/of.html">Theme.of</a>，那么 Q 的 build 方法无法找到这个 <a href="material/Theme-class.html">Theme</a> 对象，而会找到作为 Widget Q 祖先的 <a href="material/Theme-class.html">Theme</a>。若需要返回树中某个子部分的 build context，可以使用 <a href="widgets/Builder-class.html">Builder</a> Widget：传递给 <a href="widgets/Builder/builder.html">Builder.builder</a> 回调的 build context 就属于 <a href="widgets/Builder-class.html">Builder</a> 本身。</p>
+<p>例如，在下面的代码片段中，会对 build 方法自身创建的 <a href="material/ScaffoldState/showBottomSheet.html">Scaffold</a> Widget 调用 <a href="material/Scaffold-class.html">ScaffoldState.showBottomSheet</a> 方法。如果没有使用 <a href="widgets/Builder-class.html">Builder</a>，而是使用 build 方法本身的 <code>context</code> 参数，就找不到 <a href="material/Scaffold-class.html">Scaffold</a>，<a href="material/Scaffold/of.html">Scaffold.of</a> 函数也会返回 null。</p>
+<pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  // here, Scaffold.of(context) returns null
+  return Scaffold(
+    appBar: AppBar(title: const Text('Demo')),
+    body: Builder(
+      builder: (BuildContext context) {
+        return TextButton(
+          child: const Text('BUTTON'),
+          onPressed: () {
+            Scaffold.of(context).showBottomSheet(
+              (BuildContext context) {
+                return Container(
+                  alignment: Alignment.center,
+                  height: 200,
+                  color: Colors.amber,
+                  child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: &lt;Widget&gt;[
+                        const Text('BottomSheet'),
+                        ElevatedButton(
+                          child: const Text('Close BottomSheet'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        );
+      },
+    )
+  );
+}
+</code></pre>
+<p>某个 Widget 的 <a href="widgets/BuildContext-class.html">BuildContext</a> 可能会随着 Widget 在树中的移动而改变位置。因此，此类方法返回的值不应在单次同步函数执行结束后继续缓存。</p>
+<iframe src="https://www.youtube.com/embed/rIaaH87z1-g?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
+autoplay; 
+clipboard-write; 
+encrypted-media; 
+gyroscope; 
+picture-in-picture" allowfullscreen="" style="max-width: 560px;
+max-height: 315px;
+width: 100%;
+height: 100%;
+aspect-ratio: 560 / 315;">
+</iframe>
+<p>避免存储 <a href="widgets/BuildContext-class.html">BuildContext</a> 实例，因为关联的 Widget 从树中卸载后，这些实例可能失效。如果在异步间隔中（即执行异步操作之后）使用 <a href="widgets/BuildContext-class.html">BuildContext</a>，请考虑先检查 <a href="widgets/BuildContext/mounted.html">mounted</a>，确认 context 仍然有效，再与其交互：</p>
+<pre class="language-dart"><code class="language-dart">  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      onPressed: () async {
+        await Future&lt;void&gt;.delayed(const Duration(seconds: 1));
+        if (context.mounted) {
+          Navigator.of(context).pop();
+        }
+      },
+      child: const Text('Delayed pop'),
+    );
+  }
+</code></pre>
+<p><a href="widgets/BuildContext-class.html">BuildContext</a> 对象实际上是 <a href="widgets/Element-class.html">Element</a> 对象。使用 <a href="widgets/BuildContext-class.html">BuildContext</a> 接口是为了避免直接操作 <a href="widgets/Element-class.html">Element</a> 对象。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="widgets/Element-class.html">Element</a></li>
+          </ul></dd>
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="BuildContext.new" class="callable">
+          <span class="name"><a href="widgets/BuildContext/BuildContext.html">BuildContext</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="debugDoingBuild" class="property">
+  <span class="name"><a href="widgets/BuildContext/debugDoingBuild.html">debugDoingBuild</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the <a href="widgets/BuildContext/widget.html">widget</a> is currently updating the widget or render tree.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="mounted" class="property">
+  <span class="name"><a href="widgets/BuildContext/mounted.html">mounted</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the <a href="widgets/Widget-class.html">Widget</a> this context is associated with is currently
+mounted in the widget tree.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="owner" class="property">
+  <span class="name"><a href="widgets/BuildContext/owner.html">owner</a></span>
+  <span class="signature">&#8594; <a href="widgets/BuildOwner-class.html">BuildOwner</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="widgets/BuildOwner-class.html">BuildOwner</a> for this context. The <a href="widgets/BuildOwner-class.html">BuildOwner</a> is in charge of
+managing the rendering pipeline for this context.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="size" class="property">
+  <span class="name"><a href="widgets/BuildContext/size.html">size</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Size-class.html">Size</a>?</span>
+  
+
+</dt>
+<dd>
+  The size of the <a href="rendering/RenderBox-class.html">RenderBox</a> returned by <a href="widgets/BuildContext/findRenderObject.html">findRenderObject</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="widget" class="property">
+  <span class="name"><a href="widgets/BuildContext/widget.html">widget</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a></span>
+  
+
+</dt>
+<dd>
+  The current configuration of the <a href="widgets/Element-class.html">Element</a> that is this <a href="widgets/BuildContext-class.html">BuildContext</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="dependOnInheritedElement" class="callable">
+  <span class="name"><a href="widgets/BuildContext/dependOnInheritedElement.html">dependOnInheritedElement</a></span><span class="signature">(<wbr><span class="parameter" id="dependOnInheritedElement-param-ancestor"><span class="type-annotation"><a href="widgets/InheritedElement-class.html">InheritedElement</a></span> <span class="parameter-name">ancestor</span>, {</span><span class="parameter" id="dependOnInheritedElement-param-aspect"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">aspect</span></span>})
+    <span class="returntype parameter">&#8594; <a href="widgets/InheritedWidget-class.html">InheritedWidget</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Registers this build context with <code>ancestor</code> such that when
+<code>ancestor</code>'s widget changes this build context is rebuilt.
+  
+
+</dd>
+
+        <dt id="dependOnInheritedWidgetOfExactType" class="callable">
+  <span class="name"><a href="widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">dependOnInheritedWidgetOfExactType</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="widgets/InheritedWidget-class.html">InheritedWidget</a></span>&gt;</span><span class="signature">(<wbr>{<span class="parameter" id="dependOnInheritedWidgetOfExactType-param-aspect"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">aspect</span></span>})
+    <span class="returntype parameter">&#8594; T?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the nearest widget of the given type <code>T</code> and creates a dependency
+on it, or null if no appropriate widget is found.
+  
+
+</dd>
+
+        <dt id="describeElement" class="callable">
+  <span class="name"><a href="widgets/BuildContext/describeElement.html">describeElement</a></span><span class="signature">(<wbr><span class="parameter" id="describeElement-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, {</span><span class="parameter" id="describeElement-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a></span> <span class="parameter-name">style</span> = <span class="default-value">DiagnosticsTreeStyle.errorProperty</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a description of the <a href="widgets/Element-class.html">Element</a> associated with the current build context.
+  
+
+</dd>
+
+        <dt id="describeMissingAncestor" class="callable">
+  <span class="name"><a href="widgets/BuildContext/describeMissingAncestor.html">describeMissingAncestor</a></span><span class="signature">(<wbr>{<span class="parameter" id="describeMissingAncestor-param-expectedAncestorType"><span>required</span> <span class="type-annotation"><a href="dart-core/Type-class.html">Type</a></span> <span class="parameter-name">expectedAncestorType</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a description of a specific type of widget missing from the current
+build context's ancestry tree.
+  
+
+</dd>
+
+        <dt id="describeOwnershipChain" class="callable">
+  <span class="name"><a href="widgets/BuildContext/describeOwnershipChain.html">describeOwnershipChain</a></span><span class="signature">(<wbr><span class="parameter" id="describeOwnershipChain-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>)
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a description of the ownership chain from a specific <a href="widgets/Element-class.html">Element</a>
+to the error report.
+  
+
+</dd>
+
+        <dt id="describeWidget" class="callable">
+  <span class="name"><a href="widgets/BuildContext/describeWidget.html">describeWidget</a></span><span class="signature">(<wbr><span class="parameter" id="describeWidget-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, {</span><span class="parameter" id="describeWidget-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a></span> <span class="parameter-name">style</span> = <span class="default-value">DiagnosticsTreeStyle.errorProperty</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a description of the <a href="widgets/Widget-class.html">Widget</a> associated with the current build context.
+  
+
+</dd>
+
+        <dt id="dispatchNotification" class="callable">
+  <span class="name"><a href="widgets/BuildContext/dispatchNotification.html">dispatchNotification</a></span><span class="signature">(<wbr><span class="parameter" id="dispatchNotification-param-notification"><span class="type-annotation"><a href="widgets/Notification-class.html">Notification</a></span> <span class="parameter-name">notification</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Start bubbling this notification at the given build context.
+  
+
+</dd>
+
+        <dt id="findAncestorRenderObjectOfType" class="callable">
+  <span class="name"><a href="widgets/BuildContext/findAncestorRenderObjectOfType.html">findAncestorRenderObjectOfType</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="rendering/RenderObject-class.html">RenderObject</a></span>&gt;</span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; T?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="rendering/RenderObject-class.html">RenderObject</a> object of the nearest ancestor <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> widget
+that is an instance of the given type <code>T</code>.
+  
+
+</dd>
+
+        <dt id="findAncestorStateOfType" class="callable">
+  <span class="name"><a href="widgets/BuildContext/findAncestorStateOfType.html">findAncestorStateOfType</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></span>&gt;</span></span>&gt;</span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; T?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/State-class.html">State</a> object of the nearest ancestor <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> widget
+that is an instance of the given type <code>T</code>.
+  
+
+</dd>
+
+        <dt id="findAncestorWidgetOfExactType" class="callable">
+  <span class="name"><a href="widgets/BuildContext/findAncestorWidgetOfExactType.html">findAncestorWidgetOfExactType</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="widgets/Widget-class.html">Widget</a></span>&gt;</span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; T?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the nearest ancestor widget of the given type <code>T</code>, which must be the
+type of a concrete <a href="widgets/Widget-class.html">Widget</a> subclass.
+  
+
+</dd>
+
+        <dt id="findRenderObject" class="callable">
+  <span class="name"><a href="widgets/BuildContext/findRenderObject.html">findRenderObject</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="rendering/RenderObject-class.html">RenderObject</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  The current <a href="rendering/RenderObject-class.html">RenderObject</a> for the widget. If the widget is a
+<a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>, this is the render object that the widget created
+for itself. Otherwise, it is the render object of the first descendant
+<a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>.
+  
+
+</dd>
+
+        <dt id="findRootAncestorStateOfType" class="callable">
+  <span class="name"><a href="widgets/BuildContext/findRootAncestorStateOfType.html">findRootAncestorStateOfType</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></span>&gt;</span></span>&gt;</span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; T?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the <a href="widgets/State-class.html">State</a> object of the furthest ancestor <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> widget
+that is an instance of the given type <code>T</code>.
+  
+
+</dd>
+
+        <dt id="getElementForInheritedWidgetOfExactType" class="callable">
+  <span class="name"><a href="widgets/BuildContext/getElementForInheritedWidgetOfExactType.html">getElementForInheritedWidgetOfExactType</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="widgets/InheritedWidget-class.html">InheritedWidget</a></span>&gt;</span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/InheritedElement-class.html">InheritedElement</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Obtains the element corresponding to the nearest widget of the given type <code>T</code>,
+which must be the type of a concrete <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> subclass.
+  
+
+</dd>
+
+        <dt id="getInheritedWidgetOfExactType" class="callable">
+  <span class="name"><a href="widgets/BuildContext/getInheritedWidgetOfExactType.html">getInheritedWidgetOfExactType</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="widgets/InheritedWidget-class.html">InheritedWidget</a></span>&gt;</span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; T?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the nearest widget of the given <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> subclass <code>T</code> or
+null if an appropriate ancestor is not found.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="visitAncestorElements" class="callable">
+  <span class="name"><a href="widgets/BuildContext/visitAncestorElements.html">visitAncestorElements</a></span><span class="signature">(<wbr><span class="parameter" id="visitAncestorElements-param-visitor"><span class="type-annotation"><a href="widgets/ConditionalElementVisitor.html">ConditionalElementVisitor</a></span> <span class="parameter-name">visitor</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Walks the ancestor chain, starting with the parent of this build context's
+widget, invoking the argument for each ancestor.
+  
+
+</dd>
+
+        <dt id="visitChildElements" class="callable">
+  <span class="name"><a href="widgets/BuildContext/visitChildElements.html">visitChildElements</a></span><span class="signature">(<wbr><span class="parameter" id="visitChildElements-param-visitor"><span class="type-annotation"><a href="widgets/ElementVisitor.html">ElementVisitor</a></span> <span class="parameter-name">visitor</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Walks the children of this widget.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">BuildContext 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="material 库中 AppBar 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>AppBar 类 - material 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="material/">material.dart</a></li>
+    <li class="self-crumb">AppBar 类</li>
+  </ol>
+  <div class="self-name">AppBar</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="material&#47;material-library-sidebar.html"
+    data-below-sidebar="material&#47;AppBar-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/material/app_bar.dart#L189"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">AppBar</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Material Design 应用栏。</p>
+<p>应用栏由工具栏组成，也可能包含其他组件，例如 <a href="material/TabBar-class.html">TabBar</a> 和 <a href="material/FlexibleSpaceBar-class.html">FlexibleSpaceBar</a>。应用栏通常通过 <a href="material/AppBar/actions.html">IconButton</a> 提供一个或多个常用 <a href="material/IconButton-class.html">actions</a>，并可在末尾放置 <a href="material/PopupMenuButton-class.html">PopupMenuButton</a> 来提供较少使用的操作（有时称为“溢出菜单”）。</p>
+<p>应用栏通常放在 <a href="material/Scaffold/appBar.html">Scaffold.appBar</a> 属性中，作为固定高度的组件显示在屏幕顶部。需要可滚动的应用栏时，请使用 <a href="material/SliverAppBar-class.html">SliverAppBar</a>；它会将 <a href="material/AppBar-class.html">AppBar</a> 放入 sliver 中，以便用于 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>。</p>
+<p><a href="material/AppBar/leading.html">leading</a>、<a href="material/AppBar/title.html">title</a> 和 <a href="material/AppBar/actions.html">actions</a> 等工具栏组件显示在 <a href="material/AppBar/bottom.html">bottom</a>（如果有）上方。<a href="material/AppBar/bottom.html">bottom</a> 通常用于放置 <a href="material/TabBar-class.html">TabBar</a>。如果指定了 <a href="material/AppBar/flexibleSpace.html">flexibleSpace</a>，它会叠放在工具栏和底部组件后方。下图展示了从左向右书写的语言（例如英语）中，各插槽在工具栏里的位置：</p>
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/material/app_bar.png" alt="leading 组件位于左上方，actions 位于右上方，title 位于两者之间。bottom 位于底部，flexibleSpace 位于所有组件后方。"></p>
+<p>如果未提供 <a href="material/AppBar/leading.html">leading</a> 组件，而 <a href="material/AppBar-class.html">AppBar</a> 位于包含 <a href="material/Scaffold-class.html">Drawer</a> 的 <a href="material/Drawer-class.html">Scaffold</a> 中，则会插入用于打开抽屉的按钮。否则，如果最近的 <a href="widgets/Navigator-class.html">Navigator</a> 存在上一条路由，则会插入 <a href="material/BackButton-class.html">BackButton</a>。将 <a href="material/AppBar/automaticallyImplyLeading.html">automaticallyImplyLeading</a> 设为 false 可关闭此行为。此时 leading 组件为 null 会使中间/标题组件向起始端扩展。</p>
+<p>如果未提供 <a href="material/AppBar/actions.html">actions</a> 组件列表或列表为空，而 <a href="material/AppBar-class.html">AppBar</a> 位于包含末端 <a href="material/Scaffold-class.html">Drawer</a> 的 <a href="material/Drawer-class.html">Scaffold</a> 中，则会插入用于打开末端抽屉的按钮。将 <a href="material/AppBar/automaticallyImplyActions.html">automaticallyImplyActions</a> 设为 false 可关闭此行为。</p>
+<p><a href="material/AppBar-class.html">AppBar</a> 会根据当前环境 <a href="widgets/MediaQuery-class.html">MediaQuery</a> 的内边距调整内容位置，以避开系统 UI。将它用作 <a href="material/Scaffold-class.html">Scaffold.appBar</a> 时，<a href="material/Scaffold/appBar.html">Scaffold</a> 会负责处理这一点。为 <a href="material/AppBar-class.html">AppBar</a> 添加动画时，意外的 <a href="widgets/MediaQuery-class.html">MediaQuery</a> 变化（常见于 <a href="widgets/Hero-class.html">Hero</a> 动画）可能导致内容突然跳动。可将 <a href="material/AppBar-class.html">AppBar</a> 包在 <a href="widgets/MediaQuery-class.html">MediaQuery</a> 组件中，并调整其内边距，使动画保持平滑。</p>
+<p>
+<a name="material.AppBar.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">
+此示例展示含有两个简单操作项的 <a href="material/AppBar-class.html">AppBar</a>。第一个操作会打开 <a href="material/SnackBar-class.html">SnackBar</a>，第二个操作会导航到新页面。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'material.AppBar.1');" onclick="fixHref(this, 'material.AppBar.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=material.AppBar.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=material.AppBar.1&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>Material Design 3 引入了新类型的应用栏。</p>
+<p>
+<a name="material.AppBar.2"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet2">
+    <div class="snippet-description">
+此示例展示如何创建 <a href="material/AppBar-class.html">AppBar</a> widget，并设置 <a href="material/AppBar/shadowColor.html">shadowColor</a> 和
+<a href="material/AppBar/scrolledUnderElevation.html">scrolledUnderElevation</a> 属性，相关说明见：
+<a href="https://m3.material.io/components/top-app-bar/overview">https://m3.material.io/components/top-app-bar/overview</a>
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'material.AppBar.2');" onclick="fixHref(this, 'material.AppBar.2'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=material.AppBar.2 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=material.AppBar.2&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<h2 id="troubleshooting">故障排除</h2>
+<h3 id="why-dont-my-textbutton-actions-appear">为什么 TextButton 操作按钮没有显示？</h3>
+<p>如果应用栏的 <a href="material/AppBar/actions.html">actions</a> 中包含 <a href="material/TextButton-class.html">TextButton</a>，且其前景（文字）颜色与应用栏背景颜色相同，那么这些按钮将不可见。</p>
+<p>在 Material v2（即 <a href="material/ThemeData/useMaterial3.html">ThemeData.useMaterial3</a> 为 false）中，如果整体主题亮度为 <a href="material/AppBar/backgroundColor.html">Brightness.light</a>，应用栏默认的 <a href="material/ColorScheme/primary.html">backgroundColor</a> 是整体主题的 <a href="dart-ui/Brightness.html">ColorScheme.primary</a>。遗憾的是，这与浅色主题下 <a href="material/ButtonStyle/foregroundColor.html">TextButton</a> 默认的 <a href="material/TextButton-class.html">ButtonStyle.foregroundColor</a> 相同。此时，文字按钮宜使用与 <a href="material/ColorScheme/onPrimary.html">ColorScheme.primary</a> 形成良好对比的 <a href="material/ColorScheme/primary.html">ColorScheme.onPrimary</a> 作为前景色。可通过覆盖 <a href="material/ButtonStyleButton/style.html">TextButton.style</a> 解决此问题：</p>
+<p>
+<a name="material.AppBar.3"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet3">
+    <div class="snippet-description">
+此示例展示一个包含两个操作按钮的 <a href="material/AppBar-class.html">AppBar</a>，并将它们的主色设置为
+<a href="material/ColorScheme/onPrimary.html">ColorScheme.onPrimary</a>。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'material.AppBar.3');" onclick="fixHref(this, 'material.AppBar.3'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=material.AppBar.3 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=material.AppBar.3&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>
+<a name="material.AppBar.4"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet4">
+    <div class="snippet-description">
+此示例展示如何在嵌套滚动视图中，使用 <a href="material/AppBar/notificationPredicate.html">notificationPredicate</a> 属性
+监听内层 Scrollable 的滚动通知，并使
+<a href="material/AppBar/scrolledUnderElevation.html">scrolledUnderElevation</a> 生效。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'material.AppBar.4');" onclick="fixHref(this, 'material.AppBar.4'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=material.AppBar.4 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=material.AppBar.4&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="material/Scaffold-class.html">Scaffold</a>, which displays the <a href="material/AppBar-class.html">AppBar</a> in its <a href="material/Scaffold/appBar.html">Scaffold.appBar</a> slot.</li>
+<li><a href="material/SliverAppBar-class.html">SliverAppBar</a>, which uses <a href="material/AppBar-class.html">AppBar</a> to provide a flexible app bar that
+can be used in a <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>.</li>
+<li><a href="material/TabBar-class.html">TabBar</a>, which is typically placed in the <a href="material/AppBar/bottom.html">bottom</a> slot of the <a href="material/AppBar-class.html">AppBar</a>
+if the screen has multiple pages arranged in tabs.</li>
+<li><a href="material/IconButton-class.html">IconButton</a>, which is used with <a href="material/AppBar/actions.html">actions</a> to show buttons on the app bar.</li>
+<li><a href="material/PopupMenuButton-class.html">PopupMenuButton</a>, to show a popup menu on the app bar, via <a href="material/AppBar/actions.html">actions</a>.</li>
+<li><a href="material/FlexibleSpaceBar-class.html">FlexibleSpaceBar</a>, which is used with <a href="material/AppBar/flexibleSpace.html">flexibleSpace</a> when the app bar
+can expand and collapse.</li>
+<li><a href="https://material.io/design/components/app-bars-top.html">material.io/design/components/app-bars-top.html</a></li>
+<li><a href="https://m3.material.io/components/top-app-bar">m3.material.io/components/top-app-bar</a></li>
+<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/lists/floating-app-bar">Place a floating app bar above a list</a></li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>AppBar</li>
+    </ul>
+  </dd>
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="widgets/PreferredSizeWidget-class.html">PreferredSizeWidget</a></li>
+    </ul>
+  </dd>
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="AppBar.new" class="callable">
+          <span class="name"><a href="material/AppBar/AppBar.html">AppBar</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-leading"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">leading</span>, </span><span class="parameter" id="-param-automaticallyImplyLeading"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">automaticallyImplyLeading</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-title"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="-param-actions"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span>?</span> <span class="parameter-name">actions</span>, </span><span class="parameter" id="-param-automaticallyImplyActions"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">automaticallyImplyActions</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-flexibleSpace"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">flexibleSpace</span>, </span><span class="parameter" id="-param-bottom"><span class="type-annotation"><a href="widgets/PreferredSizeWidget-class.html">PreferredSizeWidget</a>?</span> <span class="parameter-name">bottom</span>, </span><span class="parameter" id="-param-elevation"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">elevation</span>, </span><span class="parameter" id="-param-scrolledUnderElevation"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">scrolledUnderElevation</span>, </span><span class="parameter" id="-param-notificationPredicate"><span class="type-annotation"><a href="widgets/ScrollNotificationPredicate.html">ScrollNotificationPredicate</a></span> <span class="parameter-name">notificationPredicate</span> = <span class="default-value">defaultScrollNotificationPredicate</span>, </span><span class="parameter" id="-param-shadowColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">shadowColor</span>, </span><span class="parameter" id="-param-surfaceTintColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">surfaceTintColor</span>, </span><span class="parameter" id="-param-shape"><span class="type-annotation"><a href="painting/ShapeBorder-class.html">ShapeBorder</a>?</span> <span class="parameter-name">shape</span>, </span><span class="parameter" id="-param-backgroundColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">backgroundColor</span>, </span><span class="parameter" id="-param-foregroundColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">foregroundColor</span>, </span><span class="parameter" id="-param-iconTheme"><span class="type-annotation"><a href="widgets/IconThemeData-class.html">IconThemeData</a>?</span> <span class="parameter-name">iconTheme</span>, </span><span class="parameter" id="-param-actionsIconTheme"><span class="type-annotation"><a href="widgets/IconThemeData-class.html">IconThemeData</a>?</span> <span class="parameter-name">actionsIconTheme</span>, </span><span class="parameter" id="-param-primary"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">primary</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-centerTitle"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">centerTitle</span>, </span><span class="parameter" id="-param-excludeHeaderSemantics"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">excludeHeaderSemantics</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-titleSpacing"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">titleSpacing</span>, </span><span class="parameter" id="-param-toolbarOpacity"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">toolbarOpacity</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="-param-bottomOpacity"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">bottomOpacity</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="-param-toolbarHeight"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">toolbarHeight</span>, </span><span class="parameter" id="-param-leadingWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">leadingWidth</span>, </span><span class="parameter" id="-param-toolbarTextStyle"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">toolbarTextStyle</span>, </span><span class="parameter" id="-param-titleTextStyle"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">titleTextStyle</span>, </span><span class="parameter" id="-param-systemOverlayStyle"><span class="type-annotation"><a href="services/SystemUiOverlayStyle-class.html">SystemUiOverlayStyle</a>?</span> <span class="parameter-name">systemOverlayStyle</span>, </span><span class="parameter" id="-param-forceMaterialTransparency"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceMaterialTransparency</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-useDefaultSemanticsOrder"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useDefaultSemanticsOrder</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a>?</span> <span class="parameter-name">clipBehavior</span>, </span><span class="parameter" id="-param-actionsPadding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">actionsPadding</span>, </span><span class="parameter" id="-param-animateColor"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">animateColor</span> = <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a Material Design app bar.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="actions" class="property">
+  <span class="name"><a href="material/AppBar/actions.html">actions</a></span>
+  <span class="signature">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  A list of Widgets to display in a row after the <a href="material/AppBar/title.html">title</a> widget.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="actionsIconTheme" class="property">
+  <span class="name"><a href="material/AppBar/actionsIconTheme.html">actionsIconTheme</a></span>
+  <span class="signature">&#8594; <a href="widgets/IconThemeData-class.html">IconThemeData</a>?</span>
+  
+
+</dt>
+<dd>
+  The color, opacity, and size to use for the icons that appear in the app
+bar's <a href="material/AppBar/actions.html">actions</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="actionsPadding" class="property">
+  <span class="name"><a href="material/AppBar/actionsPadding.html">actionsPadding</a></span>
+  <span class="signature">&#8594; <a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span>
+  
+
+</dt>
+<dd>
+  The padding between the <a href="material/AppBar/actions.html">actions</a> and the end of the AppBar.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="animateColor" class="property">
+  <span class="name"><a href="material/AppBar/animateColor.html">animateColor</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the color should be animated.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="automaticallyImplyActions" class="property">
+  <span class="name"><a href="material/AppBar/automaticallyImplyActions.html">automaticallyImplyActions</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Controls whether we should try to imply the actions widget if null.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="automaticallyImplyLeading" class="property">
+  <span class="name"><a href="material/AppBar/automaticallyImplyLeading.html">automaticallyImplyLeading</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Controls whether we should try to imply the leading widget if null.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="backgroundColor" class="property">
+  <span class="name"><a href="material/AppBar/backgroundColor.html">backgroundColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  The fill color to use for an app bar's <a href="material/Material-class.html">Material</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="bottom" class="property">
+  <span class="name"><a href="material/AppBar/bottom.html">bottom</a></span>
+  <span class="signature">&#8594; <a href="widgets/PreferredSizeWidget-class.html">PreferredSizeWidget</a>?</span>
+  
+
+</dt>
+<dd>
+  This widget appears across the bottom of the app bar.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="bottomOpacity" class="property">
+  <span class="name"><a href="material/AppBar/bottomOpacity.html">bottomOpacity</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  How opaque the bottom part of the app bar is.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="centerTitle" class="property">
+  <span class="name"><a href="material/AppBar/centerTitle.html">centerTitle</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  
+
+</dt>
+<dd>
+  Whether the title should be centered.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="clipBehavior" class="property">
+  <span class="name"><a href="material/AppBar/clipBehavior.html">clipBehavior</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Clip.html">Clip</a>?</span>
+  
+
+</dt>
+<dd>
+  The content will be clipped (or not) according to this option.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="elevation" class="property">
+  <span class="name"><a href="material/AppBar/elevation.html">elevation</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  The z-coordinate at which to place this app bar relative to its parent.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="excludeHeaderSemantics" class="property">
+  <span class="name"><a href="material/AppBar/excludeHeaderSemantics.html">excludeHeaderSemantics</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the title should be wrapped with header <a href="widgets/Semantics-class.html">Semantics</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="flexibleSpace" class="property">
+  <span class="name"><a href="material/AppBar/flexibleSpace.html">flexibleSpace</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  This widget is stacked behind the toolbar and the tab bar. Its height will
+be the same as the app bar's overall height.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="forceMaterialTransparency" class="property">
+  <span class="name"><a href="material/AppBar/forceMaterialTransparency.html">forceMaterialTransparency</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Forces the AppBar's Material widget type to be <a href="material/MaterialType.html">MaterialType.transparency</a>
+(instead of Material's default type).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="foregroundColor" class="property">
+  <span class="name"><a href="material/AppBar/foregroundColor.html">foregroundColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  The default color for <a href="widgets/Text-class.html">Text</a> 和 <a href="widgets/Icon-class.html">Icon</a>s within the app bar.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="iconTheme" class="property">
+  <span class="name"><a href="material/AppBar/iconTheme.html">iconTheme</a></span>
+  <span class="signature">&#8594; <a href="widgets/IconThemeData-class.html">IconThemeData</a>?</span>
+  
+
+</dt>
+<dd>
+  The color, opacity, and size to use for toolbar icons.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="leading" class="property">
+  <span class="name"><a href="material/AppBar/leading.html">leading</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  A widget to display before the toolbar's <a href="material/AppBar/title.html">title</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="leadingWidth" class="property">
+  <span class="name"><a href="material/AppBar/leadingWidth.html">leadingWidth</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  Defines the width of <a href="material/AppBar/leading.html">AppBar.leading</a> widget.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="notificationPredicate" class="property">
+  <span class="name"><a href="material/AppBar/notificationPredicate.html">notificationPredicate</a></span>
+  <span class="signature">&#8594; <a href="widgets/ScrollNotificationPredicate.html">ScrollNotificationPredicate</a></span>
+  
+
+</dt>
+<dd>
+  A check that specifies which child's <a href="widgets/ScrollNotification-class.html">ScrollNotification</a>s should be
+listened to.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="preferredSize" class="property">
+  <span class="name"><a href="material/AppBar/preferredSize.html">preferredSize</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Size-class.html">Size</a></span>
+  
+
+</dt>
+<dd>
+  A size whose height is the sum of <a href="material/AppBar/toolbarHeight.html">toolbarHeight</a> and the <a href="material/AppBar/bottom.html">bottom</a> widget's
+preferred height.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="primary" class="property">
+  <span class="name"><a href="material/AppBar/primary.html">primary</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this app bar is being displayed at the top of the screen.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scrolledUnderElevation" class="property">
+  <span class="name"><a href="material/AppBar/scrolledUnderElevation.html">scrolledUnderElevation</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  The elevation that will be used if this app bar has something
+scrolled underneath it.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="shadowColor" class="property">
+  <span class="name"><a href="material/AppBar/shadowColor.html">shadowColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  The color of the shadow below the app bar.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="shape" class="property">
+  <span class="name"><a href="material/AppBar/shape.html">shape</a></span>
+  <span class="signature">&#8594; <a href="painting/ShapeBorder-class.html">ShapeBorder</a>?</span>
+  
+
+</dt>
+<dd>
+  The shape of the app bar's <a href="material/Material-class.html">Material</a> as well as its shadow.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="surfaceTintColor" class="property">
+  <span class="name"><a href="material/AppBar/surfaceTintColor.html">surfaceTintColor</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  The color of the surface tint overlay applied to the app bar's
+background color to indicate elevation.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="systemOverlayStyle" class="property">
+  <span class="name"><a href="material/AppBar/systemOverlayStyle.html">systemOverlayStyle</a></span>
+  <span class="signature">&#8594; <a href="services/SystemUiOverlayStyle-class.html">SystemUiOverlayStyle</a>?</span>
+  
+
+</dt>
+<dd>
+  Specifies the style to use for the system overlays (e.g. the status bar on
+Android or iOS, the system navigation bar on Android).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="title" class="property">
+  <span class="name"><a href="material/AppBar/title.html">title</a></span>
+  <span class="signature">&#8594; <a href="widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  The primary widget displayed in the app bar.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="titleSpacing" class="property">
+  <span class="name"><a href="material/AppBar/titleSpacing.html">titleSpacing</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  The spacing around <a href="material/AppBar/title.html">title</a> content on the horizontal axis. This spacing is
+applied even if there is no <a href="material/AppBar/leading.html">leading</a> content or <a href="material/AppBar/actions.html">actions</a>. If you want
+<a href="material/AppBar/title.html">title</a> to take all the space available, set this value to 0.0.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="titleTextStyle" class="property">
+  <span class="name"><a href="material/AppBar/titleTextStyle.html">titleTextStyle</a></span>
+  <span class="signature">&#8594; <a href="painting/TextStyle-class.html">TextStyle</a>?</span>
+  
+
+</dt>
+<dd>
+  The default text style for the AppBar's <a href="material/AppBar/title.html">title</a> widget.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="toolbarHeight" class="property">
+  <span class="name"><a href="material/AppBar/toolbarHeight.html">toolbarHeight</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  Defines the height of the toolbar component of an <a href="material/AppBar-class.html">AppBar</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="toolbarOpacity" class="property">
+  <span class="name"><a href="material/AppBar/toolbarOpacity.html">toolbarOpacity</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  How opaque the toolbar part of the app bar is.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="toolbarTextStyle" class="property">
+  <span class="name"><a href="material/AppBar/toolbarTextStyle.html">toolbarTextStyle</a></span>
+  <span class="signature">&#8594; <a href="painting/TextStyle-class.html">TextStyle</a>?</span>
+  
+
+</dt>
+<dd>
+  The default text style for the AppBar's <a href="material/AppBar/leading.html">leading</a>, and
+<a href="material/AppBar/actions.html">actions</a> widgets, but not its <a href="material/AppBar/title.html">title</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="useDefaultSemanticsOrder" class="property">
+  <span class="name"><a href="material/AppBar/useDefaultSemanticsOrder.html">useDefaultSemanticsOrder</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether to use the default semantic ordering for the app bar's children for
+accessibility traversal order.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="material/AppBar/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="material/AppBar-class.html">AppBar</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="preferredHeightFor" class="callable">
+  <span class="name"><a href="material/AppBar/preferredHeightFor.html">preferredHeightFor</a></span><span class="signature">(<wbr><span class="parameter" id="preferredHeightFor-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="preferredHeightFor-param-preferredSize"><span class="type-annotation"><a href="dart-ui/Size-class.html">Size</a></span> <span class="parameter-name">preferredSize</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Used by <a href="material/Scaffold-class.html">Scaffold</a> to compute its <a href="material/AppBar-class.html">AppBar</a>'s overall height. The returned value is
+the same <code>preferredSize.height</code> unless <a href="material/AppBar/toolbarHeight.html">AppBar.toolbarHeight</a> was null and
+<code>AppBarTheme.of(context).toolbarHeight</code> is non-null. In that case the
+return value is the sum of the theme's toolbar height and the height of
+the app bar's <a href="material/AppBar/bottom.html">AppBar.bottom</a> widget.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="material/">material</a></li>
+    <li class="self-crumb">AppBar 类</li>
+</ol>
+
+    <h5>material 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

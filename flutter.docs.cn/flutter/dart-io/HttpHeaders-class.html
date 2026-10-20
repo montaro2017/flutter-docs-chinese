@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:io 库中 HttpHeaders 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>HttpHeaders class - dart:io library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-io/">dart:io</a></li>
+    <li class="self-crumb">HttpHeaders 类</li>
+  </ol>
+  <div class="self-name">HttpHeaders</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-io&#47;dart-io-library-sidebar.html"
+    data-below-sidebar="dart-io&#47;HttpHeaders-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">HttpHeaders</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#interface" class="feature feature-interface" title="This class can only be implemented (not extended or mixed in).">interface</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  HTTP 请求和响应的标头。
+在某些情况下，标头不可变：
+<ul>
+<li>
+<a href="dart-io/HttpRequest-class.html">HttpRequest</a> 和 <a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a> 的标头始终不可变。
+</li>
+<li>
+<a href="dart-io/HttpResponse-class.html">HttpResponse</a> 和 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 的标头从开始写入正文时起不可变。
+</li>
+</ul>
+在这些情况下，修改标头的方法会抛出异常。
+对 HTTP 标头执行的所有操作都不区分标头名称的大小写。
+要设置标头值，请使用 <code>set()</code> 方法：
+<pre class="language-dart"><code>request.headers.set(HttpHeaders.cacheControlHeader,
+                    'max-age=3600, must-revalidate');
+</code></pre>
+要获取标头值，请使用 <code>value()</code> 方法：
+<pre class="language-dart"><code>print(request.headers.value(HttpHeaders.userAgentHeader));
+</code></pre>
+<code>HttpHeaders</code> 对象会按照标准规范，为每个名称保存一个值列表。大多数情况下，一个名称只有一个值。最常见的操作方式是使用 <code>set()</code> 设置值，并使用 <code>value()</code> 获取值。
+</section>
+
+
+
+    
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="chunkedTransferEncoding" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/chunkedTransferEncoding.html">chunkedTransferEncoding</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the connection uses chunked transfer encoding.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="contentLength" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/contentLength.html">contentLength</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The value of the <a href="dart-io/HttpHeaders/contentLengthHeader-constant.html">contentLengthHeader</a> header, if any.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="contentType" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/contentType.html">contentType</a></span>
+  <span class="signature">&#8596; <a href="dart-io/ContentType-class.html">ContentType</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="dart-io/ContentType-class.html">ContentType</a> of the <a href="dart-io/HttpHeaders/contentTypeHeader-constant.html">contentTypeHeader</a> header, if any.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="date" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/date.html">date</a></span>
+  <span class="signature">&#8596; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  
+
+</dt>
+<dd>
+  The date specified by the <a href="dart-io/HttpHeaders/dateHeader-constant.html">dateHeader</a> header, if any.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="expires" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/expires.html">expires</a></span>
+  <span class="signature">&#8596; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  
+
+</dt>
+<dd>
+  The date and time specified by the <a href="dart-io/HttpHeaders/expiresHeader-constant.html">expiresHeader</a> header, if any.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="host" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/host.html">host</a></span>
+  <span class="signature">&#8596; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  The value of the <a href="dart-io/HttpHeaders/hostHeader-constant.html">hostHeader</a> header, if any.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="ifModifiedSince" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/ifModifiedSince.html">ifModifiedSince</a></span>
+  <span class="signature">&#8596; <a href="dart-core/DateTime-class.html">DateTime</a>?</span>
+  
+
+</dt>
+<dd>
+  The date and time specified by the <a href="dart-io/HttpHeaders/ifModifiedSinceHeader-constant.html">ifModifiedSinceHeader</a> header, if any.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="persistentConnection" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/persistentConnection.html">persistentConnection</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the connection is persistent (keep-alive).
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="port" class="property">
+  <span class="name"><a href="dart-io/HttpHeaders/port.html">port</a></span>
+  <span class="signature">&#8596; <a href="dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd>
+  The value of the port part of the <a href="dart-io/HttpHeaders/hostHeader-constant.html">hostHeader</a> header, if any.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="add" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="add-param-value"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">value</span>, {</span><span class="parameter" id="add-param-preserveHeaderCase"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">preserveHeaderCase</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a header value.
+  
+
+</dd>
+
+        <dt id="clear" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/clear.html">clear</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Removes all headers.
+  
+
+</dd>
+
+        <dt id="forEach" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/forEach.html">forEach</a></span><span class="signature">(<wbr><span class="parameter" id="forEach-param-action"><span class="type-annotation">void</span> <span class="parameter-name">action</span>(<span class="parameter" id="param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="param-values"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">values</span></span>)</span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Performs the <code>action</code> on each header.
+  
+
+</dd>
+
+        <dt id="noFolding" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/noFolding.html">noFolding</a></span><span class="signature">(<wbr><span class="parameter" id="noFolding-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Disables folding for the header named <code>name</code> when sending the HTTP header.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="remove" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/remove.html">remove</a></span><span class="signature">(<wbr><span class="parameter" id="remove-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="remove-param-value"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Removes a specific value for a header name.
+  
+
+</dd>
+
+        <dt id="removeAll" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/removeAll.html">removeAll</a></span><span class="signature">(<wbr><span class="parameter" id="removeAll-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Removes all values for the specified header name.
+  
+
+</dd>
+
+        <dt id="set" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/set.html">set</a></span><span class="signature">(<wbr><span class="parameter" id="set-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="set-param-value"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">value</span>, {</span><span class="parameter" id="set-param-preserveHeaderCase"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">preserveHeaderCase</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the header <code>name</code> to <code>value</code>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="value" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/value.html">value</a></span><span class="signature">(<wbr><span class="parameter" id="value-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Convenience method for the value for a single valued header.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="operator []" class="callable">
+  <span class="name"><a href="dart-io/HttpHeaders/operator_get.html">operator []</a></span><span class="signature">(<wbr><span class="parameter" id="[]-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  The values for the header named <code>name</code>.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>常量</h2>
+    <dl class="properties">
+        <dt id="acceptCharsetHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/acceptCharsetHeader-constant.html">acceptCharsetHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="acceptEncodingHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/acceptEncodingHeader-constant.html">acceptEncodingHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="acceptHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/acceptHeader-constant.html">acceptHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="acceptLanguageHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/acceptLanguageHeader-constant.html">acceptLanguageHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="acceptRangesHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/acceptRangesHeader-constant.html">acceptRangesHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="accessControlAllowCredentialsHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/accessControlAllowCredentialsHeader-constant.html">accessControlAllowCredentialsHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="accessControlAllowHeadersHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/accessControlAllowHeadersHeader-constant.html">accessControlAllowHeadersHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="accessControlAllowMethodsHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/accessControlAllowMethodsHeader-constant.html">accessControlAllowMethodsHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="accessControlAllowOriginHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/accessControlAllowOriginHeader-constant.html">accessControlAllowOriginHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="accessControlExposeHeadersHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/accessControlExposeHeadersHeader-constant.html">accessControlExposeHeadersHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="accessControlMaxAgeHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/accessControlMaxAgeHeader-constant.html">accessControlMaxAgeHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="accessControlRequestHeadersHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/accessControlRequestHeadersHeader-constant.html">accessControlRequestHeadersHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="accessControlRequestMethodHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/accessControlRequestMethodHeader-constant.html">accessControlRequestMethodHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ageHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/ageHeader-constant.html">ageHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="allowHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/allowHeader-constant.html">allowHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="authorizationHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/authorizationHeader-constant.html">authorizationHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="cacheControlHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/cacheControlHeader-constant.html">cacheControlHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="connectionHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/connectionHeader-constant.html">connectionHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="contentDisposition" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/contentDisposition-constant.html">contentDisposition</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="contentEncodingHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/contentEncodingHeader-constant.html">contentEncodingHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="contentLanguageHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/contentLanguageHeader-constant.html">contentLanguageHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="contentLengthHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/contentLengthHeader-constant.html">contentLengthHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="contentLocationHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/contentLocationHeader-constant.html">contentLocationHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="contentMD5Header" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/contentMD5Header-constant.html">contentMD5Header</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="contentRangeHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/contentRangeHeader-constant.html">contentRangeHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="contentTypeHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/contentTypeHeader-constant.html">contentTypeHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="cookieHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/cookieHeader-constant.html">cookieHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="dateHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/dateHeader-constant.html">dateHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="entityHeaders" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/entityHeaders-constant.html">entityHeaders</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="etagHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/etagHeader-constant.html">etagHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="expectHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/expectHeader-constant.html">expectHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="expiresHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/expiresHeader-constant.html">expiresHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="fromHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/fromHeader-constant.html">fromHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="generalHeaders" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/generalHeaders-constant.html">generalHeaders</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="hostHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/hostHeader-constant.html">hostHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ifMatchHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/ifMatchHeader-constant.html">ifMatchHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ifModifiedSinceHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/ifModifiedSinceHeader-constant.html">ifModifiedSinceHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ifNoneMatchHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/ifNoneMatchHeader-constant.html">ifNoneMatchHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ifRangeHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/ifRangeHeader-constant.html">ifRangeHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="ifUnmodifiedSinceHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/ifUnmodifiedSinceHeader-constant.html">ifUnmodifiedSinceHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="lastModifiedHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/lastModifiedHeader-constant.html">lastModifiedHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="locationHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/locationHeader-constant.html">locationHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="maxForwardsHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/maxForwardsHeader-constant.html">maxForwardsHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="pragmaHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/pragmaHeader-constant.html">pragmaHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="proxyAuthenticateHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/proxyAuthenticateHeader-constant.html">proxyAuthenticateHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="proxyAuthorizationHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/proxyAuthorizationHeader-constant.html">proxyAuthorizationHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="rangeHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/rangeHeader-constant.html">rangeHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="refererHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/refererHeader-constant.html">refererHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="requestHeaders" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/requestHeaders-constant.html">requestHeaders</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="responseHeaders" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/responseHeaders-constant.html">responseHeaders</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="retryAfterHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/retryAfterHeader-constant.html">retryAfterHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="serverHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/serverHeader-constant.html">serverHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="setCookieHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/setCookieHeader-constant.html">setCookieHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="teHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/teHeader-constant.html">teHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="trailerHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/trailerHeader-constant.html">trailerHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="transferEncodingHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/transferEncodingHeader-constant.html">transferEncodingHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="upgradeHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/upgradeHeader-constant.html">upgradeHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="userAgentHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/userAgentHeader-constant.html">userAgentHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="varyHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/varyHeader-constant.html">varyHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="viaHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/viaHeader-constant.html">viaHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="warningHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/warningHeader-constant.html">warningHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="wwwAuthenticateHeader" class="constant">
+    <span class="name "><a href="dart-io/HttpHeaders/wwwAuthenticateHeader-constant.html">wwwAuthenticateHeader</a></span>
+  <span class="signature">&#8594; const <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-io/">dart:io</a></li>
+    <li class="self-crumb">HttpHeaders 类</li>
+</ol>
+
+    <h5>dart:io library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

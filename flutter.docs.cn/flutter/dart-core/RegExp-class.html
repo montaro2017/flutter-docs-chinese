@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:core 库中 RegExp 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>RegExp class - dart:core 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-core/">dart:core</a></li>
+    <li class="self-crumb">RegExp 类</li>
+  </ol>
+  <div class="self-name">RegExp</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-core&#47;dart-core-library-sidebar.html"
+    data-below-sidebar="dart-core&#47;RegExp-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">RegExp</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#interface" class="feature feature-interface" title="This class can only be implemented (not extended or mixed in).">interface</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>正则表达式模式。</p>
+<p>正则表达式（简称 regex 或 regexp）由一系列字符组成，用于指定针对文本<em>输入</em>执行匹配检查的算法。将正则表达式应用于输入文本后，它要么匹配（接受）该文本，要么拒绝该文本。如果正则表达式匹配文本，还会提供有关它<em>如何</em>匹配的信息。</p>
+<p>Dart 正则表达式的语法和语义与 JavaScript 正则表达式相同。有关 JavaScript 正则表达式的更多信息，请参阅 <a href="https://ecma-international.org/ecma-262/9.0/#sec-regexp-regular-expression-objects">ecma-international.org/ecma-262/9.0/#sec-regexp-regular-expression-objects</a>。</p>
+<p>Dart 通过 <a href="dart-core/Pattern/matchAsPrefix.html">matchAsPrefix</a> 提供基本的正则表达式匹配算法，用于检查正则表达式是否从输入的特定位置开始匹配。如果匹配，Dart 会将匹配详情作为 <a href="dart-core/RegExpMatch-class.html">RegExpMatch</a> 返回。</p>
+<p>所有其他 <a href="dart-core/RegExp-class.html">RegExp</a> 方法都可以基于这项基本匹配检查构建。</p>
+<p>正则表达式最常见的用途是在输入中<em>搜索</em>匹配项。<a href="dart-core/RegExp/firstMatch.html">firstMatch</a> 方法提供此功能。它会在字符串中搜索正则表达式首次匹配的位置。如果找到匹配项，Dart 同样会将详情作为 <a href="dart-core/RegExpMatch-class.html">RegExpMatch</a> 返回。</p>
+<p>以下示例在字符串中查找正则表达式的第一个匹配项。</p>
+<pre class="language-dart"><code class="language-dart">RegExp exp = RegExp(r'(\w+)');
+String str = 'Parse my string';
+RegExpMatch? match = exp.firstMatch(str);
+print(match![0]); // "Parse"
+</code></pre>
+<p>使用 <a href="dart-core/RegExp/allMatches.html">allMatches</a> 在字符串中查找正则表达式的所有匹配项。</p>
+<p>以下示例在字符串中查找正则表达式的所有匹配项。</p>
+<pre class="language-dart"><code class="language-dart">RegExp exp = RegExp(r'(\w+)');
+String str = 'Parse my string';
+Iterable&lt;RegExpMatch&gt; matches = exp.allMatches(str);
+for (final m in matches) {
+  print(m[0]);
+}
+</code></pre>
+<p>示例输出为：</p>
+<pre class="language-dart"><code>Parse
+my
+string
+</code></pre>
+<p>前面的示例使用了<em>原始字符串</em>，即在字符串字面量前加上 <code>r</code> 前缀的一种字符串。使用原始字符串可以将字符串中的每个字符（包括 <code>\</code> 和 <code>$</code>）都视为字面字符，并将其传递给 <a href="dart-core/RegExp-class.html">RegExp</a> 解析器。应将原始字符串用作 <a href="dart-core/RegExp-class.html">RegExp</a> 构造函数的参数。</p>
+<p><strong>性能提示</strong>：正则表达式无法神奇地解决问题。任何人都可能编写出在某些字符串输入上效率低下的正则表达式。这类表达式通常在小型或常见输入上表现良好，却会在大型或罕见输入上出现极端低效的性能。这种不一致会让性能问题更难在测试中发现。</p>
+<p>使用正则表达式不一定比使用 <code>String</code> 操作检查字符串更快。正则表达式的优势在于能够用很少的字符指定<em>相对</em>复杂的模式；在大多数常见情况下，这些正则表达式效率合理。但简洁是以可读性为代价的。由于语法复杂，正则表达式不能视为自说明代码。</p>
+<p>Dart 正则表达式遵循 ECMAScript RegExp 规范。该规范定义了常见且广为人知的正则表达式行为。将 Dart 编译为 Web 代码时，编译后的代码可以使用浏览器的正则表达式实现。</p>
+<p>该规范使用<em>回溯</em>来定义 ECMAScript 正则表达式的行为。当正则表达式有多种匹配方式可选时，会按照模式中给出的顺序逐一尝试。例如：<code>RegExp(r"(foo|bar)baz")</code> 要检查 <code>foo</code> 或 <code>bar</code>，因此会先检查 <code>foo</code>。如果沿此路径继续无法匹配输入，正则表达式实现就会<em>回溯</em>：它会恢复到检查 <code>foo</code> 之前的原始状态，放弃之后完成的所有工作，然后尝试下一个选项；此例中即 <code>bar</code>。</p>
+<p>该规范定义了这些选项及其尝试顺序。如果正则表达式可以用多种方式匹配输入，选项顺序会决定返回哪个匹配结果。常用正则表达式会安排匹配选项的顺序，以确保获得特定结果。ECMAScript 正则表达式规范限制了 Dart 实现正则表达式的方式：必须采用按特定顺序检查选项的回溯实现。Dart 不能选择其他正则表达式实现，否则匹配行为会发生变化。</p>
+<p>回溯方法可行，但需要付出代价。对于某些正则表达式和输入，找到<em>正确</em>匹配可能需要尝试<em>很多次</em>。要拒绝一个与模式<em>几乎</em>匹配的输入，尝试次数可能更多。</p>
+<p>一种广为人知的危险正则表达式模式是嵌套使用 <code>*</code> 等量词：</p>
+<pre class="language-dart"><code class="language-dart">var re = RegExp(r"^(a*|b)*c");
+print(re.hasMatch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+</code></pre>
+<p>由于输入中没有必需的 <code>c</code>，该正则表达式模式无法匹配仅由 <code>a</code> 组成的输入字符串。<code>(a*|b)*</code> 匹配所有这些 <code>a</code> 的方式数量呈<em>指数级</em>增长。回溯实现会尝试<em>所有</em>方式，之后才判定没有一种能构成完整匹配。输入中每增加一个 <code>a</code>，正则表达式返回 <code>false</code> 所需时间就会翻倍。（当回溯具有这种指数级增长的可能性时，称为<a href="https://www.google.com/search?q=regexp+catastrophic+backtracking">“灾难性回溯”</a>。）</p>
+<p>连续使用量词是另一种危险模式，不过其复杂度“仅”为多项式级。</p>
+<pre class="language-dart"><code class="language-dart">// Like `\w*-\d`, but check for `b` and `c` in that order.
+var re = RegExp(r"^\w*(b)?\w*(c)?\w*-\d");
+print(re.hasMatch("a" * 512));
+</code></pre>
+<p>同样，输入不匹配，但 <code>RegExp</code> 必须尝试 <em>n</em><sup>3</sup> 种方式匹配这 <em>n</em> 个 <code>a</code>，之后才能判定这一点。输入长度翻倍，返回 <code>false</code> 所需时间就会增加到<em>八倍</em>。连续量词的数量越多，这个指数也越大。</p>
+<p>将这两种模式简化成如此简单的正则表达式后，它们看起来都很简单。但这些“简单”模式经常会成为更复杂正则表达式的一部分，使问题更难发现。</p>
+<p>一般而言，如果正则表达式可能具有<em>超线性复杂度</em>，就可以构造出需要耗费极长时间才能完成搜索的输入。若将存在漏洞的正则表达式应用于用户提供的输入，这些模式可能被用于<a href="https://en.wikipedia.org/wiki/ReDoS">拒绝服务攻击</a>。</p>
+<p>这个问题没有保证有效的通用解决方案。请谨慎使用执行时间可能超线性的正则表达式，尤其是程序可能将其用于无法保证匹配成功的输入时。</p>
+<p>避免使用执行时间呈超线性增长的正则表达式，可以参考以下经验法则：</p>
+<ul>
+<li>Whenever the regexp has a choice, try to make sure
+that the choice can be made based on the next character
+(or very limited look-ahead).
+This limits the need to perform a lot of computation along both choices.</li>
+<li>When using quantifiers, ensure that the same string cannot match
+both one and more-than-one iteration of the quantifier's
+regular expression.
+(For <code>(a*|b)*</code>, the string <code>"aa"</code> can match both
+ <code>(a*|b){1}</code> 和 <code>(a*|b){2}</code>.)</li>
+<li>Most uses of Dart regular expressions <em>search</em> for a match,
+for example using <a href="dart-core/RegExp/firstMatch.html">firstMatch</a>.
+If you do not <em>anchor</em> the pattern
+to the start of a line or input using <code>^</code>,
+this search acts as if the regexp began with an implicit <code>[^]*</code>.
+Starting your actual regular expression with <code>.*</code>
+then results in potential quadratic behavior for the search.
+Use anchors or <a href="dart-core/Pattern/matchAsPrefix.html">matchAsPrefix</a> where appropriate,
+or avoid starting the regexp with a quantified pattern.</li>
+<li><em>For experts only:</em> Neither Dart nor ECMAScript have general
+<a href="https://github.com/tc39/proposal-regexp-atomic-operators">“atomic grouping”</a>.
+Other regular expression dialects use this to limit backtracking.
+If an atomic capture group succeeds once,
+the regexp cannot backtrack into the same match later.
+As lookarounds also serve as atomic groups,
+something similar can be achieved using a <em>lookahead</em>:
+<code>var re = RegExp(r"^(?=((a*|b)*))\1d");</code>
+The preceding example does the same inefficient matching of <code>(a*|b)*</code>.
+Once the regexp has matched as far as possible,
+it completes the positive lookahead.
+Then it skips what the lookahead matched using a back-reference.
+After that, it can no longer backtrack
+and try other combinations of <code>a</code>。</li>
+</ul>
+<p>尽量减少正则表达式匹配同一字符串的方式数量。这样可以减少正则表达式找不到匹配项时可能执行的回溯次数。网上有许多关于<a href="https://www.google.com/search?q=performance+of+regular+expressions">提升正则表达式性能</a>的指南，也可以从中获取思路。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="dart-core/Pattern-class.html">Pattern</a></li>
+    </ul>
+  </dd>
+        
+
+
+        
+        
+  <dt>注解</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@<a href="dart-core/Deprecated/Deprecated.implement.html">Deprecated.implement</a>(&quot;This class will become &#39;final&#39; in a future release. &quot; &quot;&#39;Pattern&#39; may be a more appropriate interface to implement.&quot;)</li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="RegExp.new" class="callable">
+          <span class="name"><a href="dart-core/RegExp/RegExp.html">RegExp</a></span><span class="signature">(<span class="parameter" id="-param-source"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">source</span>, {</span><span class="parameter" id="-param-multiLine"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">multiLine</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-caseSensitive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">caseSensitive</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-unicode"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">unicode</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-dotAll"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">dotAll</span> = <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          Constructs a regular expression.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isCaseSensitive" class="property">
+  <span class="name"><a href="dart-core/RegExp/isCaseSensitive.html">isCaseSensitive</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this regular expression is case sensitive.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="isDotAll" class="property">
+  <span class="name"><a href="dart-core/RegExp/isDotAll.html">isDotAll</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether "." in this regular expression matches line terminators.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="isMultiLine" class="property">
+  <span class="name"><a href="dart-core/RegExp/isMultiLine.html">isMultiLine</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this regular expression matches multiple lines.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="isUnicode" class="property">
+  <span class="name"><a href="dart-core/RegExp/isUnicode.html">isUnicode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this regular expression uses Unicode mode.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="pattern" class="property">
+  <span class="name"><a href="dart-core/RegExp/pattern.html">pattern</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  The regular expression pattern source of this <code>RegExp</code>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="allMatches" class="callable">
+  <span class="name"><a href="dart-core/RegExp/allMatches.html">allMatches</a></span><span class="signature">(<wbr><span class="parameter" id="allMatches-param-input"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">input</span>, [</span><span class="parameter" id="allMatches-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/RegExpMatch-class.html">RegExpMatch</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Matches this pattern against the string repeatedly.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="firstMatch" class="callable">
+  <span class="name"><a href="dart-core/RegExp/firstMatch.html">firstMatch</a></span><span class="signature">(<wbr><span class="parameter" id="firstMatch-param-input"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">input</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/RegExpMatch-class.html">RegExpMatch</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Finds the first match of the regular expression in the string <code>input</code>.
+  
+
+</dd>
+
+        <dt id="hasMatch" class="callable">
+  <span class="name"><a href="dart-core/RegExp/hasMatch.html">hasMatch</a></span><span class="signature">(<wbr><span class="parameter" id="hasMatch-param-input"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">input</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks whether this regular expression has a match in the <code>input</code>.
+  
+
+</dd>
+
+        <dt id="matchAsPrefix" class="callable inherited">
+  <span class="name"><a href="dart-core/Pattern/matchAsPrefix.html">matchAsPrefix</a></span><span class="signature">(<wbr><span class="parameter" id="matchAsPrefix-param-string"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">string</span>, [</span><span class="parameter" id="matchAsPrefix-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/Match-class.html">Match</a>?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Matches this pattern against the start of <code>string</code>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="stringMatch" class="callable">
+  <span class="name"><a href="dart-core/RegExp/stringMatch.html">stringMatch</a></span><span class="signature">(<wbr><span class="parameter" id="stringMatch-param-input"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">input</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Finds the string of the first match of this regular expression
+in <code>input</code>.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="escape" class="callable">
+  <span class="name"><a href="dart-core/RegExp/escape.html">escape</a></span><span class="signature">(<wbr><span class="parameter" id="escape-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates regular expression syntax that matches the input <code>text</code>.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-core/">dart:core</a></li>
+    <li class="self-crumb">RegExp 类</li>
+</ol>
+
+    <h5>dart:core library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

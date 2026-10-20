@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="dart:typed_data 库中 ByteData 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>ByteData class - dart:typed_data 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-typed_data/">dart:typed_data</a></li>
+    <li class="self-crumb">ByteData 类</li>
+  </ol>
+  <div class="self-name">ByteData</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="dart-typed_data&#47;dart-typed_data-library-sidebar.html"
+    data-below-sidebar="dart-typed_data&#47;ByteData-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">ByteData</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#final" class="feature feature-final" title="This class can neither be extended, implemented, nor mixed in.">final</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>固定长度、可随机访问的字节序列，也可随机且不对齐地访问这些字节所表示的定宽整数和浮点数。</p>
+<p><code>ByteData</code> 可用于打包和解包外部来源的数据（例如网络或文件系统），并且比普通 <a href="dart-core/List-class.html">List</a> 实现更高效地处理大量数值数据。它既可通过省去对象头节省空间，也可通过 <code>ByteData</code> 避免复制数据来节省时间。</p>
+<p>如果数据以字节形式传入，可以通过共享同一个缓冲区将其转换为 <code>ByteData</code>。</p>
+<pre class="language-dart"><code class="language-dart">Uint8List bytes = ...;
+var blob = ByteData.sublistView(bytes);
+if (blob.getUint32(0, Endian.little) == 0x04034b50) { // Zip file marker
+  ...
+}
+</code></pre>
+<p>此外，<code>ByteData</code> 还可用于有意将表示一种算术类型的字节重新解释为另一种类型。例如，以下代码片段会确定一个 32 位浮点数（以大端序存储）所对应的 32 位有符号整数：</p>
+<pre class="language-dart"><code class="language-dart">var bdata = ByteData(8);
+bdata.setFloat32(0, 3.04);
+int huh = bdata.getInt32(0); // 0x40428f5c
+</code></pre>
+<p>类尝试继承或实现 <code>ByteData</code> 会导致编译时错误。</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="dart-typed_data/TypedData-class.html">TypedData</a></li>
+    </ul>
+  </dd>
+        
+
+
+        
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="dart-js_interop/ByteDataToJSDataView.html">ByteDataToJSDataView</a></li>
+  </ul></dd>
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="ByteData.new" class="callable">
+          <span class="name"><a href="dart-typed_data/ByteData/ByteData.html">ByteData</a></span><span class="signature">(<span class="parameter" id="-param-length"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">length</span></span>)</span>
+        </dt>
+        <dd>
+          创建一个 <a href="dart-typed_data/ByteData-class.html">ByteData</a> of the specified length (in elements), all of
+whose bytes are initially zero.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="ByteData.sublistView" class="callable">
+          <span class="name"><a href="dart-typed_data/ByteData/ByteData.sublistView.html">ByteData.sublistView</a></span><span class="signature">(<span class="parameter" id="sublistView-param-data"><span class="type-annotation"><a href="dart-typed_data/TypedData-class.html">TypedData</a></span> <span class="parameter-name">data</span>, [</span><span class="parameter" id="sublistView-param-start"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span><span class="parameter" id="sublistView-param-end"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">end</span></span>])</span>
+        </dt>
+        <dd>
+          创建一个 <a href="dart-typed_data/ByteData-class.html">ByteData</a> view on a range of elements of <code>data</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="ByteData.view" class="callable">
+          <span class="name"><a href="dart-typed_data/ByteData/ByteData.view.html">ByteData.view</a></span><span class="signature">(<span class="parameter" id="view-param-buffer"><span class="type-annotation"><a href="dart-typed_data/ByteBuffer-class.html">ByteBuffer</a></span> <span class="parameter-name">buffer</span>, [</span><span class="parameter" id="view-param-offsetInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">offsetInBytes</span> = <span class="default-value">0</span>, </span><span class="parameter" id="view-param-length"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">length</span></span>])</span>
+        </dt>
+        <dd>
+          创建一个 <a href="dart-typed_data/ByteData-class.html">ByteData</a> <em>view</em> of the specified region in <code>buffer</code>.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="buffer" class="property inherited">
+  <span class="name"><a href="dart-typed_data/TypedData/buffer.html">buffer</a></span>
+  <span class="signature">&#8594; <a href="dart-typed_data/ByteBuffer-class.html">ByteBuffer</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The byte buffer associated with this object.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="elementSizeInBytes" class="property inherited">
+  <span class="name"><a href="dart-typed_data/TypedData/elementSizeInBytes.html">elementSizeInBytes</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The number of bytes in the representation of each element in this list.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="lengthInBytes" class="property inherited">
+  <span class="name"><a href="dart-typed_data/TypedData/lengthInBytes.html">lengthInBytes</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The length of this view, in bytes.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="offsetInBytes" class="property inherited">
+  <span class="name"><a href="dart-typed_data/TypedData/offsetInBytes.html">offsetInBytes</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The offset of this view into the underlying byte buffer, in bytes.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toJS" class="property">
+  <span class="name"><a href="dart-js_interop/ByteDataToJSDataView/toJS.html">toJS</a></span>
+  <span class="signature">&#8594; <a href="dart-js_interop/JSDataView-extension-type.html">JSDataView</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="dart-typed_data/ByteData-class.html">ByteData</a>,
+        provided by the <a href="dart-js_interop/ByteDataToJSDataView.html">ByteDataToJSDataView</a> extension</span>
+      </p>
+  Converts this <a href="dart-typed_data/ByteData-class.html">ByteData</a> to a <a href="dart-js_interop/JSDataView-extension-type.html">JSDataView</a> by either casting, unwrapping,
+or cloning the <a href="dart-typed_data/ByteData-class.html">ByteData</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="asUnmodifiableView" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/asUnmodifiableView.html">asUnmodifiableView</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-typed_data/ByteData-class.html">ByteData</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  A read-only view of this <a href="dart-typed_data/ByteData-class.html">ByteData</a>.
+  
+
+</dd>
+
+        <dt id="getFloat32" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getFloat32.html">getFloat32</a></span><span class="signature">(<wbr><span class="parameter" id="getFloat32-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, [</span><span class="parameter" id="getFloat32-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The floating point number represented by the four bytes at
+the specified <code>byteOffset</code> in this object, in IEEE 754
+single-precision binary floating-point format (binary32).
+  
+
+</dd>
+
+        <dt id="getFloat64" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getFloat64.html">getFloat64</a></span><span class="signature">(<wbr><span class="parameter" id="getFloat64-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, [</span><span class="parameter" id="getFloat64-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The floating point number represented by the eight bytes at
+the specified <code>byteOffset</code> in this object, in IEEE 754
+double-precision binary floating-point format (binary64).
+  
+
+</dd>
+
+        <dt id="getInt16" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getInt16.html">getInt16</a></span><span class="signature">(<wbr><span class="parameter" id="getInt16-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, [</span><span class="parameter" id="getInt16-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The (possibly negative) integer represented by the two bytes at
+the specified <code>byteOffset</code> in this object, in two's complement binary
+form.
+  
+
+</dd>
+
+        <dt id="getInt32" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getInt32.html">getInt32</a></span><span class="signature">(<wbr><span class="parameter" id="getInt32-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, [</span><span class="parameter" id="getInt32-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The (possibly negative) integer represented by the four bytes at
+the specified <code>byteOffset</code> in this object, in two's complement binary
+form.
+  
+
+</dd>
+
+        <dt id="getInt64" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getInt64.html">getInt64</a></span><span class="signature">(<wbr><span class="parameter" id="getInt64-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, [</span><span class="parameter" id="getInt64-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The (possibly negative) integer represented by the eight bytes at
+the specified <code>byteOffset</code> in this object, in two's complement binary
+form.
+  
+
+</dd>
+
+        <dt id="getInt8" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getInt8.html">getInt8</a></span><span class="signature">(<wbr><span class="parameter" id="getInt8-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The (possibly negative) integer represented by the byte at the
+specified <code>byteOffset</code> in this object, in two's complement binary
+representation.
+  
+
+</dd>
+
+        <dt id="getUint16" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getUint16.html">getUint16</a></span><span class="signature">(<wbr><span class="parameter" id="getUint16-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, [</span><span class="parameter" id="getUint16-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The positive integer represented by the two bytes starting
+at the specified <code>byteOffset</code> in this object, in unsigned binary
+form.
+  
+
+</dd>
+
+        <dt id="getUint32" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getUint32.html">getUint32</a></span><span class="signature">(<wbr><span class="parameter" id="getUint32-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, [</span><span class="parameter" id="getUint32-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The positive integer represented by the four bytes starting
+at the specified <code>byteOffset</code> in this object, in unsigned binary
+form.
+  
+
+</dd>
+
+        <dt id="getUint64" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getUint64.html">getUint64</a></span><span class="signature">(<wbr><span class="parameter" id="getUint64-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, [</span><span class="parameter" id="getUint64-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The positive integer represented by the eight bytes starting
+at the specified <code>byteOffset</code> in this object, in unsigned binary
+form.
+  
+
+</dd>
+
+        <dt id="getUint8" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/getUint8.html">getUint8</a></span><span class="signature">(<wbr><span class="parameter" id="getUint8-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The positive integer represented by the byte at the specified
+<code>byteOffset</code> in this object, in unsigned binary form.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="setFloat32" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setFloat32.html">setFloat32</a></span><span class="signature">(<wbr><span class="parameter" id="setFloat32-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setFloat32-param-value"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="setFloat32-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the four bytes starting at the specified <code>byteOffset</code> in this
+object to the IEEE 754 single-precision binary floating-point
+(binary32) representation of the specified <code>value</code>.
+  
+
+</dd>
+
+        <dt id="setFloat64" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setFloat64.html">setFloat64</a></span><span class="signature">(<wbr><span class="parameter" id="setFloat64-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setFloat64-param-value"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="setFloat64-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the eight bytes starting at the specified <code>byteOffset</code> in this
+object to the IEEE 754 double-precision binary floating-point
+(binary64) representation of the specified <code>value</code>.
+  
+
+</dd>
+
+        <dt id="setInt16" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setInt16.html">setInt16</a></span><span class="signature">(<wbr><span class="parameter" id="setInt16-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setInt16-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="setInt16-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the two bytes starting at the specified <code>byteOffset</code> in this
+object to the two's complement binary representation of the specified
+<code>value</code>, which must fit in two bytes.
+  
+
+</dd>
+
+        <dt id="setInt32" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setInt32.html">setInt32</a></span><span class="signature">(<wbr><span class="parameter" id="setInt32-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setInt32-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="setInt32-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the four bytes starting at the specified <code>byteOffset</code> in this
+object to the two's complement binary representation of the specified
+<code>value</code>, which must fit in four bytes.
+  
+
+</dd>
+
+        <dt id="setInt64" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setInt64.html">setInt64</a></span><span class="signature">(<wbr><span class="parameter" id="setInt64-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setInt64-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="setInt64-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the eight bytes starting at the specified <code>byteOffset</code> in this
+object to the two's complement binary representation of the specified
+<code>value</code>, which must fit in eight bytes.
+  
+
+</dd>
+
+        <dt id="setInt8" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setInt8.html">setInt8</a></span><span class="signature">(<wbr><span class="parameter" id="setInt8-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setInt8-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the byte at the specified <code>byteOffset</code> in this object to the
+two's complement binary representation of the specified <code>value</code>, which
+must fit in a single byte.
+  
+
+</dd>
+
+        <dt id="setUint16" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setUint16.html">setUint16</a></span><span class="signature">(<wbr><span class="parameter" id="setUint16-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setUint16-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="setUint16-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the two bytes starting at the specified <code>byteOffset</code> in this object
+to the unsigned binary representation of the specified <code>value</code>,
+which must fit in two bytes.
+  
+
+</dd>
+
+        <dt id="setUint32" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setUint32.html">setUint32</a></span><span class="signature">(<wbr><span class="parameter" id="setUint32-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setUint32-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="setUint32-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the four bytes starting at the specified <code>byteOffset</code> in this object
+to the unsigned binary representation of the specified <code>value</code>,
+which must fit in four bytes.
+  
+
+</dd>
+
+        <dt id="setUint64" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setUint64.html">setUint64</a></span><span class="signature">(<wbr><span class="parameter" id="setUint64-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setUint64-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="setUint64-param-endian"><span class="type-annotation"><a href="dart-typed_data/Endian-class.html">Endian</a></span> <span class="parameter-name">endian</span> = <span class="default-value">Endian.big</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the eight bytes starting at the specified <code>byteOffset</code> in this object
+to the unsigned binary representation of the specified <code>value</code>,
+which must fit in eight bytes.
+  
+
+</dd>
+
+        <dt id="setUint8" class="callable">
+  <span class="name"><a href="dart-typed_data/ByteData/setUint8.html">setUint8</a></span><span class="signature">(<wbr><span class="parameter" id="setUint8-param-byteOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">byteOffset</span>, </span><span class="parameter" id="setUint8-param-value"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sets the byte at the specified <code>byteOffset</code> in this object to the
+unsigned binary representation of the specified <code>value</code>, which must fit
+in a single byte.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="dart-typed_data/">dart:typed_data</a></li>
+    <li class="self-crumb">ByteData 类</li>
+</ol>
+
+    <h5>dart:typed_data library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

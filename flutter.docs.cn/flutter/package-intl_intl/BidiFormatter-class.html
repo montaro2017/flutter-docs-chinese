@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="intl 库中 BidiFormatter 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>BidiFormatter 类 - intl 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-intl_intl/">intl.dart</a></li>
+    <li class="self-crumb">BidiFormatter 类</li>
+  </ol>
+  <div class="self-name">BidiFormatter</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="package-intl_intl&#47;package-intl_intl-library-sidebar.html"
+    data-below-sidebar="package-intl_intl&#47;BidiFormatter-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">BidiFormatter</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Bidi 是双向文本（Bi-directional text）的缩写。根据 <a href="http://en.wikipedia.org/wiki/Bi-directional_text">维基百科</a>的定义：双向文本同时包含从右向左（RTL）和从左向右（LTR）两种方向的文字。通常指混合使用不同类型字母的文本，也可能指牛耕式书写，即每一行都改变书写方向。</p>
+<p>此工具类用于在方向可能相反的上下文中格式化显示文本，避免布局错乱。它主要是 Closure 双向文本格式化库经过精简并适配 Dart 的移植版本。如果你希望此格式化器提供 Closure 库（或 ICU、其他库）中的某项功能，请联系 Dart 团队。</p>
+<p>提供以下功能：</p>
+<ol>
+<li>
+<p><em>双向文本包装</em><br>当一种语言的文本插入到使用另一种方向相反语言的文档中时（例如，将英文企业名称嵌入希伯来语网页），如果没有在插入内容周围使用“包装”明确声明其方向并在末尾重置方向，插入字符串及其后续文本都可能显示错误。可以使用 HTML 标记（例如 span dir=rtl 标签）包装；无法使用标记时，则可使用 Unicode 双向格式控制码（LRE|RLE 和 PDF）。提供这类包装服务是 BiDi 格式化器的主要用途。</p>
+</li>
+<li>
+<p><em>方向估算</em><br>如何判断即将插入周围文本中的字符串是否与其方向一致？很多情况下，编写插入代码时就已知答案，例如将本地化消息插入本地化页面。这时无需调用 BiDi 格式化器。其他情况下（例如字符串由用户输入或来自数据库），字符串的语言及其书写方向无法预先确定，需要在运行时估算。BiDi 格式化器会自动完成此操作。</p>
+</li>
+<li>
+<p><em>转义</em><br>将纯文本（即尚未成为 HTML 或经过 HTML 转义的文本）包装进 HTML 标记时，必须先对文本进行 HTML 转义，以防止 XSS 攻击等问题。虽然任何时候都应如此，但字符串一旦被包装进标记，就无法再进行转义。因此，BiDi 格式化器也提供转义服务，作为最后一道防线。</p>
+</li>
+</ol>
+<p>因此，格式化器可以通过一次调用，按指定方式转义输入字符串、判断其书写方向，并在需要时进行包装。调用方随后可将返回值插入输出内容。</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="BidiFormatter.LTR" class="callable">
+          <span class="name"><a href="package-intl_intl/BidiFormatter/BidiFormatter.LTR.html">BidiFormatter.LTR</a></span><span class="signature">([<span class="parameter" id="LTR-param-alwaysSpan"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">alwaysSpan</span> = <span class="default-value">false</span></span>])</span>
+        </dt>
+        <dd>
+          Create a formatting object with a direction. If <code>alwaysSpan</code> is true we
+should always use a <code>span</code> tag, even when the input directionality is
+neutral or matches the context, so that the DOM structure of the output
+does not depend on the combination of directionalities.
+        </dd>
+        <dt id="BidiFormatter.RTL" class="callable">
+          <span class="name"><a href="package-intl_intl/BidiFormatter/BidiFormatter.RTL.html">BidiFormatter.RTL</a></span><span class="signature">([<span class="parameter" id="RTL-param-alwaysSpan"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">alwaysSpan</span> = <span class="default-value">false</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="BidiFormatter.UNKNOWN" class="callable">
+          <span class="name"><a href="package-intl_intl/BidiFormatter/BidiFormatter.UNKNOWN.html">BidiFormatter.UNKNOWN</a></span><span class="signature">([<span class="parameter" id="UNKNOWN-param-alwaysSpan"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">alwaysSpan</span> = <span class="default-value">false</span></span>])</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="contextDirection" class="property">
+  <span class="name"><a href="package-intl_intl/BidiFormatter/contextDirection.html">contextDirection</a></span>
+  <span class="signature">&#8596; <a href="package-intl_intl/TextDirection-class.html">TextDirection</a></span>
+  
+
+</dt>
+<dd>
+  The direction of the surrounding text (the context).
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isRTL" class="property">
+  <span class="name"><a href="package-intl_intl/BidiFormatter/isRTL.html">isRTL</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Is true if the known context direction for this formatter is RTL.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="estimateDirection" class="callable">
+  <span class="name"><a href="package-intl_intl/BidiFormatter/estimateDirection.html">estimateDirection</a></span><span class="signature">(<wbr><span class="parameter" id="estimateDirection-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span>, {</span><span class="parameter" id="estimateDirection-param-isHtml"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isHtml</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="package-intl_intl/TextDirection-class.html">TextDirection</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Estimates the directionality of <code>text</code> using the best known
+general-purpose method (using relative word counts). A
+TextDirection.UNKNOWN return value indicates completely neutral input.
+<code>isHtml</code> is true if <code>text</code> HTML or HTML-escaped.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="wrapWithSpan" class="callable">
+  <span class="name"><a href="package-intl_intl/BidiFormatter/wrapWithSpan.html">wrapWithSpan</a></span><span class="signature">(<wbr><span class="parameter" id="wrapWithSpan-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span>, {</span><span class="parameter" id="wrapWithSpan-param-isHtml"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isHtml</span> = <span class="default-value">false</span>, </span><span class="parameter" id="wrapWithSpan-param-resetDir"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">resetDir</span> = <span class="default-value">true</span>, </span><span class="parameter" id="wrapWithSpan-param-direction"><span class="type-annotation"><a href="package-intl_intl/TextDirection-class.html">TextDirection</a>?</span> <span class="parameter-name">direction</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Formats a string of a given (or estimated, if not provided) <code>direction</code>
+for use in HTML output of the context directionality, so an
+opposite-directionality string is neither garbled nor garbles what follows
+it.
+  
+
+</dd>
+
+        <dt id="wrapWithUnicode" class="callable">
+  <span class="name"><a href="package-intl_intl/BidiFormatter/wrapWithUnicode.html">wrapWithUnicode</a></span><span class="signature">(<wbr><span class="parameter" id="wrapWithUnicode-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span>, {</span><span class="parameter" id="wrapWithUnicode-param-isHtml"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isHtml</span> = <span class="default-value">false</span>, </span><span class="parameter" id="wrapWithUnicode-param-resetDir"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">resetDir</span> = <span class="default-value">true</span>, </span><span class="parameter" id="wrapWithUnicode-param-direction"><span class="type-annotation"><a href="package-intl_intl/TextDirection-class.html">TextDirection</a>?</span> <span class="parameter-name">direction</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Format <code>text</code> of a known (if specified) or estimated <code>direction</code> for use
+in <em>plain-text</em> output of the context directionality, so an
+opposite-directionality text is neither garbled nor garbles what follows
+it. Unlike wrapWithSpan, this makes use of unicode BiDi formatting
+characters instead of spans for wrapping. The returned string would be
+RLE+text+PDF for RTL text, or LRE+text+PDF for LTR text.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="package-intl_intl/">intl</a></li>
+    <li class="self-crumb">BidiFormatter 类</li>
+</ol>
+
+    <h5>intl 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="rendering 库中 RenderObject 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>RenderObject 类 - rendering 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="rendering/">rendering.dart</a></li>
+    <li class="self-crumb">RenderObject 类</li>
+  </ol>
+  <div class="self-name">RenderObject</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="rendering&#47;rendering-library-sidebar.html"
+    data-below-sidebar="rendering&#47;RenderObject-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L2003"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">RenderObject</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>An object in the render tree.</p>
+<p>The <a href="rendering/RenderObject-class.html">RenderObject</a> class hierarchy is the core of the rendering
+library's reason for being.</p>
+<iframe src="https://www.youtube.com/embed/zmbmrw07qBc?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
+autoplay; 
+clipboard-write; 
+encrypted-media; 
+gyroscope; 
+picture-in-picture" allowfullscreen="" style="max-width: 560px;
+max-height: 315px;
+width: 100%;
+height: 100%;
+aspect-ratio: 560 / 315;">
+</iframe>
+<p><a href="rendering/RenderObject-class.html">RenderObject</a>s have a <a href="rendering/RenderObject/parent.html">parent</a>, and have a slot called <a href="rendering/RenderObject/parentData.html">parentData</a> in
+which the parent <a href="rendering/RenderObject-class.html">RenderObject</a> can store child-specific data, for example,
+the child position. The <a href="rendering/RenderObject-class.html">RenderObject</a> class also implements the basic
+layout and paint protocols.</p>
+<p>The <a href="rendering/RenderObject-class.html">RenderObject</a> class, however, does not define a child model (e.g.
+whether a node has zero, one, or more children). It also doesn't define a
+coordinate system (e.g. whether children are positioned in Cartesian
+coordinates, in polar coordinates, etc) or a specific layout protocol (e.g.
+whether the layout is width-in-height-out, or constraint-in-size-out, or
+whether the parent sets the size and position of the child before or after
+the child lays out, etc; or indeed whether the children are allowed to read
+their parent's <a href="rendering/RenderObject/parentData.html">parentData</a> slot).</p>
+<p>The <a href="rendering/RenderBox-class.html">RenderBox</a> subclass introduces the opinion that the layout
+system uses Cartesian coordinates.</p>
+<h2 id="lifecycle">生命周期</h2>
+<p>A <a href="rendering/RenderObject-class.html">RenderObject</a> must <a href="rendering/RenderObject/dispose.html">dispose</a> when it is no longer needed. The creator
+of the object is responsible for disposing of it. Typically, the creator is
+a <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a>, and that element will dispose the object it creates
+when it is unmounted.</p>
+<p><a href="rendering/RenderObject-class.html">RenderObject</a>s are responsible for cleaning up any expensive resources
+they hold when <a href="rendering/RenderObject/dispose.html">dispose</a> is called, such as <a href="dart-ui/Picture-class.html">Picture</a> or <a href="dart-ui/Image-class.html">Image</a> objects.
+This includes any <a href="rendering/Layer-class.html">Layer</a>s that the render object has directly created. The
+base implementation of dispose will nullify the <a href="rendering/RenderObject/layer.html">layer</a> property. Subclasses
+must also nullify any other layer(s) it directly creates.</p>
+<h2 id="writing-a-renderobject-subclass">Writing a RenderObject subclass</h2>
+<p>In most cases, subclassing <a href="rendering/RenderObject-class.html">RenderObject</a> itself is overkill, and
+<a href="rendering/RenderBox-class.html">RenderBox</a> would be a better starting point. However, if a render object
+doesn't want to use a Cartesian coordinate system, then it should indeed
+inherit from <a href="rendering/RenderObject-class.html">RenderObject</a> directly. This allows it to define its own
+layout protocol by using a new subclass of <a href="rendering/Constraints-class.html">Constraints</a> rather than using
+<a href="rendering/BoxConstraints-class.html">BoxConstraints</a>, and by potentially using an entirely new set of objects
+and values to represent the result of the output rather than just a <a href="dart-ui/Size-class.html">Size</a>.
+This increased flexibility comes at the cost of not being able to rely on
+the features of <a href="rendering/RenderBox-class.html">RenderBox</a>. For example, <a href="rendering/RenderBox-class.html">RenderBox</a> implements an
+intrinsic sizing protocol that allows you to measure a child without fully
+laying it out, in such a way that if that child changes size, the parent
+will be laid out again (to take into account the new dimensions of the
+child). This is a subtle and bug-prone feature to get right.</p>
+<p>Most aspects of writing a <a href="rendering/RenderBox-class.html">RenderBox</a> apply to writing a <a href="rendering/RenderObject-class.html">RenderObject</a> as
+well, and therefore the discussion at <a href="rendering/RenderBox-class.html">RenderBox</a> is recommended background
+reading. The main differences are around layout and hit testing, since those
+are the aspects that <a href="rendering/RenderBox-class.html">RenderBox</a> primarily specializes.</p>
+<h3 id="layout">Layout</h3>
+<p>A layout protocol begins with a subclass of <a href="rendering/Constraints-class.html">Constraints</a>. See the
+discussion at <a href="rendering/Constraints-class.html">Constraints</a> for more information on how to write a
+<a href="rendering/Constraints-class.html">Constraints</a> subclass.</p>
+<p>The <a href="rendering/RenderObject/performLayout.html">performLayout</a> method should take the <a href="rendering/RenderObject/constraints.html">constraints</a>, and apply them.
+The output of the layout algorithm is fields set on the object that describe
+the geometry of the object for the purposes of the parent's layout. For
+example, with <a href="rendering/RenderBox-class.html">RenderBox</a> the output is the <a href="rendering/RenderBox/size.html">RenderBox.size</a> field. This
+output should only be read by the parent if the parent specified
+<code>parentUsesSize</code> as true when calling <a href="rendering/RenderObject/layout.html">layout</a> on the child.</p>
+<p>Anytime anything changes on a render object that would affect the layout of
+that object, it should call <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>.</p>
+<h3 id="hit-testing">Hit Testing</h3>
+<p>Hit testing is even more open-ended than layout. There is no method to
+override, you are expected to provide one.</p>
+<p>The general behavior of your hit-testing method should be similar to the
+behavior described for <a href="rendering/RenderBox-class.html">RenderBox</a>. The main difference is that the input
+need not be an <a href="dart-ui/Offset-class.html">Offset</a>. You are also allowed to use a different subclass of
+<a href="gestures/HitTestEntry-class.html">HitTestEntry</a> when adding entries to the <a href="gestures/HitTestResult-class.html">HitTestResult</a>. When the
+<a href="rendering/RenderObject/handleEvent.html">handleEvent</a> method is called, the same object that was added to the
+<a href="gestures/HitTestResult-class.html">HitTestResult</a> will be passed in, so it can be used to track information
+like the precise coordinate of the hit, in whatever coordinate system is
+used by the new layout protocol.</p>
+<h3 id="adapting-from-one-protocol-to-another">Adapting from one protocol to another</h3>
+<p>In general, the root of a Flutter render object tree is a <a href="rendering/RenderView-class.html">RenderView</a>. This
+object has a single child, which must be a <a href="rendering/RenderBox-class.html">RenderBox</a>. Thus, if you want to
+have a custom <a href="rendering/RenderObject-class.html">RenderObject</a> subclass in the render tree, you have two
+choices: you either need to replace the <a href="rendering/RenderView-class.html">RenderView</a> itself, or you need to
+have a <a href="rendering/RenderBox-class.html">RenderBox</a> that has your class as its child. (The latter is the much
+more common case.)</p>
+<p>This <a href="rendering/RenderBox-class.html">RenderBox</a> subclass converts from the box protocol to the protocol of
+your class.</p>
+<p>In particular, this means that for hit testing it overrides
+<a href="rendering/RenderBox/hitTest.html">RenderBox.hitTest</a>, and calls whatever method you have in your class for
+hit testing.</p>
+<p>Similarly, it overrides <a href="rendering/RenderObject/performLayout.html">performLayout</a> to create a <a href="rendering/Constraints-class.html">Constraints</a> object
+appropriate for your class and passes that to the child's <a href="rendering/RenderObject/layout.html">layout</a> method.</p>
+<h3 id="layout-interactions-between-render-objects">Layout interactions between render objects</h3>
+<p>In general, the layout of a render object should only depend on the output of
+its child's layout, and then only if <code>parentUsesSize</code> is set to true in the
+<a href="rendering/RenderObject/layout.html">layout</a> call. Furthermore, if it is set to true, the parent must call the
+child's <a href="rendering/RenderObject/layout.html">layout</a> if the child is to be rendered, because otherwise the
+parent will not be notified when the child changes its layout outputs.</p>
+<p>It is possible to set up render object protocols that transfer additional
+information. For example, in the <a href="rendering/RenderBox-class.html">RenderBox</a> protocol you can query your
+children's intrinsic dimensions and baseline geometry. However, if this is
+done then it is imperative that the child call <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a> on the
+parent any time that additional information changes, if the parent used it
+in the last layout phase. For an example of how to implement this, see the
+<a href="rendering/RenderBox/markNeedsLayout.html">RenderBox.markNeedsLayout</a> method. It overrides
+<a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a> so that if a parent has queried the intrinsic
+or baseline information, it gets marked dirty whenever the child's geometry
+changes.</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+  <dt>实现的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="gestures/HitTestTarget-class.html">HitTestTarget</a></li>
+    </ul>
+  </dd>
+        
+  <dt>混入的类型</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="foundation/DiagnosticableTreeMixin-mixin.html">DiagnosticableTreeMixin</a></li>
+    </ul>
+  </dd>
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="rendering/ContainerRenderObjectMixin-mixin.html">ContainerRenderObjectMixin</a></li>
+              <li><a href="rendering/DebugOverflowIndicatorMixin-mixin.html">DebugOverflowIndicatorMixin</a></li>
+              <li><a href="rendering/RelayoutWhenSystemFontsChangeMixin-mixin.html">RelayoutWhenSystemFontsChangeMixin</a></li>
+              <li><a href="rendering/RenderAbstractViewport-class.html">RenderAbstractViewport</a></li>
+              <li><a href="rendering/RenderBox-class.html">RenderBox</a></li>
+              <li><a href="rendering/RenderObjectWithChildMixin-mixin.html">RenderObjectWithChildMixin</a></li>
+              <li><a href="rendering/RenderObjectWithLayoutCallbackMixin-mixin.html">RenderObjectWithLayoutCallbackMixin</a></li>
+              <li><a href="rendering/RenderSliver-class.html">RenderSliver</a></li>
+              <li><a href="rendering/RenderView-class.html">RenderView</a></li>
+              <li><a href="rendering/SemanticsAnnotationsMixin-mixin.html">SemanticsAnnotationsMixin</a></li>
+              <li><a href="widgets/SlottedContainerRenderObjectMixin-mixin.html">SlottedContainerRenderObjectMixin</a></li>
+          </ul></dd>
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="RenderObject.new" class="callable">
+          <span class="name"><a href="rendering/RenderObject/RenderObject.html">RenderObject</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          Initializes internal fields for subclasses.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="alwaysNeedsCompositing" class="property">
+  <span class="name"><a href="rendering/RenderObject/alwaysNeedsCompositing.html">alwaysNeedsCompositing</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this render object always needs compositing.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="attached" class="property">
+  <span class="name"><a href="rendering/RenderObject/attached.html">attached</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the render tree this render object belongs to is attached to a <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="constraints" class="property">
+  <span class="name"><a href="rendering/RenderObject/constraints.html">constraints</a></span>
+  <span class="signature">&#8594; <a href="rendering/Constraints-class.html">Constraints</a></span>
+  
+
+</dt>
+<dd>
+  The layout constraints most recently supplied by the parent.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugCanParentUseSize" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the parent render object is permitted to use this render object's
+size.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugCreator" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugCreator.html">debugCreator</a></span>
+  <span class="signature">&#8596; <a href="dart-core/Object-class.html">Object</a>?</span>
+  
+
+</dt>
+<dd>
+  The object responsible for creating this render object.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="debugDisposed" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugDisposed.html">debugDisposed</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  
+
+</dt>
+<dd>
+  Whether this has been disposed.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugDoingThisLayout" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugDoingThisLayout.html">debugDoingThisLayout</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether <a href="rendering/RenderObject/performLayout.html">performLayout</a> for this render object is currently running.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugDoingThisLayoutWithCallback" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugDoingThisLayoutWithCallback.html">debugDoingThisLayoutWithCallback</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether <a href="rendering/RenderObject/invokeLayoutCallback.html">invokeLayoutCallback</a> for this render object is currently running.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugDoingThisPaint" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugDoingThisPaint.html">debugDoingThisPaint</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether <a href="rendering/RenderObject/paint.html">paint</a> for this render object is currently running.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugDoingThisResize" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugDoingThisResize.html">debugDoingThisResize</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether <a href="rendering/RenderObject/performResize.html">performResize</a> for this render object is currently running.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugLayer" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugLayer.html">debugLayer</a></span>
+  <span class="signature">&#8594; <a href="rendering/ContainerLayer-class.html">ContainerLayer</a>?</span>
+  
+
+</dt>
+<dd>
+  In debug mode, the compositing layer that this render object uses to repaint.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugLayoutParent" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugLayoutParent.html">debugLayoutParent</a></span>
+  <span class="signature">&#8594; <a href="rendering/RenderObject-class.html">RenderObject</a>?</span>
+  
+
+</dt>
+<dd>
+  The <a href="rendering/RenderObject-class.html">RenderObject</a> that's expected to call <a href="rendering/RenderObject/layout.html">layout</a> on this <a href="rendering/RenderObject-class.html">RenderObject</a>
+in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> implementation.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugNeedsCompositedLayerUpdate" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugNeedsCompositedLayerUpdate.html">debugNeedsCompositedLayerUpdate</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this render object's layer information is dirty.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugNeedsLayout" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugNeedsLayout.html">debugNeedsLayout</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this render object's layout information is dirty.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugNeedsPaint" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugNeedsPaint.html">debugNeedsPaint</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this render object's paint information is dirty.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugNeedsSemanticsUpdate" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugNeedsSemanticsUpdate.html">debugNeedsSemanticsUpdate</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the semantics of this render object is dirty and await the update.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugSemantics" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugSemantics.html">debugSemantics</a></span>
+  <span class="signature">&#8594; <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>?</span>
+  
+
+</dt>
+<dd>
+  The semantics of this render object.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="depth" class="property">
+  <span class="name"><a href="rendering/RenderObject/depth.html">depth</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  The depth of this render object in the render tree.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="isRepaintBoundary" class="property">
+  <span class="name"><a href="rendering/RenderObject/isRepaintBoundary.html">isRepaintBoundary</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether this render object repaints separately from its parent.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="layer" class="property">
+  <span class="name"><a href="rendering/RenderObject/layer.html">layer</a></span>
+  <span class="signature">&#8596; <a href="rendering/ContainerLayer-class.html">ContainerLayer</a>?</span>
+  
+
+</dt>
+<dd>
+  The compositing layer that this render object uses to repaint.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="needsCompositing" class="property">
+  <span class="name"><a href="rendering/RenderObject/needsCompositing.html">needsCompositing</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether we or one of our descendants has a compositing layer.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="owner" class="property">
+  <span class="name"><a href="rendering/RenderObject/owner.html">owner</a></span>
+  <span class="signature">&#8594; <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>?</span>
+  
+
+</dt>
+<dd>
+  The owner for this render object (null if unattached).
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="paintBounds" class="property">
+  <span class="name"><a href="rendering/RenderObject/paintBounds.html">paintBounds</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Rect-class.html">Rect</a></span>
+  
+
+</dt>
+<dd>
+  An estimate of the bounds within which this render object will paint.
+Useful for debugging flags such as <a href="rendering/debugPaintLayerBordersEnabled.html">debugPaintLayerBordersEnabled</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="parent" class="property">
+  <span class="name"><a href="rendering/RenderObject/parent.html">parent</a></span>
+  <span class="signature">&#8594; <a href="rendering/RenderObject-class.html">RenderObject</a>?</span>
+  
+
+</dt>
+<dd>
+  The parent of this render object in the render tree.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="parentData" class="property">
+  <span class="name"><a href="rendering/RenderObject/parentData.html">parentData</a></span>
+  <span class="signature">&#8596; <a href="rendering/ParentData-class.html">ParentData</a>?</span>
+  
+
+</dt>
+<dd>
+  Data for use by the parent render object.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="semanticBounds" class="property">
+  <span class="name"><a href="rendering/RenderObject/semanticBounds.html">semanticBounds</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Rect-class.html">Rect</a></span>
+  
+
+</dt>
+<dd>
+  The bounding box, in the local coordinate system, of this
+object, for accessibility purposes.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="sizedByParent" class="property">
+  <span class="name"><a href="rendering/RenderObject/sizedByParent.html">sizedByParent</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the constraints are the only input to the sizing algorithm (in
+particular, child nodes have no impact).
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="adoptChild" class="callable">
+  <span class="name"><a href="rendering/RenderObject/adoptChild.html">adoptChild</a></span><span class="signature">(<wbr><span class="parameter" id="adoptChild-param-child"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called by subclasses when they decide a render object is a child.
+  
+
+</dd>
+
+        <dt id="applyPaintTransform" class="callable">
+  <span class="name"><a href="rendering/RenderObject/applyPaintTransform.html">applyPaintTransform</a></span><span class="signature">(<wbr><span class="parameter" id="applyPaintTransform-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="applyPaintTransform-param-transform"><span class="type-annotation"><a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a></span> <span class="parameter-name">transform</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Applies the transform that would be applied when painting the given child
+to the given matrix.
+  
+
+</dd>
+
+        <dt id="assembleSemanticsNode" class="callable">
+  <span class="name"><a href="rendering/RenderObject/assembleSemanticsNode.html">assembleSemanticsNode</a></span><span class="signature">(<wbr><span class="parameter" id="assembleSemanticsNode-param-node"><span class="type-annotation"><a href="semantics/SemanticsNode-class.html">SemanticsNode</a></span> <span class="parameter-name">node</span>, </span><span class="parameter" id="assembleSemanticsNode-param-config"><span class="type-annotation"><a href="semantics/SemanticsConfiguration-class.html">SemanticsConfiguration</a></span> <span class="parameter-name">config</span>, </span><span class="parameter" id="assembleSemanticsNode-param-children"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="semantics/SemanticsNode-class.html">SemanticsNode</a></span>&gt;</span></span> <span class="parameter-name">children</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Assemble the <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> for this <a href="rendering/RenderObject-class.html">RenderObject</a>.
+  
+
+</dd>
+
+        <dt id="attach" class="callable">
+  <span class="name"><a href="rendering/RenderObject/attach.html">attach</a></span><span class="signature">(<wbr><span class="parameter" id="attach-param-owner"><span class="type-annotation"><a href="rendering/PipelineOwner-class.html">PipelineOwner</a></span> <span class="parameter-name">owner</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark this render object as attached to the given owner.
+  
+
+</dd>
+
+        <dt id="clearSemantics" class="callable">
+  <span class="name"><a href="rendering/RenderObject/clearSemantics.html">clearSemantics</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Removes all semantics from this render object and its descendants.
+  
+
+</dd>
+
+        <dt id="debugAssertDoesMeetConstraints" class="callable">
+  <span class="name"><a href="rendering/RenderObject/debugAssertDoesMeetConstraints.html">debugAssertDoesMeetConstraints</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Verify that the object's constraints are being met. Override this function
+in a subclass to verify that your state matches the constraints object.
+This function is only called when asserts are enabled (i.e. in debug mode)
+and only when needsLayout is false. If the constraints are not met, it
+should assert or throw an exception.
+  
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable">
+  <span class="name"><a href="rendering/RenderObject/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable">
+  <span class="name"><a href="rendering/RenderObject/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugPaint" class="callable">
+  <span class="name"><a href="rendering/RenderObject/debugPaint.html">debugPaint</a></span><span class="signature">(<wbr><span class="parameter" id="debugPaint-param-context"><span class="type-annotation"><a href="rendering/PaintingContext-class.html">PaintingContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="debugPaint-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Override this method to paint debugging information.
+  
+
+</dd>
+
+        <dt id="debugRegisterRepaintBoundaryPaint" class="callable">
+  <span class="name"><a href="rendering/RenderObject/debugRegisterRepaintBoundaryPaint.html">debugRegisterRepaintBoundaryPaint</a></span><span class="signature">(<wbr>{<span class="parameter" id="debugRegisterRepaintBoundaryPaint-param-includedParent"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includedParent</span> = <span class="default-value">true</span>, </span><span class="parameter" id="debugRegisterRepaintBoundaryPaint-param-includedChild"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includedChild</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called, in debug mode, if <a href="rendering/RenderObject/isRepaintBoundary.html">isRepaintBoundary</a> is true, when either the
+this render object or its parent attempt to paint.
+  
+
+</dd>
+
+        <dt id="debugResetSize" class="callable">
+  <span class="name"><a href="rendering/RenderObject/debugResetSize.html">debugResetSize</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  If a subclass has a "size" (the state controlled by <code>parentUsesSize</code>,
+whatever it is in the subclass, e.g. the actual <code>size</code> property of
+<a href="rendering/RenderBox-class.html">RenderBox</a>), and the subclass verifies that in debug mode this "size"
+property isn't used when <a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a> isn't set, then that
+subclass should override <a href="rendering/RenderObject/debugResetSize.html">debugResetSize</a> to reapply the current values of
+<a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a> to that state.
+  
+
+</dd>
+
+        <dt id="describeApproximatePaintClip" class="callable">
+  <span class="name"><a href="rendering/RenderObject/describeApproximatePaintClip.html">describeApproximatePaintClip</a></span><span class="signature">(<wbr><span class="parameter" id="describeApproximatePaintClip-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Rect-class.html">Rect</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a rect in this object's coordinate system that describes
+the approximate bounding box of the clip rect that would be
+applied to the given child during the paint phase, if any.
+  
+
+</dd>
+
+        <dt id="describeForError" class="callable">
+  <span class="name"><a href="rendering/RenderObject/describeForError.html">describeForError</a></span><span class="signature">(<wbr><span class="parameter" id="describeForError-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, {</span><span class="parameter" id="describeForError-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a></span> <span class="parameter-name">style</span> = <span class="default-value">DiagnosticsTreeStyle.shallow</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds a debug representation of a <a href="rendering/RenderObject-class.html">RenderObject</a> optimized for including in
+error messages.
+  
+
+</dd>
+
+        <dt id="describeSemanticsClip" class="callable">
+  <span class="name"><a href="rendering/RenderObject/describeSemanticsClip.html">describeSemanticsClip</a></span><span class="signature">(<wbr><span class="parameter" id="describeSemanticsClip-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a>?</span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-ui/Rect-class.html">Rect</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a rect in this object's coordinate system that describes
+which <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s produced by the <code>child</code> should be included in the
+semantics tree. <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s from the <code>child</code> that are positioned
+outside of this rect will be dropped. Child <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s that are
+positioned inside this rect, but outside of <a href="rendering/RenderObject/describeApproximatePaintClip.html">describeApproximatePaintClip</a>
+will be included in the tree marked as hidden. Child <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s
+that are inside of both rect will be included in the tree as regular
+nodes.
+  
+
+</dd>
+
+        <dt id="describeSemanticsConfiguration" class="callable">
+  <span class="name"><a href="rendering/RenderObject/describeSemanticsConfiguration.html">describeSemanticsConfiguration</a></span><span class="signature">(<wbr><span class="parameter" id="describeSemanticsConfiguration-param-config"><span class="type-annotation"><a href="semantics/SemanticsConfiguration-class.html">SemanticsConfiguration</a></span> <span class="parameter-name">config</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Report the semantics of this node, for example for accessibility purposes.
+  
+
+</dd>
+
+        <dt id="detach" class="callable">
+  <span class="name"><a href="rendering/RenderObject/detach.html">detach</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark this render object as detached from its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>.
+  
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="rendering/RenderObject/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Release any resources held by this render object.
+  
+
+</dd>
+
+        <dt id="dropChild" class="callable">
+  <span class="name"><a href="rendering/RenderObject/dropChild.html">dropChild</a></span><span class="signature">(<wbr><span class="parameter" id="dropChild-param-child"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called by subclasses when they decide a render object is no longer a child.
+  
+
+</dd>
+
+        <dt id="getTransformTo" class="callable">
+  <span class="name"><a href="rendering/RenderObject/getTransformTo.html">getTransformTo</a></span><span class="signature">(<wbr><span class="parameter" id="getTransformTo-param-target"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a>?</span> <span class="parameter-name">target</span></span>)
+    <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Applies the paint transform from this <a href="rendering/RenderObject-class.html">RenderObject</a> to the <code>target</code>
+<a href="rendering/RenderObject-class.html">RenderObject</a>.
+  
+
+</dd>
+
+        <dt id="handleEvent" class="callable">
+  <span class="name"><a href="rendering/RenderObject/handleEvent.html">handleEvent</a></span><span class="signature">(<wbr><span class="parameter" id="handleEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span>, </span><span class="parameter" id="handleEvent-param-entry"><span>covariant</span> <span class="type-annotation"><a href="gestures/HitTestEntry-class.html">HitTestEntry</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="gestures/HitTestTarget-class.html">HitTestTarget</a></span>&gt;</span></span> <span class="parameter-name">entry</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Override this method to handle pointer events that hit this render object.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="invokeLayoutCallback" class="callable">
+  <span class="name"><a href="rendering/RenderObject/invokeLayoutCallback.html">invokeLayoutCallback</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="rendering/Constraints-class.html">Constraints</a></span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="invokeLayoutCallback-param-callback"><span class="type-annotation"><a href="rendering/LayoutCallback.html">LayoutCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">callback</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Allows mutations to be made to this object's child list (and any
+descendants) as well as to any other dirty nodes in the render tree owned
+by the same <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> as this object. The <code>callback</code> argument is
+invoked synchronously, and the mutations are allowed only during that
+callback's execution.
+  
+
+</dd>
+
+        <dt id="layout" class="callable">
+  <span class="name"><a href="rendering/RenderObject/layout.html">layout</a></span><span class="signature">(<wbr><span class="parameter" id="layout-param-constraints"><span class="type-annotation"><a href="rendering/Constraints-class.html">Constraints</a></span> <span class="parameter-name">constraints</span>, {</span><span class="parameter" id="layout-param-parentUsesSize"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">parentUsesSize</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Compute the layout for this render object.
+  
+
+</dd>
+
+        <dt id="markNeedsCompositedLayerUpdate" class="callable">
+  <span class="name"><a href="rendering/RenderObject/markNeedsCompositedLayerUpdate.html">markNeedsCompositedLayerUpdate</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark this render object as having changed a property on its composited
+layer.
+  
+
+</dd>
+
+        <dt id="markNeedsCompositingBitsUpdate" class="callable">
+  <span class="name"><a href="rendering/RenderObject/markNeedsCompositingBitsUpdate.html">markNeedsCompositingBitsUpdate</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark the compositing state for this render object as dirty.
+  
+
+</dd>
+
+        <dt id="markNeedsLayout" class="callable">
+  <span class="name"><a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark this render object's layout information as dirty, and either register
+this object with its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>, or defer to the parent, depending on
+whether this object is a relayout boundary or not respectively.
+  
+
+</dd>
+
+        <dt id="markNeedsLayoutForSizedByParentChange" class="callable">
+  <span class="name"><a href="rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html">markNeedsLayoutForSizedByParentChange</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark this render object's layout information as dirty (like
+<a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>), and additionally also handle any necessary work to
+handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedByParent</a> has changed value.
+  
+
+</dd>
+
+        <dt id="markNeedsPaint" class="callable">
+  <span class="name"><a href="rendering/RenderObject/markNeedsPaint.html">markNeedsPaint</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark this render object as having changed its visual appearance.
+  
+
+</dd>
+
+        <dt id="markNeedsSemanticsUpdate" class="callable">
+  <span class="name"><a href="rendering/RenderObject/markNeedsSemanticsUpdate.html">markNeedsSemanticsUpdate</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark this node as needing an update to its semantics description.
+  
+
+</dd>
+
+        <dt id="markParentNeedsLayout" class="callable">
+  <span class="name"><a href="rendering/RenderObject/markParentNeedsLayout.html">markParentNeedsLayout</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Mark this render object's layout information as dirty, and then defer to
+the parent.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="paint" class="callable">
+  <span class="name"><a href="rendering/RenderObject/paint.html">paint</a></span><span class="signature">(<wbr><span class="parameter" id="paint-param-context"><span class="type-annotation"><a href="rendering/PaintingContext-class.html">PaintingContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="paint-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Paint this render object into the given context at the given offset.
+  
+
+</dd>
+
+        <dt id="paintsChild" class="callable">
+  <span class="name"><a href="rendering/RenderObject/paintsChild.html">paintsChild</a></span><span class="signature">(<wbr><span class="parameter" id="paintsChild-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether the given child would be painted if <a href="rendering/RenderObject/paint.html">paint</a> were called.
+  
+
+</dd>
+
+        <dt id="performLayout" class="callable">
+  <span class="name"><a href="rendering/RenderObject/performLayout.html">performLayout</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Do the work of computing the layout for this render object.
+  
+
+</dd>
+
+        <dt id="performResize" class="callable">
+  <span class="name"><a href="rendering/RenderObject/performResize.html">performResize</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Updates the render objects size using only the constraints.
+  
+
+</dd>
+
+        <dt id="reassemble" class="callable">
+  <span class="name"><a href="rendering/RenderObject/reassemble.html">reassemble</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Cause the entire subtree rooted at the given <a href="rendering/RenderObject-class.html">RenderObject</a> to be marked
+dirty for layout, paint, etc, so that the effects of a hot reload can be
+seen, or so that the effect of changing a global debug flag (such as
+<a href="rendering/debugPaintSizeEnabled.html">debugPaintSizeEnabled</a>) can be applied.
+  
+
+</dd>
+
+        <dt id="redepthChild" class="callable">
+  <span class="name"><a href="rendering/RenderObject/redepthChild.html">redepthChild</a></span><span class="signature">(<wbr><span class="parameter" id="redepthChild-param-child"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adjust the <a href="rendering/RenderObject/depth.html">depth</a> of the given <code>child</code> to be greater than this node's own
+<a href="rendering/RenderObject/depth.html">depth</a>.
+  
+
+</dd>
+
+        <dt id="redepthChildren" class="callable">
+  <span class="name"><a href="rendering/RenderObject/redepthChildren.html">redepthChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adjust the <a href="rendering/RenderObject/depth.html">depth</a> of this node's children, if any.
+  
+
+</dd>
+
+        <dt id="replaceRootLayer" class="callable">
+  <span class="name"><a href="rendering/RenderObject/replaceRootLayer.html">replaceRootLayer</a></span><span class="signature">(<wbr><span class="parameter" id="replaceRootLayer-param-rootLayer"><span class="type-annotation"><a href="rendering/OffsetLayer-class.html">OffsetLayer</a></span> <span class="parameter-name">rootLayer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Replace the layer. This is only valid for the root of a render
+object subtree (whatever object <a href="rendering/RenderObject/scheduleInitialPaint.html">scheduleInitialPaint</a> was
+called on).
+  
+
+</dd>
+
+        <dt id="scheduleInitialLayout" class="callable">
+  <span class="name"><a href="rendering/RenderObject/scheduleInitialLayout.html">scheduleInitialLayout</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Bootstrap the rendering pipeline by scheduling the very first layout.
+  
+
+</dd>
+
+        <dt id="scheduleInitialPaint" class="callable">
+  <span class="name"><a href="rendering/RenderObject/scheduleInitialPaint.html">scheduleInitialPaint</a></span><span class="signature">(<wbr><span class="parameter" id="scheduleInitialPaint-param-rootLayer"><span class="type-annotation"><a href="rendering/ContainerLayer-class.html">ContainerLayer</a></span> <span class="parameter-name">rootLayer</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Bootstrap the rendering pipeline by scheduling the very first paint.
+  
+
+</dd>
+
+        <dt id="scheduleInitialSemantics" class="callable">
+  <span class="name"><a href="rendering/RenderObject/scheduleInitialSemantics.html">scheduleInitialSemantics</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Bootstrap the semantics reporting mechanism by marking this node
+as needing a semantics update.
+  
+
+</dd>
+
+        <dt id="sendSemanticsEvent" class="callable">
+  <span class="name"><a href="rendering/RenderObject/sendSemanticsEvent.html">sendSemanticsEvent</a></span><span class="signature">(<wbr><span class="parameter" id="sendSemanticsEvent-param-semanticsEvent"><span class="type-annotation"><a href="semantics/SemanticsEvent-class.html">SemanticsEvent</a></span> <span class="parameter-name">semanticsEvent</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Sends a <a href="semantics/SemanticsEvent-class.html">SemanticsEvent</a> associated with this render object's <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>.
+  
+
+</dd>
+
+        <dt id="setupParentData" class="callable">
+  <span class="name"><a href="rendering/RenderObject/setupParentData.html">setupParentData</a></span><span class="signature">(<wbr><span class="parameter" id="setupParentData-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Override to setup parent data correctly for your children.
+  
+
+</dd>
+
+        <dt id="showOnScreen" class="callable">
+  <span class="name"><a href="rendering/RenderObject/showOnScreen.html">showOnScreen</a></span><span class="signature">(<wbr>{<span class="parameter" id="showOnScreen-param-descendant"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a>?</span> <span class="parameter-name">descendant</span>, </span><span class="parameter" id="showOnScreen-param-rect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a>?</span> <span class="parameter-name">rect</span>, </span><span class="parameter" id="showOnScreen-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span> = <span class="default-value">Duration.zero</span>, </span><span class="parameter" id="showOnScreen-param-curve"><span class="type-annotation"><a href="animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.ease</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Attempt to make (a portion of) this or a descendant <a href="rendering/RenderObject-class.html">RenderObject</a> visible
+on screen.
+  
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTreeMixin/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="rendering/RenderObject/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable">
+  <span class="name"><a href="rendering/RenderObject/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a description of the tree rooted at this node.
+If the prefix argument is provided, then every line in the output
+will be prefixed by that string.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable">
+  <span class="name"><a href="rendering/RenderObject/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a one-line detailed description of the render object.
+This description is often somewhat long.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable">
+  <span class="name"><a href="rendering/RenderObject/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a human understandable name.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="updateCompositedLayer" class="callable">
+  <span class="name"><a href="rendering/RenderObject/updateCompositedLayer.html">updateCompositedLayer</a></span><span class="signature">(<wbr>{<span class="parameter" id="updateCompositedLayer-param-oldLayer"><span>required</span> <span>covariant</span> <span class="type-annotation"><a href="rendering/OffsetLayer-class.html">OffsetLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
+    <span class="returntype parameter">&#8594; <a href="rendering/OffsetLayer-class.html">OffsetLayer</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Update the composited layer owned by this render object.
+  
+
+</dd>
+
+        <dt id="visitChildren" class="callable">
+  <span class="name"><a href="rendering/RenderObject/visitChildren.html">visitChildren</a></span><span class="signature">(<wbr><span class="parameter" id="visitChildren-param-visitor"><span class="type-annotation"><a href="rendering/RenderObjectVisitor.html">RenderObjectVisitor</a></span> <span class="parameter-name">visitor</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Calls visitor for each immediate child of this render object.
+  
+
+</dd>
+
+        <dt id="visitChildrenForSemantics" class="callable">
+  <span class="name"><a href="rendering/RenderObject/visitChildrenForSemantics.html">visitChildrenForSemantics</a></span><span class="signature">(<wbr><span class="parameter" id="visitChildrenForSemantics-param-visitor"><span class="type-annotation"><a href="rendering/RenderObjectVisitor.html">RenderObjectVisitor</a></span> <span class="parameter-name">visitor</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called when collecting the semantics of this node.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="debugActiveLayout" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugActiveLayout.html">debugActiveLayout</a></span>
+  <span class="signature">&#8594; <a href="rendering/RenderObject-class.html">RenderObject</a>?</span>
+  
+
+</dt>
+<dd>
+  The render object that is actively computing layout.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugActivePaint" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugActivePaint.html">debugActivePaint</a></span>
+  <span class="signature">&#8594; <a href="rendering/RenderObject-class.html">RenderObject</a>?</span>
+  
+
+</dt>
+<dd>
+  The render object that is actively painting.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="debugCheckingIntrinsics" class="property">
+  <span class="name"><a href="rendering/RenderObject/debugCheckingIntrinsics.html">debugCheckingIntrinsics</a></span>
+  <span class="signature">&#8596; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  When true, a debug method (<a href="rendering/RenderObject/debugAssertDoesMeetConstraints.html">debugAssertDoesMeetConstraints</a>, for instance)
+is currently executing asserts for verifying the consistent behavior of
+intrinsic dimensions methods.
+  <div class="features"><span class="feature">getter/setter 对</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="rendering/">rendering</a></li>
+    <li class="self-crumb">RenderObject 类</li>
+</ol>
+
+    <h5>rendering 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

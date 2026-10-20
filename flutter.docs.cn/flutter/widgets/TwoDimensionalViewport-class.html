@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 TwoDimensionalViewport 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>TwoDimensionalViewport 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">TwoDimensionalViewport 类</li>
+  </ol>
+  <div class="self-name">TwoDimensionalViewport</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;TwoDimensionalViewport-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/two_dimensional_viewport.dart#L134"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">TwoDimensionalViewport</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>用于查看较大内容中一部分区域的 widget，通常与 <a href="widgets/TwoDimensionalScrollable-class.html">TwoDimensionalScrollable</a> 配合使用。</p>
+<p><a href="widgets/TwoDimensionalViewport-class.html">TwoDimensionalViewport</a> 是二维滚动机制中的核心可视组件。它会根据自身尺寸以及给定的 <a href="widgets/TwoDimensionalViewport/horizontalOffset.html">horizontalOffset</a> 和 <a href="widgets/TwoDimensionalViewport/verticalOffset.html">verticalOffset</a> 显示部分子项。偏移量变化时，视口中可见的子项也会随之变化。</p>
+<p>子类必须实现 <a href="widgets/TwoDimensionalViewport/createRenderObject.html">createRenderObject</a> 和 <a href="widgets/TwoDimensionalViewport/updateRenderObject.html">updateRenderObject</a>。这两个方法都要求 render object 是 <a href="widgets/RenderTwoDimensionalViewport-class.html">RenderTwoDimensionalViewport</a> 的子类。此类会自行创建一个 <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a>，该对象已实现 <a href="widgets/TwoDimensionalChildManager-class.html">TwoDimensionalChildManager</a>。因此，子类应将 <a href="widgets/BuildContext-class.html">BuildContext</a> 转型，并将其作为 child manager 提供给 <a href="widgets/RenderTwoDimensionalViewport-class.html">RenderTwoDimensionalViewport</a>。</p>
+<p>
+<a name="widgets.TwoDimensionalViewport.1"></a>
+<div class="snippet snippet-container anchor-container">
+  <div class="snippet-description">此示例展示 <a href="widgets/TwoDimensionalViewport-class.html">TwoDimensionalViewport</a> 子类 <code>SimpleTwoDimensionalViewport</code> 的实现。<code>RenderSimpleTwoDimensionalViewport</code> 是 <a href="widgets/RenderTwoDimensionalViewport-class.html">RenderTwoDimensionalViewport</a> 的子类。</div>
+  <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+    onmouseenter="fixHref(this, 'widgets.TwoDimensionalViewport.1');" onclick="fixHref(this, 'widgets.TwoDimensionalViewport.1'); copyStringToClipboard(this.href);"
+    href="#">
+    <i class="material-icons anchor-image">link</i>
+  </a>
+  <div class="copyable-container">
+    <button class="copy-button-overlay copy-button" title="复制到剪贴板"
+      onclick="copyTextToClipboard(findSiblingWithId(this, 'sample-code'));">
+      <i class="material-icons copy-image">content_copy</i>
+    </button>
+    <pre class="language-dart" id="sample-code"><code class="language-dart">class SimpleTwoDimensionalViewport extends TwoDimensionalViewport {
+  const SimpleTwoDimensionalViewport({
+    super.key,
+    required super.verticalOffset,
+    required super.verticalAxisDirection,
+    required super.horizontalOffset,
+    required super.horizontalAxisDirection,
+    required super.delegate,
+    required super.mainAxis,
+    super.scrollCacheExtent,
+    super.clipBehavior = Clip.hardEdge,
+  });
+
+  @override
+  RenderSimpleTwoDimensionalViewport createRenderObject(BuildContext context) {
+    return RenderSimpleTwoDimensionalViewport(
+      horizontalOffset: horizontalOffset,
+      horizontalAxisDirection: horizontalAxisDirection,
+      verticalOffset: verticalOffset,
+      verticalAxisDirection: verticalAxisDirection,
+      mainAxis: mainAxis,
+      delegate: delegate,
+      childManager: context as TwoDimensionalChildManager,
+      scrollCacheExtent: scrollCacheExtent,
+      clipBehavior: clipBehavior,
+    );
+  }
+
+  @override
+  void updateRenderObject(BuildContext context, RenderSimpleTwoDimensionalViewport renderObject) {
+    renderObject
+      ..horizontalOffset = horizontalOffset
+      ..horizontalAxisDirection = horizontalAxisDirection
+      ..verticalOffset = verticalOffset
+      ..verticalAxisDirection = verticalAxisDirection
+      ..mainAxis = mainAxis
+      ..delegate = delegate
+      ..scrollCacheExtent = scrollCacheExtent
+      ..clipBehavior = clipBehavior;
+  }
+}</code></pre>
+  </div>
+</div>
+</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/Viewport-class.html">Viewport</a>, the equivalent of this widget that scrolls in only one
+dimension.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="widgets/Widget-class.html">Widget</a></li>
+        <li><a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a></li>
+      <li>TwoDimensionalViewport</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="TwoDimensionalViewport.new" class="callable">
+          <span class="name"><a href="widgets/TwoDimensionalViewport/TwoDimensionalViewport.html">TwoDimensionalViewport</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-verticalOffset"><span>required</span> <span class="type-annotation"><a href="rendering/ViewportOffset-class.html">ViewportOffset</a></span> <span class="parameter-name">verticalOffset</span>, </span><span class="parameter" id="-param-verticalAxisDirection"><span>required</span> <span class="type-annotation"><a href="painting/AxisDirection.html">AxisDirection</a></span> <span class="parameter-name">verticalAxisDirection</span>, </span><span class="parameter" id="-param-horizontalOffset"><span>required</span> <span class="type-annotation"><a href="rendering/ViewportOffset-class.html">ViewportOffset</a></span> <span class="parameter-name">horizontalOffset</span>, </span><span class="parameter" id="-param-horizontalAxisDirection"><span>required</span> <span class="type-annotation"><a href="painting/AxisDirection.html">AxisDirection</a></span> <span class="parameter-name">horizontalAxisDirection</span>, </span><span class="parameter" id="-param-delegate"><span>required</span> <span class="type-annotation"><a href="widgets/TwoDimensionalChildDelegate-class.html">TwoDimensionalChildDelegate</a></span> <span class="parameter-name">delegate</span>, </span><span class="parameter" id="-param-mainAxis"><span>required</span> <span class="type-annotation"><a href="painting/Axis.html">Axis</a></span> <span class="parameter-name">mainAxis</span>, </span><span class="parameter" id="-param-cacheExtent"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use scrollCacheExtent instead. &#39; &#39;This feature was deprecated after v3.41.0-0.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cacheExtent</span>, </span><span class="parameter" id="-param-cacheExtentStyle"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use scrollCacheExtent instead. &#39; &#39;This feature was deprecated after v3.41.0-0.0.pre.&#39;)</span> <span class="type-annotation"><a href="rendering/CacheExtentStyle.html">CacheExtentStyle</a>?</span> <span class="parameter-name">cacheExtentStyle</span>, </span><span class="parameter" id="-param-scrollCacheExtent"><span class="type-annotation"><a href="rendering/ScrollCacheExtent-class.html">ScrollCacheExtent</a>?</span> <span class="parameter-name">scrollCacheExtent</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a viewport for <a href="rendering/RenderBox-class.html">RenderBox</a> objects that extend and scroll in both
+horizontal and vertical dimensions.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="cacheExtent" class="property">
+  <span class="name"><a class="deprecated" href="widgets/TwoDimensionalViewport/cacheExtent.html">cacheExtent</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  Deprecated. Use <a href="widgets/TwoDimensionalViewport/scrollCacheExtent.html">scrollCacheExtent</a> instead.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="cacheExtentStyle" class="property">
+  <span class="name"><a class="deprecated" href="widgets/TwoDimensionalViewport/cacheExtentStyle.html">cacheExtentStyle</a></span>
+  <span class="signature">&#8594; <a href="rendering/CacheExtentStyle.html">CacheExtentStyle</a>?</span>
+  
+
+</dt>
+<dd>
+  Deprecated. Use <a href="widgets/TwoDimensionalViewport/scrollCacheExtent.html">scrollCacheExtent</a> instead.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="clipBehavior" class="property">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/clipBehavior.html">clipBehavior</a></span>
+  <span class="signature">&#8594; <a href="dart-ui/Clip.html">Clip</a></span>
+  
+
+</dt>
+<dd>
+  The content will be clipped (or not) according to this option.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="delegate" class="property">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/delegate.html">delegate</a></span>
+  <span class="signature">&#8594; <a href="widgets/TwoDimensionalChildDelegate-class.html">TwoDimensionalChildDelegate</a></span>
+  
+
+</dt>
+<dd>
+  A delegate that provides the children for the <a href="widgets/TwoDimensionalViewport-class.html">TwoDimensionalViewport</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="horizontalAxisDirection" class="property">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/horizontalAxisDirection.html">horizontalAxisDirection</a></span>
+  <span class="signature">&#8594; <a href="painting/AxisDirection.html">AxisDirection</a></span>
+  
+
+</dt>
+<dd>
+  The direction in which the <a href="widgets/TwoDimensionalViewport/horizontalOffset.html">horizontalOffset</a>'s <a href="rendering/ViewportOffset/pixels.html">ViewportOffset.pixels</a>
+increases.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="horizontalOffset" class="property">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/horizontalOffset.html">horizontalOffset</a></span>
+  <span class="signature">&#8594; <a href="rendering/ViewportOffset-class.html">ViewportOffset</a></span>
+  
+
+</dt>
+<dd>
+  Which part of the content inside the viewport should be visible in the
+horizontal axis.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="mainAxis" class="property">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/mainAxis.html">mainAxis</a></span>
+  <span class="signature">&#8594; <a href="painting/Axis.html">Axis</a></span>
+  
+
+</dt>
+<dd>
+  The main axis of the two.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="scrollCacheExtent" class="property">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/scrollCacheExtent.html">scrollCacheExtent</a></span>
+  <span class="signature">&#8594; <a href="rendering/ScrollCacheExtent-class.html">ScrollCacheExtent</a>?</span>
+  
+
+</dt>
+<dd>
+  The viewport has an area before and after the visible area to cache items
+that are about to become visible when the user scrolls.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="verticalAxisDirection" class="property">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/verticalAxisDirection.html">verticalAxisDirection</a></span>
+  <span class="signature">&#8594; <a href="painting/AxisDirection.html">AxisDirection</a></span>
+  
+
+</dt>
+<dd>
+  The direction in which the <a href="widgets/TwoDimensionalViewport/verticalOffset.html">verticalOffset</a>'s <a href="rendering/ViewportOffset/pixels.html">ViewportOffset.pixels</a>
+increases.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="verticalOffset" class="property">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/verticalOffset.html">verticalOffset</a></span>
+  <span class="signature">&#8594; <a href="rendering/ViewportOffset-class.html">ViewportOffset</a></span>
+  
+
+</dt>
+<dd>
+  Which part of the content inside the viewport should be visible in the
+vertical axis.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  RenderObjectWidgets always inflate to a <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a> subclass.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="createRenderObject" class="callable">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/createRenderObject.html">createRenderObject</a></span><span class="signature">(<wbr><span class="parameter" id="createRenderObject-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/RenderTwoDimensionalViewport-class.html">RenderTwoDimensionalViewport</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates an instance of the <a href="rendering/RenderObject-class.html">RenderObject</a> class that this
+<a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> represents, using the configuration described by this
+<a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="didUnmountRenderObject" class="callable inherited">
+  <span class="name"><a href="widgets/RenderObjectWidget/didUnmountRenderObject.html">didUnmountRenderObject</a></span><span class="signature">(<wbr><span class="parameter" id="didUnmountRenderObject-param-renderObject"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">renderObject</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  This method is called when a RenderObject that was previously
+associated with this widget is removed from the render tree.
+The provided <a href="rendering/RenderObject-class.html">RenderObject</a> will be of the same type as the one created by
+this widget's <a href="widgets/RenderObjectWidget/createRenderObject.html">createRenderObject</a> method.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="updateRenderObject" class="callable">
+  <span class="name"><a href="widgets/TwoDimensionalViewport/updateRenderObject.html">updateRenderObject</a></span><span class="signature">(<wbr><span class="parameter" id="updateRenderObject-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="updateRenderObject-param-renderObject"><span>covariant</span> <span class="type-annotation"><a href="widgets/RenderTwoDimensionalViewport-class.html">RenderTwoDimensionalViewport</a></span> <span class="parameter-name">renderObject</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Copies the configuration described by this <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> to the
+given <a href="rendering/RenderObject-class.html">RenderObject</a>, which will be of the same type as returned by this
+object's <a href="widgets/TwoDimensionalViewport/createRenderObject.html">createRenderObject</a>.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">TwoDimensionalViewport 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

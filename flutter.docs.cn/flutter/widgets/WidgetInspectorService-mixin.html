@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the WidgetInspectorService mixin from the widgets library, for the Dart programming language.">
+  <title>WidgetInspectorService mixin - widgets library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">WidgetInspectorService mixin</li>
+  </ol>
+  <div class="self-name">WidgetInspectorService</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;WidgetInspectorService-mixin-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/widget_inspector.dart#L780"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-mixin">WidgetInspectorService</span> mixin 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Service used by GUI tools to interact with the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a>.</p>
+<p>Calls to this object are typically made from GUI tools such as the <a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter
+IntelliJ Plugin</a>
+using the <a href="https://github.com/dart-lang/sdk/blob/main/runtime/vm/service/service.md">Dart VM Service</a>.
+This class uses its own object id and manages object lifecycles itself
+instead of depending on the <a href="https://github.com/dart-lang/sdk/blob/main/runtime/vm/service/service.md#getobject">object ids</a>
+specified by the VM Service Protocol because the VM Service Protocol ids
+expire unpredictably. Object references are tracked in groups so that tools
+that clients can use dereference all objects in a group with a single
+operation making it easier to avoid memory leaks.</p>
+<p>All methods in this class are appropriate to invoke from debugging tools
+using the VM service protocol to evaluate Dart expressions of the
+form <code>WidgetInspectorService.instance.methodName(arg1, arg2, ...)</code>. If you
+make changes to any instance method of this class you need to verify that
+the <a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter IntelliJ Plugin</a>
+widget inspector support still works with the changes.</p>
+<p>All methods returning String values return JSON.</p>
+</section>
+
+
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="widgets/WidgetInspectorService/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="isSelectMode" class="property">
+  <span class="name"><a href="widgets/WidgetInspectorService/isSelectMode.html">isSelectMode</a></span>
+  <span class="signature">&#8592; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Enables select mode for the Inspector.
+  <div class="features"><span class="feature">no getter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="widgets/WidgetInspectorService/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="selection" class="property">
+  <span class="name"><a href="widgets/WidgetInspectorService/selection.html">selection</a></span>
+  <span class="signature">&#8594; <a href="widgets/InspectorSelection-class.html">InspectorSelection</a></span>
+  
+
+</dt>
+<dd>
+  Ground truth tracking what object(s) are currently selected used by both
+GUI tools such as the Flutter IntelliJ Plugin and the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a>
+displayed on the device.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="selectionChangedCallback" class="property">
+  <span class="name"><a href="widgets/WidgetInspectorService/selectionChangedCallback.html">selectionChangedCallback</a></span>
+  <span class="signature">&#8596; <a href="widgets/InspectorSelectionChangedCallback.html">InspectorSelectionChangedCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Callback typically registered by the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> to receive
+notifications when <a href="widgets/WidgetInspectorService/selection.html">selection</a> changes.
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="addPubRootDirectories" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/addPubRootDirectories.html">addPubRootDirectories</a></span><span class="signature">(<wbr><span class="parameter" id="addPubRootDirectories-param-pubRootDirectories"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">pubRootDirectories</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add a list of directories that should be considered part of the local
+project.
+  
+
+</dd>
+
+        <dt id="devToolsInspectorUri" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/devToolsInspectorUri.html">devToolsInspectorUri</a></span><span class="signature">(<wbr><span class="parameter" id="devToolsInspectorUri-param-inspectorRef"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">inspectorRef</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the DevTools inspector uri for the given vm service connection and
+inspector reference.
+  
+
+</dd>
+
+        <dt id="disposeAllGroups" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/disposeAllGroups.html">disposeAllGroups</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Clear all InspectorService object references.
+  
+
+</dd>
+
+        <dt id="disposeGroup" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/disposeGroup.html">disposeGroup</a></span><span class="signature">(<wbr><span class="parameter" id="disposeGroup-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Free all references to objects in a group.
+  
+
+</dd>
+
+        <dt id="disposeId" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/disposeId.html">disposeId</a></span><span class="signature">(<wbr><span class="parameter" id="disposeId-param-id"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">id</span>, </span><span class="parameter" id="disposeId-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Remove the object with the specified <code>id</code> from the specified object
+group.
+  
+
+</dd>
+
+        <dt id="forceRebuild" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/forceRebuild.html">forceRebuild</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Cause the entire tree to be rebuilt. This is used by development tools
+when the application code has changed and is being hot-reloaded, to cause
+the widget tree to pick up any changed implementations.
+  
+
+</dd>
+
+        <dt id="getChildren" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getChildren.html">getChildren</a></span><span class="signature">(<wbr><span class="parameter" id="getChildren-param-diagnosticsNodeId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">diagnosticsNodeId</span>, </span><span class="parameter" id="getChildren-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a JSON representation of the children of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>
+object that <code>diagnosticsNodeId</code> references.
+  
+
+</dd>
+
+        <dt id="getChildrenDetailsSubtree" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getChildrenDetailsSubtree.html">getChildrenDetailsSubtree</a></span><span class="signature">(<wbr><span class="parameter" id="getChildrenDetailsSubtree-param-diagnosticableId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">diagnosticableId</span>, </span><span class="parameter" id="getChildrenDetailsSubtree-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a JSON representation of the children of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>
+object that <code>diagnosticableId</code> references providing information needed
+for the details subtree view.
+  
+
+</dd>
+
+        <dt id="getChildrenSummaryTree" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getChildrenSummaryTree.html">getChildrenSummaryTree</a></span><span class="signature">(<wbr><span class="parameter" id="getChildrenSummaryTree-param-diagnosticsNodeId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">diagnosticsNodeId</span>, </span><span class="parameter" id="getChildrenSummaryTree-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a JSON representation of the children of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>
+object that <code>diagnosticsNodeId</code> references only including children that
+were created directly by user code.
+  
+
+</dd>
+
+        <dt id="getDetailsSubtree" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getDetailsSubtree.html">getDetailsSubtree</a></span><span class="signature">(<wbr><span class="parameter" id="getDetailsSubtree-param-diagnosticableId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">diagnosticableId</span>, </span><span class="parameter" id="getDetailsSubtree-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span>, {</span><span class="parameter" id="getDetailsSubtree-param-subtreeDepth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">subtreeDepth</span> = <span class="default-value">2</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a JSON representation of the subtree rooted at the
+<a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> object that <code>diagnosticsNodeId</code> references providing
+information needed for the details subtree view.
+  
+
+</dd>
+
+        <dt id="getParentChain" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getParentChain.html">getParentChain</a></span><span class="signature">(<wbr><span class="parameter" id="getParentChain-param-id"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">id</span>, </span><span class="parameter" id="getParentChain-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns JSON representing the chain of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> instances from
+root of the tree to the <a href="widgets/Element-class.html">Element</a> or <a href="rendering/RenderObject-class.html">RenderObject</a> matching <code>id</code>.
+  
+
+</dd>
+
+        <dt id="getProperties" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getProperties.html">getProperties</a></span><span class="signature">(<wbr><span class="parameter" id="getProperties-param-diagnosticsNodeId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">diagnosticsNodeId</span>, </span><span class="parameter" id="getProperties-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a JSON representation of the properties of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>
+object that <code>diagnosticsNodeId</code> references.
+  
+
+</dd>
+
+        <dt id="getRootWidget" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getRootWidget.html">getRootWidget</a></span><span class="signature">(<wbr><span class="parameter" id="getRootWidget-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a JSON representation of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> for the root
+<a href="widgets/Element-class.html">Element</a>.
+  
+
+</dd>
+
+        <dt id="getRootWidgetSummaryTree" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getRootWidgetSummaryTree.html">getRootWidgetSummaryTree</a></span><span class="signature">(<wbr><span class="parameter" id="getRootWidgetSummaryTree-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a JSON representation of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> for the root
+<a href="widgets/Element-class.html">Element</a> showing only nodes that should be included in a summary tree.
+  
+
+</dd>
+
+        <dt id="getSelectedSummaryWidget" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getSelectedSummaryWidget.html">getSelectedSummaryWidget</a></span><span class="signature">(<wbr><span class="parameter" id="getSelectedSummaryWidget-param-previousSelectionId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">previousSelectionId</span>, </span><span class="parameter" id="getSelectedSummaryWidget-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> representing the currently selected <a href="widgets/Element-class.html">Element</a>
+if the selected <a href="widgets/Element-class.html">Element</a> should be shown in the summary tree otherwise
+returns the first ancestor of the selected <a href="widgets/Element-class.html">Element</a> shown in the summary
+tree.
+  
+
+</dd>
+
+        <dt id="getSelectedWidget" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/getSelectedWidget.html">getSelectedWidget</a></span><span class="signature">(<wbr><span class="parameter" id="getSelectedWidget-param-previousSelectionId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">previousSelectionId</span>, </span><span class="parameter" id="getSelectedWidget-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> representing the currently selected <a href="widgets/Element-class.html">Element</a>.
+  
+
+</dd>
+
+        <dt id="initServiceExtensions" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/initServiceExtensions.html">initServiceExtensions</a></span><span class="signature">(<wbr><span class="parameter" id="initServiceExtensions-param-registerExtension"><span class="type-annotation"><a href="widgets/RegisterServiceExtensionCallback.html">RegisterServiceExtensionCallback</a></span> <span class="parameter-name">registerExtension</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Called to register service extensions.
+  
+
+</dd>
+
+        <dt id="inspect" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/inspect.html">inspect</a></span><span class="signature">(<wbr><span class="parameter" id="inspect-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">object</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  All events dispatched by a <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a> use this method
+instead of calling <a href="dart-developer/inspect.html">developer.inspect</a>.
+  
+
+</dd>
+
+        <dt id="isStructuredErrorsEnabled" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/isStructuredErrorsEnabled.html">isStructuredErrorsEnabled</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Whether structured errors are enabled.
+  
+
+</dd>
+
+        <dt id="isWidgetCreationTracked" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/isWidgetCreationTracked.html">isWidgetCreationTracked</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns whether <a href="widgets/Widget-class.html">Widget</a> creation locations are available.
+  
+
+</dd>
+
+        <dt id="isWidgetTreeReady" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/isWidgetTreeReady.html">isWidgetTreeReady</a></span><span class="signature">(<wbr>[<span class="parameter" id="isWidgetTreeReady-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">groupName</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns whether the application has rendered its first frame and it is
+appropriate to display the Widget tree in the inspector.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetInspectorService/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="performReassemble" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/performReassemble.html">performReassemble</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  This method is called by <a href="widgets/WidgetsBinding/performReassemble.html">WidgetsBinding.performReassemble</a> to flush caches
+of obsolete values after a hot reload.
+  
+
+</dd>
+
+        <dt id="postEvent" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/postEvent.html">postEvent</a></span><span class="signature">(<wbr><span class="parameter" id="postEvent-param-eventKind"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">eventKind</span>, </span><span class="parameter" id="postEvent-param-eventData"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>, <span class="type-parameter"><a href="dart-core/Object-class.html">Object</a>?</span>&gt;</span></span> <span class="parameter-name">eventData</span>, {</span><span class="parameter" id="postEvent-param-stream"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">stream</span> = <span class="default-value">&#39;Extension&#39;</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  All events dispatched by a <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a> use this method
+instead of calling <a href="dart-developer/postEvent.html">developer.postEvent</a> directly.
+  
+
+</dd>
+
+        <dt id="pubRootDirectories" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/pubRootDirectories.html">pubRootDirectories</a></span><span class="signature">(<wbr><span class="parameter" id="pubRootDirectories-param-parameters"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">parameters</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the list of directories that should be considered part of the
+local project.
+  
+
+</dd>
+
+        <dt id="registerServiceExtension" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/registerServiceExtension.html">registerServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerServiceExtension-param-callback"><span>required</span> <span class="type-annotation"><a href="foundation/ServiceExtensionCallback.html">ServiceExtensionCallback</a></span> <span class="parameter-name">callback</span>, </span><span class="parameter" id="registerServiceExtension-param-registerExtension"><span>required</span> <span class="type-annotation"><a href="widgets/RegisterServiceExtensionCallback.html">RegisterServiceExtensionCallback</a></span> <span class="parameter-name">registerExtension</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Registers a service extension method with the given name (full
+name "ext.flutter.inspector.name").
+  
+
+</dd>
+
+        <dt id="removePubRootDirectories" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/removePubRootDirectories.html">removePubRootDirectories</a></span><span class="signature">(<wbr><span class="parameter" id="removePubRootDirectories-param-pubRootDirectories"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">pubRootDirectories</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Remove a list of directories that should no longer be considered part
+of the local project.
+  
+
+</dd>
+
+        <dt id="resetAllState" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/resetAllState.html">resetAllState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Reset all InspectorService state.
+  
+
+</dd>
+
+        <dt id="resetPubRootDirectories" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/resetPubRootDirectories.html">resetPubRootDirectories</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Resets the list of directories, that should be considered part of the
+local project, to the value passed in <a href="widgets/WidgetInspectorService/pubRootDirectories.html">pubRootDirectories</a>.
+  
+
+</dd>
+
+        <dt id="screenshot" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/screenshot.html">screenshot</a></span><span class="signature">(<wbr><span class="parameter" id="screenshot-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">object</span>, {</span><span class="parameter" id="screenshot-param-width"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">width</span>, </span><span class="parameter" id="screenshot-param-height"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span>, </span><span class="parameter" id="screenshot-param-margin"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">margin</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="screenshot-param-maxPixelRatio"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">maxPixelRatio</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="screenshot-param-debugPaint"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">debugPaint</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Image-class.html">Image</a>?</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Captures an image of the current state of an <code>object</code> that is a
+<a href="rendering/RenderObject-class.html">RenderObject</a> or <a href="widgets/Element-class.html">Element</a>.
+  
+
+</dd>
+
+        <dt id="setPubRootDirectories" class="callable">
+  <span class="name deprecated"><a class="deprecated" href="widgets/WidgetInspectorService/setPubRootDirectories.html">setPubRootDirectories</a></span><span class="signature">(<wbr><span class="parameter" id="setPubRootDirectories-param-pubRootDirectories"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">pubRootDirectories</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the list of directories that should be considered part of the local
+project.
+  
+
+</dd>
+
+        <dt id="setSelection" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/setSelection.html">setSelection</a></span><span class="signature">(<wbr><span class="parameter" id="setSelection-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">object</span>, [</span><span class="parameter" id="setSelection-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">groupName</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> selection to the specified <code>object</code> if it is
+a valid object to set as the inspector selection.
+  
+
+</dd>
+
+        <dt id="setSelectionById" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/setSelectionById.html">setSelectionById</a></span><span class="signature">(<wbr><span class="parameter" id="setSelectionById-param-id"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">id</span>, [</span><span class="parameter" id="setSelectionById-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">groupName</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> selection to the object matching the specified
+id if the object is valid object to set as the inspector selection.
+  
+
+</dd>
+
+        <dt id="toId" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/toId.html">toId</a></span><span class="signature">(<wbr><span class="parameter" id="toId-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">object</span>, </span><span class="parameter" id="toId-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">groupName</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a unique id for <code>object</code> that will remain live at least until
+<a href="widgets/WidgetInspectorService/disposeGroup.html">disposeGroup</a> is called on <code>groupName</code>.
+  
+
+</dd>
+
+        <dt id="toObject" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/toObject.html">toObject</a></span><span class="signature">(<wbr><span class="parameter" id="toObject-param-id"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">id</span>, [</span><span class="parameter" id="toObject-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">groupName</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/Object-class.html">Object</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the Dart object associated with a reference id.
+  
+
+</dd>
+
+        <dt id="toObjectForSourceLocation" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/toObjectForSourceLocation.html">toObjectForSourceLocation</a></span><span class="signature">(<wbr><span class="parameter" id="toObjectForSourceLocation-param-id"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">id</span>, [</span><span class="parameter" id="toObjectForSourceLocation-param-groupName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">groupName</span></span>])
+    <span class="returntype parameter">&#8594; <a href="dart-core/Object-class.html">Object</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the object to introspect to determine the source location of an
+object's class.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetInspectorService/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="widgets/WidgetInspectorService/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="instance" class="property">
+  <span class="name"><a href="widgets/WidgetInspectorService/instance.html">instance</a></span>
+  <span class="signature">&#8596; <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a></span>
+  
+
+</dt>
+<dd>
+  The current <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a>.
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="objectToDiagnosticsNode" class="callable">
+  <span class="name"><a href="widgets/WidgetInspectorService/objectToDiagnosticsNode.html">objectToDiagnosticsNode</a></span><span class="signature">(<wbr><span class="parameter" id="objectToDiagnosticsNode-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">object</span></span>)
+    <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  If possible, returns <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> for the object.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+</div> <!-- /.main-content -->
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">WidgetInspectorService mixin</li>
+</ol>
+
+  <h5>widgets library</h5>
+  <div id="dartdoc-sidebar-left-content"></div>
+</div>
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+

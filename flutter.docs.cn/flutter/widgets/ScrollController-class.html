@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="widgets 库中 ScrollController 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>ScrollController 类 - widgets 库 - Dart API 中文文档</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Google+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/assets-for-api-docs/assets/cupertino/cupertino.css" rel="stylesheet" type="text/css">
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet">
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)
+})(window,document,'script','dataLayer','GTM-ND4LWWZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Cookie Banner -->
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css">
+<!-- End Cookie Banner -->
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css">
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="/opensearch.xml"/>
+
+</head>
+
+<body data-base-href="../" data-using-base-href="true" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets.dart</a></li>
+    <li class="self-crumb">ScrollController 类</li>
+  </ol>
+  <div class="self-name">ScrollController</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
+    data-below-sidebar="widgets&#47;ScrollController-class-sidebar.html">
+    <div>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/scroll_controller.dart#L72"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">ScrollController</span> 类 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>控制可滚动 widget。</p>
+<p>ScrollController 通常作为成员变量存储在 <a href="widgets/State-class.html">State</a> 对象中，并在每次 <a href="widgets/State/build.html">State.build</a> 调用中重复使用。一个 ScrollController 可以控制多个可滚动 widget，但某些操作（例如读取滚动 <a href="widgets/ScrollController/offset.html">offset</a>）要求 controller 只用于一个可滚动 widget。</p>
+<p>ScrollController 会创建一个 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>，用于管理单个 <a href="widgets/Scrollable-class.html">Scrollable</a> widget 的专属状态。若要使用自定义的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>，请继承 <a href="widgets/ScrollController-class.html">ScrollController</a> 并重写 <a href="widgets/ScrollController/createScrollPosition.html">createScrollPosition</a>。</p>
+<h3 id="accessing-scrolling-information">获取滚动信息</h3>
+<p>获取滚动和可滚动 widget 信息的方式有多种，但每种方式提供的信息各不相同，包括滚动活动、滚动位置以及 <a href="widgets/Viewport-class.html">Viewport</a> 尺寸等。</p>
+<p><a href="widgets/ScrollController-class.html">ScrollController</a> 是一个 <a href="foundation/Listenable-class.html">Listenable</a>。每当其附加的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 通知自身监听器时（例如发生滚动时），它也会通知自己的监听器。这与使用 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 监听 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 类型的通知非常相似。区别在于，通知监听器会提供滚动活动的信息，还可以进一步监听 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 的特定子类，例如 <a href="widgets/UserScrollNotification-class.html">UserScrollNotification</a>。</p>
+<p>
+<a name="widgets.ScrollPosition.1"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet1">
+    <div class="snippet-description">
+此示例展示使用 <a href="widgets/ScrollController-class.html">ScrollController</a> 或使用 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 监听 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 类型通知来监听滚动活动的区别。切换 <a href="material/Radio-class.html">Radio</a> 按钮即可在两者之间切换。使用 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 可以获取滚动活动详情及 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 的度量信息，但不能直接获取滚动位置对象本身。使用 <a href="widgets/ScrollController-class.html">ScrollController</a> 监听时，则可以直接访问该位置对象。这两类通知都只会在发生滚动时触发。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.ScrollPosition.1');" onclick="fixHref(this, 'widgets.ScrollPosition.1'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.ScrollPosition.1 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.ScrollPosition.1&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p><a href="widgets/ScrollController-class.html">ScrollController</a> 在附加的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 列表发生变化时不会通知其监听器。若要监听滚动位置附加到 controller 或从中分离，请使用 <a href="widgets/ScrollController/onAttach.html">ScrollController.onAttach</a> 和 <a href="widgets/ScrollController/onDetach.html">ScrollController.onDetach</a>。这也适用于在 <a href="widgets/ScrollPosition/isScrollingNotifier.html">Scrollable</a> 的 build 方法中创建滚动位置时，为 <a href="widgets/Scrollable-class.html">ScrollPosition.isScrollingNotifier</a> 添加监听器。</p>
+<p>滚动位置刚附加时，<a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a>（例如 <a href="widgets/ScrollMetrics/maxScrollExtent.html">ScrollMetrics.maxScrollExtent</a>）尚不可用。只有 <a href="widgets/Scrollable-class.html">Scrollable</a> 完成内容布局并计算内容总范围等信息后，这些度量值才会确定。可通过 <a href="widgets/ScrollPosition/hasContentDimensions.html">ScrollPosition.hasContentDimensions</a> 判断度量值何时可用，也可以使用下文进一步介绍的 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a>。</p>
+<p>
+<a name="widgets.ScrollPosition.2"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet2">
+    <div class="snippet-description">
+此示例展示如何使用 <a href="widgets/ScrollPosition/isScrollingNotifier.html">ScrollController.onAttach</a> 为 <a href="widgets/ScrollController/onAttach.html">ScrollPosition.isScrollingNotifier</a> 添加监听器。滚动发生时，此监听器会更改 <a href="material/AppBar-class.html">AppBar</a> 的颜色。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.ScrollPosition.2');" onclick="fixHref(this, 'widgets.ScrollPosition.2'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.ScrollPosition.2 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.ScrollPosition.2&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<h4 id="from-a-different-context">来自不同的 context</h4>
+<p>如果需要从滚动 widget 内部的 context 获取滚动信息，请使用 <a href="widgets/Scrollable/of.html">Scrollable.of</a> 访问 <a href="widgets/ScrollableState-class.html">ScrollableState</a> 及其 <a href="widgets/ScrollableState/position.html">ScrollableState.position</a>。这与附加到 <a href="widgets/ScrollPosition-class.html">ScrollController</a> 的 <a href="widgets/ScrollController-class.html">ScrollPosition</a> 相同。</p>
+<p>如果需要从并非滚动 widget 祖先的 context 获取滚动信息，请使用 <a href="widgets/ScrollNotificationObserver-class.html">ScrollNotificationObserver</a>。<a href="material/AppBar-class.html">AppBar</a> 就使用它来实现内容滚动到其下方时的效果。由于 <a href="material/Scaffold/appBar.html">Scaffold.appBar</a> 和 <a href="material/Scaffold/body.html">Scaffold.body</a> 位于不同子树中，滚动通知不会冒泡到 app bar。请使用 <a href="widgets/ScrollNotificationObserverState/addListener.html">ScrollNotificationObserverState.addListener</a> 监听当前 context 之外发生的滚动通知。</p>
+<h4 id="dimension-changes">尺寸变化</h4>
+<p>最后，监听 <a href="widgets/ScrollController-class.html">ScrollController</a> 或 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 时，若某个滚动位置的 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> 发生变化（例如窗口大小改变，导致 <a href="widgets/Viewport-class.html">Viewport</a> 尺寸及前文提到的可滚动范围发生变化），不会收到通知。若要监听滚动度量值的变化，请使用 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 监听 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a>。这类通知与 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 不同：它不关联滚动活动，而是关联可滚动区域的尺寸，例如窗口大小。</p>
+<p>
+<a name="widgets.ScrollPosition.3"></a>
+<div class="snippet snippet-container anchor-container" id="longSnippet3">
+    <div class="snippet-description">
+此示例展示更改 <code>windowSize</code> 时如何分发 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a>。按下悬浮操作按钮可增大可滚动窗口的尺寸。
+</div>
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
+        onmouseenter="fixHref(this, 'widgets.ScrollPosition.3');" onclick="fixHref(this, 'widgets.ScrollPosition.3'); copyStringToClipboard(this.href);"
+        href="#">
+        <i class="material-icons anchor-image">link</i>
+    </a>
+    <div class="snippet-description">
+        <p>要使用此代码示例创建本地项目，请运行：<br />
+            <span class="snippet-create-command">flutter create --sample=widgets.ScrollPosition.3 mysample</span>
+        </p>
+    </div>
+    <iframe class="snippet-dartpad" allow="clipboard-write"
+        src="https://dartpad.dev/embed-flutter.html?split=60&amp;run=true&amp;sample_id=widgets.ScrollPosition.3&amp;channel=stable">
+    </iframe>
+</div>
+</p>
+<p>通常与 <a href="widgets/ListView-class.html">ListView</a>、<a href="widgets/GridView-class.html">GridView</a> 和 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 搭配使用。</p>
+<p>另请参阅：</p>
+<ul>
+<li><a href="widgets/ListView-class.html">ListView</a>, <a href="widgets/GridView-class.html">GridView</a>, <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>, which can be controlled by a
+<a href="widgets/ScrollController-class.html">ScrollController</a>.</li>
+<li><a href="widgets/Scrollable-class.html">Scrollable</a>, which is the lower-level widget that creates and associates
+<a href="widgets/ScrollPosition-class.html">ScrollPosition</a> objects with <a href="widgets/ScrollController-class.html">ScrollController</a> objects.</li>
+<li><a href="widgets/PageController-class.html">PageController</a>, which is an analogous object for controlling a
+<a href="widgets/PageView-class.html">PageView</a>.</li>
+<li><a href="widgets/ScrollPosition-class.html">ScrollPosition</a>, which manages the scroll offset for an individual
+scrolling widget.</li>
+<li><a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 和 <a href="widgets/NotificationListener-class.html">NotificationListener</a>, which can be used to
+listen to scrolling occur without using a <a href="widgets/ScrollController-class.html">ScrollController</a>.</li>
+</ul>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>继承关系</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="dart-core/Object-class.html">Object</a></li>
+        <li><a href="foundation/ChangeNotifier-class.html">ChangeNotifier</a></li>
+      <li>ScrollController</li>
+    </ul>
+  </dd>
+
+        
+        
+
+          <dt>实现类</dt>
+          <dd><ul class="comma-separated clazz-relationships">
+              <li><a href="material/CarouselController-class.html">CarouselController</a></li>
+              <li><a href="widgets/FixedExtentScrollController-class.html">FixedExtentScrollController</a></li>
+              <li><a href="widgets/PageController-class.html">PageController</a></li>
+              <li><a href="material/TabBarScrollController-class.html">TabBarScrollController</a></li>
+              <li><a href="widgets/TrackingScrollController-class.html">TrackingScrollController</a></li>
+          </ul></dd>
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>构造函数</h2>
+    <dl class="constructor-summary-list">
+        <dt id="ScrollController.new" class="callable">
+          <span class="name"><a href="widgets/ScrollController/ScrollController.html">ScrollController</a></span><span class="signature">({<span class="parameter" id="-param-initialScrollOffset"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">initialScrollOffset</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="-param-keepScrollOffset"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepScrollOffset</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugLabel</span>, </span><span class="parameter" id="-param-onAttach"><span class="type-annotation"><a href="widgets/ScrollControllerCallback.html">ScrollControllerCallback</a>?</span> <span class="parameter-name">onAttach</span>, </span><span class="parameter" id="-param-onDetach"><span class="type-annotation"><a href="widgets/ScrollControllerCallback.html">ScrollControllerCallback</a>?</span> <span class="parameter-name">onDetach</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a controller for a scrollable widget.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>属性</h2>
+    <dl class="properties">
+        <dt id="debugLabel" class="property">
+  <span class="name"><a href="widgets/ScrollController/debugLabel.html">debugLabel</a></span>
+  <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  A label that is used in the <a href="widgets/ScrollController/toString.html">toString</a> output. Intended to aid with
+identifying scroll controller instances in debug output.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hasClients" class="property">
+  <span class="name"><a href="widgets/ScrollController/hasClients.html">hasClients</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether any <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> objects have attached themselves to the
+<a href="widgets/ScrollController-class.html">ScrollController</a> using the <a href="widgets/ScrollController/attach.html">attach</a> method.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="hasListeners" class="property inherited">
+  <span class="name"><a href="foundation/ChangeNotifier/hasListeners.html">hasListeners</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether any listeners are currently registered.
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="initialScrollOffset" class="property">
+  <span class="name"><a href="widgets/ScrollController/initialScrollOffset.html">initialScrollOffset</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The initial value to use for <a href="widgets/ScrollController/offset.html">offset</a>.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="keepScrollOffset" class="property">
+  <span class="name"><a href="widgets/ScrollController/keepScrollOffset.html">keepScrollOffset</a></span>
+  <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Each time a scroll completes, save the current scroll <a href="widgets/ScrollController/offset.html">offset</a> with
+<a href="widgets/PageStorage-class.html">PageStorage</a> and restore it if this controller's scrollable is recreated.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="offset" class="property">
+  <span class="name"><a href="widgets/ScrollController/offset.html">offset</a></span>
+  <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  The current scroll offset of the scrollable widget.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="onAttach" class="property">
+  <span class="name"><a href="widgets/ScrollController/onAttach.html">onAttach</a></span>
+  <span class="signature">&#8594; <a href="widgets/ScrollControllerCallback.html">ScrollControllerCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> is attached to the scroll controller.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onDetach" class="property">
+  <span class="name"><a href="widgets/ScrollController/onDetach.html">onDetach</a></span>
+  <span class="signature">&#8594; <a href="widgets/ScrollControllerCallback.html">ScrollControllerCallback</a>?</span>
+  
+
+</dt>
+<dd>
+  Called when a <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> is detached from the scroll controller.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="position" class="property">
+  <span class="name"><a href="widgets/ScrollController/position.html">position</a></span>
+  <span class="signature">&#8594; <a href="widgets/ScrollPosition-class.html">ScrollPosition</a></span>
+  
+
+</dt>
+<dd>
+  Returns the attached <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>, from which the actual scroll offset
+of the <a href="widgets/ScrollView-class.html">ScrollView</a> can be obtained.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="positions" class="property">
+  <span class="name"><a href="widgets/ScrollController/positions.html">positions</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/ScrollPosition-class.html">ScrollPosition</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The currently attached positions.
+  <div class="features"><span class="feature">无 setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>方法</h2>
+    <dl class="callables">
+        <dt id="addListener" class="callable inherited">
+  <span class="name"><a href="foundation/ChangeNotifier/addListener.html">addListener</a></span><span class="signature">(<wbr><span class="parameter" id="addListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Register a closure to be called when the object changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="animateTo" class="callable">
+  <span class="name"><a href="widgets/ScrollController/animateTo.html">animateTo</a></span><span class="signature">(<wbr><span class="parameter" id="animateTo-param-offset"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">offset</span>, {</span><span class="parameter" id="animateTo-param-duration"><span>required</span> <span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="animateTo-param-curve"><span>required</span> <span class="type-annotation"><a href="animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span></span>})
+    <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Animates the position from its current value to the given value.
+  
+
+</dd>
+
+        <dt id="attach" class="callable">
+  <span class="name"><a href="widgets/ScrollController/attach.html">attach</a></span><span class="signature">(<wbr><span class="parameter" id="attach-param-position"><span class="type-annotation"><a href="widgets/ScrollPosition-class.html">ScrollPosition</a></span> <span class="parameter-name">position</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Register the given position with this controller.
+  
+
+</dd>
+
+        <dt id="createScrollPosition" class="callable">
+  <span class="name"><a href="widgets/ScrollController/createScrollPosition.html">createScrollPosition</a></span><span class="signature">(<wbr><span class="parameter" id="createScrollPosition-param-physics"><span class="type-annotation"><a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a></span> <span class="parameter-name">physics</span>, </span><span class="parameter" id="createScrollPosition-param-context"><span class="type-annotation"><a href="widgets/ScrollContext-class.html">ScrollContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="createScrollPosition-param-oldPosition"><span class="type-annotation"><a href="widgets/ScrollPosition-class.html">ScrollPosition</a>?</span> <span class="parameter-name">oldPosition</span></span>)
+    <span class="returntype parameter">&#8594; <a href="widgets/ScrollPosition-class.html">ScrollPosition</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  创建一个 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> for use by a <a href="widgets/Scrollable-class.html">Scrollable</a> widget.
+  
+
+</dd>
+
+        <dt id="debugFillDescription" class="callable">
+  <span class="name"><a href="widgets/ScrollController/debugFillDescription.html">debugFillDescription</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillDescription-param-description"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">description</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Add additional information to the given description for use by <a href="widgets/ScrollController/toString.html">toString</a>.
+  
+
+</dd>
+
+        <dt id="detach" class="callable">
+  <span class="name"><a href="widgets/ScrollController/detach.html">detach</a></span><span class="signature">(<wbr><span class="parameter" id="detach-param-position"><span class="type-annotation"><a href="widgets/ScrollPosition-class.html">ScrollPosition</a></span> <span class="parameter-name">position</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Unregister the given position with this controller.
+  
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="widgets/ScrollController/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Discards any resources used by the object.
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+        <dt id="jumpTo" class="callable">
+  <span class="name"><a href="widgets/ScrollController/jumpTo.html">jumpTo</a></span><span class="signature">(<wbr><span class="parameter" id="jumpTo-param-value"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Jumps the scroll position from its current value to the given value,
+without animation, and without checking if the new value is in range.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="notifyListeners" class="callable inherited">
+  <span class="name"><a href="foundation/ChangeNotifier/notifyListeners.html">notifyListeners</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Call all the registered listeners.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="removeListener" class="callable inherited">
+  <span class="name"><a href="foundation/ChangeNotifier/removeListener.html">removeListener</a></span><span class="signature">(<wbr><span class="parameter" id="removeListener-param-listener"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Remove a previously registered closure from the list of closures that are
+notified when the object changes.
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="widgets/ScrollController/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>运算符</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="widgets/">widgets</a></li>
+    <li class="self-crumb">ScrollController 类</li>
+</ol>
+
+    <h5>widgets 库</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+  <script src="footer.js"></script>
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND4LWWZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Cookie Banner -->
+<div class="glue-footer"></div>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
+<!-- End Cookie Banner -->
+
+</body>
+</html>
+
