@@ -87,14 +87,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;StreamBuilder-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/async.dart#L406"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">StreamBuilder&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类 
+<h1><span class="kind-class">StreamBuilder&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Widget that builds itself based on the latest snapshot of interaction with
-a <a href="dart-async/Stream-class.html">Stream</a>.</p>
+  <p>根据与 <a href="dart-async/Stream-class.html">Stream</a> 交互的最新快照构建自身的 widget。</p>
 <iframe src="https://www.youtube.com/embed/MkKEWHfy99Y?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -106,25 +105,12 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<h2 id="managing-the-stream">Managing the stream</h2>
-<p>The <a href="widgets/StreamBuilderBase/stream.html">stream</a> must have been obtained earlier, e.g. during <a href="widgets/State/initState.html">State.initState</a>,
-<a href="widgets/State/didUpdateWidget.html">State.didUpdateWidget</a>, or <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a>. It must not be
-created during the <a href="widgets/State/build.html">State.build</a> or <a href="widgets/StatelessWidget/build.html">StatelessWidget.build</a> method call when
-constructing the <a href="widgets/StreamBuilder-class.html">StreamBuilder</a>. If the <a href="widgets/StreamBuilderBase/stream.html">stream</a> is created at the same
-time as the <a href="widgets/StreamBuilder-class.html">StreamBuilder</a>, then every time the <a href="widgets/StreamBuilder-class.html">StreamBuilder</a>'s parent is
-rebuilt, the asynchronous task will be restarted.</p>
-<p>A general guideline is to assume that every <code>build</code> method could get called
-every frame, and to treat omitted calls as an optimization.</p>
-<h2 id="timing">Timing</h2>
-<p>Widget rebuilding is scheduled by each interaction, using <a href="widgets/State/setState.html">State.setState</a>,
-but is otherwise decoupled from the timing of the stream. The <a href="widgets/StreamBuilder/builder.html">builder</a>
-is called at the discretion of the Flutter pipeline, and will thus receive a
-timing-dependent sub-sequence of the snapshots that represent the
-interaction with the stream.</p>
-<p>As an example, when interacting with a stream producing the integers
-0 through 9, the <a href="widgets/StreamBuilder/builder.html">builder</a> may be called with any ordered sub-sequence
-of the following snapshots that includes the last one (the one with
-ConnectionState.done):</p>
+<h2 id="managing-the-stream">管理 Stream</h2>
+<p><a href="widgets/StreamBuilderBase/stream.html">stream</a> 必须提前获取，例如在 <a href="widgets/State/initState.html">State.initState</a>、<a href="widgets/State/didUpdateWidget.html">State.didUpdateWidget</a> 或 <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 中获取。构建 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 时，不得在 <a href="widgets/State/build.html">State.build</a> 或 <a href="widgets/StatelessWidget/build.html">StatelessWidget.build</a> 方法中创建 stream。如果 <a href="widgets/StreamBuilderBase/stream.html">stream</a> 与 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 同时创建，那么每次重建 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 的父级时，异步任务都会重新启动。</p>
+<p>一般来说，应假设每个 <code>build</code> 方法都可能在每一帧调用，并将未调用视为一种优化。</p>
+<h2 id="timing">时序</h2>
+<p>每次交互都会通过 <a href="widgets/State/setState.html">State.setState</a> 安排 widget 重建，但重建与 Stream 的时序彼此独立。<a href="widgets/StreamBuilder/builder.html">builder</a> 由 Flutter 管线酌情调用，因此它会收到一系列快照的子序列；具体取决于 Stream 交互的时序。</p>
+<p>例如，与产生整数 0 到 9 的 Stream 交互时，<a href="widgets/StreamBuilder/builder.html">builder</a> 可能会收到下列快照的任意有序子序列，但该序列必须包含最后一个快照（其 ConnectionState 为 done）：</p>
 <ul>
 <li><code>AsyncSnapshot&lt;int&gt;.withData(ConnectionState.waiting, null)</code></li>
 <li><code>AsyncSnapshot&lt;int&gt;.withData(ConnectionState.active, 0)</code></li>
@@ -133,36 +119,24 @@ ConnectionState.done):</p>
 <li><code>AsyncSnapshot&lt;int&gt;.withData(ConnectionState.active, 9)</code></li>
 <li><code>AsyncSnapshot&lt;int&gt;.withData(ConnectionState.done, 9)</code></li>
 </ul>
-<p>The actual sequence of invocations of the <a href="widgets/StreamBuilder/builder.html">builder</a> depends on the relative
-timing of events produced by the stream and the build rate of the Flutter
-pipeline.</p>
-<p>Changing the <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> configuration to another stream during event
-generation introduces snapshot pairs of the form:</p>
+<p><a href="widgets/StreamBuilder/builder.html">builder</a> 实际被调用的顺序取决于 Stream 产生事件的时序与 Flutter 管线构建速率之间的关系。</p>
+<p>生成事件期间，将 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 的配置更改为另一个 Stream，会产生如下形式的快照对：</p>
 <ul>
 <li><code>AsyncSnapshot&lt;int&gt;.withData(ConnectionState.none, 5)</code></li>
 <li><code>AsyncSnapshot&lt;int&gt;.withData(ConnectionState.waiting, 5)</code></li>
 </ul>
-<p>The latter will be produced only when the new stream is non-null, and the
-former only when the old stream is non-null.</p>
-<p>The stream may produce errors, resulting in snapshots of the form:</p>
+<p>只有新 Stream 非 null 时才会产生后一个快照；只有旧 Stream 非 null 时才会产生前一个快照。</p>
+<p>Stream 也可能产生错误，此时会形成如下形式的快照：</p>
 <ul>
 <li><code>AsyncSnapshot&lt;int&gt;.withError(ConnectionState.active, 'some error', someStackTrace)</code></li>
 </ul>
-<p>The data and error fields of snapshots produced are only changed when the
-state is <code>ConnectionState.active</code>.</p>
-<p>The initial snapshot data can be controlled by specifying <a href="widgets/StreamBuilder/initialData.html">initialData</a>.
-This should be used to ensure that the first frame has the expected value,
-as the builder will always be called before the stream listener has a chance
-to be processed.</p>
+<p>只有状态为 <code>ConnectionState.active</code> 时，生成的快照中的 data 和 error 字段才会发生变化。</p>
+<p>可以通过指定 <a href="widgets/StreamBuilder/initialData.html">initialData</a> 来控制初始快照数据。由于构建器总是在 Stream 监听器有机会处理之前调用，因此应使用此属性确保第一帧显示预期值。</p>
 <p>
 <a name="widgets.StreamBuilder.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-This sample shows a <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> that listens to a Stream that emits bids
-for an auction. Every time the StreamBuilder receives a bid from the Stream,
-it will display the price of the bid below an icon. If the Stream emits an
-error, the error is displayed below an error icon. When the Stream finishes
-emitting bids, the final price is displayed.
+此示例展示了一个 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a>，它会监听一个持续发出拍卖出价的 Stream。每次 StreamBuilder 收到出价时，都会在图标下方显示出价金额。如果 Stream 产生错误，则会在错误图标下方显示错误。当 Stream 不再发出出价时，会显示最终价格。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.StreamBuilder.1');" onclick="fixHref(this, 'widgets.StreamBuilder.1'); copyStringToClipboard(this.href);"

@@ -87,19 +87,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;StatelessWidget-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/framework.dart#L523"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">StatelessWidget</span> 类 
+<h1><span class="kind-class">StatelessWidget</span> 类
     <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A widget that does not require mutable state.</p>
-<p>A stateless widget is a widget that describes part of the user interface by
-building a constellation of other widgets that describe the user interface
-more concretely. The building process continues recursively until the
-description of the user interface is fully concrete (e.g., consists
-entirely of <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>s, which describe concrete <a href="rendering/RenderObject-class.html">RenderObject</a>s).</p>
+  <p>不需要可变状态的 widget。</p>
+<p>无状态 widget 通过构建一组更具体描述用户界面的其他 widget，来描述用户界面的一部分。这个构建过程会递归进行，直到用户界面的描述完全具体（例如，完全由描述具体 <a href="rendering/RenderObject-class.html">RenderObject</a> 的 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 组成）。</p>
 <iframe src="https://www.youtube.com/embed/wE7khGHVkYY?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -111,65 +107,29 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<p>Stateless widget are useful when the part of the user interface you are
-describing does not depend on anything other than the configuration
-information in the object itself and the <a href="widgets/BuildContext-class.html">BuildContext</a> in which the widget
-is inflated. For compositions that can change dynamically, e.g. due to
-having an internal clock-driven state, or depending on some system state,
-consider using <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>.</p>
+<p>当所描述的用户界面部分只取决于对象自身的配置信息和 widget 膨胀所在的 <a href="widgets/BuildContext-class.html">BuildContext</a> 时，无状态 widget 很有用。对于会动态变化的组合（例如其内部状态由时钟驱动，或取决于某些系统状态），可以考虑使用 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>。</p>
 <h2 id="performance-considerations">性能注意事项</h2>
-<p>The <a href="widgets/StatelessWidget/build.html">build</a> method of a stateless widget is typically only called in three
-situations: the first time the widget is inserted in the tree, when the
-widget's parent changes its configuration (see <a href="widgets/Element/rebuild.html">Element.rebuild</a>), and when
-an <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> it depends on changes.</p>
-<p>If a widget's parent will regularly change the widget's configuration, or if
-it depends on inherited widgets that frequently change, then it is important
-to optimize the performance of the <a href="widgets/StatelessWidget/build.html">build</a> method to maintain a fluid
-rendering performance.</p>
-<p>There are several techniques one can use to minimize the impact of
-rebuilding a stateless widget:</p>
+<p>无状态 widget 的 <a href="widgets/StatelessWidget/build.html">build</a> 方法通常只会在三种情况下调用：widget 首次插入树中时；widget 的父级更改其配置时（参阅 <a href="widgets/Element/rebuild.html">Element.rebuild</a>）；以及它所依赖的 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 发生变化时。</p>
+<p>如果 widget 的父级会定期更改该 widget 的配置，或者它依赖的继承 widget 经常变化，那么优化 <a href="widgets/StatelessWidget/build.html">build</a> 方法的性能对于保持流畅的渲染效果非常重要。</p>
+<p>可以采用以下几种技巧来减少重建无状态 widget 带来的影响：</p>
 <ul>
 <li>
-<p>Minimize the number of nodes transitively created by the build method and
-any widgets it creates. For example, instead of an elaborate arrangement
-of <a href="widgets/Row-class.html">Row</a>s, <a href="widgets/Column-class.html">Column</a>s, <a href="widgets/Padding-class.html">Padding</a>s, and <a href="widgets/SizedBox-class.html">SizedBox</a>es to position a single
-child in a particularly fancy manner, consider using just an <a href="widgets/Align-class.html">Align</a> or a
-<a href="widgets/CustomSingleChildLayout-class.html">CustomSingleChildLayout</a>. Instead of an intricate layering of multiple
-<a href="widgets/Container-class.html">Container</a>s and with <a href="painting/Decoration-class.html">Decoration</a>s to draw just the right graphical
-effect, consider a single <a href="widgets/CustomPaint-class.html">CustomPaint</a> widget.</p>
+<p>尽量减少 build 方法及其创建的 widget 传递性地产生的节点数量。例如，为了以特别精巧的方式放置单个子级，与其复杂地组合多个 <a href="widgets/Row-class.html">Row</a>、<a href="widgets/Column-class.html">Column</a>、<a href="widgets/Padding-class.html">Padding</a> 和 <a href="widgets/SizedBox-class.html">SizedBox</a>，不如考虑只使用一个 <a href="widgets/Align-class.html">Align</a> 或 <a href="widgets/CustomSingleChildLayout-class.html">CustomSingleChildLayout</a>。与其用多层 <a href="widgets/Container-class.html">Container</a> 和 <a href="painting/Decoration-class.html">Decoration</a> 实现恰到好处的图形效果，不如考虑使用一个 <a href="widgets/CustomPaint-class.html">CustomPaint</a> widget。</p>
 </li>
 <li>
-<p>Use <code>const</code> widgets where possible, and provide a <code>const</code> constructor for
-the widget so that users of the widget can also do so.</p>
+<p>尽可能使用 <code>const</code> widget，并为该 widget 提供 <code>const</code> 构造函数，以便使用者也能这样做。</p>
 </li>
 <li>
-<p>Consider refactoring the stateless widget into a stateful widget so that
-it can use some of the techniques described at <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>, such as
-caching common parts of subtrees and using <a href="widgets/GlobalKey-class.html">GlobalKey</a>s when changing the
-tree structure.</p>
+<p>可以考虑将无状态 widget 重构为有状态 widget，以便使用 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 中介绍的技巧，例如缓存子树的公共部分，以及在改变树结构时使用 <a href="widgets/GlobalKey-class.html">GlobalKey</a>。</p>
 </li>
 <li>
-<p>If the widget is likely to get rebuilt frequently due to the use of
-<a href="widgets/InheritedWidget-class.html">InheritedWidget</a>s, consider refactoring the stateless widget into
-multiple widgets, with the parts of the tree that change being pushed to
-the leaves. For example instead of building a tree with four widgets, the
-inner-most widget depending on the <a href="material/Theme-class.html">Theme</a>, consider factoring out the
-part of the build function that builds the inner-most widget into its own
-widget, so that only the inner-most widget needs to be rebuilt when the
-theme changes.</p>
+<p>如果 widget 可能因使用 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 而频繁重建，可以考虑将无状态 widget 拆分为多个 widget，并将树中会变化的部分下推到叶子节点。例如，如果一个包含四个 widget 的树中，最内层的 widget 依赖 <a href="material/Theme-class.html">Theme</a>，可以将 build 函数中创建最内层 widget 的部分提取为独立 widget，这样主题变化时只需重建最内层 widget。</p>
 </li>
 <li>
-<p>When trying to create a reusable piece of UI, prefer using a widget
-rather than a helper method. For example, if there was a function used to
-build a widget, a <a href="widgets/State/setState.html">State.setState</a> call would require Flutter to entirely
- rebuild the returned wrapping widget. If a <a href="widgets/Widget-class.html">Widget</a> was used instead,
- Flutter would be able to efficiently re-render only those parts that
- really need to be updated. Even better, if the created widget is <code>const</code>,
- Flutter would short-circuit most of the rebuild work.</p>
+<p>创建可复用的 UI 片段时，优先使用 widget，而不是辅助方法。例如，如果用函数构建 widget，调用 <a href="widgets/State/setState.html">State.setState</a> 时 Flutter 必须重新构建该函数返回的整个包装 widget。若改用 <a href="widgets/Widget-class.html">Widget</a>，Flutter 就能高效地只重新渲染确实需要更新的部分。更进一步，如果创建的 widget 是 <code>const</code>，Flutter 可以跳过大部分重建工作。</p>
 </li>
 </ul>
-<p>This video gives more explanations on why <code>const</code> constructors are important
-and why a <a href="widgets/Widget-class.html">Widget</a> is better than a helper method.</p>
+<p>此视频进一步解释了为什么 <code>const</code> 构造函数很重要，以及为什么使用 <a href="widgets/Widget-class.html">Widget</a> 优于辅助方法。</p>
 <iframe src="https://www.youtube.com/embed/IOyq-eTRhvo?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -185,9 +145,8 @@ aspect-ratio: 560 / 315;">
 <a name="widgets.StatelessWidget.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-The following is a skeleton of a stateless widget subclass called <code>GreenFrog</code>.</p>
-<p>Normally, widgets have more constructor arguments, each of which corresponds
-to a <code>final</code> property.
+以下是名为 <code>GreenFrog</code> 的无状态 widget 子类框架。</p>
+<p>通常，widget 还会有更多构造函数参数，每个参数都对应一个 <code>final</code> 属性。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.StatelessWidget.1');" onclick="fixHref(this, 'widgets.StatelessWidget.1'); copyStringToClipboard(this.href);"
@@ -214,8 +173,7 @@ to a <code>final</code> property.
 <a name="widgets.StatelessWidget.2"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-This next example shows the more generic widget <code>Frog</code> which can be given
-a color and a child:
+下一个示例展示了更通用的 <code>Frog</code> widget，它可以接收颜色和子级：
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.StatelessWidget.2');" onclick="fixHref(this, 'widgets.StatelessWidget.2'); copyStringToClipboard(this.href);"
@@ -245,9 +203,7 @@ a color and a child:
   </div>
 </div>
 </p>
-<p>By convention, widget constructors only use named arguments. Also by
-convention, the first argument is <a href="widgets/Widget/key.html">key</a>, and the last argument is <code>child</code>,
-<code>children</code>, or the equivalent.</p>
+<p>按照惯例，widget 构造函数只使用命名参数。第一个参数通常是 <a href="widgets/Widget/key.html">key</a>，最后一个参数通常是 <code>child</code>、<code>children</code> 或同等用途的参数。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 和 <a href="widgets/State-class.html">State</a>, for widgets that can build differently

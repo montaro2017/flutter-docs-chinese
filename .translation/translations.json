@@ -262046,5 +262046,187 @@
   "flutter/widgets/StatefulWidgetBuilder.html": {
     "0": "<p>由 <a href=\"widgets/StatefulBuilder-class.html\">StatefulBuilder</a> 使用的 builder 回调签名。</p>",
     "1": "<p>调用 <code>setState</code> 可安排 <a href=\"widgets/StatefulBuilder-class.html\">StatefulBuilder</a> 重建。</p>"
+  },
+  "flutter/widgets/StatelessWidget-class.html": {
+    "0": "<p>不需要可变状态的 widget。</p>",
+    "1": "<p>无状态 widget 通过构建一组更具体描述用户界面的其他 widget，来描述用户界面的一部分。这个构建过程会递归进行，直到用户界面的描述完全具体（例如，完全由描述具体 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 组成）。</p>",
+    "2": "<p>当所描述的用户界面部分只取决于对象自身的配置信息和 widget 膨胀所在的 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 时，无状态 widget 很有用。对于会动态变化的组合（例如其内部状态由时钟驱动，或取决于某些系统状态），可以考虑使用 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a>。</p>",
+    "4": "<p>无状态 widget 的 <a href=\"widgets/StatelessWidget/build.html\">build</a> 方法通常只会在三种情况下调用：widget 首次插入树中时；widget 的父级更改其配置时（参阅 <a href=\"widgets/Element/rebuild.html\">Element.rebuild</a>）；以及它所依赖的 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 发生变化时。</p>",
+    "5": "<p>如果 widget 的父级会定期更改该 widget 的配置，或者它依赖的继承 widget 经常变化，那么优化 <a href=\"widgets/StatelessWidget/build.html\">build</a> 方法的性能对于保持流畅的渲染效果非常重要。</p>",
+    "6": "<p>可以采用以下几种技巧来减少重建无状态 widget 带来的影响：</p>",
+    "7": "<p>尽量减少 build 方法及其创建的 widget 传递性地产生的节点数量。例如，为了以特别精巧的方式放置单个子级，与其复杂地组合多个 <a href=\"widgets/Row-class.html\">Row</a>、<a href=\"widgets/Column-class.html\">Column</a>、<a href=\"widgets/Padding-class.html\">Padding</a> 和 <a href=\"widgets/SizedBox-class.html\">SizedBox</a>，不如考虑只使用一个 <a href=\"widgets/Align-class.html\">Align</a> 或 <a href=\"widgets/CustomSingleChildLayout-class.html\">CustomSingleChildLayout</a>。与其用多层 <a href=\"widgets/Container-class.html\">Container</a> 和 <a href=\"painting/Decoration-class.html\">Decoration</a> 实现恰到好处的图形效果，不如考虑使用一个 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> widget。</p>",
+    "8": "<p>尽可能使用 <code>const</code> widget，并为该 widget 提供 <code>const</code> 构造函数，以便使用者也能这样做。</p>",
+    "9": "<p>可以考虑将无状态 widget 重构为有状态 widget，以便使用 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 中介绍的技巧，例如缓存子树的公共部分，以及在改变树结构时使用 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a>。</p>",
+    "10": "<p>如果 widget 可能因使用 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 而频繁重建，可以考虑将无状态 widget 拆分为多个 widget，并将树中会变化的部分下推到叶子节点。例如，如果一个包含四个 widget 的树中，最内层的 widget 依赖 <a href=\"material/Theme-class.html\">Theme</a>，可以将 build 函数中创建最内层 widget 的部分提取为独立 widget，这样主题变化时只需重建最内层 widget。</p>",
+    "11": "<p>创建可复用的 UI 片段时，优先使用 widget，而不是辅助方法。例如，如果用函数构建 widget，调用 <a href=\"widgets/State/setState.html\">State.setState</a> 时 Flutter 必须重新构建该函数返回的整个包装 widget。若改用 <a href=\"widgets/Widget-class.html\">Widget</a>，Flutter 就能高效地只重新渲染确实需要更新的部分。更进一步，如果创建的 widget 是 <code>const</code>，Flutter 可以跳过大部分重建工作。</p>",
+    "12": "<p>此视频进一步解释了为什么 <code>const</code> 构造函数很重要，以及为什么使用 <a href=\"widgets/Widget-class.html\">Widget</a> 优于辅助方法。</p>",
+    "16": "<p>按照惯例，widget 构造函数只使用命名参数。第一个参数通常是 <a href=\"widgets/Widget/key.html\">key</a>，最后一个参数通常是 <code>child</code>、<code>children</code> 或同等用途的参数。</p>",
+    "17": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/StatelessWidget/createElement.html": {
+    "0": "<p>创建一个 <a href=\"widgets/StatelessElement-class.html\">StatelessElement</a>，以管理此 widget 在树中的位置。</p>",
+    "1": "<p>子类很少会重写此方法。</p>"
+  },
+  "flutter/widgets/StaticSelectionContainerDelegate-class.html": {
+    "0": "<p>用于管理多个 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 子级更新的委托，适用于这些 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 子级很少发生变化或移动的场景。</p>",
+    "1": "<p>此委托会跟踪收到起始或结束 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 的 <a href=\"rendering/Selectable-mixin.html\">Selectable</a>，以及这些事件的全局位置，以便在需要时为子级 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 准确合成 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a>。</p>",
+    "2": "<p>向 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 分发新的 <a href=\"rendering/SelectionEdgeUpdateEvent-class.html\">SelectionEdgeUpdateEvent</a> 时，此委托会检查该 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 是否已收到当前存在的每条边对应的选区更新，并为尚未收到更新的边合成事件。合成事件会先于新事件分发。</p>",
+    "3": "<p>例如，假设此委托已有起始边，而某个 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 子级收到结束 <a href=\"rendering/SelectionEdgeUpdateEvent-class.html\">SelectionEdgeUpdateEvent</a>，但尚未收到起始 <a href=\"rendering/SelectionEdgeUpdateEvent-class.html\">SelectionEdgeUpdateEvent</a>。此时我们会为该子级 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 合成起始 <a href=\"rendering/SelectionEdgeUpdateEvent-class.html\">SelectionEdgeUpdateEvent</a>，并在分发原始结束 <a href=\"rendering/SelectionEdgeUpdateEvent-class.html\">SelectionEdgeUpdateEvent</a> 之前先分发它。</p>",
+    "4": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/StaticSelectionContainerDelegate/clearInternalSelectionState.html": {
+    "0": "<p>清除内部选区状态。</p>",
+    "1": "<p>这表示此委托下没有任何 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 子级收到起始或结束事件，并会重置已跟踪的起始和结束 <a href=\"rendering/SelectionEdgeUpdateEvent-class.html\">SelectionEdgeUpdateEvent</a> 的全局位置。</p>"
+  },
+  "flutter/widgets/StaticSelectionContainerDelegate/clearInternalSelectionStateForSelectable.html": {
+    "0": "<p>清除指定 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 的内部选区状态。</p>",
+    "1": "<p>这表示指定的 <code>selectable</code> 尚未收到起始或结束 <a href=\"rendering/SelectionEdgeUpdateEvent-class.html\">SelectionEdgeUpdateEvent</a>。</p>",
+    "2": "<p>子类应调用此方法，清理在 <a href=\"widgets/StaticSelectionContainerDelegate/didReceiveSelectionEventFor.html\">didReceiveSelectionEventFor</a> 和 <a href=\"widgets/StaticSelectionContainerDelegate/didReceiveSelectionBoundaryEvents.html\">didReceiveSelectionBoundaryEvents</a> 中添加的状态。</p>"
+  },
+  "flutter/widgets/StaticSelectionContainerDelegate/didReceiveSelectionBoundaryEvents.html": {
+    "0": "<p>在收到用于选择边界的 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a>（例如 <a href=\"rendering/SelectWordSelectionEvent-class.html\">SelectWordSelectionEvent</a>、<a href=\"rendering/SelectParagraphSelectionEvent-class.html\">SelectParagraphSelectionEvent</a> 和 <a href=\"rendering/SelectAllSelectionEvent-class.html\">SelectAllSelectionEvent</a>）后更新内部选区状态。</p>",
+    "1": "<p>确定由 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 产生的新选区后调用此方法。调用时，<a href=\"widgets/MultiSelectableSelectionContainerDelegate/currentSelectionStartIndex.html\">currentSelectionStartIndex</a> 和 <a href=\"widgets/MultiSelectableSelectionContainerDelegate/currentSelectionEndIndex.html\">currentSelectionEndIndex</a> 应设置为有效值。</p>",
+    "2": "<p>子类应调用 <a href=\"widgets/StaticSelectionContainerDelegate/clearInternalSelectionStateForSelectable.html\">clearInternalSelectionStateForSelectable</a>，以清理此方法添加的状态，例如从此委托移除 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 时。</p>"
+  },
+  "flutter/widgets/StaticSelectionContainerDelegate/didReceiveSelectionEventFor.html": {
+    "0": "<p>跟踪指定 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 是否收到选区边缘更新事件。</p>",
+    "1": "<p>当 <code>forEnd</code> 为 true 时，会将 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 记录为已收到结束事件；为 false 时，则将 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 记录为已收到起始事件。</p>",
+    "2": "<p>当 <code>forEnd</code> 为 null 时，会将 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 记录为已收到起始和结束事件。</p>",
+    "3": "<p>向此委托管理的子 selectable 分发 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 时调用此方法。</p>",
+    "4": "<p>子类应调用 <a href=\"widgets/StaticSelectionContainerDelegate/clearInternalSelectionStateForSelectable.html\">clearInternalSelectionStateForSelectable</a>，以清理此方法添加的状态，例如从此委托移除 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 时。</p>"
+  },
+  "flutter/widgets/StaticSelectionContainerDelegate/dispatchSelectionEventToChild.html": {
+    "0": "<p>向指定的 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 分发选区事件。</p>",
+    "1": "<p>如果子类需要在发送 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 前生成额外事件或执行额外处理，可以重写此方法。</p>"
+  },
+  "flutter/widgets/StaticSelectionContainerDelegate/ensureChildUpdated.html": {
+    "0": "<p>确保 <code>selectable</code> 子级已收到最新的选区事件。</p>",
+    "1": "<p>在以下情况下会调用此方法：</p>"
+  },
+  "flutter/widgets/StaticSelectionContainerDelegate/remove.html": {
+    "0": "<p>从注册表中移除 <code>selectable</code>。</p>",
+    "1": "<p><a href=\"rendering/Selectable-mixin.html\">Selectable</a> 从渲染树中移除时，必须取消注册。</p>"
+  },
+  "flutter/widgets/StreamBuilder-class.html": {
+    "0": "<p>根据与 <a href=\"dart-async/Stream-class.html\">Stream</a> 交互的最新快照构建自身的 widget。</p>",
+    "1": "<h2 id=\"managing-the-stream\">管理 Stream</h2>",
+    "2": "<p><a href=\"widgets/StreamBuilderBase/stream.html\">stream</a> 必须提前获取，例如在 <a href=\"widgets/State/initState.html\">State.initState</a>、<a href=\"widgets/State/didUpdateWidget.html\">State.didUpdateWidget</a> 或 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中获取。构建 <a href=\"widgets/StreamBuilder-class.html\">StreamBuilder</a> 时，不得在 <a href=\"widgets/State/build.html\">State.build</a> 或 <a href=\"widgets/StatelessWidget/build.html\">StatelessWidget.build</a> 方法中创建 stream。如果 <a href=\"widgets/StreamBuilderBase/stream.html\">stream</a> 与 <a href=\"widgets/StreamBuilder-class.html\">StreamBuilder</a> 同时创建，那么每次重建 <a href=\"widgets/StreamBuilder-class.html\">StreamBuilder</a> 的父级时，异步任务都会重新启动。</p>",
+    "3": "<p>一般来说，应假设每个 <code>build</code> 方法都可能在每一帧调用，并将未调用视为一种优化。</p>",
+    "4": "<h2 id=\"timing\">时序</h2>",
+    "5": "<p>每次交互都会通过 <a href=\"widgets/State/setState.html\">State.setState</a> 安排 widget 重建，但重建与 Stream 的时序彼此独立。<a href=\"widgets/StreamBuilder/builder.html\">builder</a> 由 Flutter 管线酌情调用，因此它会收到一系列快照的子序列；具体取决于 Stream 交互的时序。</p>",
+    "6": "<p>例如，与产生整数 0 到 9 的 Stream 交互时，<a href=\"widgets/StreamBuilder/builder.html\">builder</a> 可能会收到下列快照的任意有序子序列，但该序列必须包含最后一个快照（其 ConnectionState 为 done）：</p>",
+    "7": "<p><a href=\"widgets/StreamBuilder/builder.html\">builder</a> 实际被调用的顺序取决于 Stream 产生事件的时序与 Flutter 管线构建速率之间的关系。</p>",
+    "8": "<p>生成事件期间，将 <a href=\"widgets/StreamBuilder-class.html\">StreamBuilder</a> 的配置更改为另一个 Stream，会产生如下形式的快照对：</p>",
+    "9": "<p>只有新 Stream 非 null 时才会产生后一个快照；只有旧 Stream 非 null 时才会产生前一个快照。</p>",
+    "10": "<p>Stream 也可能产生错误，此时会形成如下形式的快照：</p>",
+    "11": "<p>只有状态为 <code>ConnectionState.active</code> 时，生成的快照中的 data 和 error 字段才会发生变化。</p>",
+    "12": "<p>可以通过指定 <a href=\"widgets/StreamBuilder/initialData.html\">initialData</a> 来控制初始快照数据。由于构建器总是在 Stream 监听器有机会处理之前调用，因此应使用此属性确保第一帧显示预期值。</p>",
+    "14": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/StreamBuilder/StreamBuilder.html": {
+    "0": "<p>创建一个新的 <a href=\"widgets/StreamBuilder-class.html\">StreamBuilder</a>，根据与指定 <code>stream</code> 交互的最新快照构建自身，并使用 <code>builder</code> 指定构建策略。</p>",
+    "1": "<p><code>initialData</code> 用于创建初始快照。</p>"
+  },
+  "flutter/widgets/StreamBuilder/afterConnected.html": {
+    "0": "<p>返回更新后的 <code>current</code> 摘要，表示当前已连接到 Stream。</p>",
+    "1": "<p>默认实现会原样返回 <code>current</code>。</p>"
+  },
+  "flutter/widgets/StreamBuilder/afterData.html": {
+    "0": "<p>收到数据事件后，返回更新后的 <code>current</code> 摘要。</p>",
+    "1": "<p>子类必须重写此方法，指定在折叠计算中如何将当前摘要与新数据项合并。</p>"
+  },
+  "flutter/widgets/StreamBuilder/afterDisconnected.html": {
+    "0": "<p>返回更新后的 <code>current</code> 摘要，表示当前已断开与 Stream 的连接。</p>",
+    "1": "<p>默认实现会原样返回 <code>current</code>。</p>"
+  },
+  "flutter/widgets/StreamBuilder/afterDone.html": {
+    "0": "<p>Stream 终止后，返回更新后的 <code>current</code> 摘要。</p>",
+    "1": "<p>默认实现会原样返回 <code>current</code>。</p>"
+  },
+  "flutter/widgets/StreamBuilder/afterError.html": {
+    "0": "<p>发生带堆栈跟踪的错误后，返回更新后的 <code>current</code> 摘要。</p>",
+    "1": "<p>默认实现会原样返回 <code>current</code>。</p>"
+  },
+  "flutter/widgets/StreamBuilder/builder.html": {
+    "0": "<p>此 builder 当前使用的构建策略。</p>",
+    "1": "<p>此 builder 必须只返回一个 widget，不应产生任何副作用，因为它可能会被多次调用。</p>"
+  },
+  "flutter/widgets/StreamBuilder/initial.html": {
+    "0": "<p>返回 Stream 交互的初始摘要，通常表示尚未发生任何交互。</p>",
+    "1": "<p>子类必须重写此方法，为折叠计算提供初始值。</p>"
+  },
+  "flutter/widgets/StreamBuilder/initialData.html": {
+    "0": "<p>用于创建初始快照的数据。</p>",
+    "1": "<p>提供此值（可能是在创建 <a href=\"dart-async/Stream-class.html\">Stream</a> 时以某种方式同步获取）可确保第一帧显示有用的数据。否则，第一帧构建时该值会是 null，即使 Stream 中已有值也是如此：Stream 是异步的，因此初始构建之前无法获取 Stream 事件。</p>"
+  },
+  "flutter/widgets/StreamBuilderBase-class.html": {
+    "0": "<p>根据与指定 <a href=\"dart-async/Stream-class.html\">Stream</a> 的交互构建自身的 widget 基类。</p>",
+    "1": "<p><a href=\"widgets/StreamBuilderBase-class.html\">StreamBuilderBase</a> 是有状态的，会维护截至当前的交互摘要。摘要的类型以及每次交互后如何更新，由子类定义。</p>",
+    "2": "<p>摘要示例包括：</p><ul><li>整数 Stream 的滚动平均值；</li><li>根据地理位置数据 Stream 得出的当前方向和速度；</li><li>显示 Stream 数据点的图表。</li></ul>",
+    "4": "<p><code>T</code> 是 Stream 事件的类型。</p>",
+    "5": "<p><code>S</code> 是交互摘要的类型。</p>",
+    "6": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/StreamBuilderBase/afterConnected.html": {
+    "0": "<p>返回更新后的 <code>current</code> 摘要，表示当前已连接到 Stream。</p>",
+    "1": "<p>默认实现会原样返回 <code>current</code>。</p>"
+  },
+  "flutter/widgets/StreamBuilderBase/afterData.html": {
+    "0": "<p>收到数据事件后，返回更新后的 <code>current</code> 摘要。</p>",
+    "1": "<p>子类必须重写此方法，指定在折叠计算中如何将当前摘要与新数据项合并。</p>"
+  },
+  "flutter/widgets/StreamBuilderBase/afterDisconnected.html": {
+    "0": "<p>返回更新后的 <code>current</code> 摘要，表示当前已断开与 Stream 的连接。</p>",
+    "1": "<p>默认实现会原样返回 <code>current</code>。</p>"
+  },
+  "flutter/widgets/StreamBuilderBase/afterDone.html": {
+    "0": "<p>Stream 终止后，返回更新后的 <code>current</code> 摘要。</p>",
+    "1": "<p>默认实现会原样返回 <code>current</code>。</p>"
+  },
+  "flutter/widgets/StreamBuilderBase/afterError.html": {
+    "0": "<p>发生带堆栈跟踪的错误后，返回更新后的 <code>current</code> 摘要。</p>",
+    "1": "<p>默认实现会原样返回 <code>current</code>。</p>"
+  },
+  "flutter/widgets/StreamBuilderBase/initial.html": {
+    "0": "<p>返回 Stream 交互的初始摘要，通常表示尚未发生任何交互。</p>",
+    "1": "<p>子类必须重写此方法，为折叠计算提供初始值。</p>"
+  },
+  "flutter/widgets/StretchEffect-class.html": {
+    "0": "<p>对其子级应用拉伸视觉效果的 widget。</p>",
+    "1": "<p>支持基于着色器的效果时，此效果会复现 Android 原生的拉伸过度滚动效果。否则会使用矩阵变换进行近似处理。</p>",
+    "2": "<p>由 <a href=\"widgets/StretchingOverscrollIndicator-class.html\">StretchingOverscrollIndicator</a> widget 使用。</p>"
+  },
+  "flutter/widgets/StretchEffect/StretchEffect.html": {
+    "0": "<p>创建一个 <a href=\"widgets/StretchEffect-class.html\">StretchEffect</a> widget，在用户沿水平方向或垂直方向过度滚动时应用拉伸效果。</p>",
+    "1": "<p><code>stretchStrength</code> 用于控制拉伸效果的强度，取值必须介于 -1.0 和 1.0 之间。</p>"
+  },
+  "flutter/widgets/StretchEffect/axis.html": {
+    "0": "<p>应用拉伸过度滚动效果的轴。</p>",
+    "1": "<p>决定拉伸方向为水平或垂直。</p>"
+  },
+  "flutter/widgets/StretchEffect/stretchStrength.html": {
+    "0": "<p>拉伸效果使用的过度滚动强度。</p>",
+    "1": "<p>取值应在 -1.0 到 1.0 之间，且包含这两个边界值。</p>",
+    "2": "<p>对于水平方向：</p>",
+    "3": "<p>对于垂直方向：</p>"
+  },
+  "flutter/widgets/StretchingOverscrollIndicator-class.html": {
+    "0": "<p>当滚动视图发生过度滚动时显示的 Material Design 视觉提示。</p>",
+    "1": "<p><a href=\"widgets/StretchingOverscrollIndicator-class.html\">StretchingOverscrollIndicator</a> 会监听 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a>，以拉伸 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 的内容。这些通知通常由 <a href=\"widgets/ScrollView-class.html\">ScrollView</a>（例如 <a href=\"widgets/ListView-class.html\">ListView</a> 或 <a href=\"widgets/GridView-class.html\">GridView</a>）生成。</p>",
+    "2": "<p>触发时，<a href=\"widgets/StretchingOverscrollIndicator-class.html\">StretchingOverscrollIndicator</a> 会在显示过度滚动提示之前生成 <a href=\"widgets/OverscrollIndicatorNotification-class.html\">OverscrollIndicatorNotification</a>。若要阻止显示该提示，请对通知调用 <a href=\"widgets/OverscrollIndicatorNotification/disallowIndicator.html\">OverscrollIndicatorNotification.disallowIndicator</a>。</p>",
+    "3": "<p>当 <a href=\"material/ThemeData/useMaterial3.html\">ThemeData.useMaterial3</a> 为 true 时，<a href=\"material/MaterialScrollBehavior/buildOverscrollIndicator.html\">MaterialScrollBehavior.buildOverscrollIndicator</a> 会在通常使用此类过度滚动提示的平台（例如 Android）上创建此 widget。否则，当 <a href=\"material/ThemeData/useMaterial3.html\">ThemeData.useMaterial3</a> 为 false 时，会改用 <a href=\"widgets/GlowingOverscrollIndicator-class.html\">GlowingOverscrollIndicator</a>。</p>",
+    "4": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/StretchingOverscrollIndicator/StretchingOverscrollIndicator.html": {
+    "0": "<p>通过对内容应用拉伸变换，创建滚动视图发生过度滚动时的视觉提示。</p>",
+    "1": "<p>要让此 widget 显示过度滚动提示，其 <code>child</code> widget 必须包含会生成 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 的 widget，例如 <a href=\"widgets/ListView-class.html\">ListView</a> 或 <a href=\"widgets/GridView-class.html\">GridView</a>。</p>"
+  },
+  "flutter/widgets/StretchingOverscrollIndicator/child.html": {
+    "0": "<p>此 widget 在树中的下级 widget。</p>",
+    "1": "<p>过度滚动提示会对子级应用拉伸效果。此子级及其子树应包含 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 通知的来源。</p>"
+  },
+  "flutter/widgets/StretchingOverscrollIndicator/notificationPredicate.html": {
+    "0": "<p>用于判断此 widget 是否应处理 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 的检查函数。</p>",
+    "1": "<p>默认情况下，会检查 <code>notification.depth == 0</code>。对于嵌套 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 等更复杂的布局，可将其设为其他值。</p>"
   }
 }

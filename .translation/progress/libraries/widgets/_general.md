@@ -1,57 +1,11 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,312 页，部分翻译 239 页，未翻译 701 页；正文已译 22,402/24,807 段。
+模块共 8,093 页：已完整 6,347 页，部分翻译 225 页，未翻译 680 页；正文已译 22,502/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/StatelessWidget-class.html` — 部分；已译 4/18 段；待译段落：0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 16
-
-- `flutter/widgets/StatelessWidget/createElement.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StaticSelectionContainerDelegate-class.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/StaticSelectionContainerDelegate/clearInternalSelectionState.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StaticSelectionContainerDelegate/clearInternalSelectionStateForSelectable.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/StaticSelectionContainerDelegate/didReceiveSelectionBoundaryEvents.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/StaticSelectionContainerDelegate/didReceiveSelectionEventFor.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/StaticSelectionContainerDelegate/dispatchSelectionEventToChild.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StaticSelectionContainerDelegate/ensureChildUpdated.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StaticSelectionContainerDelegate/remove.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StreamBuilder-class.html` — 部分；已译 2/15 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
-- `flutter/widgets/StreamBuilder/StreamBuilder.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StreamBuilder/afterConnected.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/StreamBuilder/afterData.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StreamBuilder/afterDisconnected.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/StreamBuilder/afterDone.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/StreamBuilder/afterError.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/StreamBuilder/builder.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StreamBuilder/initial.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StreamBuilder/initialData.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StreamBuilderBase-class.html` — 部分；已译 2/7 段；待译段落：0, 1, 2, 4, 5
-
-- `flutter/widgets/StreamBuilderBase/afterConnected.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/StreamBuilderBase/afterData.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StreamBuilderBase/afterDisconnected.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/StreamBuilderBase/afterDone.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/StreamBuilderBase/afterError.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/StreamBuilderBase/initial.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StretchEffect-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/StretchEffect/StretchEffect.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StretchEffect/axis.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StretchEffect/stretchStrength.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/StretchingOverscrollIndicator-class.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/StretchingOverscrollIndicator/StretchingOverscrollIndicator.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StretchingOverscrollIndicator/child.html` — 部分；已译 1/2 段；待译段落：1
-
-- `flutter/widgets/StretchingOverscrollIndicator/notificationPredicate.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/SystemContextMenu-class.html` — 部分；已译 2/9 段；待译段落：0, 1, 2, 3, 4, 5, 6
 
 - `flutter/widgets/SystemContextMenu/getDefaultItems.html` — 部分；已译 1/3 段；待译段落：0, 1
