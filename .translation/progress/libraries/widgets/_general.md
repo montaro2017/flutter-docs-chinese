@@ -1,63 +1,10 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,249 页，部分翻译 262 页，未翻译 741 页；正文已译 22,189/24,807 段。
+模块共 8,093 页：已完整 6,283 页，部分翻译 252 页，未翻译 717 页；正文已译 22,306/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/getTransformTo.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/markNeedsLayout.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-- `flutter/widgets/SlottedContainerRenderObjectMixin/markNeedsLayoutForSizedByParentChange.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SlottedContainerRenderObjectMixin/markNeedsPaint.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/markParentNeedsLayout.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/reassemble.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/replaceRootLayer.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SlottedContainerRenderObjectMixin/scheduleInitialLayout.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SlottedContainerRenderObjectMixin/scheduleInitialPaint.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SlottedContainerRenderObjectMixin/scheduleInitialSemantics.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/sendSemanticsEvent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/showOnScreen.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/SlottedContainerRenderObjectMixin/sizedByParent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/toStringShallow.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SlottedContainerRenderObjectMixin/updateCompositedLayer.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/SlottedMultiChildRenderObjectWidget-class.html` — 部分；已译 2/8 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin-mixin.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/childForSlot.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/key.html` — 部分；已译 2/5 段；待译段落：0, 2, 3
-
-- `flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/slots.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/toStringDeep.html` — 部分；已译 5/6 段；待译段落：4
-- `flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/toStringShallow.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SlottedRenderObjectElement/moveRenderObjectChild.html` — 部分；已译 3/4 段；待译段落：3
-
-- `flutter/widgets/SnapshotController-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/SnapshotController/SnapshotController.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SnapshotController/clear.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SnapshotPainter-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/SnapshotPainter/paint.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SnapshotPainter/paintSnapshot.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SnapshotPainter/shouldRepaint.html` — 部分；已译 1/6 段；待译段落：0, 2, 3, 4, 5
-- `flutter/widgets/SnapshotWidget-class.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/SnapshotWidget/SnapshotWidget.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SnapshotWidget/autoresize.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/SnapshotWidget/mode.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 
 - `flutter/widgets/Spacer-class.html` — 部分；已译 2/4 段；待译段落：0, 1
 - `flutter/widgets/Spacer/Spacer.html` — 未译；已译 0/2 段；待译段落：0, 1

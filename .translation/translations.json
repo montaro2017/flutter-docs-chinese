@@ -1,4 +1,188 @@
 {
+  "flutter/widgets/SnapshotController-class.html": {
+    "0": "<p>用于控制 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 的控制器，可决定何时显示子级图像以及何时重新生成子级图像。</p>",
+    "1": "<p>当 <a href=\"widgets/SnapshotController/allowSnapshotting.html\">allowSnapshotting</a> 为 true 时，<a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 会根据自身的 <a href=\"widgets/SnapshotMode.html\">SnapshotMode</a> 绘制子 widget。</p>",
+    "2": "<p><a href=\"widgets/SnapshotController/allowSnapshotting.html\">allowSnapshotting</a> 的值发生变化或调用 <a href=\"widgets/SnapshotController/clear.html\">clear</a> 时，控制器会通知其监听器。</p>",
+    "3": "<p>要强制 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 重新创建子级图像，请调用 <a href=\"widgets/SnapshotController/clear.html\">clear</a>。</p>"
+  },
+  "flutter/widgets/SnapshotController/SnapshotController.html": {
+    "0": "<p>创建新的 <a href=\"widgets/SnapshotController-class.html\">SnapshotController</a>。</p>",
+    "1": "<p>默认情况下，<code>allowSnapshotting</code> 为 <code>false</code>，且不能为 <code>null</code>。</p>"
+  },
+  "flutter/widgets/SnapshotController/clear.html": {
+    "0": "<p>重置任意监听中的 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 所持有的快照。</p>",
+    "1": "<p>如果 <a href=\"widgets/SnapshotController/allowSnapshotting.html\">allowSnapshotting</a> 为 <code>false</code>，此方法不执行任何操作。</p>"
+  },
+  "flutter/widgets/SnapshotPainter-class.html": {
+    "0": "<p>用于绘制快照或将要生成快照的子 widget 的绘制器。</p>",
+    "1": "<p>绘制器可以调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>，让 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 重新绘制（复用同一份光栅图像）。这样可以在不重新对其子级生成快照的情况下执行动画。对于某些会改变缩放或透视的变换（例如旋转），这种方式可能比在 widget 层执行相同动画快得多。</p>",
+    "2": "<p>默认情况下，<a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 包含一个委托对象，该对象会按照子 widget 原本的绘制方式绘制子级光栅图像。不过，也可以使用此绘制器高效地变换子级光栅图像并应用复杂的绘制效果。</p>"
+  },
+  "flutter/widgets/SnapshotPainter/paint.html": {
+    "0": "<p>通过 <code>painter</code> 绘制子级，并应用原本会在 <a href=\"widgets/SnapshotPainter/paintSnapshot.html\">SnapshotPainter.paintSnapshot</a> 中绘制的效果。</p>",
+    "1": "<p>禁用快照时会调用此方法；如果使用 <a href=\"widgets/SnapshotMode.html\">SnapshotMode.permissive</a>，且子级 platform view 阻止生成快照时，也会调用此方法。</p>",
+    "2": "<p><code>offset</code> 和 <code>size</code> 分别表示渲染对象的位置和尺寸。</p>"
+  },
+  "flutter/widgets/SnapshotPainter/paintSnapshot.html": {
+    "0": "<p>每当需要绘制代表 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 子级的 <code>image</code> 时，都会调用此方法。</p>",
+    "1": "<p>图像会以物理像素分辨率光栅化，因此应按 <code>pixelRatio</code> 缩小，以适配设备无关像素。</p>"
+  },
+  "flutter/widgets/SnapshotPainter/shouldRepaint.html": {
+    "0": "<p>每当快照 widget 绘制委托类的新实例提供给 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 对象时，都会调用此方法；每当创建新的 <a href=\"widgets/SnapshotPainter-class.html\">SnapshotPainter</a> 对象并为其提供该委托类的新实例时，也会调用此方法（两者效果相同，因为后者是通过前者实现的）。</p>",
+    "2": "<p>如果此方法返回 false，对 <a href=\"widgets/SnapshotPainter/paint.html\">paint</a> 的调用可能会被优化掉。</p>",
+    "3": "<p>即使 <a href=\"widgets/SnapshotPainter/shouldRepaint.html\">shouldRepaint</a> 返回 false，仍可能调用 <a href=\"widgets/SnapshotPainter/paint.html\">paint</a>（例如，某个祖先或后代需要重绘时）。即使完全没有调用 <a href=\"widgets/SnapshotPainter/shouldRepaint.html\">shouldRepaint</a>，也可能调用 <a href=\"widgets/SnapshotPainter/paint.html\">paint</a>（例如，方框尺寸发生变化时）。</p>",
+    "4": "<p>更改委托对象不会更新 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 保留的子级图像。要强制生成新图像，可使用 <a href=\"widgets/SnapshotController/clear.html\">SnapshotController.clear</a>。</p>",
+    "5": "<p><code>oldPainter</code> 参数永远不会为 null。</p>"
+  },
+  "flutter/widgets/SnapshotWidget-class.html": {
+    "0": "<p>可将其子级替换为子级快照版本的 widget。</p>",
+    "1": "<p>快照是子级所有图像和图层的冻结纹理表示，并存储为 <a href=\"dart-ui/Image-class.html\">ui.Image</a>。</p>",
+    "2": "<p>如果短时间动画的开销很大，或无法依赖光栅缓存，此 widget 就很有用。例如，对复杂子级执行缩放、倾斜或模糊动画通常开销较大。对于短时间动画，可以将包含这些高开销效果的 widget 替换为自身的快照，再对快照进行变换。</p>",
+    "3": "<p>例如，Android Q 的 <a href=\"material/ZoomPageTransitionsBuilder-class.html\">ZoomPageTransitionsBuilder</a> 会在进入路由时使用快照 widget，以避免高开销的缩放动画。这也会短暂暂停页面上的动画。</p>",
+    "4": "<p>通常不应在用户期望子 widget 继续运行动画或保持响应的场景中使用此 widget，例如无限动画。</p>",
+    "5": "<p>注意事项：</p>",
+    "6": "<p>快照 widget 无法捕获 platform view 的内容。如果遇到 platform view，快照 widget 会根据 <a href=\"widgets/SnapshotMode.html\">SnapshotMode</a> 决定如何绘制子级。默认模式为 <a href=\"widgets/SnapshotMode.html\">SnapshotMode.normal</a>，遇到 platform view 时会抛出异常。</p>",
+    "7": "<p>在 Flutter 的 CanvasKit 后端中，由于 UI 和引擎共用一个线程，使用此 widget 可能会降低性能。</p>"
+  },
+  "flutter/widgets/SnapshotWidget/SnapshotWidget.html": {
+    "0": "<p>创建新的 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a>。</p>",
+    "1": "<p>必须提供 <code>controller</code> 和 <code>child</code> 参数。</p>"
+  },
+  "flutter/widgets/SnapshotWidget/autoresize.html": {
+    "0": "<p>渲染对象尺寸发生变化时，是否自动重新创建快照。</p>"
+  },
+  "flutter/widgets/SnapshotWidget/mode.html": {
+    "0": "<p>用于控制快照 widget 如何绘制其子级的配置。</p>",
+    "1": "<p>默认为 <a href=\"widgets/SnapshotMode.html\">SnapshotMode.normal</a>；遇到 platform view 或 texture view 时会抛出错误。</p>",
+    "2": "<p>更多信息请参阅 <a href=\"widgets/SnapshotMode.html\">SnapshotMode</a>。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/showOnScreen.html": {
+    "0": "<p>尝试使此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 或其某个后代的一部分显示在屏幕上。</p>",
+    "1": "<p>如果提供了 <code>descendant</code>，就会使该 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 显示在屏幕上。如果省略 <code>descendant</code>，则使此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 显示在屏幕上。</p>",
+    "2": "<p>可选的 <code>rect</code> 参数用于描述要在屏幕上显示的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 区域。如果 <code>rect</code> 为 null，则会显示整个 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>（由其 <a href=\"rendering/RenderObject/paintBounds.html\">paintBounds</a> 定义）。如果提供了 <code>descendant</code> 参数，<code>rect</code> 会相对于 descendant 的坐标系解释；否则相对于此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 解释。</p>",
+    "3": "<p>可将 <code>duration</code> 参数设为非零值，使目标对象根据 <code>curve</code> 定义的动画滚动到屏幕上。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/sizedByParent.html": {
+    "0": "<p>约束是否是尺寸计算算法的唯一输入（特别是子节点不会影响尺寸）。</p>",
+    "1": "<p>返回 false 始终是正确的；如果返回 true，则在计算此渲染对象的尺寸时可能更高效，因为约束未变化时无需重新计算尺寸。</p>",
+    "2": "<p>通常，子类会始终返回相同的值。如果该值可能变化，则子类应确保在值变化时调用 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a>。</p>",
+    "3": "<p>返回 true 的子类不得在 <a href=\"rendering/RenderObject/performLayout.html\">performLayout</a> 中更改此渲染对象的尺寸。此工作应由 <a href=\"rendering/RenderObject/performResize.html\">performResize</a> 完成；对于 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 子类，则应在 <a href=\"rendering/RenderBox/computeDryLayout.html\">RenderBox.computeDryLayout</a> 中完成。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/toStringShallow.html": {
+    "0": "<p>返回渲染对象的一行详细说明。此说明通常比较长。</p>",
+    "1": "<p>它包含与 <a href=\"rendering/RenderObject/toStringDeep.html\">toStringDeep</a> 相同的此 RenderObject 信息，但不会递归处理任何子级。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/updateCompositedLayer.html": {
+    "0": "<p>更新此渲染对象拥有的合成图层。</p>",
+    "1": "<p>当 <a href=\"rendering/RenderObject/isRepaintBoundary.html\">isRepaintBoundary</a> 为 true 时，框架会调用此方法。</p>",
+    "2": "<p>如果 <code>oldLayer</code> 为 <code>null</code>，此方法必须返回新的 <a href=\"rendering/OffsetLayer-class.html\">OffsetLayer</a>（或其子类型）。如果 <code>oldLayer</code> 不为 <code>null</code>，此方法必须复用提供的图层实例；在这种情况下创建新图层会导致错误。渲染对象被处置或不再是重绘边界时，框架会处置该图层。</p>",
+    "3": "<p><a href=\"rendering/OffsetLayer/offset.html\">OffsetLayer.offset</a> 属性由框架管理，此方法不得更新该属性。</p>",
+    "4": "<p>如果需要更新合成图层的某个属性，渲染对象必须调用 <a href=\"rendering/RenderObject/markNeedsCompositedLayerUpdate.html\">markNeedsCompositedLayerUpdate</a>，以安排在不重绘子级的情况下调用此方法。如果此 widget 同时被标记为需要绘制和需要更新合成图层，此方法只会调用一次。</p>"
+  },
+  "flutter/widgets/SlottedMultiChildRenderObjectWidget-class.html": {
+    "0": "<p>为按不同插槽组织子级的 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 子类提供配置的基类，这些子类会配置 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 子类。</p>",
+    "1": "<p>此 mixin 的实现者必须通过重写 <a href=\"widgets/SlottedMultiChildRenderObjectWidgetMixin/slots.html\">slots</a> 提供可用插槽列表。对于实现此 mixin 的给定类，插槽列表必须始终保持不变。常见做法是使用 <a href=\"dart-core/Enum-class.html\">Enum</a> 值作为插槽，并让 <a href=\"widgets/SlottedMultiChildRenderObjectWidgetMixin/slots.html\">slots</a> 返回该枚举的 <code>values</code> getter 所返回的值。</p>",
+    "2": "<p>此外，必须实现 <a href=\"widgets/SlottedMultiChildRenderObjectWidgetMixin/childForSlot.html\">childForSlot</a>，以返回给定插槽当前对应的 widget 配置。</p>",
+    "3": "<p>由 <a href=\"widgets/SlottedMultiChildRenderObjectWidgetMixin/createRenderObject.html\">createRenderObject</a> 返回并由 <a href=\"widgets/SlottedMultiChildRenderObjectWidgetMixin/updateRenderObject.html\">updateRenderObject</a> 更新的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 必须实现 <a href=\"widgets/SlottedContainerRenderObjectMixin-mixin.html\">SlottedContainerRenderObjectMixin</a>。</p>",
+    "4": "<p>类型参数 <code>SlotType</code> 是此 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 及其所配置的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 所使用的插槽类型。通常，<code>SlotType</code> 是 <a href=\"dart-core/Enum-class.html\">Enum</a> 类型。</p>",
+    "5": "<p>类型参数 <code>ChildType</code> 是 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 子级的类型（例如 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 或 <a href=\"rendering/RenderSliver-class.html\">RenderSliver</a>）。通常，<code>ChildType</code> 为 <a href=\"rendering/RenderBox-class.html\">RenderBox</a>。此类不支持不同插槽使用不同类型的子级。</p>"
+  },
+  "flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin-mixin.html": {
+    "0": "<p><a href=\"widgets/SlottedMultiChildRenderObjectWidget-class.html\">SlottedMultiChildRenderObjectWidget</a> 的 mixin 版本。</p>",
+    "1": "<p>此 mixin 提供的逻辑与直接继承 <a href=\"widgets/SlottedMultiChildRenderObjectWidget-class.html\">SlottedMultiChildRenderObjectWidget</a> 相同。</p>",
+    "2": "<p>此 mixin 已弃用，以简化创建分槽 widget 的流程。</p>"
+  },
+  "flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/childForSlot.html": {
+    "0": "<p>返回当前占据所提供 <code>slot</code> 的 widget。</p>",
+    "1": "<p>此类配置的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 会将所提供 <code>slot</code> 中的子级配置为返回的 <a href=\"widgets/Widget-class.html\">Widget</a> 所生成的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。</p>"
+  },
+  "flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/key.html": {
+    "0": "<p>控制 widget 树中一个 widget 替换另一个 widget 的方式。</p>",
+    "2": "<p>此外，将 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 用作 widget 的 <a href=\"widgets/Widget/key.html\">key</a>，可使 element 在树中移动（更改父级）而不丢失状态。如果发现一个新 widget（其 key 和类型与同一位置上的旧 widget 不同），但前一帧中树的其他位置存在具有相同 global key 的 widget，那么该 widget 的 element 会移动到新位置。</p>",
+    "3": "<p>通常，作为另一个 widget 唯一子级的 widget 不需要显式指定 key。</p>"
+  },
+  "flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/slots.html": {
+    "0": "<p>返回所有可用插槽的列表。</p>",
+    "1": "<p>对于实现此 mixin 的给定类，插槽列表必须是静态的，且不得发生变化。</p>",
+    "2": "<p>通常使用 <a href=\"dart-core/Enum-class.html\">Enum</a> 标识不同插槽。在这种情况下，此 getter 可返回所用枚举的 <code>values</code> getter 所返回的值。</p>"
+  },
+  "flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/toStringDeep.html": {
+    "4": "<p><a href=\"foundation/DiagnosticableTree/toStringDeep.html\">toStringDeep</a> 方法还接受其他参数，但这些参数供递归处理后代时内部使用，因此可以忽略。</p>"
+  },
+  "flutter/widgets/SlottedMultiChildRenderObjectWidgetMixin/toStringShallow.html": {
+    "0": "<p>返回此对象的一行详细说明。</p>",
+    "1": "<p>此说明通常比较长。它包含 <a href=\"foundation/DiagnosticableTree/toStringDeep.html\">toStringDeep</a> 提供的相同信息，但不会递归处理任何子级。</p>",
+    "2": "<p><code>joiner</code> 指定用于连接从 <a href=\"foundation/Diagnosticable/debugFillProperties.html\">debugFillProperties</a> 获取的各个部分的字符串。传入 <code>'\\n '</code> 这样的字符串，会生成多行字符串，并将对象属性缩进显示在其名称下方（与 <a href=\"foundation/Diagnosticable/toString.html\">toString</a> 类似）。</p>",
+    "3": "<p><code>minLevel</code> 指定要包含在输出中的属性的最低 <a href=\"foundation/DiagnosticLevel.html\">DiagnosticLevel</a>。</p>"
+  },
+  "flutter/widgets/SlottedRenderObjectElement/moveRenderObjectChild.html": {
+    "3": "<p>仅当 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 可能会使用现有的 <a href=\"widgets/Element-class.html\">Element</a> 子级调用，并且给定的 <code>slot</code> 与此前分配给该 Element 的 <code>slot</code> 不同时，才会调用此方法。例如，<a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a> 会这样做，而 <a href=\"widgets/SingleChildRenderObjectElement-class.html\">SingleChildRenderObjectElement</a> 不会（因为 slot 始终为 null）。如果某个 <a href=\"widgets/Element-class.html\">Element</a> 有一组特定 slot，且每个子级始终使用同一个 slot（并且更新某个 slot 时不会拿其他 slot 中的子级进行比较），则不会调用此方法。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/getTransformTo.html": {
+    "0": "<p>将此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的绘制变换应用到 <code>target</code> <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。</p>",
+    "1": "<p>返回一个矩阵，将本地绘制坐标系映射到 <code>target</code> 的坐标系；如果无法计算绘制变换，则返回 <a href=\"package-vector_math_vector_math_64/Matrix4/Matrix4.zero.html\">Matrix4.zero</a>。</p>",
+    "2": "<p>如果 <code>target</code> 与此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 不在同一渲染树中，由于行为未定义，此方法会抛出异常。</p>",
+    "3": "<p>此方法会忽略 <a href=\"rendering/RenderObject/paintsChild.html\">RenderObject.paintsChild</a>。因此，即使此 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 或 <code>target</code> 当前不可见，它仍会尝试计算绘制变换。</p>",
+    "4": "<p>如果 <code>target</code> 为 null，此方法会返回一个矩阵，将本地绘制坐标系映射到 <a href=\"rendering/PipelineOwner/rootNode.html\">PipelineOwner.rootNode</a> 的坐标系。</p>",
+    "5": "<p>对于 <a href=\"rendering/RendererBinding-mixin.html\">RendererBinding</a> 拥有的渲染树（即设备上显示的主渲染树），这表示此方法会映射到逻辑像素的全局坐标系。要转换为物理像素，请对 <a href=\"rendering/RenderView-class.html\">RenderView</a> 调用 <a href=\"rendering/RenderObject/applyPaintTransform.html\">applyPaintTransform</a>，进一步变换该坐标。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/markNeedsLayout.html": {
+    "0": "<p>将此渲染对象的布局信息标记为脏；如果此对象是 relayout boundary，则将其注册到对应的 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a>，否则交由父级处理。</p>",
+    "1": "<h2 id=\"background\">背景</h2>",
+    "2": "<p>渲染对象收到写入操作时，我们不会立即更新布局信息，而是将其标记为脏并安排一次视觉更新。作为视觉更新的一部分，渲染管线会更新渲染对象的布局信息。</p>",
+    "3": "<p>此机制会批量处理布局工作，将连续的多次写入合并，从而避免重复计算。</p>",
+    "4": "<p>如果渲染对象的父级表示：计算自身布局信息时会使用某个子渲染对象的尺寸，那么对该子级调用此函数时，也会将父级标记为需要布局。在这种情况下，父级和子级都需要重新计算布局，因此管线拥有者只会收到父级的通知；父级完成布局时，会调用子级的 <a href=\"rendering/RenderObject/layout.html\">layout</a> 方法，子级也就会随之完成布局。</p>",
+    "5": "<p>对渲染对象调用 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a> 后，直到管线拥有者调用该渲染对象的 <a href=\"rendering/RenderObject/layout.html\">layout</a> 并完成布局之后，<a href=\"rendering/RenderObject/debugNeedsLayout.html\">debugNeedsLayout</a> 才会对该对象返回 true。</p>",
+    "6": "<h2 id=\"special-cases\">特殊情况</h2>",
+    "7": "<p><a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的某些子类（尤其是 <a href=\"rendering/RenderBox-class.html\">RenderBox</a>）还存在其他需要在子级变脏时通知父级的情况（例如子级的内在尺寸或基线发生变化）。这些子类会重写 markNeedsLayout：常规情况下调用 <code>super.markNeedsLayout()</code>；如果父级和子级都需要布局，则调用 <a href=\"rendering/RenderObject/markParentNeedsLayout.html\">markParentNeedsLayout</a>。</p>",
+    "8": "<p>如果 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 已改变，请调用 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a>，而不是 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a>。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/markNeedsLayoutForSizedByParentChange.html": {
+    "0": "<p>将此渲染对象的布局信息标记为脏（类似 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a>），并额外处理 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 值发生变化时所需的工作。</p>",
+    "1": "<p>每当 <a href=\"rendering/RenderObject/sizedByParent.html\">sizedByParent</a> 可能发生变化时，都应调用此方法。</p>",
+    "2": "<p>只有在 <a href=\"rendering/RenderObject/parent.html\">parent</a> 不为 null 时才能调用。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/markNeedsPaint.html": {
+    "0": "<p>将此渲染对象标记为视觉外观已发生变化。</p>",
+    "1": "<p>渲染对象收到写入操作时，我们不会立即更新其显示列表，而是将其标记为需要绘制并安排一次视觉更新。作为视觉更新的一部分，渲染管线会让此渲染对象有机会更新其显示列表。</p>",
+    "2": "<p>此机制会批量处理绘制工作，将连续的多次写入合并，从而避免重复计算。</p>",
+    "3": "<p>对渲染对象调用 <a href=\"rendering/RenderObject/markNeedsPaint.html\">markNeedsPaint</a> 后，直到管线拥有者调用该渲染对象的 <a href=\"rendering/RenderObject/paint.html\">paint</a> 并完成绘制之后，<a href=\"rendering/RenderObject/debugNeedsPaint.html\">debugNeedsPaint</a> 才会对该对象返回 true。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/markParentNeedsLayout.html": {
+    "0": "<p>将此渲染对象的布局信息标记为脏，然后交由父级处理。</p>",
+    "1": "<p>此函数只能由子类的 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a> 或 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a> 实现调用；这些子类会引入更多需要将脏布局的处理交给父级的原因。详情请参阅 <a href=\"rendering/RenderObject/markNeedsLayout.html\">markNeedsLayout</a>。</p>",
+    "2": "<p>只有在 <a href=\"rendering/RenderObject/parent.html\">parent</a> 不为 null 时才能调用。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/reassemble.html": {
+    "0": "<p>将给定 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 根节点下的整个子树标记为布局、绘制等方面均已变脏，以便显示热重载的效果，或应用全局调试标志（例如 <a href=\"rendering/debugPaintSizeEnabled.html\">debugPaintSizeEnabled</a>）更改后的效果。</p>",
+    "1": "<p>当开发工具检测到应用代码发生变化并触发 <code>ext.flutter.reassemble</code> hook 时，<a href=\"rendering/RendererBinding-mixin.html\">RendererBinding</a> 会调用此方法，使 widget 树采用已更改的实现。</p>",
+    "2": "<p>此操作开销很大，只应在开发期间调用。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/replaceRootLayer.html": {
+    "0": "<p>替换图层。此操作仅对渲染对象子树的根节点有效（即调用过 <a href=\"rendering/RenderObject/scheduleInitialPaint.html\">scheduleInitialPaint</a> 的对象）。</p>",
+    "1": "<p>例如，设备像素比发生变化时可能会调用此方法。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/scheduleInitialLayout.html": {
+    "0": "<p>通过安排首次布局来启动渲染管线。</p>",
+    "1": "<p>要求此渲染对象已附加，且是渲染树的根节点。</p>",
+    "2": "<p>请参阅 <a href=\"rendering/RenderView-class.html\">RenderView</a>，了解此函数的用法示例。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/scheduleInitialPaint.html": {
+    "0": "<p>通过安排首次绘制来启动渲染管线。</p>",
+    "1": "<p>要求此渲染对象已附加、是渲染树的根节点，并且拥有合成图层。</p>",
+    "2": "<p>请参阅 <a href=\"rendering/RenderView-class.html\">RenderView</a>，了解此函数的用法示例。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/scheduleInitialSemantics.html": {
+    "0": "<p>将此节点标记为需要更新语义，以此启动语义报告机制。</p>",
+    "1": "<p>要求此渲染对象已附加，且是渲染树的根节点。</p>",
+    "2": "<p>请参阅 <a href=\"rendering/RendererBinding-mixin.html\">RendererBinding</a>，了解此函数的用法示例。</p>"
+  },
+  "flutter/widgets/SlottedContainerRenderObjectMixin/sendSemanticsEvent.html": {
+    "0": "<p>发送与此渲染对象的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 关联的 <a href=\"semantics/SemanticsEvent-class.html\">SemanticsEvent</a>。</p>",
+    "1": "<p>如果此渲染对象没有语义信息，则使用第一个拥有非 null 语义节点的父渲染对象。</p>",
+    "2": "<p>禁用语义时，不会分发任何事件。</p>",
+    "3": "<p>有关此行为的完整说明，请参阅 <a href=\"semantics/SemanticsNode/sendEvent.html\">SemanticsNode.sendEvent</a>。</p>"
+  },
   "flutter/widgets/SingleTickerProviderStateMixin-mixin.html": {
     "0": "<p>提供单个 <a href=\"scheduler/Ticker-class.html\">Ticker</a>，仅当当前树处于启用状态（由 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 定义）时才会触发。</p>",
     "1": "<p>如果要在 <a href=\"widgets/State-class.html\">State</a> 中创建并仅使用一个 <a href=\"animation/AnimationController-class.html\">AnimationController</a>，可混入此类，然后将 <code>vsync: this</code> 传给该 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 的构造函数。</p>",
