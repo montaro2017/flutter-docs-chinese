@@ -263335,5 +263335,291 @@
   },
   "widgets/RouteAware/didPushNext.html": {
     "2": "<p>\n<a name=\"widgets.RouteAware.didPushNext.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  \n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.RouteAware.didPushNext.1');\" onclick=\"fixHref(this, 'widgets.RouteAware.didPushNext.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">ModalRoute.of(context)?.secondaryAnimation?.addStatusListener((AnimationStatus status) {\n  if (status == AnimationStatus.completed) {\n    &#47;&#47; This route is now fully obscured by the new route.\n  }\n});</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "flutter/widgets/TransitionDelegate/resolve.html": {
+    "0": "<p><a href=\"widgets/Navigator-class.html\">Navigator</a> 更新 <a href=\"widgets/Navigator/pages.html\">Navigator.pages</a> 时会调用此方法，以决定路由如何过渡进入或离开屏幕。</p>",
+    "1": "<p><code>newPageRouteHistory</code> 列出更新完成后将位于 <a href=\"widgets/Navigator-class.html\">Navigator</a> 历史栈中的所有基于页面的路由，并按栈中顺序排列。<code>newPageRouteHistory</code>如果其中某个路由的 <a href=\"widgets/RouteTransitionRecord/isWaitingForEnteringDecision.html\">RouteTransitionRecord.isWaitingForEnteringDecision</a> 为 true，就需要明确决定该路由如何进入 Navigator。可调用 <a href=\"widgets/RouteTransitionRecord/markForPush.html\">RouteTransitionRecord.markForPush</a> 或 <a href=\"widgets/RouteTransitionRecord/markForAdd.html\">RouteTransitionRecord.markForAdd</a> 作出决定。</p>",
+    "2": "<p><code>locationToExitingPageRoute</code> 包含页面更新后将从路由历史记录中移除的基于页面的路由。此映射记录待移除的路由，以及它们在更新前原始路由历史记录中的位置（<code>locationToExitingPageRoute</code>）。键表示原始路由历史中紧邻待移除路由下方的基于页面的路由，值表示要移除的基于页面的路由。如果要移除的是栈底路由，其位置为 null。如果其中某个路由的 <a href=\"widgets/RouteTransitionRecord/isWaitingForExitingDecision.html\">RouteTransitionRecord.isWaitingForExitingDecision</a> 为 true，就需要明确决定该路由如何离开 Navigator。可对待移除路由调用 <a href=\"widgets/RouteTransitionRecord/markForPop.html\">RouteTransitionRecord.markForPop</a> 或 <a href=\"widgets/RouteTransitionRecord/markForComplete.html\">RouteTransitionRecord.markForComplete</a> 作出决定。<code>locationToExitingPageRoute</code> 中的路由也可能不需要作出决定：例如它们已在之前的页面更新中弹出，但退出动画仍未结束。这些路由仍会包含在 <code>locationToExitingPageRoute</code> 中，只是其 <a href=\"widgets/RouteTransitionRecord/isWaitingForExitingDecision.html\">RouteTransitionRecord.isWaitingForExitingDecision</a> 为 false，因此无需再作决定。</p>",
+    "3": "<p><code>pageRouteToPagelessRoutes</code> 记录基于页面的路由及其关联的无页面路由。如果某个基于页面的路由正在等待退出决定，其关联的无页面路由也需要明确决定如何离开屏幕。</p>",
+    "4": "<p>作出所有决定后，此方法必须将待移除路由（无论是否需要决定）与 <code>newPageRouteHistory</code> 合并并返回结果。<a href=\"widgets/Navigator-class.html\">Navigator</a> 会按照结果中的顺序更新路由历史。返回列表必须保留 <code>newPageRouteHistory</code> 中各路由的原有顺序；只要包含所有待移除路由，它们可以插入返回列表中的任意位置。</p>",
+    "5": "<p>例如，考虑以下情况：</p>",
+    "6": "<p><code>newPageRouteHistory = [A, B, C]</code></p>",
+    "7": "<p><code>locationToExitingPageRoute = {A -&gt; D, C -&gt; E}</code></p>",
+    "8": "<p>以下结果均有效：</p>",
+    "9": "<p><code>result = [A, B ,C ,D ,E]</code> 有效。<code>result = [D, A, B ,C ,E]</code> 也有效，因为退出路由可以插入任意位置。</p>",
+    "10": "<p>以下结果无效：</p>",
+    "11": "<p><code>result = [B, A, C ,D ,E]</code> 无效，因为 B 必须排在 A 之后。<code>result = [A, B, C ,E]</code> 无效，因为结果中必须包含 D。</p>"
+  },
+  "flutter/widgets/TransitionRoute/allowSnapshotting.html": {
+    "0": "<p>路由过渡是否优先对进入或退出的路由生成快照并为快照制作动画。</p>",
+    "1": "<p>此值为 true 时，某些路由过渡（例如 Android 缩放页面过渡）会为进入和退出的路由生成快照。随后会使用这些快照代替底层 widget 进行动画，以提升过渡性能。</p>",
+    "2": "<p>通常，路由动画播放期间，进入或退出路由上的其他动画看起来会被冻结；Hero 动画或绘制在独立浮层中的内容除外。</p>"
+  },
+  "flutter/widgets/TransitionRoute/animation.html": {
+    "0": "<p>驱动此路由过渡动画以及上一条路由正向过渡动画的动画对象。</p>"
+  },
+  "flutter/widgets/TransitionRoute/canTransitionFrom.html": {
+    "0": "<p>当此路由被推入并置于 <code>previousRoute</code> 上方，或此路由从其上弹出时，上一条路由是否应播放动画。</p>",
+    "1": "<p>子类可以重写此方法，限制需要与之协调过渡动画的路由集合。</p>",
+    "2": "<p>如果此方法返回 true，且 <code>previousRoute.canTransitionTo()</code> 也返回 true，那么推入此路由时，上一条路由的 <a href=\"widgets/ModalRoute/buildTransitions.html\">ModalRoute.buildTransitions</a> 中的 <code>secondaryAnimation</code> 会从 0.0 运行到 1.0。类似地，如果此路由从 <code>previousRoute</code> 上弹出，该路由的 <code>secondaryAnimation</code> 会从 1.0 运行到 0.0。</p>",
+    "3": "<p>如果返回 false，上一条路由的 <a href=\"widgets/ModalRoute/buildTransitions.html\">ModalRoute.buildTransitions</a> 中的 <code>secondaryAnimation</code> 值将为 kAlwaysDismissedAnimation。换言之，当此路由被推入并置于上一条路由上方，或此路由从 <code>previousRoute</code> 上弹出时，它都不会播放动画。</p>",
+    "4": "<p>默认返回 true。</p>"
+  },
+  "flutter/widgets/TransitionRoute/canTransitionTo.html": {
+    "0": "<p>当 <code>nextRoute</code> 被推入并置于此路由上方，或 <code>nextRoute</code> 从此路由上弹出时，此路由是否支持播放过渡动画。</p>",
+    "1": "<p>子类可以重写此方法，限制需要与之协调过渡动画的路由集合。</p>",
+    "2": "<p>如果此方法返回 true，且 <code>nextRoute.canTransitionFrom()</code> 也返回 true，那么推入 <code>nextRoute</code> 时，此路由的 <a href=\"widgets/ModalRoute/buildTransitions.html\">ModalRoute.buildTransitions</a> 中的 <code>secondaryAnimation</code> 会从 0.0 运行到 1.0。类似地，如果 <code>nextRoute</code> 从此路由上弹出，<code>secondaryAnimation</code> 会从 1.0 运行到 0.0。</p>",
+    "3": "<p>如果返回 false，此路由的 <a href=\"widgets/ModalRoute/buildTransitions.html\">ModalRoute.buildTransitions</a> 中的 <code>secondaryAnimation</code> 参数值将为 <a href=\"cupertino/kAlwaysDismissedAnimation-constant.html\">kAlwaysDismissedAnimation</a>。换言之，当 <code>nextRoute</code> 被推入并置于此路由上方，或 <code>nextRoute</code> 从此路由上弹出时，此路由都不会播放动画。</p>",
+    "4": "<p>默认返回 true。</p>"
+  },
+  "flutter/widgets/TransitionRoute/completed.html": {
+    "0": "<p>只有在过渡动画本身结束，且导航器的浮层条目已移除后，此 Future 才会完成。</p>",
+    "1": "<p>动画被撤销后，此 Future 才会完成。这发生在 <a href=\"widgets/Route/popped.html\">popped</a> Future 完成之后，因为路由弹出时，<a href=\"widgets/Route/popped.html\">popped</a> 通常会在动画开始前立即完成。</p>"
+  },
+  "flutter/widgets/TransitionRoute/controller.html": {
+    "0": "<p>此路由用于驱动过渡动画的动画控制器。</p>",
+    "1": "<p>动画本身由 <a href=\"widgets/TransitionRoute/animation.html\">animation</a> 属性提供。</p>"
+  },
+  "flutter/widgets/TransitionRoute/createAnimation.html": {
+    "0": "<p>调用此方法创建一个动画，用于公开由 <a href=\"widgets/TransitionRoute/createAnimationController.html\">createAnimationController()</a> 创建的动画控制器所驱动的当前过渡进度。</p>"
+  },
+  "flutter/widgets/TransitionRoute/createAnimationController.html": {
+    "0": "<p>调用此方法创建动画控制器，用于驱动此路由从上一条路由进入，以及从此路由返回上一条路由的过渡动画。</p>",
+    "1": "<p>如果 <a href=\"widgets/TransitionRoute/willDisposeAnimationController.html\">willDisposeAnimationController</a> 为 <code>true</code>，返回的控制器会由 <a href=\"animation/AnimationController/dispose.html\">AnimationController.dispose</a> 释放。</p>"
+  },
+  "flutter/widgets/TransitionRoute/createSimulation.html": {
+    "0": "<p>创建用于驱动此路由过渡动画的 simulation。</p>",
+    "1": "<p>默认情况下，此方法返回 null，表示路由不使用 simulation，而是调用 <a href=\"animation/AnimationController/forward.html\">AnimationController.forward</a> 或 <a href=\"animation/AnimationController/reverse.html\">AnimationController.reverse</a>，并传入 <a href=\"widgets/TransitionRoute/transitionDuration.html\">transitionDuration</a> 和控制器的曲线，以启动过渡动画。</p>",
+    "2": "<p>子类可以重写此方法并返回非 null 的 <a href=\"physics/Simulation-class.html\">Simulation</a>。此时，<a href=\"widgets/TransitionRoute/controller.html\">controller</a> 会改用所提供的 simulation，通过 <a href=\"animation/AnimationController/animateWith.html\">AnimationController.animateWith</a> 或 <a href=\"animation/AnimationController/animateBackWith.html\">AnimationController.animateBackWith</a> 为过渡制作动画，并将 <a href=\"physics/Simulation/x.html\">Simulation.x</a> 传递给 <a href=\"widgets/TransitionRoute/animation.html\">animation</a> 的值。此时会忽略 <a href=\"widgets/TransitionRoute/controller.html\">controller</a> 的曲线和 <a href=\"widgets/TransitionRoute/transitionDuration.html\">transitionDuration</a>。</p>",
+    "3": "<p>每次 Navigator 推入或弹出此路由时都会调用此方法。<code>forward</code> 参数表示过渡方向：推入路由时为 true，弹出路由时为 false。</p>"
+  },
+  "flutter/widgets/TransitionRoute/debugLabel.html": {
+    "0": "<p>用于调试的路由简短说明。</p>"
+  },
+  "flutter/widgets/TransitionRoute/debugTransitionCompleted.html": {
+    "0": "<p>过渡动画是否已完成。</p>",
+    "1": "<p>这等同于 <a href=\"widgets/TransitionRoute/completed.html\">completed</a> 返回的 Future 是否已完成。</p>",
+    "2": "<p>此方法仅在启用 assert 时有效；否则始终返回 false。</p>"
+  },
+  "flutter/widgets/TransitionRoute/didAdd.html": {
+    "0": "<p>路由添加到 Navigator 后，在 <a href=\"widgets/TransitionRoute/install.html\">install</a> 调用之后执行。</p>",
+    "1": "<p>当路由立即显示在屏幕上且没有推入过渡动画时，会调用此方法而不是 <a href=\"widgets/TransitionRoute/didPush.html\">didPush</a>。</p>"
+  },
+  "flutter/widgets/TransitionRoute/didChangeNext.html": {
+    "0": "<p>此路由的下一条路由已更改为给定的新路由。</p>",
+    "1": "<p>只要此路由仍在历史记录中，无论下一条路由因何原因发生变化，都会调用此方法；包括将路由首次添加到 <a href=\"widgets/Navigator-class.html\">Navigator</a> 时（例如调用 <a href=\"widgets/Navigator/push.html\">Navigator.push</a>），但会调用 <a href=\"widgets/TransitionRoute/didPopNext.html\">didPopNext</a> 的情况除外。</p>",
+    "2": "<p>如果没有新的下一条路由（即 <a href=\"widgets/Route/isCurrent.html\">isCurrent</a> 为 true），<code>nextRoute</code> 参数为 null。</p>"
+  },
+  "flutter/widgets/TransitionRoute/didPop.html": {
+    "0": "<p>收到弹出此路由的请求。如果路由可以在内部处理（例如它有自己的内部状态栈），则返回 false；否则返回 true（即返回调用 <code>super.didPop</code> 的结果）。返回 false 会阻止 <a href=\"widgets/NavigatorState/pop.html\">NavigatorState.pop</a> 的默认行为。</p>",
+    "1": "<p>此方法返回 true 时，Navigator 会将此路由从历史记录中移除，但不会立即调用 <a href=\"widgets/TransitionRoute/dispose.html\">dispose</a>。此时由路由负责调用 <a href=\"widgets/NavigatorState/finalizeRoute.html\">NavigatorState.finalizeRoute</a>，该方法随后会对路由调用 <a href=\"widgets/TransitionRoute/dispose.html\">dispose</a>。这种顺序允许路由在弹出后、释放前播放退出动画或执行其他视觉效果。</p>",
+    "2": "<p>此方法应调用 <a href=\"widgets/Route/didComplete.html\">didComplete</a> 来完成 <a href=\"widgets/Route/popped.html\">popped</a> Future（默认实现也只做这件事）；路由不应等退出动画结束后才完成该 Future。</p>",
+    "3": "<p><code>result</code> 参数的说明见 <a href=\"widgets/Route/popped.html\">popped</a>、<a href=\"widgets/Route/didComplete.html\">didComplete</a> 和 <a href=\"widgets/Route/currentResult.html\">currentResult</a>。</p>"
+  },
+  "flutter/widgets/TransitionRoute/didPopNext.html": {
+    "0": "<p>位于此路由上方的给定路由已从 Navigator 弹出。</p>",
+    "1": "<p>此路由现在是当前路由（<a href=\"widgets/Route/isCurrent.html\">isCurrent</a> 为 true），并且没有下一条路由。</p>"
+  },
+  "flutter/widgets/TransitionRoute/didPush.html": {
+    "0": "<p>路由推入 Navigator 后，在 <a href=\"widgets/TransitionRoute/install.html\">install</a> 调用之后执行。</p>",
+    "1": "<p>返回值会在推入过渡动画完成时完成。</p>",
+    "2": "<p>当路由立即显示在屏幕上且没有推入过渡动画时，会调用 <a href=\"widgets/TransitionRoute/didAdd.html\">didAdd</a> 而不是 <a href=\"widgets/TransitionRoute/didPush.html\">didPush</a>。</p>"
+  },
+  "flutter/widgets/TransitionRoute/didReplace.html": {
+    "0": "<p>此路由在 Navigator 中替换另一条路由后，在 <a href=\"widgets/TransitionRoute/install.html\">install</a> 调用之后执行。</p>"
+  },
+  "flutter/widgets/TransitionRoute/dispose.html": {
+    "1": "<p>此方法不应将其 <a href=\"widgets/OverlayRoute/overlayEntries.html\">overlayEntries</a> 从 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中移除；这由对象的所有者负责。</p>",
+    "2": "<p>调用此方法后，对象将不可再用，应将其丢弃。</p>",
+    "3": "<p>此方法只能由对象的所有者调用。通常 <a href=\"widgets/Navigator-class.html\">Navigator</a> 拥有路由，因此会在移除路由时调用此方法；此后 Navigator 不再引用该路由。</p>"
+  },
+  "flutter/widgets/TransitionRoute/finishedWhenPopped.html": {
+    "0": "<p>控制 <a href=\"widgets/TransitionRoute/didPop.html\">didPop</a> 是否调用 <a href=\"widgets/NavigatorState/finalizeRoute.html\">NavigatorState.finalizeRoute</a>。</p>",
+    "1": "<p>如果为 true，此路由会在 <a href=\"widgets/TransitionRoute/didPop.html\">didPop</a> 期间移除其浮层条目。如果子类想延迟最终清理（例如先播放退出动画，再从浮层中移除路由），可以重写此 getter。</p>",
+    "2": "<p>若子类的 <a href=\"widgets/TransitionRoute/finishedWhenPopped.html\">finishedWhenPopped</a> 返回 false，则必须自行调用 <a href=\"widgets/NavigatorState/finalizeRoute.html\">NavigatorState.finalizeRoute</a>。</p>"
+  },
+  "flutter/widgets/TransitionRoute/handleCancelBackGesture.html": {
+    "0": "<p>处理以取消结束的预测式返回手势。</p>"
+  },
+  "flutter/widgets/TransitionRoute/handleCommitBackGesture.html": {
+    "0": "<p>处理成功完成的预测式返回手势。</p>"
+  },
+  "flutter/widgets/TransitionRoute/handleStartBackGesture.html": {
+    "0": "<p>处理预测式返回手势的开始。</p>",
+    "1": "<p><code>progress</code> 参数表示手势进度，范围为 0.0 到 1.0，含义与 <a href=\"services/PredictiveBackEvent/progress.html\">PredictiveBackEvent.progress</a> 相同。</p>"
+  },
+  "flutter/widgets/TransitionRoute/handleUpdateBackGestureProgress.html": {
+    "0": "<p>处理用户在屏幕上拖动时预测式返回手势的进度更新。</p>",
+    "1": "<p><code>progress</code> 参数表示手势进度，范围为 0.0 到 1.0，含义与 <a href=\"services/PredictiveBackEvent/progress.html\">PredictiveBackEvent.progress</a> 相同。</p>"
+  },
+  "flutter/widgets/TransitionRoute/install.html": {
+    "1": "<p>使用此方法填充 <a href=\"widgets/OverlayRoute/overlayEntries.html\">overlayEntries</a>。调用 <a href=\"widgets/TransitionRoute/install.html\">install</a> 后，此列表必须至少包含一个条目。<a href=\"widgets/Navigator-class.html\">Navigator</a> 负责将这些条目添加到 <a href=\"widgets/Overlay-class.html\">Overlay</a> 或从中移除，具体通过调用 <a href=\"widgets/OverlayEntry/remove.html\">OverlayEntry.remove</a> 实现。</p>"
+  },
+  "flutter/widgets/TransitionRoute/opaque.html": {
+    "0": "<p>过渡动画完成后，此路由是否会遮挡之前的路由。</p>",
+    "1": "<p>不透明路由的进入动画完成后，为节省资源，其后方的路由将不会构建。</p>"
+  },
+  "flutter/widgets/TransitionRoute/reverseTransitionDuration.html": {
+    "0": "<p>反向播放过渡动画所需的时长。</p>",
+    "1": "<p>默认情况下，反向过渡时长与正向 <a href=\"widgets/TransitionRoute/transitionDuration.html\">transitionDuration</a> 相同。</p>"
+  },
+  "flutter/widgets/TransitionRoute/secondaryAnimation.html": {
+    "0": "<p>当另一条路由被推入并置于此路由上方时驱动动画的对象。此动画使此路由可以与上方路由的进入和退出过渡协调。</p>"
+  },
+  "flutter/widgets/TransitionRoute/transitionDuration.html": {
+    "0": "<p>正向播放过渡动画所需的时长。</p>"
+  },
+  "flutter/widgets/TransitionRoute/willDisposeAnimationController.html": {
+    "0": "<p>是否接管由 <a href=\"widgets/TransitionRoute/createAnimationController.html\">createAnimationController</a> 创建的 <a href=\"widgets/TransitionRoute/controller.html\">controller</a>。</p>",
+    "1": "<p>如果为 true，此路由会在不再需要控制器时调用 <a href=\"animation/AnimationController/dispose.html\">AnimationController.dispose</a>。如果为 false，则应由控制器的所有者负责释放。</p>",
+    "2": "<p>默认值为 <code>true</code>。</p>"
+  },
+  "flutter/widgets/TransposeCharactersIntent-class.html": {
+    "0": "<p>表示用户尝试交换光标两侧相邻字符的 <a href=\"widgets/Intent-class.html\">Intent</a>。</p>"
+  },
+  "flutter/widgets/TransposeCharactersIntent/TransposeCharactersIntent.html": {
+    "0": "<p>创建 <a href=\"widgets/TransposeCharactersIntent-class.html\">TransposeCharactersIntent</a>。</p>"
+  },
+  "flutter/widgets/TraversalDirection.html": {
+    "0": "<p>沿水平轴或垂直轴移动的方向。</p>",
+    "1": "<p><a href=\"widgets/DirectionalFocusTraversalPolicyMixin-mixin.html\">DirectionalFocusTraversalPolicyMixin</a> 和 <a href=\"widgets/FocusNode/focusInDirection.html\">FocusNode.focusInDirection</a> 使用此值指明下一个焦点应位于哪个方向。</p>"
+  },
+  "flutter/widgets/TraversalEdgeBehavior.html": {
+    "0": "<p>控制焦点到达 <a href=\"widgets/FocusScopeNode-class.html\">FocusScopeNode</a> 边缘时如何转移。对于按顺序（上一个或下一个）移动，边缘指第一个或最后一个项目；对于方向性移动，边缘指 <a href=\"widgets/FocusScopeNode-class.html\">FocusScopeNode</a> 最外侧的项目。例如，向下移动时，边缘节点是底部坐标最大的节点；向左移动时，边缘节点是 x 坐标最小的节点。</p>"
+  },
+  "flutter/widgets/TraversalRequestFocusCallback.html": {
+    "0": "<p>焦点遍历策略请求焦点时调用的回调函数签名。</p>"
+  },
+  "flutter/widgets/TreeSliver-class.html": {
+    "0": "<p>在可垂直和水平滚动的 <a href=\"widgets/Viewport-class.html\">Viewport</a> 中显示可展开和折叠的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的 widget。</p>",
+    "1": "<p>类型 <code>T</code> 与 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 和 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的类型相对应，表示 <a href=\"widgets/TreeSliverNode/content.html\">TreeSliverNode.content</a> 的类型。</p>",
+    "2": "<p>树中的行由 <a href=\"widgets/Viewport-class.html\">Viewport</a> 的渲染对象按需布局，并使用 <a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 构建。此方法只会为可见节点或位于已弃用的 <a class=\"deprecated\" href=\"widgets/Viewport/cacheExtent.html\">Viewport.cacheExtent</a> 范围内的节点调用。</p>",
+    "3": "<p><a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 会返回用于表示给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的 <a href=\"widgets/Widget-class.html\">Widget</a>。</p>",
+    "4": "<p><a href=\"widgets/TreeSliver/treeRowExtentBuilder.html\">TreeSliver.treeRowExtentBuilder</a> 会返回一个 double，表示给定节点在主轴方向上的范围。</p>",
+    "5": "<p>提供 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a> 后，即可查询和控制树中节点的状态。</p>",
+    "6": "<p><a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 只支持垂直方向的 <a href=\"painting/AxisDirection.html\">AxisDirection.down</a> 和水平方向的 <a href=\"painting/AxisDirection.html\">AxisDirection.right</a>。</p>"
+  },
+  "flutter/widgets/TreeSliver/TreeSliver.html": {
+    "0": "<p>创建一个用于显示 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 实例；节点展开和折叠时会播放动画。</p>"
+  },
+  "flutter/widgets/TreeSliver/addRepaintBoundaries.html": {
+    "0": "<p>是否为每个子级添加 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a> 包装。</p>",
+    "1": "<p>通常，滚动容器中的子级会使用重绘边界包装，这样列表滚动时就无需重绘这些子级。如果子级很容易重绘（例如纯色块或简短文本），不添加重绘边界、而是在滚动期间始终重绘子级可能更高效。</p>"
+  },
+  "flutter/widgets/TreeSliver/addSemanticIndexes.html": {
+    "0": "<p>是否使用 <a href=\"widgets/IndexedSemantics-class.html\">IndexedSemantics</a> 包装每个子级。</p>",
+    "1": "<p>通常，滚动容器中的子级需要带有语义索引，才能生成正确的无障碍公告。只有在索引已由 <a href=\"widgets/IndexedSemantics-class.html\">IndexedSemantics</a> widget 提供时，才应将此选项设为 false。</p>"
+  },
+  "flutter/widgets/TreeSliver/controller.html": {
+    "0": "<p>如果提供了控制器，就可以用它展开或折叠 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>，或查询 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 的当前状态。</p>"
+  },
+  "flutter/widgets/TreeSliver/defaultAnimationCurve-constant.html": {
+    "0": "<p>树节点展开和折叠动画使用的默认曲线：<a href=\"animation/Curves/linear-constant.html\">Curves.linear</a>。</p>"
+  },
+  "flutter/widgets/TreeSliver/defaultAnimationDuration-constant.html": {
+    "0": "<p>树节点展开和折叠动画使用的默认时长：150 毫秒的 <a href=\"dart-core/Duration-class.html\">Duration</a>。</p>"
+  },
+  "flutter/widgets/TreeSliver/defaultToggleAnimationStyle.html": {
+    "0": "<p>未在 <a href=\"widgets/TreeSliver/toggleAnimationStyle.html\">toggleAnimationStyle</a> 中提供动画样式时，节点展开和折叠动画使用的默认 <a href=\"animation/AnimationStyle-class.html\">AnimationStyle</a>。</p>"
+  },
+  "flutter/widgets/TreeSliver/defaultTreeNodeBuilder.html": {
+    "0": "<p>返回给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 对应的默认树行。</p>",
+    "1": "<p>由 <a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 使用。</p>",
+    "2": "<p>返回一个 <a href=\"widgets/Row-class.html\">Row</a>，其中包含 <a href=\"widgets/TreeSliverNode/content.html\">TreeSliverNode.content</a> 的 <a href=\"foundation/Diagnosticable/toString.html\">toString</a> 结果。如果 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 是其他节点的父级，其内容前会显示一个箭头图标；点击图标会触发展开或折叠动画。</p>"
+  },
+  "flutter/widgets/TreeSliver/defaultTreeRowExtentBuilder.html": {
+    "0": "<p>返回树行的默认固定范围，即 40 像素。</p>",
+    "1": "<p>由 <a href=\"widgets/TreeSliver/treeRowExtentBuilder.html\">TreeSliver.treeRowExtentBuilder</a> 使用。</p>"
+  },
+  "flutter/widgets/TreeSliver/indentation.html": {
+    "0": "<p>根据子节点的 <a href=\"widgets/TreeSliverNode/depth.html\">TreeSliverNode.depth</a>，指定子节点在交叉轴上的缩进像素数。</p>",
+    "1": "<p>默认由 <a href=\"rendering/RenderTreeSliver-class.html\">RenderTreeSliver</a> 处理缩进。子节点会在视口的交叉轴上按照 <a href=\"rendering/TreeSliverIndentationType/value.html\">TreeSliverIndentationType.value</a> 指定的值偏移。因此，分配给缩进的空间不会计入提供给 <a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 返回的 Widget 的可用空间。</p>",
+    "2": "<p>也可以在 <a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 中实现缩进，并通过 <a href=\"widgets/TreeSliverNode/depth.html\">TreeSliverNode.depth</a> 获取给定树行的深度。这样可以更灵活地构建树行，例如在缩进区域填充装饰或墨水效果。</p>"
+  },
+  "flutter/widgets/TreeSliver/onNodeToggle.html": {
+    "0": "<p><a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 展开或折叠时调用。</p>",
+    "1": "<p>如果 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 没有子节点，则不会调用此回调。</p>"
+  },
+  "flutter/widgets/TreeSliver/semanticIndexCallback.html": {
+    "0": "<p>当 <a href=\"widgets/TreeSliver/addSemanticIndexes.html\">addSemanticIndexes</a> 为 true 时使用的 <a href=\"widgets/SemanticIndexCallback.html\">SemanticIndexCallback</a>。</p>",
+    "1": "<p>默认情况下，为每个 widget 提供一个索引。</p>"
+  },
+  "flutter/widgets/TreeSliver/semanticIndexOffset.html": {
+    "0": "<p>添加到此 widget 生成的语义索引上的初始偏移量。</p>"
+  },
+  "flutter/widgets/TreeSliver/toggleAnimationStyle.html": {
+    "0": "<p><a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 中节点展开和折叠动画使用的默认 <a href=\"animation/AnimationStyle-class.html\">AnimationStyle</a>。</p>",
+    "1": "<p>默认的 <a href=\"animation/AnimationStyle/duration.html\">AnimationStyle.duration</a> 使用 <a href=\"widgets/TreeSliver/defaultAnimationDuration-constant.html\">TreeSliver.defaultAnimationDuration</a>，即 150 毫秒。</p>",
+    "2": "<p>默认的 <a href=\"animation/AnimationStyle/curve.html\">AnimationStyle.curve</a> 使用 <a href=\"widgets/TreeSliver/defaultAnimationCurve-constant.html\">TreeSliver.defaultAnimationCurve</a>，即 <a href=\"animation/Curves/linear-constant.html\">Curves.linear</a>。</p>",
+    "3": "<p>若要禁用树动画，请使用 <a href=\"animation/AnimationStyle/noAnimation-constant.html\">AnimationStyle.noAnimation</a>。</p>"
+  },
+  "flutter/widgets/TreeSliver/tree.html": {
+    "0": "<p>可能显示在 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 中的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 列表。</p>",
+    "1": "<p>除根节点之外，是否显示给定的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 取决于其父节点的 <a href=\"widgets/TreeSliverNode/isExpanded.html\">TreeSliverNode.isExpanded</a> 值。<a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 会在按需构建节点时设置 <a href=\"widgets/TreeSliverNode/parent.html\">TreeSliverNode.parent</a> 和 <a href=\"widgets/TreeSliverNode/depth.html\">TreeSliverNode.depth</a>，以确保树结构完整。</p>"
+  },
+  "flutter/widgets/TreeSliver/treeNodeBuilder.html": {
+    "0": "<p>为给定节点构建 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 条目时调用。</p>",
+    "1": "<p>默认情况下，如果未设置此属性，则使用 <a href=\"widgets/TreeSliver/defaultTreeNodeBuilder.html\">TreeSliver.defaultTreeNodeBuilder</a>。</p>"
+  },
+  "flutter/widgets/TreeSliver/treeRowExtentBuilder.html": {
+    "0": "<p>调用此方法计算为给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 构建的 widget 的范围。</p>",
+    "1": "<p>默认情况下，如果未设置此属性，则使用 <a href=\"widgets/TreeSliver/defaultTreeRowExtentBuilder.html\">TreeSliver.defaultTreeRowExtentBuilder</a>。</p>"
+  },
+  "flutter/widgets/TreeSliver/wrapChildToToggleNode.html": {
+    "0": "<p>用于触发 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 展开或折叠的包装方法。</p>",
+    "1": "<p><a href=\"widgets/TreeSliver/defaultTreeNodeBuilder.html\">TreeSliver.defaultTreeNodeBuilder</a> 会使用此方法包装父级 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的前导图标，使点击图标时触发动画。</p>",
+    "2": "<p>如果自行定义 <a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a>，可以用此方法包装返回 widget 的一部分或全部，以触发节点状态变化。</p>"
+  },
+  "flutter/widgets/TreeSliverController-class.html": {
+    "0": "<p>用于控制 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 中的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>",
+    "1": "<p>例如，系统事件发生时，可以通过编程方式展开或折叠树节点，从而重新配置现有节点。为此，可以创建一个带有 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a> 的 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a>，并让有状态 widget 持有该控制器；也可以通过 <a href=\"widgets/TreeSliverController/of.html\">TreeSliverController.of</a> 查找树自动创建的 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a>。</p>",
+    "2": "<p>控制器的展开或折叠方法会导致 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 重建，因此不能在 build 方法中调用。</p>"
+  },
+  "flutter/widgets/TreeSliverController/TreeSliverController.html": {
+    "0": "<p>创建一个用于 <a href=\"widgets/TreeSliver/controller.html\">TreeSliver.controller</a> 的控制器。</p>"
+  },
+  "flutter/widgets/TreeSliverController/collapseAll.html": {
+    "0": "<p>折叠树中的所有父级 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>"
+  },
+  "flutter/widgets/TreeSliverController/collapseNode.html": {
+    "0": "<p>折叠由此控制器构建的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>",
+    "1": "<p>如果节点已经处于折叠状态（参见 <a href=\"widgets/TreeSliverController/isExpanded.html\">isExpanded</a>），调用此方法不会产生效果。</p>",
+    "2": "<p>调用此方法可能导致 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 重建，因此不能在 build 方法中调用。</p>",
+    "3": "<p>调用此方法会触发 <a href=\"widgets/TreeSliver/onNodeToggle.html\">TreeSliver.onNodeToggle</a> 回调。</p>"
+  },
+  "flutter/widgets/TreeSliverController/expandAll.html": {
+    "0": "<p>展开树中的所有父级 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>"
+  },
+  "flutter/widgets/TreeSliverController/expandNode.html": {
+    "0": "<p>展开由此控制器构建的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>",
+    "1": "<p>如果节点已经处于展开状态（参见 <a href=\"widgets/TreeSliverController/isExpanded.html\">isExpanded</a>），调用此方法不会产生效果。</p>",
+    "2": "<p>调用此方法可能导致 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 重建，因此不能在 build 方法中调用。</p>",
+    "3": "<p>调用此方法会触发 <a href=\"widgets/TreeSliver/onNodeToggle.html\">TreeSliver.onNodeToggle</a> 回调。</p>"
+  },
+  "flutter/widgets/TreeSliverController/getActiveIndexFor.html": {
+    "0": "<p>返回给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 当前所在的行索引。</p>",
+    "1": "<p>如果节点当前不在树的活动路径中（即其父节点已折叠），则返回 null。</p>"
+  },
+  "flutter/widgets/TreeSliverController/getNodeFor.html": {
+    "0": "<p>如果存在，返回包含相关内容的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a>。</p>",
+    "1": "<p>如果不存在对应节点，则返回 null。此结果不表示节点是否处于活动状态（参见 <a href=\"widgets/TreeSliverController/isActive.html\">isActive</a>），也不表示节点当前是否在视口中可见。</p>"
+  },
+  "flutter/widgets/TreeSliverController/isActive.html": {
+    "0": "<p>给定的 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 是否位于其父级 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 的范围内。</p>",
+    "1": "<p>如果 <a href=\"widgets/TreeSliverNode/parent.html\">TreeSliverNode.parent</a> 已展开（参见 <a href=\"widgets/TreeSliverController/isExpanded.html\">isExpanded</a>），或者给定节点是根节点，则该节点处于活动状态，此方法返回 true。此结果不表示节点是否在 <a href=\"widgets/Viewport-class.html\">Viewport</a> 中可见。</p>"
+  },
+  "flutter/widgets/TreeSliverController/isExpanded.html": {
+    "0": "<p>由此控制器构建的给定 <a href=\"widgets/TreeSliverNode-class.html\">TreeSliverNode</a> 是否处于展开状态。</p>"
+  },
+  "flutter/widgets/TreeSliverController/maybeOf.html": {
+    "0": "<p>查找最近的、包含给定 context 的此类实例所对应的 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a>，并返回其 <a href=\"widgets/TreeSliverController-class.html\">TreeSliverController</a>。</p>",
+    "1": "<p>如果没有 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 包含给定 context，则返回 null。若要改为抛出异常，请使用 <a href=\"widgets/TreeSliverController/of.html\">of</a>。</p>"
+  },
+  "widgets/TreeSliver-class.html": {
+    "7": "<p>\n<a name=\"widgets.TreeSliver.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n此示例使用 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a> 显示节点，并突出显示当前选中的节点。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.TreeSliver.1');\" onclick=\"fixHref(this, 'widgets.TreeSliver.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>若要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.TreeSliver.1 mysample</span>\n        </p>",
+    "8": "<p>\n<a name=\"widgets.TreeSliver.2\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet2\">\n    <div class=\"snippet-description\">\n此示例展示经过高度自定义的 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a>，其缩进配置为 <a href=\"rendering/TreeSliverIndentationType/none-constant.html\">TreeSliverIndentationType.none</a>。这样，开发者就可以在 <a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 中自行处理缩进，并使用装饰填充缩进区域。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.TreeSliver.2');\" onclick=\"fixHref(this, 'widgets.TreeSliver.2'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>若要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.TreeSliver.2 mysample</span>\n        </p>"
+  },
+  "widgets/TreeSliver/indentation.html": {
+    "3": "<p>\n<a name=\"rendering.TreeSliverIndentationType.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n此示例展示经过高度自定义的 <a href=\"widgets/TreeSliver-class.html\">TreeSliver</a>，其缩进配置为 <a href=\"rendering/TreeSliverIndentationType/none-constant.html\">TreeSliverIndentationType.none</a>。这样，开发者就可以在 <a href=\"widgets/TreeSliver/treeNodeBuilder.html\">TreeSliver.treeNodeBuilder</a> 中自行处理缩进，并使用装饰填充缩进区域。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'rendering.TreeSliverIndentationType.1');\" onclick=\"fixHref(this, 'rendering.TreeSliverIndentationType.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>若要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=rendering.TreeSliverIndentationType.1 mysample</span>\n        </p>"
   }
 }

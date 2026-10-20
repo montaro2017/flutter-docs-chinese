@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/navigator.dart#L1189"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">resolve</span> abstract 方法 
+<h1><span class="kind-method">resolve</span> abstract 方法
 </h1></div>
 
     <section class="multi-line-signature">
@@ -104,55 +104,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>A method that will be called by the <a href="widgets/Navigator-class.html">Navigator</a> to decide how routes
-transition in or out of the screen when <a href="widgets/Navigator/pages.html">Navigator.pages</a> is updated.</p>
-<p>The <code>newPageRouteHistory</code> list contains all page-based routes in the order
-that will be on the <a href="widgets/Navigator-class.html">Navigator</a>'s history stack after this update
-completes. If a route in <code>newPageRouteHistory</code> has its
-<a href="widgets/RouteTransitionRecord/isWaitingForEnteringDecision.html">RouteTransitionRecord.isWaitingForEnteringDecision</a> set to true, this
-route requires explicit decision on how it should transition onto the
-Navigator. To make a decision, call <a href="widgets/RouteTransitionRecord/markForPush.html">RouteTransitionRecord.markForPush</a> or
-<a href="widgets/RouteTransitionRecord/markForAdd.html">RouteTransitionRecord.markForAdd</a>.</p>
-<p>The <code>locationToExitingPageRoute</code> contains the pages-based routes that
-are removed from the routes history after page update. This map records
-page-based routes to be removed with the location of the route in the
-original route history before the update. The keys are the locations
-represented by the page-based routes that are directly below the removed
-routes, and the value are the page-based routes to be removed. The
-location is null if the route to be removed is the bottom most route. If
-a route in <code>locationToExitingPageRoute</code> has its
-<a href="widgets/RouteTransitionRecord/isWaitingForExitingDecision.html">RouteTransitionRecord.isWaitingForExitingDecision</a> set to true, this
-route requires explicit decision on how it should transition off the
-Navigator. To make a decision for a removed route, call
-<a href="widgets/RouteTransitionRecord/markForPop.html">RouteTransitionRecord.markForPop</a>,
-<a href="widgets/RouteTransitionRecord/markForComplete.html">RouteTransitionRecord.markForComplete</a>. It is possible that decisions are
-not required for routes in the <code>locationToExitingPageRoute</code>. This can
-happen if the routes have already been popped in earlier page updates and
-are still waiting for popping animations to finish. In such case, those
-routes are still included in the <code>locationToExitingPageRoute</code> with their
-<a href="widgets/RouteTransitionRecord/isWaitingForExitingDecision.html">RouteTransitionRecord.isWaitingForExitingDecision</a> set to false and no
-decisions are required.</p>
-<p>The <code>pageRouteToPagelessRoutes</code> records the page-based routes and their
-associated pageless routes. If a page-based route is waiting for exiting
-decision, its associated pageless routes also require explicit decisions
-on how to transition off the screen.</p>
-<p>Once all the decisions have been made, this method must merge the removed
-routes (whether or not they require decisions) and the
-<code>newPageRouteHistory</code> and return the merged result. The order in the
-result will be the order the <a href="widgets/Navigator-class.html">Navigator</a> uses for updating the route
-history. The return list must preserve the same order of routes in
-<code>newPageRouteHistory</code>. The removed routes, however, can be inserted into
-the return list freely as long as all of them are included.</p>
-<p>For example, consider the following case.</p>
+  <p><a href="widgets/Navigator-class.html">Navigator</a> 更新 <a href="widgets/Navigator/pages.html">Navigator.pages</a> 时会调用此方法，以决定路由如何过渡进入或离开屏幕。</p>
+<p><code>newPageRouteHistory</code> 列出更新完成后将位于 <a href="widgets/Navigator-class.html">Navigator</a> 历史栈中的所有基于页面的路由，并按栈中顺序排列。<code>newPageRouteHistory</code>如果其中某个路由的 <a href="widgets/RouteTransitionRecord/isWaitingForEnteringDecision.html">RouteTransitionRecord.isWaitingForEnteringDecision</a> 为 true，就需要明确决定该路由如何进入 Navigator。可调用 <a href="widgets/RouteTransitionRecord/markForPush.html">RouteTransitionRecord.markForPush</a> 或 <a href="widgets/RouteTransitionRecord/markForAdd.html">RouteTransitionRecord.markForAdd</a> 作出决定。</p>
+<p><code>locationToExitingPageRoute</code> 包含页面更新后将从路由历史记录中移除的基于页面的路由。此映射记录待移除的路由，以及它们在更新前原始路由历史记录中的位置（<code>locationToExitingPageRoute</code>）。键表示原始路由历史中紧邻待移除路由下方的基于页面的路由，值表示要移除的基于页面的路由。如果要移除的是栈底路由，其位置为 null。如果其中某个路由的 <a href="widgets/RouteTransitionRecord/isWaitingForExitingDecision.html">RouteTransitionRecord.isWaitingForExitingDecision</a> 为 true，就需要明确决定该路由如何离开 Navigator。可对待移除路由调用 <a href="widgets/RouteTransitionRecord/markForPop.html">RouteTransitionRecord.markForPop</a> 或 <a href="widgets/RouteTransitionRecord/markForComplete.html">RouteTransitionRecord.markForComplete</a> 作出决定。<code>locationToExitingPageRoute</code> 中的路由也可能不需要作出决定：例如它们已在之前的页面更新中弹出，但退出动画仍未结束。这些路由仍会包含在 <code>locationToExitingPageRoute</code> 中，只是其 <a href="widgets/RouteTransitionRecord/isWaitingForExitingDecision.html">RouteTransitionRecord.isWaitingForExitingDecision</a> 为 false，因此无需再作决定。</p>
+<p><code>pageRouteToPagelessRoutes</code> 记录基于页面的路由及其关联的无页面路由。如果某个基于页面的路由正在等待退出决定，其关联的无页面路由也需要明确决定如何离开屏幕。</p>
+<p>作出所有决定后，此方法必须将待移除路由（无论是否需要决定）与 <code>newPageRouteHistory</code> 合并并返回结果。<a href="widgets/Navigator-class.html">Navigator</a> 会按照结果中的顺序更新路由历史。返回列表必须保留 <code>newPageRouteHistory</code> 中各路由的原有顺序；只要包含所有待移除路由，它们可以插入返回列表中的任意位置。</p>
+<p>例如，考虑以下情况：</p>
 <p><code>newPageRouteHistory = [A, B, C]</code></p>
 <p><code>locationToExitingPageRoute = {A -&gt; D, C -&gt; E}</code></p>
-<p>The following outputs are valid.</p>
-<p><code>result = [A, B ,C ,D ,E]</code> is valid.
-<code>result = [D, A, B ,C ,E]</code> is also valid because exiting route can be
-inserted in any place.</p>
-<p>The following outputs are invalid.</p>
-<p><code>result = [B, A, C ,D ,E]</code> is invalid because B must be after A.
-<code>result = [A, B, C ,E]</code> is invalid because results must include D.</p>
+<p>以下结果均有效：</p>
+<p><code>result = [A, B ,C ,D ,E]</code> 有效。<code>result = [D, A, B ,C ,E]</code> 也有效，因为退出路由可以插入任意位置。</p>
+<p>以下结果无效：</p>
+<p><code>result = [B, A, C ,D ,E]</code> 无效，因为 B 必须排在 A 之后。<code>result = [A, B, C ,E]</code> 无效，因为结果中必须包含 D。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/RouteTransitionRecord/markForPush.html">RouteTransitionRecord.markForPush</a>, which makes route enter the screen
