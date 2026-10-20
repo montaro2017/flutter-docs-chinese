@@ -1,18 +1,13 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,994 页，部分翻译 345 页，未翻译 913 页；正文已译 21,367/24,807 段。
+模块共 8,093 页：已完整 5,997 页，部分翻译 343 页，未翻译 912 页；正文已译 21,414/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RootElementMixin/debugVisitOnstageChildren.html` — 部分；已译 4/5 段；待译段落：3
 
-- `flutter/widgets/Route/popDisposition.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/Route/willPop.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
-
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/Router-class.html` — 未译；已译 0/37 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
 - `flutter/widgets/Router/Router.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/Router/Router.withConfig.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/Router/backButtonDispatcher.html` — 未译；已译 0/2 段；待译段落：0, 1

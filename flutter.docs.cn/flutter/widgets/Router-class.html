@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the Router class from the widgets library, for the Dart programming language.">
-  <title>Router class - widgets library - Dart API</title>
+  <meta name="description" content="widgets 库中 Router 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Router 类 - widgets 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -64,13 +64,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets.dart</a></li>
-    <li class="self-crumb">Router<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class</li>
+    <li class="self-crumb">Router<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
   </ol>
   <div class="self-name">Router</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -86,187 +86,65 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
     data-below-sidebar="widgets&#47;Router-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/router.dart#L358"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">Router&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/router.dart#L358"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">Router&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>The dispatcher for opening and closing pages of an application.</p>
-<p>This widget listens for routing information from the operating system (e.g.
-an initial route provided on app startup, a new route obtained when an
-intent is received, or a notification that the user hit the system back
-button), parses route information into data of type <code>T</code>, and then converts
-that data into <a href="widgets/Page-class.html">Page</a> objects that it passes to a <a href="widgets/Navigator-class.html">Navigator</a>.</p>
-<p>Each part of this process can be overridden and configured as desired.</p>
-<p>The <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a> can be overridden to change how the name of
-the route is obtained. The <a href="foundation/ValueListenable/value.html">RouteInformationProvider.value</a> is used as the
-initial route when the <a href="widgets/Router-class.html">Router</a> is first created. Subsequent notifications
-from the <a href="widgets/RouteInformationProvider-class.html">RouteInformationProvider</a> to its listeners are treated as
-notifications that the route information has changed.</p>
-<p>The <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a> can be overridden to change how back button
-notifications are received. This must be a <a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a>, which is
-an object where callbacks can be registered, and which can be chained so
-that back button presses are delegated to subsidiary routers. The callbacks
-are invoked to indicate that the user is trying to close the current route
-(by pressing the system back button); the <a href="widgets/Router-class.html">Router</a> ensures that when this
-callback is invoked, the message is passed to the <a href="widgets/Router/routerDelegate.html">routerDelegate</a> and its
-result is provided back to the <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a>. Some platforms don't
-have back buttons (e.g. iOS and desktop platforms); on those platforms this
-notification is never sent. Typically, the <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a> for the
-root router is an instance of <a href="widgets/RootBackButtonDispatcher-class.html">RootBackButtonDispatcher</a>, which uses a
-<a href="widgets/WidgetsBindingObserver-class.html">WidgetsBindingObserver</a> to listen to the <code>popRoute</code> notifications from
-<a href="services/SystemChannels/navigation-constant.html">SystemChannels.navigation</a>. Nested <a href="widgets/Router-class.html">Router</a>s typically use a
-<a href="widgets/ChildBackButtonDispatcher-class.html">ChildBackButtonDispatcher</a>, which must be provided the
-<a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a> of its ancestor <a href="widgets/Router-class.html">Router</a> (available via <a href="widgets/Router/of.html">Router.of</a>).</p>
-<p>The <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> can be overridden to change how names obtained
-from the <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a> are interpreted. It must implement the
-<a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> interface, specialized with the same type as the
-<a href="widgets/Router-class.html">Router</a> itself. This type, <code>T</code>, represents the data type that the
-<a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> will generate.</p>
-<p>The <a href="widgets/Router/routerDelegate.html">routerDelegate</a> can be overridden to change how the output of the
-<a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> is interpreted. It must implement the
-<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> interface, also specialized with <code>T</code>; it takes as input
-the data (of type <code>T</code>) from the <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a>, and is responsible
-for providing a navigating widget to insert into the widget tree. The
-<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> interface is also <a href="foundation/Listenable-class.html">Listenable</a>; notifications are taken
-to mean that the <a href="widgets/Router-class.html">Router</a> needs to rebuild.</p>
-<h2 id="concerns-regarding-asynchrony">Concerns regarding asynchrony</h2>
-<p>Some of the APIs (notably those involving <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> and
-<a href="widgets/RouterDelegate-class.html">RouterDelegate</a>) are asynchronous.</p>
-<p>When developing objects implementing these APIs, if the work can be done
-entirely synchronously, then consider using <a href="foundation/SynchronousFuture-class.html">SynchronousFuture</a> for the
-future returned from the relevant methods. This will allow the <a href="widgets/Router-class.html">Router</a> to
-proceed in a completely synchronous way, which removes a number of
-complications.</p>
-<p>Using asynchronous computation is entirely reasonable, however, and the API
-is designed to support it. For example, maybe a set of images need to be
-loaded before a route can be shown; waiting for those images to be loaded
-before <a href="widgets/RouterDelegate/setNewRoutePath.html">RouterDelegate.setNewRoutePath</a> returns is a reasonable approach to
-handle this case.</p>
-<p>If an asynchronous operation is ongoing when a new one is to be started, the
-precise behavior will depend on the exact circumstances, as follows:</p>
-<p>If the active operation is a <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> parsing a new route information:
-that operation's result, if it ever completes, will be discarded.</p>
-<p>If the active operation is a <a href="widgets/Router/routerDelegate.html">routerDelegate</a> handling a pop request:
-the previous pop is immediately completed with "false", claiming that the
-previous pop was not handled (this may cause the application to close).</p>
-<p>If the active operation is a <a href="widgets/Router/routerDelegate.html">routerDelegate</a> handling an initial route
-or a pushed route, the result depends on the new operation. If the new
-operation is a pop request, then the original operation's result, if it ever
-completes, will be discarded. If the new operation is a push request,
-however, the <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> will be requested to start the parsing, and
-only if that finishes before the original <a href="widgets/Router/routerDelegate.html">routerDelegate</a> request
-completes will that original request's result be discarded.</p>
-<p>If the identity of the <a href="widgets/Router-class.html">Router</a> widget's delegates change while an
-asynchronous operation is in progress, to keep matters simple, all active
-asynchronous operations will have their results discarded. It is generally
-considered unusual for these delegates to change during the lifetime of the
-<a href="widgets/Router-class.html">Router</a>.</p>
-<p>If the <a href="widgets/Router-class.html">Router</a> itself is disposed while an asynchronous operation is in
-progress, all active asynchronous operations will have their results
-discarded also.</p>
-<p>No explicit signals are provided to the <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> or
-<a href="widgets/Router/routerDelegate.html">routerDelegate</a> to indicate when any of the above happens, so it is
-strongly recommended that <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> and <a href="widgets/RouterDelegate-class.html">RouterDelegate</a>
-implementations not perform extensive computation.</p>
-<h2 id="application-architectural-design">Application architectural design</h2>
-<p>An application can have zero, one, or many <a href="widgets/Router-class.html">Router</a> widgets, depending on
-its needs.</p>
-<p>An application might have no <a href="widgets/Router-class.html">Router</a> widgets if it has only one "screen",
-or if the facilities provided by <a href="widgets/Navigator-class.html">Navigator</a> are sufficient. This is common
-for desktop applications, where subsidiary "screens" are represented using
-different windows rather than changing the active interface.</p>
-<p>A particularly elaborate application might have multiple <a href="widgets/Router-class.html">Router</a> widgets,
-in a tree configuration, with the first handling the entire route parsing
-and making the result available for routers in the subtree. The routers in
-the subtree do not participate in route information parsing but merely take the
-result from the first router to build their sub routes.</p>
-<p>Most applications only need a single <a href="widgets/Router-class.html">Router</a>.</p>
-<h2 id="url-updates-for-web-applications">URL updates for web applications</h2>
-<p>In the web platform, keeping the URL in the browser's location bar up to
-date with the application state ensures that the browser constructs its
-history entry correctly, allowing its back and forward buttons to function
-as the user expects.</p>
-<p>If an app state change leads to the <a href="widgets/Router-class.html">Router</a> rebuilding, the <a href="widgets/Router-class.html">Router</a> will
-retrieve the new route information from the <a href="widgets/Router/routerDelegate.html">routerDelegate</a>'s
-<a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> method and the
-<a href="widgets/Router/routeInformationParser.html">routeInformationParser</a>'s <a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a>
-method.</p>
-<p>If the location in the new route information is different from the
-current location, this is considered to be a navigation event, the
-<a href="widgets/PlatformRouteInformationProvider/routerReportsNewRouteInformation.html">PlatformRouteInformationProvider.routerReportsNewRouteInformation</a> method
-calls <a href="services/SystemNavigator/routeInformationUpdated.html">SystemNavigator.routeInformationUpdated</a> with <code>replace = false</code> to
-notify the engine, and through that the browser, to create a history entry
-with the new url. Otherwise,
-<a href="widgets/PlatformRouteInformationProvider/routerReportsNewRouteInformation.html">PlatformRouteInformationProvider.routerReportsNewRouteInformation</a> calls
-<a href="services/SystemNavigator/routeInformationUpdated.html">SystemNavigator.routeInformationUpdated</a> with <code>replace = true</code> to update
-the current history entry with the latest <a href="widgets/RouteInformation-class.html">RouteInformation</a>.</p>
-<p>One can force the <a href="widgets/Router-class.html">Router</a> to report new route information as navigation
-event to the <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a> (and thus the browser) even if the
-<a href="widgets/RouteInformation/uri.html">RouteInformation.uri</a> has not changed by calling the <a href="widgets/Router/navigate.html">Router.navigate</a>
-method with a callback that performs the state change. This causes <a href="widgets/Router-class.html">Router</a>
-to call the <a href="widgets/RouteInformationProvider/routerReportsNewRouteInformation.html">RouteInformationProvider.routerReportsNewRouteInformation</a> with
-<a href="widgets/RouteInformationReportingType.html">RouteInformationReportingType.navigate</a>, and thus causes
-<a href="widgets/PlatformRouteInformationProvider-class.html">PlatformRouteInformationProvider</a> to push a new history entry regardlessly.
-This allows one to support the browser's back and forward buttons without
-changing the URL. For example, the scroll position of a scroll view may be
-saved in the <a href="widgets/RouteInformation/state.html">RouteInformation.state</a>. Using <a href="widgets/Router/navigate.html">Router.navigate</a> to update the
-scroll position causes the browser to create a new history entry with the
-<a href="widgets/RouteInformation/state.html">RouteInformation.state</a> that stores this new scroll position. When the user
-clicks the back button, the app will go back to the previous scroll position
-without changing the URL in the location bar.</p>
-<p>One can also force the <a href="widgets/Router-class.html">Router</a> to ignore a navigation event by making
-those changes during a callback passed to <a href="widgets/Router/neglect.html">Router.neglect</a>. The <a href="widgets/Router-class.html">Router</a>
-calls the <a href="widgets/RouteInformationProvider/routerReportsNewRouteInformation.html">RouteInformationProvider.routerReportsNewRouteInformation</a> with
-<a href="widgets/RouteInformationReportingType.html">RouteInformationReportingType.neglect</a>, and thus causes
-<a href="widgets/PlatformRouteInformationProvider-class.html">PlatformRouteInformationProvider</a> to replace the current history entry
-regardlessly even if it detects location change.</p>
-<p>To opt out of URL updates entirely, pass null for <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a>
-and <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a>. This is not recommended in general, but may be
-appropriate in the following cases:</p>
+  <p>用于打开和关闭应用页面的分发器。</p>
+<p>此 widget 会监听来自操作系统的路由信息（例如应用启动时提供的初始 route、收到 intent 时获得的新 route，或用户按下系统返回按钮的通知），将路由信息解析为 <code>T</code> 类型的数据，再将这些数据转换成 <a href="widgets/Page-class.html">Page</a> 对象，并传给 <a href="widgets/Navigator-class.html">Navigator</a>。</p>
+<p>此过程的每个部分都可以按需重写和配置。</p>
+<p>可以重写 <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a>，以更改 route 名称的获取方式。首次创建 <a href="widgets/Router-class.html">Router</a> 时，会将 <a href="foundation/ValueListenable/value.html">RouteInformationProvider.value</a> 用作初始 route。之后，<a href="widgets/RouteInformationProvider-class.html">RouteInformationProvider</a> 通知其监听器时，会被视为路由信息发生变化。</p>
+<p>可以重写 <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a>，以更改接收返回按钮通知的方式。它必须是 <a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a>，即可以注册回调、也可以串联起来将返回按钮按下事件委托给子 router 的对象。回调会在用户尝试关闭当前 route（按下系统返回按钮）时调用；<a href="widgets/Router-class.html">Router</a> 会确保该回调触发时，消息被传给 <a href="widgets/Router/routerDelegate.html">routerDelegate</a>，并将结果返回给 <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a>。有些平台没有返回按钮（例如 iOS 和桌面平台），因此不会发送此通知。根 router 的 <a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a> 通常是 <a href="widgets/RootBackButtonDispatcher-class.html">RootBackButtonDispatcher</a> 实例，它使用 <a href="widgets/WidgetsBindingObserver-class.html">WidgetsBindingObserver</a> 监听来自 <a href="services/SystemChannels/navigation-constant.html">SystemChannels.navigation</a> 的 <code>popRoute</code> 通知。嵌套的 <a href="widgets/Router-class.html">Router</a> 通常使用 <a href="widgets/ChildBackButtonDispatcher-class.html">ChildBackButtonDispatcher</a>，并且必须传入其祖先 <a href="widgets/Router-class.html">Router</a> 的 <a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a>（可通过 <a href="widgets/Router/of.html">Router.of</a> 获取）。</p>
+<p>可以重写 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a>，以更改对从 <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a> 获取的名称的解释方式。它必须实现 <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> 接口，并使用与 <a href="widgets/Router-class.html">Router</a> 相同的类型参数。类型 <code>T</code> 表示 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> 将生成的数据类型。</p>
+<p>可以重写 <a href="widgets/Router/routerDelegate.html">routerDelegate</a>，以更改对 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> 输出的解释方式。它必须实现同样以 <code>T</code> 为类型参数的 <a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 接口；该接口接收 <code>T</code> 类型的输入，数据来自 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> 的 T 类型数据，并负责提供一个导航 widget，将其插入 widget 树中。<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 接口同时也是 <a href="foundation/Listenable-class.html">Listenable</a>；收到通知时，<a href="widgets/Router-class.html">Router</a> 会重新构建。</p>
+<h2 id="concerns-regarding-asynchrony">关于异步处理的注意事项</h2>
+<p>部分 API（尤其是涉及 <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> 和 <a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 的 API）是异步的。</p>
+<p>实现这些 API 的对象时，如果工作可以完全同步完成，可以考虑在相关方法中返回 <a href="foundation/SynchronousFuture-class.html">SynchronousFuture</a>。这样 <a href="widgets/Router-class.html">Router</a> 就能完全以同步方式继续处理，从而避免不少复杂情况。</p>
+<p>不过，使用异步计算也完全合理，并且此 API 专为支持异步操作而设计。例如，显示 route 前可能需要加载一组图片；在 <a href="widgets/RouterDelegate/setNewRoutePath.html">RouterDelegate.setNewRoutePath</a> 返回前等待图片加载完成，就是合理的处理方式。</p>
+<p>如果某个异步操作仍在进行时需要启动另一个操作，具体行为取决于当时的情况：</p>
+<p>如果当前活动操作是 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> 正在解析新的路由信息，则即使该操作最终完成，其结果也会被丢弃。</p>
+<p>如果当前活动操作是 <a href="widgets/Router/routerDelegate.html">routerDelegate</a> 正在处理弹出请求，则之前的弹出操作会立即以“false”完成，表示该请求未得到处理（这可能导致应用关闭）。</p>
+<p>如果当前活动操作是 <a href="widgets/Router/routerDelegate.html">routerDelegate</a> 正在处理初始 route 或推入的 route，则结果取决于新操作。如果新操作是弹出请求，即使原操作最终完成，其结果也会被丢弃。如果新操作是推入请求，则会要求 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> 开始解析；只有当解析在原来的 <a href="widgets/Router/routerDelegate.html">routerDelegate</a> 请求完成前结束时，原请求的结果才会被丢弃。</p>
+<p>如果异步操作进行期间 <a href="widgets/Router-class.html">Router</a> widget 的委托对象身份发生变化，为简化处理，所有正在进行的异步操作结果都会被丢弃。通常认为，在 <a href="widgets/Router-class.html">Router</a> 生命周期内更换这些委托并不常见。</p>
+<p>如果异步操作进行期间 <a href="widgets/Router-class.html">Router</a> 本身被释放，所有正在进行的异步操作结果也都会被丢弃。</p>
+<p>上述情况发生时，不会向 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> 或 <a href="widgets/Router/routerDelegate.html">routerDelegate</a> 发送明确的信号，因此强烈建议 <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> 和 <a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 实现不要执行大量计算。</p>
+<h2 id="application-architectural-design">应用架构设计</h2>
+<p>应用可根据自身需求包含零个、一个或多个 <a href="widgets/Router-class.html">Router</a> widget。</p>
+<p>如果应用只有一个“屏幕”，或者 <a href="widgets/Navigator-class.html">Navigator</a> 提供的功能已经足够，就可以不使用 <a href="widgets/Router-class.html">Router</a> widget。这在桌面应用中很常见，因为子“屏幕”通常通过不同窗口表示，而不是切换当前界面。</p>
+<p>架构较复杂的应用可能会以树状结构包含多个 <a href="widgets/Router-class.html">Router</a> widget，由第一个 router 负责完成全部路由解析，并将结果提供给子树中的 router。子树中的 router 不参与路由信息解析，而是直接使用第一个 router 提供的结果构建各自的子 route。</p>
+<p>大多数应用只需要一个 <a href="widgets/Router-class.html">Router</a>。</p>
+<h2 id="url-updates-for-web-applications">Web 应用的 URL 更新</h2>
+<p>在 Web 平台上，使浏览器地址栏中的 URL 与应用状态保持同步，可以确保浏览器正确创建历史记录条目，让后退和前进按钮按用户预期工作。</p>
+<p>如果应用状态变化导致 <a href="widgets/Router-class.html">Router</a> 重新构建，<a href="widgets/Router-class.html">Router</a> 会从 <a href="widgets/Router/routerDelegate.html">routerDelegate</a> 的 <a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> 方法以及 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> 的 <a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a> 方法获取新的路由信息。</p>
+<p>如果新路由信息中的位置与当前位置不同，就会被视为导航事件；此时 <a href="widgets/PlatformRouteInformationProvider/routerReportsNewRouteInformation.html">PlatformRouteInformationProvider.routerReportsNewRouteInformation</a> 会以 <code>replace = false</code> 调用 <a href="services/SystemNavigator/routeInformationUpdated.html">SystemNavigator.routeInformationUpdated</a>，通知引擎并进而通知浏览器创建包含新 URL 的历史记录条目。否则，<a href="widgets/PlatformRouteInformationProvider/routerReportsNewRouteInformation.html">PlatformRouteInformationProvider.routerReportsNewRouteInformation</a> 会以 <code>replace = true</code> 调用 <a href="services/SystemNavigator/routeInformationUpdated.html">SystemNavigator.routeInformationUpdated</a>，使用最新的 <a href="widgets/RouteInformation-class.html">RouteInformation</a> 更新当前历史条目。</p>
+<p>即使 <a href="widgets/RouteInformation/uri.html">RouteInformation.uri</a> 未变化，也可以强制 <a href="widgets/Router-class.html">Router</a> 将新的路由信息作为导航事件报告给 <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a>（进而报告给浏览器）：将执行状态变化的回调传给 <a href="widgets/Router/navigate.html">Router.navigate</a> 即可。这样 <a href="widgets/Router-class.html">Router</a> 会使用 <a href="widgets/RouteInformationReportingType.html">RouteInformationReportingType.navigate</a> 调用 <a href="widgets/RouteInformationProvider/routerReportsNewRouteInformation.html">RouteInformationProvider.routerReportsNewRouteInformation</a>，从而使 <a href="widgets/PlatformRouteInformationProvider-class.html">PlatformRouteInformationProvider</a> 无论如何都会推入新的历史条目。这样可以在 URL 不变的情况下支持浏览器后退和前进按钮。例如，可以将滚动视图的滚动位置保存到 <a href="widgets/RouteInformation/state.html">RouteInformation.state</a>。使用 <a href="widgets/Router/navigate.html">Router.navigate</a> 更新滚动位置，会让浏览器创建一个保存新滚动位置 <a href="widgets/RouteInformation/state.html">RouteInformation.state</a> 的新历史条目。用户点击后退按钮时，应用会恢复到先前的滚动位置，而地址栏 URL 不变。</p>
+<p>也可以强制 <a href="widgets/Router-class.html">Router</a> 忽略导航事件：在传给 <a href="widgets/Router/neglect.html">Router.neglect</a> 的回调中执行相关变更即可。<a href="widgets/Router-class.html">Router</a> 会使用 <a href="widgets/RouteInformationReportingType.html">RouteInformationReportingType.neglect</a> 调用 <a href="widgets/RouteInformationProvider/routerReportsNewRouteInformation.html">RouteInformationProvider.routerReportsNewRouteInformation</a>，因此即使检测到位置变化，<a href="widgets/PlatformRouteInformationProvider-class.html">PlatformRouteInformationProvider</a> 也会无条件替换当前历史条目。</p>
+<p>如果要完全退出 URL 更新，可以将 <a href="widgets/Router/routeInformationProvider.html">routeInformationProvider</a> 和 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> 设为 null。通常不建议这样做，但以下情况可能适用：</p>
 <ul>
 <li>
-<p>The application does not target the web platform.</p>
+<p>应用的目标平台不包括 Web。</p>
 </li>
 <li>
-<p>There are multiple router widgets in the application. Only one <a href="widgets/Router-class.html">Router</a>
-widget should update the URL (typically the top-most one created by the
-<a href="widgets/WidgetsApp/WidgetsApp.router.html">WidgetsApp.router</a>, <a href="material/MaterialApp/MaterialApp.router.html">MaterialApp.router</a>, or <a href="cupertino/CupertinoApp/CupertinoApp.router.html">CupertinoApp.router</a>).</p>
+<p>应用包含多个 router widget。只有一个 <a href="widgets/Router-class.html">Router</a> widget 应负责更新 URL（通常是由 <a href="widgets/WidgetsApp/WidgetsApp.router.html">WidgetsApp.router</a>、<a href="material/MaterialApp/MaterialApp.router.html">MaterialApp.router</a> 或 <a href="cupertino/CupertinoApp/CupertinoApp.router.html">CupertinoApp.router</a> 创建的最顶层 router）。</p>
 </li>
 <li>
-<p>The application does not need to implement in-app navigation using the
-browser's back and forward buttons.</p>
+<p>应用不需要通过浏览器的后退和前进按钮实现应用内导航。</p>
 </li>
 </ul>
-<p>In other cases, it is strongly recommended to implement the
-<a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> and
-<a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a> APIs to provide an optimal
-user experience when running on the web platform.</p>
-<h2 id="state-restoration">State Restoration</h2>
-<p>The <a href="widgets/Router-class.html">Router</a> will restore the current configuration of the <a href="widgets/Router/routerDelegate.html">routerDelegate</a>
-during state restoration if it is configured with a <a href="widgets/Router/restorationScopeId.html">restorationScopeId</a> and
-state restoration is enabled for the subtree. For that, the value of
-<a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> is serialized and persisted before the
-app is killed by the operating system. After the app is restarted, the value
-is deserialized and passed back to the <a href="widgets/RouterDelegate-class.html">RouterDelegate</a> via a call to
-<a href="widgets/RouterDelegate/setRestoredRoutePath.html">RouterDelegate.setRestoredRoutePath</a> (which by default just calls
-<a href="widgets/RouterDelegate/setNewRoutePath.html">RouterDelegate.setNewRoutePath</a>). It is the responsibility of the
-<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> to use the configuration information provided to restore
-its internal state.</p>
-<p>To serialize <a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> and to deserialize it
-again, the <a href="widgets/Router-class.html">Router</a> calls <a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a>
-and <a href="widgets/RouteInformationParser/parseRouteInformation.html">RouteInformationParser.parseRouteInformation</a>, respectively. Therefore,
-if a <a href="widgets/Router/restorationScopeId.html">restorationScopeId</a> is provided, a <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a> must be
-configured as well.</p>
+<p>其他情况下，强烈建议实现 <a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> 和 <a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a> API，以便应用在 Web 平台运行时提供最佳用户体验。</p>
+<h2 id="state-restoration">状态恢复</h2>
+<p>如果 <a href="widgets/Router-class.html">Router</a> 配置了 <a href="widgets/Router/restorationScopeId.html">restorationScopeId</a>，且其子树已启用状态恢复，那么状态恢复期间它会恢复 <a href="widgets/Router/routerDelegate.html">routerDelegate</a> 的当前配置。为此，操作系统终止应用前会序列化并持久化 <a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> 的值。应用重启后，该值会被反序列化，并通过调用 <a href="widgets/RouterDelegate/setRestoredRoutePath.html">RouterDelegate.setRestoredRoutePath</a> 传回 <a href="widgets/RouterDelegate-class.html">RouterDelegate</a>（默认实现只会调用 <a href="widgets/RouterDelegate/setNewRoutePath.html">RouterDelegate.setNewRoutePath</a>）。<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 负责使用提供的配置信息恢复其内部状态。</p>
+<p>为序列化 <a href="widgets/RouterDelegate/currentConfiguration.html">RouterDelegate.currentConfiguration</a> 并在之后反序列化，<a href="widgets/Router-class.html">Router</a> 会分别调用 <a href="widgets/RouteInformationParser/restoreRouteInformation.html">RouteInformationParser.restoreRouteInformation</a> 和 <a href="widgets/RouteInformationParser/parseRouteInformation.html">RouteInformationParser.parseRouteInformation</a>。因此，如果提供了 <a href="widgets/Router/restorationScopeId.html">restorationScopeId</a>，也必须配置 <a href="widgets/Router/routeInformationParser.html">routeInformationParser</a>。</p>
 </section>
 
 
     <section>
       <dl class="dl-horizontal">
         
-  <dt>Inheritance</dt>
+  <dt>继承关系</dt>
   <dd>
     <ul class="gt-separated dark clazz-relationships">
       <li><a href="dart-core/Object-class.html">Object</a></li>
@@ -290,7 +168,7 @@ configured as well.</p>
 
     
   <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
+    <h2>构造函数</h2>
     <dl class="constructor-summary-list">
         <dt id="Router.new" class="callable">
           <span class="name"><a href="widgets/Router/Router.html">Router</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-routeInformationProvider"><span class="type-annotation"><a href="widgets/RouteInformationProvider-class.html">RouteInformationProvider</a>?</span> <span class="parameter-name">routeInformationProvider</span>, </span><span class="parameter" id="-param-routeInformationParser"><span class="type-annotation"><a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">routeInformationParser</span>, </span><span class="parameter" id="-param-routerDelegate"><span>required</span> <span class="type-annotation"><a href="widgets/RouterDelegate-class.html">RouterDelegate</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">routerDelegate</span>, </span><span class="parameter" id="-param-backButtonDispatcher"><span class="type-annotation"><a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a>?</span> <span class="parameter-name">backButtonDispatcher</span>, </span><span class="parameter" id="-param-restorationScopeId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationScopeId</span></span>})</span>
@@ -312,7 +190,7 @@ configured as well.</p>
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="backButtonDispatcher" class="property">
   <span class="name"><a href="widgets/Router/backButtonDispatcher.html">backButtonDispatcher</a></span>
@@ -333,8 +211,8 @@ configured as well.</p>
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -346,7 +224,7 @@ configured as well.</p>
 </dt>
 <dd class="inherited">
   Controls how one widget replaces another widget in the tree.
-  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -405,8 +283,8 @@ configured as well.</p>
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -417,7 +295,7 @@ configured as well.</p>
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="createElement" class="callable inherited">
   <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
@@ -427,8 +305,8 @@ configured as well.</p>
 
 </dt>
 <dd class="inherited">
-  Creates a <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
-  <div class="features"><span class="feature">inherited</span></div>
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -441,7 +319,7 @@ configured as well.</p>
 </dt>
 <dd>
   Creates the mutable state for this widget at a given location in the tree.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -455,7 +333,7 @@ configured as well.</p>
 <dd class="inherited">
   Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
 children.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -468,7 +346,7 @@ children.
 </dt>
 <dd class="inherited">
   Add additional properties associated with the node.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -480,8 +358,8 @@ children.
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -495,7 +373,7 @@ children.
 <dd class="inherited">
   Returns a debug representation of the object that is used by debugging
 tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -507,8 +385,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  A string representation of this object.
-  <div class="features"><span class="feature">inherited</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -521,7 +399,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   Returns a string representation of this node and its descendants.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -534,7 +412,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   Returns a one-line detailed description of the object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -547,7 +425,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   A short, textual description of this widget.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -557,7 +435,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -567,8 +445,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -642,16 +520,16 @@ entry in the browser.
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets</a></li>
-    <li class="self-crumb">Router<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class</li>
+    <li class="self-crumb">Router<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类</li>
 </ol>
 
-    <h5>widgets library</h5>
+    <h5>widgets 库</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -674,7 +552,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 
