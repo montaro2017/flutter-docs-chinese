@@ -1,4 +1,32 @@
 {
+  "flutter/widgets/ScrollPositionWithSingleContext/ScrollPositionWithSingleContext.html": {
+    "0": "<p>创建一个 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 对象，并使用 <a href=\"widgets/ScrollActivity-class.html\">ScrollActivity</a> 对象管理其行为。</p>",
+    "1": "<p><code>initialPixels</code> 参数可以为 null，但在这种情况下，必须在调用该方法的继承实现之前，一旦调用 <a href=\"widgets/ScrollPositionWithSingleContext/applyNewDimensions.html\">applyNewDimensions</a>，就使用 <a href=\"widgets/ScrollPosition/correctPixels.html\">correctPixels</a> 设置该值。</p>",
+    "2": "<p>如果 <code>keepScrollOffset</code> 为 true（默认值），当前滚动偏移量会保存到 <a href=\"widgets/PageStorage-class.html\">PageStorage</a>，并在此滚动位置所属的可滚动对象重新创建时恢复。</p>"
+  },
+  "flutter/widgets/ScrollPositionWithSingleContext/debugFillDescription.html": {
+    "1": "<p>此方法便于子类协同提供高质量的 <a href=\"rendering/ViewportOffset/toString.html\">toString</a> 实现。<a href=\"widgets/State-class.html\">State</a> 基类中的 <a href=\"rendering/ViewportOffset/toString.html\">toString</a> 实现会调用 <a href=\"widgets/ScrollPositionWithSingleContext/debugFillDescription.html\">debugFillDescription</a>，从子类收集有用信息并纳入返回值。</p>"
+  },
+  "flutter/widgets/ScrollPositionWithSingleContext/absorb.html": {
+    "0": "<p>从给定的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 接管当前仍适用的状态。</p>",
+    "1": "<p>构造函数收到 <code>oldPosition</code> 时会调用此方法。<code>other</code> 参数的 <a href=\"dart-core/Object/runtimeType.html\">runtimeType</a> 可能与此对象不同。</p>",
+    "2": "<p>此方法可能会破坏另一个 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 的状态。调用此对象构造函数的一方必须在调用后立即处置另一个对象（在同一次调用栈中，并且在微任务解析之前）。</p>",
+    "3": "<p>如果旧的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 对象与此对象的 <a href=\"dart-core/Object/runtimeType.html\">runtimeType</a> 不同，则会对新接管的 <a href=\"widgets/ScrollActivity-class.html\">ScrollActivity</a> 调用 <a href=\"widgets/ScrollActivity/resetActivity.html\">ScrollActivity.resetActivity</a> 方法。</p>",
+    "4": "<h2 id=\"overriding\">重写</h2>",
+    "5": "<p>重写此方法时，必须先设置与度量或活动相关的状态，再调用 <code>super.absorb</code>，因为此方法可能会重启活动，而滚动活动重启时通常会使用这些度量值。</p>",
+    "6": "<p>如果无法接管另一个 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 的活动，重写此方法时可能需要启动一个 <a href=\"widgets/IdleScrollActivity-class.html\">IdleScrollActivity</a>。</p>",
+    "7": "<p>如果被接管的滚动活动将自身用作 <a href=\"widgets/ScrollActivityDelegate-class.html\">ScrollActivityDelegate</a>，重写此方法时可能还需要更新这些活动的委托对象。</p>"
+  },
+  "flutter/widgets/ScrollPositionWithSingleContext/animateTo.html": {
+    "0": "<p>将位置从当前值动画到给定值。</p>",
+    "1": "<p>任何正在进行的动画都会取消。如果用户当前正在滚动，该操作也会取消。</p>",
+    "2": "<p>动画结束时，返回的 <a href=\"dart-async/Future-class.html\">Future</a> 会完成，无论动画是成功完成还是提前中断。</p>",
+    "3": "<p>用户尝试手动滚动、启动其他活动，或动画到达视口边缘并尝试越界滚动时，动画都会中断。（如果 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 不会越界滚动，而是允许滚动超出范围，那么超出范围本身不会中断动画。）</p>",
+    "4": "<p>视口或内容尺寸发生变化不会影响此动画。</p>",
+    "5": "<p>动画完成后，如果滚动位置仍不稳定（例如滚动超出范围且通常会回弹），滚动位置会尝试启动弹道活动。</p>",
+    "6": "<p>持续时间不能为零。若要不使用动画直接跳到指定位置，请使用 <a href=\"widgets/ScrollPositionWithSingleContext/jumpTo.html\">jumpTo</a>。</p>",
+    "7": "<p>此动画通常由 <a href=\"widgets/DrivenScrollActivity-class.html\">DrivenScrollActivity</a> 处理。</p>"
+  },
   "Android/index.html": {
     "0": "<p><a href=\"https://api.flutter.dev/javadoc/\">Flutter Android 嵌入器。</a></p>"
   },
@@ -260672,5 +260700,103 @@
   "flutter/widgets/ScrollDragController/updateDelegate.html": {
     "0": "<p>更新控制器关联的 <a href=\"widgets/ScrollActivityDelegate-class.html\">ScrollActivityDelegate</a>。</p>",
     "1": "<p>只有当控制器从已失效（或即将失效）的 <a href=\"widgets/ScrollActivityDelegate-class.html\">ScrollActivityDelegate</a> 对象迁移到新对象时，才应调用此方法。</p>"
+  },
+  "flutter/widgets/ScrollEndNotification/dragDetails.html": {
+    "0": "<p>如果 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 因拖动而停止滚动，则为该拖动结束时的详细信息。</p>",
+    "1": "<p>否则为 null。</p>",
+    "2": "<p>如果拖动结束时仍有剩余速度，典型的 <a href=\"widgets/ScrollPhysics-class.html\">ScrollPhysics</a> 会启动弹道滚动；<a href=\"widgets/ScrollEndNotification-class.html\">ScrollEndNotification</a> 会等到弹道模拟完成后才发送，此时 <a href=\"widgets/ScrollEndNotification/dragDetails.html\">dragDetails</a> 为 null。如果剩余速度太小，不足以触发弹道滚动，则会立即发送 <a href=\"widgets/ScrollEndNotification-class.html\">ScrollEndNotification</a>，且 <a href=\"widgets/ScrollEndNotification/dragDetails.html\">dragDetails</a> 不为 null。</p>"
+  },
+  "flutter/widgets/ScrollHoldController-class.html": {
+    "0": "<p>用于使 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 保持静止的接口。</p>",
+    "1": "<p>实现此接口的对象由 <a href=\"widgets/ScrollPosition/hold.html\">ScrollPosition.hold</a> 返回。它会让 scrollable 保持静止，直到某项活动开始或调用 <a href=\"widgets/ScrollHoldController/cancel.html\">cancel</a> 方法。</p>"
+  },
+  "flutter/widgets/ScrollIncrementCalculator.html": {
+    "0": "<p>根据给定的 <a href=\"widgets/ScrollIncrementDetails-class.html\">ScrollIncrementDetails</a>，计算某种滚动增量对应偏移量的函数类型定义。</p>",
+    "1": "<p>此函数类型用于 <a href=\"widgets/Scrollable/incrementCalculator.html\">Scrollable.incrementCalculator</a>，该计算器由 <a href=\"widgets/ScrollAction-class.html\">ScrollAction</a> 调用。</p>"
+  },
+  "flutter/widgets/ScrollIncrementDetails/type.html": {
+    "0": "<p>滚动的类型（例如行、页等）。</p>",
+    "1": "<p>此值表示滚动的<em>意图</em>，不一定代表滚动距离。并非所有可滚动区域都有“行”或“页”的概念，但它们可以响应导致滚动的标准按键绑定；这些按键通常用于表示“按行”滚动（例如 Control+向下箭头）或“按页”滚动（例如 PageDown）。建议至少让不同类型滚动的相对幅度符合预期。</p>"
+  },
+  "flutter/widgets/ScrollIncrementType.html": {
+    "0": "<p>描述 <a href=\"widgets/ScrollAction-class.html\">ScrollAction</a> 在 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 上执行的滚动增量类型。</p>",
+    "1": "<p>此值用于配置 <a href=\"widgets/ScrollIncrementDetails-class.html\">ScrollIncrementDetails</a> 对象，并将其传给 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 上的 <a href=\"widgets/ScrollIncrementCalculator.html\">ScrollIncrementCalculator</a> 函数。</p>",
+    "2": "<p>此值表示滚动的<em>意图</em>，不一定代表滚动距离。并非所有可滚动区域都有“行”或“页”的概念，但它们可以响应导致滚动的标准按键绑定；这些按键通常用于表示“按行”滚动（例如 Control+向下箭头）或“按页”滚动（例如 PageDown）。建议至少让不同类型滚动的相对幅度符合预期。</p>"
+  },
+  "flutter/widgets/ScrollIntent-class.html": {
+    "0": "<p>一种 <a href=\"widgets/Intent-class.html\">Intent</a>，表示按指定 <a href=\"widgets/ScrollIntent/type.html\">type</a> 对最近的可滚动区域进行相应距离的滚动。</p>",
+    "1": "<p>实际滚动距离由 <a href=\"widgets/Scrollable/incrementCalculator.html\">Scrollable.incrementCalculator</a> 决定；如果未指定，则使用其默认值。</p>"
+  },
+  "flutter/widgets/ScrollMetrics-mixin.html": {
+    "0": "<p>对 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 内容的描述，可用于表示其视口状态。</p>",
+    "2": "<p>如果 <a href=\"widgets/ScrollMetrics/pixels.html\">pixels</a> 超出此范围，<a href=\"widgets/ScrollMetrics/outOfRange.html\">outOfRange</a> getter 会返回 true。如果 <a href=\"widgets/ScrollMetrics/pixels.html\">pixels</a> 等于 <a href=\"widgets/ScrollMetrics/minScrollExtent.html\">minScrollExtent</a> 或 <a href=\"widgets/ScrollMetrics/maxScrollExtent.html\">maxScrollExtent</a>，<a href=\"widgets/ScrollMetrics/atEdge.html\">atEdge</a> getter 会返回 true。</p>",
+    "3": "<p>视口在给定 <a href=\"widgets/ScrollMetrics/axis.html\">axis</a> 上的尺寸由 <a href=\"widgets/ScrollMetrics/viewportDimension.html\">viewportDimension</a> 描述。</p>",
+    "4": "<p>上述值还可以通过 <a href=\"widgets/ScrollMetrics/extentBefore.html\">extentBefore</a>、<a href=\"widgets/ScrollMetrics/extentInside.html\">extentInside</a> 和 <a href=\"widgets/ScrollMetrics/extentAfter.html\">extentAfter</a> 表示，这些值可能更适用于滚动条等场景；例如，请参阅 <a href=\"material/Scrollbar-class.html\">Scrollbar</a>。</p>"
+  },
+  "flutter/widgets/ScrollMetrics/copyWith.html": {
+    "0": "<p>创建一个与此对象属性相同的 <a href=\"widgets/ScrollMetrics-mixin.html\">ScrollMetrics</a>。</p>",
+    "1": "<p>当此对象可变，但需要获取其当前状态的快照时，此方法很有用。</p>",
+    "2": "<p>可以通过命名参数在创建过程中调整值。例如，可用于检查假设情形：“如果原样应用此增量，是否会使位置变为 <a href=\"widgets/ScrollMetrics/outOfRange.html\">outOfRange</a>？”</p>"
+  },
+  "flutter/widgets/ScrollMetrics/extentTotal.html": {
+    "0": "<p>可用内容的总量。</p>",
+    "1": "<p>此值是 <a href=\"widgets/ScrollMetrics/extentBefore.html\">extentBefore</a>、<a href=\"widgets/ScrollMetrics/extentInside.html\">extentInside</a> 和 <a href=\"widgets/ScrollMetrics/extentAfter.html\">extentAfter</a> 之和，可能存在舍入误差。</p>"
+  },
+  "flutter/widgets/ScrollMetricsNotification/asScrollUpdate.html": {
+    "0": "<p>将此通知转换为 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a>。</p>",
+    "1": "<p>这样就可以将其用于 <a href=\"widgets/ScrollNotificationPredicate.html\">ScrollNotificationPredicate</a>。</p>"
+  },
+  "flutter/widgets/ScrollMetricsNotification/context.html": {
+    "0": "<p>触发此通知的 widget 的构建上下文。</p>",
+    "1": "<p>例如，可使用它查找 scrollable widget 的渲染对象，以确定视口大小。</p>"
+  },
+  "flutter/widgets/ScrollNotification/context.html": {
+    "0": "<p>触发此通知的 widget 的构建上下文。</p>",
+    "1": "<p>例如，可使用它查找 scrollable 的渲染对象，以确定视口大小。</p>"
+  },
+  "flutter/widgets/ScrollNotificationCallback.html": {
+    "0": "<p>供 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 使用的 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 监听器。</p>",
+    "1": "<p><a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 类似于 <a href=\"widgets/NotificationListener-class.html\">NotificationListener</a>。它支持监听器列表，而不是单个监听器；所有监听器都会无条件运行，不需要通过布尔返回值进行筛选。</p>"
+  },
+  "flutter/widgets/ScrollNotificationObserver-class.html": {
+    "0": "<p>后代发生滚动时通知其监听器。</p>",
+    "1": "<p>要向祖先 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 添加监听器：</p>",
+    "2": "<p>要从祖先 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 移除监听器：</p>",
+    "3": "<p>共享同一个祖先 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 的有状态 widget 通常会在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中添加监听器（必要时先移除旧监听器），并在 <a href=\"widgets/State/dispose.html\">State.dispose</a> 方法中移除监听器。</p>",
+    "4": "<p>任何符合 <a href=\"widgets/ScrollNotificationCallback.html\">ScrollNotificationCallback</a> 签名的函数都可以作为监听器：</p>",
+    "5": "<p>此 widget 类似于 <a href=\"widgets/NotificationListener-class.html\">NotificationListener</a>。它支持监听器列表，而不是单个监听器；所有监听器都会无条件运行，不需要通过布尔返回值进行筛选。</p>",
+    "6": "<p>\n<a name=\"widgets.ScrollNotificationObserver.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n此示例展示了一个“滚动到顶部”按钮。它使用 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 监听来自 <a href=\"widgets/ListView-class.html\">ListView</a> 的滚动通知。用户向下滚动后按钮才会显示；按下按钮时，会为 <a href=\"widgets/ListView-class.html\">ListView</a> 的滚动位置添加动画，使其回到顶部。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"Copy link to clipboard\"\n        onmouseenter=\"fixHref(this, 'widgets.ScrollNotificationObserver.1');\" onclick=\"fixHref(this, 'widgets.ScrollNotificationObserver.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>To create a local project with this code sample, run:<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.ScrollNotificationObserver.1 mysample</span>\n        </p>"
+  },
+  "flutter/widgets/ScrollNotificationObserver/maybeOf.html": {
+    "0": "<p>包含给定上下文的此类最近实例。</p>",
+    "1": "<p>如果找不到祖先 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> widget，则返回 null。</p>",
+    "2": "<p>如果 <code>context</code> 中存在最近的 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a>，调用此方法会建立对它的依赖关系。</p>"
+  },
+  "flutter/widgets/ScrollNotificationObserver/of.html": {
+    "0": "<p>包含给定上下文的此类最近实例。</p>",
+    "1": "<p>如果找不到祖先，此方法会在调试模式下触发断言，并在发布模式下抛出异常。</p>",
+    "2": "<p>调用此方法会建立对 <code>context</code> 中最近的 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 的依赖关系。</p>"
+  },
+  "flutter/widgets/ScrollNotificationObserverState-class.html": {
+    "0": "<p><a href=\"widgets/ScrollNotificationObserver/of.html\">ScrollNotificationObserver.of</a> 返回的 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 的监听器列表状态。</p>",
+    "1": "<p><a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a> 类似于 <a href=\"widgets/NotificationListener-class.html\">NotificationListener</a>。它支持监听器列表，而不是单个监听器；所有监听器都会无条件运行，不需要通过布尔返回值进行筛选。</p>"
+  },
+  "flutter/widgets/ScrollPosition-class.html": {
+    "0": "<p>决定滚动视图中可见的内容部分。</p>",
+    "1": "<p><a href=\"widgets/ScrollPosition/pixels.html\">pixels</a> 值决定滚动视图使用的滚动偏移量，从而选择要显示的内容部分。用户滚动视口时，此值会变化，显示的内容也随之改变。</p>",
+    "3": "<p>滚动由当前的 <a href=\"widgets/ScrollPosition/activity.html\">activity</a> 控制，并通过 <a href=\"widgets/ScrollPosition/beginActivity.html\">beginActivity</a> 设置。<a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 本身不会启动任何活动。具体子类（例如 <a href=\"widgets/ScrollPositionWithSingleContext-class.html\">ScrollPositionWithSingleContext</a>）通常会响应用户输入或 <a href=\"widgets/ScrollController-class.html\">ScrollController</a> 的指令启动活动。</p>",
+    "4": "<p>此对象是一个 <a href=\"foundation/Listenable-class.html\">Listenable</a>；当 <a href=\"widgets/ScrollPosition/pixels.html\">pixels</a> 变化时，它会通知监听器。</p>",
+    "5": "<h3 id=\"accessing-scrolling-information\">获取滚动信息</h3>",
+    "6": "<p>获取滚动和可滚动 widget 的信息有多种方式，但它们提供的信息各不相同，涉及滚动活动、位置以及 <a href=\"widgets/Viewport-class.html\">Viewport</a> 的尺寸。</p>",
+    "7": "<p><a href=\"widgets/ScrollController-class.html\">ScrollController</a> 是一个 <a href=\"foundation/Listenable-class.html\">Listenable</a>。每当任何已附加的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 通知其监听器时（例如发生滚动时），它也会通知自己的监听器。这与使用 <a href=\"widgets/NotificationListener-class.html\">NotificationListener</a> 监听 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 类型的通知非常相似；区别在于，通知监听器还会提供滚动活动的信息。通知监听器还可以监听特定的 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 子类，例如 <a href=\"widgets/UserScrollNotification-class.html\">UserScrollNotification</a>。</p>",
+    "10": "<p>滚动位置刚附加时，<a href=\"widgets/ScrollMetrics-mixin.html\">ScrollMetrics</a>（例如 <a href=\"widgets/ScrollMetrics/maxScrollExtent.html\">ScrollMetrics.maxScrollExtent</a>）尚不可用。只有当 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 完成内容布局，并计算出内容的完整范围等信息后，这些值才会确定。可以通过 <a href=\"widgets/ScrollPosition/hasContentDimensions.html\">ScrollPosition.hasContentDimensions</a> 判断这些度量是否已可用，也可以使用下文将介绍的 <a href=\"widgets/ScrollMetricsNotification-class.html\">ScrollMetricsNotification</a>。</p>",
+    "12": "<h4 id=\"from-a-different-context\">从不同的上下文访问</h4>",
+    "13": "<p>如果需要从滚动 widget 内部的上下文获取滚动信息，请使用 <a href=\"widgets/Scrollable/of.html\">Scrollable.of</a> 获取 <a href=\"widgets/ScrollableState-class.html\">ScrollableState</a> 及其 <a href=\"widgets/ScrollableState/position.html\">ScrollableState.position</a>。它与附加到 <a href=\"widgets/ScrollController-class.html\">ScrollController</a> 的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 是同一个对象。</p>",
+    "14": "<p>如果需要从非滚动 widget 祖先的上下文获取滚动信息，请使用 <a href=\"widgets/ScrollNotificationObserver-class.html\">ScrollNotificationObserver</a>。<a href=\"material/AppBar-class.html\">AppBar</a> 就使用它来实现内容滚动到其下方时的效果。由于 <a href=\"material/Scaffold/appBar.html\">Scaffold.appBar</a> 和 <a href=\"material/Scaffold/body.html\">Scaffold.body</a> 属于不同子树，滚动通知不会冒泡到 app bar。可以使用 <a href=\"widgets/ScrollNotificationObserverState/addListener.html\">ScrollNotificationObserverState.addListener</a>，监听当前上下文之外发生的滚动通知。</p>",
+    "15": "<h4 id=\"dimension-changes\">尺寸变化</h4>",
+    "16": "<p>最后，监听 <a href=\"widgets/ScrollController-class.html\">ScrollController</a> 或 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 时，<em>不会</em>在给定滚动位置的 <a href=\"widgets/ScrollMetrics-mixin.html\">ScrollMetrics</a> 发生变化时收到通知；例如窗口大小变化会改变 <a href=\"widgets/Viewport-class.html\">Viewport</a> 的尺寸以及前面提到的可滚动范围。若要监听滚动度量的变化，请使用类型为 <a href=\"widgets/ScrollMetricsNotification-class.html\">ScrollMetricsNotification</a> 的 <a href=\"widgets/NotificationListener-class.html\">NotificationListener</a>。此类通知与 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 不同：它不表示滚动活动，而是表示可滚动区域的尺寸变化，例如窗口大小变化。</p>",
+    "18": "<h2 id=\"subclassing-scrollposition\">继承 ScrollPosition</h2>",
+    "19": "<p>随着时间推移，一个 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 可能会拥有多个不同的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 对象。例如，如果 <a href=\"widgets/Scrollable/physics.html\">Scrollable.physics</a> 的类型发生变化，<a href=\"widgets/Scrollable-class.html\">Scrollable</a> 会使用新的 physics 创建新的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a>。要将状态从旧实例传递到新实例，子类需要实现 <a href=\"widgets/ScrollPosition/absorb.html\">absorb</a>。详情请参阅 <a href=\"widgets/ScrollPosition/absorb.html\">absorb</a>。</p>",
+    "20": "<p>每当 <a href=\"rendering/ViewportOffset/userScrollDirection.html\">userScrollDirection</a> 的值发生变化时，子类还需要调用 <a href=\"widgets/ScrollPosition/didUpdateScrollDirection.html\">didUpdateScrollDirection</a>。</p>"
   }
 }

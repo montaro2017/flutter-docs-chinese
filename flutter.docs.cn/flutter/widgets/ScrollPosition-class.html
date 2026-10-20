@@ -87,37 +87,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;ScrollPosition-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/scroll_position.dart#L189"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">ScrollPosition</span> 类 
+<h1><span class="kind-class">ScrollPosition</span> 类
     <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Determines which portion of the content is visible in a scroll view.</p>
-<p>The <a href="widgets/ScrollPosition/pixels.html">pixels</a> value determines the scroll offset that the scroll view uses to
-select which part of its content to display. As the user scrolls the
-viewport, this value changes, which changes the content that is displayed.</p>
+  <p>决定滚动视图中可见的内容部分。</p>
+<p><a href="widgets/ScrollPosition/pixels.html">pixels</a> 值决定滚动视图使用的滚动偏移量，从而选择要显示的内容部分。用户滚动视口时，此值会变化，显示的内容也随之改变。</p>
 <p>The <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> applies <a href="widgets/ScrollPosition/physics.html">physics</a> to scrolling, and stores the
 <a href="widgets/ScrollPosition/minScrollExtent.html">minScrollExtent</a> 和 <a href="widgets/ScrollPosition/maxScrollExtent.html">maxScrollExtent</a>.</p>
-<p>Scrolling is controlled by the current <a href="widgets/ScrollPosition/activity.html">activity</a>, which is set by
-<a href="widgets/ScrollPosition/beginActivity.html">beginActivity</a>. <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> itself does not start any activities.
-Instead, concrete subclasses, such as <a href="widgets/ScrollPositionWithSingleContext-class.html">ScrollPositionWithSingleContext</a>,
-typically start activities in response to user input or instructions from a
-<a href="widgets/ScrollController-class.html">ScrollController</a>.</p>
-<p>This object is a <a href="foundation/Listenable-class.html">Listenable</a> that notifies its listeners when <a href="widgets/ScrollPosition/pixels.html">pixels</a>
-changes.</p>
-<h3 id="accessing-scrolling-information">Accessing Scrolling Information</h3>
-<p>There are several ways to acquire information about scrolling and
-scrollable widgets, but each provides different types of information about
-the scrolling activity, the position, and the dimensions of the <a href="widgets/Viewport-class.html">Viewport</a>.</p>
-<p>A <a href="widgets/ScrollController-class.html">ScrollController</a> is a <a href="foundation/Listenable-class.html">Listenable</a>. It notifies its listeners whenever
-any of the attached <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>s notify <em>their</em> listeners, such as when
-scrolling occurs. This is very similar to using a <a href="widgets/NotificationListener-class.html">NotificationListener</a> of
-type <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> to listen to changes in the scroll position, with
-the difference being that a notification listener will provide information
-about the scrolling activity. A notification listener can further listen to
-specific subclasses of <a href="widgets/ScrollNotification-class.html">ScrollNotification</a>, like <a href="widgets/UserScrollNotification-class.html">UserScrollNotification</a>.</p>
+<p>滚动由当前的 <a href="widgets/ScrollPosition/activity.html">activity</a> 控制，并通过 <a href="widgets/ScrollPosition/beginActivity.html">beginActivity</a> 设置。<a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 本身不会启动任何活动。具体子类（例如 <a href="widgets/ScrollPositionWithSingleContext-class.html">ScrollPositionWithSingleContext</a>）通常会响应用户输入或 <a href="widgets/ScrollController-class.html">ScrollController</a> 的指令启动活动。</p>
+<p>此对象是一个 <a href="foundation/Listenable-class.html">Listenable</a>；当 <a href="widgets/ScrollPosition/pixels.html">pixels</a> 变化时，它会通知监听器。</p>
+<h3 id="accessing-scrolling-information">获取滚动信息</h3>
+<p>获取滚动和可滚动 widget 的信息有多种方式，但它们提供的信息各不相同，涉及滚动活动、位置以及 <a href="widgets/Viewport-class.html">Viewport</a> 的尺寸。</p>
+<p><a href="widgets/ScrollController-class.html">ScrollController</a> 是一个 <a href="foundation/Listenable-class.html">Listenable</a>。每当任何已附加的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 通知其监听器时（例如发生滚动时），它也会通知自己的监听器。这与使用 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 监听 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 类型的通知非常相似；区别在于，通知监听器还会提供滚动活动的信息。通知监听器还可以监听特定的 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 子类，例如 <a href="widgets/UserScrollNotification-class.html">UserScrollNotification</a>。</p>
 <p>
 <a name="widgets.ScrollPosition.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
@@ -153,13 +138,7 @@ the attaching and detaching of scroll positions to the controller, use the
 also useful for adding a listener to the
 <a href="widgets/ScrollPosition/isScrollingNotifier.html">ScrollPosition.isScrollingNotifier</a> when the position is created during the
 build method of the <a href="widgets/Scrollable-class.html">Scrollable</a>.</p>
-<p>At the time that a scroll position is attached, the <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a>, such as
-the <a href="widgets/ScrollMetrics/maxScrollExtent.html">ScrollMetrics.maxScrollExtent</a>, are not yet available. These are not
-determined until the <a href="widgets/Scrollable-class.html">Scrollable</a> has finished laying out its contents and
-computing things like the full extent of that content.
-<a href="widgets/ScrollPosition/hasContentDimensions.html">ScrollPosition.hasContentDimensions</a> can be used to know when the
-metrics are available, or a <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a> can be used,
-discussed further below.</p>
+<p>滚动位置刚附加时，<a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a>（例如 <a href="widgets/ScrollMetrics/maxScrollExtent.html">ScrollMetrics.maxScrollExtent</a>）尚不可用。只有当 <a href="widgets/Scrollable-class.html">Scrollable</a> 完成内容布局，并计算出内容的完整范围等信息后，这些值才会确定。可以通过 <a href="widgets/ScrollPosition/hasContentDimensions.html">ScrollPosition.hasContentDimensions</a> 判断这些度量是否已可用，也可以使用下文将介绍的 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a>。</p>
 <p>
 <a name="widgets.ScrollPosition.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
@@ -183,28 +162,11 @@ This is used to change the <a href="material/AppBar-class.html">AppBar</a>'s col
     </iframe>
 </div>
 </p>
-<h4 id="from-a-different-context">From a different context</h4>
-<p>When needing to access scrolling information from a context that is within
-the scrolling widget itself, use <a href="widgets/Scrollable/of.html">Scrollable.of</a> to access the
-<a href="widgets/ScrollableState-class.html">ScrollableState</a> and the <a href="widgets/ScrollableState/position.html">ScrollableState.position</a>. This would be the same
-<a href="widgets/ScrollPosition-class.html">ScrollPosition</a> attached to a <a href="widgets/ScrollController-class.html">ScrollController</a>.</p>
-<p>When needing to access scrolling information from a context that is not an
-ancestor of the scrolling widget, use <a href="widgets/ScrollNotificationObserver-class.html">ScrollNotificationObserver</a>. This is
-used by <a href="material/AppBar-class.html">AppBar</a> to create the scrolled under effect. Since <a href="material/Scaffold/appBar.html">Scaffold.appBar</a>
-is a separate subtree from the <a href="material/Scaffold/body.html">Scaffold.body</a>, scroll notifications would
-not bubble up to the app bar. Use
-<a href="widgets/ScrollNotificationObserverState/addListener.html">ScrollNotificationObserverState.addListener</a> to listen to scroll
-notifications happening outside of the current context.</p>
-<h4 id="dimension-changes">Dimension changes</h4>
-<p>Lastly, listening to a <a href="widgets/ScrollController-class.html">ScrollController</a> or a <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> will
-<em>not</em> notify when the <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> of a given scroll position changes,
-such as when the window is resized, changing the dimensions of the
-<a href="widgets/Viewport-class.html">Viewport</a> and the previously mentioned extents of the scrollable. In order
-to listen to changes in scroll metrics, use a <a href="widgets/NotificationListener-class.html">NotificationListener</a> of type
-<a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a>. This type of notification differs from
-<a href="widgets/ScrollNotification-class.html">ScrollNotification</a>, as it is not associated with the activity of
-scrolling, but rather the dimensions of the scrollable area, such as the
-window size.</p>
+<h4 id="from-a-different-context">从不同的上下文访问</h4>
+<p>如果需要从滚动 widget 内部的上下文获取滚动信息，请使用 <a href="widgets/Scrollable/of.html">Scrollable.of</a> 获取 <a href="widgets/ScrollableState-class.html">ScrollableState</a> 及其 <a href="widgets/ScrollableState/position.html">ScrollableState.position</a>。它与附加到 <a href="widgets/ScrollController-class.html">ScrollController</a> 的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 是同一个对象。</p>
+<p>如果需要从非滚动 widget 祖先的上下文获取滚动信息，请使用 <a href="widgets/ScrollNotificationObserver-class.html">ScrollNotificationObserver</a>。<a href="material/AppBar-class.html">AppBar</a> 就使用它来实现内容滚动到其下方时的效果。由于 <a href="material/Scaffold/appBar.html">Scaffold.appBar</a> 和 <a href="material/Scaffold/body.html">Scaffold.body</a> 属于不同子树，滚动通知不会冒泡到 app bar。可以使用 <a href="widgets/ScrollNotificationObserverState/addListener.html">ScrollNotificationObserverState.addListener</a>，监听当前上下文之外发生的滚动通知。</p>
+<h4 id="dimension-changes">尺寸变化</h4>
+<p>最后，监听 <a href="widgets/ScrollController-class.html">ScrollController</a> 或 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 时，<em>不会</em>在给定滚动位置的 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> 发生变化时收到通知；例如窗口大小变化会改变 <a href="widgets/Viewport-class.html">Viewport</a> 的尺寸以及前面提到的可滚动范围。若要监听滚动度量的变化，请使用类型为 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a> 的 <a href="widgets/NotificationListener-class.html">NotificationListener</a>。此类通知与 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 不同：它不表示滚动活动，而是表示可滚动区域的尺寸变化，例如窗口大小变化。</p>
 <p>
 <a name="widgets.ScrollPosition.3"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet3">
@@ -228,14 +190,9 @@ the scrollable window's size.
     </iframe>
 </div>
 </p>
-<h2 id="subclassing-scrollposition">Subclassing ScrollPosition</h2>
-<p>Over time, a <a href="widgets/Scrollable-class.html">Scrollable</a> might have many different <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>
-objects. For example, if <a href="widgets/Scrollable/physics.html">Scrollable.physics</a> changes type, <a href="widgets/Scrollable-class.html">Scrollable</a>
-creates a new <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> with the new physics. To transfer state from
-the old instance to the new instance, subclasses implement <a href="widgets/ScrollPosition/absorb.html">absorb</a>. See
-<a href="widgets/ScrollPosition/absorb.html">absorb</a> for more details.</p>
-<p>Subclasses also need to call <a href="widgets/ScrollPosition/didUpdateScrollDirection.html">didUpdateScrollDirection</a> whenever
-<a href="rendering/ViewportOffset/userScrollDirection.html">userScrollDirection</a> changes values.</p>
+<h2 id="subclassing-scrollposition">继承 ScrollPosition</h2>
+<p>随着时间推移，一个 <a href="widgets/Scrollable-class.html">Scrollable</a> 可能会拥有多个不同的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 对象。例如，如果 <a href="widgets/Scrollable/physics.html">Scrollable.physics</a> 的类型发生变化，<a href="widgets/Scrollable-class.html">Scrollable</a> 会使用新的 physics 创建新的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>。要将状态从旧实例传递到新实例，子类需要实现 <a href="widgets/ScrollPosition/absorb.html">absorb</a>。详情请参阅 <a href="widgets/ScrollPosition/absorb.html">absorb</a>。</p>
+<p>每当 <a href="rendering/ViewportOffset/userScrollDirection.html">userScrollDirection</a> 的值发生变化时，子类还需要调用 <a href="widgets/ScrollPosition/didUpdateScrollDirection.html">didUpdateScrollDirection</a>。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/Scrollable-class.html">Scrollable</a>, which uses a <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> to determine which portion of

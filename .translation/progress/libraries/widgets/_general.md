@@ -1,45 +1,10 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,048 页，部分翻译 324 页，未翻译 880 页；正文已译 21,576/24,807 段。
+模块共 8,093 页：已完整 6,070 页，部分翻译 319 页，未翻译 863 页；正文已译 21,658/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
-
-- `flutter/widgets/ScrollEndNotification/dragDetails.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollHoldController-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollIncrementCalculator.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollIncrementDetails/type.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollIncrementType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollIntent-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollMetrics-mixin.html` — 部分；已译 3/7 段；待译段落：0, 2, 3, 4
-
-- `flutter/widgets/ScrollMetrics/copyWith.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollMetrics/extentTotal.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollMetricsNotification/asScrollUpdate.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollMetricsNotification/context.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollNotification/context.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollNotificationCallback.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollNotificationObserver-class.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
-
-- `flutter/widgets/ScrollNotificationObserver/maybeOf.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollNotificationObserver/of.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollNotificationObserverState-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollPosition-class.html` — 部分；已译 6/22 段；待译段落：0, 1, 3, 4, 5, 6, 7, 10, 12, 13, 14, 15, 16, 18, 19, 20
-
-- `flutter/widgets/ScrollPositionWithSingleContext/ScrollPositionWithSingleContext.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollPositionWithSingleContext/absorb.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/ScrollPositionWithSingleContext/animateTo.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-
-- `flutter/widgets/ScrollPositionWithSingleContext/debugFillDescription.html` — 部分；已译 2/3 段；待译段落：1
 
 - `flutter/widgets/ScrollStartNotification/dragDetails.html` — 未译；已译 0/2 段；待译段落：0, 1
 
