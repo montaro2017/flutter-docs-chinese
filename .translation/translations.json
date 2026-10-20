@@ -263931,5 +263931,360 @@
     "0": "<p>子项在二维空间中的逻辑位置。</p>",
     "1": "<p>子项不一定严格按行和列布局，但相对位置决定了按行优先或列优先格式遍历子项的顺序。</p>",
     "2": "<p>此值在 <a href=\"widgets/RenderTwoDimensionalViewport/buildOrObtainChildFor.html\">RenderTwoDimensionalViewport.buildOrObtainChildFor</a> 中设置。</p>"
+  },
+  "flutter/widgets/TwoDimensionalScrollableState-class.html": {
+    "0": "<p><a href=\"widgets/TwoDimensionalScrollable-class.html\">TwoDimensionalScrollable</a> widget 的 State 对象。</p>",
+    "1": "<p>若要操作其中一个内部 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> widget 的滚动位置，请使用从 <a href=\"widgets/TwoDimensionalScrollableState/verticalScrollable.html\">verticalScrollable</a> 或 <a href=\"widgets/TwoDimensionalScrollableState/horizontalScrollable.html\">horizontalScrollable</a> 属性获取的对象。</p>",
+    "2": "<p>若要获知 <a href=\"widgets/TwoDimensionalScrollable-class.html\">TwoDimensionalScrollable</a> widget 何时滚动，请使用 <a href=\"widgets/NotificationListener-class.html\">NotificationListener</a> 监听 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a>。由于这里只有一个视口，两个轴的视口深度相同，因此应根据通知提供的 <a href=\"widgets/ScrollMetrics-mixin.html\">ScrollMetrics</a> 中的 <a href=\"painting/Axis.html\">Axis</a> 区分它们。</p>"
+  },
+  "flutter/widgets/UiKitView-class.html": {
+    "0": "<p>在 Widget 层级结构中嵌入 iOS 视图。</p>",
+    "1": "<p>嵌入 iOS 视图的开销较高；如果可以使用 Flutter 等效组件，应避免这样做。</p>",
+    "2": "<p>此 widget 会占满所有可用空间，因此其父级必须提供有界的布局约束。</p>",
+    "3": "<p>此 widget 会参与 Flutter 的手势竞技场，并且仅在赢得竞技场后才向平台视图分发触摸事件。可在构造函数的 <code>gestureRecognizers</code> 参数中指定应分发给平台视图的手势。如果手势识别器集合为空，只有在没有其他手势识别器认领手势时，才会将手势分发给平台视图。</p>",
+    "4": "<p>平台视图的生命周期与此 widget 的 <a href=\"widgets/State-class.html\">State</a> 对象相同。当 <a href=\"widgets/State-class.html\">State</a> 被释放时，平台视图及其辅助资源会延迟释放（部分资源立即释放，部分由平台垃圾回收器释放）。当有状态 widget 从树中移除或在树中移动时，其状态会被释放。如果该 widget 有 key，且只是在同级节点之间移动；或者它有 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 并在树中移动，则不会被释放。</p>",
+    "5": "<p>UIView 会异步创建。在 UIView 准备就绪之前，此 widget 不会绘制任何内容，但会保持相同的布局约束。</p>",
+    "6": "<p>对 UiKitView 执行裁剪操作可能导致性能下降。由于 Quartz 的限制，如果对 UIKitView 使用圆锥路径裁剪，会改用四边形路径近似裁剪效果。</p>"
+  },
+  "flutter/widgets/UiKitView/UiKitView.html": {
+    "0": "<p>创建一个嵌入 iOS 视图的 widget。</p>",
+    "1": "<p>如果 <code>creationParams</code> 不为 null，则 <code>creationParamsCodec</code> 也不能为空。</p>"
+  },
+  "flutter/widgets/UiKitView/creationParams.html": {
+    "0": "<p>作为 <a href=\"/ios-embedder/protocol_flutter_platform_view_factory-p.html#a4e3c4390cd6ebd982390635e9bca4edc\">-[FlutterPlatformViewFactory createWithFrame:viewIdentifier:arguments:]</a> 方法的 <code>arguments</code> 参数传入。</p>",
+    "1": "<p>插件可使用此参数向嵌入的 iOS 视图传递构造参数。</p>"
+  },
+  "flutter/widgets/UiKitView/creationParamsCodec.html": {
+    "0": "<p>用于在将 <code>creationParams</code> 发送到平台端之前进行编码的 codec。它应与 <a href=\"/ios-embedder/protocol_flutter_platform_view_factory-p.html#a32c3c067cb45a83dfa720c74a0d5c93c\">-[FlutterPlatformViewFactory createArgsCodec:]</a> 返回的 codec 相匹配。</p>",
+    "1": "<p>通常使用以下 codec 之一：<a href=\"services/StandardMessageCodec-class.html\">StandardMessageCodec</a>、<a href=\"services/JSONMessageCodec-class.html\">JSONMessageCodec</a>、<a href=\"services/StringCodec-class.html\">StringCodec</a> 或 <a href=\"services/BinaryCodec-class.html\">BinaryCodec</a>。</p>",
+    "2": "<p>如果 <code>creationParams</code> 不为 null，此值也不能为空。</p>"
+  },
+  "flutter/widgets/UiKitView/gestureBlockingPolicy.html": {
+    "0": "<p>控制触摸和手势阻止行为的策略。</p>"
+  },
+  "flutter/widgets/UiKitView/gestureRecognizers.html": {
+    "0": "<p>应转发给 UIKit 视图的手势。</p>",
+    "1": "<p>此集合中的工厂创建的手势识别器，会针对在此 widget 上按下的每个指针参与手势竞技场。如果其中任一识别器赢得竞技场，则从指针按下开始的整个指针事件序列都会分发给平台视图。</p>",
+    "2": "<p>如果此值为 null，则使用空的手势识别器工厂集合；此时只有在竞技场中的其他成员都未认领指针事件序列时，才会将其分发给平台视图。</p>",
+    "3": "<p>例如，按以下方式设置时，垂直拖动不会分发给 UIKit 视图，因为父级 <a href=\"widgets/GestureDetector-class.html\">GestureDetector</a> 会认领垂直拖动手势。</p>",
+    "4": "<p>若要让 <a href=\"widgets/UiKitView-class.html\">UiKitView</a> 认领垂直拖动手势，可以在 <code>gestureRecognizers</code> 中传入垂直拖动手势识别器工厂，例如：</p>",
+    "5": "<p>向 <code>gestureRecognizers</code> 传入 <a href=\"gestures/EagerGestureRecognizer-class.html\">EagerGestureRecognizer</a> 工厂后，平台视图可以配置为接收在其边界范围内按下的所有指针。<a href=\"gestures/EagerGestureRecognizer-class.html\">EagerGestureRecognizer</a> 是一种特殊的手势识别器，会在指针按下后立即认领手势。</p>",
+    "6": "<p><code>gestureRecognizers</code> 中不能包含多个具有相同 <a href=\"foundation/Factory/type.html\">Factory.type</a> 的工厂。</p>",
+    "7": "<p>更改 <code>gestureRecognizers</code> 会导致所有活动的手势竞技场被拒绝（如果平台视图当前正参与竞技场）。</p>"
+  },
+  "flutter/widgets/UiKitView/hitTestBehavior.html": {
+    "0": "<p>此 widget 在命中测试期间的行为。</p>",
+    "1": "<p>默认为 <a href=\"rendering/PlatformViewHitTestBehavior.html\">PlatformViewHitTestBehavior.opaque</a>。</p>"
+  },
+  "flutter/widgets/UiKitView/layoutDirection.html": {
+    "0": "<p>嵌入式视图使用的文本方向。</p>"
+  },
+  "flutter/widgets/UiKitView/onPlatformViewCreated.html": {
+    "0": "<p>平台视图创建后调用的回调。</p>",
+    "1": "<p>可以为 null。</p>"
+  },
+  "flutter/widgets/UiKitView/viewType.html": {
+    "0": "<p>此 widget 要嵌入的 iOS 视图类型的唯一标识符。</p>",
+    "1": "<p>必须已为此类型注册 PlatformViewFactory。</p>"
+  },
+  "flutter/widgets/UnconstrainedBox-class.html": {
+    "0": "<p>一种不对其子项施加约束、允许子项以“自然”尺寸绘制的 widget。</p>",
+    "1": "<p>这会让子项以仿佛独自处于无限画布且不受约束时的尺寸绘制。随后，此容器会在自身约束允许的范围内尝试采用相同尺寸。如果最终尺寸不同，就会根据 <a href=\"widgets/UnconstrainedBox/alignment.html\">alignment</a> 对齐子项。如果盒子无法充分扩展以容纳整个子项，子项就会被裁剪。</p>",
+    "2": "<p>在调试模式下，如果子项溢出容器，控制台会打印警告，并在溢出区域显示黑黄相间的条纹。</p>"
+  },
+  "flutter/widgets/UnconstrainedBox/UnconstrainedBox.html": {
+    "0": "<p>创建一个不对其子项施加约束、允许子项以“自然”尺寸绘制的 widget。如果子项超出父级约束，调试模式下会发出警告。</p>"
+  },
+  "flutter/widgets/UnconstrainedBox/alignment.html": {
+    "0": "<p>布局子项时使用的对齐方式。</p>",
+    "1": "<p>如果该值是 <a href=\"painting/AlignmentDirectional-class.html\">AlignmentDirectional</a>，则 <a href=\"widgets/UnconstrainedBox/textDirection.html\">textDirection</a> 不能为空。</p>"
+  },
+  "flutter/widgets/UnconstrainedBox/constrainedAxis.html": {
+    "0": "<p>要保留约束的轴（如果有）。</p>",
+    "1": "<p>如果未设置或为 null（默认值），则两个轴都不保留约束。如果设为 <a href=\"painting/Axis.html\">Axis.vertical</a>，则保留垂直方向的约束；如果设为 <a href=\"painting/Axis.html\">Axis.horizontal</a>，则保留水平方向的约束。</p>"
+  },
+  "flutter/widgets/UnconstrainedBox/textDirection.html": {
+    "0": "<p>当 <a href=\"widgets/UnconstrainedBox/alignment.html\">alignment</a> 为 <a href=\"painting/AlignmentDirectional-class.html\">AlignmentDirectional</a> 时，用于解析对齐方式的文本方向。</p>"
+  },
+  "flutter/widgets/UndoHistory-class.html": {
+    "0": "<p>为 <a href=\"foundation/ValueNotifier-class.html\">ValueNotifier</a> 提供撤销和重做功能。</p>",
+    "1": "<p>监听 <a href=\"widgets/UndoHistory/value.html\">value</a> 并保存相关值以供撤销或重做。值的保存频率会尽可能模拟 Flutter 桌面平台上多种硬件键盘的原生行为；各个平台之间存在细微差异。</p>",
+    "2": "<p>监听键盘上的撤销和重做快捷键；当快捷键会影响 <a href=\"widgets/UndoHistory/value.html\">value</a> 的状态时，调用 <a href=\"widgets/UndoHistory/onTriggered.html\">onTriggered</a>。</p>",
+    "3": "<p><a href=\"widgets/UndoHistory/child.html\">child</a> 必须负责管理 <a href=\"widgets/UndoHistory/focusNode.html\">focusNode</a> 的焦点。例如，可以使用 <a href=\"material/TextField-class.html\">TextField</a> 或 <a href=\"widgets/Focus-class.html\">Focus</a> widget。</p>"
+  },
+  "flutter/widgets/UndoHistory/UndoHistory.html": {
+    "0": "<p>创建一个 <a href=\"widgets/UndoHistory-class.html\">UndoHistory</a> 实例。</p>"
+  },
+  "flutter/widgets/UndoHistory/child.html": {
+    "0": "<p><a href=\"widgets/UndoHistory-class.html\">UndoHistory</a> 的子 widget。</p>"
+  },
+  "flutter/widgets/UndoHistory/focusNode.html": {
+    "0": "<p>用于监听焦点的 <a href=\"widgets/FocusNode-class.html\">FocusNode</a>，以便为该元素设置初始撤销状态。</p>"
+  },
+  "flutter/widgets/UndoHistory/onTriggered.html": {
+    "0": "<p>撤销或重做导致状态变化时调用。</p>",
+    "1": "<p>如果撤销或重做前后的状态相同，则不会调用此方法。例如，没有可重做操作时收到重做指令，就不会调用此方法。</p>",
+    "2": "<p>此方法运行期间对 <a href=\"widgets/UndoHistory/value.html\">value</a> 的更改不会记录到撤销栈中。例如，<a href=\"services/TextInputFormatter-class.html\">TextInputFormatter</a> 可能会将值改为与撤销栈中不同的内容，但新值不会被记录，因为这会清除重做历史。</p>"
+  },
+  "flutter/widgets/UndoHistory/shouldChangeUndoStack.html": {
+    "0": "<p>检查值的变化是否应压入撤销栈时调用。</p>"
+  },
+  "flutter/widgets/UndoHistory/undoStackModifier.html": {
+    "0": "<p>将新条目压入撤销栈之前立即调用。</p>",
+    "1": "<p>此方法返回的值会被压入栈中，以替代原始值。</p>",
+    "2": "<p>如果为 null，则始终将原始值压入栈中。</p>"
+  },
+  "flutter/widgets/UndoHistory/value.html": {
+    "0": "<p>要持续跟踪的值。</p>"
+  },
+  "flutter/widgets/UndoHistoryController-class.html": {
+    "0": "<p>用于撤销历史记录的控制器，例如可编辑文本框的撤销控制器。</p>",
+    "1": "<p>每当 <a href=\"widgets/UndoHistory-class.html\">UndoHistory</a> widget 跟踪的底层值发生变化时，该 widget 都会更新 <a href=\"foundation/ValueNotifier/value.html\">value</a>，控制器也会通知其监听器。监听器随后可以读取 value 的 canUndo 和 canRedo 属性，以确定是否可以执行 <a href=\"widgets/UndoHistoryController/undo.html\">undo</a> 或 <a href=\"widgets/UndoHistoryController/redo.html\">redo</a>。</p>"
+  },
+  "flutter/widgets/UndoHistoryController/UndoHistoryController.html": {
+    "0": "<p>为 <a href=\"widgets/UndoHistory-class.html\">UndoHistory</a> widget 创建一个控制器。</p>"
+  },
+  "flutter/widgets/UndoHistoryController/onRedo.html": {
+    "0": "<p>通知监听器已调用 <a href=\"widgets/UndoHistoryController/redo.html\">redo</a>。</p>"
+  },
+  "flutter/widgets/UndoHistoryController/onUndo.html": {
+    "0": "<p>通知监听器已调用 <a href=\"widgets/UndoHistoryController/undo.html\">undo</a>。</p>"
+  },
+  "flutter/widgets/UndoHistoryController/redo.html": {
+    "0": "<p>将栈中的值更新为下一个值。</p>"
+  },
+  "flutter/widgets/UndoHistoryController/undo.html": {
+    "0": "<p>将栈中的值恢复为上一个值。</p>"
+  },
+  "flutter/widgets/UndoHistoryState-class.html": {
+    "0": "<p><a href=\"widgets/UndoHistory-class.html\">UndoHistory</a> 的状态。</p>",
+    "1": "<p>为自定义撤销和重做界面提供 <a href=\"widgets/UndoHistoryState/undo.html\">undo</a>、<a href=\"widgets/UndoHistoryState/redo.html\">redo</a>、<a href=\"widgets/UndoHistoryState/canUndo.html\">canUndo</a> 和 <a href=\"widgets/UndoHistoryState/canRedo.html\">canRedo</a>，以便以编程方式访问撤销状态。</p>"
+  },
+  "flutter/widgets/UndoHistoryState/canRedo.html": {
+    "0": "<p>如果栈中有后续值，则为 true。</p>"
+  },
+  "flutter/widgets/UndoHistoryState/canUndo.html": {
+    "0": "<p>如果栈中有先前的值，则为 true。</p>"
+  },
+  "flutter/widgets/UndoHistoryState/handlePlatformUndo.html": {
+    "0": "<p>请求客户端执行撤销或重做操作。</p>",
+    "1": "<p>目前仅用于 iOS 9 及更高版本，且只在平台调用撤销或重做方法时使用。例如，使用三指滑动手势、iPad 键盘或语音控制时。</p>"
+  },
+  "flutter/widgets/UndoHistoryState/redo.html": {
+    "0": "<p>将栈中的值更新为下一个值。</p>"
+  },
+  "flutter/widgets/UndoHistoryState/undo.html": {
+    "0": "<p>将栈中的值恢复为上一个值。</p>"
+  },
+  "flutter/widgets/UndoHistoryValue-class.html": {
+    "0": "<p>表示当前撤销栈是否可以执行撤销或重做。</p>"
+  },
+  "flutter/widgets/UndoHistoryValue/UndoHistoryValue.html": {
+    "0": "<p>创建一个用于表示当前撤销栈是否可以执行撤销或重做的值。</p>",
+    "1": "<p><code>canUndo</code> 和 <code>canRedo</code> 参数必须提供值，默认值为 false。</p>"
+  },
+  "flutter/widgets/UndoHistoryValue/canRedo.html": {
+    "0": "<p>当前撤销栈是否可以执行重做操作。</p>"
+  },
+  "flutter/widgets/UndoHistoryValue/canUndo.html": {
+    "0": "<p>当前撤销栈是否可以执行撤销操作。</p>"
+  },
+  "flutter/widgets/UndoHistoryValue/empty-constant.html": {
+    "0": "<p>表示既不能撤销也不能重做的撤销栈值。</p>"
+  },
+  "flutter/widgets/UndoTextIntent-class.html": {
+    "0": "<p>一种表示用户交互的 <a href=\"widgets/Intent-class.html\">Intent</a>，该交互会尝试返回到上一个编辑状态。</p>"
+  },
+  "flutter/widgets/UndoTextIntent/UndoTextIntent.html": {
+    "0": "<p>创建一个 <a href=\"widgets/UndoTextIntent-class.html\">UndoTextIntent</a>。</p>"
+  },
+  "flutter/widgets/UndoTextIntent/cause.html": {
+    "0": "<p>触发此 intent 的 <a href=\"services/SelectionChangedCause.html\">SelectionChangedCause</a>。</p>"
+  },
+  "flutter/widgets/UnfocusDisposition.html": {
+    "0": "<p>描述调用 <a href=\"widgets/FocusNode/unfocus.html\">FocusNode.unfocus</a> 后应执行的操作。</p>"
+  },
+  "flutter/widgets/UniqueWidget-class.html": {
+    "0": "<p>有状态 widget 的基类，确保其在树中只创建一个实例。</p>",
+    "1": "<p>此类 widget 必须提供 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a>。子类可以根据自身的 <a href=\"dart-core/Type-class.html\">Type</a> 对象生成此 key，例如调用 <code>super(key: new GlobalObjectKey(MyWidget))</code>，其中 <code>MyWidget</code> 是子类的名称。</p>",
+    "2": "<p>由于同一时间只能创建一个实例，因此始终只有一个对应的 <a href=\"widgets/State-class.html\">State</a> 对象。为方便使用，可通过 <a href=\"widgets/UniqueWidget/currentState.html\">currentState</a> 属性访问该对象。</p>",
+    "3": "<p>继承 <a href=\"widgets/UniqueWidget-class.html\">UniqueWidget</a> 时，请将对应的 <a href=\"widgets/State-class.html\">State</a> 子类作为类型参数提供。</p>"
+  },
+  "flutter/widgets/UniqueWidget/UniqueWidget.html": {
+    "0": "<p>创建一个在树中只创建一个实例的 widget。</p>",
+    "1": "<p>必须提供 <code>key</code> 参数，因为它用于标识此 widget 唯一的实例。</p>"
+  },
+  "flutter/widgets/UniqueWidget/currentState.html": {
+    "0": "<p>此 widget 唯一实例的状态。</p>",
+    "1": "<p>如果此 widget 当前不在树中，可能为 null。</p>"
+  },
+  "flutter/widgets/UnmanagedRestorationScope-class.html": {
+    "0": "<p>将提供的 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a> 插入 widget 树，并通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 提供给后代 widget。</p>",
+    "1": "<p>restoration scope 会将 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a> 插入 widget 树，后代 widget 可通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 访问它。后代很少会直接在此 bucket 中存储数据；它们通常应使用此 scope 提供的 bucket，通过 <a href=\"services/RestorationBucket/claimChild.html\">RestorationBucket.claimChild</a> 获取子 bucket，并将自身的状态恢复数据存储其中。</p>",
+    "2": "<p>如果 <a href=\"widgets/UnmanagedRestorationScope/bucket.html\">bucket</a> 为 null，则不会向后代 widget 提供 restoration bucket（从后代调用 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 会返回 null）。由于没有可用于存储状态恢复数据的 bucket，这实际上会关闭整个子树的状态恢复功能。</p>"
+  },
+  "flutter/widgets/UnmanagedRestorationScope/UnmanagedRestorationScope.html": {
+    "0": "<p>创建一个 <a href=\"widgets/UnmanagedRestorationScope-class.html\">UnmanagedRestorationScope</a>。</p>",
+    "1": "<p>如果 <code>bucket</code> 为 null，则会为 <code>child</code> 及其后代关闭状态恢复功能。</p>"
+  },
+  "flutter/widgets/UnmanagedRestorationScope/bucket.html": {
+    "0": "<p>此 widget 将插入 widget 树中的 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a>。</p>",
+    "1": "<p>后代 widget 可通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 获取此 bucket。</p>"
+  },
+  "flutter/widgets/UpdateSelectionIntent-class.html": {
+    "0": "<p>一种表示用户交互的 <a href=\"widgets/Intent-class.html\">Intent</a>，该交互会尝试更改输入框中的选区。</p>"
+  },
+  "flutter/widgets/UpdateSelectionIntent/UpdateSelectionIntent.html": {
+    "0": "<p>创建一个 <a href=\"widgets/UpdateSelectionIntent-class.html\">UpdateSelectionIntent</a>。</p>"
+  },
+  "flutter/widgets/UpdateSelectionIntent/cause.html": {
+    "0": "<p>触发此 intent 的 <a href=\"services/SelectionChangedCause.html\">SelectionChangedCause</a>。</p>"
+  },
+  "flutter/widgets/UpdateSelectionIntent/currentTextEditingValue.html": {
+    "0": "<p>此 <a href=\"widgets/Intent-class.html\">Intent</a> 的操作要应用于的 <a href=\"flutter_test/TextEditingValue-class.html\">TextEditingValue</a>。</p>"
+  },
+  "flutter/widgets/UpdateSelectionIntent/newSelection.html": {
+    "0": "<p>输入框应采用的新 <a href=\"services/TextSelection-class.html\">TextSelection</a>。</p>"
+  },
+  "flutter/widgets/UserScrollNotification-class.html": {
+    "0": "<p>一种通知，表示用户已更改滚动时使用的 <a href=\"rendering/ScrollDirection.html\">ScrollDirection</a>，或已停止滚动。</p>",
+    "1": "<p>若要了解 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 的朝向以及内容的布局方向，请参阅 <a href=\"painting/AxisDirection.html\">AxisDirection</a> 和 <a href=\"rendering/GrowthDirection.html\">GrowthDirection</a>。</p>"
+  },
+  "flutter/widgets/UserScrollNotification/UserScrollNotification.html": {
+    "0": "<p>创建一个通知，表示用户已更改滚动方向。</p>"
+  },
+  "flutter/widgets/UserScrollNotification/direction.html": {
+    "0": "<p>用户当前的滚动方向。</p>",
+    "1": "<p>这并不表示当前 <a href=\"widgets/Viewport-class.html\">Viewport</a> 的 <a href=\"painting/AxisDirection.html\">AxisDirection</a> 或 <a href=\"rendering/GrowthDirection.html\">GrowthDirection</a>；前者表示滚动偏移量增加的方向，后者表示内容的布局方向。</p>"
+  },
+  "flutter/widgets/ViewportBuilder.html": {
+    "0": "<p><a href=\"widgets/Scrollable-class.html\">Scrollable</a> 用于构建视口的函数签名；该视口用于显示可滚动内容。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin-mixin.html": {
+    "0": "<p>一种 mixin，允许包含类似 <a href=\"widgets/Viewport-class.html\">Viewport</a> widget 的 <a href=\"widgets/Element-class.html\">Element</a> 正确修改 <a href=\"widgets/ViewportNotificationMixin-mixin.html\">ViewportNotificationMixin</a> 的通知深度。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/activate.html": {
+    "0": "<p>从“非活动”生命周期状态转换为“活动”状态。</p>",
+    "1": "<p>先前已停用的 element 重新加入树时，框架会调用此方法。element 首次变为活动状态时（即从“初始”生命周期状态转换）不会调用此方法；在这种情况下，框架会调用 <a href=\"widgets/Element/mount.html\">mount</a>。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/attachNotificationTree.html": {
+    "1": "<p>此方法仅用于支持实现 <a href=\"widgets/NotifiableElementMixin-mixin.html\">NotifiableElementMixin</a>。希望响应通知的 <a href=\"widgets/Element-class.html\">Element</a> 子类应改为混入该 mixin。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/buildScope.html": {
+    "0": "<p>一个 <a href=\"widgets/BuildScope-class.html\">BuildScope</a>，其中标记为 dirty 的 <a href=\"widgets/Element-class.html\">Element</a> 只能通过 <a href=\"widgets/BuildOwner/buildScope.html\">BuildOwner.buildScope</a> 调用重建，且该调用的 <code>context</code> 参数必须是此 <a href=\"widgets/BuildScope-class.html\">BuildScope</a> 中的 <a href=\"widgets/Element-class.html\">Element</a>。</p>",
+    "1": "<p>通常只有当此 <a href=\"widgets/Element-class.html\">Element</a> 已 <a href=\"widgets/Element/mounted.html\">mounted</a> 时，访问此 getter 才是安全的。</p>",
+    "2": "<p>默认实现会返回父级 <a href=\"widgets/Element-class.html\">Element</a> 的 <a href=\"widgets/Element/buildScope.html\">buildScope</a>。大多数情况下，当祖先不再是 dirty 时，<a href=\"widgets/Element-class.html\">Element</a> 就可以重建。一个显著例外是 <a href=\"widgets/LayoutBuilder-class.html\">LayoutBuilder</a> 的后代：在收到布局约束之前，它们不能重建。<a href=\"widgets/LayoutBuilder-class.html\">LayoutBuilder</a> 的 <a href=\"widgets/Element-class.html\">Element</a> 会重写 <a href=\"widgets/Element/buildScope.html\">buildScope</a>，确保在收到约束前其后代均不能重建。</p>",
+    "4": "<p>如果重写此 getter，始终返回同一个 <a href=\"widgets/BuildScope-class.html\">BuildScope</a> 实例。运行时更改此 getter 返回的值不受支持。</p>",
+    "5": "<p><a href=\"widgets/Element/updateChild.html\">updateChild</a> 方法不会考虑 <a href=\"widgets/Element/buildScope.html\">buildScope</a>：如果父级 <a href=\"widgets/Element-class.html\">Element</a> 对拥有不同 <a href=\"widgets/BuildScope-class.html\">BuildScope</a> 的子级调用 <a href=\"widgets/Element/updateChild.html\">updateChild</a>，该子级仍可能重建。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/deactivate.html": {
+    "0": "<p>从“活动”生命周期状态转换为“非活动”状态。</p>",
+    "3": "<p>此方法由 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a> 间接调用。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/deactivateChild.html": {
+    "0": "<p>将给定的 element 移至非活动列表，并将其 render object 从 render 树中分离。</p>",
+    "1": "<p>此方法会将给定的 element 从当前 element 的子级中移除：它会将该 element 的 render object 从 render 树中分离，并把 element 移至非活动列表。</p>",
+    "2": "<p>此方法会间接调用子级的 <a href=\"widgets/Element/deactivate.html\">deactivate</a>。</p>",
+    "3": "<p>调用方负责从子级模型中移除该子级。通常，element 在更新子级模型时会自行调用 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a>；但在使用 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 重新挂接父子关系时，新父级会主动调用旧父级的 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a>，并先调用 <a href=\"widgets/Element/forgetChild.html\">forgetChild</a>，让旧父级更新其子级模型。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/debugDeactivated.html": {
+    "0": "<p>在调试模式下，子级停用后调用（参见 <a href=\"widgets/Element/deactivate.html\">deactivate</a>）。</p>",
+    "1": "<p>发布版本不会调用此方法。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/debugDoingBuild.html": {
+    "0": "<p><a href=\"widgets/BuildContext/widget.html\">widget</a> 当前是否正在更新 widget 树或 render 树。</p>",
+    "2": "<p>此值为 true 时，<a href=\"widgets/BuildContext/widget.html\">widget</a> 可以通过调用 <a href=\"widgets/BuildContext/dependOnInheritedElement.html\">dependOnInheritedElement</a> 或 <a href=\"widgets/BuildContext/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a>，安全地依赖 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/debugExpectsRenderObjectForSlot.html": {
+    "0": "<p>给定 <code>slot</code> 中的子级（或其后代）是否必须通过调用祖先 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 的 <a href=\"widgets/RenderObjectElement/insertRenderObjectChild.html\">RenderObjectElement.insertRenderObjectChild</a>，将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入其中。</p>",
+    "1": "<p>此方法用于在 element 树中定义非渲染区域（关于渲染区和非渲染区的说明，请参阅 <a href=\"widgets/WidgetsBinding-mixin.html\">WidgetsBinding</a>）：</p>",
+    "2": "<p><a href=\"widgets/Element-class.html\">Element</a> 树的大多数分支最终都会将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入其祖先 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>，以构建 render 树。但有一个显著例外：某个 <a href=\"widgets/Element-class.html\">Element</a> 可能预期特定子级 slot 中的内容会创建独立的新 render 树，因此不允许将 render object 插入现有 render 树。对于该 slot，此类 element 必须返回 false，以告知其中的子级不得对其祖先调用 <a href=\"widgets/RenderObjectElement/insertRenderObjectChild.html\">RenderObjectElement.insertRenderObjectChild</a>。</p>",
+    "3": "<p>例如，<a href=\"widgets/ViewAnchor-class.html\">ViewAnchor</a> 对应的 element 会在 <a href=\"widgets/ViewAnchor/view.html\">ViewAnchor.view</a> slot 上对此方法返回 false，以确保其中放置的是 <a href=\"widgets/View-class.html\">View</a> 等 widget，最终为该 view 初始化独立的 render 树。另一个例子是 <a href=\"widgets/ViewCollection-class.html\">ViewCollection</a> widget；出于同样的原因，它的所有 slot 都会返回 false。</p>",
+    "4": "<p>通常无需重写此方法，因为符合上述情况的 element 很少见。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/debugGetCreatorChain.html": {
+    "0": "<p>返回此 element 的创建原因说明。</p>",
+    "1": "<p>用于调试 element 的来源。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/debugGetDiagnosticChain.html": {
+    "0": "<p>返回从此 element 沿父级链一直到树根的路径。</p>",
+    "1": "<p>可用于调试 element 树的显示：仅展开从根节点到此 element 路径上的节点。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/debugIsActive.html": {
+    "0": "<p>如果此 Element 处于活动状态，则返回 true。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/debugIsDefunct.html": {
+    "0": "<p>如果此 Element 已失效，则返回 true。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/debugVisitOnstageChildren.html": {
+    "0": "<p>对每个被视为位于舞台上的子级调用参数回调。</p>",
+    "2": "<p>子级是否位于舞台上，会影响测试时能否发现该 element。使用 Flutter 的 <a href=\"flutter_test/Finder-class.html\">Finder</a> 对象时便会受到此设置影响。例如，要求测试框架点击某个 widget 时，Finder 默认只查找位于舞台上的 element，并忽略舞台外的 element。</p>",
+    "3": "<p>默认实现会委托给 <a href=\"widgets/Element/visitChildren.html\">visitChildren</a>，因此会将此 element 视为位于舞台上。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/dependOnInheritedElement.html": {
+    "0": "<p>将此 build context 注册到 <code>ancestor</code> 上；当 <code>ancestor</code> 的 widget 发生变化时，重建此 build context。</p>",
+    "1": "<p>返回 <code>ancestor.widget</code>。</p>",
+    "2": "<p>通常不会直接调用此方法。大多数应用应使用 <a href=\"widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a>；该方法找到合适的 <a href=\"widgets/InheritedElement-class.html\">InheritedElement</a> 祖先后，会调用此方法。</p>",
+    "3": "<p>关于何时可以调用 <a href=\"widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 的所有限制，同样适用于此方法。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/depth.html": {
+    "0": "<p>此整数保证大于其父级（如果存在）的值。树根处的 element 深度必须大于 0。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/describeElement.html": {
+    "0": "<p>返回与当前 build context 关联的 <a href=\"widgets/Element-class.html\">Element</a> 的说明。</p>",
+    "1": "<p><code>name</code> 通常类似于“正在重建的 element 是”。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/describeMissingAncestor.html": {
+    "0": "<p>为当前 build context 的祖先树中缺失的特定类型 widget 添加说明。</p>",
+    "1": "<p>可以在 <a href=\"material/debugCheckHasMaterial.html\">debugCheckHasMaterial</a> 中找到此方法的使用示例。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/describeOwnershipChain.html": {
+    "0": "<p>将特定 <a href=\"widgets/Element-class.html\">Element</a> 的所有权链说明添加到错误报告中。</p>",
+    "1": "<p>所有权链可用于调试 element 的来源。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/describeWidget.html": {
+    "0": "<p>返回与当前 build context 关联的 <a href=\"widgets/Widget-class.html\">Widget</a> 的说明。</p>",
+    "1": "<p><code>name</code> 通常类似于“正在重建的 widget 是”。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/detachRenderObject.html": {
+    "2": "<p>此方法由 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a> 调用。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/didChangeDependencies.html": {
+    "0": "<p>此 element 的依赖项发生变化时调用。</p>",
+    "1": "<p><a href=\"widgets/Element/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 会将此 element 注册为依赖给定类型的继承信息。当树中此位置的该类型信息发生变化时（例如，<a href=\"widgets/InheritedElement-class.html\">InheritedElement</a> 更新为新的 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>，且 <a href=\"widgets/InheritedWidget/updateShouldNotify.html\">InheritedWidget.updateShouldNotify</a> 返回 true），框架会调用此函数通知此 element。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/dirty.html": {
+    "0": "<p>如果此 element 已标记为需要重建，则返回 true。</p>",
+    "1": "<p>element 首次创建时，以及调用 <a href=\"widgets/Element/markNeedsBuild.html\">markNeedsBuild</a> 后，此标记为 true。通常，<a href=\"widgets/Element/performRebuild.html\">performRebuild</a> 实现会将该标记重置为 false；不过，某些 element（例如 <a href=\"widgets/LayoutBuilder-class.html\">LayoutBuilder</a> widget 对应的 element）可能会重写 <a href=\"widgets/Element/markNeedsBuild.html\">markNeedsBuild</a>，使调用时不会将 <a href=\"widgets/Element/dirty.html\">dirty</a> 标记设为 <code>true</code>。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/dispatchNotification.html": {
+    "1": "<p>通知会传递给给定 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 的祖先节点中类型参数匹配的所有 <a href=\"widgets/NotificationListener-class.html\">NotificationListener</a> widget。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/doesDependOnInheritedElement.html": {
+    "0": "<p>如果之前曾使用 <code>ancestor</code> 调用 <a href=\"widgets/Element/dependOnInheritedElement.html\">dependOnInheritedElement</a>，则返回 <code>true</code>。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/findAncestorRenderObjectOfType.html": {
+    "0": "<p>返回最近的、属于给定类型 <code>T</code> 的祖先 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 所创建的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 对象。</p>",
+    "1": "<p>不应在 build 方法中调用此方法，因为返回值发生变化时，build context 不会因此重建。一般来说，这种情况下使用 <a href=\"widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 更合适。此方法只适用于少数特殊情况：widget 需要促使祖先更改布局或绘制行为。例如，<a href=\"material/Material-class.html\">Material</a> 使用它，使 <a href=\"material/InkWell-class.html\">InkWell</a> widget 能在 <a href=\"material/Material-class.html\">Material</a> 的实际 render object 上触发墨水飞溅效果。</p>",
+    "3": "<p>不应在 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 或 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中调用此方法，因为此时 widget 树不再稳定。若要在这些方法中引用某个祖先，应在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中调用 <a href=\"widgets/ViewportElementMixin/findAncestorRenderObjectOfType.html\">findAncestorRenderObjectOfType</a> 并保存对该祖先的引用。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/findAncestorStateOfType.html": {
+    "0": "<p>返回最近的、属于给定类型 <code>T</code> 的祖先 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 所对应的 <a href=\"widgets/State-class.html\">State</a> 对象。</p>",
+    "1": "<p>不应在 build 方法中调用此方法，因为返回值发生变化时，build context 不会因此重建。一般来说，这种情况下使用 <a href=\"widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 更合适。此方法适合一次性更改祖先 widget 的状态，例如让祖先滚动列表将此 build context 对应的 widget 滚动到可见区域，或响应用户操作移动焦点。</p>",
+    "2": "<p>不过，通常应考虑使用回调来触发祖先的状态变化，而不是采用此方法所隐含的命令式方式。这样可以让 widget 彼此解耦，代码通常也更易维护和复用。</p>",
+    "4": "<p>不应在 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 或 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中调用此方法，因为此时 widget 树不再稳定。若要在这些方法中引用某个祖先，应在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中调用 <a href=\"widgets/ViewportElementMixin/findAncestorStateOfType.html\">findAncestorStateOfType</a> 并保存对该祖先的引用。</p>",
+    "5": "<p>\n<a name=\"widgets.BuildContext.findAncestorStateOfType.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  \n  <a class=\"anchor-button-overlay anchor-button\" title=\"Copy link to clipboard\"\n    onmouseenter=\"fixHref(this, 'widgets.BuildContext.findAncestorStateOfType.1');\" onclick=\"fixHref(this, 'widgets.BuildContext.findAncestorStateOfType.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"Copy to clipboard\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">ScrollableState? scrollable = context.findAncestorStateOfType&lt;ScrollableState&gt;();</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/findAncestorWidgetOfExactType.html": {
+    "0": "<p>返回给定类型 <code>T</code> 的最近祖先 widget；该类型必须是具体 <a href=\"widgets/Widget-class.html\">Widget</a> 子类的类型。</p>",
+    "1": "<p>通常，<a href=\"widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 更有用，因为继承 widget 发生变化时会触发使用者重建。此方法适合用于交互事件处理程序（例如手势回调），或执行一次性任务，例如断言某个特定类型的 widget 是否为祖先。Widget 的 build 方法返回值不应依赖此方法的返回值，因为返回值变化时 build context 不会重建。这可能导致 build 方法中使用的数据已发生变化，而 widget 却没有重建。</p>",
+    "3": "<p>不应在 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 或 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中调用此方法，因为此时 widget 树不再稳定。若要在这些方法中引用某个祖先，应在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中调用 <a href=\"widgets/ViewportElementMixin/findAncestorWidgetOfExactType.html\">findAncestorWidgetOfExactType</a> 并保存对该祖先的引用。</p>",
+    "4": "<p>如果此 context 的祖先中没有所请求类型的 widget，则返回 null。</p>"
+  },
+  "flutter/widgets/ViewportElementMixin/findRenderObject.html": {
+    "0": "<p>当前 widget 对应的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。如果此 widget 是 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a>，则返回其创建的 render object；否则返回第一个后代 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 所对应的 render object。</p>",
+    "1": "<p>只有在 build 阶段完成后，此方法才会返回有效结果，因此不能在 build 方法中调用。只能在交互事件处理程序（例如手势回调）、布局回调或绘制回调中调用。如果 <a href=\"widgets/State/mounted.html\">State.mounted</a> 返回 false，也不能调用此方法。</p>",
+    "2": "<p>通常情况下，render object 是 <a href=\"rendering/RenderBox-class.html\">RenderBox</a>；此时可以通过 <a href=\"widgets/ViewportElementMixin/size.html\">size</a> getter 获取其尺寸。只有布局阶段完成后此尺寸才有效，因此只能在绘制回调或交互事件处理程序（例如手势回调）中读取。</p>",
+    "4": "<p>从理论上讲，此方法的开销相对较高（与树的深度成 O(N) 关系）；但实际上通常开销很小，因为树中一般有许多 render object，因此到最近 render object 的距离通常较短。</p>"
   }
 }

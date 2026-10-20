@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/framework.dart#L5145"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">findAncestorStateOfType&lt;<wbr><span class="type-parameter">T extends State&lt;<wbr><span class="type-parameter">StatefulWidget</span>&gt;</span>&gt;</span> 方法 
+<h1><span class="kind-method">findAncestorStateOfType&lt;<wbr><span class="type-parameter">T extends State&lt;<wbr><span class="type-parameter">StatefulWidget</span>&gt;</span>&gt;</span> 方法
 </h1></div>
 
     <section class="multi-line-signature">
@@ -106,24 +106,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Returns the <a href="widgets/State-class.html">State</a> object of the nearest ancestor <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> widget
-that is an instance of the given type <code>T</code>.</p>
-<p>This should not be used from build methods, because the build context will
-not be rebuilt if the value that would be returned by this method changes.
-In general, <a href="widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html">dependOnInheritedWidgetOfExactType</a> is more appropriate for such
-cases. This method is useful for changing the state of an ancestor widget in
-a one-off manner, for example, to cause an ancestor scrolling list to
-scroll this build context's widget into view, or to move the focus in
-response to user interaction.</p>
-<p>In general, though, consider using a callback that triggers a stateful
-change in the ancestor rather than using the imperative style implied by
-this method. This will usually lead to more maintainable and reusable code
-since it decouples widgets from each other.</p>
+  <p>返回最近的、属于给定类型 <code>T</code> 的祖先 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 所对应的 <a href="widgets/State-class.html">State</a> 对象。</p>
+<p>不应在 build 方法中调用此方法，因为返回值发生变化时，build context 不会因此重建。一般来说，这种情况下使用 <a href="widgets/ViewportElementMixin/dependOnInheritedWidgetOfExactType.html">dependOnInheritedWidgetOfExactType</a> 更合适。此方法适合一次性更改祖先 widget 的状态，例如让祖先滚动列表将此 build context 对应的 widget 滚动到可见区域，或响应用户操作移动焦点。</p>
+<p>不过，通常应考虑使用回调来触发祖先的状态变化，而不是采用此方法所隐含的命令式方式。这样可以让 widget 彼此解耦，代码通常也更易维护和复用。</p>
 <p>调用此方法的开销相对较大（与树的深度成正比）。只有在确定此组件与目标祖先之间的距离较小且有上限时，才应调用此方法。</p>
-<p>This method should not be called from <a href="widgets/State/deactivate.html">State.deactivate</a> or <a href="widgets/State/dispose.html">State.dispose</a>
-because the widget tree is no longer stable at that time. To refer to
-an ancestor from one of those methods, save a reference to the ancestor
-by calling <a href="widgets/ViewportElementMixin/findAncestorStateOfType.html">findAncestorStateOfType</a> in <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a>.</p>
+<p>不应在 <a href="widgets/State/deactivate.html">State.deactivate</a> 或 <a href="widgets/State/dispose.html">State.dispose</a> 中调用此方法，因为此时 widget 树不再稳定。若要在这些方法中引用某个祖先，应在 <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 中调用 <a href="widgets/ViewportElementMixin/findAncestorStateOfType.html">findAncestorStateOfType</a> 并保存对该祖先的引用。</p>
 <p>
 <a name="widgets.BuildContext.findAncestorStateOfType.1"></a>
 <div class="snippet snippet-container anchor-container">
