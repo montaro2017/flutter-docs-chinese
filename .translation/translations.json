@@ -22224,17 +22224,21 @@
     "3": "<p>在此示例中，<code>_trackingController</code> 由构建该 widget 树的有状态 widget 创建。</p>"
   },
   "widgets/Transform-class.html": {
-    "2": "<p>\n<a name=\"widgets.Transform.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\nThis example rotates and skews an orange box containing text, keeping the\ntop right corner pinned to its original position.\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.1');\" onclick=\"fixHref(this, 'widgets.Transform.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">ColoredBox(\n  color: Colors.black,\n  child: Transform(\n    alignment: Alignment.topRight,\n    transform: Matrix4.skewY(0.3)..rotateZ(-math.pi &#47; 12.0),\n    child: Container(\n      padding: const EdgeInsets.all(8.0),\n      color: const Color(0xFFE8581C),\n      child: const Text(&#39;Apartment for rent!&#39;),\n    ),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>",
-    "3": "<p>另请参阅：</p>"
+    "2": "<p>\n<a name=\"widgets.Transform.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例将包含文本的橙色方块旋转并倾斜，同时使其右上角保持在原来的位置。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.1');\" onclick=\"fixHref(this, 'widgets.Transform.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">ColoredBox(\n  color: Colors.black,\n  child: Transform(\n    alignment: Alignment.topRight,\n    transform: Matrix4.skewY(0.3)..rotateZ(-math.pi &#47; 12.0),\n    child: Container(\n      padding: const EdgeInsets.all(8.0),\n      color: const Color(0xFFE8581C),\n      child: const Text(&#39;Apartment for rent!&#39;),\n    ),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>",
+    "3": "<p>另请参阅：</p>",
+    "0": "<p>在绘制子级之前对其进行变换的 widget。</p>",
+    "1": "<p>与在布局之前旋转子级的 <a href=\"widgets/RotatedBox-class.html\">RotatedBox</a> 不同，此对象会在绘制前一刻应用变换。因此，计算此 widget 的子级（也就是此 widget）占用多少空间时，不会考虑该变换。</p>"
   },
   "widgets/TransformationController-class.html": {
-    "2": "<p>另请参阅：</p>"
+    "2": "<p>另请参阅：</p>",
+    "0": "<p>对 <a href=\"foundation/ValueNotifier-class.html\">ValueNotifier</a> 的轻量封装，其值是表示变换的 <a href=\"package-vector_math_vector_math_64/Matrix4-class.html\">Matrix4</a>。</p>",
+    "1": "<p><a href=\"foundation/ValueNotifier/value.html\">value</a> 默认为单位矩阵，表示不进行任何变换。</p>"
   },
   "widgets/TransitionBuilder.html": {
     "3": "<p>另请参阅：</p>"
   },
   "widgets/TransitionDelegate-class.html": {
-    "3": "<p>\n<a name=\"widgets.TransitionDelegate.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\nThe following example demonstrates how to implement a subclass that always\nremoves or adds routes without animated transitions and puts the removed\nroutes at the top of the list.\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.TransitionDelegate.1');\" onclick=\"fixHref(this, 'widgets.TransitionDelegate.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">class NoAnimationTransitionDelegate extends TransitionDelegate&lt;void&gt; {\n  @override\n  Iterable&lt;RouteTransitionRecord&gt; resolve({\n    required List&lt;RouteTransitionRecord&gt; newPageRouteHistory,\n    required Map&lt;RouteTransitionRecord?, RouteTransitionRecord&gt; locationToExitingPageRoute,\n    required Map&lt;RouteTransitionRecord?, List&lt;RouteTransitionRecord&gt;&gt; pageRouteToPagelessRoutes,\n  }) {\n    final List&lt;RouteTransitionRecord&gt; results = &lt;RouteTransitionRecord&gt;[];\n\n    for (final RouteTransitionRecord pageRoute in newPageRouteHistory) {\n      if (pageRoute.isWaitingForEnteringDecision) {\n        pageRoute.markForAdd();\n      }\n      results.add(pageRoute);\n\n    }\n    for (final RouteTransitionRecord exitingPageRoute in locationToExitingPageRoute.values) {\n      if (exitingPageRoute.isWaitingForExitingDecision) {\n       exitingPageRoute.markForComplete();\n       final List&lt;RouteTransitionRecord&gt;? pagelessRoutes = pageRouteToPagelessRoutes[exitingPageRoute];\n       if (pagelessRoutes != null) {\n         for (final RouteTransitionRecord pagelessRoute in pagelessRoutes) {\n            pagelessRoute.markForComplete();\n          }\n       }\n      }\n      results.add(exitingPageRoute);\n\n    }\n    return results;\n  }\n}\n</code></pre>\n  </div>\n</div>\n</p>",
+    "3": "<p>\n<a name=\"widgets.TransitionDelegate.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n以下示例展示如何实现一个子类：它始终在没有动画过渡的情况下移除或添加路由，并将移除的路由放在列表顶部。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.TransitionDelegate.1');\" onclick=\"fixHref(this, 'widgets.TransitionDelegate.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">class NoAnimationTransitionDelegate extends TransitionDelegate&lt;void&gt; {\n  @override\n  Iterable&lt;RouteTransitionRecord&gt; resolve({\n    required List&lt;RouteTransitionRecord&gt; newPageRouteHistory,\n    required Map&lt;RouteTransitionRecord?, RouteTransitionRecord&gt; locationToExitingPageRoute,\n    required Map&lt;RouteTransitionRecord?, List&lt;RouteTransitionRecord&gt;&gt; pageRouteToPagelessRoutes,\n  }) {\n    final List&lt;RouteTransitionRecord&gt; results = &lt;RouteTransitionRecord&gt;[];\n\n    for (final RouteTransitionRecord pageRoute in newPageRouteHistory) {\n      if (pageRoute.isWaitingForEnteringDecision) {\n        pageRoute.markForAdd();\n      }\n      results.add(pageRoute);\n\n    }\n    for (final RouteTransitionRecord exitingPageRoute in locationToExitingPageRoute.values) {\n      if (exitingPageRoute.isWaitingForExitingDecision) {\n       exitingPageRoute.markForComplete();\n       final List&lt;RouteTransitionRecord&gt;? pagelessRoutes = pageRouteToPagelessRoutes[exitingPageRoute];\n       if (pagelessRoutes != null) {\n         for (final RouteTransitionRecord pagelessRoute in pagelessRoutes) {\n            pagelessRoute.markForComplete();\n          }\n       }\n      }\n      results.add(exitingPageRoute);\n\n    }\n    return results;\n  }\n}\n</code></pre>\n  </div>\n</div>\n</p>",
     "4": "<p>另请参阅：</p>"
   },
   "widgets/TransitionRoute-class.html": {
@@ -41541,17 +41545,28 @@
     "0": "<p>The matrix to transform the child by during painting.</p>"
   },
   "widgets/Transform/Transform.rotate.html": {
-    "2": "<p>\n<a name=\"widgets.Transform.Transform.rotate.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\nThis example rotates an orange box containing text around its center by\nfifteen degrees.\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.Transform.rotate.1');\" onclick=\"fixHref(this, 'widgets.Transform.Transform.rotate.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">Transform.rotate(\n  angle: -math.pi &#47; 12.0,\n  child: Container(\n    padding: const EdgeInsets.all(8.0),\n    color: const Color(0xFFE8581C),\n    child: const Text(&#39;Apartment for rent!&#39;),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>",
-    "3": "<p>另请参阅：</p>"
+    "2": "<p>\n<a name=\"widgets.Transform.Transform.rotate.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例将包含文本的橙色方块绕中心旋转十五度。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.Transform.rotate.1');\" onclick=\"fixHref(this, 'widgets.Transform.Transform.rotate.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">Transform.rotate(\n  angle: -math.pi &#47; 12.0,\n  child: Container(\n    padding: const EdgeInsets.all(8.0),\n    color: const Color(0xFFE8581C),\n    child: const Text(&#39;Apartment for rent!&#39;),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>",
+    "3": "<p>另请参阅：</p>",
+    "0": "<p>创建一个以中心点为轴旋转其子级的 widget。</p>",
+    "1": "<p><code>angle</code> 参数以弧度表示顺时针旋转角度。</p>"
   },
   "widgets/Transform/Transform.scale.html": {
-    "2": "<p>For convenience, to scale the child uniformly, instead of providing\n<code>scaleX</code> 和 <code>scaleY</code>, the <code>scale</code> parameter may be used.</p>",
-    "5": "<p>\n<a name=\"widgets.Transform.Transform.scale.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\nThis example shrinks an orange box containing text such that each\ndimension is half the size it would otherwise be.\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.Transform.scale.1');\" onclick=\"fixHref(this, 'widgets.Transform.Transform.scale.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">Transform.scale(\n  scale: 0.5,\n  child: Container(\n    padding: const EdgeInsets.all(8.0),\n    color: const Color(0xFFE8581C),\n    child: const Text(&#39;Bad Idea Bears&#39;),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>",
-    "6": "<p>另请参阅：</p>"
+    "2": "<p>为了方便地统一缩放子级，可以使用 <code>scale</code> 参数，而无需分别提供 <code>scaleX</code> 和 <code>scaleY</code>。</p>",
+    "5": "<p>\n<a name=\"widgets.Transform.Transform.scale.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例将包含文本的橙色方块缩小，使其宽度和高度都变为原来的一半。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.Transform.scale.1');\" onclick=\"fixHref(this, 'widgets.Transform.Transform.scale.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">Transform.scale(\n  scale: 0.5,\n  child: Container(\n    padding: const EdgeInsets.all(8.0),\n    color: const Color(0xFFE8581C),\n    child: const Text(&#39;Bad Idea Bears&#39;),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>",
+    "6": "<p>另请参阅：</p>",
+    "0": "<p>创建一个在二维平面上缩放其子级的 widget。</p>",
+    "1": "<p><code>scaleX</code> 参数提供 x 轴的缩放系数，<code>x</code> 轴上的缩放结果由此系数计算；<code>scaleY</code> 参数提供 y 轴的缩放系数，<code>y</code> 轴同理。任一参数都可以省略，省略时对应轴的缩放系数默认为 1.0。</p>",
+    "3": "<p><code>scale</code>、<code>scaleX</code> 和 <code>scaleY</code> 中至少有一个不能为 null。如果提供了 <code>scale</code>，另外两个必须为 null；如果未提供 scale，则必须提供另外两个中的一个。</p>",
+    "4": "<p><code>alignment</code> 用于控制缩放原点；默认原点是矩形中心。</p>"
   },
   "widgets/Transform/transformHitTests.html": {
-    "5": "<p>\n<a name=\"widgets.Transform.transformHitTests.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\nThis example shows a <code>Container</code> that is scaled up. Even though it appears\nlarger, taps are only registered within the original 100x100 area of the\nparent <code>SizedBox</code>.\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.transformHitTests.1');\" onclick=\"fixHref(this, 'widgets.Transform.transformHitTests.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">Center(\n  child: SizedBox(\n    width: 100.0,\n    height: 100.0,\n    child: Transform.scale(\n      scale: 2.0,\n      child: GestureDetector(\n        onTap: () =&gt; debugPrint(&#39;Tapped!&#39;),\n        child: const ColoredBox(\n          color: Colors.purple,\n        ),\n      ),\n    ),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>",
-    "6": "<p>默认为 true。</p>"
+    "5": "<p>\n<a name=\"widgets.Transform.transformHitTests.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例中的 <code>Container</code> 被放大。虽然它看起来更大，但只有父级 <code>SizedBox</code> 原来的 100×100 区域可以注册点击。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.transformHitTests.1');\" onclick=\"fixHref(this, 'widgets.Transform.transformHitTests.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">Center(\n  child: SizedBox(\n    width: 100.0,\n    height: 100.0,\n    child: Transform.scale(\n      scale: 2.0,\n      child: GestureDetector(\n        onTap: () =&gt; debugPrint(&#39;Tapped!&#39;),\n        child: const ColoredBox(\n          color: Colors.purple,\n        ),\n      ),\n    ),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>",
+    "6": "<p>默认为 true。</p>",
+    "0": "<p>是否将已注册的命中坐标变换到子级变换后的坐标系中。</p>",
+    "1": "<p>为 <code>true</code> 时，父级边界内的命中坐标会被变换，以匹配平移、旋转、缩放或倾斜等变换之后子级的视觉位置。</p>",
+    "2": "<p>为 <code>false</code> 时，命中坐标不会变换，因此点击位置相对于子级视觉位置可能会发生偏移。</p>",
+    "3": "<p><strong>重要：</strong>即使 <a href=\"widgets/Transform/transformHitTests.html\">transformHitTests</a> 为 true，子级也无法接收父级边界之外的事件。命中测试始终先在父级自身边界内进行检查，位置见 <a href=\"rendering/RenderBox/hitTest.html\">RenderBox.hitTest</a>。如果指针位于父级边界之外，就不会调用 <a href=\"rendering/RenderBox/hitTestChildren.html\">RenderBox.hitTestChildren</a>，也不会对其子级进行命中测试。</p>",
+    "4": "<p>如果交互元素需要在父级原始边界之外也能响应点击，可以考虑：</p>"
   },
   "widgets/TransitionDelegate/resolve.html": {
     "12": "<p>另请参阅：</p>"
@@ -261297,8 +261312,8 @@
     "1": "<p>此接口与 <a href=\"widgets/RouteObserver-class.html\">RouteObserver</a> 配合使用，使 widget 能够感知 <a href=\"widgets/Navigator-class.html\">Navigator</a> 会话历史的变化。</p>"
   },
   "flutter/widgets/RouteAware/didPushNext.html": {
-    "0": "<p>新的 route 推入到此 route 上方并暂时遮挡它时调用。</p>",
-    "1": "<p>此方法会在推送操作期间同步调用，早于转场动画完成。当前路由在动画退出过程中可能仍部分可见。若要在路由完全被遮挡后执行操作，可以监听 <a href=\"widgets/ModalRoute/secondaryAnimation.html\">ModalRoute.secondaryAnimation</a> 的动画完成状态，例如：</p>"
+    "0": "<p>新路由被推入并置于此路由之上、暂时遮挡此路由时调用。</p>",
+    "1": "<p>此方法会在推入操作期间同步调用，此时过渡动画尚未完成，当前路由在动画退出时仍可能部分可见。若要在路由完全被遮挡后执行操作，可以使用 <a href=\"widgets/ModalRoute/secondaryAnimation.html\">ModalRoute.secondaryAnimation</a> 监听动画完成，例如：</p>"
   },
   "flutter/widgets/RouteInformation-class.html": {
     "0": "<p>一段路由信息。</p>",
@@ -263004,5 +263019,321 @@
   "flutter/widgets/ToolbarItemsParentData/shouldPaint.html": {
     "0": "<p>是否绘制此子级。</p>",
     "1": "<p>选区工具栏中的子级可能会为了测量而布局，但不进行绘制。此属性可用于识别这些子级。</p>"
+  },
+  "flutter/widgets/ToggleablePainter-class.html": {
+    "0": "<p><a href=\"rendering/CustomPainter-class.html\">CustomPainter</a> 的基类，可传给 <a href=\"widgets/ToggleableStateMixin/buildToggleable.html\">ToggleableStateMixin.buildToggleable</a>，用于绘制 Toggleable 的视觉表示。</p>",
+    "1": "<p>子类必须实现 <a href=\"rendering/CustomPainter/paint.html\">paint</a> 方法来绘制实际内容。</p>",
+    "2": "<p>如果需要绘制径向墨水波纹（例如 Material Design 中的效果），子类可以在 <a href=\"rendering/CustomPainter/paint.html\">paint</a> 方法中调用 <a href=\"widgets/ToggleablePainter/paintRadialReaction.html\">paintRadialReaction</a>。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/activeColor.html": {
+    "0": "<p>控件处于活动状态（即 <a href=\"widgets/ToggleableStateMixin/value.html\">ToggleableStateMixin.value</a> 为 true）时应使用的颜色。</p>",
+    "1": "<p>例如，复选框选中时应使用此颜色。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/downPosition.html": {
+    "0": "<p>指针触碰 Toggleable 时，在控件内部的 <a href=\"dart-ui/Offset-class.html\">Offset</a> 位置。</p>",
+    "1": "<p>当前没有指针触碰 Toggleable 时，此值为 null。</p>",
+    "2": "<p>通常设为 <a href=\"widgets/ToggleableStateMixin/downPosition.html\">ToggleableStateMixin.downPosition</a>。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/focusColor.html": {
+    "0": "<p><a href=\"widgets/ToggleablePainter/isFocused.html\">isFocused</a> 为 true 时，反应效果应使用的颜色。</p>",
+    "1": "<p>当 Toggleable 获得焦点时，如果需要改变反应效果的颜色或透明度，就会使用此值。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/hitTest.html": {
+    "0": "<p>每当使用此自定义绘制委托的对象执行命中测试时调用。</p>",
+    "1": "<p>给定的点与上次调用 <a href=\"rendering/CustomPainter/paint.html\">paint</a> 时使用相同的坐标空间。</p>",
+    "2": "<p>默认行为是：背景绘制器将所有点都视为命中，前景绘制器则将所有点都视为未命中。</p>",
+    "3": "<p>如果给定位置对应于绘制图像上应视为“命中”的点，返回 true；如果对应于绘制图像之外的点，返回 false；返回 null 则使用默认行为。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/hoverColor.html": {
+    "0": "<p><a href=\"widgets/ToggleablePainter/isHovered.html\">isHovered</a> 为 true 时，反应效果应使用的颜色。</p>",
+    "1": "<p>当指针悬停在 Toggleable 上时，如果需要改变反应效果的颜色或透明度，就会使用此值。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/inactiveColor.html": {
+    "0": "<p>控件处于非活动状态（即 <a href=\"widgets/ToggleableStateMixin/value.html\">ToggleableStateMixin.value</a> 为 false）时应使用的颜色。</p>",
+    "1": "<p>例如，复选框未选中时应使用此颜色。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/inactiveReactionColor.html": {
+    "0": "<p>Toggleable 处于非活动状态时，反应效果应使用的颜色。</p>",
+    "1": "<p>Toggleable 处于非活动状态并被点击时，如果需要改变显示的反应效果颜色或透明度，就会使用此值。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/isActive.html": {
+    "0": "<p>控件是否显示为活动状态。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/isFocused.html": {
+    "0": "<p>如果此 Toggleable 当前拥有输入焦点，则为 true。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/isHovered.html": {
+    "0": "<p>如果指针当前悬停在此 Toggleable 上，则为 true。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/paintRadialReaction.html": {
+    "0": "<p>供子类调用，为此控件绘制径向墨水波纹反应效果。</p>",
+    "1": "<p>反应效果会在给定画布的给定偏移处绘制。该偏移是反应效果的中心点，通常不同于用户与控件交互时的 <a href=\"widgets/ToggleablePainter/downPosition.html\">downPosition</a>。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/position.html": {
+    "0": "<p>控件的视觉状态值。</p>",
+    "1": "<p>通常设为 <a href=\"widgets/ToggleableStateMixin/position.html\">ToggleableStateMixin.position</a>。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/reaction.html": {
+    "0": "<p>径向反应动画的视觉状态值。</p>",
+    "1": "<p>通常设为 <a href=\"widgets/ToggleableStateMixin/reaction.html\">ToggleableStateMixin.reaction</a>。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/reactionColor.html": {
+    "0": "<p>Toggleable 处于活动状态时，反应效果应使用的颜色。</p>",
+    "1": "<p>Toggleable 处于活动状态并被点击时，如果需要改变显示的反应效果颜色或透明度，就会使用此值。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/reactionFocusFade.html": {
+    "0": "<p>控制焦点变化时径向反应效果的不透明度动画。</p>",
+    "1": "<p>通常设为 <a href=\"widgets/ToggleableStateMixin/reactionFocusFade.html\">ToggleableStateMixin.reactionFocusFade</a>。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/reactionHoverFade.html": {
+    "0": "<p>控制悬停状态变化时径向反应效果的不透明度动画。</p>",
+    "1": "<p>通常设为 <a href=\"widgets/ToggleableStateMixin/reactionHoverFade.html\">ToggleableStateMixin.reactionHoverFade</a>。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/semanticsBuilder.html": {
+    "0": "<p>返回一个函数，用于为此绘制器绘制的图像构建语义信息。</p>",
+    "1": "<p>如果返回的函数为 null，此绘制器就不会向语义树添加新的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>，对应的 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 也不会创建语义边界。不过，如果 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 有子级，该子级仍可能向树中添加 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/shouldRebuildSemantics.html": {
+    "0": "<p>每当新的自定义绘制委托类实例提供给 <a href=\"rendering/RenderCustomPaint-class.html\">RenderCustomPaint</a> 对象时，或每当使用新的自定义绘制委托实例创建 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 对象时调用。（两者本质相同，因为后者是基于前者实现的。）</p>",
+    "1": "<p>如果新实例会使 <a href=\"widgets/ToggleablePainter/semanticsBuilder.html\">semanticsBuilder</a> 创建不同的语义信息，此方法应返回 true；否则应返回 false。</p>",
+    "2": "<p>如果此方法返回 false，对 <a href=\"widgets/ToggleablePainter/semanticsBuilder.html\">semanticsBuilder</a> 的调用可能会被优化掉。</p>",
+    "3": "<p>即使 <a href=\"widgets/ToggleablePainter/shouldRebuildSemantics.html\">shouldRebuildSemantics</a> 会返回 false，仍可能调用 <a href=\"widgets/ToggleablePainter/semanticsBuilder.html\">semanticsBuilder</a>。例如，首次渲染 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 时，或绘制区域尺寸发生变化时。</p>",
+    "4": "<p>默认情况下，此方法会委托给 <a href=\"widgets/ToggleablePainter/shouldRepaint.html\">shouldRepaint</a>，因为在大多数情况下，绘制内容发生变化时语义信息也会变化。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/shouldRepaint.html": {
+    "0": "<p>每当新的自定义绘制委托类实例提供给 <a href=\"rendering/RenderCustomPaint-class.html\">RenderCustomPaint</a> 对象时，或每当使用新的自定义绘制委托实例创建 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 对象时调用。（两者本质相同，因为后者是基于前者实现的。）</p>",
+    "2": "<p>如果此方法返回 false，对 <a href=\"rendering/CustomPainter/paint.html\">paint</a> 的调用可能会被优化掉。</p>",
+    "3": "<p>即使 <a href=\"widgets/ToggleablePainter/shouldRepaint.html\">shouldRepaint</a> 返回 false，仍可能调用 <a href=\"rendering/CustomPainter/paint.html\">paint</a>（例如祖先或后代需要重绘时）。即使完全没有调用 <a href=\"widgets/ToggleablePainter/shouldRepaint.html\">shouldRepaint</a>，也可能调用 <a href=\"rendering/CustomPainter/paint.html\">paint</a>（例如绘制区域尺寸发生变化时）。</p>",
+    "4": "<p>如果自定义委托的绘制函数开销很大，应尽可能避免重绘；此时可以使用 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a>、<a href=\"rendering/RenderRepaintBoundary-class.html\">RenderRepaintBoundary</a>，或其他将 <a href=\"rendering/RenderObject/isRepaintBoundary.html\">RenderObject.isRepaintBoundary</a> 设为 true 的渲染对象。</p>",
+    "5": "<p><code>oldDelegate</code> 参数永远不会为 null。</p>"
+  },
+  "flutter/widgets/ToggleablePainter/splashRadius.html": {
+    "0": "<p>径向反应效果的涟漪半径。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin-mixin.html": {
+    "0": "<p>供实现可切换控件及其切换动画的 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 使用的 mixin，例如 <a href=\"material/Switch-class.html\">Switch</a>、<a href=\"cupertino/CupertinoSwitch-class.html\">CupertinoSwitch</a>、<a href=\"material/Checkbox-class.html\">Checkbox</a>、<a href=\"cupertino/CupertinoCheckbox-class.html\">CupertinoCheckbox</a>、<a href=\"material/Radio-class.html\">Radio</a> 和 <a href=\"cupertino/CupertinoRadio-class.html\">CupertinoRadio</a>。</p>",
+    "1": "<p>此 mixin 实现控件切换逻辑（例如点击时切换），并提供一组动画控制器，使控件从一种状态过渡到另一种状态。它不规定可切换 widget 的视觉表现；视觉效果由传给 <a href=\"widgets/ToggleableStateMixin/buildToggleable.html\">buildToggleable</a> 的 <a href=\"rendering/CustomPainter-class.html\">CustomPainter</a> 定义。使用此 mixin 的 <a href=\"widgets/State-class.html\">State</a> 对象应在其 <a href=\"widgets/State/build.html\">build</a> 方法中调用该方法。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/animateToValue.html": {
+    "0": "<p>运行 <a href=\"widgets/ToggleableStateMixin/position.html\">position</a> 动画，使 Toggleable 的外观过渡到与 <a href=\"widgets/ToggleableStateMixin/value.html\">value</a> 一致。</p>",
+    "1": "<p>每当 <a href=\"widgets/ToggleableStateMixin/value.html\">value</a> 变化时，都必须调用此方法，以确保 Toggleable 的视觉表现与当前 <a href=\"widgets/ToggleableStateMixin/value.html\">value</a> 一致。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/buildToggleable.html": {
+    "0": "<p>通常会包装一个绘制 Toggleable 实际视觉效果的 <code>painter</code>，并添加切换控件的逻辑。</p>",
+    "1": "<p>如果要提供 <a href=\"rendering/CustomPainter-class.html\">CustomPainter</a> 以外的 <a href=\"widgets/Widget-class.html\">Widget</a>，请使用 <a href=\"widgets/ToggleableStateMixin/buildToggleableWithChild.html\">buildToggleableWithChild</a>。</p>",
+    "2": "<p>如果需要绘制径向墨水波纹（例如 Material Design 中的效果），可以将 <a href=\"widgets/ToggleablePainter-class.html\">ToggleablePainter</a> 子类作为 <code>painter</code> 提供；该子类负责绘制控件的径向墨水波纹。通常使用此 mixin 提供的 <a href=\"widgets/ToggleableStateMixin/reaction.html\">reaction</a>、<a href=\"widgets/ToggleableStateMixin/position.html\">position</a>、<a href=\"widgets/ToggleableStateMixin/reactionHoverFade.html\">reactionHoverFade</a> 和 <a href=\"widgets/ToggleableStateMixin/reactionFocusFade.html\">reactionFocusFade</a> 动画配置绘制器。绘制器应根据这些动画的当前值绘制 Toggleable 的视觉效果。此 mixin 会触发这些动画，使 Toggleable 在不同状态之间过渡。</p>",
+    "4": "<p>此方法必须从使用此 mixin 的 <a href=\"widgets/State-class.html\">State</a> 类的 <a href=\"widgets/State/build.html\">build</a> 方法中调用。返回的 <a href=\"widgets/Widget-class.html\">Widget</a> 必须由 build 方法返回，也可以先用其他 widget 包装后再返回。</p>",
+    "3": "<p>Material 可切换控件必须提供 <code>mouseCursor</code>，根据 Toggleable 当前的 <a href=\"widgets/WidgetState.html\">WidgetState</a> 解析出 <a href=\"services/MouseCursor-class.html\">MouseCursor</a>。Cupertino 可切换控件可以不提供 <code>mouseCursor</code>。如果未提供，则 <code>mouseCursor</code> 在所有 <a href=\"widgets/WidgetState.html\">WidgetState</a> 下都会使用 <a href=\"services/SystemMouseCursors/basic-constant.html\">SystemMouseCursors.basic</a> 作为 <code>mouseCursor</code>。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/buildToggleableWithChild.html": {
+    "0": "<p>通常会包装一个绘制 Toggleable 实际视觉效果的子级，并添加切换控件的逻辑。</p>",
+    "1": "<p>如果需要绘制径向墨水波纹（例如 Material Design 中的效果），可以提供一个 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a>，并将 <a href=\"widgets/ToggleablePainter-class.html\">ToggleablePainter</a> 子类设为 <a href=\"widgets/CustomPaint/painter.html\">CustomPaint.painter</a>；该子类负责绘制控件的径向墨水波纹。通常使用此 mixin 提供的 <a href=\"widgets/ToggleableStateMixin/reaction.html\">ToggleableStateMixin.reaction</a>、<a href=\"widgets/ToggleableStateMixin/position.html\">ToggleableStateMixin.position</a>、<a href=\"widgets/ToggleableStateMixin/reactionHoverFade.html\">ToggleableStateMixin.reactionHoverFade</a> 和 <a href=\"widgets/ToggleableStateMixin/reactionFocusFade.html\">ToggleableStateMixin.reactionFocusFade</a> 动画配置绘制器。绘制器应根据这些动画的当前值绘制 Toggleable 的视觉效果。此 mixin 会触发这些动画，使 Toggleable 在不同状态之间过渡。</p>",
+    "2": "<p>Material 可切换控件必须提供 <code>mouseCursor</code>，根据 Toggleable 当前的 <a href=\"widgets/WidgetState.html\">WidgetState</a> 解析出 <a href=\"services/MouseCursor-class.html\">MouseCursor</a>。Cupertino 可切换控件可以不提供 <code>mouseCursor</code>。如果未提供，则 <code>mouseCursor</code> 在所有 <a href=\"widgets/WidgetState.html\">WidgetState</a> 下都会使用 <a href=\"services/SystemMouseCursors/basic-constant.html\">SystemMouseCursors.basic</a> 作为 <code>mouseCursor</code>。</p>",
+    "3": "<p>此方法必须从使用此 mixin 的 <a href=\"widgets/State-class.html\">State</a> 类的 <a href=\"widgets/State/build.html\">build</a> 方法中调用。返回的 <a href=\"widgets/Widget-class.html\">Widget</a> 必须由 build 方法返回，也可以先用其他 widget 包装后再返回。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/createTicker.html": {
+    "0": "<p>使用给定的回调创建 ticker。</p>",
+    "1": "<p>提供的 ticker 类型取决于 ticker 提供者的类型。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/downPosition.html": {
+    "0": "<p>指针最近一次触碰 Toggleable 时所在的 <a href=\"dart-ui/Offset-class.html\">Offset</a>。</p>",
+    "1": "<p>当前没有指针触碰 Toggleable，或 <a href=\"widgets/ToggleableStateMixin/isInteractive.html\">isInteractive</a> 为 false 时，此值为 null。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/isInteractive.html": {
+    "0": "<p>用户交互是否可以更改此控件的 <a href=\"widgets/ToggleableStateMixin/value.html\">value</a>。</p>",
+    "1": "<p>如果 <a href=\"widgets/ToggleableStateMixin/onChanged.html\">onChanged</a> 回调不为 null，则控件可交互。如果回调为 null，控件会被禁用且不可交互。例如，禁用的复选框会显示为灰色，并且无法更改其值。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/mounted.html": {
+    "0": "<p>此 <a href=\"widgets/State-class.html\">State</a> 对象当前是否位于树中。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/onChanged.html": {
+    "0": "<p>控件的值发生变化时调用。</p>",
+    "1": "<p>点击控件时，会立即使用新值调用 <a href=\"widgets/ToggleableStateMixin/onChanged.html\">onChanged</a>。</p>",
+    "2": "<p>此回调不为 null 时，控件被视为可交互（参见 <a href=\"widgets/ToggleableStateMixin/isInteractive.html\">isInteractive</a>）。如果回调为 null，控件会被禁用且不可交互。例如，禁用的复选框会显示为灰色，并且无法更改其值。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/position.html": {
+    "0": "<p>控件的视觉状态值。</p>",
+    "1": "<p>控件处于非活动状态时，<a href=\"widgets/ToggleableStateMixin/value.html\">value</a> 为 false，且此动画的值为 0.0。控件处于活动状态时，value 为 true；若启用了三态模式，value 也可能为 null。此时动画的值为 1.0。控件从非活动状态过渡到活动状态（或反向过渡）时，<a href=\"widgets/ToggleableStateMixin/value.html\">value</a> 表示目标值，而此动画会在 0.0 与 1.0 之间逐渐变化。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/positionController.html": {
+    "0": "<p>供子类控制控件视觉状态值。</p>",
+    "1": "<p>有些控件会响应用户输入并更新其视觉状态。例如，开关的滑块在拖动时会从一个位置移动到另一个位置。这些控件会操作此动画控制器来更新 <a href=\"widgets/ToggleableStateMixin/position.html\">position</a>，并在动画到达 0.0 或 1.0 时触发 <a href=\"widgets/ToggleableStateMixin/onChanged.html\">onChanged</a> 回调。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/reaction.html": {
+    "0": "<p>径向反应动画的视觉状态值。</p>",
+    "1": "<p>有些控件会对用户输入显示径向墨水波纹反应。此动画用于控制该反应的进度。</p>",
+    "2": "<p>可以使用 <a href=\"widgets/ToggleablePainter/paintRadialReaction.html\">ToggleablePainter.paintRadialReaction</a> 绘制实际的径向反应效果。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/reactionAnimationDuration.html": {
+    "0": "<p>如果使用 <a href=\"widgets/ToggleablePainter/paintRadialReaction.html\">ToggleablePainter.paintRadialReaction</a> 绘制径向反应效果，圆形墨水波纹扩展到完整尺寸所需的时间。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/reactionController.html": {
+    "0": "<p>供子类控制径向反应动画。</p>",
+    "1": "<p>有些控件会对用户输入显示径向墨水波纹反应。此动画控制器可用于启动或停止这些反应效果。</p>",
+    "2": "<p>可以使用 <a href=\"widgets/ToggleablePainter/paintRadialReaction.html\">ToggleablePainter.paintRadialReaction</a> 绘制实际的径向反应效果。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/reactionFocusFade.html": {
+    "0": "<p>控制焦点变化时径向反应效果的不透明度动画。</p>",
+    "1": "<p>有些控件会在获得或失去焦点时显示径向墨水波纹反应。此动画控制该反应效果的淡入和淡出。</p>",
+    "2": "<p>可以使用 <a href=\"widgets/ToggleablePainter/paintRadialReaction.html\">ToggleablePainter.paintRadialReaction</a> 绘制实际的径向反应效果。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/reactionHoverFade.html": {
+    "0": "<p>控制悬停状态变化时径向反应效果的不透明度动画。</p>",
+    "1": "<p>有些控件会在指针悬停时显示径向墨水波纹反应。此动画控制该反应效果的淡入和淡出。</p>",
+    "2": "<p>可以使用 <a href=\"widgets/ToggleablePainter/paintRadialReaction.html\">ToggleablePainter.paintRadialReaction</a> 绘制实际的径向反应效果。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/states.html": {
+    "0": "<p>描述 Toggleable 当前的 <a href=\"widgets/WidgetState.html\">WidgetState</a>。</p>",
+    "1": "<p>返回的集合包含：</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/tristate.html": {
+    "0": "<p>如果为 true，<a href=\"widgets/ToggleableStateMixin/value.html\">value</a> 可以是 true、false 或 null；否则 <a href=\"widgets/ToggleableStateMixin/value.html\">value</a> 必须是 true 或 false。</p>",
+    "1": "<p>当 <a href=\"widgets/ToggleableStateMixin/tristate.html\">tristate</a> 为 true 且 <a href=\"widgets/ToggleableStateMixin/value.html\">value</a> 为 null 时，控件处于第三种“未确定”状态。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/value.html": {
+    "0": "<p>如果控件处于“非活动”状态（未勾选、关闭或未选中），则为 false。</p>",
+    "1": "<p>如果 value 为 true，控件则处于“活动”状态（已勾选、打开或选中）。如果 tristate 为 true 且 value 为 null，控件则处于第三种“未确定”状态。</p>",
+    "2": "<p>value 发生变化时，此对象会启动 <a href=\"widgets/ToggleableStateMixin/positionController.html\">positionController</a> 和 <a href=\"widgets/ToggleableStateMixin/position.html\">position</a> 动画，使控件的视觉效果过渡到新值。</p>"
+  },
+  "flutter/widgets/ToggleableStateMixin/setState.html": {
+    "1": "<p>每当更改 <a href=\"widgets/State-class.html\">State</a> 对象的内部状态时，都应在传给 <a href=\"widgets/State/setState.html\">setState</a> 的函数中进行更改：</p>",
+    "10": "<p>此 API 最初是一个名为 <code>markNeedsBuild</code> 的方法，以便与 <a href=\"rendering/RenderObject/markNeedsLayout.html\">RenderObject.markNeedsLayout</a>、<a href=\"rendering/RenderObject/markNeedsPaint.html\">RenderObject.markNeedsPaint</a> 等方法保持一致。</p>",
+    "11": "<p>然而，Flutter 框架早期的用户测试发现，人们调用 <code>markNeedsBuild()</code> 的次数远超实际所需。基本上，只要不确定是否需要调用，人们就会把它当作护身符一样调用，以防万一。</p>",
+    "13": "<p>当 API 改为接收回调后，这种做法大幅减少。一种解释是：要求开发者在回调中实际更新状态，促使他们更仔细地思考具体更新了什么，从而更清楚何时适合调用此方法。</p>"
+  },
+  "flutter/widgets/ToolbarOptions-class.html": {
+    "0": "<p><a href=\"widgets/EditableText-class.html\">EditableText</a> 的工具栏配置。</p>",
+    "1": "<p>工具栏是用户右键点击或长按 <a href=\"widgets/EditableText-class.html\">EditableText</a> 时显示的上下文菜单，包含剪切、复制、粘贴和全选等选项。</p>",
+    "2": "<p><a href=\"widgets/EditableText-class.html\">EditableText</a> 及其派生 widget 都有各自的默认 <a class=\"deprecated\" href=\"widgets/ToolbarOptions-class.html\">ToolbarOptions</a>。如果要明确控制工具栏选项，可以创建自定义的 <a class=\"deprecated\" href=\"widgets/ToolbarOptions-class.html\">ToolbarOptions</a>。</p>"
+  },
+  "flutter/widgets/ToolbarOptions/ToolbarOptions.html": {
+    "0": "<p>使用给定选项创建工具栏配置。</p>",
+    "1": "<p>未明确设置的选项默认均为 false。</p>"
+  },
+  "flutter/widgets/ToolbarOptions/copy.html": {
+    "0": "<p>是否在工具栏中显示复制选项。</p>"
+  },
+  "flutter/widgets/ToolbarOptions/cut.html": {
+    "0": "<p>是否在工具栏中显示剪切选项。</p>",
+    "1": "<p>如果 <a href=\"widgets/EditableText/readOnly.html\">EditableText.readOnly</a> 为 true，则无论此设置如何，剪切功能都会被禁用。</p>"
+  },
+  "flutter/widgets/ToolbarOptions/empty-constant.html": {
+    "0": "<p>不启用任何选项的 <a class=\"deprecated\" href=\"widgets/ToolbarOptions-class.html\">ToolbarOptions</a> 实例。</p>"
+  },
+  "flutter/widgets/ToolbarOptions/paste.html": {
+    "0": "<p>是否在工具栏中显示粘贴选项。</p>",
+    "1": "<p>如果 <a href=\"widgets/EditableText/readOnly.html\">EditableText.readOnly</a> 为 true，则无论此设置如何，粘贴功能都会被禁用。</p>"
+  },
+  "flutter/widgets/ToolbarOptions/selectAll.html": {
+    "0": "<p>是否在工具栏中显示全选选项。</p>"
+  },
+  "flutter/widgets/TooltipComponentBuilder.html": {
+    "0": "<p>用于构建工具提示浮层子级的函数签名。</p>",
+    "1": "<p>animation 属性提供底层工具提示浮层子级的显示和隐藏动画。可以用它驱动与该子级显示或隐藏同步的动画，例如淡入和淡出工具提示。</p>"
+  },
+  "flutter/widgets/TooltipPositionContext-class.html": {
+    "0": "<p>用于定位工具提示的上下文信息。</p>",
+    "1": "<p>此不可变数据类包含计算工具提示相对于目标 widget 的位置所需的全部信息。</p>"
+  },
+  "flutter/widgets/TooltipPositionContext/TooltipPositionContext.html": {
+    "0": "<p>创建工具提示位置上下文。</p>"
+  },
+  "flutter/widgets/TooltipPositionContext/overlaySize.html": {
+    "0": "<p>显示工具提示的浮层尺寸。</p>"
+  },
+  "flutter/widgets/TooltipPositionContext/preferBelow.html": {
+    "0": "<p>工具提示是否优先显示在目标下方。</p>"
+  },
+  "flutter/widgets/TooltipPositionContext/target.html": {
+    "0": "<p>目标 widget 在全局坐标系中的中心点。</p>"
+  },
+  "flutter/widgets/TooltipPositionContext/targetSize.html": {
+    "0": "<p>触发工具提示的目标 widget 尺寸。</p>"
+  },
+  "flutter/widgets/TooltipPositionContext/tooltipSize.html": {
+    "0": "<p>工具提示本身的尺寸。</p>"
+  },
+  "flutter/widgets/TooltipPositionContext/verticalOffset.html": {
+    "0": "<p>配置的垂直偏移量。</p>"
+  },
+  "flutter/widgets/TooltipPositionDelegate.html": {
+    "0": "<p>用于计算工具提示位置的函数签名。</p>",
+    "1": "<p><a href=\"widgets/TooltipPositionContext-class.html\">TooltipPositionContext</a> 包含定位工具提示所需的全部信息，包括目标位置、尺寸、偏移量和位置偏好。</p>",
+    "2": "<p>返回从浮层左上角到工具提示左上角的偏移量。</p>"
+  },
+  "flutter/widgets/TooltipTriggerMode.html": {
+    "0": "<p>触摸事件应如何触发工具提示。</p>",
+    "1": "<p>使用鼠标等指针设备时，只要指针悬停在 widget 上就会显示工具提示，不受 <a href=\"widgets/RawTooltip/triggerMode.html\">RawTooltip.triggerMode</a> 的值影响。</p>",
+    "2": "<p>无论此选项如何设置，也可以通过其他方式触发工具提示，例如调用 <code>ensureTooltipVisible</code>。</p>"
+  },
+  "flutter/widgets/TooltipTriggeredCallback.html": {
+    "0": "<p>工具提示被触发时调用的函数签名。</p>"
+  },
+  "widgets/Transform/Transform.flip.html": {
+    "0": "<p>创建一个绕 widget 中心点镜像其子级的 widget。</p>",
+    "1": "<p>如果 <code>flipX</code> 为 true，子级会水平翻转。默认值为 false。</p>",
+    "2": "<p>如果 <code>flipY</code> 为 true，子级会垂直翻转。默认值为 false。</p>",
+    "3": "<p>如果两者都为 true，子级会同时水平和垂直翻转，效果等同于旋转 180 度。</p>",
+    "4": "<p>\n<a name=\"widgets.Transform.Transform.flip.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例将文本水平翻转。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.Transform.flip.1');\" onclick=\"fixHref(this, 'widgets.Transform.Transform.flip.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">Transform.flip(\n  flipX: true,\n  child: const Text(&#39;Horizontal Flip&#39;),\n)</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "widgets/Transform/Transform.html": {
+    "0": "<p>创建一个变换其子级的 widget。</p>"
+  },
+  "widgets/Transform/Transform.translate.html": {
+    "0": "<p>创建一个通过平移来变换其子级的 widget。</p>",
+    "1": "<p><code>offset</code> 参数指定平移量。</p>",
+    "2": "<p>\n<a name=\"widgets.Transform.Transform.translate.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例将银色子级向下移动十五像素。\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.Transform.Transform.translate.1');\" onclick=\"fixHref(this, 'widgets.Transform.Transform.translate.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">Transform.translate(\n  offset: const Offset(0.0, 15.0),\n  child: Container(\n    padding: const EdgeInsets.all(8.0),\n    color: const Color(0xFF7F7F7F),\n    child: const Text(&#39;Quarter&#39;),\n  ),\n)</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "widgets/Transform/alignment.html": {
+    "0": "<p>相对于矩形尺寸指定原点的对齐方式。</p>",
+    "1": "<p>当此属性和 <a href=\"widgets/Transform/origin.html\">origin</a> 均为 null 时，原点是此渲染对象的左上角。某些构造函数的此字段默认值为 null，其他构造函数则默认使用 <a href=\"painting/Alignment/center-constant.html\">Alignment.center</a>。</p>",
+    "2": "<p>这相当于根据矩形尺寸设置原点。如果同时指定了此属性和 <a href=\"widgets/Transform/origin.html\">origin</a>，两种变换都会应用。</p>",
+    "3": "<p><a href=\"painting/AlignmentDirectional/centerStart-constant.html\">AlignmentDirectional.centerStart</a> 等同于一个 <a href=\"painting/Alignment-class.html\">Alignment</a>：当 <a href=\"widgets/Directionality/of.html\">Directionality.of</a> 返回 <a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a> 时，其 <a href=\"painting/Alignment/x.html\">Alignment.x</a> 值为 <code>-1.0</code>；当 <a href=\"widgets/Directionality/of.html\">Directionality.of</a> 返回 <a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a> 时，值为 <code>1.0</code>。同理，<a href=\"painting/AlignmentDirectional/centerEnd-constant.html\">AlignmentDirectional.centerEnd</a> 等同于一个 <a href=\"painting/Alignment-class.html\">Alignment</a>：当 <a href=\"widgets/Directionality/of.html\">Directionality.of</a> 返回 <a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a> 时，其 <a href=\"painting/Alignment/x.html\">Alignment.x</a> 值为 <code>1.0</code>；当 <a href=\"widgets/Directionality/of.html\">Directionality.of</a> 返回 <a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a> 时，值为 <code>-1.0</code>。</p>"
+  },
+  "widgets/Transform/filterQuality.html": {
+    "0": "<p>将变换作为位图操作应用时使用的过滤质量。</p>",
+    "1": "<p>如果 <a href=\"widgets/Transform/filterQuality.html\">filterQuality</a> 为 null，变换会通过重新渲染子级来应用；否则，此属性用于控制应用于子级位图渲染结果的 <a href=\"dart-ui/ImageFilter/ImageFilter.matrix.html\">ImageFilter.matrix</a> 的质量。</p>"
+  },
+  "widgets/Transform/origin.html": {
+    "0": "<p>应用变换矩阵时所用坐标系的原点，以相对于 <a href=\"widgets/Transform/alignment.html\">alignment</a> 指定点的位置描述。</p>",
+    "1": "<p>设置 origin 等同于对变换矩阵进行平移共轭。提供此属性只是为了方便使用。</p>",
+    "2": "<p>此偏移会叠加在 <a href=\"widgets/Transform/alignment.html\">alignment</a> 变换之上。因此在此示例中，子级会绕中心旋转，因为 <a href=\"widgets/Transform/Transform.rotate.html\">Transform.rotate</a> 中的 <a href=\"widgets/Transform/alignment.html\">alignment</a> 默认为 <a href=\"painting/Alignment/center-constant.html\">Alignment.center</a>：</p>",
+    "3": "<p>而在此示例中，<a href=\"widgets/Transform/origin.html\">origin</a> 偏移会在 <code>alignment</code> 之后应用，因此子级会绕右下角旋转：</p>"
+  },
+  "widgets/TransformCallback.html": {
+    "0": "<p><a href=\"widgets/MatrixTransition/onTransform.html\">MatrixTransition.onTransform</a> 回调的函数签名。</p>",
+    "1": "<p>根据 <a href=\"widgets/MatrixTransition/animation.html\">MatrixTransition.animation</a> 的值，计算用于 <a href=\"widgets/MatrixTransition-class.html\">MatrixTransition</a> 变换后 widget 的 <a href=\"package-vector_math_vector_math_64/Matrix4-class.html\">Matrix4</a>。</p>"
+  },
+  "widgets/TransformationController/TransformationController.html": {
+    "0": "<p>创建 <a href=\"widgets/TransformationController-class.html\">TransformationController</a> 实例。</p>",
+    "1": "<p><code>value</code> 默认为单位矩阵，表示不进行任何变换。</p>"
+  },
+  "widgets/TransformationController/toScene.html": {
+    "0": "<p>返回给定视口点对应的场景点。</p>",
+    "1": "<p>视口点相对于父级，场景点相对于子级，且不受变换影响。使用给定视口点调用 toScene，本质上会返回在当前变换下位于该点正下方的场景坐标。</p>",
+    "2": "<p>视口的变换与子级的变换互为反向（也就是说，将子级向左移动等同于将视口向右移动）。</p>",
+    "3": "<p>确定父级上的事件发生在子级的哪个位置时，此方法通常很有用。以下示例展示如何确定父级上一次点击在子级中的位置。</p>"
+  },
+  "flutter/widgets/TransitionBuilder.html": {
+    "0": "<p>根据给定子级构建 widget 的构建器。</p>",
+    "1": "<p>通常应将子级包含在返回的 widget 树中。</p>",
+    "2": "<p>此类型用于 <a href=\"widgets/AnimatedBuilder/builder.html\">AnimatedBuilder.builder</a>、<a href=\"widgets/ListenableBuilder/builder.html\">ListenableBuilder.builder</a>、<a href=\"widgets/WidgetsApp/builder.html\">WidgetsApp.builder</a> 和 <a href=\"material/MaterialApp/builder.html\">MaterialApp.builder</a>。</p>"
+  },
+  "flutter/widgets/TransitionDelegate-class.html": {
+    "0": "<p>负责决定添加到 <a href=\"widgets/Navigator/pages.html\">Navigator.pages</a> 中或从中移除的页面如何过渡进出屏幕的委托。</p>",
+    "1": "<p>当 <a href=\"widgets/Navigator-class.html\">Navigator</a> 需要明确决定路由如何进入或离开屏幕时，会调用此抽象类实现的 API。</p>",
+    "2": "<p>子类必须实现 <a href=\"widgets/TransitionDelegate/resolve.html\">resolve</a>，以决定路由过渡方式。</p>"
+  },
+  "flutter/widgets/TransitionDelegate/TransitionDelegate.html": {
+    "0": "<p>创建一个委托，并允许子类创建常量类。</p>"
+  },
+  "flutter/widgets/TransitionRoute-class.html": {
+    "0": "<p>具有进入和退出过渡动画的路由。</p>"
+  },
+  "flutter/widgets/TransitionRoute/TransitionRoute.html": {
+    "0": "<p>创建一个在被推入或弹出时播放动画的路由。</p>"
+  },
+  "widgets/RouteAware/didPushNext.html": {
+    "2": "<p>\n<a name=\"widgets.RouteAware.didPushNext.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  \n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.RouteAware.didPushNext.1');\" onclick=\"fixHref(this, 'widgets.RouteAware.didPushNext.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">ModalRoute.of(context)?.secondaryAnimation?.addStatusListener((AnimationStatus status) {\n  if (status == AnimationStatus.completed) {\n    &#47;&#47; This route is now fully obscured by the new route.\n  }\n});</code></pre>\n  </div>\n</div>\n</p>"
   }
 }
