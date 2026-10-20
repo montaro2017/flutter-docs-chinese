@@ -262896,5 +262896,113 @@
   },
   "flutter/widgets/Texture/textureId.html": {
     "0": "<p>后端纹理的标识符。</p>"
+  },
+  "flutter/widgets/TickerMode-class.html": {
+    "0": "<p>在 widget 子树中启用或禁用 ticker（以及动画控制器）。</p>",
+    "1": "<p>只有使用能够感知 widget 的 ticker 提供者创建 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 对象时，此功能才有效。例如，使用 <a href=\"widgets/TickerProviderStateMixin-mixin.html\">TickerProviderStateMixin</a> 或 <a href=\"widgets/SingleTickerProviderStateMixin-mixin.html\">SingleTickerProviderStateMixin</a>。</p>"
+  },
+  "flutter/widgets/TickerMode/TickerMode.html": {
+    "0": "<p>创建一个启用或禁用 ticker，并可选择强制请求帧的 widget。</p>"
+  },
+  "flutter/widgets/TickerMode/enabled.html": {
+    "0": "<p>请求的子树 ticker 模式。</p>",
+    "1": "<p>如果祖先中有某个 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 将此字段设为 false，则该子树的实际 ticker 模式可能与此值不同。</p>",
+    "2": "<p>如果此值为 true，且所有祖先 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 也都已启用，则此子树中的 ticker 会运行。</p>",
+    "3": "<p>如果此值为 false，则无论祖先中的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 如何设置，此子树中的 ticker 都不会运行。由这些 ticker 驱动的动画不会暂停，只是不再调用其回调；时间仍会流逝。</p>"
+  },
+  "flutter/widgets/TickerMode/forceFrames.html": {
+    "0": "<p>如果为 true，即使通常不会安排帧（例如设备屏幕已关闭时），此子树中的 ticker 也会强制请求帧。</p>",
+    "1": "<p>请谨慎使用：设备本应处于空闲状态时强制请求帧，会显著增加电池消耗。</p>"
+  },
+  "flutter/widgets/TickerMode/getNotifier.html": {
+    "0": "<p>从包围 <code>context</code> 的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 获取 <a href=\"foundation/ValueListenable-class.html\">ValueListenable</a>，用于指示给定子树中的 ticker 是否已启用。</p>",
+    "1": "<p>该 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 启用或禁用 ticker 时，此 listenable 会通知其监听器。</p>",
+    "2": "<p>只要包围它的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 生命周期内保持稳定，<a href=\"foundation/ValueListenable-class.html\">ValueListenable</a> 就不会改变。但调用此方法不会在 <code>context</code> 与 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 之间建立依赖，因此拥有该 <code>context</code> 的 widget 不会在 ticker 模式从 true 变为 false（或反向变化）时重建。当 ticker 模式不会影响当前屏幕上的渲染内容时，这种方式更合适，例如只用于静音或取消静音 <a href=\"scheduler/Ticker-class.html\">Ticker</a> 时。由于没有建立依赖，当拥有该 <code>context</code> 的 widget 被移动到树中的新位置、并遇到不同的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 祖先时，它也不会收到通知。此时 widget 必须手动取消订阅旧 listenable，从新的祖先 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 再次调用此方法获取新的 listenable，并重新订阅。例如，<a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 可以在 widget 移动到新位置后调用的 <a href=\"widgets/State/activate.html\">State.activate</a> 中完成这些操作。</p>",
+    "3": "<p>也可以使用 <a class=\"deprecated\" href=\"widgets/TickerMode/of.html\">of</a> 代替此方法，从而在给定的 <code>context</code> 与祖先 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 之间建立依赖。这样，当 ticker 模式改变或 widget 移动到新的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 祖先下时，widget 会自动重建，简化了 widget 内的管理，但可能导致一些不必要的重建。</p>",
+    "4": "<p>如果不存在 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> widget，此函数会返回一个 <a href=\"foundation/ValueListenable-class.html\">ValueListenable</a>，其 <a href=\"foundation/ValueListenable/value.html\">ValueListenable.value</a> 始终为 true。</p>"
+  },
+  "flutter/widgets/TickerMode/getValuesNotifier.html": {
+    "0": "<p>从包围 <code>context</code> 的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 获取 <a href=\"foundation/ValueListenable-class.html\">ValueListenable</a>，用于指示给定子树中的 ticker 是否已启用。</p>",
+    "1": "<p>该 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 启用或禁用 ticker 时，此 listenable 会通知其监听器。</p>",
+    "2": "<p>只要包围它的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 生命周期内保持稳定，<a href=\"foundation/ValueListenable-class.html\">ValueListenable</a> 就不会改变。但调用此方法不会在 <code>context</code> 与 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 之间建立依赖，因此拥有该 <code>context</code> 的 widget 不会在 ticker 模式数据改变时重建。当 ticker 模式不会影响当前屏幕上的渲染内容时，这种方式更合适，例如只用于静音或取消静音 <a href=\"scheduler/Ticker-class.html\">Ticker</a> 时。由于没有建立依赖，当拥有该 <code>context</code> 的 widget 被移动到树中的新位置、并遇到不同的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 祖先时，它也不会收到通知。此时 widget 必须手动取消订阅旧 listenable，从新的祖先 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 再次调用此方法获取新的 listenable，并重新订阅。<a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 可以在 widget 移动到新位置后调用的 <a href=\"widgets/State/activate.html\">State.activate</a> 中完成这些操作。</p>",
+    "3": "<p>也可以使用 <a class=\"deprecated\" href=\"widgets/TickerMode/of.html\">of</a> 代替此方法，从而在给定的 <code>context</code> 与祖先 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 之间建立依赖。这样，当 ticker 模式改变或 widget 移动到新的 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 祖先下时，widget 会自动重建，简化了 widget 内的管理，但可能导致一些不必要的重建。</p>",
+    "4": "<p>如果不存在 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> widget，此函数会返回一个 <a href=\"foundation/ValueListenable-class.html\">ValueListenable</a>，其 <a href=\"foundation/ValueListenable/value.html\">ValueListenable.value</a> 为 <a href=\"widgets/TickerModeData/fallback-constant.html\">TickerModeData.fallback</a>。</p>"
+  },
+  "flutter/widgets/TickerMode/merge.html": {
+    "0": "<p>创建一个 <a href=\"widgets/TickerMode-class.html\">TickerMode</a>，用于覆盖当前环境中的 ticker 模式值。</p>",
+    "1": "<p>当给定的 <code>enabled</code> 和 <code>forceFrames</code> 不为 null 时，会覆盖当前环境中的值；否则保留当前环境中的值。</p>"
+  },
+  "flutter/widgets/TickerMode/of.html": {
+    "0": "<p>给定子树中的 ticker 是否应启用。</p>",
+    "1": "<p><a href=\"widgets/TickerProviderStateMixin-mixin.html\">TickerProviderStateMixin</a> 和 <a href=\"widgets/SingleTickerProviderStateMixin-mixin.html\">SingleTickerProviderStateMixin</a> 会自动使用此值，决定是否启用其 ticker。</p>",
+    "2": "<p>如果不存在 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> widget，此函数默认返回 true。</p>"
+  },
+  "flutter/widgets/TickerMode/valuesOf.html": {
+    "0": "<p>返回此子树请求的 ticker 模式值；如果存在祖先 <a href=\"widgets/TickerMode-class.html\">TickerMode</a>，还会建立对它的依赖。</p>",
+    "1": "<p><a href=\"widgets/TickerProviderStateMixin-mixin.html\">TickerProviderStateMixin</a> 和 <a href=\"widgets/SingleTickerProviderStateMixin-mixin.html\">SingleTickerProviderStateMixin</a> 会自动使用此值，决定是否启用其 ticker。</p>",
+    "2": "<p>如果不存在 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> widget，默认启用 ticker，且不强制请求帧。</p>"
+  },
+  "flutter/widgets/TickerModeData-class.html": {
+    "0": "<p>描述子树实际 ticker 行为的不可变复合值。</p>",
+    "1": "<p><a href=\"widgets/TickerMode/valuesOf.html\">TickerMode.valuesOf</a> 和 <a href=\"widgets/TickerMode/getValuesNotifier.html\">TickerMode.getValuesNotifier</a> 会生成此类的实例。实例反映 widget 树中特定位置在考虑祖先 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> widget 后生效的值。</p>",
+    "2": "<p>各字段的含义：</p>",
+    "3": "<p>大多数 widget 无需读取这些值；<a href=\"widgets/SingleTickerProviderStateMixin-mixin.html\">SingleTickerProviderStateMixin</a> 和 <a href=\"widgets/TickerProviderStateMixin-mixin.html\">TickerProviderStateMixin</a> 等 mixin 会自动将这些值应用到它们提供的 <a href=\"scheduler/Ticker-class.html\">Ticker</a>。当需要明确观察或响应 ticker 策略时，才使用此类。</p>"
+  },
+  "flutter/widgets/TickerModeData/TickerModeData.html": {
+    "0": "<p>创建一个 <a href=\"widgets/TickerModeData-class.html\">TickerModeData</a>。</p>"
+  },
+  "flutter/widgets/TickerModeData/enabled.html": {
+    "0": "<p>子树中的 ticker 是否已启用（未静音）。</p>",
+    "1": "<p>生效值是所有祖先和本地 <a href=\"widgets/TickerMode/enabled.html\">TickerMode.enabled</a> 值的逻辑与。</p>"
+  },
+  "flutter/widgets/TickerModeData/fallback-constant.html": {
+    "0": "<p>不存在祖先 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 时使用的回退值。</p>",
+    "1": "<p>这表示 ticker 已启用且不会强制请求帧。</p>"
+  },
+  "flutter/widgets/TickerModeData/forceFrames.html": {
+    "0": "<p>ticker 处于活动状态时是否应强制请求帧。</p>",
+    "1": "<p>生效值是所有祖先和本地 <a href=\"widgets/TickerMode/forceFrames.html\">TickerMode.forceFrames</a> 值的逻辑或。强制请求帧可能增加电池消耗，请谨慎使用。</p>"
+  },
+  "flutter/widgets/TickerProviderStateMixin-mixin.html": {
+    "0": "<p>提供 <a href=\"scheduler/Ticker-class.html\">Ticker</a> 对象，并将其配置为仅在当前树已启用时运行；当前树是否启用由 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 定义。</p>",
+    "1": "<p>在使用此 mixin 的类中创建 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 时，每次创建新的动画控制器都要在其构造函数中传入 <code>vsync: this</code>。</p>",
+    "2": "<p>如果某个 <a href=\"widgets/State-class.html\">State</a> 的生命周期内只有一个 <a href=\"scheduler/Ticker-class.html\">Ticker</a>（例如只有一个 <a href=\"animation/AnimationController-class.html\">AnimationController</a>），使用 <a href=\"widgets/SingleTickerProviderStateMixin-mixin.html\">SingleTickerProviderStateMixin</a> 的效率更高。这是常见情况。</p>",
+    "3": "<p>创建多个 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 时，让同一个 State 使用 <a href=\"widgets/TickerProviderStateMixin-mixin.html\">TickerProviderStateMixin</a> 为所有 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 提供 vsync，比创建多个分别使用 <a href=\"widgets/SingleTickerProviderStateMixin-mixin.html\">SingleTickerProviderStateMixin</a> 的 State 更高效。</p>"
+  },
+  "flutter/widgets/TickerProviderStateMixin/createTicker.html": {
+    "0": "<p>使用给定的回调创建 ticker。</p>",
+    "1": "<p>提供的 ticker 类型取决于 ticker 提供者的类型。</p>"
+  },
+  "flutter/widgets/TickerProviderStateMixin/mounted.html": {
+    "0": "<p>此 <a href=\"widgets/State-class.html\">State</a> 对象当前是否位于树中。</p>"
+  },
+  "flutter/widgets/TickerProviderStateMixin/setState.html": {
+    "1": "<p>每当更改 <a href=\"widgets/State-class.html\">State</a> 对象的内部状态时，都应在传给 <a href=\"widgets/State/setState.html\">setState</a> 的函数中进行更改：</p>",
+    "10": "<p>此 API 最初是一个名为 <code>markNeedsBuild</code> 的方法，以便与 <a href=\"rendering/RenderObject/markNeedsLayout.html\">RenderObject.markNeedsLayout</a>、<a href=\"rendering/RenderObject/markNeedsPaint.html\">RenderObject.markNeedsPaint</a> 等方法保持一致。</p>",
+    "11": "<p>然而，Flutter 框架早期的用户测试发现，人们调用 <code>markNeedsBuild()</code> 的次数远超实际所需。基本上，只要不确定是否需要调用，人们就会把它当作护身符一样调用，以防万一。</p>",
+    "13": "<p>当 API 改为接收回调后，这种做法大幅减少。一种解释是：要求开发者在回调中实际更新状态，促使他们更仔细地思考具体更新了什么，从而更清楚何时适合调用此方法。</p>"
+  },
+  "flutter/widgets/Title-class.html": {
+    "0": "<p>用于向操作系统描述此应用的 widget。</p>"
+  },
+  "flutter/widgets/Title/Title.html": {
+    "0": "<p>供窗口管理器使用的此应用单行描述。</p>"
+  },
+  "flutter/widgets/Title/color.html": {
+    "0": "<p>窗口管理器用于识别此应用的颜色。必须是不透明颜色（即 color.alpha 必须为 255 (0xFF)），且不能为 null。</p>"
+  },
+  "flutter/widgets/Title/title.html": {
+    "0": "<p>供窗口管理器使用的此应用单行描述。</p>"
+  },
+  "flutter/widgets/ToolbarBuilder.html": {
+    "0": "<p>用于根据给定子级构建工具栏容器的函数类型。</p>"
+  },
+  "flutter/widgets/ToolbarItemsParentData-class.html": {
+    "0": "<p>用于决定是否绘制对应子级的 ParentData。</p>",
+    "1": "<p>用于 Cupertino 和 Material 文本选择菜单的布局。这些菜单会在布局并确定按钮溢出位置后，决定是否绘制按钮。</p>"
+  },
+  "flutter/widgets/ToolbarItemsParentData/shouldPaint.html": {
+    "0": "<p>是否绘制此子级。</p>",
+    "1": "<p>选区工具栏中的子级可能会为了测量而布局，但不进行绘制。此属性可用于识别这些子级。</p>"
   }
 }

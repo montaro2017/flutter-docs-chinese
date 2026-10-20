@@ -1,40 +1,11 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,495 页，部分翻译 196 页，未翻译 561 页；正文已译 22,857/24,807 段。
+模块共 8,093 页：已完整 6,520 页，部分翻译 191 页，未翻译 541 页；正文已译 22,914/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/TickerMode-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TickerMode/TickerMode.html` — 未译；已译 0/1 段；待译段落：0
-
-- `flutter/widgets/TickerMode/enabled.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/TickerMode/forceFrames.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TickerMode/getNotifier.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/TickerMode/getValuesNotifier.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/TickerMode/merge.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TickerMode/of.html` — 部分；已译 2/4 段；待译段落：0, 2
-- `flutter/widgets/TickerMode/valuesOf.html` — 部分；已译 2/4 段；待译段落：0, 2
-- `flutter/widgets/TickerModeData-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/TickerModeData/TickerModeData.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TickerModeData/enabled.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TickerModeData/fallback-constant.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TickerModeData/forceFrames.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/TickerProviderStateMixin-mixin.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/TickerProviderStateMixin/createTicker.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/TickerProviderStateMixin/mounted.html` — 部分；已译 2/3 段；待译段落：0
-
-- `flutter/widgets/TickerProviderStateMixin/setState.html` — 部分；已译 16/20 段；待译段落：1, 10, 11, 13
-
-- `flutter/widgets/Title-class.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/Title/Title.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Title/color.html` — 未译；已译 0/1 段；待译段落：0
-
-- `flutter/widgets/Title/title.html` — 未译；已译 0/1 段；待译段落：0
 - `flutter/widgets/ToggleablePainter-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/ToggleablePainter/activeColor.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/ToggleablePainter/downPosition.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
@@ -84,9 +55,6 @@
 - `flutter/widgets/ToggleableStateMixin/tristate.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/ToggleableStateMixin/value.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 
-- `flutter/widgets/ToolbarBuilder.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/ToolbarItemsParentData-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ToolbarItemsParentData/shouldPaint.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/ToolbarOptions-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/ToolbarOptions/ToolbarOptions.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/ToolbarOptions/copy.html` — 部分；已译 1/2 段；待译段落：0
