@@ -262412,7 +262412,7 @@
   "flutter/widgets/SystemTextScaler/scale.html": {
     "0": "<p>根据给定的未缩放 <code>fontSize</code>（逻辑像素）计算缩放后的字体大小（逻辑像素）。</p>",
     "1": "<p>输入的 <code>fontSize</code> 必须是有限的非负数。</p>",
-    "2": "<p>输入相同的 <code>fontSize</code> 时，此方法始终返回相同的值。较大的输入 <code>fontSize</code> 通常会得到较大的输出，但在少数特殊情况下，较大和较小的输入可能产生相同的输出。例如，某些平台使用单精度浮点数表示字号，由于精度截断，两个不同的未缩放字号可能会缩放为相同的值。</p>"
+    "2": "<p>输入相同的 <code>fontSize</code> 时，此方法始终返回相同的值。较大的输入 <code>fontSize</code> 通常会得到更大的输出，但在少数特殊情况下，较大和较小的输入可能产生相同的输出。例如，某些平台使用单精度浮点数表示字体大小，因此精度截断可能导致两个不同的未缩放字号缩放为相同的值。</p>"
   },
   "flutter/widgets/SystemTextScaler/textScaleFactor.html": {
     "0": "<p>表示用户当前偏好的字体缩放系数的值。</p>",
@@ -262420,5 +262420,172 @@
   },
   "flutter/widgets/TapBehaviorButtonBuilder.html": {
     "0": "<p>供 <a href=\"widgets/WidgetInspector/tapBehaviorButtonBuilder.html\">WidgetInspector.tapBehaviorButtonBuilder</a> 使用的 builder 回调签名。</p>"
+  },
+  "flutter/widgets/Text/locale.html": {
+    "0": "<p>当同一 Unicode 字符会根据区域设置呈现为不同字形时，用于选择字体。</p>",
+    "1": "<p>通常无需设置此属性。默认情况下，它会从外层应用继承 <code>Localizations.localeOf(context)</code> 的值。</p>",
+    "2": "<p>更多信息请参阅 <a href=\"rendering/RenderParagraph/locale.html\">RenderParagraph.locale</a>。</p>"
+  },
+  "flutter/widgets/Text/maxLines.html": {
+    "0": "<p>文本最多可占用的行数；必要时会换行。若文本超出指定行数，会根据 <a href=\"widgets/Text/overflow.html\">overflow</a> 进行截断。</p>",
+    "1": "<p>如果设为 1，文本不会换行；否则会在方框边缘换行。</p>",
+    "2": "<p>如果此属性为 null，但当前环境中的 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a> 为 <a href=\"widgets/DefaultTextStyle/maxLines.html\">DefaultTextStyle.maxLines</a> 指定了明确的行数，则优先使用 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a> 的值。若要完全覆盖 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a>，可以直接使用 <a href=\"widgets/RichText-class.html\">RichText</a> widget。</p>"
+  },
+  "flutter/widgets/Text/overflow.html": {
+    "0": "<p>处理视觉溢出的方式。</p>",
+    "1": "<p>如果此属性为 null，则使用 <a href=\"painting/TextStyle/overflow.html\">TextStyle.overflow</a>；否则使用最近祖先 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a> 中的值。</p>"
+  },
+  "flutter/widgets/Text/selectionColor.html": {
+    "0": "<p>绘制选区时使用的颜色。</p>",
+    "1": "<p>如果在 <a href=\"widgets/Text-class.html\">Text</a> widget 的 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 中调用 <a href=\"widgets/SelectionContainer/maybeOf.html\">SelectionContainer.maybeOf</a> 返回 null，则会忽略此属性。</p>",
+    "2": "<p>如果为 null，则使用当前环境中的 <a href=\"widgets/DefaultSelectionStyle-class.html\">DefaultSelectionStyle</a>（如果有）；否则，选区颜色默认为 <a href=\"widgets/DefaultSelectionStyle/defaultColor-constant.html\">DefaultSelectionStyle.defaultColor</a>（半透明灰色）。</p>"
+  },
+  "flutter/widgets/Text/semanticsIdentifier.html": {
+    "0": "<p>此 widget 对应的语义节点的唯一标识符。</p>",
+    "1": "<p>当需要通过自动化工具识别文本 widget，且不希望依赖可能动态变化的文本内容时，此属性很有用。</p>"
+  },
+  "flutter/widgets/Text/semanticsLabel.html": {
+    "0": "<p>此文本的替代语义标签。</p>",
+    "1": "<p>如果提供此值，widget 的语义信息将使用它，而不是实际文本。它会覆盖直接应用于 <a href=\"painting/TextSpan-class.html\">TextSpan</a> 的任何语义标签。</p>",
+    "2": "<p>此属性可用于将缩写或简写替换为完整文本：</p>"
+  },
+  "flutter/widgets/Text/softWrap.html": {
+    "0": "<p>文本是否应在软换行符处换行。</p>",
+    "1": "<p>如果为 false，文本中的字形会按照水平空间无限大的情况进行定位。</p>"
+  },
+  "flutter/widgets/Text/strutStyle.html": {
+    "0": "<p>要使用的支撑样式。支撑样式定义支撑结构，用于设置垂直布局度量的最小值。</p>",
+    "1": "<p>省略此属性或将其设为 null 会禁用支撑样式。</p>",
+    "2": "<p>省略 <a href=\"painting/StrutStyle-class.html\">StrutStyle</a> 的任一属性或将其设为 null 时，会使用默认值。强烈建议至少指定 <a href=\"painting/StrutStyle/fontSize.html\">StrutStyle.fontSize</a>。</p>",
+    "3": "<p>详情请参阅 <a href=\"painting/StrutStyle-class.html\">StrutStyle</a>。</p>",
+    "4": "<p>用户或平台可以通过祖先 <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a> 的 <a href=\"widgets/MediaQueryData/lineHeightScaleFactorOverride.html\">MediaQueryData.lineHeightScaleFactorOverride</a> 覆盖此 <a href=\"widgets/Text/strutStyle.html\">strutStyle</a> 的 <a href=\"painting/StrutStyle/height.html\">StrutStyle.height</a>。</p>"
+  },
+  "flutter/widgets/Text/style.html": {
+    "0": "<p>如果非 null，则为此文本使用的样式。</p>",
+    "1": "<p>如果样式的 “inherit” 属性为 true，则此样式会与最近的祖先 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a> 合并；否则，此样式会替换最近的祖先 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a>。</p>",
+    "2": "<p>无论 <a href=\"painting/TextStyle/inherit.html\">TextStyle.inherit</a> 的值如何，用户或平台都可以通过祖先 <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a> 的 <a href=\"widgets/MediaQueryData/boldText.html\">MediaQueryData.boldText</a>、<a href=\"widgets/MediaQueryData/lineHeightScaleFactorOverride.html\">MediaQueryData.lineHeightScaleFactorOverride</a>、<a href=\"widgets/MediaQueryData/letterSpacingOverride.html\">MediaQueryData.letterSpacingOverride</a> 和 <a href=\"widgets/MediaQueryData/wordSpacingOverride.html\">MediaQueryData.wordSpacingOverride</a> 覆盖此 <a href=\"widgets/Text/style.html\">style</a> 的 <a href=\"painting/TextStyle/fontWeight.html\">TextStyle.fontWeight</a>、<a href=\"painting/TextStyle/height.html\">TextStyle.height</a>、<a href=\"painting/TextStyle/letterSpacing.html\">TextStyle.letterSpacing</a> 和 <a href=\"painting/TextStyle/wordSpacing.html\">TextStyle.wordSpacing</a>。</p>"
+  },
+  "flutter/widgets/Text/textDirection.html": {
+    "0": "<p>文本的方向性。</p>",
+    "1": "<p>此属性决定如何解释 <a href=\"widgets/Text/textAlign.html\">textAlign</a> 的 <a href=\"dart-ui/TextAlign.html\">TextAlign.start</a> 和 <a href=\"dart-ui/TextAlign.html\">TextAlign.end</a> 等值。</p>",
+    "2": "<p>此属性还用于确定双向文本的呈现方式。例如，如果 <a href=\"widgets/Text/data.html\">data</a> 是英文短语后接希伯来文短语，那么在 <a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a> 环境中，英文短语位于左侧，希伯来文短语位于其右侧；在 <a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a> 环境中，英文短语则位于右侧，希伯来文短语位于其左侧。</p>",
+    "3": "<p>默认为当前环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>（如果有）。</p>"
+  },
+  "flutter/widgets/Text/textHeightBehavior.html": {
+    "0": "<p>定义如何将 <a href=\"painting/TextStyle/height.html\">TextStyle.height</a> 应用于文本上方和下方。</p>",
+    "1": "<p><a href=\"dart-ui/TextHeightBehavior/applyHeightToFirstAscent.html\">TextHeightBehavior.applyHeightToFirstAscent</a> 和 <a href=\"dart-ui/TextHeightBehavior/applyHeightToLastDescent.html\">TextHeightBehavior.applyHeightToLastDescent</a> 分别表示是否将 <a href=\"painting/TextStyle/height.html\">TextStyle.height</a> 修饰应用于对应的度量。默认情况下，这两个属性都为 true，<a href=\"painting/TextStyle/height.html\">TextStyle.height</a> 会正常应用。设为 false 时会使用字体的默认上升度。</p>",
+    "2": "<p><a href=\"dart-ui/TextHeightBehavior/leadingDistribution.html\">TextHeightBehavior.leadingDistribution</a> 决定文本上方和下方如何分配行距。此属性优先于 <a href=\"dart-ui/TextHeightBehavior/applyHeightToFirstAscent.html\">TextHeightBehavior.applyHeightToFirstAscent</a> 和 <a href=\"dart-ui/TextHeightBehavior/applyHeightToLastDescent.html\">TextHeightBehavior.applyHeightToLastDescent</a> 生效。</p>"
+  },
+  "flutter/widgets/Text/textScaleFactor.html": {
+    "0": "<p>已弃用。此属性将在 Flutter 的未来版本中移除。请改用 <a href=\"widgets/Text/textScaler.html\">textScaler</a>。</p>",
+    "1": "<p>每个逻辑像素对应的字体像素数。</p>",
+    "2": "<p>例如，如果文本缩放系数为 1.5，文本将比指定字号大 50%。</p>",
+    "3": "<p>传给构造函数的 textScaleFactor 值。如果为 null，则使用当前环境中的 <a class=\"deprecated\" href=\"widgets/MediaQueryData/textScaleFactor.html\">MediaQueryData.textScaleFactor</a>；如果当前作用域中没有 <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a>，则使用 1.0。</p>"
+  },
+  "flutter/widgets/Text/textScaler.html": {
+    "0": "<p>布局和呈现文本时使用的字体缩放策略。</p>",
+    "1": "<p>此值通常来自 <a href=\"widgets/MediaQuery/textScalerOf.html\">MediaQuery.textScalerOf</a>，它通常反映平台辅助功能设置中用户指定的文本缩放值。布局和呈现文本之前，会先通过 <a href=\"painting/TextScaler-class.html\">TextScaler</a> 调整文本的 <a href=\"painting/TextStyle/fontSize.html\">TextStyle.fontSize</a>。</p>"
+  },
+  "flutter/widgets/Text/textSpan.html": {
+    "0": "<p>作为 <a href=\"painting/InlineSpan-class.html\">InlineSpan</a> 显示的文本。</p>",
+    "1": "<p>如果改为提供 <a href=\"widgets/Text/data.html\">data</a>，此属性将为 null。</p>"
+  },
+  "flutter/widgets/Text/textWidthBasis.html": {
+    "0": "<p>定义如何测量呈现后文本的宽度。</p>"
+  },
+  "flutter/widgets/Text-class.html": {
+    "0": "<p>使用单一样式显示一段文本的 widget。</p>",
+    "1": "<p><a href=\"widgets/Text-class.html\">Text</a> widget 使用单一样式显示字符串。具体是换成多行，还是始终显示在同一行，取决于布局约束。</p>",
+    "2": "<p><a href=\"widgets/Text/style.html\">style</a> 参数为可选项。省略时，文本会使用最近祖先 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a> 的样式。如果给定样式的 <a href=\"painting/TextStyle/inherit.html\">TextStyle.inherit</a> 属性为 true（默认值），给定样式会与最近祖先 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a> 合并。例如，可以在沿用默认字体系列和字号的同时，让文本加粗。</p>",
+    "10": "<p>使用 <a href=\"widgets/Text/Text.rich.html\">Text.rich</a> 构造函数时，<a href=\"widgets/Text-class.html\">Text</a> widget 可以显示由不同样式 <a href=\"painting/TextSpan-class.html\">TextSpan</a> 组成的段落。下方示例使用不同样式显示“Hello beautiful world”中的每个单词。</p>",
+    "12": "<h2 id=\"interactivity\">交互</h2>",
+    "13": "<p>若要让 <a href=\"widgets/Text-class.html\">Text</a> 响应触摸事件，请将其包装在带有 <a href=\"widgets/GestureDetector/onTap.html\">GestureDetector.onTap</a> 处理器的 <a href=\"widgets/GestureDetector-class.html\">GestureDetector</a> widget 中。</p>",
+    "14": "<p>在 Material Design 应用中，可以考虑改用 <a href=\"material/TextButton-class.html\">TextButton</a>；如果不合适，至少考虑使用 <a href=\"material/InkWell-class.html\">InkWell</a>，而不是 <a href=\"widgets/GestureDetector-class.html\">GestureDetector</a>。</p>",
+    "15": "<p>若要让文本中的部分内容可交互，请使用 <a href=\"widgets/RichText-class.html\">RichText</a>，并将 <a href=\"gestures/TapGestureRecognizer-class.html\">TapGestureRecognizer</a> 指定为相关文本部分的 <a href=\"painting/TextSpan/recognizer.html\">TextSpan.recognizer</a>。</p>",
+    "16": "<h2 id=\"selection\">选择</h2>",
+    "17": "<p><a href=\"widgets/Text-class.html\">Text</a> 默认不可选择。若要使 <a href=\"widgets/Text-class.html\">Text</a> 可选择，可以用 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> widget 包装一段子树。若要排除 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 下子树中的某一部分，可以用 <a href=\"widgets/SelectionContainer/SelectionContainer.disabled.html\">SelectionContainer.disabled</a> 包装该部分。</p>",
+    "19": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/Text/Text.html": {
+    "0": "<p>创建一个文本 widget。</p>",
+    "1": "<p>如果 <code>style</code> 参数为 null，文本会使用最近祖先 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a> 的样式。</p>",
+    "2": "<p><code>overflow</code> 属性的行为会受到 <code>softWrap</code> 参数影响。如果 <code>softWrap</code> 为 true 或 null，导致溢出的字形及其后续字形将不会呈现；否则会按照指定的溢出选项显示。</p>"
+  },
+  "flutter/widgets/Text/Text.rich.html": {
+    "0": "<p>创建一个带有 <a href=\"painting/InlineSpan-class.html\">InlineSpan</a> 的文本 widget。</p>",
+    "1": "<p>可以使用以下 <a href=\"painting/InlineSpan-class.html\">InlineSpan</a> 子类构建富文本：</p>",
+    "2": "<p>有关绘制文本的底层方式，请参阅 <a href=\"widgets/RichText-class.html\">RichText</a>。</p>"
+  },
+  "flutter/widgets/Text/data.html": {
+    "0": "<p>要显示的文本。</p>",
+    "1": "<p>如果改为提供 <a href=\"widgets/Text/textSpan.html\">textSpan</a>，此属性将为 null。</p>"
+  },
+  "flutter/widgets/TextEditingController-class.html": {
+    "0": "<p>用于编辑文本字段的控制器。</p>",
+    "1": "<p>用户修改与 <a href=\"widgets/TextEditingController-class.html\">TextEditingController</a> 关联的文本字段时，文本字段会更新 <a href=\"widgets/TextEditingController/value.html\">value</a>，控制器也会通知其监听器。监听器随后可以读取 <a href=\"widgets/TextEditingController/text.html\">text</a> 和 <a href=\"widgets/TextEditingController/selection.html\">selection</a> 属性，了解用户输入的内容或选区的变化。</p>",
+    "2": "<p>同样，如果修改 <a href=\"widgets/TextEditingController/text.html\">text</a> 或 <a href=\"widgets/TextEditingController/selection.html\">selection</a> 属性，文本字段会收到通知并相应更新。</p>",
+    "3": "<p><a href=\"widgets/TextEditingController-class.html\">TextEditingController</a> 也可用于为文本字段提供初始值。如果使用已有 <a href=\"widgets/TextEditingController/text.html\">text</a> 的控制器构建文本字段，文本字段会将该文本用作初始值。</p>",
+    "4": "<p>可以在此控制器的监听器中更新控制器的 <a href=\"widgets/TextEditingController/value.html\">value</a>（以及 <a href=\"widgets/TextEditingController/text.html\">text</a> 和 <a href=\"widgets/TextEditingController/selection.html\">selection</a>）。请注意避免无限循环，因为监听器也会收到其自身所做更改的通知。在监听器中修改组合区域还可能与某些输入法发生冲突。例如，如果组合区域被程序修改，Gboard 会尝试还原文本的组合区域，从而导致框架与输入法之间无限循环通信。对于输入时修改文本的场景，可以考虑改用 <a href=\"services/TextInputFormatter-class.html\">TextInputFormatter</a>。</p>",
+    "5": "<p>如果需要同时更改 <a href=\"widgets/TextEditingController/text.html\">text</a> 和 <a href=\"widgets/TextEditingController/selection.html\">selection</a>，请改为设置控制器的 <a href=\"widgets/TextEditingController/value.html\">value</a>。设置 <a href=\"widgets/TextEditingController/text.html\">text</a> 会清除选区和组合范围。</p>",
+    "6": "<p>不再需要 <a href=\"widgets/TextEditingController-class.html\">TextEditingController</a> 时，请记得调用 <a href=\"foundation/ChangeNotifier/dispose.html\">dispose</a>，以释放对象使用的资源。</p>",
+    "8": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TextEditingController/TextEditingController.fromValue.html": {
+    "0": "<p>根据初始 <a href=\"flutter_test/TextEditingValue-class.html\">TextEditingValue</a> 创建用于编辑文本字段的控制器。</p>",
+    "1": "<p>如果 <code>value</code> 参数为 null，此构造函数会将其视为 <a href=\"flutter_test/TextEditingValue/empty-constant.html\">TextEditingValue.empty</a>。</p>"
+  },
+  "flutter/widgets/TextEditingController/TextEditingController.html": {
+    "0": "<p>创建用于编辑文本字段且没有初始选区的控制器。</p>",
+    "1": "<p>如果 <code>text</code> 参数为 null，此构造函数会将其视为空字符串。</p>",
+    "2": "<p>初始选区为 <code>TextSelection.collapsed(offset: -1)</code>。这表示当前没有选区（此时 <a href=\"dart-ui/TextRange/isValid.html\">TextSelection.isValid</a> 为 false）。使用选区无效的控制器构建文本字段时，文本字段会在获得焦点后更新选区（选区将为空，并位于文本末尾）。</p>",
+    "3": "<p>若要同时初始化文本和选区，可以考虑使用 <a href=\"widgets/TextEditingController/TextEditingController.fromValue.html\">TextEditingController.fromValue</a>。</p>"
+  },
+  "flutter/widgets/TextEditingController/buildTextSpan.html": {
+    "0": "<p>根据当前编辑值构建 <a href=\"painting/TextSpan-class.html\">TextSpan</a>。</p>",
+    "1": "<p>默认情况下，组合范围内的文本会显示为带下划线。子类可以重写此方法，自定义文本外观。</p>"
+  },
+  "flutter/widgets/TextEditingController/clear.html": {
+    "0": "<p>将 <a href=\"widgets/TextEditingController/value.html\">value</a> 设为空。</p>",
+    "1": "<p>调用此函数后，<a href=\"widgets/TextEditingController/text.html\">text</a> 将为空字符串，选区会折叠到偏移量 0。</p>",
+    "2": "<p>调用此方法会通知 <a href=\"widgets/TextEditingController-class.html\">TextEditingController</a> 的所有监听器需要更新（它会调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>）。因此，此方法只能在帧之间调用，例如响应用户操作时；不要在构建、布局或绘制阶段调用。</p>"
+  },
+  "flutter/widgets/TextEditingController/clearComposing.html": {
+    "0": "<p>将组合区域设为空范围。</p>",
+    "1": "<p>组合区域是仍在输入组合过程中的文本范围。调用此函数表示用户已完成该区域的组合输入。</p>",
+    "2": "<p>调用此方法会通知 <a href=\"widgets/TextEditingController-class.html\">TextEditingController</a> 的所有监听器需要更新（它会调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>）。因此，此方法只能在帧之间调用，例如响应用户操作时；不要在构建、布局或绘制阶段调用。</p>"
+  },
+  "flutter/widgets/TextEditingController/selection.html": {
+    "0": "<p><a href=\"widgets/TextEditingController/text.html\">text</a> 中当前选中的范围。</p>",
+    "1": "<p>如果选区已折叠，此属性表示文本中光标所在的偏移量。</p>"
+  },
+  "flutter/widgets/TextEditingController/text.html": {
+    "0": "<p>用户当前正在编辑的字符串。</p>"
+  },
+  "flutter/widgets/TextFieldTapRegion-class.html": {
+    "0": "<p>一种 <a href=\"widgets/TapRegion-class.html\">TapRegion</a>，可将其子级添加到基于 <a href=\"widgets/EditableText-class.html\">EditableText</a> 文本编辑 widget 的点击区域组中，例如 <a href=\"material/TextField-class.html\">TextField</a> 和 <a href=\"cupertino/CupertinoTextField-class.html\">CupertinoTextField</a>。</p>",
+    "1": "<p>用 <a href=\"widgets/TextFieldTapRegion-class.html\">TextFieldTapRegion</a> 包裹的 widget，在处理失去焦点行为时会被视为文本字段的一部分。因此，用户点击这些 widget 时，当前获得焦点的文本字段默认不会失去焦点。这样，微调器、复制按钮和格式设置按钮等控件就可以与文本字段关联，而交互时不会导致文本字段失去焦点。</p>",
+    "4": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TextFieldTapRegion/TextFieldTapRegion.html": {
+    "0": "<p>创建一个 const <a href=\"widgets/TextFieldTapRegion-class.html\">TextFieldTapRegion</a>。</p>",
+    "1": "<p>必须提供 <code>child</code> 字段。</p>"
+  },
+  "flutter/widgets/TextMagnifierConfiguration-class.html": {
+    "0": "<p>放大镜（例如文本字段中的放大镜）的配置对象。</p>",
+    "1": "<p>通常，可以通过控制 <a href=\"widgets/TextMagnifierConfiguration/magnifierBuilder.html\">magnifierBuilder</a> 构建的 widget 来配置放大镜的大多数功能。</p>"
+  },
+  "flutter/widgets/TextMagnifierConfiguration/TextMagnifierConfiguration.html": {
+    "0": "<p>根据各个部分构造 <a href=\"widgets/TextMagnifierConfiguration-class.html\">TextMagnifierConfiguration</a>。</p>",
+    "1": "<p>如果 <code>magnifierBuilder</code> 为 null，则会使用默认的 <a href=\"widgets/MagnifierBuilder.html\">MagnifierBuilder</a>；该 builder 不会构建放大镜。</p>"
+  },
+  "flutter/widgets/TextMagnifierConfiguration/disabled-constant.html": {
+    "0": "<p>表示已禁用的 <a href=\"widgets/TextMagnifierConfiguration-class.html\">TextMagnifierConfiguration</a> 常量，无论平台如何，都不会构建任何内容。</p>"
+  },
+  "flutter/widgets/TextMagnifierConfiguration/magnifierBuilder.html": {
+    "0": "<p>用于创建渲染放大镜的 widget 的 builder 回调。</p>"
+  },
+  "flutter/widgets/TextMagnifierConfiguration/shouldDisplayHandlesInMagnifier.html": {
+    "0": "<p>是否应在放大镜中显示文本编辑手柄。</p>",
+    "1": "<p><a href=\"widgets/SelectionOverlay/showMagnifier.html\">SelectionOverlay.showMagnifier</a> 使用此标志控制渲染时的图层顺序；具体来说，它决定包含手柄的图层应放置在 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中包含放大镜的图层上方还是下方。</p>"
   }
 }

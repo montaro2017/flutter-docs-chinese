@@ -1,47 +1,11 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,387 页，部分翻译 211 页，未翻译 654 页；正文已译 22,604/24,807 段。
+模块共 8,093 页：已完整 6,421 页，部分翻译 207 页，未翻译 624 页；正文已译 22,700/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/Text-class.html` — 部分；已译 5/20 段；待译段落：0, 1, 2, 3, 5, 6, 7, 8, 10, 12, 13, 14, 15, 16, 17
-- `flutter/widgets/Text/Text.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Text/Text.rich.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/Text/data.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/Text/locale.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Text/maxLines.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Text/overflow.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Text/selectionColor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Text/semanticsIdentifier.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Text/semanticsLabel.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Text/softWrap.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Text/strutStyle.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/Text/style.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Text/textDirection.html` — 部分；已译 3/4 段；待译段落：2
-- `flutter/widgets/Text/textHeightBehavior.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Text/textScaleFactor.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/Text/textScaler.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Text/textSpan.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Text/textWidthBasis.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TextEditingController-class.html` — 部分；已译 5/9 段；待译段落：0, 2, 3, 6
-- `flutter/widgets/TextEditingController/TextEditingController.fromValue.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TextEditingController/TextEditingController.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/TextEditingController/buildTextSpan.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TextEditingController/clear.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TextEditingController/clearComposing.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/TextEditingController/selection.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TextEditingController/text.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TextFieldTapRegion-class.html` — 部分；已译 3/5 段；待译段落：1, 2
-- `flutter/widgets/TextFieldTapRegion/TextFieldTapRegion.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TextMagnifierConfiguration-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TextMagnifierConfiguration/TextMagnifierConfiguration.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/TextMagnifierConfiguration/disabled-constant.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TextMagnifierConfiguration/magnifierBuilder.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/TextMagnifierConfiguration/shouldDisplayHandlesInMagnifier.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/TextSelectionControls-class.html` — 部分；已译 1/8 段；待译段落：0, 1, 2, 3, 4, 5, 6
 - `flutter/widgets/TextSelectionControls/buildHandle.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/TextSelectionControls/buildToolbar.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4

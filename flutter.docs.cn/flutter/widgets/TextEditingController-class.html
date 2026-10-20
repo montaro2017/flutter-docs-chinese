@@ -87,44 +87,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;TextEditingController-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/editable_text.dart#L221"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">TextEditingController</span> 类 
+<h1><span class="kind-class">TextEditingController</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A controller for an editable text field.</p>
-<p>Whenever the user modifies a text field with an associated
-<a href="widgets/TextEditingController-class.html">TextEditingController</a>, the text field updates <a href="widgets/TextEditingController/value.html">value</a> and the controller
-notifies its listeners. Listeners can then read the <a href="widgets/TextEditingController/text.html">text</a> 和 <a href="widgets/TextEditingController/selection.html">selection</a>
-properties to learn what the user has typed or how the selection has been
-updated.</p>
-<p>Similarly, if you modify the <a href="widgets/TextEditingController/text.html">text</a> or <a href="widgets/TextEditingController/selection.html">selection</a> properties, the text
-field will be notified and will update itself appropriately.</p>
-<p>A <a href="widgets/TextEditingController-class.html">TextEditingController</a> can also be used to provide an initial value for a
-text field. If you build a text field with a controller that already has
-<a href="widgets/TextEditingController/text.html">text</a>, the text field will use that text as its initial value.</p>
-<p>The <a href="widgets/TextEditingController/value.html">value</a> (as well as <a href="widgets/TextEditingController/text.html">text</a> 和 <a href="widgets/TextEditingController/selection.html">selection</a>) of this controller can be
-updated from within a listener added to this controller. Be aware of
-infinite loops since the listener will also be notified of the changes made
-from within itself. Modifying the composing region from within a listener
-can also have a bad interaction with some input methods. Gboard, for
-example, will try to restore the composing region of the text if it was
-modified programmatically, creating an infinite loop of communications
-between the framework and the input method. Consider using
-<a href="services/TextInputFormatter-class.html">TextInputFormatter</a>s instead for as-you-type text modification.</p>
-<p>If both the <a href="widgets/TextEditingController/text.html">text</a> 和 <a href="widgets/TextEditingController/selection.html">selection</a> properties need to be changed, set the
-controller's <a href="widgets/TextEditingController/value.html">value</a> instead. Setting <a href="widgets/TextEditingController/text.html">text</a> will clear the selection
-and composing range.</p>
-<p>Remember to <a href="foundation/ChangeNotifier/dispose.html">dispose</a> of the <a href="widgets/TextEditingController-class.html">TextEditingController</a> when it is no longer
-needed. This will ensure we discard any resources used by the object.</p>
+  <p>用于编辑文本字段的控制器。</p>
+<p>用户修改与 <a href="widgets/TextEditingController-class.html">TextEditingController</a> 关联的文本字段时，文本字段会更新 <a href="widgets/TextEditingController/value.html">value</a>，控制器也会通知其监听器。监听器随后可以读取 <a href="widgets/TextEditingController/text.html">text</a> 和 <a href="widgets/TextEditingController/selection.html">selection</a> 属性，了解用户输入的内容或选区的变化。</p>
+<p>同样，如果修改 <a href="widgets/TextEditingController/text.html">text</a> 或 <a href="widgets/TextEditingController/selection.html">selection</a> 属性，文本字段会收到通知并相应更新。</p>
+<p><a href="widgets/TextEditingController-class.html">TextEditingController</a> 也可用于为文本字段提供初始值。如果使用已有 <a href="widgets/TextEditingController/text.html">text</a> 的控制器构建文本字段，文本字段会将该文本用作初始值。</p>
+<p>可以在此控制器的监听器中更新控制器的 <a href="widgets/TextEditingController/value.html">value</a>（以及 <a href="widgets/TextEditingController/text.html">text</a> 和 <a href="widgets/TextEditingController/selection.html">selection</a>）。请注意避免无限循环，因为监听器也会收到其自身所做更改的通知。在监听器中修改组合区域还可能与某些输入法发生冲突。例如，如果组合区域被程序修改，Gboard 会尝试还原文本的组合区域，从而导致框架与输入法之间无限循环通信。对于输入时修改文本的场景，可以考虑改用 <a href="services/TextInputFormatter-class.html">TextInputFormatter</a>。</p>
+<p>如果需要同时更改 <a href="widgets/TextEditingController/text.html">text</a> 和 <a href="widgets/TextEditingController/selection.html">selection</a>，请改为设置控制器的 <a href="widgets/TextEditingController/value.html">value</a>。设置 <a href="widgets/TextEditingController/text.html">text</a> 会清除选区和组合范围。</p>
+<p>不再需要 <a href="widgets/TextEditingController-class.html">TextEditingController</a> 时，请记得调用 <a href="foundation/ChangeNotifier/dispose.html">dispose</a>，以释放对象使用的资源。</p>
 <p>
 <a name="widgets.TextEditingController.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-This example creates a <a href="material/TextField-class.html">TextField</a> with a <a href="widgets/TextEditingController-class.html">TextEditingController</a> whose
-change listener forces the entered text to be lower case and keeps the
-cursor at the end of the input.
+此示例创建了一个 <a href="material/TextField-class.html">TextField</a>，并为其配备 <a href="widgets/TextEditingController-class.html">TextEditingController</a>。该控制器的更改监听器会将输入文本强制转换为小写，并让光标保持在输入末尾。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.TextEditingController.1');" onclick="fixHref(this, 'widgets.TextEditingController.1'); copyStringToClipboard(this.href);"
