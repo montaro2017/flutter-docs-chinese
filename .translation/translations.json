@@ -1,4 +1,131 @@
 {
+  "flutter/widgets/SelectionContainer-class.html": {
+    "0": "<p>用于处理子树中 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 的 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 的容器。</p>",
+    "1": "<p>当需要自定义一组 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 的选区行为时，此 widget 很有用。</p>",
+    "2": "<p>此容器的状态本身是一个 selectable；如果提供了 <a href=\"widgets/SelectionContainer/registrar.html\">registrar</a>，它会向该注册器注册。否则，它会从 context 获取 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>。可考虑使用 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> widget 提供根注册器。</p>",
+    "3": "<p>容器会处理从已注册的 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a> 收到的 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a>，并将这些事件委托给 <a href=\"widgets/SelectionContainer/delegate.html\">delegate</a>。</p>",
+    "4": "<p>此 widget 使用 <a href=\"widgets/SelectionRegistrarScope-class.html\">SelectionRegistrarScope</a>，将 <a href=\"widgets/SelectionContainer/delegate.html\">delegate</a> 作为子树的 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>，以收集子树中的 <a href=\"rendering/Selectable-mixin.html\">Selectable</a>。此容器收到的 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 会通过 <a href=\"widgets/SelectionContainer/delegate.html\">delegate</a> 的 <a href=\"rendering/SelectionHandler-class.html\">SelectionHandler</a> API 发送给该委托对象。</p>"
+  },
+  "flutter/widgets/SelectionContainer/SelectionContainer.disabled.html": {
+    "0": "<p>创建一个禁用其子树选区功能的 selection container。</p>"
+  },
+  "flutter/widgets/SelectionContainer/SelectionContainer.html": {
+    "0": "<p>创建一个 selection container，以收集子树中的 <a href=\"rendering/Selectable-mixin.html\">Selectable</a>。</p>",
+    "1": "<p>如果未提供 <code>registrar</code>，此 selection container 会改为从 context 获取 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>。</p>"
+  },
+  "flutter/widgets/SelectionContainer/delegate.html": {
+    "0": "<p>用于处理发送给此 selection container 的 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 的委托对象。</p>",
+    "1": "<p>子树中的 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 会通过 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a> API 添加到此委托对象或从中移除。</p>",
+    "2": "<p>此委托对象负责更新此 widget 下各 selectable 的选区。</p>"
+  },
+  "flutter/widgets/SelectionContainer/maybeOf.html": {
+    "0": "<p>获取给定 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 的直接祖先 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>。</p>",
+    "1": "<p>如果返回 null，则表示 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 上方没有 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a>，或最近的 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 已禁用。</p>"
+  },
+  "flutter/widgets/SelectionContainer/registrar.html": {
+    "0": "<p>此容器注册到的 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>。</p>",
+    "1": "<p>如果为 null，此 widget 会从当前 context 获取 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>。</p>"
+  },
+  "flutter/widgets/SelectionContainerDelegate-class.html": {
+    "0": "<p>用于为 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 处理 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 的委托对象。</p>",
+    "1": "<p>此委托对象需要实现 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>，以便在 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 子树中注册 <a href=\"rendering/Selectable-mixin.html\">Selectable</a>。</p>"
+  },
+  "flutter/widgets/SelectionContainerDelegate/containerSize.html": {
+    "0": "<p>获取此委托对象所属 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 的尺寸。</p>",
+    "1": "<p>只有在 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 完成布局后才能调用。</p>"
+  },
+  "flutter/widgets/SelectionContainerDelegate/getTransformFrom.html": {
+    "0": "<p>获取从 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 子级到此委托对象所属 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 的绘制变换。</p>",
+    "1": "<p>返回一个矩阵，将 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 的绘制坐标系映射到 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 的坐标系。</p>",
+    "2": "<p>只有在 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 完成布局后才能调用。</p>"
+  },
+  "flutter/widgets/SelectionContainerDelegate/getTransformTo.html": {
+    "0": "<p>获取从此委托对象所属的 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 到 <code>ancestor</code> 的绘制变换。</p>",
+    "1": "<p>返回一个矩阵，将 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 的绘制坐标系映射到 <code>ancestor</code> 的坐标系。</p>",
+    "2": "<p>如果 <code>ancestor</code> 为 null，此方法会返回一个矩阵，将局部绘制坐标系映射到 <a href=\"rendering/PipelineOwner/rootNode.html\">PipelineOwner.rootNode</a> 的坐标系。</p>",
+    "3": "<p>只有在 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 完成布局后才能调用。</p>"
+  },
+  "flutter/widgets/SelectionContainerDelegate/hasSize.html": {
+    "0": "<p>此 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 是否已经完成布局并拥有尺寸。</p>"
+  },
+  "flutter/widgets/SelectionDetails-class.html": {
+    "0": "<p>用于只读访问 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a> 下方选区详情的接口。</p>",
+    "1": "<p>这些信息包括选区状态（例如选区是否折叠），以及 <a href=\"rendering/SelectedContentRange-class.html\">SelectedContentRange</a>；其中包含此对象所报告的 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a> 本地选区的起始和结束偏移量。</p>",
+    "2": "<p>通常，将 <a href=\"widgets/SelectionListenerNotifier-class.html\">SelectionListenerNotifier</a> 提供给 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a>，再从 <a href=\"widgets/SelectionListenerNotifier/selection.html\">SelectionListenerNotifier.selection</a> 获取此对象的值。</p>"
+  },
+  "flutter/widgets/SelectionDetails/range.html": {
+    "0": "<p>所属 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a> 子树中计算得到的选区范围。</p>",
+    "1": "<p>没有选中任何内容时返回 <code>null</code>。</p>"
+  },
+  "flutter/widgets/SelectableRegion-class.html": {
+    "0": "<p>用于创建用户选区区域的 widget。</p>",
+    "2": "<p><a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> widget 需要配置，尤其必须提供特定的 <a href=\"widgets/SelectableRegion/selectionControls.html\">selectionControls</a>。</p>",
+    "3": "<p><a href=\"material/SelectionArea-class.html\">SelectionArea</a> widget（来自 <a href=\"material/\">material</a> 库）会根据平台配置 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a>（例如在 Android 上使用 Material 工具栏，在 iOS 上使用 Cupertino 工具栏）。因此，相较于直接使用 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a>，使用该 widget 可能更简单。</p>",
+    "4": "<h2 id=\"an-overview-of-the-selection-system\">选区系统概览</h2>",
+    "5": "<p><a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 下的每个 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 都可以被选中。它们会组成一个选区树来处理选择操作。</p>",
+    "6": "<p><a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 是 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 的封装。它会监听用户手势，并将相应的 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 发送给它创建的 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a>。</p>",
+    "7": "<p><a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 是一个单独的 <a href=\"rendering/Selectable-mixin.html\">Selectable</a>，代表其子树中的子级 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 处理 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a>。它会使用自己的 <a href=\"widgets/SelectionContainer/delegate.html\">SelectionContainer.delegate</a> 创建 <a href=\"widgets/SelectionRegistrarScope-class.html\">SelectionRegistrarScope</a>，以收集子级 <a href=\"rendering/Selectable-mixin.html\">Selectable</a>；并将从父级 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a> 收到的 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 发送给相应的子级 <a href=\"rendering/Selectable-mixin.html\">Selectable</a>。这样，它会向父级 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a> 抽象出一个接口，使父级看起来像是在与单个 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 交互。</p>",
+    "9": "<p><a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 和叶级 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 若要参与选区，都需要向从 <a href=\"widgets/SelectionContainer/maybeOf.html\">SelectionContainer.maybeOf</a> 获取的 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a> 注册。与 <a href=\"widgets/SelectionContainer/maybeOf.html\">SelectionContainer.maybeOf</a> 一起使用的 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 必须位于 widget 树中提供该注册器的 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a>、<a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 或 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 下方。</p>",
+    "10": "<p>选区树示例如下：</p>",
+    "12": "<h2 id=\"making-a-widget-selectable\">使 widget 可选中</h2>",
+    "13": "<p>一些叶级 widget（例如 <a href=\"widgets/Text-class.html\">Text</a>）会自动接入所有选区逻辑，只要位于 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 下方，就可以被选中。</p>",
+    "14": "<p>要创建自定义的可选中 widget，其渲染对象需要混入 <a href=\"rendering/Selectable-mixin.html\">Selectable</a>，并实现处理 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 所需的 API，同时绘制适当的选区高亮。</p>",
+    "15": "<p>渲染对象还需要向 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a> 注册。在大多数情况下，可以使用 <a href=\"rendering/SelectionRegistrant-mixin.html\">SelectionRegistrant</a> 自动向通过 <a href=\"widgets/SelectionContainer/maybeOf.html\">SelectionContainer.maybeOf</a> 返回的注册器注册，如下例所示。</p>",
+    "17": "<h2 id=\"complex-layout\">复杂布局</h2>",
+    "18": "<p>默认情况下，选区顺序采用屏幕上的排列顺序。如果一组 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 需要使用不同的选择顺序，可考虑用 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 包裹它们，以自定义选区行为。</p>",
+    "20": "<p>如果需要在 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 中排除一组 widget，使其不可选中，可考虑使用 <a href=\"widgets/SelectionContainer/SelectionContainer.disabled.html\">SelectionContainer.disabled</a> 包裹这组 widget。</p>",
+    "22": "<p>若要创建与父级选区区域分离的选区系统，可用另一个 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 包裹子树的一部分。子选区区域的选区不能超出其子树范围，父选区区域的选区也不能延伸到子选区区域内部。</p>",
+    "23": "<h2 id=\"selection-status\">选区状态</h2>",
+    "24": "<p><a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 的 <a href=\"widgets/SelectableRegionSelectionStatus.html\">SelectableRegionSelectionStatus</a> 用于指示 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 是否正在更改选区，或已完成选区。例如，鼠标按下并拖动期间，<a href=\"widgets/SelectableRegionSelectionStatus.html\">SelectableRegionSelectionStatus</a> 会设为 <a href=\"widgets/SelectableRegionSelectionStatus.html\">SelectableRegionSelectionStatus.changing</a>；松开鼠标后，状态会设为 <a href=\"widgets/SelectableRegionSelectionStatus.html\">SelectableRegionSelectionStatus.finalized</a>。</p>",
+    "25": "<p><a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 的选区状态默认值为 <a href=\"widgets/SelectableRegionSelectionStatus.html\">SelectableRegionSelectionStatus.finalized</a>。</p>",
+    "26": "<p>要访问父级 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 的 <a href=\"widgets/SelectableRegionSelectionStatus.html\">SelectableRegionSelectionStatus</a>，请使用 <a href=\"widgets/SelectableRegionSelectionStatusScope/maybeOf.html\">SelectableRegionSelectionStatusScope.maybeOf</a>，并从 <a href=\"foundation/ValueListenable-class.html\">ValueListenable</a> 获取其值。</p>",
+    "27": "<p>也可以通过向 <a href=\"widgets/SelectableRegionSelectionStatusScope/maybeOf.html\">SelectableRegionSelectionStatusScope.maybeOf</a> 返回的 <a href=\"foundation/ValueListenable-class.html\">ValueListenable</a> 添加 <a href=\"foundation/Listenable/addListener.html\">ValueListenable.addListener</a> 监听器，监听 <a href=\"widgets/SelectableRegionSelectionStatus.html\">SelectableRegionSelectionStatus</a> 的变化。在有状态 widget 中，通常在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中添加监听器；不再需要时，通常通过有状态 widget 的 <a href=\"widgets/State/dispose.html\">State.dispose</a> 方法使用 <a href=\"foundation/Listenable/removeListener.html\">ValueListenable.removeListener</a> 移除监听器。</p>",
+    "28": "<h2 id=\"tests\">测试</h2>",
+    "29": "<p>在测试中，可以通过模拟拖动事件（例如使用 <a href=\"flutter_test/WidgetController/dragFrom.html\">WidgetTester.dragFrom</a>）来选择区域；也可以向区域内带有 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 的 widget 发送 intent，例如：</p>"
+  },
+  "flutter/widgets/SelectableRegionState/add.html": {
+    "0": "<p>将 <code>selectable</code> 添加到注册器中。</p>",
+    "1": "<p><a href=\"rendering/Selectable-mixin.html\">Selectable</a> 必须向 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a> 注册，才能接收选区事件。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/contextMenuAnchors.html": {
+    "0": "<p>返回默认上下文菜单的锚点位置。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/contextMenuButtonItems.html": {
+    "0": "<p>返回表示此平台默认选区菜单中各个按钮的 <a href=\"widgets/ContextMenuButtonItem-class.html\">ContextMenuButtonItem</a> 列表。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/copySelection.html": {
+    "0": "<p>将当前选区复制到 <a href=\"services/Clipboard-class.html\">Clipboard</a>。</p>",
+    "1": "<p>如果 <code>cause</code> 为 <a href=\"services/SelectionChangedCause.html\">SelectionChangedCause.toolbar</a>，则会调用已弃用的 <a class=\"deprecated\" href=\"widgets/SelectableRegionState/bringIntoView.html\">bringIntoView</a>，使选区滚动到可见区域，并隐藏工具栏。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/cutSelection.html": {
+    "0": "<p>将当前选区剪切到 <a href=\"services/Clipboard-class.html\">Clipboard</a>。</p>",
+    "1": "<p>当且仅当 <code>cause</code> 为 <a href=\"services/SelectionChangedCause.html\">SelectionChangedCause.toolbar</a> 时，工具栏会隐藏，并且当前选区会滚动到可见区域。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/hideToolbar.html": {
+    "0": "<p>隐藏文本选区工具栏。</p>",
+    "1": "<p>默认情况下，hideHandles 为 true，工具栏及其控制柄会一起隐藏。如果将 hideHandles 设为 false，则只隐藏工具栏，控制柄仍会保留。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/pasteText.html": {
+    "0": "<p>从 <a href=\"services/Clipboard-class.html\">Clipboard</a> 粘贴文本。</p>",
+    "1": "<p>如果当前存在选区，粘贴内容会替换该选区。</p>",
+    "2": "<p>当且仅当 <code>cause</code> 为 <a href=\"services/SelectionChangedCause.html\">SelectionChangedCause.toolbar</a> 时，工具栏会隐藏，并且当前选区会滚动到可见区域。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/remove.html": {
+    "0": "<p>从注册器中移除 <code>selectable</code>。</p>",
+    "1": "<p><a href=\"rendering/Selectable-mixin.html\">Selectable</a> 从渲染树中移除时，必须取消注册。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/selectAll.html": {
+    "0": "<p>将当前选区设为包含整个文本值。</p>",
+    "1": "<p>当且仅当 <code>cause</code> 为 <a href=\"services/SelectionChangedCause.html\">SelectionChangedCause.toolbar</a> 时，选区会滚动到可见区域。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/selectionOverlay.html": {
+    "0": "<p>当前显示在屏幕上的 <a href=\"widgets/SelectionOverlay-class.html\">SelectionOverlay</a>。</p>",
+    "1": "<p>如果当前没有可见的 <a href=\"widgets/SelectionOverlay-class.html\">SelectionOverlay</a>，则可能为 null。</p>"
+  },
+  "flutter/widgets/SelectableRegionState/userUpdateTextEditingValue.html": {
+    "0": "<p>表示用户请求委托对象将当前文本编辑状态替换为 <code>value</code>。</p>",
+    "1": "<p>新的 <code>value</code> 会被视为用户输入，因此可能会经过输入格式化处理。</p>"
+  },
   "flutter/widgets/SelectAction-class.html": {
     "0": "<p>用于选择当前获得焦点的控件的操作。</p>",
     "1": "<p>这是一个抽象类，作为选择某项内容的操作的基类。默认情况下，它不会绑定到任何按键。</p>"

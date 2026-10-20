@@ -87,13 +87,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;SelectableRegion-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/selectable_region.dart#L240"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">SelectableRegion</span> 类 
+<h1><span class="kind-class">SelectableRegion</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A widget that introduces an area for user selections.</p>
+  <p>用于创建用户选区区域的 widget。</p>
 <p>Flutter widgets are not selectable by default. Wrapping a widget subtree
 with a <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> widget enables selection for widgets in the
 subtree that participate in selection. For example, <a href="widgets/Text-class.html">Text</a> widgets
@@ -103,37 +103,19 @@ such as <a href="widgets/RichText-class.html">RichText</a> must be configured wi
 using mouse or touch gestures, e.g. users can select widgets by holding the
 mouse left-click and dragging across widgets, or they can use long press
 gestures to select words on touch devices.</p>
-<p>A <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> widget requires configuration; in particular specific
-<a href="widgets/SelectableRegion/selectionControls.html">selectionControls</a> must be provided.</p>
-<p>The <a href="material/SelectionArea-class.html">SelectionArea</a> widget from the <a href="material/">material</a> library configures a
-<a href="widgets/SelectableRegion-class.html">SelectableRegion</a> in a platform-specific manner (e.g. using a Material
-toolbar on Android, a Cupertino toolbar on iOS), and it may therefore be
-simpler to use that widget rather than using <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> directly.</p>
-<h2 id="an-overview-of-the-selection-system">An overview of the selection system.</h2>
-<p>Every <a href="rendering/Selectable-mixin.html">Selectable</a> under the <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> can be selected. They form a
-selection tree structure to handle the selection.</p>
-<p>The <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> is a wrapper over <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>. It listens to
-user gestures and sends corresponding <a href="rendering/SelectionEvent-class.html">SelectionEvent</a>s to the
-<a href="widgets/SelectionContainer-class.html">SelectionContainer</a> it creates.</p>
-<p>A <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> is a single <a href="rendering/Selectable-mixin.html">Selectable</a> that handles
-<a href="rendering/SelectionEvent-class.html">SelectionEvent</a>s on behalf of child <a href="rendering/Selectable-mixin.html">Selectable</a>s in the subtree. It
-creates a <a href="widgets/SelectionRegistrarScope-class.html">SelectionRegistrarScope</a> with its <a href="widgets/SelectionContainer/delegate.html">SelectionContainer.delegate</a>
-to collect child <a href="rendering/Selectable-mixin.html">Selectable</a>s and sends the <a href="rendering/SelectionEvent-class.html">SelectionEvent</a>s it receives
-from the parent <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> to the appropriate child <a href="rendering/Selectable-mixin.html">Selectable</a>s.
-It creates an abstraction for the parent <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> as if it is
-interacting with a single <a href="rendering/Selectable-mixin.html">Selectable</a>.</p>
+<p><a href="widgets/SelectableRegion-class.html">SelectableRegion</a> widget 需要配置，尤其必须提供特定的 <a href="widgets/SelectableRegion/selectionControls.html">selectionControls</a>。</p>
+<p><a href="material/SelectionArea-class.html">SelectionArea</a> widget（来自 <a href="material/">material</a> 库）会根据平台配置 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>（例如在 Android 上使用 Material 工具栏，在 iOS 上使用 Cupertino 工具栏）。因此，相较于直接使用 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>，使用该 widget 可能更简单。</p>
+<h2 id="an-overview-of-the-selection-system">选区系统概览</h2>
+<p><a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 下的每个 <a href="rendering/Selectable-mixin.html">Selectable</a> 都可以被选中。它们会组成一个选区树来处理选择操作。</p>
+<p><a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 是 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 的封装。它会监听用户手势，并将相应的 <a href="rendering/SelectionEvent-class.html">SelectionEvent</a> 发送给它创建的 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>。</p>
+<p><a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 是一个单独的 <a href="rendering/Selectable-mixin.html">Selectable</a>，代表其子树中的子级 <a href="rendering/Selectable-mixin.html">Selectable</a> 处理 <a href="rendering/SelectionEvent-class.html">SelectionEvent</a>。它会使用自己的 <a href="widgets/SelectionContainer/delegate.html">SelectionContainer.delegate</a> 创建 <a href="widgets/SelectionRegistrarScope-class.html">SelectionRegistrarScope</a>，以收集子级 <a href="rendering/Selectable-mixin.html">Selectable</a>；并将从父级 <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> 收到的 <a href="rendering/SelectionEvent-class.html">SelectionEvent</a> 发送给相应的子级 <a href="rendering/Selectable-mixin.html">Selectable</a>。这样，它会向父级 <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> 抽象出一个接口，使父级看起来像是在与单个 <a href="rendering/Selectable-mixin.html">Selectable</a> 交互。</p>
 <p>The <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> created by <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> is the root node of a
 selection tree. Each non-leaf node in the tree is a <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>,
 and the leaf node is a leaf widget whose render object implements
 <a href="rendering/Selectable-mixin.html">Selectable</a>. They are connected through <a href="widgets/SelectionRegistrarScope-class.html">SelectionRegistrarScope</a>s created
 by <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>。</p>
-<p>Both <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>s and the leaf <a href="rendering/Selectable-mixin.html">Selectable</a>s need to register
-themselves to the <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> from the
-<a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> if they want to participate in the selection.
-The <a href="widgets/BuildContext-class.html">BuildContext</a> used with <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> must be below the
-<a href="widgets/SelectionContainer-class.html">SelectionContainer</a>, <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>, or <a href="material/SelectionArea-class.html">SelectionArea</a> that provides
-the registrar in the widget tree.</p>
-<p>An example selection tree will look like:</p>
+<p><a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 和叶级 <a href="rendering/Selectable-mixin.html">Selectable</a> 若要参与选区，都需要向从 <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> 获取的 <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> 注册。与 <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> 一起使用的 <a href="widgets/BuildContext-class.html">BuildContext</a> 必须位于 widget 树中提供该注册器的 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>、<a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 或 <a href="material/SelectionArea-class.html">SelectionArea</a> 下方。</p>
+<p>选区树示例如下：</p>
 <p>
 <a name="widgets.SelectableRegion.1"></a>
 <div class="snippet snippet-container anchor-container">
@@ -181,17 +163,10 @@ the registrar in the widget tree.</p>
                 Selectable        Selectable
                 ("Item 0")         ("Item 1")
 </code></pre>
-<h2 id="making-a-widget-selectable">Making a widget selectable</h2>
-<p>Some leaf widgets, such as <a href="widgets/Text-class.html">Text</a>, have all of the selection logic wired up
-automatically and can be selected as long as they are under a
-<a href="widgets/SelectableRegion-class.html">SelectableRegion</a>.</p>
-<p>To make a custom selectable widget, its render object needs to mix in
-<a href="rendering/Selectable-mixin.html">Selectable</a> and implement the required APIs to handle <a href="rendering/SelectionEvent-class.html">SelectionEvent</a>s
-as well as paint appropriate selection highlights.</p>
-<p>The render object also needs to register itself to a <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a>.
-For the most cases, one can use <a href="rendering/SelectionRegistrant-mixin.html">SelectionRegistrant</a> to auto-register
-itself with the register returned from <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> as
-seen in the example below.</p>
+<h2 id="making-a-widget-selectable">使 widget 可选中</h2>
+<p>一些叶级 widget（例如 <a href="widgets/Text-class.html">Text</a>）会自动接入所有选区逻辑，只要位于 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 下方，就可以被选中。</p>
+<p>要创建自定义的可选中 widget，其渲染对象需要混入 <a href="rendering/Selectable-mixin.html">Selectable</a>，并实现处理 <a href="rendering/SelectionEvent-class.html">SelectionEvent</a> 所需的 API，同时绘制适当的选区高亮。</p>
+<p>渲染对象还需要向 <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> 注册。在大多数情况下，可以使用 <a href="rendering/SelectionRegistrant-mixin.html">SelectionRegistrant</a> 自动向通过 <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> 返回的注册器注册，如下例所示。</p>
 <p>
 <a name="widgets.SelectableRegion.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
@@ -214,10 +189,8 @@ child widget selectable.
     </iframe>
 </div>
 </p>
-<h2 id="complex-layout">Complex layout</h2>
-<p>By default, the screen order is used as the selection order. If a group of
-<a href="rendering/Selectable-mixin.html">Selectable</a>s needs to select differently, consider wrapping them with a
-<a href="widgets/SelectionContainer-class.html">SelectionContainer</a> to customize its selection behavior.</p>
+<h2 id="complex-layout">复杂布局</h2>
+<p>默认情况下，选区顺序采用屏幕上的排列顺序。如果一组 <a href="rendering/Selectable-mixin.html">Selectable</a> 需要使用不同的选择顺序，可考虑用 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 包裹它们，以自定义选区行为。</p>
 <p>
 <a name="widgets.SelectableRegion.3"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet3">
@@ -240,9 +213,7 @@ allows selecting everything or nothing with no partial selection.
     </iframe>
 </div>
 </p>
-<p>In the case where a group of widgets should be excluded from selection under
-a <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>, consider wrapping that group of widgets using
-<a href="widgets/SelectionContainer/SelectionContainer.disabled.html">SelectionContainer.disabled</a>.</p>
+<p>如果需要在 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 中排除一组 widget，使其不可选中，可考虑使用 <a href="widgets/SelectionContainer/SelectionContainer.disabled.html">SelectionContainer.disabled</a> 包裹这组 widget。</p>
 <p>
 <a name="widgets.SelectableRegion.4"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet4">
@@ -264,31 +235,14 @@ This sample demonstrates how to disable selection for a Text in a Column.
     </iframe>
 </div>
 </p>
-<p>To create a separate selection system from its parent selection area,
-wrap part of the subtree with another <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>. The selection of the
-child selection area can not extend past its subtree, and the selection of
-the parent selection area can not extend inside the child selection area.</p>
-<h2 id="selection-status">Selection status</h2>
-<p>A <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>s <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> is used to indicate whether
-the <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> is actively changing the selection, or has finalized it. For
-example, during a mouse click + drag, the <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> will be
-set to <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.changing</a>, and when the mouse click is released
-the status will be set to <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.finalized</a>.</p>
-<p>The default value of <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>s selection status
-is <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.finalized</a>.</p>
-<p>To access the <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> of a parent <a href="widgets/SelectableRegion-class.html">SelectableRegion</a>
-use <a href="widgets/SelectableRegionSelectionStatusScope/maybeOf.html">SelectableRegionSelectionStatusScope.maybeOf</a> and retrieve the value from
-the <a href="foundation/ValueListenable-class.html">ValueListenable</a>.</p>
-<p>One can also listen for changes to the <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> by
-adding a listener to the <a href="foundation/ValueListenable-class.html">ValueListenable</a> retrieved from <a href="widgets/SelectableRegionSelectionStatusScope/maybeOf.html">SelectableRegionSelectionStatusScope.maybeOf</a>
-through <a href="foundation/Listenable/addListener.html">ValueListenable.addListener</a>. In Stateful widgets this is typically
-done in <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a>. Remove the listener when no longer
-needed, typically in your Stateful widgets <a href="widgets/State/dispose.html">State.dispose</a> method through
-<a href="foundation/Listenable/removeListener.html">ValueListenable.removeListener</a>.</p>
-<h2 id="tests">Tests</h2>
-<p>In a test, a region can be selected either by faking drag events (e.g. using
-<a href="flutter_test/WidgetController/dragFrom.html">WidgetTester.dragFrom</a>) or by sending intents to a widget inside the region
-that has been given a <a href="widgets/GlobalKey-class.html">GlobalKey</a>, e.g.:</p>
+<p>若要创建与父级选区区域分离的选区系统，可用另一个 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 包裹子树的一部分。子选区区域的选区不能超出其子树范围，父选区区域的选区也不能延伸到子选区区域内部。</p>
+<h2 id="selection-status">选区状态</h2>
+<p><a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 的 <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> 用于指示 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 是否正在更改选区，或已完成选区。例如，鼠标按下并拖动期间，<a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> 会设为 <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.changing</a>；松开鼠标后，状态会设为 <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.finalized</a>。</p>
+<p><a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 的选区状态默认值为 <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus.finalized</a>。</p>
+<p>要访问父级 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 的 <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a>，请使用 <a href="widgets/SelectableRegionSelectionStatusScope/maybeOf.html">SelectableRegionSelectionStatusScope.maybeOf</a>，并从 <a href="foundation/ValueListenable-class.html">ValueListenable</a> 获取其值。</p>
+<p>也可以通过向 <a href="widgets/SelectableRegionSelectionStatusScope/maybeOf.html">SelectableRegionSelectionStatusScope.maybeOf</a> 返回的 <a href="foundation/ValueListenable-class.html">ValueListenable</a> 添加 <a href="foundation/Listenable/addListener.html">ValueListenable.addListener</a> 监听器，监听 <a href="widgets/SelectableRegionSelectionStatus.html">SelectableRegionSelectionStatus</a> 的变化。在有状态 widget 中，通常在 <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 中添加监听器；不再需要时，通常通过有状态 widget 的 <a href="widgets/State/dispose.html">State.dispose</a> 方法使用 <a href="foundation/Listenable/removeListener.html">ValueListenable.removeListener</a> 移除监听器。</p>
+<h2 id="tests">测试</h2>
+<p>在测试中，可以通过模拟拖动事件（例如使用 <a href="flutter_test/WidgetController/dragFrom.html">WidgetTester.dragFrom</a>）来选择区域；也可以向区域内带有 <a href="widgets/GlobalKey-class.html">GlobalKey</a> 的 widget 发送 intent，例如：</p>
 <pre class="language-dart"><code class="language-dart">Actions.invoke(key.currentContext!, const SelectAllTextIntent(SelectionChangedCause.keyboard));
 </code></pre>
 <p>另请参阅：</p>

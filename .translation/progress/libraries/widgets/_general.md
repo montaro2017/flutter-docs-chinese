@@ -1,45 +1,12 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,113 页，部分翻译 306 页，未翻译 833 页；正文已译 21,786/24,807 段。
+模块共 8,093 页：已完整 6,137 页，部分翻译 301 页，未翻译 814 页；正文已译 21,863/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/SelectableRegion-class.html` — 部分；已译 7/31 段；待译段落：0, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 14, 15, 17, 18, 20, 22, 23, 24, 25, 26, 27, 28, 29
-
-- `flutter/widgets/SelectableRegionState/add.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SelectableRegionState/contextMenuAnchors.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/SelectableRegionState/contextMenuButtonItems.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/SelectableRegionState/copySelection.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SelectableRegionState/cutSelection.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SelectableRegionState/hideToolbar.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SelectableRegionState/pasteText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SelectableRegionState/remove.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectableRegionState/selectAll.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SelectableRegionState/selectionOverlay.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SelectableRegionState/userUpdateTextEditingValue.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/SelectionContainer-class.html` — 部分；已译 2/7 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/SelectionContainer/SelectionContainer.disabled.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectionContainer/SelectionContainer.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SelectionContainer/delegate.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SelectionContainer/maybeOf.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectionContainer/registrar.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectionContainerDelegate-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectionContainerDelegate/containerSize.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectionContainerDelegate/getTransformFrom.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SelectionContainerDelegate/getTransformTo.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/SelectionContainerDelegate/hasSize.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/SelectionDetails-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SelectionDetails/range.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/SelectionContainer/SelectionContainer.disabled.html` — 部分；已译 1/2 段；待译段落：1
 
 - `flutter/widgets/SelectionListener-class.html` — 部分；已译 3/6 段；待译段落：0, 1, 2
 
