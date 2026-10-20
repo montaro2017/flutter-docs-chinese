@@ -1,4 +1,234 @@
 {
+  "flutter/widgets/SingleActivator-class.html": {
+    "0": "<p>由单个按键和修饰键组成的快捷键组合。</p>",
+    "1": "<p><a href=\"widgets/SingleActivator-class.html\">SingleActivator</a> 可实现常见快捷键，例如：</p>",
+    "2": "<p>更具体地说，它会创建由一个 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 键以及四个修饰键（control、shift、alt、meta）中的任意零个、部分或全部组成的快捷键组合。满足以下条件时会触发快捷键：</p>",
+    "3": "<p>这与大多数操作系统的常见行为相似，但与 <a href=\"widgets/LogicalKeySet-class.html\">LogicalKeySet</a> 相比，它以如下方式处理修饰键：</p>"
+  },
+  "flutter/widgets/SingleActivator/SingleActivator.html": {
+    "0": "<p>按住修饰键时按下 <code>trigger</code> 键，即可触发快捷键。</p>",
+    "1": "<p><code>trigger</code> 应是所有修饰键之后按下的非修饰键，例如 <code>Ctrl+C</code> 中的 <a href=\"services/LogicalKeyboardKey/keyC-constant.html\">LogicalKeyboardKey.keyC</a>。它不能是带侧别或不带侧别的修饰键。</p>",
+    "2": "<p><code>control</code>、<code>shift</code>、<code>alt</code> 和 <code>meta</code> 标志分别表示是否需要按住对应的修饰键（true 表示按住，false 表示松开）。默认值均为 false。</p>",
+    "3": "<p>默认情况下，会针对 <code>trigger</code> 键的所有 <a href=\"services/KeyDownEvent-class.html\">KeyDownEvent</a> 事件检查此 activator。如果 <code>includeRepeats</code> 为 false，则只考虑非 <a href=\"services/KeyRepeatEvent-class.html\">KeyRepeatEvent</a> 的 <code>trigger</code> 键事件。</p>"
+  },
+  "flutter/widgets/SingleActivator/accepts.html": {
+    "0": "<p>如果给定事件是 triggering event，则检查 <code>event</code> 及事件发生时键盘的 <code>state</code> 是否满足所需条件。</p>",
+    "1": "<p>例如，对于 <code>Ctrl-A</code>，需要检查事件是否为 <a href=\"services/KeyDownEvent-class.html\">KeyDownEvent</a>、Ctrl 键任意一侧是否按下，以及 Shift、Alt 或 Meta 键是否均未按下；无需检查 KeyA 是否按下，因为这一点已得到保证。</p>",
+    "2": "<p>作为一种可能的性能优化，建议（但不强制）此函数的实现者先检查 <a href=\"widgets/SingleActivator/triggers.html\">triggers</a> 成员：如果它非 null，可先确认其中是否包含该事件的逻辑键，再执行更复杂的检查。</p>",
+    "3": "<p>此方法不得对 <code>state</code> 产生任何副作用。通常只用于查询 <a href=\"services/HardwareKeyboard/logicalKeysPressed.html\">HardwareKeyboard.logicalKeysPressed</a> 是否包含某个键。</p>"
+  },
+  "flutter/widgets/SingleActivator/alt.html": {
+    "0": "<p>是否需要按住任意一侧或两侧的 Alt 键，才能通过 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 触发快捷键。</p>",
+    "1": "<p>默认值为 false，这表示收到事件时必须松开所有 Alt 键才能触发快捷键。若为 true，则必须按住任意一侧或两侧的 Alt 键。</p>"
+  },
+  "flutter/widgets/SingleActivator/control.html": {
+    "0": "<p>是否需要按住任意一侧或两侧的 Control 键，才能通过 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 触发快捷键。</p>",
+    "1": "<p>默认值为 false，这表示收到事件时必须松开所有 Control 键才能触发快捷键。若为 true，则必须按住任意一侧或两侧的 Control 键。</p>"
+  },
+  "flutter/widgets/SingleActivator/debugDescribeKeys.html": {
+    "0": "<p>返回简短易读的按键组合说明。</p>",
+    "1": "<p>用于调试模式下的日志记录。在发布模式下，<a href=\"widgets/SingleActivator/debugDescribeKeys.html\">debugDescribeKeys</a> 会返回空字符串。</p>"
+  },
+  "flutter/widgets/SingleActivator/includeRepeats.html": {
+    "0": "<p>此 activator 是否接受 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 键的重复事件。</p>",
+    "1": "<p>如果 <a href=\"widgets/SingleActivator/includeRepeats.html\">includeRepeats</a> 为 true，则会针对 <a href=\"services/KeyDownEvent-class.html\">KeyDownEvent</a> 或 <a href=\"services/KeyRepeatEvent-class.html\">KeyRepeatEvent</a> 中 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 键的所有事件进行检查。如果 <a href=\"widgets/SingleActivator/includeRepeats.html\">includeRepeats</a> 为 false，则只考虑 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 键的 <a href=\"services/KeyDownEvent-class.html\">KeyDownEvent</a> 事件。</p>"
+  },
+  "flutter/widgets/SingleActivator/meta.html": {
+    "0": "<p>是否需要按住任意一侧或两侧的 Meta 键，才能通过 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 触发快捷键。</p>",
+    "1": "<p>默认值为 false，这表示收到事件时必须松开所有 Meta 键才能触发快捷键。若为 true，则必须按住任意一侧或两侧的 Meta 键。</p>"
+  },
+  "flutter/widgets/SingleActivator/numLock.html": {
+    "0": "<p>是否检查 NumLock 键状态，以便通过 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 触发快捷键。</p>",
+    "1": "<p>默认值为 <a href=\"widgets/LockState.html\">LockState.ignored</a>，表示收到事件时忽略 NumLock 状态。如果设为 <a href=\"widgets/LockState.html\">LockState.locked</a>，则 NumLock 必须处于锁定状态；如果设为 <a href=\"widgets/LockState.html\">LockState.unlocked</a>，则 NumLock 必须处于未锁定状态。</p>"
+  },
+  "flutter/widgets/SingleActivator/shift.html": {
+    "0": "<p>是否需要按住任意一侧或两侧的 Shift 键，才能通过 <a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 触发快捷键。</p>",
+    "1": "<p>默认值为 false，这表示收到事件时必须松开所有 Shift 键才能触发快捷键。若为 true，则必须按住任意一侧或两侧的 Shift 键。</p>"
+  },
+  "flutter/widgets/SingleActivator/trigger.html": {
+    "0": "<p>快捷键中在所有修饰键之后按下、用于触发快捷键的非修饰键。</p>",
+    "1": "<p>例如，对于 <code>Control + C</code>，<a href=\"widgets/SingleActivator/trigger.html\">trigger</a> 应为 <a href=\"services/LogicalKeyboardKey/keyC-constant.html\">LogicalKeyboardKey.keyC</a>。</p>"
+  },
+  "flutter/widgets/SingleActivator/triggers.html": {
+    "0": "<p>可选属性，用于提供可能作为触发此快捷键的最后一个事件的所有按键。</p>",
+    "1": "<p>例如，对于 <code>Ctrl-A</code>，只有 <a href=\"services/LogicalKeyboardKey/keyA-constant.html\">LogicalKeyboardKey.keyA</a> 是触发键，<a href=\"services/LogicalKeyboardKey/control-constant.html\">LogicalKeyboardKey.control</a> 则不是，因为快捷键必须在按下 Ctrl <em>之后</em>按下 KeyA 才能触发，反过来则不行。另一方面，对于 <code>Ctrl-A-E</code>，KeyA 和 KeyE 都应是触发键，因为任意一个都可以触发快捷键。</p>",
+    "2": "<p>如果提供了触发键，可以将其用作传入事件的第一轮筛选，以优化查找速度，因为 <a href=\"widgets/Intent-class.html\">Intent</a> 存储在 <a href=\"dart-core/Map-class.html\">Map</a> 中，并按触发键建立索引。此接口的实现者可自行决定是否忽略触发键。</p>",
+    "3": "<p>子类应确保此方法的返回值在对象的整个生命周期内保持不变。</p>",
+    "4": "<p>此方法也可能返回 null，表示此 activator 将所有按键都声明为触发键。若 <a href=\"widgets/SingleActivator/triggers.html\">triggers</a> 返回 null，则每个事件都会使用 <a href=\"widgets/SingleActivator/accepts.html\">accepts</a> 进行检查。这会导致线性搜索；数量过多可能影响性能，因此应尽可能返回非 null 的 <a href=\"widgets/SingleActivator/triggers.html\">triggers</a>。</p>"
+  },
+  "flutter/widgets/ShortcutSerialization-class.html": {
+    "0": "<p><a href=\"widgets/MenuSerializableShortcut-mixin.html\">MenuSerializableShortcut</a> 使用此类描述快捷键，以便序列化并发送到平台，从而渲染 <a href=\"widgets/PlatformMenuBar-class.html\">PlatformMenuBar</a>。</p>"
+  },
+  "flutter/widgets/ShortcutSerialization/ShortcutSerialization.character.html": {
+    "0": "<p>创建一个表示单个字符的 <a href=\"widgets/ShortcutSerialization-class.html\">ShortcutSerialization</a>。</p>",
+    "1": "<p><a href=\"widgets/CharacterActivator-class.html\">CharacterActivator</a> 使用它来序列化自身。</p>"
+  },
+  "flutter/widgets/ShortcutSerialization/ShortcutSerialization.modifier.html": {
+    "0": "<p>创建一个表示特定 <a href=\"services/LogicalKeyboardKey-class.html\">LogicalKeyboardKey</a> 及其修饰键的 <a href=\"widgets/ShortcutSerialization-class.html\">ShortcutSerialization</a>。</p>",
+    "1": "<p><a href=\"widgets/SingleActivator-class.html\">SingleActivator</a> 使用它来序列化自身。</p>"
+  },
+  "flutter/widgets/Shortcuts-class.html": {
+    "0": "<p>为后代创建按键绑定，使其按键组合能够触发特定操作的 widget。</p>",
+    "1": "<p>此 widget 会建立一个供后代使用的 <a href=\"widgets/ShortcutManager-class.html\">ShortcutManager</a>。当键盘组合映射到某个 <a href=\"widgets/Intent-class.html\">Intent</a> 时，后代可通过该管理器调用 <a href=\"widgets/Action-class.html\">Action</a>。</p>",
+    "2": "<p>此 widget 与 <a href=\"widgets/CallbackShortcuts-class.html\">CallbackShortcuts</a> 类似，但功能更强。与 <a href=\"widgets/CallbackShortcuts-class.html\">CallbackShortcuts</a> 不同，此 widget 将按键绑定与其实现分开。这样的分离让 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> 能根据当前焦点上下文调整按键绑定。例如，删除 intent 对应的操作可能是在文本输入中删除字符，也可能是在文件菜单中删除文件。</p>",
+    "3": "<p>详细说明请参阅文章 <a href=\"https://flutter.dev/to/actions-shortcuts\">使用 Actions 和 Shortcuts</a>。</p>"
+  },
+  "flutter/widgets/Shortcuts/Shortcuts.manager.html": {
+    "0": "<p>创建一个 const <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> widget，使用 <code>manager</code> 管理快捷键映射。</p>",
+    "1": "<p>使用此构造函数时，<a href=\"widgets/Shortcuts/shortcuts.html\">shortcuts</a> 会返回 <a href=\"widgets/ShortcutManager/shortcuts.html\">ShortcutManager.shortcuts</a> 的内容。</p>",
+    "2": "<p>必须提供 <code>child</code> 和 <code>manager</code> 参数。</p>"
+  },
+  "flutter/widgets/Shortcuts/child.html": {
+    "0": "<p>此 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> widget 的子 widget。</p>"
+  },
+  "flutter/widgets/Shortcuts/debugLabel.html": {
+    "0": "<p>记录此节点时显示的调试标签。</p>",
+    "1": "<p>如果设置了此标签，记录日志时会显示它，而不是快捷键映射。</p>",
+    "2": "<p>这样可以简化诊断输出，避免大量默认快捷键映射造成不必要的杂乱。</p>"
+  },
+  "flutter/widgets/Shortcuts/includeSemantics.html": {
+    "0": "<p>是否在此 widget 中包含语义信息。</p>",
+    "2": "<p>通常不应将此项设为 false，因为这可能影响无障碍系统可用的语义信息。</p>"
+  },
+  "flutter/widgets/Shortcuts/manager.html": {
+    "0": "<p>用于管理按键组合与 <a href=\"widgets/Action-class.html\">Action</a> 之间映射的 <a href=\"widgets/ShortcutManager-class.html\">ShortcutManager</a>。</p>",
+    "1": "<p>如果此 widget 是通过 <a href=\"widgets/Shortcuts/manager.html\">Shortcuts.manager</a> 创建的，则会使用 <a href=\"widgets/ShortcutManager/shortcuts.html\">ShortcutManager.shortcuts</a> 作为快捷键来源。如果使用未命名构造函数，此管理器将为 null，并改用默认构造的 <a href=\"widgets/ShortcutManager-class.html\">ShortcutManager</a>。</p>"
+  },
+  "flutter/widgets/Shortcuts/shortcuts.html": {
+    "0": "<p>快捷键映射表，用于将 <a href=\"widgets/ShortcutActivator-class.html\">ShortcutActivator</a> 定义的按键序列映射到按下该序列时要发出的 <a href=\"widgets/Intent-class.html\">Intent</a>。</p>"
+  },
+  "flutter/widgets/ShortcutRegistry-class.html": {
+    "0": "<p>供 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> 使用的类，允许该 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> 的后代添加或移除快捷键绑定。</p>",
+    "1": "<p>可通过 <a href=\"widgets/ShortcutRegistry/of.html\">of</a> 和 <a href=\"widgets/ShortcutRegistry/maybeOf.html\">maybeOf</a> 获取最近的 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a>。</p>",
+    "2": "<p>注册的快捷键发生变化时，可通过 <a href=\"foundation/ChangeNotifier/addListener.html\">addListener</a>/<a href=\"foundation/ChangeNotifier/removeListener.html\">removeListener</a> 监听注册器以接收变更通知。变更通知会在当前帧绘制完成后发出，因此并非注册器后代的 widget（例如 overlay 中的 widget）也可以监听。</p>"
+  },
+  "flutter/widgets/ShortcutRegistry/addAll.html": {
+    "0": "<p>将给定的所有快捷键绑定添加到此 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a>，并返回一个用于管理这些绑定的条目。</p>",
+    "1": "<p>不再需要这些快捷键时，应对该条目调用 <a href=\"widgets/ShortcutRegistryEntry/dispose.html\">ShortcutRegistryEntry.dispose</a>。这会从注册器中移除快捷键，并使条目失效。</p>",
+    "2": "<p>如果另一个条目（即尚未处置的条目）已添加了给定快捷键，此方法会在调试模式下触发断言。</p>",
+    "3": "<p>如果添加了两个等效但不同的 <a href=\"widgets/ShortcutActivator-class.html\">ShortcutActivator</a>，触发时会执行它们全部。例如，同时添加 <code>SingleActivator(LogicalKeyboardKey.keyA)</code> 和 <code>CharacterActivator('a')</code> 后，按下 “a” 键时两者都会执行。</p>"
+  },
+  "flutter/widgets/ShortcutRegistry/maybeOf.html": {
+    "0": "<p>返回最接近给定 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 的 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> 所属的 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a>。</p>",
+    "1": "<p>如果没有 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> widget 包围给定 context，<a href=\"widgets/ShortcutRegistry/maybeOf.html\">maybeOf</a> 会返回 null。</p>",
+    "2": "<p><a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 中默认包含一个 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> 实例。因此，如果使用 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a>、<a href=\"material/MaterialApp-class.html\">MaterialApp</a> 或 <a href=\"cupertino/CupertinoApp-class.html\">CupertinoApp</a>，就无需再添加 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a>。</p>"
+  },
+  "flutter/widgets/ShortcutRegistry/of.html": {
+    "0": "<p>返回最接近给定 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 的 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> 所属的 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a>。</p>",
+    "1": "<p>如果给定 context 未被 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> widget 包围，<a href=\"widgets/ShortcutRegistry/of.html\">of</a> 会在调试模式下抛出异常。</p>",
+    "2": "<p><a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 中默认包含一个 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> 实例。因此，如果使用 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a>、<a href=\"material/MaterialApp-class.html\">MaterialApp</a> 或 <a href=\"cupertino/CupertinoApp-class.html\">CupertinoApp</a>，就无需再添加 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a>。</p>"
+  },
+  "flutter/widgets/ShortcutRegistry/shortcuts.html": {
+    "0": "<p>获取向此 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a> 注册的所有 context 中合并后的快捷键绑定。</p>",
+    "1": "<p>此 getter 返回的值发生变化时，会通知监听器。</p>",
+    "2": "<p>返回的是副本：修改返回的映射不会产生任何效果。</p>"
+  },
+  "flutter/widgets/ShortcutRegistryEntry-class.html": {
+    "0": "<p>由 <a href=\"widgets/ShortcutRegistry/addAll.html\">ShortcutRegistry.addAll</a> 返回的条目，使调用者能够标识其通过 <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a> 注册到 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a> 的快捷键。</p>",
+    "1": "<p>不再需要此条目时，应调用 <a href=\"widgets/ShortcutRegistryEntry/dispose.html\">dispose</a>，之后不应继续使用该条目。</p>"
+  },
+  "flutter/widgets/ShortcutRegistryEntry/dispose.html": {
+    "0": "<p>不再需要此条目时调用。</p>",
+    "1": "<p>调用此方法会从 <a href=\"widgets/ShortcutRegistryEntry/registry.html\">registry</a> 中移除与此 <a href=\"widgets/ShortcutRegistryEntry-class.html\">ShortcutRegistryEntry</a> 关联的所有快捷键。</p>"
+  },
+  "flutter/widgets/ShortcutRegistryEntry/replaceAll.html": {
+    "0": "<p>替换创建此条目的 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a> 中给定的快捷键绑定。</p>",
+    "1": "<p>如果另一个 <a href=\"widgets/ShortcutRegistryEntry-class.html\">ShortcutRegistryEntry</a>（即尚未处置的条目）已添加了给定快捷键，此方法会在调试模式下触发断言。</p>",
+    "2": "<p>如果此条目已经处置，此方法也会触发断言。</p>",
+    "3": "<p>如果添加了两个等效但不同的 <a href=\"widgets/ShortcutActivator-class.html\">ShortcutActivator</a>，触发时会执行它们全部。例如，同时添加 <code>SingleActivator(LogicalKeyboardKey.keyA)</code> 和 <code>CharacterActivator('a')</code> 后，按下 “a” 键时两者都会执行。</p>"
+  },
+  "flutter/widgets/ShortcutActivator/debugDescribeKeys.html": {
+    "0": "<p>返回简短易读的按键集合说明。</p>",
+    "1": "<p>用于调试模式下的日志记录。</p>"
+  },
+  "flutter/widgets/ShortcutActivator/triggers.html": {
+    "0": "<p>可选属性，用于提供可能作为触发此快捷键的最后一个事件的所有按键。</p>",
+    "1": "<p>例如，对于 <code>Ctrl-A</code>，只有 <a href=\"services/LogicalKeyboardKey/keyA-constant.html\">LogicalKeyboardKey.keyA</a> 是触发键，<a href=\"services/LogicalKeyboardKey/control-constant.html\">LogicalKeyboardKey.control</a> 则不是，因为快捷键必须在按下 Ctrl <em>之后</em>按下 KeyA 才能触发，反过来则不行。另一方面，对于 <code>Ctrl-A-E</code>，KeyA 和 KeyE 都应是触发键，因为任意一个都可以触发快捷键。</p>",
+    "2": "<p>如果提供了触发键，可以将其用作传入事件的第一轮筛选，以优化查找速度，因为 <a href=\"widgets/Intent-class.html\">Intent</a> 存储在 <a href=\"dart-core/Map-class.html\">Map</a> 中，并按触发键建立索引。此接口的实现者可自行决定是否忽略触发键。</p>",
+    "3": "<p>子类应确保此方法的返回值在对象的整个生命周期内保持不变。</p>",
+    "4": "<p>此方法也可能返回 null，表示此 activator 将所有按键都声明为触发键。若 <a href=\"widgets/ShortcutActivator/triggers.html\">triggers</a> 返回 null，则每个事件都会使用 <a href=\"widgets/ShortcutActivator/accepts.html\">accepts</a> 进行检查。这会导致线性搜索；数量过多可能影响性能，因此应尽可能返回非 null 的 <a href=\"widgets/ShortcutActivator/triggers.html\">triggers</a>。</p>"
+  },
+  "flutter/widgets/ShortcutManager-class.html": {
+    "0": "<p>由 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> 使用、用于处理按键事件的键盘快捷键绑定管理器。</p>",
+    "1": "<p>快捷键发生变化时，可通过 <a href=\"foundation/ChangeNotifier/addListener.html\">addListener</a>/<a href=\"foundation/ChangeNotifier/removeListener.html\">removeListener</a> 监听此管理器以接收变更通知。</p>",
+    "2": "<p>通常由 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> widget 提供自己的管理器；在少见情况下，如果需要覆盖常规快捷键管理器行为，可以提供 <a href=\"widgets/ShortcutManager-class.html\">ShortcutManager</a> 的子类。</p>"
+  },
+  "flutter/widgets/ShortcutManager/handleKeypress.html": {
+    "0": "<p>处理给定 <code>context</code> 中的按键事件 <code>event</code>。</p>",
+    "1": "<p>如果找到按键映射，则会使用 <a href=\"widgets/ShortcutManager/shortcuts.html\">shortcuts</a> 快捷键映射中的 <a href=\"widgets/ShortcutActivator-class.html\">ShortcutActivator</a> 激活的 <a href=\"widgets/Intent-class.html\">Intent</a> 调用关联操作，并使用当前获得焦点的 widget 的 context（来自 <a href=\"widgets/FocusManager/primaryFocus.html\">FocusManager.primaryFocus</a>）。</p>",
+    "2": "<p>如果调用了操作，则返回 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.handled</a>；否则，如果 <a href=\"widgets/ShortcutManager/modal.html\">modal</a> 为 true，或映射到 <a href=\"widgets/DoNothingAction-class.html\">DoNothingAction</a> 且 <a href=\"widgets/DoNothingAction/consumesKey.html\">DoNothingAction.consumesKey</a> 为 false，则返回 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.skipRemainingHandlers</a>；其他情况下返回 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.ignored</a>。</p>",
+    "3": "<p>要调用操作（并返回 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.handled</a>），<a href=\"widgets/ShortcutActivator-class.html\">ShortcutActivator</a> 必须接受给定的 <a href=\"services/KeyEvent-class.html\">KeyEvent</a>，并映射到 <a href=\"widgets/Intent-class.html\">Intent</a>；该 <a href=\"widgets/Intent-class.html\">Intent</a> 必须映射到 <a href=\"widgets/Action-class.html\">Action</a>，且该 <a href=\"widgets/Action-class.html\">Action</a> 必须处于启用状态。</p>"
+  },
+  "flutter/widgets/ShortcutManager/modal.html": {
+    "0": "<p>如果为 true，<a href=\"widgets/ShortcutManager-class.html\">ShortcutManager</a> 就不会将自己无法处理的按键继续传递给此 widget 的祖先中任何处理按键的 widget。</p>",
+    "1": "<p>将 <a href=\"widgets/ShortcutManager/modal.html\">modal</a> 设为 true 后，此管理器收到的任何按键事件都不会传递给祖先管理器，即使该按键不在 <a href=\"widgets/ShortcutManager/shortcuts.html\">shortcuts</a> 映射中也是如此。</p>",
+    "2": "<p>将 <a href=\"widgets/ShortcutManager/modal.html\">modal</a> 设为 true 的效果是：按键不在快捷键映射中时，<a href=\"widgets/ShortcutManager/handleKeypress.html\">handleKeypress</a> 会返回 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.skipRemainingHandlers</a>，而不是 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.ignored</a>。</p>"
+  },
+  "flutter/widgets/ShortcutManager/shortcuts.html": {
+    "0": "<p>返回快捷键映射。</p>",
+    "1": "<p>映射发生变化时，会通知此管理器的监听器。</p>",
+    "2": "<p>不应修改返回的映射。</p>"
+  },
+  "flutter/widgets/ShortcutMapProperty/value.html": {
+    "1": "<p>如果调用 <a href=\"foundation/ComputePropertyValueCallback.html\">ComputePropertyValueCallback</a> 时抛出异常，<a href=\"widgets/ShortcutMapProperty/value.html\">value</a> 会返回 null；抛出的异常可通过 <a href=\"foundation/DiagnosticsProperty/exception.html\">exception</a> 属性获取。</p>"
+  },
+  "flutter/widgets/ShortcutMapProperty/valueToString.html": {
+    "2": "<p>重写此方法可以确保所有实现中，用于控制属性值装饰方式、以生成易读 <a href=\"foundation/DiagnosticsProperty/toDescription.html\">toDescription</a> 的行为保持一致。调试工具也可能直接使用 <a href=\"widgets/ShortcutMapProperty/valueToString.html\">valueToString</a>，而不是 <a href=\"foundation/DiagnosticsProperty/toDescription.html\">toDescription</a>。</p>"
+  },
+  "flutter/widgets/ShortcutRegistrar-class.html": {
+    "0": "<p>持有 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a> 的 widget，后代可以通过该注册器添加、移除或替换快捷键。</p>",
+    "1": "<p>此 widget 持有一个 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a>，以便后代通过 <a href=\"widgets/ShortcutRegistry/of.html\">ShortcutRegistry.of</a> 或 <a href=\"widgets/ShortcutRegistry/maybeOf.html\">ShortcutRegistry.maybeOf</a> 找到它。</p>",
+    "2": "<p>只要层级结构中此 widget 下方的 widget 获得焦点，已注册的快捷键就有效。</p>",
+    "3": "<p>要向注册器添加快捷键，请调用 <a href=\"widgets/ShortcutRegistry/of.html\">ShortcutRegistry.of</a> 或 <a href=\"widgets/ShortcutRegistry/maybeOf.html\">ShortcutRegistry.maybeOf</a> 获取 <a href=\"widgets/ShortcutRegistry-class.html\">ShortcutRegistry</a>，然后使用 <a href=\"widgets/ShortcutRegistry/addAll.html\">ShortcutRegistry.addAll</a> 添加快捷键。该方法会返回一个 <a href=\"widgets/ShortcutRegistryEntry-class.html\">ShortcutRegistryEntry</a>；不再需要快捷键时，必须调用 <a href=\"widgets/ShortcutRegistryEntry/dispose.html\">ShortcutRegistryEntry.dispose</a> 处置该条目。</p>",
+    "4": "<p>要替换或更新注册器中的快捷键，请调用 <a href=\"widgets/ShortcutRegistryEntry/replaceAll.html\">ShortcutRegistryEntry.replaceAll</a>。</p>",
+    "5": "<p>要从注册器中移除先前添加的快捷键，请对 <a href=\"widgets/ShortcutRegistry/addAll.html\">ShortcutRegistry.addAll</a> 返回的条目调用 <a href=\"widgets/ShortcutRegistryEntry/dispose.html\">ShortcutRegistryEntry.dispose</a>。</p>"
+  },
+  "flutter/widgets/ShortcutRegistrar/ShortcutRegistrar.html": {
+    "0": "<p>创建一个 const <a href=\"widgets/ShortcutRegistrar-class.html\">ShortcutRegistrar</a>。</p>",
+    "1": "<p>必须提供 <code>child</code> 参数。</p>"
+  },
+  "flutter/widgets/SharedAppData-class.html": {
+    "0": "<p>允许与 <code>child</code> 及其所有后代共享键值数据。</p>",
+    "1": "<p><code>SharedAppData.getValue(context, key, initCallback)</code> 会创建对该键的依赖，并从共享数据表中返回该键的值。如果该键没有对应的值，则使用 initCallback 创建初始值。</p>",
+    "2": "<p><code>SharedAppData.setValue(context, key, value)</code> 会更改共享数据表中某个条目的值，并强制依赖该条目的 widget 重新构建。</p>",
+    "3": "<p>如果某个 widget 的 build 方法使用 SharedAppData.getValue(context, keyword, initCallback)，它就会依赖 SharedAppData。keyword 的值通过 SharedAppData.setValue() 更改时，该 widget 会重新构建。SharedAppData 管理的值应为不可变对象：值的内部状态发生变化不会触发依赖它的 widget 重新构建。</p>",
+    "4": "<p>此 widget 的实例会由 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 自动创建。</p>",
+    "5": "<p>有很多方法可以与 widget 子树共享数据。此类基于 <a href=\"widgets/InheritedModel-class.html\">InheritedModel</a>，而它是 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 的一种。此类旨在供需要在自己的组件之间共享少量值的软件包使用。</p>",
+    "6": "<p>SharedAppData 并非 Provider 或其他通用应用状态管理系统的替代品。它适用于软件包的自定义 widget 需要共享一个或少量可延迟初始化的不可变数据对象的场景。借助它，这些软件包可以提供自定义 widget，而无需开发者在应用中额外添加该软件包专属的外层 widget。</p>",
+    "7": "<p>为 SharedAppData 创建键时，可使用静态的 <code>Object()</code> 值来避免与其他软件包潜在的键冲突。下方的 <code>SharedObject</code> 示例采用了这种做法。</p>"
+  },
+  "flutter/widgets/SharedAppData/SharedAppData.html": {
+    "0": "<p>创建一个基于 <a href=\"widgets/InheritedModel-class.html\">InheritedModel</a> 的 widget，支持按关键字限定构建依赖。后代 widget 使用 <a href=\"widgets/SharedAppData/getValue.html\">SharedAppData.getValue</a> 创建此类依赖，并使用 <a href=\"widgets/SharedAppData/setValue.html\">SharedAppData.setValue</a> 触发重新构建。</p>",
+    "1": "<p>此 widget 由 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 自动创建。</p>"
+  },
+  "flutter/widgets/SharedAppData/getValue.html": {
+    "0": "<p>返回应用模型中 <code>key</code> 对应的值，并确保每当通过 <a href=\"widgets/SharedAppData/setValue.html\">SharedAppData.setValue</a> 更改 <code>key</code> 的值时，都会重新构建指定的 context。</p>",
+    "1": "<p>如果 <code>key</code> 尚无对应值，则会调用 <code>init</code> 回调生成初始值。此回调应返回不可变值，因为值的内部状态发生变化不会触发依赖它的 widget 重新构建。</p>",
+    "2": "<p>依赖应用模型中 <code>key</code> 对应值的 widget，应在其 <code>build</code> 方法中使用此方法，以确保值变化时 widget 会重新构建。</p>",
+    "3": "<p>类型参数 <code>K</code> 表示关键字的类型，<code>V</code> 表示值的类型。</p>"
+  },
+  "flutter/widgets/SharedAppData/setValue.html": {
+    "0": "<p>更改应用模型中 <code>key</code> 对应的 <code>value</code>，并重新构建所有通过 <a href=\"widgets/SharedAppData/getValue.html\">SharedAppData.getValue</a> 创建了对 <code>key</code> 依赖的 widget。</p>",
+    "1": "<p>如果 <code>value</code> 与 <code>key</code> 当前对应的值通过 <code>==</code> 判断相等，则不会触发重新构建。</p>",
+    "2": "<p><code>value</code> 应为不可变值，因为值的内部状态发生变化不会触发依赖它的 widget 重新构建。</p>",
+    "3": "<p>与 <a href=\"widgets/SharedAppData/getValue.html\">SharedAppData.getValue</a> 不同，此方法<em>不会</em>在 <code>context</code> 与 <code>key</code> 之间创建依赖。</p>",
+    "4": "<p>类型参数 <code>K</code> 表示值的关键字类型，<code>V</code> 表示值的类型。</p>"
+  },
+  "flutter/widgets/SharedAppDataInitCallback.html": {
+    "0": "<p><a href=\"widgets/SharedAppData/getValue.html\">SharedAppData.getValue</a> 的 <code>init</code> 参数类型。</p>",
+    "1": "<p>此回调用于按需创建 <a href=\"widgets/SharedAppData-class.html\">SharedAppData</a> 关键字对应的初始值。</p>"
+  },
+  "flutter/widgets/ShortcutActivator-class.html": {
+    "0": "<p>用于定义触发快捷键的键盘组合的接口。</p>",
+    "1": "<p><a href=\"widgets/ShortcutActivator-class.html\">ShortcutActivator</a> 由 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> widget 使用，并映射到 <a href=\"widgets/Intent-class.html\">Intent</a>；Intent 表示此键盘组合应触发的行为。<a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> widget 收到按键事件时，其 <a href=\"widgets/ShortcutManager-class.html\">ShortcutManager</a> 会查找第一个匹配的 <a href=\"widgets/ShortcutActivator-class.html\">ShortcutActivator</a>，并触发对应的 <a href=\"widgets/Intent-class.html\">Intent</a>；该 Intent 可能会触发由一组层级嵌套的 <a href=\"widgets/Actions-class.html\">Actions</a> widget 定义的操作。有关快捷键与操作系统的详细介绍，请参阅 <a href=\"widgets/Actions-class.html\">Actions</a>。</p>",
+    "2": "<p>按以下方式查找匹配的 <a href=\"widgets/ShortcutActivator-class.html\">ShortcutActivator</a>：</p>"
+  },
+  "flutter/widgets/ShortcutActivator/accepts.html": {
+    "0": "<p>触发事件是 triggering event 时，检查该 <code>event</code> 及事件发生时键盘的 <code>state</code> 是否满足所需条件。</p>",
+    "1": "<p>例如，对于 <code>Ctrl-A</code>，需要检查事件是否为 <a href=\"services/KeyDownEvent-class.html\">KeyDownEvent</a>、Ctrl 键任意一侧是否按下，以及 Shift、Alt 或 Meta 键是否均未按下；无需检查 KeyA 是否按下，因为这一点已得到保证。</p>",
+    "2": "<p>作为一种可能的性能优化，建议（但不强制）此函数的实现者先检查 <a href=\"widgets/ShortcutActivator/triggers.html\">triggers</a> 成员：如果它非 null，可先确认其中是否包含该事件的逻辑键，再执行更复杂的检查。</p>",
+    "3": "<p>此方法不得对 <code>state</code> 产生任何副作用。通常只用于查询 <a href=\"services/HardwareKeyboard/logicalKeysPressed.html\">HardwareKeyboard.logicalKeysPressed</a> 是否包含某个键。</p>"
+  },
   "flutter/widgets/SensitiveContent-class.html": {
     "0": "<p>用于设置 widget 树中内容的 <a href=\"services/ContentSensitivity.html\">ContentSensitivity</a> 的 widget。</p>",
     "1": "<p>此 widget 的 <a href=\"widgets/SensitiveContent/sensitivity.html\">sensitivity</a> 会与树中的其他 <a href=\"widgets/SensitiveContent-class.html\">SensitiveContent</a> widget 一起，决定屏幕投影（例如屏幕共享）时是否遮挡屏幕。</p>",

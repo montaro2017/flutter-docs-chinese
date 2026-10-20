@@ -1,71 +1,11 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,184 页，部分翻译 288 页，未翻译 780 页；正文已译 21,980/24,807 段。
+模块共 8,093 页：已完整 6,231 页，部分翻译 270 页，未翻译 751 页；正文已译 22,119/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/SharedAppData-class.html` — 未译；已译 0/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-- `flutter/widgets/SharedAppData/SharedAppData.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SharedAppData/getValue.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/SharedAppData/setValue.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/SharedAppDataInitCallback.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ShortcutActivator-class.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/ShortcutActivator/accepts.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ShortcutActivator/debugDescribeKeys.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ShortcutActivator/triggers.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/ShortcutManager-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ShortcutManager/handleKeypress.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ShortcutManager/modal.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ShortcutManager/shortcuts.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ShortcutMapProperty/value.html` — 部分；已译 2/3 段；待译段落：1
-- `flutter/widgets/ShortcutMapProperty/valueToString.html` — 部分；已译 3/4 段；待译段落：2
-- `flutter/widgets/ShortcutRegistrar-class.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/ShortcutRegistrar/ShortcutRegistrar.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ShortcutRegistry-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ShortcutRegistry/addAll.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
-- `flutter/widgets/ShortcutRegistry/maybeOf.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/ShortcutRegistry/of.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/ShortcutRegistry/shortcuts.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ShortcutRegistryEntry-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ShortcutRegistryEntry/dispose.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ShortcutRegistryEntry/replaceAll.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ShortcutSerialization-class.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/ShortcutSerialization/ShortcutSerialization.character.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ShortcutSerialization/ShortcutSerialization.modifier.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/Shortcuts-class.html` — 部分；已译 4/9 段；待译段落：0, 1, 2, 3, 6
-
-- `flutter/widgets/Shortcuts/Shortcuts.manager.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Shortcuts/child.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/Shortcuts/debugLabel.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Shortcuts/includeSemantics.html` — 部分；已译 2/4 段；待译段落：0, 2
-- `flutter/widgets/Shortcuts/manager.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Shortcuts/shortcuts.html` — 未译；已译 0/1 段；待译段落：0
-
-- `flutter/widgets/SingleActivator-class.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/SingleActivator/SingleActivator.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/SingleActivator/accepts.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/SingleActivator/alt.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/SingleActivator/control.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/SingleActivator/debugDescribeKeys.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SingleActivator/includeRepeats.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SingleActivator/meta.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/SingleActivator/numLock.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/SingleActivator/shift.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/SingleActivator/trigger.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SingleActivator/triggers.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
 - `flutter/widgets/SingleChildRenderObjectElement-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 
 - `flutter/widgets/SingleChildRenderObjectElement/moveRenderObjectChild.html` — 部分；已译 3/4 段；待译段落：3

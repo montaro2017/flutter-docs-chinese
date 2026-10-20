@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the SharedAppData class from the widgets library, for the Dart programming language.">
-  <title>SharedAppData class - widgets library - Dart API</title>
+  <meta name="description" content="widgets 库中 SharedAppData 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>SharedAppData 类 - widgets 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -64,13 +64,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets.dart</a></li>
-    <li class="self-crumb">SharedAppData class</li>
+    <li class="self-crumb">SharedAppData 类</li>
   </ol>
   <div class="self-name">SharedAppData</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -86,65 +86,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
     data-below-sidebar="widgets&#47;SharedAppData-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/shared_app_data.dart#L72"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">SharedAppData</span> class 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/shared_app_data.dart#L72"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">SharedAppData</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Enables sharing key/value data with its <code>child</code> and all of the
-child's descendants.</p>
+  <p>允许与 <code>child</code> 及其所有后代共享键值数据。</p>
 <ul>
 <li>
-<p><code>SharedAppData.getValue(context, key, initCallback)</code> creates a dependency
-on the key and returns the value for the key from the shared data table.
-If no value exists for key then the initCallback is used to create
-the initial value.</p>
+<p><code>SharedAppData.getValue(context, key, initCallback)</code> 会创建对该键的依赖，并从共享数据表中返回该键的值。如果该键没有对应的值，则使用 initCallback 创建初始值。</p>
 </li>
 <li>
-<p><code>SharedAppData.setValue(context, key, value)</code> changes the value of an entry
-in the shared data table and forces widgets that depend on that entry
-to be rebuilt.</p>
+<p><code>SharedAppData.setValue(context, key, value)</code> 会更改共享数据表中某个条目的值，并强制依赖该条目的 widget 重新构建。</p>
 </li>
 </ul>
-<p>A widget whose build method uses SharedAppData.getValue(context,
-keyword, initCallback) creates a dependency on the SharedAppData. When
-the value of keyword changes with SharedAppData.setValue(), the widget
-will be rebuilt. The values managed by the SharedAppData are expected
-to be immutable: intrinsic changes to values will not cause
-dependent widgets to be rebuilt.</p>
-<p>An instance of this widget is created automatically by <a href="widgets/WidgetsApp-class.html">WidgetsApp</a>.</p>
-<p>There are many ways to share data with a widget subtree. This
-class is based on <a href="widgets/InheritedModel-class.html">InheritedModel</a>, which is an <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>.
-It's intended to be used by packages that need to share a modest
-number of values among their own components.</p>
-<p>SharedAppData is not intended to be a substitute for Provider or any of
-the other general purpose application state systems. SharedAppData is
-for situations where a package's custom widgets need to share one
-or a handful of immutable data objects that can be lazily
-initialized. It exists so that packages like that can deliver
-custom widgets without requiring the developer to add a
-package-specific umbrella widget to their application.</p>
-<p>A good way to create an SharedAppData key that avoids potential
-collisions with other packages is to use a static <code>Object()</code> value.
-The <code>SharedObject</code> example below does this.</p>
+<p>如果某个 widget 的 build 方法使用 SharedAppData.getValue(context, keyword, initCallback)，它就会依赖 SharedAppData。keyword 的值通过 SharedAppData.setValue() 更改时，该 widget 会重新构建。SharedAppData 管理的值应为不可变对象：值的内部状态发生变化不会触发依赖它的 widget 重新构建。</p>
+<p>此 widget 的实例会由 <a href="widgets/WidgetsApp-class.html">WidgetsApp</a> 自动创建。</p>
+<p>有很多方法可以与 widget 子树共享数据。此类基于 <a href="widgets/InheritedModel-class.html">InheritedModel</a>，而它是 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 的一种。此类旨在供需要在自己的组件之间共享少量值的软件包使用。</p>
+<p>SharedAppData 并非 Provider 或其他通用应用状态管理系统的替代品。它适用于软件包的自定义 widget 需要共享一个或少量可延迟初始化的不可变数据对象的场景。借助它，这些软件包可以提供自定义 widget，而无需开发者在应用中额外添加该软件包专属的外层 widget。</p>
+<p>为 SharedAppData 创建键时，可使用静态的 <code>Object()</code> 值来避免与其他软件包潜在的键冲突。下方的 <code>SharedObject</code> 示例采用了这种做法。</p>
 <p>
 <a name="widgets.SharedAppData.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-The following sample demonstrates using the automatically created
-<a href="widgets/SharedAppData-class.html">SharedAppData</a>. Button presses cause changes to the values for keys
-'foo', and 'bar', and those changes only cause the widgets that
-depend on those keys to be rebuilt.
+以下示例演示如何使用自动创建的 <a href="widgets/SharedAppData-class.html">SharedAppData</a>。按下按钮会更改键 'foo' 和 'bar' 对应的值，并且只会重新构建依赖这些键的 widget。
 </div>
-    <a class="anchor-button-overlay anchor-button" title="Copy link to clipboard"
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.SharedAppData.1');" onclick="fixHref(this, 'widgets.SharedAppData.1'); copyStringToClipboard(this.href);"
         href="#">
         <i class="material-icons anchor-image">link</i>
     </a>
     <div class="snippet-description">
-        <p>To create a local project with this code sample, run:<br />
+        <p>要使用此代码示例创建本地项目，请运行：<br />
             <span class="snippet-create-command">flutter create --sample=widgets.SharedAppData.1 mysample</span>
         </p>
     </div>
@@ -157,18 +132,15 @@ depend on those keys to be rebuilt.
 <a name="widgets.SharedAppData.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
     <div class="snippet-description">
-The following sample demonstrates how a single lazily computed
-value could be shared within an app. A Flutter package that
-provided custom widgets might use this approach to share a (possibly
-private) value with instances of those widgets.
+以下示例演示如何在应用中共享一个按需计算的值。提供自定义 widget 的 Flutter 软件包可以采用这种方式，在这些 widget 实例之间共享一个（可能是私有的）值。
 </div>
-    <a class="anchor-button-overlay anchor-button" title="Copy link to clipboard"
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.SharedAppData.2');" onclick="fixHref(this, 'widgets.SharedAppData.2'); copyStringToClipboard(this.href);"
         href="#">
         <i class="material-icons anchor-image">link</i>
     </a>
     <div class="snippet-description">
-        <p>To create a local project with this code sample, run:<br />
+        <p>要使用此代码示例创建本地项目，请运行：<br />
             <span class="snippet-create-command">flutter create --sample=widgets.SharedAppData.2 mysample</span>
         </p>
     </div>
@@ -183,7 +155,7 @@ private) value with instances of those widgets.
     <section>
       <dl class="dl-horizontal">
         
-  <dt>Inheritance</dt>
+  <dt>继承关系</dt>
   <dd>
     <ul class="gt-separated dark clazz-relationships">
       <li><a href="dart-core/Object-class.html">Object</a></li>
@@ -207,7 +179,7 @@ private) value with instances of those widgets.
 
     
   <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
+    <h2>构造函数</h2>
     <dl class="constructor-summary-list">
         <dt id="SharedAppData.new" class="callable">
           <span class="name"><a href="widgets/SharedAppData/SharedAppData.html">SharedAppData</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
@@ -225,7 +197,7 @@ rebuilds with <a href="widgets/SharedAppData/setValue.html">SharedAppData.setVal
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="child" class="property">
   <span class="name"><a href="widgets/SharedAppData/child.html">child</a></span>
@@ -246,8 +218,8 @@ rebuilds with <a href="widgets/SharedAppData/setValue.html">SharedAppData.setVal
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -259,7 +231,7 @@ rebuilds with <a href="widgets/SharedAppData/setValue.html">SharedAppData.setVal
 </dt>
 <dd class="inherited">
   Controls how one widget replaces another widget in the tree.
-  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -270,8 +242,8 @@ rebuilds with <a href="widgets/SharedAppData/setValue.html">SharedAppData.setVal
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -282,7 +254,7 @@ rebuilds with <a href="widgets/SharedAppData/setValue.html">SharedAppData.setVal
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="createElement" class="callable inherited">
   <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
@@ -292,8 +264,8 @@ rebuilds with <a href="widgets/SharedAppData/setValue.html">SharedAppData.setVal
 
 </dt>
 <dd class="inherited">
-  Creates a <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
-  <div class="features"><span class="feature">inherited</span></div>
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -306,7 +278,7 @@ rebuilds with <a href="widgets/SharedAppData/setValue.html">SharedAppData.setVal
 </dt>
 <dd>
   Creates the mutable state for this widget at a given location in the tree.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -320,7 +292,7 @@ rebuilds with <a href="widgets/SharedAppData/setValue.html">SharedAppData.setVal
 <dd class="inherited">
   Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
 children.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -333,7 +305,7 @@ children.
 </dt>
 <dd class="inherited">
   Add additional properties associated with the node.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -345,8 +317,8 @@ children.
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -360,7 +332,7 @@ children.
 <dd class="inherited">
   Returns a debug representation of the object that is used by debugging
 tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -372,8 +344,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  A string representation of this object.
-  <div class="features"><span class="feature">inherited</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -386,7 +358,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   Returns a string representation of this node and its descendants.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -399,7 +371,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   Returns a one-line detailed description of the object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -412,7 +384,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   A short, textual description of this widget.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -422,7 +394,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -432,8 +404,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -482,16 +454,16 @@ that have created a dependency on <code>key</code> with <a href="widgets/SharedA
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets</a></li>
-    <li class="self-crumb">SharedAppData class</li>
+    <li class="self-crumb">SharedAppData 类</li>
 </ol>
 
-    <h5>widgets library</h5>
+    <h5>widgets 库</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -514,7 +486,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 
