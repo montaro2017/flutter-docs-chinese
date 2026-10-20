@@ -1,41 +1,10 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,231 页，部分翻译 270 页，未翻译 751 页；正文已译 22,119/24,807 段。
+模块共 8,093 页：已完整 6,249 页，部分翻译 262 页，未翻译 741 页；正文已译 22,189/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
-
-- `flutter/widgets/SingleChildRenderObjectElement-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SingleChildRenderObjectElement/moveRenderObjectChild.html` — 部分；已译 3/4 段；待译段落：3
-
-- `flutter/widgets/SingleChildRenderObjectWidget-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SingleChildScrollView-class.html` — 部分；已译 4/24 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 22
-
-- `flutter/widgets/SingleChildScrollView/child.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/SingleChildScrollView/controller.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SingleChildScrollView/physics.html` — 部分；已译 1/3 段；待译段落：1, 2
-- `flutter/widgets/SingleChildScrollView/primary.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-
-- `flutter/widgets/SingleChildScrollView/reverse.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/SingleChildScrollView/scrollDirection.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SingleTickerProviderStateMixin-mixin.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/SingleTickerProviderStateMixin/createTicker.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SingleTickerProviderStateMixin/mounted.html` — 部分；已译 2/3 段；待译段落：0
-
-- `flutter/widgets/SingleTickerProviderStateMixin/setState.html` — 部分；已译 16/20 段；待译段落：1, 10, 11, 13
-
-- `flutter/widgets/SlideTransition-class.html` — 部分；已译 2/6 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/SlideTransition/position.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SlideTransition/textDirection.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/SlideTransition/transformHitTests.html` — 未译；已译 0/2 段；待译段落：0, 1
 
 - `flutter/widgets/SlottedContainerRenderObjectMixin/getTransformTo.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
 

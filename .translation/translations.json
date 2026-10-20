@@ -1,4 +1,109 @@
 {
+  "flutter/widgets/SingleTickerProviderStateMixin-mixin.html": {
+    "0": "<p>提供单个 <a href=\"scheduler/Ticker-class.html\">Ticker</a>，仅当当前树处于启用状态（由 <a href=\"widgets/TickerMode-class.html\">TickerMode</a> 定义）时才会触发。</p>",
+    "1": "<p>如果要在 <a href=\"widgets/State-class.html\">State</a> 中创建并仅使用一个 <a href=\"animation/AnimationController-class.html\">AnimationController</a>，可混入此类，然后将 <code>vsync: this</code> 传给该 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 的构造函数。</p>",
+    "2": "<p>此 mixin 只支持提供一个 ticker。如果 <a href=\"widgets/State-class.html\">State</a> 的生命周期内可能创建多个 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 对象，请改用完整的 <a href=\"widgets/TickerProviderStateMixin-mixin.html\">TickerProviderStateMixin</a>。</p>"
+  },
+  "flutter/widgets/SingleTickerProviderStateMixin/createTicker.html": {
+    "0": "<p>使用给定的回调创建 ticker。</p>",
+    "1": "<p>提供的 ticker 类型取决于 ticker provider 的类型。</p>"
+  },
+  "flutter/widgets/SingleTickerProviderStateMixin/mounted.html": {
+    "0": "<p>此 <a href=\"widgets/State-class.html\">State</a> 对象当前是否位于树中。</p>"
+  },
+  "flutter/widgets/SingleTickerProviderStateMixin/setState.html": {
+    "1": "<p>每当更改 <a href=\"widgets/State-class.html\">State</a> 对象的内部状态时，都应在传给 <a href=\"widgets/State/setState.html\">setState</a> 的函数中进行更改：</p>",
+    "10": "<p>此 API 的早期版本是名为 <code>markNeedsBuild</code> 的方法，目的是与 <a href=\"rendering/RenderObject/markNeedsLayout.html\">RenderObject.markNeedsLayout</a>、<a href=\"rendering/RenderObject/markNeedsPaint.html\">RenderObject.markNeedsPaint</a> 等保持一致。</p>",
+    "11": "<p>然而，早期对 Flutter 框架进行的用户测试发现，人们调用 <code>markNeedsBuild()</code> 的次数远超所需。实际上，人们把它当作护身符：只要不确定是否需要调用，就会先调用，以防万一。</p>",
+    "13": "<p>将 API 改为接收回调后，这种做法大幅减少。一种解释是，要求开发者在回调中实际更新状态，促使他们更仔细地思考具体更新了什么，因此更清楚何时适合调用此方法。</p>"
+  },
+  "flutter/widgets/SlideTransition-class.html": {
+    "0": "<p>使 widget 的位置相对于其正常位置产生动画效果。</p>",
+    "1": "<p>平移量以按子级尺寸缩放的 <a href=\"dart-ui/Offset-class.html\">Offset</a> 表示。例如，<a href=\"dart-ui/Offset-class.html\">Offset</a> 的 <code>dx</code> 为 0.25 时，子级会水平移动其宽度的四分之一。</p>",
+    "2": "<p>默认情况下，偏移量应用于画布坐标系（因此正 x 偏移会将子级向右移动）。如果提供了 <a href=\"widgets/SlideTransition/textDirection.html\">textDirection</a>，偏移量则按阅读方向应用：从右向左的文本中，正 x 偏移会向左移动；从左向右的文本中，正 x 偏移会向右移动。</p>",
+    "3": "<p>以下示意图展示了 <a href=\"widgets/SlideTransition-class.html\">SlideTransition</a> widget，其 <a href=\"widgets/SlideTransition/position.html\">position</a> 由设置为 <a href=\"animation/Curves/elasticIn-constant.html\">Curves.elasticIn</a> 的 <a href=\"animation/CurvedAnimation-class.html\">CurvedAnimation</a> 驱动：</p>"
+  },
+  "flutter/widgets/SlideTransition/position.html": {
+    "0": "<p>控制子级位置的动画。</p>",
+    "1": "<p>如果 position 动画的当前值为 <code>(dx, dy)</code>，则应用可用的 <a href=\"widgets/SlideTransition/textDirection.html\">textDirection</a> 后，子级会水平平移 <code>width * dx</code>，并垂直平移 <code>height * dy</code>。</p>"
+  },
+  "flutter/widgets/SlideTransition/textDirection.html": {
+    "0": "<p>用于确定上述 <a href=\"widgets/SlideTransition/position.html\">position</a> 中 x 轴偏移方向的文本方向。</p>",
+    "1": "<p>如果 <a href=\"widgets/SlideTransition/textDirection.html\">textDirection</a> 为 null，则 x 轴偏移应用于画布坐标系（因此正 x 偏移会将子级向右移动）。</p>",
+    "2": "<p>如果 <a href=\"widgets/SlideTransition/textDirection.html\">textDirection</a> 为 <a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a>，x 轴偏移会按阅读方向应用，使子级向左移动。</p>",
+    "3": "<p>如果 <a href=\"widgets/SlideTransition/textDirection.html\">textDirection</a> 为 <a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a>，x 轴偏移会按阅读方向应用，使子级向右移动。</p>"
+  },
+  "flutter/widgets/SlideTransition/transformHitTests.html": {
+    "0": "<p>命中测试是否受滑动动画影响。</p>",
+    "1": "<p>如果为 false，命中测试会像子级完全没有平移一样进行。在快速动画中，如果预计用户通常会与子 widget 的最终位置交互，并希望用户可以依靠“肌肉记忆”，将此值设为 false 会很有用。</p>"
+  },
+  "flutter/widgets/SingleChildRenderObjectElement-class.html": {
+    "0": "<p>一种将 <a href=\"widgets/SingleChildRenderObjectWidget-class.html\">SingleChildRenderObjectWidget</a> 用作配置的 <a href=\"widgets/Element-class.html\">Element</a>。</p>",
+    "1": "<p>子级是可选的。</p>",
+    "2": "<p>此 Element 子类可用于这样的 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a>：其 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 使用了 <a href=\"rendering/RenderObjectWithChildMixin-mixin.html\">RenderObjectWithChildMixin</a> mixin。此类 widget 应继承 <a href=\"widgets/SingleChildRenderObjectWidget-class.html\">SingleChildRenderObjectWidget</a>。</p>"
+  },
+  "flutter/widgets/SingleChildRenderObjectElement/moveRenderObjectChild.html": {
+    "3": "<p>仅当 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 可能会使用现有的 <a href=\"widgets/Element-class.html\">Element</a> 子级调用，并且给定的 <code>slot</code> 与此前分配给该 Element 的 <code>slot</code> 不同时，才会调用此方法。例如，<a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a> 会这样做，而 <a href=\"widgets/SingleChildRenderObjectElement-class.html\">SingleChildRenderObjectElement</a> 不会（因为 slot 始终为 null）。如果某个 <a href=\"widgets/Element-class.html\">Element</a> 有一组特定 slot，且每个子级始终使用同一个 slot（并且更新某个 slot 时不会拿其他 slot 中的子级进行比较），则不会调用此方法。</p>"
+  },
+  "flutter/widgets/SingleChildRenderObjectWidget-class.html": {
+    "0": "<p>为只有一个子级插槽的 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 子类提供配置的基类，这些子类会配置 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 子类。</p>",
+    "1": "<p>分配给此 widget 的渲染对象应使用 <a href=\"rendering/RenderObjectWithChildMixin-mixin.html\">RenderObjectWithChildMixin</a> 实现单子级模型。此 mixin 提供 <a href=\"rendering/RenderObjectWithChildMixin/child.html\">RenderObjectWithChildMixin.child</a> 属性，可用于获取属于 <a href=\"widgets/SingleChildRenderObjectWidget/child.html\">child</a> widget 的渲染对象。</p>",
+    "2": "<p>子类必须实现 <a href=\"widgets/RenderObjectWidget/createRenderObject.html\">createRenderObject</a> 和 <a href=\"widgets/RenderObjectWidget/updateRenderObject.html\">updateRenderObject</a>。</p>"
+  },
+  "flutter/widgets/SingleChildScrollView-class.html": {
+    "0": "<p>一个可滚动单个 widget 的区域。</p>",
+    "1": "<p>当只有一个区域且通常可以完整显示时，此 widget 很有用，例如时间选择器中的钟面；但如果容器在某个方向（滚动方向）上变得过小，又需要确保内容可滚动。</p>",
+    "2": "<p>如果需要在两个方向上都收缩包裹（主滚动方向和横轴方向），此 widget 也很有用，例如对话框或弹出菜单中的布局。此时可将 <a href=\"widgets/SingleChildScrollView-class.html\">SingleChildScrollView</a> 与 <a href=\"widgets/ListBody-class.html\">ListBody</a> 子 widget 配合使用。</p>",
+    "3": "<p>如果有多个子级且不需要横轴收缩包裹（例如宽度始终等于屏幕宽度的滚动列表），请考虑使用 <a href=\"widgets/ListView-class.html\">ListView</a>。与包含许多子级的 <a href=\"widgets/ListBody-class.html\">ListBody</a> 或 <a href=\"widgets/Column-class.html\">Column</a> 的 <a href=\"widgets/SingleChildScrollView-class.html\">SingleChildScrollView</a> 相比，ListView 的效率高得多。</p>",
+    "4": "<h2 id=\"sample-code-using-singlechildscrollview-with-a-column\">示例代码：将 <a href=\"widgets/SingleChildScrollView-class.html\">SingleChildScrollView</a> 与 <a href=\"widgets/Column-class.html\">Column</a> 配合使用</h2>",
+    "5": "<p>有时，布局会依赖 <a href=\"widgets/Column-class.html\">Column</a> 的弹性属性设计，但某些情况下可能没有足够空间显示全部内容。例如，某些设备的屏幕特别小，应用可能会在屏幕比例与预期不同的横屏模式下运行，或应用可能显示在分屏模式的小窗口中。因此，可以考虑用 <a href=\"widgets/SingleChildScrollView-class.html\">SingleChildScrollView</a> 包裹此布局。</p>",
+    "6": "<p>但这样通常会导致冲突：<a href=\"widgets/Column-class.html\">Column</a> 往往会尽可能扩展，而 <a href=\"widgets/SingleChildScrollView-class.html\">SingleChildScrollView</a> 会为其子级提供无限空间。</p>",
+    "7": "<p>如下所述，可以通过几种技巧解决这一表面上的冲突。这些技巧只适用于通常预期内容能在屏幕内完整显示的情况；在此情况下，基于 sliver 的 <a href=\"widgets/ListView-class.html\">ListView</a> 或 <a href=\"widgets/CustomScrollView-class.html\">CustomScrollView</a> 的延迟实例化预计不会带来性能收益。如果视口通常需要容纳超出屏幕尺寸的内容，<a href=\"widgets/SingleChildScrollView-class.html\">SingleChildScrollView</a> 会非常耗费资源（此时使用 <a href=\"widgets/ListView-class.html\">ListView</a> 可能比使用 <a href=\"widgets/Column-class.html\">Column</a> 更合适）。</p>",
+    "8": "<h3 id=\"centering-spacing-or-aligning-fixed-height-content\">居中、留白或对齐固定高度的内容</h3>",
+    "9": "<p>如果内容尺寸固定（或为内在尺寸），但需要使用 <a href=\"widgets/Flex-class.html\">Flex</a> 布局模型通过 <a href=\"widgets/Column-class.html\">Column</a> 进行留白、居中或其他定位，可使用以下技巧为 <a href=\"widgets/Column-class.html\">Column</a> 提供最小尺寸，同时在空间不足以满足留白或对齐要求时，让其收缩包裹内容。</p>",
+    "10": "<p>使用 <a href=\"widgets/LayoutBuilder-class.html\">LayoutBuilder</a> 获取视口尺寸（间接通过 <a href=\"widgets/SingleChildScrollView-class.html\">SingleChildScrollView</a> 收到的约束获取，因为视口通常会扩展到最大高度约束）。然后在滚动视图内使用 <a href=\"widgets/ConstrainedBox-class.html\">ConstrainedBox</a> 设置 <a href=\"widgets/Column-class.html\">Column</a> 的最小高度。</p>",
+    "11": "<p><a href=\"widgets/Column-class.html\">Column</a> 没有 <a href=\"widgets/Expanded-class.html\">Expanded</a> 子级，因此它不会采用来自 <a href=\"rendering/BoxConstraints/maxHeight.html\">BoxConstraints.maxHeight</a> 的无限高度（视口不会提供最大高度约束），而是自动收缩到适合其子级的尺寸。不过它不能小于 <a href=\"rendering/BoxConstraints/minHeight.html\">BoxConstraints.minHeight</a>，所以最终尺寸会取 <a href=\"widgets/ConstrainedBox-class.html\">ConstrainedBox</a> 提供的最小高度与子级高度总和中的较大值。</p>",
+    "12": "<p>如果子级不足以填满该最小尺寸，<a href=\"widgets/Column-class.html\">Column</a> 就会有剩余空间，并按照其 <a href=\"widgets/Flex/mainAxisAlignment.html\">Column.mainAxisAlignment</a> 参数分配这些空间。</p>",
+    "15": "<h3 id=\"expanding-content-to-fit-the-viewport\">扩展内容以填满视口</h3>",
+    "16": "<p>以下示例基于前一个示例进行了扩展。除了为子级 <a href=\"widgets/Column-class.html\">Column</a> 提供最小尺寸外，还使用 <a href=\"widgets/IntrinsicHeight-class.html\">IntrinsicHeight</a> widget 强制 Column 的尺寸恰好等于其内容高度。此约束与前面讨论的 <a href=\"widgets/ConstrainedBox-class.html\">ConstrainedBox</a> 约束结合后，可确保 Column 的尺寸至少与视口一样大，也至少与内容一样大。</p>",
+    "17": "<p>两种约束都必须使用，才能获得预期效果。如果只指定 <a href=\"widgets/IntrinsicHeight-class.html\">IntrinsicHeight</a>，当子级小于整个屏幕时，Column 不会扩展到填满视口。如果只使用视口尺寸，则子级大于视口时，<a href=\"widgets/Column-class.html\">Column</a> 会溢出。</p>",
+    "18": "<p>要扩展以填满剩余空间的 widget，需要用 <a href=\"widgets/Expanded-class.html\">Expanded</a> widget 包裹。</p>",
+    "19": "<p>此技巧开销很大，因为视口中的内容大致需要布局两次（一次用于计算内在尺寸，另一次用于实际布局）。因此，Column 中的 widget 数量应保持较少。或者，也可以将尺寸已知的子级子集放入 <a href=\"widgets/SizedBox-class.html\">SizedBox</a>，并施加严格的垂直约束，这样内在尺寸算法处理到子树这些部分时就能提前结束计算。</p>",
+    "22": "<p>滚动视图会尝试使用 <a href=\"widgets/PageStorage-class.html\">PageStorage</a> 持久化滚动位置。可通过将 <a href=\"widgets/ScrollController/keepScrollOffset.html\">ScrollController.keepScrollOffset</a> 设为 false 来禁用此行为。若启用，建议将 <a href=\"widgets/PageStorageKey-class.html\">PageStorageKey</a> 用作此 widget 的 <a href=\"widgets/Widget/key.html\">key</a>，并通过 <a href=\"widgets/SingleChildScrollView/controller.html\">controller</a> 配置，以便区分不同的滚动视图。</p>"
+  },
+  "flutter/widgets/SingleChildScrollView/child.html": {
+    "0": "<p>执行滚动的 widget。</p>"
+  },
+  "flutter/widgets/SingleChildScrollView/controller.html": {
+    "0": "<p>可用于控制此滚动视图滚动到何处的对象。</p>",
+    "1": "<p>如果 <a href=\"widgets/SingleChildScrollView/primary.html\">primary</a> 为 true，此值必须为 null。</p>",
+    "2": "<p><a href=\"widgets/ScrollController-class.html\">ScrollController</a> 有多种用途：可用于控制初始滚动位置（参见 <a href=\"widgets/ScrollController/initialScrollOffset.html\">ScrollController.initialScrollOffset</a>）；可用于控制滚动视图是否在 <a href=\"widgets/PageStorage-class.html\">PageStorage</a> 中自动保存和恢复滚动位置（参见 <a href=\"widgets/ScrollController/keepScrollOffset.html\">ScrollController.keepScrollOffset</a>）；也可用于读取当前滚动位置（参见 <a href=\"widgets/ScrollController/offset.html\">ScrollController.offset</a>）或更改该位置（参见 <a href=\"widgets/ScrollController/animateTo.html\">ScrollController.animateTo</a>）。</p>"
+  },
+  "flutter/widgets/SingleChildScrollView/physics.html": {
+    "1": "<p>例如，它决定用户停止拖动滚动视图后，滚动视图如何继续执行动画。</p>",
+    "2": "<p>默认与平台惯例一致。</p>"
+  },
+  "flutter/widgets/SingleChildScrollView/primary.html": {
+    "0": "<p>此滚动视图是否为与父级 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> 关联的主要滚动视图。</p>",
+    "1": "<p>设为 true 时，即使内容不足以实际滚动，此滚动视图仍可滚动。否则，默认情况下，只有内容足够时用户才能滚动此视图。请参阅 <a href=\"widgets/SingleChildScrollView/physics.html\">physics</a>。</p>",
+    "2": "<p>设为 true 时，此滚动视图还会用于默认的 <a href=\"widgets/ScrollAction-class.html\">ScrollAction</a>。如果应用中没有其他获得焦点的部分处理某个 ScrollAction，就会使用此滚动视图执行该操作，例如响应 page up 和 page down 等 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> 按键事件。</p>",
+    "3": "<p>在 iOS 上，此属性还会标识状态栏被轻触时要滚动到顶部的滚动视图。</p>",
+    "4": "<p>如果 <code>controller</code> 已提供 <a href=\"widgets/ScrollController-class.html\">ScrollController</a>，此值不能为 true，因为一个 ScrollView 只能关联一个 ScrollController。</p>",
+    "5": "<p>设为 false 会明确阻止继承任何 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a>。</p>",
+    "6": "<p>默认为 null。如果为 null 且未提供 controller，则使用 <a href=\"widgets/PrimaryScrollController/shouldInherit.html\">PrimaryScrollController.shouldInherit</a> 决定是否自动继承。</p>",
+    "7": "<p>默认情况下，每个 <a href=\"widgets/ModalRoute-class.html\">ModalRoute</a> 注入的 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> 都配置为：对于滚动方向为 <a href=\"painting/Axis.html\">Axis.vertical</a> 的 ScrollView，在 <a href=\"flutter_test/TargetPlatformVariant/TargetPlatformVariant.mobile.html\">TargetPlatformVariant.mobile</a> 平台变体上自动继承。向应用中再添加一个 PrimaryScrollController 会覆盖它上方的 PrimaryScrollController。</p>",
+    "8": "<p>以下视频会进一步介绍滚动控制器、PrimaryScrollController widget，以及它们对应用的影响：</p>"
+  },
+  "flutter/widgets/SingleChildScrollView/reverse.html": {
+    "0": "<p>滚动视图是否按阅读方向滚动。</p>",
+    "1": "<p>例如，阅读方向为从左到右且 <a href=\"widgets/SingleChildScrollView/scrollDirection.html\">scrollDirection</a> 为 <a href=\"painting/Axis.html\">Axis.horizontal</a> 时，<a href=\"widgets/SingleChildScrollView/reverse.html\">reverse</a> 为 false 会使滚动视图从左向右滚动；<a href=\"widgets/SingleChildScrollView/reverse.html\">reverse</a> 为 true 则会使其从右向左滚动。</p>",
+    "2": "<p>类似地，如果 <a href=\"widgets/SingleChildScrollView/scrollDirection.html\">scrollDirection</a> 为 <a href=\"painting/Axis.html\">Axis.vertical</a>，则 <a href=\"widgets/SingleChildScrollView/reverse.html\">reverse</a> 为 false 时，滚动视图从上向下滚动；<a href=\"widgets/SingleChildScrollView/reverse.html\">reverse</a> 为 true 时，则从下向上滚动。</p>"
+  },
+  "flutter/widgets/SingleChildScrollView/scrollDirection.html": {
+    "0": "<p>滚动视图偏移量递增的 <a href=\"painting/Axis.html\">Axis</a>。</p>",
+    "1": "<p>有关当前可能正在进行的滚动方向，请参阅 <a href=\"rendering/ScrollDirection.html\">ScrollDirection</a>。</p>",
+    "2": "<p>默认为 <a href=\"painting/Axis.html\">Axis.vertical</a>。</p>"
+  },
   "flutter/widgets/SingleActivator-class.html": {
     "0": "<p>由单个按键和修饰键组成的快捷键组合。</p>",
     "1": "<p><a href=\"widgets/SingleActivator-class.html\">SingleActivator</a> 可实现常见快捷键，例如：</p>",

@@ -87,72 +87,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;SingleChildScrollView-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/single_child_scroll_view.dart#L147"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">SingleChildScrollView</span> 类 
+<h1><span class="kind-class">SingleChildScrollView</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A box in which a single widget can be scrolled.</p>
-<p>This widget is useful when you have a single box that will normally be
-entirely visible, for example a clock face in a time picker, but you need to
-make sure it can be scrolled if the container gets too small in one axis
-(the scroll direction).</p>
-<p>It is also useful if you need to shrink-wrap in both axes (the main
-scrolling direction as well as the cross axis), as one might see in a dialog
-or pop-up menu. In that case, you might pair the <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a>
-with a <a href="widgets/ListBody-class.html">ListBody</a> child.</p>
-<p>When you have a list of children and do not require cross-axis
-shrink-wrapping behavior, for example a scrolling list that is always the
-width of the screen, consider <a href="widgets/ListView-class.html">ListView</a>, which is vastly more efficient
-than a <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> containing a <a href="widgets/ListBody-class.html">ListBody</a> or <a href="widgets/Column-class.html">Column</a> with
-many children.</p>
-<h2 id="sample-code-using-singlechildscrollview-with-a-column">Sample code: Using <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> with a <a href="widgets/Column-class.html">Column</a></h2>
-<p>Sometimes a layout is designed around the flexible properties of a
-<a href="widgets/Column-class.html">Column</a>, but there is the concern that in some cases, there might not
-be enough room to see the entire contents. This could be because some
-devices have unusually small screens, or because the application can
-be used in landscape mode where the aspect ratio isn't what was
-originally envisioned, or because the application is being shown in a
-small window in split-screen mode. In any case, as a result, it might
-make sense to wrap the layout in a <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a>.</p>
-<p>Doing so, however, usually results in a conflict between the <a href="widgets/Column-class.html">Column</a>,
-which typically tries to grow as big as it can, and the <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a>,
-which provides its children with an infinite amount of space.</p>
-<p>To resolve this apparent conflict, there are a couple of techniques, as
-discussed below. These techniques should only be used when the content is
-normally expected to fit on the screen, so that the lazy instantiation of a
-sliver-based <a href="widgets/ListView-class.html">ListView</a> or <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> is not expected to provide any
-performance benefit. If the viewport is expected to usually contain content
-beyond the dimensions of the screen, then <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> would be
-very expensive (in which case <a href="widgets/ListView-class.html">ListView</a> may be a better choice than
-<a href="widgets/Column-class.html">Column</a>).</p>
-<h3 id="centering-spacing-or-aligning-fixed-height-content">Centering, spacing, or aligning fixed-height content</h3>
-<p>If the content has fixed (or intrinsic) dimensions but needs to be spaced out,
-centered, or otherwise positioned using the <a href="widgets/Flex-class.html">Flex</a> layout model of a <a href="widgets/Column-class.html">Column</a>,
-the following technique can be used to provide the <a href="widgets/Column-class.html">Column</a> with a minimum
-dimension while allowing it to shrink-wrap the contents when there isn't enough
-room to apply these spacing or alignment needs.</p>
-<p>A <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> is used to obtain the size of the viewport (implicitly via
-the constraints that the <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> sees, since viewports
-typically grow to fit their maximum height constraint). Then, inside the
-scroll view, a <a href="widgets/ConstrainedBox-class.html">ConstrainedBox</a> is used to set the minimum height of the
-<a href="widgets/Column-class.html">Column</a>.</p>
-<p>The <a href="widgets/Column-class.html">Column</a> has no <a href="widgets/Expanded-class.html">Expanded</a> children, so rather than take on the infinite
-height from its <a href="rendering/BoxConstraints/maxHeight.html">BoxConstraints.maxHeight</a>, (the viewport provides no maximum height
-constraint), it automatically tries to shrink to fit its children. It cannot
-be smaller than its <a href="rendering/BoxConstraints/minHeight.html">BoxConstraints.minHeight</a>, though, and It therefore
-becomes the bigger of the minimum height provided by the
-<a href="widgets/ConstrainedBox-class.html">ConstrainedBox</a> and the sum of the heights of the children.</p>
-<p>If the children aren't enough to fit that minimum size, the <a href="widgets/Column-class.html">Column</a> ends up
-with some remaining space to allocate as specified by its
-<a href="widgets/Flex/mainAxisAlignment.html">Column.mainAxisAlignment</a> argument.</p>
+  <p>一个可滚动单个 widget 的区域。</p>
+<p>当只有一个区域且通常可以完整显示时，此 widget 很有用，例如时间选择器中的钟面；但如果容器在某个方向（滚动方向）上变得过小，又需要确保内容可滚动。</p>
+<p>如果需要在两个方向上都收缩包裹（主滚动方向和横轴方向），此 widget 也很有用，例如对话框或弹出菜单中的布局。此时可将 <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> 与 <a href="widgets/ListBody-class.html">ListBody</a> 子 widget 配合使用。</p>
+<p>如果有多个子级且不需要横轴收缩包裹（例如宽度始终等于屏幕宽度的滚动列表），请考虑使用 <a href="widgets/ListView-class.html">ListView</a>。与包含许多子级的 <a href="widgets/ListBody-class.html">ListBody</a> 或 <a href="widgets/Column-class.html">Column</a> 的 <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> 相比，ListView 的效率高得多。</p>
+<h2 id="sample-code-using-singlechildscrollview-with-a-column">示例代码：将 <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> 与 <a href="widgets/Column-class.html">Column</a> 配合使用</h2>
+<p>有时，布局会依赖 <a href="widgets/Column-class.html">Column</a> 的弹性属性设计，但某些情况下可能没有足够空间显示全部内容。例如，某些设备的屏幕特别小，应用可能会在屏幕比例与预期不同的横屏模式下运行，或应用可能显示在分屏模式的小窗口中。因此，可以考虑用 <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> 包裹此布局。</p>
+<p>但这样通常会导致冲突：<a href="widgets/Column-class.html">Column</a> 往往会尽可能扩展，而 <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> 会为其子级提供无限空间。</p>
+<p>如下所述，可以通过几种技巧解决这一表面上的冲突。这些技巧只适用于通常预期内容能在屏幕内完整显示的情况；在此情况下，基于 sliver 的 <a href="widgets/ListView-class.html">ListView</a> 或 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 的延迟实例化预计不会带来性能收益。如果视口通常需要容纳超出屏幕尺寸的内容，<a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> 会非常耗费资源（此时使用 <a href="widgets/ListView-class.html">ListView</a> 可能比使用 <a href="widgets/Column-class.html">Column</a> 更合适）。</p>
+<h3 id="centering-spacing-or-aligning-fixed-height-content">居中、留白或对齐固定高度的内容</h3>
+<p>如果内容尺寸固定（或为内在尺寸），但需要使用 <a href="widgets/Flex-class.html">Flex</a> 布局模型通过 <a href="widgets/Column-class.html">Column</a> 进行留白、居中或其他定位，可使用以下技巧为 <a href="widgets/Column-class.html">Column</a> 提供最小尺寸，同时在空间不足以满足留白或对齐要求时，让其收缩包裹内容。</p>
+<p>使用 <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> 获取视口尺寸（间接通过 <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a> 收到的约束获取，因为视口通常会扩展到最大高度约束）。然后在滚动视图内使用 <a href="widgets/ConstrainedBox-class.html">ConstrainedBox</a> 设置 <a href="widgets/Column-class.html">Column</a> 的最小高度。</p>
+<p><a href="widgets/Column-class.html">Column</a> 没有 <a href="widgets/Expanded-class.html">Expanded</a> 子级，因此它不会采用来自 <a href="rendering/BoxConstraints/maxHeight.html">BoxConstraints.maxHeight</a> 的无限高度（视口不会提供最大高度约束），而是自动收缩到适合其子级的尺寸。不过它不能小于 <a href="rendering/BoxConstraints/minHeight.html">BoxConstraints.minHeight</a>，所以最终尺寸会取 <a href="widgets/ConstrainedBox-class.html">ConstrainedBox</a> 提供的最小高度与子级高度总和中的较大值。</p>
+<p>如果子级不足以填满该最小尺寸，<a href="widgets/Column-class.html">Column</a> 就会有剩余空间，并按照其 <a href="widgets/Flex/mainAxisAlignment.html">Column.mainAxisAlignment</a> 参数分配这些空间。</p>
 <p>
 <a name="widgets.SingleChildScrollView.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-In this example, the children are spaced out equally, unless there's no more
-room, in which case they stack vertically and scroll.</p>
+在此示例中，子级会均匀分布；如果空间不足，它们就会垂直堆叠并允许滚动。</p>
 <p>When using this technique, <a href="widgets/Expanded-class.html">Expanded</a> 和 <a href="widgets/Flexible-class.html">Flexible</a> are not useful, because
 in both cases the "available space" is infinite (since this is in a viewport).
 The next section describes a technique for providing a maximum height constraint.
@@ -172,27 +130,11 @@ The next section describes a technique for providing a maximum height constraint
     </iframe>
 </div>
 </p>
-<h3 id="expanding-content-to-fit-the-viewport">Expanding content to fit the viewport</h3>
-<p>The following example builds on the previous one. In addition to providing a
-minimum dimension for the child <a href="widgets/Column-class.html">Column</a>, an <a href="widgets/IntrinsicHeight-class.html">IntrinsicHeight</a> widget is used
-to force the column to be exactly as big as its contents. This constraint
-combines with the <a href="widgets/ConstrainedBox-class.html">ConstrainedBox</a> constraints discussed previously to ensure
-that the column becomes either as big as viewport, or as big as the contents,
-whichever is biggest.</p>
-<p>Both constraints must be used to get the desired effect. If only the
-<a href="widgets/IntrinsicHeight-class.html">IntrinsicHeight</a> was specified, then the column would not grow to fit the
-entire viewport when its children were smaller than the whole screen. If only
-the size of the viewport was used, then the <a href="widgets/Column-class.html">Column</a> would overflow if the
-children were bigger than the viewport.</p>
-<p>The widget that is to grow to fit the remaining space so provided is wrapped
-in an <a href="widgets/Expanded-class.html">Expanded</a> widget.</p>
-<p>This technique is quite expensive, as it more or less requires that the contents
-of the viewport be laid out twice (once to find their intrinsic dimensions, and
-once to actually lay them out). The number of widgets within the column should
-therefore be kept small. Alternatively, subsets of the children that have known
-dimensions can be wrapped in a <a href="widgets/SizedBox-class.html">SizedBox</a> that has tight vertical constraints,
-so that the intrinsic sizing algorithm can short-circuit the computation when it
-reaches those parts of the subtree.</p>
+<h3 id="expanding-content-to-fit-the-viewport">扩展内容以填满视口</h3>
+<p>以下示例基于前一个示例进行了扩展。除了为子级 <a href="widgets/Column-class.html">Column</a> 提供最小尺寸外，还使用 <a href="widgets/IntrinsicHeight-class.html">IntrinsicHeight</a> widget 强制 Column 的尺寸恰好等于其内容高度。此约束与前面讨论的 <a href="widgets/ConstrainedBox-class.html">ConstrainedBox</a> 约束结合后，可确保 Column 的尺寸至少与视口一样大，也至少与内容一样大。</p>
+<p>两种约束都必须使用，才能获得预期效果。如果只指定 <a href="widgets/IntrinsicHeight-class.html">IntrinsicHeight</a>，当子级小于整个屏幕时，Column 不会扩展到填满视口。如果只使用视口尺寸，则子级大于视口时，<a href="widgets/Column-class.html">Column</a> 会溢出。</p>
+<p>要扩展以填满剩余空间的 widget，需要用 <a href="widgets/Expanded-class.html">Expanded</a> widget 包裹。</p>
+<p>此技巧开销很大，因为视口中的内容大致需要布局两次（一次用于计算内在尺寸，另一次用于实际布局）。因此，Column 中的 widget 数量应保持较少。或者，也可以将尺寸已知的子级子集放入 <a href="widgets/SizedBox-class.html">SizedBox</a>，并施加严格的垂直约束，这样内在尺寸算法处理到子树这些部分时就能提前结束计算。</p>
 <p>
 <a name="widgets.SingleChildScrollView.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
@@ -216,11 +158,7 @@ the contents, whichever is biggest.
 </div>
 </p>
 <h2 id="persisting-the-scroll-position-during-a-session">在会话期间保留滚动位置</h2>
-<p>Scroll views attempt to persist their scroll position using <a href="widgets/PageStorage-class.html">PageStorage</a>.
-This can be disabled by setting <a href="widgets/ScrollController/keepScrollOffset.html">ScrollController.keepScrollOffset</a> to false
-on the <a href="widgets/SingleChildScrollView/controller.html">controller</a>. If it is enabled, using a <a href="widgets/PageStorageKey-class.html">PageStorageKey</a> for the
-<a href="widgets/Widget/key.html">key</a> of this widget is recommended to help disambiguate different scroll
-views from each other.</p>
+<p>滚动视图会尝试使用 <a href="widgets/PageStorage-class.html">PageStorage</a> 持久化滚动位置。可通过将 <a href="widgets/ScrollController/keepScrollOffset.html">ScrollController.keepScrollOffset</a> 设为 false 来禁用此行为。若启用，建议将 <a href="widgets/PageStorageKey-class.html">PageStorageKey</a> 用作此 widget 的 <a href="widgets/Widget/key.html">key</a>，并通过 <a href="widgets/SingleChildScrollView/controller.html">controller</a> 配置，以便区分不同的滚动视图。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/ListView-class.html">ListView</a>, which handles multiple children in a scrolling list.</li>
