@@ -94,26 +94,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>用于管理返回导航手势。</p>
-<p>The generic type should match or be a supertype of the generic type of the
-enclosing <a href="widgets/Route-class.html">Route</a>. For example, if the enclosing Route is a
-<code>MaterialPageRoute&lt;int&gt;</code>, you can define <a href="widgets/PopScope-class.html">PopScope</a> with <code>int</code> or any
-supertype of <code>int</code>.</p>
-<p>The <a href="widgets/PopScope/canPop.html">canPop</a> parameter disables back gestures when set to <code>false</code>.</p>
-<p>The <a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a> parameter reports when pop navigation was attempted, and
-<code>didPop</code> indicates whether or not the navigation was successful. The
-<code>result</code> contains the pop result.</p>
+<p>泛型类型应与外围 <a href="widgets/Route-class.html">Route</a> 的泛型类型相同或为其超类型。例如，如果外围 Route 是 <code>MaterialPageRoute&lt;int&gt;</code>，则可以将 <a href="widgets/PopScope-class.html">PopScope</a> 的泛型指定为 <code>int</code> 或其任意超类型（<code>int</code> 的超类型）。</p>
+<p>将 <a href="widgets/PopScope/canPop.html">canPop</a> 设为 <code>false</code> 时，会禁用返回手势。</p>
+<p><a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a> 参数会报告是否尝试了弹出导航；<code>didPop</code> 用于指示导航是否成功。<code>result</code> 包含弹出操作的结果。</p>
 <p>Android 提供系统返回手势，即从屏幕边缘附近向内滑动。Android 会先识别该手势，再将其传递给 Flutter。iOS 也有类似手势，但由 Flutter 中的 <a href="cupertino/CupertinoRouteTransitionMixin-mixin.html">CupertinoRouteTransitionMixin</a> 识别，而不是由 iOS 识别，因此它不属于系统返回手势。</p>
-<p>If <a href="widgets/PopScope/canPop.html">canPop</a> is false, then a system back gesture will not pop the route off
-of the enclosing <a href="widgets/Navigator-class.html">Navigator</a>. <a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a> will still be called, and
-<code>didPop</code> will be <code>false</code>. On iOS when using <a href="cupertino/CupertinoRouteTransitionMixin-mixin.html">CupertinoRouteTransitionMixin</a>
-with <a href="widgets/PopScope/canPop.html">canPop</a> set to false, no gesture will be detected at all, so
-<a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a> will not be called. Programmatically attempting pop
-navigation will also result in a call to <a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a>, with <code>didPop</code>
-indicating success or failure.</p>
-<p>If <a href="widgets/PopScope/canPop.html">canPop</a> is true, then a system back gesture will cause the enclosing
-<a href="widgets/Navigator-class.html">Navigator</a> to receive a pop as usual. <a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a> will be called with
-<code>didPop</code> as true, unless the pop failed for reasons unrelated to
-<a href="widgets/PopScope-class.html">PopScope</a>, in which case it will be false.</p>
+<p>如果 <a href="widgets/PopScope/canPop.html">canPop</a> 为 false，系统返回手势不会使外围 <a href="widgets/Navigator-class.html">Navigator</a> 弹出当前路由。此时仍会调用 <a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a>，且 <code>didPop</code> 为 <code>false</code>。在 iOS 上，如果使用 <a href="cupertino/CupertinoRouteTransitionMixin-mixin.html">CupertinoRouteTransitionMixin</a>，并将 <a href="widgets/PopScope/canPop.html">canPop</a> 设为 false，则系统完全不会识别该手势，因此不会调用 <a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a>。以编程方式尝试弹出路由也会调用 <a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a>，并通过 <code>didPop</code> 指示操作成功或失败。</p>
+<p>如果 <a href="widgets/PopScope/canPop.html">canPop</a> 为 true，系统返回手势会像往常一样使外围 <a href="widgets/Navigator-class.html">Navigator</a> 收到弹出请求。除非弹出因与 <a href="widgets/PopScope-class.html">PopScope</a> 无关的原因失败，否则调用 <a href="widgets/PopScope/onPopInvokedWithResult.html">onPopInvokedWithResult</a> 时，<code>didPop</code> 为 true；如果弹出失败，该值则为 false。</p>
 <p>
 <a name="widgets.PopScope.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">

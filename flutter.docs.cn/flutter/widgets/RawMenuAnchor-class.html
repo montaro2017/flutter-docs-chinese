@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the RawMenuAnchor class from the widgets library, for the Dart programming language.">
-  <title>RawMenuAnchor class - widgets library - Dart API</title>
+  <meta name="description" content="widgets 库中 RawMenuAnchor 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>RawMenuAnchor 类 - widgets 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -64,13 +64,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets.dart</a></li>
-    <li class="self-crumb">RawMenuAnchor class</li>
+    <li class="self-crumb">RawMenuAnchor 类</li>
   </ol>
   <div class="self-name">RawMenuAnchor</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -86,62 +86,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="widgets&#47;widgets-library-sidebar.html"
     data-below-sidebar="widgets&#47;RawMenuAnchor-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/raw_menu_anchor.dart#L221"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RawMenuAnchor</span> class 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/raw_menu_anchor.dart#L221"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">RawMenuAnchor</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A widget that wraps a child and anchors a floating menu.</p>
-<p>The child can be any widget, but is typically a button, a text field, or, in
-the case of context menus, the entire screen.</p>
-<p>The menu overlay of a <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> is shown by calling
-<a href="widgets/MenuController/open.html">MenuController.open</a> on an attached <a href="widgets/MenuController-class.html">MenuController</a>.</p>
-<p>When a <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> is opened, <a href="widgets/RawMenuAnchor/overlayBuilder.html">overlayBuilder</a> is called to construct
-the menu contents within an <a href="widgets/Overlay-class.html">Overlay</a>. The <a href="widgets/Overlay-class.html">Overlay</a> allows the menu to
-"float" on top of other widgets. The <code>info</code> argument passed to
-<a href="widgets/RawMenuAnchor/overlayBuilder.html">overlayBuilder</a> provides the anchor's <a href="dart-ui/Rect-class.html">Rect</a>, the <a href="dart-ui/Size-class.html">Size</a> of the overlay,
-the <a href="widgets/TapRegion/groupId.html">TapRegion.groupId</a> used by members of the menu system, and the
-<code>position</code> argument passed to <a href="widgets/MenuController/open.html">MenuController.open</a>.</p>
-<p>If <a href="widgets/MenuController/open.html">MenuController.open</a> is called with a <code>position</code> argument, it will be
-passed to the <code>info</code> argument of the <code>overlayBuilder</code> function.</p>
-<p>The <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> does not manage semantics and focus of the menu.</p>
-<h3 id="adding-animations-to-menus">Adding animations to menus</h3>
-<p>A <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> has no knowledge of animations, as evident from its APIs,
-which don't involve <a href="animation/AnimationController-class.html">AnimationController</a> at all. It only knows whether the
-overlay is shown or hidden.</p>
-<p>If another widget intends to implement a menu with opening and closing
-transitions, <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a>'s overlay should remain visible throughout both
-the opening and closing animation durations.</p>
-<p>This means that the <code>showOverlay</code> callback passed to <a href="widgets/RawMenuAnchor/onOpenRequested.html">onOpenRequested</a>
-should be called before the first frame of the opening animation.
-Conversely, <code>hideOverlay</code> within <a href="widgets/RawMenuAnchor/onCloseRequested.html">onCloseRequested</a> should only be called
-after the closing animation has completed.</p>
-<p>This also means that, if <a href="widgets/MenuController/open.html">MenuController.open</a> is called while the overlay
-is already visible, <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> has no way of knowing whether the menu
-is currently opening, closing, or stably displayed. The parent widget will
-need to manage additional information (such as the state of an
-<a href="animation/AnimationController-class.html">AnimationController</a>) to determine how to respond in such scenarios.</p>
-<p>To programmatically control a <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a>, like opening or closing it,
-or checking its state, you can get its associated <a href="widgets/MenuController-class.html">MenuController</a>. Use
-<code>MenuController.maybeOf(BuildContext context)</code> to retrieve the controller
-for the closest <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> ancestor of a given <code>BuildContext</code>. More
-detailed usage of <a href="widgets/MenuController-class.html">MenuController</a> is available in its class documentation.</p>
+  <p>用于包裹子组件并锚定浮动菜单的组件。</p>
+<p>子组件可以是任意组件，通常是按钮或文本字段；对于上下文菜单，也可以是整个屏幕。</p>
+<p>调用已附加的 <a href="widgets/MenuController-class.html">MenuController</a> 上的 <a href="widgets/MenuController/open.html">MenuController.open</a>，即可显示 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 的菜单浮层。</p>
+<p>打开 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 后，会调用 <a href="widgets/RawMenuAnchor/overlayBuilder.html">overlayBuilder</a>，在 <a href="widgets/Overlay-class.html">Overlay</a> 中构建菜单内容。<a href="widgets/Overlay-class.html">Overlay</a> 使菜单能够浮在其他组件上方。传给 <a href="widgets/RawMenuAnchor/overlayBuilder.html">overlayBuilder</a> 的 <code>info</code> 参数包含锚点的 <a href="dart-ui/Rect-class.html">Rect</a>、浮层的 <a href="dart-ui/Size-class.html">Size</a>、菜单系统各成员使用的 <a href="widgets/TapRegion/groupId.html">TapRegion.groupId</a>，以及传给 <a href="widgets/MenuController/open.html">MenuController.open</a> 的 <code>position</code> 参数。</p>
+<p>如果调用 <a href="widgets/MenuController/open.html">MenuController.open</a> 时传入 <code>position</code> 参数，该值会传递给 <code>overlayBuilder</code> 函数的 <code>info</code> 参数。</p>
+<p><a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 不负责管理菜单的语义信息和焦点。</p>
+<h3 id="adding-animations-to-menus">为菜单添加动画</h3>
+<p>从它的 API（完全不涉及 <a href="animation/AnimationController-class.html">AnimationController</a>）可以看出，<a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 并不了解动画；它只知道浮层当前是显示还是隐藏。</p>
+<p>如果其他组件要实现带有打开和关闭转场的菜单，则在整个打开和关闭动画期间，<a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 的浮层都应保持可见。</p>
+<p>因此，应在打开动画的第一帧之前调用传给 <a href="widgets/RawMenuAnchor/onOpenRequested.html">onOpenRequested</a> 的 <code>showOverlay</code> 回调。相应地，只有在关闭动画结束后，才能在 <a href="widgets/RawMenuAnchor/onCloseRequested.html">onCloseRequested</a> 中调用 <code>hideOverlay</code>。</p>
+<p>这也意味着，如果浮层已经可见时调用 <a href="widgets/MenuController/open.html">MenuController.open</a>，<a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 无法判断菜单正在打开、正在关闭还是稳定显示。在这种情况下，父组件需要管理额外信息（例如 <a href="animation/AnimationController-class.html">AnimationController</a> 的状态），以决定如何响应。</p>
+<p>要以编程方式控制 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a>（例如打开、关闭菜单或查询其状态），可以获取关联的 <a href="widgets/MenuController-class.html">MenuController</a>。使用 <code>MenuController.maybeOf(BuildContext context)</code> 可取得给定 <code>BuildContext</code> 最近的 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 祖先所关联的控制器。关于 <a href="widgets/MenuController-class.html">MenuController</a> 的更多用法，请参阅其类文档。</p>
 <p>
 <a name="widgets.RawMenuAnchor.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-This example uses a <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> to build a basic select menu with four
-items.
+此示例使用 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 构建一个包含四个选项的基础选择菜单。
 </div>
-    <a class="anchor-button-overlay anchor-button" title="Copy link to clipboard"
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.RawMenuAnchor.1');" onclick="fixHref(this, 'widgets.RawMenuAnchor.1'); copyStringToClipboard(this.href);"
         href="#">
         <i class="material-icons anchor-image">link</i>
     </a>
     <div class="snippet-description">
-        <p>To create a local project with this code sample, run:<br />
+        <p>要使用此代码示例创建本地项目，请运行：<br />
             <span class="snippet-create-command">flutter create --sample=widgets.RawMenuAnchor.1 mysample</span>
         </p>
     </div>
@@ -154,16 +130,15 @@ items.
 <a name="widgets.RawMenuAnchor.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
     <div class="snippet-description">
-This example uses <a href="widgets/RawMenuAnchor/onOpenRequested.html">RawMenuAnchor.onOpenRequested</a> and
-<a href="widgets/RawMenuAnchor/onCloseRequested.html">RawMenuAnchor.onCloseRequested</a> to build an animated menu.
+此示例使用 <a href="widgets/RawMenuAnchor/onOpenRequested.html">RawMenuAnchor.onOpenRequested</a> 和 <a href="widgets/RawMenuAnchor/onCloseRequested.html">RawMenuAnchor.onCloseRequested</a> 构建带动画的菜单。
 </div>
-    <a class="anchor-button-overlay anchor-button" title="Copy link to clipboard"
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.RawMenuAnchor.2');" onclick="fixHref(this, 'widgets.RawMenuAnchor.2'); copyStringToClipboard(this.href);"
         href="#">
         <i class="material-icons anchor-image">link</i>
     </a>
     <div class="snippet-description">
-        <p>To create a local project with this code sample, run:<br />
+        <p>要使用此代码示例创建本地项目，请运行：<br />
             <span class="snippet-create-command">flutter create --sample=widgets.RawMenuAnchor.2 mysample</span>
         </p>
     </div>
@@ -176,16 +151,15 @@ This example uses <a href="widgets/RawMenuAnchor/onOpenRequested.html">RawMenuAn
 <a name="widgets.RawMenuAnchor.3"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet3">
     <div class="snippet-description">
-This example uses <a href="widgets/RawMenuAnchor/onOpenRequested.html">RawMenuAnchor.onOpenRequested</a> and
-<a href="widgets/RawMenuAnchor/onCloseRequested.html">RawMenuAnchor.onCloseRequested</a> to build an animated nested menu.
+此示例使用 <a href="widgets/RawMenuAnchor/onOpenRequested.html">RawMenuAnchor.onOpenRequested</a> 和 <a href="widgets/RawMenuAnchor/onCloseRequested.html">RawMenuAnchor.onCloseRequested</a> 构建带动画的嵌套菜单。
 </div>
-    <a class="anchor-button-overlay anchor-button" title="Copy link to clipboard"
+    <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.RawMenuAnchor.3');" onclick="fixHref(this, 'widgets.RawMenuAnchor.3'); copyStringToClipboard(this.href);"
         href="#">
         <i class="material-icons anchor-image">link</i>
     </a>
     <div class="snippet-description">
-        <p>To create a local project with this code sample, run:<br />
+        <p>要使用此代码示例创建本地项目，请运行：<br />
             <span class="snippet-create-command">flutter create --sample=widgets.RawMenuAnchor.3 mysample</span>
         </p>
     </div>
@@ -200,7 +174,7 @@ This example uses <a href="widgets/RawMenuAnchor/onOpenRequested.html">RawMenuAn
     <section>
       <dl class="dl-horizontal">
         
-  <dt>Inheritance</dt>
+  <dt>继承关系</dt>
   <dd>
     <ul class="gt-separated dark clazz-relationships">
       <li><a href="dart-core/Object-class.html">Object</a></li>
@@ -224,7 +198,7 @@ This example uses <a href="widgets/RawMenuAnchor/onOpenRequested.html">RawMenuAn
 
     
   <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
+    <h2>构造函数</h2>
     <dl class="constructor-summary-list">
         <dt id="RawMenuAnchor.new" class="callable">
           <span class="name"><a href="widgets/RawMenuAnchor/RawMenuAnchor.html">RawMenuAnchor</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-childFocusNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">childFocusNode</span>, </span><span class="parameter" id="-param-consumeOutsideTaps"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">consumeOutsideTaps</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-onOpen"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onOpen</span>, </span><span class="parameter" id="-param-onClose"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onClose</span>, </span><span class="parameter" id="-param-onOpenRequested"><span class="type-annotation"><a href="widgets/RawMenuAnchorOpenRequestedCallback.html">RawMenuAnchorOpenRequestedCallback</a></span> <span class="parameter-name">onOpenRequested</span> = <span class="default-value">_defaultOnOpenRequested</span>, </span><span class="parameter" id="-param-onCloseRequested"><span class="type-annotation"><a href="widgets/RawMenuAnchorCloseRequestedCallback.html">RawMenuAnchorCloseRequestedCallback</a></span> <span class="parameter-name">onCloseRequested</span> = <span class="default-value">_defaultOnCloseRequested</span>, </span><span class="parameter" id="-param-useRootOverlay"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useRootOverlay</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-builder"><span class="type-annotation"><a href="widgets/RawMenuAnchorChildBuilder.html">RawMenuAnchorChildBuilder</a>?</span> <span class="parameter-name">builder</span>, </span><span class="parameter" id="-param-controller"><span>required</span> <span class="type-annotation"><a href="widgets/MenuController-class.html">MenuController</a></span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="-param-overlayBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/RawMenuAnchorOverlayBuilder.html">RawMenuAnchorOverlayBuilder</a></span> <span class="parameter-name">overlayBuilder</span>, </span><span class="parameter" id="-param-child"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span></span>})</span>
@@ -239,7 +213,7 @@ This example uses <a href="widgets/RawMenuAnchor/onOpenRequested.html">RawMenuAn
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="builder" class="property">
   <span class="name"><a href="widgets/RawMenuAnchor/builder.html">builder</a></span>
@@ -311,8 +285,8 @@ widgets.
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -324,7 +298,7 @@ widgets.
 </dt>
 <dd class="inherited">
   Controls how one widget replaces another widget in the tree.
-  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -395,8 +369,8 @@ widgets.
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -419,7 +393,7 @@ widgets.
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="createElement" class="callable inherited">
   <span class="name"><a href="widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
@@ -429,8 +403,8 @@ widgets.
 
 </dt>
 <dd class="inherited">
-  Creates a <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
-  <div class="features"><span class="feature">inherited</span></div>
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -443,7 +417,7 @@ widgets.
 </dt>
 <dd>
   Creates the mutable state for this widget at a given location in the tree.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -457,7 +431,7 @@ widgets.
 <dd class="inherited">
   Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
 children.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -470,7 +444,7 @@ children.
 </dt>
 <dd>
   Add additional properties associated with the node.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -482,8 +456,8 @@ children.
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -497,7 +471,7 @@ children.
 <dd class="inherited">
   Returns a debug representation of the object that is used by debugging
 tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -509,8 +483,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  A string representation of this object.
-  <div class="features"><span class="feature">inherited</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -523,7 +497,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   Returns a string representation of this node and its descendants.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -536,7 +510,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   Returns a one-line detailed description of the object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -549,7 +523,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   A short, textual description of this widget.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -559,7 +533,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -569,8 +543,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -585,16 +559,16 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets</a></li>
-    <li class="self-crumb">RawMenuAnchor class</li>
+    <li class="self-crumb">RawMenuAnchor 类</li>
 </ol>
 
-    <h5>widgets library</h5>
+    <h5>widgets 库</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -617,7 +591,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

@@ -19843,7 +19843,12 @@
     "8": "<p>\n<a name=\"widgets.PopScope.2\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet2\">\n    <div class=\"snippet-description\">\nThis sample demonstrates showing how to use PopScope to wrap widget that\nmay pop the page with a result.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.PopScope.2');\" onclick=\"fixHref(this, 'widgets.PopScope.2'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.PopScope.2 mysample</span>\n        </p>",
     "9": "<p>另请参阅：</p>",
     "0": "<p>用于管理返回导航手势。</p>",
-    "4": "<p>Android 提供系统返回手势，即从屏幕边缘附近向内滑动。Android 会先识别该手势，再将其传递给 Flutter。iOS 也有类似手势，但由 Flutter 中的 <a href=\"cupertino/CupertinoRouteTransitionMixin-mixin.html\">CupertinoRouteTransitionMixin</a> 识别，而不是由 iOS 识别，因此它不属于系统返回手势。</p>"
+    "4": "<p>Android 提供系统返回手势，即从屏幕边缘附近向内滑动。Android 会先识别该手势，再将其传递给 Flutter。iOS 也有类似手势，但由 Flutter 中的 <a href=\"cupertino/CupertinoRouteTransitionMixin-mixin.html\">CupertinoRouteTransitionMixin</a> 识别，而不是由 iOS 识别，因此它不属于系统返回手势。</p>",
+    "1": "<p>泛型类型应与外围 <a href=\"widgets/Route-class.html\">Route</a> 的泛型类型相同或为其超类型。例如，如果外围 Route 是 <code>MaterialPageRoute&lt;int&gt;</code>，则可以将 <a href=\"widgets/PopScope-class.html\">PopScope</a> 的泛型指定为 <code>int</code> 或其任意超类型（<code>int</code> 的超类型）。</p>",
+    "2": "<p>将 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 设为 <code>false</code> 时，会禁用返回手势。</p>",
+    "3": "<p><a href=\"widgets/PopScope/onPopInvokedWithResult.html\">onPopInvokedWithResult</a> 参数会报告是否尝试了弹出导航；<code>didPop</code> 用于指示导航是否成功。<code>result</code> 包含弹出操作的结果。</p>",
+    "5": "<p>如果 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 为 false，系统返回手势不会使外围 <a href=\"widgets/Navigator-class.html\">Navigator</a> 弹出当前路由。此时仍会调用 <a href=\"widgets/PopScope/onPopInvokedWithResult.html\">onPopInvokedWithResult</a>，且 <code>didPop</code> 为 <code>false</code>。在 iOS 上，如果使用 <a href=\"cupertino/CupertinoRouteTransitionMixin-mixin.html\">CupertinoRouteTransitionMixin</a>，并将 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 设为 false，则系统完全不会识别该手势，因此不会调用 <a href=\"widgets/PopScope/onPopInvokedWithResult.html\">onPopInvokedWithResult</a>。以编程方式尝试弹出路由也会调用 <a href=\"widgets/PopScope/onPopInvokedWithResult.html\">onPopInvokedWithResult</a>，并通过 <code>didPop</code> 指示操作成功或失败。</p>",
+    "6": "<p>如果 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 为 true，系统返回手势会像往常一样使外围 <a href=\"widgets/Navigator-class.html\">Navigator</a> 收到弹出请求。除非弹出因与 <a href=\"widgets/PopScope-class.html\">PopScope</a> 无关的原因失败，否则调用 <a href=\"widgets/PopScope/onPopInvokedWithResult.html\">onPopInvokedWithResult</a> 时，<code>didPop</code> 为 true；如果弹出失败，该值则为 false。</p>"
   },
   "widgets/PopupRoute-class.html": {
     "8": "<p>另请参阅：</p>",
@@ -19855,7 +19860,8 @@
     "1": "<p>用户是否可以通过点击模态屏障关闭此路由。</p>",
     "4": "<p>如果 <a href=\"widgets/ModalRoute/barrierDismissible.html\">barrierDismissible</a> 为 true，点击此屏障、按键盘上的 Escape 键，或调用 <a href=\"widgets/Navigator/pop.html\">Navigator.pop</a> 等路由弹出函数，都会使当前路由弹出，且结果值为 null。</p>",
     "5": "<p>如果 <a href=\"widgets/ModalRoute/barrierDismissible.html\">barrierDismissible</a> 为 false，点击屏障不会产生效果。</p>",
-    "6": "<p>如果此 getter 可能返回不同的值，则应调用 <a href=\"widgets/ModalRoute/changedInternalState.html\">changedInternalState</a> 或 <a href=\"widgets/ModalRoute/changedExternalState.html\">changedExternalState</a>，使更改生效。</p>"
+    "6": "<p>如果此 getter 可能返回不同的值，则应调用 <a href=\"widgets/ModalRoute/changedInternalState.html\">changedInternalState</a> 或 <a href=\"widgets/ModalRoute/changedExternalState.html\">changedExternalState</a>，使更改生效。</p>",
+    "7": "<p>此处可以安全地使用 <code>navigator.context</code> 查找继承组件，因为 <a href=\"widgets/Navigator-class.html\">Navigator</a> 会在依赖项发生变化时调用 <a href=\"widgets/ModalRoute/changedExternalState.html\">changedExternalState</a>，而 <a href=\"widgets/ModalRoute/changedExternalState.html\">changedExternalState</a> 会使模态屏障重建。</p>"
   },
   "widgets/Positioned-class.html": {
     "3": "<p>如果 <a href=\"widgets/Positioned/top.html\">top</a> 和 <a href=\"widgets/Positioned/bottom.html\">bottom</a> 均非 null，子组件的高度将被固定为满足这两个约束所需的值。同样，将 <a href=\"widgets/Positioned/right.html\">right</a> 和 <a href=\"widgets/Positioned/left.html\">left</a> 设为非 null 会固定子组件的宽度。也可以使用 <a href=\"widgets/Positioned/width.html\">width</a> 和 <a href=\"widgets/Positioned/height.html\">height</a> 指定尺寸，并设置对应的位置属性之一（例如同时设置 <a href=\"widgets/Positioned/top.html\">top</a> 和 <a href=\"widgets/Positioned/height.html\">height</a>）。</p>",
@@ -19901,7 +19907,8 @@
     "5": "<p>另请参阅：</p>",
     "0": "<p>具有首选尺寸的组件。</p>",
     "1": "<p>此组件不会对其子组件施加任何约束，也不会以任何方式影响子组件的布局。它只会声明一个供父组件使用的首选尺寸。</p>",
-    "3": "<p><a href=\"material/AppBar-class.html\">AppBar</a> 等组件已经实现了 <a href=\"widgets/PreferredSizeWidget-class.html\">PreferredSizeWidget</a>，因此无需再用 <a href=\"widgets/PreferredSize-class.html\">PreferredSize</a> 包装它们。</p>"
+    "3": "<p><a href=\"material/AppBar-class.html\">AppBar</a> 等组件已经实现了 <a href=\"widgets/PreferredSizeWidget-class.html\">PreferredSizeWidget</a>，因此无需再用 <a href=\"widgets/PreferredSize-class.html\">PreferredSize</a> 包装它们。</p>",
+    "2": "<p><a href=\"material/Scaffold-class.html\">Scaffold</a> 等父组件会使用 <a href=\"widgets/PreferredSizeWidget-class.html\">PreferredSizeWidget</a> 要求其子组件实现该接口。若要为任意组件指定首选尺寸，使其能用作该类型的 <code>child</code> 属性值，可以使用 <a href=\"widgets/PreferredSize-class.html\">PreferredSize</a> 组件。</p>"
   },
   "widgets/PrimaryScrollController-class.html": {
     "0": "<p>将 <a href=\"widgets/ScrollController-class.html\">ScrollController</a> 关联到一个子树。</p>",
@@ -19916,7 +19923,8 @@
   },
   "widgets/ProxyWidget-class.html": {
     "1": "<p>Useful as a base class for other widgets, such as <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 和\n<a href=\"widgets/ParentDataWidget-class.html\">ParentDataWidget</a>.</p>",
-    "2": "<p>另请参阅：</p>"
+    "2": "<p>另请参阅：</p>",
+    "0": "<p>接收子组件作为输入，而不是自行构建新组件的组件。</p>"
   },
   "widgets/RangeMaintainingScrollPhysics-class.html": {
     "0": "<p>当内容尺寸突然变化时，尝试使滚动位置保持在有效范围内的滚动物理效果。</p>",
@@ -19976,17 +19984,30 @@
   },
   "widgets/RawMagnifier-class.html": {
     "1": "<p>\n<a name=\"widgets.RawMagnifier.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\nThis sample demonstrates what a magnifier is, and how it can be used.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawMagnifier.1');\" onclick=\"fixHref(this, 'widgets.RawMagnifier.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawMagnifier.1 mysample</span>\n        </p>",
-    "2": "<p>在移动设备上，如果手指遮挡了正在进行精细操作的屏幕区域（例如在图像或文本上拖动小光标），放大镜会很有帮助。</p>"
+    "2": "<p>在移动设备上，如果手指遮挡了正在进行精细操作的屏幕区域（例如在图像或文本上拖动小光标），放大镜会很有帮助。</p>",
+    "0": "<p>放大镜组件的通用基类。</p>",
+    "3": "<p>可以通过 <a href=\"widgets/MagnifierController-class.html\">MagnifierController</a> 便捷地管理放大镜，包括显示和隐藏操作，并可选择添加进入/退出动画。</p>",
+    "4": "<p>另请参阅：</p>"
   },
   "widgets/RawMenuAnchorGroup-class.html": {
     "4": "<p>\n<a name=\"widgets.RawMenuAnchorGroup.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\nThis example uses <a href=\"widgets/RawMenuAnchorGroup-class.html\">RawMenuAnchorGroup</a> to build a menu bar with four\nsubmenus. Hovering over a menu item opens its respective submenu. Selecting\na menu item will close the menu and update the selected item text.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawMenuAnchorGroup.1');\" onclick=\"fixHref(this, 'widgets.RawMenuAnchorGroup.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawMenuAnchorGroup.1 mysample</span>\n        </p>",
-    "5": "<p>另请参阅：</p>"
+    "5": "<p>另请参阅：</p>",
+    "0": "<p>创建一个始终可见且不会显示在 <a href=\"widgets/OverlayPortal-class.html\">OverlayPortal</a> 中的菜单锚点。</p>",
+    "1": "<p><a href=\"widgets/RawMenuAnchorGroup-class.html\">RawMenuAnchorGroup</a> 可用于创建能够处理外部点击和键盘快捷键的菜单栏，但它不会提供默认焦点或键盘遍历行为，因此具有更高的灵活性。</p>",
+    "2": "<p>向 <a href=\"widgets/RawMenuAnchorGroup-class.html\">RawMenuAnchorGroup</a> 提供 <a href=\"widgets/MenuController-class.html\">MenuController</a> 时，</p>",
+    "3": "<p>必须提供 <a href=\"widgets/RawMenuAnchorGroup/child.html\">child</a>。</p>"
   },
   "widgets/RawMenuOverlayInfo-class.html": {
     "0": "<p>传递给 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 的锚点和菜单信息。</p>"
   },
   "widgets/RawRadio-class.html": {
-    "6": "<p>另请参阅：</p>"
+    "6": "<p>另请参阅：</p>",
+    "0": "<p>提供基本单选功能的单选按钮。</p>",
+    "1": "<p>提供 <code>builder</code> 以绘制单选按钮的界面。</p>",
+    "2": "<p>如果需要绘制径向墨水反馈效果（例如 Material Design 中的效果），可以提供 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a>，并将 <a href=\"widgets/ToggleablePainter-class.html\">ToggleablePainter</a> 子类作为 <a href=\"widgets/CustomPaint/painter.html\">CustomPaint.painter</a>。该子类负责实现此控件的径向墨水反馈绘制逻辑。绘制器通常使用此 mixin 提供的 <a href=\"widgets/ToggleableStateMixin/reaction.html\">ToggleableStateMixin.reaction</a>、<a href=\"widgets/ToggleableStateMixin/position.html\">ToggleableStateMixin.position</a>、<a href=\"widgets/ToggleableStateMixin/reactionHoverFade.html\">ToggleableStateMixin.reactionHoverFade</a> 和 <a href=\"widgets/ToggleableStateMixin/reactionFocusFade.html\">ToggleableStateMixin.reactionFocusFade</a> 动画配置。它应根据这些动画的当前值绘制 Toggleable 的视觉效果。mixin 会触发这些动画，使 Toggleable 在不同状态之间过渡。</p>",
+    "3": "<p>此组件允许从多个互斥值中进行选择。选中某个组内的单选按钮后，组中的其他按钮会取消选中。值的类型为 <code>T</code>，即单选组件的类型参数。此用途通常会使用枚举。</p>",
+    "4": "<p>单选按钮依靠 <a href=\"widgets/RawRadio/groupRegistry.html\">groupRegistry</a> 管理选中状态。如果与 <a href=\"widgets/RadioGroup-class.html\">RadioGroup</a> 组件配合使用，请通过 <a href=\"widgets/RadioGroup/maybeOf.html\">RadioGroup.maybeOf</a> 从上下文中获取组注册表。</p>",
+    "5": "<p>如果 <a href=\"widgets/RawRadio/enabled.html\">enabled</a> 为 false，单选按钮将不可交互。</p>"
   },
   "widgets/RawScrollbar-class.html": {
     "10": "<p>Alternatively, a new PrimaryScrollController could be created above one of\nthe <a href=\"widgets/ListView-class.html\">ListView</a>。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawScrollbar.1');\" onclick=\"fixHref(this, 'widgets.RawScrollbar.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawScrollbar.1 mysample</span>\n        </p>",
@@ -19994,7 +20015,20 @@
     "15": "<p>\n<a name=\"widgets.RawScrollbar.3\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet3\">\n    <div class=\"snippet-description\">\nThis sample shows how to disable the default Scrollbar for a <a href=\"widgets/Scrollable-class.html\">Scrollable</a>\nwidget to avoid duplicate Scrollbars when running on desktop platforms.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawScrollbar.3');\" onclick=\"fixHref(this, 'widgets.RawScrollbar.3'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawScrollbar.3 mysample</span>\n        </p>",
     "16": "<p>\n<a name=\"widgets.RawScrollbar.4\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet4\">\n    <div class=\"snippet-description\">\nThis sample shows a <a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> that executes a fade animation as\nscrolling occurs. The RawScrollbar will fade into view as the user scrolls,\nand fade out when scrolling stops. The <a href=\"widgets/GridView-class.html\">GridView</a> uses the\n<a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> since it has an <a href=\"painting/Axis.html\">Axis.vertical</a> scroll direction\nand has not been provided a <a href=\"widgets/ScrollController-class.html\">ScrollController</a>.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawScrollbar.4');\" onclick=\"fixHref(this, 'widgets.RawScrollbar.4'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawScrollbar.4 mysample</span>\n        </p>",
     "17": "<p>\n<a name=\"widgets.RawScrollbar.5\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet5\">\n    <div class=\"snippet-description\">\nWhen <code>thumbVisibility</code> is true, the scrollbar thumb will remain visible without\nthe fade animation. This requires that a <a href=\"widgets/ScrollController-class.html\">ScrollController</a> is provided to\n<code>controller</code> for both the <a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> and the <a href=\"widgets/GridView-class.html\">GridView</a>.\nAlternatively, the <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> can be used automatically so long\nas it is attached to the singular <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> associated with the GridView.\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawScrollbar.5');\" onclick=\"fixHref(this, 'widgets.RawScrollbar.5'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>要使用此代码示例创建本地项目，请运行：<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawScrollbar.5 mysample</span>\n        </p>",
-    "18": "<p>另请参阅：</p>"
+    "18": "<p>另请参阅：</p>",
+    "0": "<p>用于构建可淡入和淡出的滚动条的可扩展基类。</p>",
+    "1": "<p>若要为 <a href=\"widgets/ScrollView-class.html\">ScrollView</a>（例如 <a href=\"widgets/ListView-class.html\">ListView</a> 或 <a href=\"widgets/CustomScrollView-class.html\">CustomScrollView</a>）添加滚动条，请用 <a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> 组件包裹滚动视图组件。</p>",
+    "2": "<p>滚动条滑块用于指示 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 中当前可见的部分。</p>",
+    "3": "<p>默认情况下，子滚动视图滚动时，滑块会淡入和淡出。将 <a href=\"widgets/RawScrollbar/thumbVisibility.html\">thumbVisibility</a> 设为 true 后，滚动条滑块会保持可见，不执行淡出动画。这要求将与 Scrollable 组件关联的 <a href=\"widgets/ScrollController-class.html\">ScrollController</a> 传给 <a href=\"widgets/RawScrollbar/controller.html\">controller</a>，或者由该 Scrollable 组件使用 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a>。</p>",
+    "4": "<p>如果滚动条包裹了多个 <a href=\"widgets/ScrollView-class.html\">ScrollView</a>，默认情况下它只响应最近的 ScrollView，并显示对应的滑块。通过 <a href=\"widgets/RawScrollbar/notificationPredicate.html\">notificationPredicate</a>，可以自定义滚动条要监听哪些 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a>。</p>",
+    "5": "<p>如果子 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 的长度无限，<a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> 将不会绘制。在这种情况下，滚动条无法准确表示可视区域的相对位置，也无法计算拖动滑块或点击轨道时应应用的准确增量。</p>",
+    "6": "<h3 id=\"interaction\">交互</h3>",
+    "7": "<p>滚动条支持交互；如果未设置 <a href=\"widgets/RawScrollbar/controller.html\">controller</a>，则可以使用 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a>。用户可以沿 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 的主轴拖动交互式滚动条滑块，以更改 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a>。点击滑块以外的轨道时，会根据点击位置相对于滑块的位置触发 <a href=\"widgets/ScrollIncrementType.html\">ScrollIncrementType.page</a>。</p>",
+    "8": "<p>使用 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> 时，它不能同时附加到多个 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a>。未提供 <a href=\"widgets/ScrollController-class.html\">ScrollController</a>，且 <a href=\"widgets/ScrollView/scrollDirection.html\">ScrollView.scrollDirection</a> 为 <a href=\"painting/Axis.html\">Axis.vertical</a> 的 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 会自动将其 ScrollPosition 附加到 PrimaryScrollController。此时应为每个 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 提供唯一的 ScrollController，避免多个 ScrollPosition 附加到同一个 PrimaryScrollController。</p>",
+    "11": "<h3 id=\"automatic-scrollbars-on-desktop-platforms\">桌面平台上的自动滚动条</h3>",
+    "12": "<p>在 <a href=\"flutter_test/TargetPlatformVariant/TargetPlatformVariant.desktop.html\">TargetPlatformVariant.desktop</a> 平台上，大多数 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 组件默认会添加滚动条。这通过应用的 <a href=\"widgets/ScrollConfiguration-class.html\">ScrollConfiguration</a> 中的 <a href=\"widgets/ScrollBehavior/buildScrollbar.html\">ScrollBehavior.buildScrollbar</a> 实现。未使用 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a>，或自身提供了 <a href=\"widgets/ScrollController-class.html\">ScrollController</a> 的 Scrollable 会获得一个供滚动条使用的唯一 ScrollController。此时，除非将 <a href=\"widgets/RawScrollbar/interactive.html\">interactive</a> 设为 false，否则只能有一个 Scrollable 使用 PrimaryScrollController。若要阻止 <a href=\"painting/Axis.html\">Axis.vertical</a> 方向的 Scrollable 使用 PrimaryScrollController，请将 <a href=\"widgets/ScrollView/primary.html\">ScrollView.primary</a> 设为 false。以下 Scrollable 组件不会自动应用滚动条：</p>",
+    "13": "<p>若要为整个应用停用默认滚动条，可设置一个 <a href=\"widgets/ScrollBehavior-class.html\">ScrollBehavior</a>，并将 <code>scrollbars</code> 设为 false。</p>",
+    "9": "<p>\n<a name=\"widgets.RawScrollbar.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n此示例展示了同一路由中包含两个可滚动组件的应用。由于每个路由默认只有一个 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a>，且这两个组件的滚动方向都是 <a href=\"painting/Axis.html\">Axis.vertical</a>，在移动平台上它们都会尝试附加到该控制器。<a href=\"material/Scrollbar-class.html\">Scrollbar</a> 不支持多个位置同时附加到同一控制器，因此其中一个 <a href=\"widgets/ListView-class.html\">ListView</a> 及其 <a href=\"material/Scrollbar-class.html\">Scrollbar</a> 使用了单独的 <a href=\"widgets/ScrollController-class.html\">ScrollController</a>。桌面平台不会自动附加到 PrimaryScrollController；若要使用它，需要改为将 <a href=\"widgets/ScrollView/primary.html\">ScrollView.primary</a> 设为 true。</p>"
   },
   "widgets/RawTooltip-class.html": {
     "3": "<p>另请参阅：</p>",
@@ -34081,7 +34115,9 @@
   "widgets/PopScope/onPopInvokedWithResult.html": {
     "4": "<p>另请参阅：</p>",
     "0": "<p>路由弹出操作处理完毕后调用。</p>",
-    "1": "<p>此方法调用时，弹出操作已经发生，因此无法再阻止它。请使用 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 提前禁用弹出操作。</p>"
+    "1": "<p>此方法调用时，弹出操作已经发生，因此无法再阻止它。请使用 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 提前禁用弹出操作。</p>",
+    "2": "<p>即使弹出操作被取消，此回调仍会调用。当相关的 <a href=\"widgets/Route/popDisposition.html\">Route.popDisposition</a> 返回 false 时，弹出操作就会被取消，例如 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 在 <a href=\"widgets/PopScope-class.html\">PopScope</a> 上设为 false 时。<code>didPop</code> 参数指示返回导航是否成功执行。</p>",
+    "3": "<p><code>result</code> 包含弹出操作的结果。</p>"
   },
   "widgets/PopScope/PopScope.html": {
     "0": "<p>创建一个组件并注册回调，以否决用户关闭外层 <a href=\"widgets/ModalRoute-class.html\">ModalRoute</a> 的尝试。</p>"
@@ -34110,14 +34146,17 @@
   },
   "widgets/Positioned/Positioned.directional.html": {
     "3": "<p>另请参阅：</p>",
-    "0": "<p>创建一个用于控制 <a href=\"widgets/Stack-class.html\">Stack</a> 子元素位置的组件。</p>"
+    "0": "<p>创建一个用于控制 <a href=\"widgets/Stack-class.html\">Stack</a> 子元素位置的组件。</p>",
+    "1": "<p>水平三个值（<code>start</code>、<code>end</code>、<code>width</code>）中只能设置两个，垂直三个值（<code>top</code>、<code>bottom</code>、<code>height</code>）中也只能设置两个。每组三个值中至少有一个必须为 null。</p>",
+    "2": "<p>当 <code>textDirection</code> 为 <a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a> 时，<code>start</code> 参数对应 <a href=\"widgets/Positioned/right.html\">right</a> 属性，<code>end</code> 参数对应 <a href=\"widgets/Positioned/left.html\">left</a> 属性。若 <code>textDirection</code> 为 <a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a>，则 <code>start</code> 参数对应 <a href=\"widgets/Positioned/left.html\">left</a> 属性，<code>end</code> 参数对应 <a href=\"widgets/Positioned/right.html\">right</a> 属性。</p>"
   },
   "widgets/Positioned/Positioned.fill.html": {
     "0": "<p>创建一个 Positioned 对象，其 <code>left</code>、<code>top</code>、<code>right</code> 和 <code>bottom</code> 均设为 0.0，除非传入了相应的值。</p>"
   },
   "widgets/Positioned/Positioned.html": {
     "2": "<p>另请参阅：</p>",
-    "0": "<p>创建一个用于控制 <a href=\"widgets/Stack-class.html\">Stack</a> 子元素位置的组件。</p>"
+    "0": "<p>创建一个用于控制 <a href=\"widgets/Stack-class.html\">Stack</a> 子元素位置的组件。</p>",
+    "1": "<p>水平三个值（<code>left</code>、<code>right</code>、<code>width</code>）中只能设置两个，垂直三个值（<code>top</code>、<code>bottom</code>、<code>height</code>）中也只能设置两个。每组三个值中至少有一个必须为 null。</p>"
   },
   "widgets/PositionedDirectional/build.html": {
     "0": "<p>描述此 widget 所表示的用户界面部分。</p>",
@@ -34135,7 +34174,8 @@
   },
   "widgets/PositionedDirectional/PositionedDirectional.html": {
     "2": "<p>另请参阅：</p>",
-    "0": "<p>创建一个用于控制 <a href=\"widgets/Stack-class.html\">Stack</a> 子元素位置的组件。</p>"
+    "0": "<p>创建一个用于控制 <a href=\"widgets/Stack-class.html\">Stack</a> 子元素位置的组件。</p>",
+    "1": "<p>水平三个值（<code>start</code>、<code>end</code>、<code>width</code>）中只能设置两个，垂直三个值（<code>top</code>、<code>bottom</code>、<code>height</code>）中也只能设置两个。每组三个值中至少有一个必须为 null。</p>"
   },
   "widgets/PositionedTransition/build.html": {
     "0": "<p>重写此方法，以构建依赖于 listenable 状态（例如动画当前值）的组件。</p>"
@@ -34596,10 +34636,15 @@
     "6": "<p>如果组件的 <a href=\"widgets/RawMagnifier/build.html\">build</a> 方法还依赖其他内容，请改用 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a>。</p>"
   },
   "widgets/RawMagnifier/clipBehavior.html": {
-    "1": "<p>默认为 <a href=\"dart-ui/Clip.html\">Clip.none</a>。</p>"
+    "1": "<p>默认为 <a href=\"dart-ui/Clip.html\">Clip.none</a>。</p>",
+    "0": "<p>是否裁剪以及如何裁剪放大镜内部渲染的 <a href=\"widgets/RawMagnifier/decoration.html\">装饰</a>部分。</p>",
+    "2": "<p>请参阅关于 <a href=\"widgets/RawMagnifier/decoration.html\">decoration</a> 的说明。</p>"
   },
   "widgets/RawMenuAnchor/consumeOutsideTaps.html": {
-    "3": "<p>默认为 false。</p>"
+    "3": "<p>默认为 false。</p>",
+    "0": "<p>关闭菜单的点击事件是否允许继续进入手势竞技场。</p>",
+    "1": "<p>如果为 false，在菜单打开时点击菜单外部区域，既会关闭菜单，也会让该点击参与手势竞技场。</p>",
+    "2": "<p>如果为 true，则只会关闭菜单，并消耗该点击事件。</p>"
   },
   "widgets/RawMenuAnchor/controller.html": {
     "0": "<p>用于从其他组件打开或关闭菜单的 <a href=\"widgets/MenuController-class.html\">MenuController</a>。</p>"
@@ -34691,21 +34736,27 @@
   },
   "widgets/RawRadio/focusNode.html": {
     "0": "<p>可选的焦点节点，用作此组件的焦点节点。</p>",
-    "2": "<p>如果祖先组件希望控制此组件何时获得焦点，提供焦点节点有时很有用。节点的拥有者负责在不再使用时调用 <a href=\"widgets/FocusNode/dispose.html\">FocusNode.dispose</a>，而此组件会根据需要附加、分离节点以及重新指定其父节点。</p>"
+    "2": "<p>如果祖先组件希望控制此组件何时获得焦点，提供焦点节点有时很有用。节点的拥有者负责在不再使用时调用 <a href=\"widgets/FocusNode/dispose.html\">FocusNode.dispose</a>，而此组件会根据需要附加、分离节点以及重新指定其父节点。</p>",
+    "1": "<p>如果未提供此节点，组件会自动分配、持有并管理一个焦点节点。即使未提供 <a href=\"widgets/RawRadio/focusNode.html\">focusNode</a>，此组件仍可获得焦点。如果提供了该节点，组件会使用 <a href=\"widgets/RawRadio/focusNode.html\">focusNode</a>，但不会持有它。关于托管和持有焦点节点的含义，请参阅 <a href=\"widgets/FocusNode-class.html\">FocusNode</a>。</p>"
   },
   "widgets/RawRadio/mouseCursor.html": {
-    "0": "<p>鼠标指针进入或悬停在此组件上时使用的光标。</p>"
+    "0": "<p>鼠标指针进入或悬停在此组件上时使用的光标。</p>",
+    "1": "<p>如果 <a href=\"widgets/RawRadio/mouseCursor.html\">mouseCursor</a> 是 <a href=\"widgets/WidgetStateMouseCursor-class.html\">WidgetStateMouseCursor</a>，则会对以下 <a href=\"widgets/WidgetState.html\">WidgetState</a> 使用 <a href=\"widgets/WidgetStateProperty/resolve.html\">WidgetStateProperty.resolve</a>：</p>"
   },
   "widgets/RawRadio/toggleable.html": {
     "0": "<p>设为 true 后，已选中的单选按钮可通过再次选择回到未确定状态。</p>",
     "1": "<p>为表示回到未确定状态，组件树上方的 <a href=\"widgets/RadioGroup/onChanged.html\">RadioGroup.onChanged</a> 会以 null 调用 <a href=\"widgets/RadioGroup-class.html\">RadioGroup</a>。</p>",
-    "4": "<p>默认值为 false。</p>"
+    "4": "<p>默认值为 false。</p>",
+    "2": "<p>如果为 true，选择此项且 <a href=\"widgets/RadioGroup/groupValue.html\">RadioGroup.groupValue</a> != <a href=\"widgets/RawRadio/value.html\">value</a> 时，会以 <a href=\"widgets/RawRadio/value.html\">value</a> 调用 <a href=\"widgets/RadioGroup/onChanged.html\">RadioGroup.onChanged</a>；若在 <a href=\"widgets/RadioGroup/groupValue.html\">RadioGroup.groupValue</a> == <a href=\"widgets/RawRadio/value.html\">value</a> 时再次选择此项，则会以 null 调用该回调。</p>",
+    "3": "<p>如果为 false，选中此项且 <a href=\"widgets/RadioGroup/groupValue.html\">RadioGroup.groupValue</a> != <a href=\"widgets/RawRadio/value.html\">value</a> 时，会以 <a href=\"widgets/RawRadio/value.html\">value</a> 调用 <a href=\"widgets/RadioGroup/onChanged.html\">RadioGroup.onChanged</a>。此后只有选中组内另一个单选按钮（即更改 <a href=\"widgets/RadioGroup/groupValue.html\">RadioGroup.groupValue</a> 的值），才能取消选中此按钮。</p>"
   },
   "widgets/RawRadio/value.html": {
     "0": "<p>此单选按钮所代表的值。</p>"
   },
   "widgets/RawScrollbar/child.html": {
-    "0": "<p>组件树中位于此组件下方的组件。</p>"
+    "0": "<p>组件树中位于此组件下方的组件。</p>",
+    "1": "<p>滚动条会叠放在此子组件上方。此子组件及其子树应包含能够发出 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 通知的组件。通常，桌面平台上的 <a href=\"material/Scrollbar-class.html\">Scrollbar</a> 由 <a href=\"widgets/ScrollBehavior/buildScrollbar.html\">ScrollBehavior.buildScrollbar</a> 方法创建，此时 child 通常就是传给该方法的参数。</p>",
+    "2": "<p>通常是 <a href=\"widgets/ListView-class.html\">ListView</a> 或 <a href=\"widgets/CustomScrollView-class.html\">CustomScrollView</a>。</p>"
   },
   "widgets/RawScrollbar/createState.html": {
     "0": "<p>为组件在树中的给定位置创建可变状态。</p>",
@@ -34713,17 +34764,30 @@
     "2": "<p>框架在 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 的生命周期内可能多次调用此方法。例如，如果组件被插入树中的多个位置，框架会为每个位置创建独立的 <a href=\"widgets/State-class.html\">State</a> 对象。同样，如果组件从树中移除后又重新插入，框架会再次调用 <a href=\"widgets/RawScrollbar/createState.html\">createState</a> 创建新的 <a href=\"widgets/State-class.html\">State</a> 对象，从而简化 <a href=\"widgets/State-class.html\">State</a> 对象的生命周期。</p>"
   },
   "widgets/RawScrollbar/crossAxisMargin.html": {
-    "2": "<p>默认为零。</p>"
+    "2": "<p>默认为零。</p>",
+    "0": "<p>滚动条滑块侧边与最近的交叉轴边缘之间的距离，单位为逻辑像素。</p>",
+    "1": "<p>滚动条轨道会占用这部分空间。</p>"
   },
   "widgets/RawScrollbar/interactive.html": {
-    "4": "<p>另请参阅：</p>"
+    "4": "<p>另请参阅：</p>",
+    "0": "<p>滚动条是否支持交互，并响应滑块拖动或轨道区域点击。</p>",
+    "1": "<p>此设置不适用于 <a href=\"cupertino/CupertinoScrollbar-class.html\">CupertinoScrollbar</a>，因为它始终支持交互，以符合原生行为。在 Android 上，滚动条默认不支持交互。</p>",
+    "2": "<p>设为 false 时，滚动条不会响应手势或悬停事件，并允许点击穿透。</p>",
+    "3": "<p>默认值为 true；若值为 null，则除 Android 默认使用 false 外，其他平台均默认为 true。</p>"
   },
   "widgets/RawScrollbar/padding.html": {
-    "2": "<p>默认为 null。</p>"
+    "2": "<p>默认为 null。</p>",
+    "0": "<p>用于设置滚动条滑块和轨道内边距的 EdgeInsets。</p>",
+    "1": "<p>为 null 时，使用继承而来的 <a href=\"widgets/MediaQueryData/padding.html\">MediaQueryData.padding</a>。</p>"
   },
   "widgets/RawScrollbar/thumbVisibility.html": {
     "4": "<p>\n<a name=\"widgets.RawScrollbar.thumbVisibility.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  \n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.RawScrollbar.thumbVisibility.1');\" onclick=\"fixHref(this, 'widgets.RawScrollbar.thumbVisibility.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">&#47;&#47; (e.g. in a stateful widget)\n\nfinal ScrollController controllerOne = ScrollController();\nfinal ScrollController controllerTwo = ScrollController();\n\n@override\nWidget build(BuildContext context) {\nreturn Column(\n  children: &lt;Widget&gt;[\n    SizedBox(\n       height: 200,\n       child: Scrollbar(\n         thumbVisibility: true,\n         controller: controllerOne,\n         child: ListView.builder(\n           controller: controllerOne,\n           itemCount: 120,\n           itemBuilder: (BuildContext context, int index) {\n             return Text(&#39;item $index&#39;);\n           },\n         ),\n       ),\n     ),\n     SizedBox(\n       height: 200,\n       child: CupertinoScrollbar(\n         thumbVisibility: true,\n         controller: controllerTwo,\n         child: SingleChildScrollView(\n           controller: controllerTwo,\n           child: const SizedBox(\n             height: 2000,\n             width: 500,\n             child: Placeholder(),\n           ),\n         ),\n       ),\n     ),\n   ],\n  );\n}</code></pre>\n  </div>\n</div>\n</p>",
-    "5": "<p>另请参阅：</p>"
+    "5": "<p>另请参阅：</p>",
+    "0": "<p>指定滚动过程中断时，滚动条滑块是否仍保持可见。</p>",
+    "1": "<p>为 false 时，滚动期间会显示滚动条，其他时间则会淡出。</p>",
+    "2": "<p>为 true 时，滚动条始终可见，不会淡出。这要求 Scrollbar 能访问关联 Scrollable 组件的 <a href=\"widgets/ScrollController-class.html\">ScrollController</a>。它可以是显式提供的 <a href=\"widgets/RawScrollbar/controller.html\">controller</a>，也可以是当前上下文中的 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a>。</p>",
+    "3": "<p>值为 null 时，默认值为 false。</p>",
+    "6": "<p>子类 <a href=\"material/Scrollbar-class.html\">Scrollbar</a> 可以通过 <a href=\"material/ScrollbarThemeData/thumbVisibility.html\">ScrollbarThemeData.thumbVisibility</a>，根据 <a href=\"widgets/WidgetState.html\">WidgetState</a> 显示或隐藏滚动条滑块。</p>"
   },
   "widgets/RawScrollbarState/build.html": {
     "0": "<p>描述此 widget 所表示的用户界面部分。</p>",
@@ -34762,7 +34826,11 @@
     "10": "<p>若要人为地销毁整个组件树，可考虑调用 <a href=\"widgets/runApp.html\">runApp</a> 并传入诸如 <a href=\"widgets/SizedBox/SizedBox.shrink.html\">SizedBox.shrink</a> 这样的组件。</p>"
   },
   "widgets/RawScrollbarState/enableGestures.html": {
-    "4": "<p>另请参阅：</p>"
+    "4": "<p>另请参阅：</p>",
+    "0": "<p>可重写的 getter，用于指示是否应启用滚动条手势。</p>",
+    "1": "<p>为 false 时，滚动条不会响应手势或悬停事件，并允许点击穿透。</p>",
+    "2": "<p>子类可以重写此 getter，使其返回值取决于继承的主题。</p>",
+    "3": "<p>当 <a href=\"widgets/RawScrollbar/interactive.html\">RawScrollbar.interactive</a> 为 null 时，默认值为 true。</p>"
   },
   "widgets/RawScrollbarState/getScrollbarDirection.html": {
     "0": "<p>返回子滚动视图的 <a href=\"painting/Axis.html\">Axis</a>；如果尚未收到 ScrollMetrics 通知，则返回 null。</p>"
@@ -253347,7 +253415,8 @@
   },
   "widgets/PopScope/onPopInvoked.html": {
     "0": "<p>路由弹出操作处理完毕后调用。</p>",
-    "1": "<p>此方法调用时，弹出操作已经发生，因此无法再阻止它。请使用 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 提前禁用弹出操作。</p>"
+    "1": "<p>此方法调用时，弹出操作已经发生，因此无法再阻止它。请使用 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 提前禁用弹出操作。</p>",
+    "2": "<p>即使弹出操作被取消，此回调仍会调用。当相关的 <a href=\"widgets/Route/popDisposition.html\">Route.popDisposition</a> 返回 false 时，弹出操作就会被取消，例如 <a href=\"widgets/PopScope/canPop.html\">canPop</a> 在 <a href=\"widgets/PopScope-class.html\">PopScope</a> 上设为 false 时。<code>didPop</code> 参数指示返回导航是否成功执行。</p>"
   },
   "widgets/RenderObjectElement/performRebuild.html": {
     "0": "<p>使组件自行更新。</p>",
@@ -253536,7 +253605,8 @@
     "0": "<p>描述通常用于设置 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 的 <a href=\"rendering/ParentData-class.html\">ParentData</a>；<a href=\"widgets/Positioned/applyParentData.html\">applyParentData</a> 会将数据写入该对象。</p>",
     "3": "<p>返回的 Type 应描述 <code>RenderObjectWidget</code> 的子类。如果支持多个 Type，请使用 <a href=\"widgets/ParentDataWidget/debugTypicalAncestorWidgetDescription.html\">debugTypicalAncestorWidgetDescription</a>；它通常会插入此值，但也可重写以描述多个 Type。</p>",
     "1": "<p>此信息仅用于错误消息，通过 <a href=\"widgets/ParentDataWidget-class.html\">debugTypicalAncestorWidgetDescription</a> 告知用户通常是哪种组件包装了此 <a href=\"widgets/ParentDataWidget/debugTypicalAncestorWidgetDescription.html\">ParentDataWidget</a>。</p>",
-    "2": "<h2 id=\"implementations\">实现</h2>"
+    "2": "<h2 id=\"implementations\">实现</h2>",
+    "4": "<p>如果“典型”父组件是泛型（<code>Foo&lt;T&gt;</code>），可考虑指定一个典型类型参数（例如，通常将该类型特化为 <code>int</code> 时指定 <code>Foo&lt;int&gt;</code>），或者指定上界（例如 <code>Foo&lt;Object?&gt;</code>）。</p>"
   },
   "widgets/SliverCrossAxisExpanded/debugTypicalAncestorWidgetClass.html": {
     "0": "<p>描述通常用于设置 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 的 <a href=\"rendering/ParentData-class.html\">ParentData</a>；<a href=\"widgets/SliverCrossAxisExpanded/applyParentData.html\">applyParentData</a> 会将数据写入该对象。</p>",
@@ -257822,7 +257892,8 @@
   "widgets/PopScope/canPop.html": {
     "0": "<p>值为 false 时，会阻止当前路由弹出。</p>",
     "1": "<p>这也包括根路由；弹出根路由时，Flutter 应用会退出。</p>",
-    "3": "<p><a href=\"https://developer.android.com/guide/navigation/predictive-back-gesture\">Android 预测性返回</a>功能在此布尔值为 false 时不会播放动画。</p>"
+    "3": "<p><a href=\"https://developer.android.com/guide/navigation/predictive-back-gesture\">Android 预测性返回</a>功能在此布尔值为 false 时不会播放动画。</p>",
+    "2": "<p>如果路由的组件子树中包含多个 <a href=\"widgets/PopScope-class.html\">PopScope</a> 组件，则每个组件的 <code>canPop</code> 都必须为 <code>true</code>，路由才能弹出。</p>"
   },
   "widgets/PopupRoute/allowSnapshotting.html": {
     "0": "<p>路由转场是否优先为进入和退出的路由制作快照并对其进行动画处理。</p>",
@@ -257869,24 +257940,29 @@
     "1": "<p>水平的三个值（<a href=\"widgets/PositionedDirectional/start.html\">start</a>、<a href=\"widgets/PositionedDirectional/end.html\">end</a>、<a href=\"widgets/PositionedDirectional/width.html\">width</a>）中只能设置两个；第三个必须为 null。</p>"
   },
   "widgets/PredictiveBackRoute/handleStartBackGesture.html": {
-    "0": "<p>处理预测性返回手势的开始。</p>"
+    "0": "<p>处理预测性返回手势的开始。</p>",
+    "1": "<p><code>progress</code> 参数表示手势的进度，范围为 0.0 到 1.0，与 <a href=\"services/PredictiveBackEvent/progress.html\">PredictiveBackEvent.progress</a> 中的进度相同。</p>"
   },
   "widgets/PredictiveBackRoute/handleUpdateBackGestureProgress.html": {
-    "0": "<p>用户在屏幕上拖动时，处理预测性返回手势的进度更新。</p>"
+    "0": "<p>用户在屏幕上拖动时，处理预测性返回手势的进度更新。</p>",
+    "1": "<p><code>progress</code> 参数表示手势的进度，范围为 0.0 到 1.0，与 <a href=\"services/PredictiveBackEvent/progress.html\">PredictiveBackEvent.progress</a> 中的进度相同。</p>"
   },
   "widgets/PreferredSize/PreferredSize.html": {
     "0": "<p>创建一个具有父组件可查询的首选尺寸的组件。</p>"
   },
   "widgets/PreferredSize/preferredSize.html": {
-    "0": "<p>在没有其他约束时，此组件倾向采用的尺寸。</p>"
+    "0": "<p>在没有其他约束时，此组件倾向采用的尺寸。</p>",
+    "1": "<p>很多情况下，只需定义一个首选尺寸即可。例如，<a href=\"material/Scaffold-class.html\">Scaffold</a> 只依赖应用栏的首选高度。这种情况下，此方法的实现可以直接返回 <code>Size.fromHeight(myAppBarHeight)</code>。</p>"
   },
   "widgets/PreferredSizeWidget-class.html": {
     "0": "<p>一种接口，用于让组件返回其在没有其他约束时倾向采用的尺寸。</p>",
     "1": "<p>在少数情况下（尤其是 <a href=\"material/AppBar-class.html\">AppBar</a> 和 <a href=\"material/TabBar-class.html\">TabBar</a>），组件不应约束自身尺寸，但需要公开一个首选或“默认”尺寸。例如，主 <a href=\"material/Scaffold-class.html\">Scaffold</a> 会将应用栏高度设为应用栏的首选高度加上系统状态栏高度。</p>",
-    "3": "<p>使用 <a href=\"widgets/PreferredSize-class.html\">PreferredSize</a> 为任意组件指定首选尺寸。</p>"
+    "3": "<p>使用 <a href=\"widgets/PreferredSize-class.html\">PreferredSize</a> 为任意组件指定首选尺寸。</p>",
+    "2": "<p>如果组件需要知道其子组件的首选尺寸，可以使用此类而不是 <a href=\"widgets/Widget-class.html\">Widget</a> 作为 <code>child</code> 属性的类型，从而要求子组件实现此接口。</p>"
   },
   "widgets/PreferredSizeWidget/preferredSize.html": {
-    "0": "<p>在没有其他约束时，此组件倾向采用的尺寸。</p>"
+    "0": "<p>在没有其他约束时，此组件倾向采用的尺寸。</p>",
+    "1": "<p>很多情况下，只需定义一个首选尺寸即可。例如，<a href=\"material/Scaffold-class.html\">Scaffold</a> 只依赖应用栏的首选高度。这种情况下，此方法的实现可以直接返回 <code>Size.fromHeight(myAppBarHeight)</code>。</p>"
   },
   "widgets/PreviousFocusAction/invoke.html": {
     "0": "<p>尝试将焦点移到上一个组件。</p>",
@@ -257896,7 +257972,9 @@
   "widgets/PreviousFocusAction/toKeyEventResult.html": {
     "0": "<p>将此操作的 <a href=\"widgets/PreviousFocusAction/invoke.html\">invoke</a> 结果转换为 <a href=\"widgets/KeyEventResult.html\">KeyEventResult</a>。</p>",
     "1": "<p>通常在响应键盘快捷键而调用此操作时使用。</p>",
-    "3": "<p>默认情况下，此方法会调用 <a href=\"widgets/Action/consumesKey.html\">consumesKey</a>，并将返回的布尔值转换为结果：true 时为 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.handled</a>，false 时为 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.skipRemainingHandlers</a>。</p>"
+    "3": "<p>默认情况下，此方法会调用 <a href=\"widgets/Action/consumesKey.html\">consumesKey</a>，并将返回的布尔值转换为结果：true 时为 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.handled</a>，false 时为 <a href=\"widgets/KeyEventResult.html\">KeyEventResult.skipRemainingHandlers</a>。</p>",
+    "2": "<p><code>invokeResult</code> 参数是 <a href=\"widgets/PreviousFocusAction/invoke.html\">invoke</a> 方法返回的值。</p>",
+    "4": "<p>具体实现可以细化 <code>invokeResult</code> 的类型，因为它们知道 <a href=\"widgets/PreviousFocusAction/invoke.html\">invoke</a> 返回的类型。</p>"
   },
   "widgets/PrioritizedAction-class.html": {
     "0": "<p>一种 <a href=\"widgets/Action-class.html\">Action</a>，用于遍历一组 <a href=\"widgets/Intent-class.html\">Intent</a>，并调用其中第一个已启用的操作。</p>",
@@ -257906,11 +257984,14 @@
     "0": "<p>需要执行此操作时调用。</p>",
     "1": "<p>通过 <a href=\"widgets/ActionDispatcher-class.html\">Actions.invoke</a> 调用操作，或直接通过 <a href=\"widgets/Actions/invoke.html\">ActionDispatcher.invokeAction</a> 调用操作时，<a href=\"widgets/ActionDispatcher/invokeAction.html\">ActionDispatcher</a> 会调用此方法。</p>",
     "2": "<p>此方法仅供 <a href=\"widgets/ActionDispatcher-class.html\">ActionDispatcher</a> 或其子类调用，并且只有在 <a href=\"widgets/PrioritizedAction/isEnabled.html\">isEnabled</a> 为 true 时才能调用。</p>",
-    "4": "<p>重写此方法时，返回值可以是任意 Object；但将重写方法的返回类型设为与实际返回值相符，可以提供更好的类型安全性。</p>"
+    "4": "<p>重写此方法时，返回值可以是任意 Object；但将重写方法的返回类型设为与实际返回值相符，可以提供更好的类型安全性。</p>",
+    "3": "<p>可选的 <code>context</code> 参数表示操作的调用上下文。如果操作由 <a href=\"widgets/ShortcutManager-class.html\">ShortcutManager</a> 通过 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> 组件调用，该上下文就是 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> 组件的上下文。</p>",
+    "5": "<p>例如，如果 <a href=\"widgets/PrioritizedAction/invoke.html\">invoke</a> 的重写实现返回 <code>int</code>，可以按如下方式定义：</p>"
   },
   "widgets/PrioritizedAction/isEnabled.html": {
     "0": "<p>如果此操作已启用并可以执行，则返回 true。</p>",
-    "1": "<p><a href=\"widgets/ActionDispatcher-class.html\">ActionDispatcher</a> 会在尝试执行操作前调用此方法。</p>"
+    "1": "<p><a href=\"widgets/ActionDispatcher-class.html\">ActionDispatcher</a> 会在尝试执行操作前调用此方法。</p>",
+    "2": "<p>可选的 <code>context</code> 参数表示操作的调用上下文。如果操作由 <a href=\"widgets/ShortcutManager-class.html\">ShortcutManager</a> 通过 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> 组件调用，该上下文就是 <a href=\"widgets/Shortcuts-class.html\">Shortcuts</a> 组件的上下文。</p>"
   },
   "widgets/PrioritizedIntents-class.html": {
     "0": "<p>一种 <a href=\"widgets/Intent-class.html\">Intent</a>，用于按顺序评估指定的 <a href=\"widgets/PrioritizedIntents/orderedIntents.html\">orderedIntents</a>，以确定执行哪个操作。</p>",
@@ -257918,7 +257999,8 @@
   },
   "widgets/RadioBuilder.html": {
     "0": "<p><a href=\"widgets/RawRadio/builder.html\">RawRadio.builder</a> 的签名。</p>",
-    "2": "<p>例如，在 Material Design 中，如果需要绘制径向墨水波纹效果，可以将 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 与 <a href=\"widgets/ToggleablePainter-class.html\">ToggleablePainter</a> 子类一起用作 <a href=\"widgets/CustomPaint/painter.html\">CustomPaint.painter</a>，并在其中实现此控件的径向墨水波纹绘制逻辑。通常会使用此混入提供的 <a href=\"widgets/ToggleableStateMixin/reaction.html\">ToggleableStateMixin.reaction</a>、<a href=\"widgets/ToggleableStateMixin/position.html\">ToggleableStateMixin.position</a>、<a href=\"widgets/ToggleableStateMixin/reactionHoverFade.html\">ToggleableStateMixin.reactionHoverFade</a> 和 <a href=\"widgets/ToggleableStateMixin/reactionFocusFade.html\">ToggleableStateMixin.reactionFocusFade</a> 动画配置绘制器。绘制器应根据这些动画的当前值绘制 Toggleable 的视觉效果。此混入会触发动画，使 Toggleable 在不同状态间过渡。</p>"
+    "2": "<p>例如，在 Material Design 中，如果需要绘制径向墨水波纹效果，可以将 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 与 <a href=\"widgets/ToggleablePainter-class.html\">ToggleablePainter</a> 子类一起用作 <a href=\"widgets/CustomPaint/painter.html\">CustomPaint.painter</a>，并在其中实现此控件的径向墨水波纹绘制逻辑。通常会使用此混入提供的 <a href=\"widgets/ToggleableStateMixin/reaction.html\">ToggleableStateMixin.reaction</a>、<a href=\"widgets/ToggleableStateMixin/position.html\">ToggleableStateMixin.position</a>、<a href=\"widgets/ToggleableStateMixin/reactionHoverFade.html\">ToggleableStateMixin.reactionHoverFade</a> 和 <a href=\"widgets/ToggleableStateMixin/reactionFocusFade.html\">ToggleableStateMixin.reactionFocusFade</a> 动画配置绘制器。绘制器应根据这些动画的当前值绘制 Toggleable 的视觉效果。此混入会触发动画，使 Toggleable 在不同状态间过渡。</p>",
+    "1": "<p>构建器可以使用 <code>state</code> 确定单选按钮的状态，并据此构建其外观。</p>"
   },
   "widgets/RadioClient-mixin.html": {
     "0": "<p><a href=\"widgets/RadioGroupRegistry-class.html\">RadioGroupRegistry</a> 的客户端。</p>",
@@ -257956,7 +258038,9 @@
     "5": "<p>按方向键到达组内第一个或最后一个单选项时，焦点会循环到另一端。</p>"
   },
   "widgets/RadioGroup/RadioGroup.html": {
-    "0": "<p>创建一个单选项组。</p>"
+    "0": "<p>创建一个单选项组。</p>",
+    "1": "<p><code>groupValue</code> 用于设置子树中 <a href=\"widgets/RawRadio/value.html\">RawRadio.value</a> 相同的单选项的选中状态。</p>",
+    "2": "<p>子树中的单选项选择发生变化时，会调用 <code>onChanged</code>。</p>"
   },
   "widgets/RadioGroup/groupValue.html": {
     "0": "<p>此单选项组当前选中的值。</p>",
@@ -257980,14 +258064,17 @@
     "1": "<p>子类可以为已注册的客户端提供键盘导航等附加功能。</p>"
   },
   "widgets/RawAutocomplete/RawAutocomplete.html": {
-    "0": "<p>创建 RawAutocomplete 实例。</p>"
+    "0": "<p>创建 RawAutocomplete 实例。</p>",
+    "1": "<p><code>displayStringForOption</code>、<code>optionsBuilder</code> 和 <code>optionsViewBuilder</code> 均不得为 null。</p>"
   },
   "widgets/RawAutocomplete/defaultStringForOption.html": {
-    "0": "<p><a href=\"widgets/RawAutocomplete/displayStringForOption.html\">displayStringForOption</a> 中将选项转换为字符串的默认方式。</p>"
+    "0": "<p><a href=\"widgets/RawAutocomplete/displayStringForOption.html\">displayStringForOption</a> 中将选项转换为字符串的默认方式。</p>",
+    "1": "<p>使用给定 <code>option</code> 的 <code>toString</code> 方法。</p>"
   },
   "widgets/RawAutocomplete/displayStringForOption.html": {
     "0": "<p>选中选项后，返回要在字段中显示的字符串。</p>",
-    "1": "<p>使用自定义 T 类型，且显示字符串与搜索字符串不同时，此参数很有用。</p>"
+    "1": "<p>使用自定义 T 类型，且显示字符串与搜索字符串不同时，此参数很有用。</p>",
+    "2": "<p>如果未提供，则使用 <code>option.toString()</code>。</p>"
   },
   "widgets/RawAutocomplete/fieldViewBuilder.html": {
     "0": "<p>构建用于接收输入并获取选项的字段。</p>",
@@ -258038,5 +258125,290 @@
   "widgets/RawDialogRoute/fullscreenDialog.html": {
     "0": "<p>此路由是否为全屏对话框。</p>",
     "1": "<p>在 Material 和 Cupertino 设计中，全屏页面会让应用栏显示关闭按钮而不是返回按钮。在 iOS 上，对话框转场动画也有所不同，并且无法通过向后滑动手势关闭。</p>"
+  },
+  "widgets/RawMagnifier/RawMagnifier.html": {
+    "0": "<p>构造一个 <a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a>。</p>",
+    "1": "<p>默认情况下，此放大镜使用默认的 <a href=\"widgets/MagnifierDecoration-class.html\">MagnifierDecoration</a>（不绘制任何内容），焦点位于放大镜正下方，并且不执行放大。因此，默认放大镜肉眼完全不可见：它会在原本绘制的位置，原样显示其下方的内容。</p>"
+  },
+  "widgets/RawMagnifier/child.html": {
+    "0": "<p>可选组件，用于放置在 <a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a> 镜片内部。</p>",
+    "1": "<p>此组件会显示在 <a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a> 上方，可用于为 <a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a> 着色，或绘制类似十字准星的界面。</p>"
+  },
+  "widgets/RawMagnifier/decoration.html": {
+    "0": "<p>此放大镜的装饰。</p>",
+    "1": "<p>此属性设置镜片的形状，以及镜片投射的边框和阴影。默认情况下没有边框和阴影；再加上默认的 <a href=\"widgets/RawMagnifier/magnificationScale.html\">magnificationScale</a> 为 1.0，放大镜便不会产生可见效果。</p>",
+    "2": "<p>如果 <a href=\"widgets/RawMagnifier/decoration.html\">decoration</a> 中的 <a href=\"widgets/MagnifierDecoration/shadows.html\">MagnifierDecoration.shadows</a> 使用了偏移阴影，或使用了会遮挡放大图像的 <a href=\"dart-ui/BlurStyle.html\">BlurStyle</a>，可考虑将 <a href=\"widgets/RawMagnifier/clipBehavior.html\">clipBehavior</a> 设为 <a href=\"dart-ui/Clip.html\">Clip.hardEdge</a>（或类似值），以确保图像可见。</p>"
+  },
+  "widgets/RawMagnifier/focalPointOffset.html": {
+    "0": "<p>放大镜中心相对于 <a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a> 的偏移量。</p>",
+    "1": "<p>例如，如果 <a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a> 在全局坐标中的位置为 Offset(100, 100)，而 <a href=\"widgets/RawMagnifier/focalPointOffset.html\">focalPointOffset</a> 为 Offset(-20, -20)，那么 <a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a> 将显示全局偏移量 (80, 80) 处的内容。</p>",
+    "2": "<p>如果保留为 <a href=\"dart-ui/Offset/zero-constant.html\">Offset.zero</a>，<a href=\"widgets/RawMagnifier-class.html\">RawMagnifier</a> 会显示其正下方的内容。</p>"
+  },
+  "widgets/RawMagnifier/magnificationScale.html": {
+    "0": "<p>镜片中被放大对象的缩放程度。</p>",
+    "1": "<p>默认值为 1.0，表示不进行放大。</p>"
+  },
+  "widgets/RawMagnifier/size.html": {
+    "0": "<p>放大镜的尺寸。</p>",
+    "1": "<p>此尺寸不包括 <a href=\"widgets/RawMagnifier/decoration.html\">decoration</a> 的边框；它只表示放大镜本身的尺寸。</p>"
+  },
+  "widgets/RawRadio/RawRadio.html": {
+    "0": "<p>创建一个单选按钮。</p>",
+    "1": "<p>如果 <code>enabled</code> 为 true，则 <code>groupRegistry</code> 不能为 null。</p>"
+  },
+  "widgets/RawRadio/builder.html": {
+    "0": "<p>用于绘制单选按钮外观的构建器。</p>",
+    "1": "<p>使用输入参数 <code>state</code> 确定单选按钮的当前状态。</p>",
+    "2": "<p>如果需要绘制径向墨水反馈效果（例如 Material Design 中的效果），可以提供 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a>，并将 <a href=\"widgets/ToggleablePainter-class.html\">ToggleablePainter</a> 子类作为 <a href=\"widgets/CustomPaint/painter.html\">CustomPaint.painter</a>。该子类负责实现此控件的径向墨水反馈绘制逻辑。绘制器通常使用此 mixin 提供的 <a href=\"widgets/ToggleableStateMixin/reaction.html\">ToggleableStateMixin.reaction</a>、<a href=\"widgets/ToggleableStateMixin/position.html\">ToggleableStateMixin.position</a>、<a href=\"widgets/ToggleableStateMixin/reactionHoverFade.html\">ToggleableStateMixin.reactionHoverFade</a> 和 <a href=\"widgets/ToggleableStateMixin/reactionFocusFade.html\">ToggleableStateMixin.reactionFocusFade</a> 动画配置。它应根据这些动画的当前值绘制 Toggleable 的视觉效果。mixin 会触发这些动画，使 Toggleable 在不同状态之间过渡。</p>"
+  },
+  "widgets/RawRadio/groupRegistry.html": {
+    "0": "<p>此单选按钮注册到的注册表。</p>",
+    "1": "<p>单选按钮依靠 <a href=\"widgets/RawRadio/groupRegistry.html\">groupRegistry</a> 管理选中状态。如果与 <a href=\"widgets/RadioGroup-class.html\">RadioGroup</a> 组件配合使用，请通过 <a href=\"widgets/RadioGroup/maybeOf.html\">RadioGroup.maybeOf</a> 从上下文中获取组注册表。</p>"
+  },
+  "widgets/ProxyElement/notifyClients.html": {
+    "0": "<p>通知其他对象：与此 Element 关联的组件已发生变化。</p>",
+    "1": "<p>更改与此 Element 关联的组件后、重新构建此 Element 前，会在 <a href=\"widgets/ProxyElement/update.html\">update</a> 期间（通过 <a href=\"widgets/ProxyElement/updated.html\">updated</a>）调用此方法。</p>"
+  },
+  "widgets/ProxyElement/updated.html": {
+    "0": "<p>构建过程中 <a href=\"widgets/Element/widget.html\">widget</a> 发生变化时调用。</p>",
+    "1": "<p>默认情况下，此方法会调用 <a href=\"widgets/ProxyElement/notifyClients.html\">notifyClients</a>。子类可以重写此方法，避免不必要地调用 <a href=\"widgets/ProxyElement/notifyClients.html\">notifyClients</a>（例如新旧组件等价时）。</p>"
+  },
+  "widgets/RawMenuAnchor-class.html": {
+    "0": "<p>用于包裹子组件并锚定浮动菜单的组件。</p>",
+    "1": "<p>子组件可以是任意组件，通常是按钮或文本字段；对于上下文菜单，也可以是整个屏幕。</p>",
+    "2": "<p>调用已附加的 <a href=\"widgets/MenuController-class.html\">MenuController</a> 上的 <a href=\"widgets/MenuController/open.html\">MenuController.open</a>，即可显示 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 的菜单浮层。</p>",
+    "3": "<p>打开 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 后，会调用 <a href=\"widgets/RawMenuAnchor/overlayBuilder.html\">overlayBuilder</a>，在 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中构建菜单内容。<a href=\"widgets/Overlay-class.html\">Overlay</a> 使菜单能够浮在其他组件上方。传给 <a href=\"widgets/RawMenuAnchor/overlayBuilder.html\">overlayBuilder</a> 的 <code>info</code> 参数包含锚点的 <a href=\"dart-ui/Rect-class.html\">Rect</a>、浮层的 <a href=\"dart-ui/Size-class.html\">Size</a>、菜单系统各成员使用的 <a href=\"widgets/TapRegion/groupId.html\">TapRegion.groupId</a>，以及传给 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 的 <code>position</code> 参数。</p>",
+    "4": "<p>如果调用 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 时传入 <code>position</code> 参数，该值会传递给 <code>overlayBuilder</code> 函数的 <code>info</code> 参数。</p>",
+    "5": "<p><a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 不负责管理菜单的语义信息和焦点。</p>",
+    "6": "<h3 id=\"adding-animations-to-menus\">为菜单添加动画</h3>",
+    "7": "<p>从它的 API（完全不涉及 <a href=\"animation/AnimationController-class.html\">AnimationController</a>）可以看出，<a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 并不了解动画；它只知道浮层当前是显示还是隐藏。</p>",
+    "8": "<p>如果其他组件要实现带有打开和关闭转场的菜单，则在整个打开和关闭动画期间，<a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 的浮层都应保持可见。</p>",
+    "9": "<p>因此，应在打开动画的第一帧之前调用传给 <a href=\"widgets/RawMenuAnchor/onOpenRequested.html\">onOpenRequested</a> 的 <code>showOverlay</code> 回调。相应地，只有在关闭动画结束后，才能在 <a href=\"widgets/RawMenuAnchor/onCloseRequested.html\">onCloseRequested</a> 中调用 <code>hideOverlay</code>。</p>",
+    "10": "<p>这也意味着，如果浮层已经可见时调用 <a href=\"widgets/MenuController/open.html\">MenuController.open</a>，<a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 无法判断菜单正在打开、正在关闭还是稳定显示。在这种情况下，父组件需要管理额外信息（例如 <a href=\"animation/AnimationController-class.html\">AnimationController</a> 的状态），以决定如何响应。</p>",
+    "11": "<p>要以编程方式控制 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a>（例如打开、关闭菜单或查询其状态），可以获取关联的 <a href=\"widgets/MenuController-class.html\">MenuController</a>。使用 <code>MenuController.maybeOf(BuildContext context)</code> 可取得给定 <code>BuildContext</code> 最近的 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 祖先所关联的控制器。关于 <a href=\"widgets/MenuController-class.html\">MenuController</a> 的更多用法，请参阅其类文档。</p>"
+  },
+  "widgets/RawMenuAnchor/RawMenuAnchor.html": {
+    "0": "<p>一个将浮层构建委托给 <code>overlayBuilder</code> 的 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a>。</p>",
+    "1": "<p><code>overlayBuilder</code> 不能为 null。</p>"
+  },
+  "widgets/RawMenuAnchor/builder.html": {
+    "0": "<p>用于构建此 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 所包裹组件的构建器。</p>",
+    "1": "<p>通常，这是用于打开菜单的按钮：在传给构建器的 <code>controller</code> 上调用 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 即可打开菜单。</p>",
+    "2": "<p>如果未提供此构建器，<a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 的尺寸将由父组件分配。</p>"
+  },
+  "widgets/RawMenuAnchor/child.html": {
+    "0": "<p>要传给 <a href=\"widgets/RawMenuAnchor/builder.html\">builder</a> 的可选子组件。</p>",
+    "1": "<p>如果 <a href=\"widgets/RawMenuAnchor/builder.html\">builder</a> 构建的组件树中，有一部分不依赖传给 <a href=\"widgets/RawMenuAnchor/builder.html\">builder</a> 的 <code>controller</code> 或 <code>context</code>，请将该部分作为此子组件提供。这样会更高效，因为这些值发生变化时，Flutter 无需重新构建该子组件。</p>"
+  },
+  "widgets/RawMenuAnchor/childFocusNode.html": {
+    "0": "<p>菜单打开或关闭时，接收焦点的组件所附加的 <a href=\"widgets/FocusNode-class.html\">FocusNode</a>。</p>",
+    "1": "<p>如果未提供此节点，锚点在菜单打开时不会保留焦点。</p>"
+  },
+  "widgets/RawMenuAnchor/onClose.html": {
+    "0": "<p>菜单浮层隐藏时调用。</p>",
+    "1": "<p>调用 <a href=\"widgets/MenuController/close.html\">MenuController.close</a> 时，会调用 <a href=\"widgets/RawMenuAnchor/onCloseRequested.html\">onCloseRequested</a>，并传入一个 <code>hideOverlay</code> 回调。调用该回调会隐藏菜单浮层并触发 <a href=\"widgets/RawMenuAnchor/onClose.html\">onClose</a>。</p>",
+    "2": "<p><a href=\"widgets/RawMenuAnchor/onCloseRequested.html\">onCloseRequested</a> 的默认实现会同步调用 <code>hideOverlay</code>，因此也会同步调用 <a href=\"widgets/RawMenuAnchor/onClose.html\">onClose</a>。在这种情况下，无论菜单浮层当前是否已隐藏，都会调用 <a href=\"widgets/RawMenuAnchor/onClose.html\">onClose</a>。</p>",
+    "3": "<p>自定义的 <a href=\"widgets/RawMenuAnchor/onCloseRequested.html\">onCloseRequested</a> 实现可以延迟调用 <code>hideOverlay</code>，也可以完全不调用；在后一种情况下，不会调用 <a href=\"widgets/RawMenuAnchor/onClose.html\">onClose</a>。释放组件后再调用 <code>hideOverlay</code> 不会执行任何操作，也不会触发 <a href=\"widgets/RawMenuAnchor/onClose.html\">onClose</a>。</p>"
+  },
+  "widgets/RawMenuAnchor/overlayBuilder.html": {
+    "0": "<p>调用此方法以构建菜单浮层并设置其位置。</p>",
+    "1": "<p>传给 <a href=\"widgets/RawMenuAnchor/overlayBuilder.html\">overlayBuilder</a> 函数的 <a href=\"widgets/RawMenuOverlayInfo-class.html\">RawMenuOverlayInfo</a> 对象定义了锚点的 <a href=\"dart-ui/Rect-class.html\">Rect</a>、浮层的 <a href=\"dart-ui/Size-class.html\">Size</a>、菜单系统使用的 <a href=\"widgets/TapRegion/groupId.html\">TapRegion.groupId</a>，以及传给 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 的位置 <a href=\"dart-ui/Offset-class.html\">Offset</a>。</p>",
+    "2": "<p>为了确保正确消耗点击事件，应将 <a href=\"widgets/RawMenuOverlayInfo/tapRegionGroupId.html\">RawMenuOverlayInfo.tapRegionGroupId</a> 传给包裹菜单面板的 <a href=\"widgets/TapRegion-class.html\">TapRegion</a> 组件。</p>"
+  },
+  "widgets/RawMenuAnchor/onCloseRequested.html": {
+    "0": "<p>收到关闭菜单的请求时调用。</p>",
+    "1": "<p>此回调可用于在隐藏菜单前添加延迟或关闭动画。</p>",
+    "2": "<p>每次调用 <a href=\"widgets/MenuController/close.html\">MenuController.close</a> 时都会触发此回调，即使菜单浮层已经隐藏也是如此。</p>",
+    "3": "<p>打开同级的 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 时也会触发此回调。在这种情况下，可以在同级菜单打开的同时添加延迟或关闭动画。实现此行为时，应考虑禁用交互，避免正在关闭的菜单干扰打开中的同级菜单。还可以在关闭动画期间禁用该菜单的语义、焦点和命中测试。</p>",
+    "4": "<p>上一次调用 <a href=\"widgets/RawMenuAnchor/onCloseRequested.html\">onCloseRequested</a> 时启动的待处理计时器或动画，应在此回调触发时取消，避免它们在不合适的时机关闭菜单。</p>",
+    "5": "<p>如果菜单尚未关闭，则在根菜单锚点滚动或屏幕尺寸发生变化时也会调用此回调。</p>",
+    "6": "<p>拦截关闭请求并完成关闭行为后，应调用 <code>hideOverlay</code> 回调。此回调会将 <a href=\"widgets/MenuController/isOpen.html\">MenuController.isOpen</a> 设为 false，并隐藏菜单浮层组件。如果 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 用于带关闭动画的主题菜单，应在动画结束后再调用 <code>hideOverlay</code>，因为动画是在浮层本身上播放的。因此，关闭动画运行期间，<a href=\"widgets/MenuController/isOpen.html\">MenuController.isOpen</a> 会保持为 true。</p>",
+    "7": "<p>组件释放后调用 <code>hideOverlay</code> 不会执行任何操作，也不会触发 <a href=\"widgets/RawMenuAnchor/onClose.html\">onClose</a> 或隐藏菜单浮层。</p>",
+    "8": "<p>通常，<a href=\"widgets/RawMenuAnchor/onCloseRequested.html\">onCloseRequested</a> 包含以下步骤：</p>",
+    "9": "<p>在整个关闭过程中，菜单通常不应接收焦点或响应交互。</p>",
+    "10": "<p>默认回调会立即隐藏菜单。</p>"
+  },
+  "widgets/RawMenuAnchor/onOpen.html": {
+    "0": "<p>菜单浮层显示时调用。</p>",
+    "1": "<p>调用 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 时，会调用 <a href=\"widgets/RawMenuAnchor/onOpenRequested.html\">onOpenRequested</a>，并传入一个 <code>showOverlay</code> 回调。调用该回调会显示菜单浮层并触发 <a href=\"widgets/RawMenuAnchor/onOpen.html\">onOpen</a>。</p>",
+    "2": "<p><a href=\"widgets/RawMenuAnchor/onOpenRequested.html\">onOpenRequested</a> 的默认实现会同步调用 <code>showOverlay</code>，因此也会同步调用 <a href=\"widgets/RawMenuAnchor/onOpen.html\">onOpen</a>。在这种情况下，无论菜单浮层当前是否已显示，都会调用 <a href=\"widgets/RawMenuAnchor/onOpen.html\">onOpen</a>。</p>",
+    "3": "<p>自定义的 <a href=\"widgets/RawMenuAnchor/onOpenRequested.html\">onOpenRequested</a> 实现可以延迟调用 <code>showOverlay</code>，也可以完全不调用；在后一种情况下，不会调用 <a href=\"widgets/RawMenuAnchor/onOpen.html\">onOpen</a>。组件释放后调用 <code>showOverlay</code> 不会执行任何操作，也不会触发 <a href=\"widgets/RawMenuAnchor/onOpen.html\">onOpen</a>。</p>",
+    "4": "<p>一种常见用法是在菜单首次变为可交互时作出响应，例如将焦点设置到某个菜单项。</p>"
+  },
+  "widgets/RawMenuAnchor/onOpenRequested.html": {
+    "0": "<p>收到打开菜单的请求时调用。</p>",
+    "1": "<p>每次调用 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 时都会触发此回调，即使菜单浮层已经显示也是如此。因此，可以在此处启动菜单打开动画，或监听菜单重新定位。</p>",
+    "2": "<p>拦截打开请求后，应在菜单浮层（由 <a href=\"widgets/RawMenuAnchor/overlayBuilder.html\">overlayBuilder</a> 构建的组件）准备好显示时调用 <code>showOverlay</code> 回调。可以立即调用（默认行为），也可以延迟调用。调用 <code>showOverlay</code> 会将 <a href=\"widgets/MenuController/isOpen.html\">MenuController.isOpen</a> 设为 true，构建或重新构建浮层组件，并将菜单显示在浮层栈的最前方。</p>",
+    "3": "<p>如果不调用 <code>showOverlay</code>，菜单会保持隐藏。组件释放后调用 <code>showOverlay</code> 不会执行任何操作，也不会触发 <a href=\"widgets/RawMenuAnchor/onOpen.html\">onOpen</a> 或显示菜单浮层。</p>",
+    "4": "<p>如果 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 用于带打开动画的主题菜单，则主题菜单应先显示浮层，再启动打开动画，因为动画是在浮层本身上播放的。</p>",
+    "5": "<p><code>position</code> 参数就是调用 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 时传入的 <code>position</code>。</p>",
+    "6": "<p>典型的 <a href=\"widgets/RawMenuAnchor/onOpenRequested.html\">onOpenRequested</a> 包含以下步骤：</p>",
+    "7": "<p>默认回调会立即显示菜单。</p>"
+  },
+  "widgets/RawMenuAnchor/useRootOverlay.html": {
+    "0": "<p>菜单面板是否应渲染在根 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中。</p>",
+    "1": "<p>为 true 时，菜单会挂载到根浮层中。将菜单渲染在根浮层可避免其被其他组件遮挡。</p>",
+    "2": "<p>为 false 时，菜单会渲染在最近的祖先 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中。</p>",
+    "3": "<p>子菜单始终使用与其顶层祖先相同的浮层，因此在子菜单上设置 <a href=\"widgets/RawMenuAnchor/useRootOverlay.html\">useRootOverlay</a> 不会产生效果。</p>",
+    "4": "<p>对于浮层菜单，默认值为 false。</p>"
+  },
+  "widgets/RawMenuAnchorChildBuilder.html": {
+    "0": "<p>用于 <a href=\"widgets/RawMenuAnchor/builder.html\">RawMenuAnchor.builder</a> 的构建器函数签名，该函数用于构建 <a href=\"widgets/RawMenuAnchor-class.html\">RawMenuAnchor</a> 所包裹的组件。</p>",
+    "1": "<p><code>context</code> 是构建锚点时所在的上下文。</p>",
+    "2": "<p><code>controller</code> 是用于打开和关闭菜单的 <a href=\"widgets/MenuController-class.html\">MenuController</a>。</p>",
+    "3": "<p><code>child</code> 是通过 <a href=\"widgets/RawMenuAnchor/child.html\">RawMenuAnchor.child</a> 属性提供的可选子组件。此子组件应包含在函数的返回结果中。</p>"
+  },
+  "widgets/RawMenuAnchorCloseRequestedCallback.html": {
+    "0": "<p>用于 <a href=\"widgets/RawMenuAnchor/onCloseRequested.html\">RawMenuAnchor.onCloseRequested</a> 的回调函数签名，用于拦截关闭菜单的请求。</p>",
+    "1": "<p>详情请参阅 <a href=\"widgets/RawMenuAnchor/onCloseRequested.html\">RawMenuAnchor.onCloseRequested</a>。</p>"
+  },
+  "widgets/RawMenuAnchorOpenRequestedCallback.html": {
+    "0": "<p>用于 <a href=\"widgets/RawMenuAnchor/onOpenRequested.html\">RawMenuAnchor.onOpenRequested</a> 的回调函数签名，用于拦截打开菜单的请求。</p>",
+    "1": "<p>详情请参阅 <a href=\"widgets/RawMenuAnchor/onOpenRequested.html\">RawMenuAnchor.onOpenRequested</a>。</p>"
+  },
+  "widgets/RawMenuAnchorOverlayBuilder.html": {
+    "0": "<p>用于 <a href=\"widgets/RawMenuAnchor/overlayBuilder.html\">RawMenuAnchor.overlayBuilder</a> 的构建器函数签名，用于构建菜单浮层。</p>",
+    "1": "<p><code>context</code> 是构建浮层时所在的上下文。</p>",
+    "2": "<p><code>info</code> 描述了锚点的 <a href=\"dart-ui/Rect-class.html\">Rect</a>、浮层的 <a href=\"dart-ui/Size-class.html\">Size</a>、菜单系统各成员使用的 <a href=\"widgets/TapRegion/groupId.html\">TapRegion.groupId</a>，以及传给 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 的 <code>position</code> 参数。</p>"
+  },
+  "widgets/RawMenuOverlayInfo/position.html": {
+    "0": "<p>传给 <a href=\"widgets/MenuController/open.html\">MenuController.open</a> 的 <code>position</code> 参数。</p>",
+    "1": "<p>此位置应用于相对于锚点左上角偏移菜单。</p>"
+  },
+  "widgets/RawMenuAnchorGroup/child.html": {
+    "0": "<p><a href=\"widgets/RawMenuAnchorGroup-class.html\">RawMenuAnchorGroup</a> 所显示的子组件。</p>",
+    "1": "<p>若要从 <a href=\"widgets/RawMenuAnchorGroup/child.html\">child</a> 访问 <a href=\"widgets/MenuController-class.html\">MenuController</a>，请将子组件放在构建器中，并调用 <a href=\"widgets/MenuController/maybeOf.html\">MenuController.maybeOf</a>。</p>"
+  },
+  "widgets/RawScrollbar/RawScrollbar.html": {
+    "0": "<p>创建一个包裹给定 <code>child</code> 的基础原始滚动条。</p>",
+    "1": "<p><code>child</code> 或 <code>child</code> 的后代组件应能发出 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 通知，通常是 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 组件。</p>"
+  },
+  "widgets/RawScrollbar/controller.html": {
+    "0": "<p>用于实现滚动条拖动行为的 <a href=\"widgets/ScrollController-class.html\">ScrollController</a>。</p>",
+    "1": "<p>如果未传入 controller，则默认行为会通过 <a href=\"widgets/PrimaryScrollController/of.html\">PrimaryScrollController.of</a>，自动启用最近的 ScrollController 上的滚动条拖动功能。</p>",
+    "2": "<p>如果传入了 ScrollController，拖动滚动条滑块会更新附加到该控制器的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a>。此组件的有状态祖先需要管理此 ScrollController，并将其传给后代滚动组件，或使用 PrimaryScrollController 共享它。</p>",
+    "3": "<p>\n<a name=\"widgets.RawScrollbar.controller.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n下面示例展示了如何使用 <a href=\"widgets/RawScrollbar/controller.html\">controller</a> 属性，为多个相互独立的 ListView 启用滚动条拖动：\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.RawScrollbar.controller.1');\" onclick=\"fixHref(this, 'widgets.RawScrollbar.controller.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">&#47;&#47; (e.g. in a stateful widget)\n\nfinal ScrollController controllerOne = ScrollController();\nfinal ScrollController controllerTwo = ScrollController();\n\n@override\nWidget build(BuildContext context) {\n  return Column(\n    children: &lt;Widget&gt;[\n      SizedBox(\n       height: 200,\n       child: CupertinoScrollbar(\n         controller: controllerOne,\n         child: ListView.builder(\n           controller: controllerOne,\n           itemCount: 120,\n           itemBuilder: (BuildContext context, int index) =&gt; Text(&#39;item $index&#39;),\n         ),\n       ),\n     ),\n     SizedBox(\n       height: 200,\n       child: CupertinoScrollbar(\n         controller: controllerTwo,\n         child: ListView.builder(\n           controller: controllerTwo,\n           itemCount: 120,\n           itemBuilder: (BuildContext context, int index) =&gt; Text(&#39;list 2 item $index&#39;),\n         ),\n       ),\n     ),\n   ],\n  );\n}</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "widgets/RawScrollbar/fadeDuration.html": {
+    "0": "<p>淡出动画的 <a href=\"dart-core/Duration-class.html\">Duration</a>。</p>",
+    "1": "<p>默认值为 300 毫秒的 <a href=\"dart-core/Duration-class.html\">Duration</a>。</p>"
+  },
+  "widgets/RawScrollbar/mainAxisMargin.html": {
+    "0": "<p>滚动条滑块起点或终点与视口最近边缘之间的距离，单位为逻辑像素。它会影响可用于绘制的区域大小。</p>",
+    "1": "<p>滚动条轨道会占用这部分空间。</p>",
+    "2": "<p>不可为 null，默认值为 0。</p>"
+  },
+  "widgets/RawScrollbar/minOverscrollLength.html": {
+    "0": "<p>视口发生过度滚动时，滚动条滑块可缩小到的最小首选尺寸。</p>",
+    "1": "<p>发生过度滚动时，为适应可用绘制区域，滚动条滑块可能会缩小到比 <a href=\"widgets/RawScrollbar/minOverscrollLength.html\">minOverscrollLength</a> 更小的尺寸（例如，<a href=\"widgets/RawScrollbar/minOverscrollLength.html\">minOverscrollLength</a> 与 <a href=\"widgets/ScrollMetrics/viewportDimension.html\">ScrollMetrics.viewportDimension</a>、<a href=\"widgets/RawScrollbar/mainAxisMargin.html\">mainAxisMargin</a> 之和大于可用区域时）。</p>",
+    "2": "<p>将 <code>child</code> 组件的 <code>physics</code> 属性设为 <code>BouncingScrollPhysics</code>，即可启用过度滚动；这是一种允许过度滚动的特殊 <code>ScrollPhysics</code>。</p>",
+    "3": "<p>该值必须小于或等于 <a href=\"widgets/RawScrollbar/minThumbLength.html\">minThumbLength</a>，且大于或等于 0。为 null 时，默认使用 <a href=\"widgets/RawScrollbar/minThumbLength.html\">minThumbLength</a> 的值。</p>"
+  },
+  "widgets/RawScrollbar/minThumbLength.html": {
+    "0": "<p>当可滚动总范围较大、当前可视视口较小且视口未发生过度滚动时，滚动条滑块可缩小到的最小首选尺寸。</p>",
+    "1": "<p>为适应可用绘制区域，滚动条滑块可能会缩小到比 <a href=\"widgets/RawScrollbar/minThumbLength.html\">minThumbLength</a> 更小的尺寸（例如，<a href=\"widgets/RawScrollbar/minThumbLength.html\">minThumbLength</a> 与 <a href=\"widgets/ScrollMetrics/viewportDimension.html\">ScrollMetrics.viewportDimension</a>、<a href=\"widgets/RawScrollbar/mainAxisMargin.html\">mainAxisMargin</a> 之和大于可用区域时）。</p>",
+    "2": "<p>不可为 null，且必须大于或等于 <a href=\"widgets/RawScrollbar/minOverscrollLength.html\">minOverscrollLength</a>，而后者必须大于或等于 0。默认值为 18.0。</p>"
+  },
+  "widgets/RawScrollbar/notificationPredicate.html": {
+    "0": "<p>用于判断此组件是否应处理某个 <a href=\"widgets/ScrollNotification-class.html\">ScrollNotification</a> 的检查函数。</p>",
+    "1": "<p>默认检查 <code>notification.depth == 0</code>。这意味着当滚动条包裹多个 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 时，它只会响应最近的 scrollView，并显示对应的滚动条滑块。</p>"
+  },
+  "widgets/RawScrollbar/pressDuration.html": {
+    "0": "<p>长按触发滚动条滑块拖动手势所需的 <a href=\"dart-core/Duration-class.html\">Duration</a>。</p>",
+    "1": "<p>默认值为 <a href=\"dart-core/Duration/zero-constant.html\">Duration.zero</a>。</p>"
+  },
+  "widgets/RawScrollbar/radius.html": {
+    "0": "<p>滚动条滑块圆角矩形角部的 <a href=\"dart-ui/Radius-class.html\">Radius</a>。</p>",
+    "1": "<p>如果 <a href=\"widgets/RawScrollbar/radius.html\">radius</a> 为 null（默认行为），滚动条将呈矩形。</p>"
+  },
+  "widgets/RawScrollbar/scrollbarOrientation.html": {
+    "0": "<p>指定滚动条的方向。</p>",
+    "1": "<p><a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.top</a> 会将滚动条放在屏幕顶部。<a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.bottom</a> 会将滚动条放在屏幕底部。<a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.left</a> 会将滚动条放在屏幕左侧。<a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.right</a> 会将滚动条放在屏幕右侧。</p>",
+    "2": "<p><a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.top</a> 和 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.bottom</a> 只能用于垂直滚动。<a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.left</a> 和 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.right</a> 只能用于水平滚动。</p>",
+    "3": "<p>垂直滚动时，方向默认值为：<a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a> 对应 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.right</a>，<a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a> 对应 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.left</a>。水平滚动时，默认方向为 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.bottom</a>。</p>"
+  },
+  "widgets/RawScrollbar/shape.html": {
+    "0": "<p>滚动条滑块的 <a href=\"painting/OutlinedBorder-class.html\">OutlinedBorder</a>。</p>",
+    "1": "<p><a href=\"widgets/RawScrollbar/radius.html\">radius</a> 和 <a href=\"widgets/RawScrollbar/shape.html\">shape</a> 只能指定其中一个。若要使用圆角矩形，直接指定 <a href=\"widgets/RawScrollbar/radius.html\">radius</a> 最简单。默认情况下，滚动条滑块为简单的矩形。</p>",
+    "2": "<p>如果指定了 <a href=\"widgets/RawScrollbar/shape.html\">shape</a>，滑块将采用传入的 <a href=\"painting/OutlinedBorder-class.html\">OutlinedBorder</a> 形状，并使用 <a href=\"widgets/RawScrollbar/thumbColor.html\">thumbColor</a> 填充；若未指定，则使用灰色。</p>",
+    "3": "<p>\n<a name=\"widgets.RawScrollbar.shape.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n此示例展示了如何使用 <a href=\"painting/StadiumBorder-class.html\">StadiumBorder</a>，为 <a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> 中的滑块绘制 <a href=\"widgets/RawScrollbar/shape.html\">shape</a>。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n        onmouseenter=\"fixHref(this, 'widgets.RawScrollbar.shape.1');\" onclick=\"fixHref(this, 'widgets.RawScrollbar.shape.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>To create a local project with this code sample, run:<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RawScrollbar.shape.1 mysample</span>\n        </p>"
+  },
+  "widgets/RawScrollbar/thickness.html": {
+    "0": "<p>滚动条在可滚动组件交叉轴方向上的厚度。</p>",
+    "1": "<p>为 null 时，默认厚度为 6.0 像素。</p>"
+  },
+  "widgets/RawScrollbar/thumbColor.html": {
+    "0": "<p>滚动条滑块的颜色。</p>",
+    "1": "<p>为 null 时，默认值为 Color(0x66BCBCBC)。</p>"
+  },
+  "widgets/RawScrollbar/timeToFade.html": {
+    "0": "<p>开始淡出动画前等待的 <a href=\"dart-core/Duration-class.html\">Duration</a>。</p>",
+    "1": "<p>默认值为 600 毫秒的 <a href=\"dart-core/Duration-class.html\">Duration</a>。</p>"
+  },
+  "widgets/RawScrollbar/trackBorderColor.html": {
+    "0": "<p>滚动条轨道边框的颜色。</p>",
+    "1": "<p>只有 <a href=\"widgets/RawScrollbar/trackVisibility.html\">trackVisibility</a> 和 <a href=\"widgets/RawScrollbar/thumbVisibility.html\">thumbVisibility</a> 都为 true 时，滚动条轨道才可见。</p>",
+    "2": "<p>为 null 时，默认值为 Color(0x1a000000)。</p>"
+  },
+  "widgets/RawScrollbar/trackColor.html": {
+    "0": "<p>滚动条轨道的颜色。</p>",
+    "1": "<p>只有 <a href=\"widgets/RawScrollbar/trackVisibility.html\">trackVisibility</a> 和 <a href=\"widgets/RawScrollbar/thumbVisibility.html\">thumbVisibility</a> 都为 true 时，滚动条轨道才可见。</p>",
+    "2": "<p>为 null 时，默认值为 Color(0x08000000)。</p>"
+  },
+  "widgets/RawScrollbar/trackRadius.html": {
+    "0": "<p>滚动条轨道圆角矩形角部的 <a href=\"dart-ui/Radius-class.html\">Radius</a>。</p>",
+    "1": "<p>如果 <a href=\"widgets/RawScrollbar/trackRadius.html\">trackRadius</a> 为 null（默认行为），滚动条轨道将呈矩形。</p>"
+  },
+  "widgets/RawScrollbar/trackVisibility.html": {
+    "0": "<p>指定滚动条轨道是否应保持可见。</p>",
+    "1": "<p>为 true 时，只要滑块可见，滚动条轨道就会始终显示。如果滑块不可见，轨道也不会显示。</p>",
+    "2": "<p>值为 null 时，默认值为 false。</p>"
+  },
+  "widgets/RawScrollbarState-class.html": {
+    "0": "<p><a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> 组件的状态，也由 <a href=\"material/Scrollbar-class.html\">Scrollbar</a> 和 <a href=\"cupertino/CupertinoScrollbar-class.html\">CupertinoScrollbar</a> 组件共享。</p>",
+    "1": "<p>控制滚动条滑块淡入和淡出的动画。</p>",
+    "2": "<p>提供拖动滚动条滑块和点击滚动条轨道所需的默认手势处理。</p>"
+  },
+  "widgets/RawScrollbarState/handleHover.html": {
+    "0": "<p>取消淡出动画，使滚动条在交互期间保持可见。</p>",
+    "1": "<p>子类可以重写此方法，以响应 <a href=\"gestures/PointerHoverEvent-class.html\">PointerHoverEvent</a>。</p>",
+    "2": "<p>可使用辅助方法 <a href=\"widgets/RawScrollbarState/isPointerOverScrollbar.html\">isPointerOverScrollbar</a>、<a href=\"widgets/RawScrollbarState/isPointerOverThumb.html\">isPointerOverThumb</a> 和 <a href=\"widgets/RawScrollbarState/isPointerOverTrack.html\">isPointerOverTrack</a>，判断指针相对于滚动条绘制元素的位置。</p>"
+  },
+  "widgets/RawScrollbarState/handleHoverExit.html": {
+    "0": "<p>启动淡出动画。</p>",
+    "1": "<p>子类可以重写此方法，以响应 <a href=\"gestures/PointerExitEvent-class.html\">PointerExitEvent</a>。</p>"
+  },
+  "widgets/RawScrollbarState/handleThumbPress.html": {
+    "0": "<p>识别到滚动条滑块被按下时调用的处理方法。</p>",
+    "1": "<p>取消与滚动条淡出动画关联的 <a href=\"dart-async/Timer-class.html\">Timer</a>。</p>"
+  },
+  "widgets/RawScrollbarState/handleThumbPressStart.html": {
+    "0": "<p>长按手势开始时调用的处理方法。</p>",
+    "1": "<p>开始淡出动画，并创建滑块的 DragScrollController。</p>"
+  },
+  "widgets/RawScrollbarState/handleThumbPressUpdate.html": {
+    "0": "<p>当前活动的长按手势移动时调用的处理方法。</p>",
+    "1": "<p>通过 _drag ScrollDragController 更新子滚动组件的位置。</p>"
+  },
+  "widgets/RawScrollbarState/isPointerOverScrollbar.html": {
+    "0": "<p>如果给定的 <a href=\"dart-ui/Offset-class.html\">Offset</a> 位于 <a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> 的轨道或滑块上方，则返回 true。</p>",
+    "1": "<p>鼠标悬停在滚动条上时的命中测试区域大于常规命中测试区域，这样更容易通过接近滚动条的位置与其交互。当 <code>forHover</code> 为 true 时，将使用较大的命中测试区域。</p>"
+  },
+  "widgets/RawScrollbarState/isPointerOverTrack.html": {
+    "0": "<p>如果给定的 <a href=\"dart-ui/Offset-class.html\">Offset</a> 位于 <a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> 的轨道上方，则返回 true。</p>",
+    "1": "<p>不包括 <a href=\"widgets/RawScrollbar-class.html\">RawScrollbar</a> 滑块。</p>"
+  },
+  "widgets/RawScrollbarState/scrollbarPainter.html": {
+    "0": "<p>用于绘制滚动条。</p>",
+    "1": "<p>子类可以重写 <a href=\"widgets/RawScrollbarState/updateScrollbarPainter.html\">updateScrollbarPainter</a> 来自定义滚动条行为。</p>"
+  },
+  "widgets/RawScrollbarState/showScrollbar.html": {
+    "0": "<p>可重写的 getter，用于指示滚动条是否应始终保持可见，即使当前没有滚动。</p>",
+    "1": "<p>子类可以重写此 getter，使其返回值取决于继承的主题。</p>",
+    "2": "<p>当 <a href=\"widgets/RawScrollbar/thumbVisibility.html\">RawScrollbar.thumbVisibility</a> 为 null 时，默认值为 false。</p>"
+  },
+  "widgets/RawScrollbarState/updateScrollbarPainter.html": {
+    "0": "<p>此方法负责根据 <a href=\"widgets/State/widget.html\">widget</a> 的属性以及绘制器所依赖的继承组件（例如 <a href=\"widgets/Directionality-class.html\">Directionality</a> 和 <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a>）配置 <a href=\"widgets/RawScrollbarState/scrollbarPainter.html\">scrollbarPainter</a>。</p>",
+    "1": "<p>子类可以重写此方法以配置 <a href=\"widgets/RawScrollbarState/scrollbarPainter.html\">scrollbarPainter</a>。</p>"
   }
 }
