@@ -261298,7 +261298,7 @@
   },
   "flutter/widgets/RouteAware/didPushNext.html": {
     "0": "<p>新的 route 推入到此 route 上方并暂时遮挡它时调用。</p>",
-    "1": "<p>此方法会在推入操作期间同步调用，早于转场动画完成。当前 route 在动画退出时仍可能部分可见。若要在 route 完全被遮挡后执行操作，可以监听 <a href=\"widgets/ModalRoute/secondaryAnimation.html\">ModalRoute.secondaryAnimation</a> 的动画完成状态，例如：</p>"
+    "1": "<p>此方法会在推送操作期间同步调用，早于转场动画完成。当前路由在动画退出过程中可能仍部分可见。若要在路由完全被遮挡后执行操作，可以监听 <a href=\"widgets/ModalRoute/secondaryAnimation.html\">ModalRoute.secondaryAnimation</a> 的动画完成状态，例如：</p>"
   },
   "flutter/widgets/RouteInformation-class.html": {
     "0": "<p>一段路由信息。</p>",
@@ -261876,5 +261876,175 @@
     "18": "<h2 id=\"subclassing-scrollposition\">继承 ScrollPosition</h2>",
     "19": "<p>随着时间推移，一个 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 可能会拥有多个不同的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 对象。例如，如果 <a href=\"widgets/Scrollable/physics.html\">Scrollable.physics</a> 的类型发生变化，<a href=\"widgets/Scrollable-class.html\">Scrollable</a> 会使用新的 physics 创建新的 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a>。要将状态从旧实例传递到新实例，子类需要实现 <a href=\"widgets/ScrollPosition/absorb.html\">absorb</a>。详情请参阅 <a href=\"widgets/ScrollPosition/absorb.html\">absorb</a>。</p>",
     "20": "<p>每当 <a href=\"rendering/ViewportOffset/userScrollDirection.html\">userScrollDirection</a> 的值发生变化时，子类还需要调用 <a href=\"widgets/ScrollPosition/didUpdateScrollDirection.html\">didUpdateScrollDirection</a>。</p>"
+  },
+  "flutter/widgets/Spacer-class.html": {
+    "0": "<p>Spacer 会创建一个可调节的空白间隔，用于调整 <a href=\"widgets/Flex-class.html\">Flex</a> 容器（例如 <a href=\"widgets/Row-class.html\">Row</a> 或 <a href=\"widgets/Column-class.html\">Column</a>）中 widget 之间的间距。</p>",
+    "1": "<p><a href=\"widgets/Spacer-class.html\">Spacer</a> widget 会占用所有可用空间。因此，如果包含 <a href=\"widgets/Spacer-class.html\">Spacer</a> 的 Flex 容器将 <a href=\"widgets/Flex/mainAxisAlignment.html\">Flex.mainAxisAlignment</a> 设置为 <a href=\"rendering/MainAxisAlignment.html\">MainAxisAlignment.spaceAround</a>、<a href=\"rendering/MainAxisAlignment.html\">MainAxisAlignment.spaceBetween</a> 或 <a href=\"rendering/MainAxisAlignment.html\">MainAxisAlignment.spaceEvenly</a>，界面上不会产生可见变化：<a href=\"widgets/Spacer-class.html\">Spacer</a> 已占用了所有额外空间，因此没有剩余空间可供重新分配。</p>"
+  },
+  "flutter/widgets/Spacer/Spacer.html": {
+    "0": "<p>创建一个可插入 <a href=\"widgets/Flexible-class.html\">Flexible</a> widget 的弹性空白区域。</p>",
+    "1": "<p><code>flex</code> 参数不能为 null，也不能小于 1。</p>"
+  },
+  "flutter/widgets/Spacer/flex.html": {
+    "0": "<p>用于确定占用空间大小的弹性系数。</p>",
+    "1": "<p>放置非弹性子级后，主轴上的剩余空间会根据各弹性子级的弹性系数按比例分配，这决定了 <a href=\"widgets/Spacer-class.html\">Spacer</a> 可占用的空间。</p>",
+    "2": "<p>默认为 1。</p>"
+  },
+  "flutter/widgets/SpellCheckConfiguration-class.html": {
+    "0": "<p>控制文本输入的拼写检查方式。</p>",
+    "1": "<p>此配置用于确定获取拼写检查结果 <a href=\"dart-core/List-class.html\">List&lt;SuggestionSpan&gt;</a> 时使用的 <a href=\"services/SpellCheckService-class.html\">SpellCheckService</a>，以及用于标记文本输入中拼写错误单词的 <a href=\"painting/TextStyle-class.html\">TextStyle</a>。</p>"
+  },
+  "flutter/widgets/SpellCheckConfiguration/misspelledSelectionColor.html": {
+    "0": "<p>拼写检查正在显示拼写错误单词的建议时，选区高亮所用的颜色。</p>",
+    "1": "<p>例如，在 iOS 上，拼写检查菜单显示时，选区会呈红色。</p>"
+  },
+  "flutter/widgets/SpellCheckConfiguration/misspelledTextStyle.html": {
+    "0": "<p>用于标记拼写错误单词的样式。</p>",
+    "1": "<p>此属性允许为 <a href=\"widgets/EditableText-class.html\">EditableText</a> 编写的特定样式包装器推断样式；但如果直接将此配置传给 <a href=\"widgets/EditableText-class.html\">EditableText</a>，则必须指定该属性，否则构造时会触发断言错误。</p>"
+  },
+  "flutter/widgets/Stack-class.html": {
+    "0": "<p>一种根据自身边缘来放置子级的 widget。</p>",
+    "1": "<p>如果要以简单方式重叠多个子级，此类很有用。例如，可以将文本和图像叠放，并添加渐变背景以及位于底部的按钮。</p>",
+    "2": "<p><a href=\"widgets/Stack-class.html\">Stack</a> widget 的每个子级都是<em>定位子级</em>或<em>非定位子级</em>。定位子级是指由至少一个属性非 null 的 <a href=\"widgets/Positioned-class.html\">Positioned</a> widget 包裹的子级。Stack 会调整自身大小以容纳所有非定位子级，并根据 <a href=\"widgets/Stack/alignment.html\">alignment</a> 放置这些子级（从左到右的环境中默认为左上角，从右到左的环境中默认为右上角）。随后，Stack 会根据定位子级的 top、right、bottom 和 left 属性放置它们。</p>",
+    "3": "<p>Stack 按顺序绘制子级，第一个子级位于最底层。若要更改子级的绘制顺序，可以按新的顺序重新构建 Stack。以这种方式调整顺序时，可以为子级设置非 null 的 key。这样框架会将子级底层对象移动到新位置，而不是重新创建它们。</p>",
+    "4": "<p>有关 Stack 布局算法的详细信息，请参阅 <a href=\"rendering/RenderStack-class.html\">RenderStack</a>。</p>",
+    "5": "<p>如果要按特定模式排列多个子级，或创建自定义布局管理器，可能应改用 <a href=\"widgets/CustomMultiChildLayout-class.html\">CustomMultiChildLayout</a>。特别是，使用 <a href=\"widgets/Stack-class.html\">Stack</a> 时，无法根据子级自身大小或 Stack 的大小来定位子级。</p>"
+  },
+  "flutter/widgets/Stack/Stack.html": {
+    "0": "<p>创建一个堆叠布局 widget。</p>",
+    "1": "<p>默认情况下，Stack 的非定位子级按左上角对齐。</p>"
+  },
+  "flutter/widgets/Stack/alignment.html": {
+    "0": "<p>如何对齐 Stack 中的非定位子级和部分定位子级。</p>",
+    "1": "<p>非定位子级会彼此相对放置，使 <a href=\"widgets/Stack/alignment.html\">alignment</a> 确定的点彼此重合。例如，当 <a href=\"widgets/Stack/alignment.html\">alignment</a> 为 <a href=\"painting/Alignment/topLeft-constant.html\">Alignment.topLeft</a> 时，每个非定位子级的左上角都会位于同一全局坐标。</p>",
+    "2": "<p>部分定位子级（即在某个轴上未指定对齐方式的子级，例如既未设置 <code>top</code> 也未设置 <code>bottom</code> 的子级）会使用 alignment 来确定其在该未充分指定的轴上的位置。</p>",
+    "3": "<p>默认为 <a href=\"painting/AlignmentDirectional/topStart-constant.html\">AlignmentDirectional.topStart</a>。</p>",
+    "4": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/Stack/clipBehavior.html": {
+    "2": "<p>Stack 只会裁剪其<em>几何范围</em>溢出 Stack 的子级。在自身边界外绘制内容的子级（例如带阴影的盒子）不会被裁剪，与此属性的值无关。同样，如果子级的后代溢出 Stack，也不会因此被裁剪，因为这里只考虑 Stack 直接子级的几何范围。<a href=\"widgets/Transform-class.html\">Transform</a> 就是一个可能导致子级在自身几何范围外绘制的 widget。</p>",
+    "3": "<p>若要裁剪几何范围没有溢出 Stack 的子级，可以使用 <a href=\"widgets/ClipRect-class.html\">ClipRect</a> widget。</p>",
+    "4": "<p>即使此属性设为 <a href=\"dart-ui/Clip.html\">Clip.none</a>，Stack 本身也不会扩展命中测试区域：落在 Stack 自身边界之外的指针事件不会传递给子级，即使该子级在该区域中绘制了内容。</p>"
+  },
+  "flutter/widgets/Stack/fit.html": {
+    "0": "<p>如何调整 Stack 中非定位子级的大小。</p>",
+    "1": "<p>从父级传给 <a href=\"widgets/Stack-class.html\">Stack</a> 的约束会被放宽（<a href=\"rendering/StackFit.html\">StackFit.loose</a>），或收紧至最大尺寸（<a href=\"rendering/StackFit.html\">StackFit.expand</a>）。</p>"
+  },
+  "flutter/widgets/Stack/textDirection.html": {
+    "0": "<p>用于解析 <a href=\"widgets/Stack/alignment.html\">alignment</a> 的文本方向。</p>",
+    "1": "<p>默认为当前环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>。</p>"
+  },
+  "flutter/widgets/StandardComponentType.html": {
+    "0": "<p>用于标识标准 UI 组件的枚举。</p>",
+    "1": "<p>此枚举用于为 widget 附加一个 key，以标识其为标准 UI 组件，供测试和发现功能使用。</p>",
+    "2": "<p>测试基础设施（例如 Flutter 测试框架中的 <code>find</code> 对象）会使用它来确认和/或激活特定 widget，并将其识别为标准 UI 组件。由于许多此类组件使用的图标或工具提示略有不同，为它们创建有效的测试匹配器会很脆弱，也容易出错。</p>",
+    "3": "<p>这些 key 不会影响 UI 元素的功能，只用于识别元素。除测试基础设施可以通过此 key 找到 widget 外，带有此 key 的 widget 不会受到特殊处理。如果测试不会查找这些组件，那么给 widget 添加此 key 就没有意义。</p>",
+    "4": "<p>任何应用了此处某个值对应 <a href=\"widgets/StandardComponentType/key.html\">key</a> 的 widget，在测试中都会被视为该类型的标准 UI 组件。</p>",
+    "5": "<p>此处通常只包含那些难以或脆弱地创建可靠测试匹配器的组件类型。这并非标准 UI 组件的完整列表，也不应发展为完整列表。</p>",
+    "6": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/StandardComponentType/key.html": {
+    "0": "<p>返回此 <a href=\"widgets/StandardComponentType.html\">StandardComponentType</a> 对应的 <a href=\"foundation/ValueKey-class.html\">ValueKey</a>。</p>",
+    "1": "<p>将此 key 附加到 widget，以表明它是标准 UI 组件。</p>"
+  },
+  "flutter/widgets/State-class.html": {
+    "0": "<p><a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 的逻辑和内部状态。</p>",
+    "1": "<p>State 是一种信息：(1) 在构建 widget 时可以同步读取；(2) 在 widget 的生命周期内可能发生变化。widget 的实现者有责任确保状态变化时及时通知 <a href=\"widgets/State-class.html\">State</a>，通知方式是调用 <a href=\"widgets/State/setState.html\">State.setState</a>。</p>",
+    "2": "<p>当框架膨胀 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 并将其插入树中时，会调用 <a href=\"widgets/StatefulWidget/createState.html\">StatefulWidget.createState</a> 来创建 <a href=\"widgets/State-class.html\">State</a> 对象。由于同一个 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 实例可以被多次膨胀（例如同时在树中的多个位置使用），一个 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 实例可能关联多个 <a href=\"widgets/State-class.html\">State</a> 对象。同样，如果 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 从树中移除后又重新插入，框架会再次调用 <a href=\"widgets/StatefulWidget/createState.html\">StatefulWidget.createState</a> 创建新的 <a href=\"widgets/State-class.html\">State</a> 对象，从而简化 <a href=\"widgets/State-class.html\">State</a> 对象的生命周期管理。</p>",
+    "3": "<p><a href=\"widgets/State-class.html\">State</a> 对象具有以下生命周期：</p>",
+    "4": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/State/mounted.html": {
+    "0": "<p>此 <a href=\"widgets/State-class.html\">State</a> 对象当前是否位于树中。</p>",
+    "1": "<p>创建 <a href=\"widgets/State-class.html\">State</a> 对象后、调用 <a href=\"widgets/State/initState.html\">initState</a> 前，框架会将 <a href=\"widgets/State-class.html\">State</a> 对象与 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 关联，从而“挂载”该对象。<a href=\"widgets/State-class.html\">State</a> 对象会一直保持挂载状态，直到框架调用 <a href=\"widgets/State/dispose.html\">dispose</a>。此后，框架将不再要求该 <a href=\"widgets/State-class.html\">State</a> 对象执行 <a href=\"widgets/State/build.html\">build</a>。</p>",
+    "2": "<p>只有当 <a href=\"widgets/State/mounted.html\">mounted</a> 为 true 时才能调用 <a href=\"widgets/State/setState.html\">setState</a>，否则会出错。</p>"
+  },
+  "flutter/widgets/State/setState.html": {
+    "1": "<p>每当更改 <a href=\"widgets/State-class.html\">State</a> 对象的内部状态时，都应在传给 <a href=\"widgets/State/setState.html\">setState</a> 的函数中执行更改：</p>",
+    "10": "<p>此 API 最初是名为 <code>markNeedsBuild</code> 的方法，以便与 <a href=\"rendering/RenderObject/markNeedsLayout.html\">RenderObject.markNeedsLayout</a>、<a href=\"rendering/RenderObject/markNeedsPaint.html\">RenderObject.markNeedsPaint</a> 等方法保持一致。</p>",
+    "11": "<p>然而，Flutter 框架的早期用户测试发现，人们调用 <code>markNeedsBuild()</code> 的次数远超实际需要。基本上，人们把它当作护身符：只要不确定是否需要调用，就先调用再说。</p>",
+    "13": "<p>将 API 改为接收回调后，这种做法大幅减少。一种解释是，要求开发者在回调中实际更新状态，促使他们更仔细地思考究竟更新了什么，从而更清楚地了解何时适合调用该方法。</p>"
+  },
+  "flutter/widgets/StatefulBuilder-class.html": {
+    "0": "<p>一种具有状态并通过调用闭包获取子 widget 的简单 widget。</p>",
+    "1": "<p>传给 <a href=\"widgets/StatefulBuilder/builder.html\">builder</a> 的 <a href=\"widgets/StateSetter.html\">StateSetter</a> 函数用于触发重建，其作用类似于常规 <a href=\"widgets/State-class.html\">State</a> 的 <a href=\"widgets/State/setState.html\">State.setState</a>。</p>",
+    "2": "<p>调用 <a href=\"widgets/StateSetter.html\">StateSetter</a> 时会再次调用 <a href=\"widgets/StatefulBuilder/builder.html\">builder</a>，因此，表示状态的变量应保存在 <a href=\"widgets/StatefulBuilder/builder.html\">builder</a> 函数之外。</p>",
+    "4": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/StatefulBuilder/builder.html": {
+    "0": "<p>用于获取子 widget 的回调。</p>",
+    "1": "<p>每当此 widget 被包含在父级的 build 中，且与其同步的旧 widget（如果有）具有不同的对象标识时，都会调用此函数。通常，父级的 build 方法会构建一棵新的 widget 树，因此新的 Builder 子级与对应的旧子级不会是 <a href=\"dart-core/identical.html\">identical</a>。</p>"
+  },
+  "flutter/widgets/StatefulElement/activate.html": {
+    "0": "<p>从“非活动”生命周期状态转换到“活动”状态。</p>",
+    "1": "<p>先前停用的 element 重新并入树中时，框架会调用此方法。element 首次变为活动状态（即从“初始”状态转换）时不会调用此方法；在这种情况下，框架会调用 <a href=\"widgets/ComponentElement/mount.html\">mount</a>。</p>",
+    "2": "<p>更多信息请参阅 <a href=\"widgets/Element-class.html\">Element</a> 的生命周期文档。</p>",
+    "3": "<p>此方法的实现应以调用继承的方法开始，例如 <code>super.activate()</code>。</p>"
+  },
+  "flutter/widgets/StatefulElement/deactivate.html": {
+    "0": "<p>从“活动”生命周期状态转换到“非活动”状态。</p>",
+    "1": "<p>先前处于活动状态的 element 被移入非活动 element 列表时，框架会调用此方法。element 处于非活动状态时不会显示在屏幕上，并且最多只能保持到当前动画帧结束。如果动画帧结束时 element 仍未重新激活，框架就会卸载它。</p>",
+    "2": "<p>如果重建 widget 子树时发生未捕获的异常，框架也会对此失败子树调用此方法，以尽可能确保 widget 树处于一致状态。此类子树的停用过程只会尽力执行，停用期间抛出的错误不会再次抛出。</p>",
+    "3": "<p>此方法由 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a> 间接调用。</p>",
+    "4": "<p>更多信息请参阅 <a href=\"widgets/Element-class.html\">Element</a> 的生命周期文档。</p>",
+    "5": "<p>此方法的实现应以调用继承的方法结束，例如 <code>super.deactivate()</code>。</p>"
+  },
+  "flutter/widgets/StatefulElement/dependOnInheritedElement.html": {
+    "0": "<p>将此构建上下文注册到 <code>ancestor</code>，以便在 <code>ancestor</code> 的 widget 发生变化时重建此构建上下文。</p>",
+    "1": "<p>返回 <code>ancestor.widget</code>。</p>",
+    "2": "<p>很少需要直接调用此方法。大多数应用应使用 <a href=\"widgets/Element/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a>；该方法找到合适的 <a href=\"widgets/InheritedElement-class.html\">InheritedElement</a> 祖先后会调用此方法。</p>",
+    "3": "<p>关于何时可以调用 <a href=\"widgets/Element/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 的所有限制，同样适用于此方法。</p>"
+  },
+  "flutter/widgets/StatefulElement/didChangeDependencies.html": {
+    "0": "<p>此 element 的依赖项发生变化时调用。</p>",
+    "1": "<p><a href=\"widgets/Element/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 会将此 element 注册为依赖给定类型的继承信息。当树中此位置的该类型信息发生变化时（例如，<a href=\"widgets/InheritedElement-class.html\">InheritedElement</a> 更新为新的 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>，并且 <a href=\"widgets/InheritedWidget/updateShouldNotify.html\">InheritedWidget.updateShouldNotify</a> 返回 true），框架会调用此函数通知此 element。</p>"
+  },
+  "flutter/widgets/StatefulElement/performRebuild.html": {
+    "0": "<p>调用 <a href=\"widgets/StatelessWidget-class.html\">StatelessWidget</a> 对象的 <a href=\"widgets/StatelessWidget/build.html\">StatelessWidget.build</a> 方法（对于无状态 widget），或调用 <a href=\"widgets/State-class.html\">State</a> 对象的 <a href=\"widgets/State/build.html\">State.build</a> 方法（对于有状态 widget），然后更新 widget 树。</p>",
+    "1": "<p>此方法会在 <a href=\"widgets/ComponentElement/mount.html\">mount</a> 期间自动调用以生成首次构建；当 element 需要更新时，<a href=\"widgets/Element/rebuild.html\">rebuild</a> 也会调用此方法。</p>"
+  },
+  "flutter/widgets/StatefulElement/state.html": {
+    "0": "<p>与树中此位置关联的 <a href=\"widgets/State-class.html\">State</a> 实例。</p>",
+    "1": "<p><a href=\"widgets/State-class.html\">State</a> 对象与持有它们的 <a href=\"widgets/StatefulElement-class.html\">StatefulElement</a> 对象是一一对应的。<a href=\"widgets/State-class.html\">State</a> 对象由 <a href=\"widgets/StatefulElement-class.html\">StatefulElement</a> 在 <a href=\"widgets/ComponentElement/mount.html\">mount</a> 中创建。</p>"
+  },
+  "flutter/widgets/StatefulElement/unmount.html": {
+    "0": "<p>从“非活动”生命周期状态转换到“已失效”状态。</p>",
+    "1": "<p>框架确定某个非活动 element 永远不会重新激活时会调用此方法。每个动画帧结束时，框架都会对仍处于非活动状态的 element 调用 <a href=\"widgets/StatefulElement/unmount.html\">unmount</a>，避免 element 非活动时间超过一个动画帧。</p>",
+    "2": "<p>调用此函数后，该 element 不会再次并入树中。</p>",
+    "3": "<p>此时应释放该 element 持有的所有资源。例如，<a href=\"widgets/RenderObjectElement/unmount.html\">RenderObjectElement.unmount</a> 会调用 <a href=\"rendering/RenderObject/dispose.html\">RenderObject.dispose</a>，并清空对 render object 的引用。</p>",
+    "4": "<p>更多信息请参阅 <a href=\"widgets/Element-class.html\">Element</a> 的生命周期文档。</p>",
+    "5": "<p>此方法的实现应以调用继承的方法结束，例如 <code>super.unmount()</code>。</p>"
+  },
+  "flutter/widgets/StatefulWidget-class.html": {
+    "0": "<p>具有可变状态的 widget。</p>",
+    "1": "<p>State 是一种信息：(1) 在构建 widget 时可以同步读取；(2) 在 widget 的生命周期内可能发生变化。widget 的实现者有责任确保状态变化时及时通知 <a href=\"widgets/State-class.html\">State</a>，通知方式是调用 <a href=\"widgets/State/setState.html\">State.setState</a>。</p>",
+    "2": "<p>有状态 widget 通过构建一组更具体描述用户界面的其他 widget，来描述用户界面的一部分。这个构建过程会递归进行，直到用户界面的描述完全具体（例如，完全由描述具体 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 组成）。</p>",
+    "3": "<p>当所描述的用户界面部分会动态变化时，有状态 widget 很有用，例如其内部状态由时钟驱动，或取决于某些系统状态。对于只依赖对象自身配置信息和 widget 膨胀所在 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 的组合，可以考虑使用 <a href=\"widgets/StatelessWidget-class.html\">StatelessWidget</a>。</p>",
+    "4": "<p><a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 实例本身不可变，其可变状态存储在单独的 <a href=\"widgets/State-class.html\">State</a> 对象中（由 <a href=\"widgets/StatefulWidget/createState.html\">createState</a> 方法创建），或存储在该 <a href=\"widgets/State-class.html\">State</a> 订阅的对象中，例如 <a href=\"dart-async/Stream-class.html\">Stream</a> 或 <a href=\"foundation/ChangeNotifier-class.html\">ChangeNotifier</a> 对象；这些对象的引用保存在 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 自身的 final 字段中。</p>",
+    "5": "<p>每当框架膨胀 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 时，都会调用 <a href=\"widgets/StatefulWidget/createState.html\">createState</a>。因此，如果该 widget 被插入树中的多个位置，同一个 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 可能关联多个 <a href=\"widgets/State-class.html\">State</a> 对象。同样，如果 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 从树中移除后又重新插入，框架会再次调用 <a href=\"widgets/StatefulWidget/createState.html\">createState</a> 创建新的 <a href=\"widgets/State-class.html\">State</a> 对象，从而简化 <a href=\"widgets/State-class.html\">State</a> 对象的生命周期管理。</p>",
+    "6": "<p>如果创建 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 的代码为其 <a href=\"widgets/Widget/key.html\">key</a> 使用了 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a>，那么该 widget 在树中从一个位置移动到另一个位置时会保留同一个 <a href=\"widgets/State-class.html\">State</a> 对象。由于带有 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 的 widget 在树中最多只能位于一个位置，因此使用 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 的 widget 最多只有一个关联的 element。框架利用这一特性，在移动带有全局 key 的 widget 时，会将与该 widget 关联的（唯一）子树从旧位置移接到新位置，而不是在新位置重新创建子树。与 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 关联的 <a href=\"widgets/State-class.html\">State</a> 对象也会随子树一同移接，因此新位置会复用原有的 <a href=\"widgets/State-class.html\">State</a> 对象。但要符合移接条件，widget 必须在从旧位置移除的同一个动画帧内插入新位置。</p>",
+    "8": "<p><a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 主要分为两类。</p>",
+    "9": "<p>第一类会在 <a href=\"widgets/State/initState.html\">State.initState</a> 中分配资源，并在 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中释放资源，但不依赖 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>，也不调用 <a href=\"widgets/State/setState.html\">State.setState</a>。这类 widget 通常位于应用或页面的根部，并通过 <a href=\"foundation/ChangeNotifier-class.html\">ChangeNotifier</a>、<a href=\"dart-async/Stream-class.html\">Stream</a> 或其他类似对象与子 widget 通信。遵循这种模式的有状态 widget 成本相对较低（消耗的 CPU 和 GPU 周期较少），因为它们只构建一次，之后不会更新。因此，它们可以拥有较复杂、较深的 build 方法。</p>",
+    "10": "<p>第二类是使用 <a href=\"widgets/State/setState.html\">State.setState</a> 或依赖 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 的 widget。这些 widget 通常会在应用生命周期内多次重建，因此应尽量减少重建带来的影响。（它们也可能使用 <a href=\"widgets/State/initState.html\">State.initState</a> 或 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 并分配资源，但关键特征是会重建。）</p>",
+    "11": "<p>可以采用以下几种技巧来减少重建有状态 widget 带来的影响：</p>",
+    "12": "<p>将状态下推到叶子节点。例如，如果页面上有一个不断走动的时钟，不要把状态放在页面顶部并在每次跳动时重建整个页面；可以创建专用的时钟 widget，让它只更新自身。</p>",
+    "13": "<p>尽量减少 build 方法及其创建的 widget 传递性地产生的节点数量。理想情况下，有状态 widget 只创建一个 widget，而且该 widget 是 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a>。（实际中并非总能做到，但越接近这一理想，效率就越高。）</p>",
+    "14": "<p>如果子树不会变化，就缓存表示该子树的 widget，并在需要时重复使用。可以将 widget 赋给一个 <code>final</code> 状态变量，并在 build 方法中复用。复用 widget 的效率远高于重新创建一个配置相同的 widget。另一种缓存策略是将 widget 中可变的部分提取为一个接收 child 参数的 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a>。</p>",
+    "15": "<p>尽可能使用 <code>const</code> widget。（这相当于缓存并复用 widget。）</p>",
+    "16": "<p>避免改变所创建子树的深度，或改变子树中 widget 的类型。例如，不要根据情况返回 child 或用 <a href=\"widgets/IgnorePointer-class.html\">IgnorePointer</a> 包裹的 child；应始终用 <a href=\"widgets/IgnorePointer-class.html\">IgnorePointer</a> 包裹 child，并通过控制 <a href=\"widgets/IgnorePointer/ignoring.html\">IgnorePointer.ignoring</a> 属性实现开关。这是因为改变子树深度需要重建、重新布局并重新绘制整个子树，而只改变属性只会对渲染树造成尽可能小的变更（例如，对于 <a href=\"widgets/IgnorePointer-class.html\">IgnorePointer</a>，完全不需要重新布局或重新绘制）。</p>",
+    "17": "<p>如果确实需要改变深度，可以考虑用 widget 包裹子树中的公共部分，并为这些 widget 设置在有状态 widget 生命周期内保持不变的 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a>。如果没有其他 widget 适合设置该 key，可以使用 <a href=\"widgets/KeyedSubtree-class.html\">KeyedSubtree</a>。</p>",
+    "18": "<p>创建可复用的 UI 片段时，优先使用 widget，而不是辅助方法。例如，如果用函数构建 widget，调用 <a href=\"widgets/State/setState.html\">State.setState</a> 时 Flutter 必须重新构建该函数返回的整个包装 widget。若改用 <a href=\"widgets/Widget-class.html\">Widget</a>，Flutter 就能高效地只重新渲染确实需要更新的部分。更进一步，如果创建的 widget 是 <code>const</code>，Flutter 可以跳过大部分重建工作。</p>",
+    "19": "<p>此视频进一步解释了为什么 <code>const</code> 构造函数很重要，以及为什么使用 <a href=\"widgets/Widget-class.html\">Widget</a> 优于辅助方法。</p>",
+    "20": "<p>有关 widget 重建机制的详细信息，请参阅 <a href=\"widgets/Element/rebuild.html\">Element.rebuild</a> 中的讨论。</p>",
+    "24": "<p>按照惯例，widget 构造函数只使用命名参数。第一个参数通常是 <a href=\"widgets/Widget/key.html\">key</a>，最后一个参数通常是 <code>child</code>、<code>children</code> 或同等用途的参数。</p>",
+    "25": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/StatefulWidget/createElement.html": {
+    "0": "<p>创建一个 <a href=\"widgets/StatefulElement-class.html\">StatefulElement</a>，以管理此 widget 在树中的位置。</p>",
+    "1": "<p>子类很少会重写此方法。</p>"
+  },
+  "flutter/widgets/StatefulWidgetBuilder.html": {
+    "0": "<p>由 <a href=\"widgets/StatefulBuilder-class.html\">StatefulBuilder</a> 使用的 builder 回调签名。</p>",
+    "1": "<p>调用 <code>setState</code> 可安排 <a href=\"widgets/StatefulBuilder-class.html\">StatefulBuilder</a> 重建。</p>"
   }
 }

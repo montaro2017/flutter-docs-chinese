@@ -1,57 +1,10 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,283 页，部分翻译 252 页，未翻译 717 页；正文已译 22,306/24,807 段。
+模块共 8,093 页：已完整 6,312 页，部分翻译 239 页，未翻译 701 页；正文已译 22,402/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
-
-- `flutter/widgets/Spacer-class.html` — 部分；已译 2/4 段；待译段落：0, 1
-- `flutter/widgets/Spacer/Spacer.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/Spacer/flex.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SpellCheckConfiguration-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SpellCheckConfiguration/misspelledSelectionColor.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SpellCheckConfiguration/misspelledTextStyle.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/Stack-class.html` — 部分；已译 3/11 段；待译段落：0, 1, 2, 3, 4, 5, 6, 8
-- `flutter/widgets/Stack/Stack.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Stack/alignment.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/Stack/clipBehavior.html` — 部分；已译 3/6 段；待译段落：2, 3, 4
-
-- `flutter/widgets/Stack/fit.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Stack/textDirection.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StandardComponentType.html` — 部分；已译 1/7 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/StandardComponentType/key.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/State-class.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/State/mounted.html` — 部分；已译 2/3 段；待译段落：0
-
-- `flutter/widgets/State/setState.html` — 部分；已译 16/20 段；待译段落：1, 10, 11, 13
-
-- `flutter/widgets/StatefulBuilder-class.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
-
-- `flutter/widgets/StatefulBuilder/builder.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StatefulElement/activate.html` — 部分；已译 2/4 段；待译段落：0, 1
-
-- `flutter/widgets/StatefulElement/deactivate.html` — 部分；已译 4/6 段；待译段落：0, 3
-
-- `flutter/widgets/StatefulElement/dependOnInheritedElement.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/StatefulElement/didChangeDependencies.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/StatefulElement/performRebuild.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StatefulElement/state.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StatefulElement/unmount.html` — 部分；已译 5/6 段；待译段落：0
-
-- `flutter/widgets/StatefulWidget-class.html` — 部分；已译 5/26 段；待译段落：0, 1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 24
-
-- `flutter/widgets/StatefulWidget/createElement.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/StatefulWidgetBuilder.html` — 未译；已译 0/2 段；待译段落：0, 1
 
 - `flutter/widgets/StatelessWidget-class.html` — 部分；已译 4/18 段；待译段落：0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 16
 

@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/framework.dart#L1160"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">setState</span> 方法 
+<h1><span class="kind-method">setState</span> 方法
 </h1></div>
 
     <section class="multi-line-signature">
@@ -108,8 +108,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>通知框架：此对象的内部状态已发生变化。</p>
-<p>Whenever you change the internal state of a <a href="widgets/State-class.html">State</a> object, make the
-change in a function that you pass to <a href="widgets/State/setState.html">setState</a>:</p>
+<p>每当更改 <a href="widgets/State-class.html">State</a> 对象的内部状态时，都应在传给 <a href="widgets/State/setState.html">setState</a> 的函数中执行更改：</p>
 <pre class="language-dart"><code class="language-dart">setState(() { _myState = newValue; });
 </code></pre>
 <p>提供的回调会立即同步执行。它不得返回 future（不能声明为 <code>async</code>），否则将无法确定状态究竟何时被设置。</p>
@@ -138,19 +137,10 @@ animation.addListener(_update);
 </code></pre>
 <p>框架调用 <a href="widgets/State/dispose.html">dispose</a> 后再调用此方法会引发错误。可通过检查 <a href="widgets/State/mounted.html">mounted</a> 属性是否为 true，判断此时能否调用。但更好的做法是取消可能触发 <a href="widgets/State/setState.html">setState</a> 的工作，而不是仅在调用前检查 <a href="widgets/State/mounted.html">mounted</a>；否则会浪费 CPU 资源，避免仅在调用 <a href="widgets/State/setState.html">setState</a> 前做检查。</p>
 <h2 id="design-discussion">设计讨论</h2>
-<p>The original version of this API was a method called <code>markNeedsBuild</code>, for
-consistency with <a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a>,
-<a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a>, <em>et al</em>.</p>
-<p>However, early user testing of the Flutter framework revealed that people
-would call <code>markNeedsBuild()</code> much more often than necessary. Essentially,
-people used it like a good luck charm, any time they weren't sure if they
-needed to call it, they would call it, just in case.</p>
+<p>此 API 最初是名为 <code>markNeedsBuild</code> 的方法，以便与 <a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a>、<a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a> 等方法保持一致。</p>
+<p>然而，Flutter 框架的早期用户测试发现，人们调用 <code>markNeedsBuild()</code> 的次数远超实际需要。基本上，人们把它当作护身符：只要不确定是否需要调用，就先调用再说。</p>
 <p>这自然会导致应用出现性能问题。</p>
-<p>When the API was changed to take a callback instead, this practice was
-greatly reduced. One hypothesis is that prompting developers to actually
-update their state in a callback caused developers to think more carefully
-about what exactly was being updated, and thus improved their understanding
-of the appropriate times to call the method.</p>
+<p>将 API 改为接收回调后，这种做法大幅减少。一种解释是，要求开发者在回调中实际更新状态，促使他们更仔细地思考究竟更新了什么，从而更清楚地了解何时适合调用该方法。</p>
 <p>实际上，<a href="widgets/State/setState.html">setState</a> 的实现很简单：它会同步调用提供的回调，然后调用 <a href="widgets/Element/markNeedsBuild.html">Element.markNeedsBuild</a>。</p>
 <h2 id="performance-considerations">性能注意事项</h2>
 <p>调用此函数的<em>直接</em>开销很小，而且预计每帧最多调用一次，因此这点开销无关紧要。尽管如此，仍应避免冗余调用（例如在紧密循环中），因为调用会创建 closure 并执行它。此方法具有幂等性，每帧对每个 <a href="widgets/State-class.html">State</a> 调用一次以上没有任何好处。</p>
