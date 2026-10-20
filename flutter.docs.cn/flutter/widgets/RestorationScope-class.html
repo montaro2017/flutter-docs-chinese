@@ -87,31 +87,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;RestorationScope-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/restoration.dart#L56"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RestorationScope</span> 类 
+<h1><span class="kind-class">RestorationScope</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Creates a new scope for restoration IDs used by descendant widgets to claim
-<a href="services/RestorationBucket-class.html">RestorationBucket</a>。</p>
-<p>A restoration scope inserts a <a href="services/RestorationBucket-class.html">RestorationBucket</a> into the widget tree,
-which descendant widgets can access via <a href="widgets/RestorationScope/of.html">RestorationScope.of</a>. It is
-uncommon for descendants to directly store data in this bucket. Instead,
-descendant widgets should consider storing their own restoration data in a
-child bucket claimed with <a href="services/RestorationBucket/claimChild.html">RestorationBucket.claimChild</a> from the bucket
-provided by this scope.</p>
-<p>The bucket inserted into the widget tree by this scope has been claimed from
-the surrounding <a href="widgets/RestorationScope-class.html">RestorationScope</a> using the provided <a href="widgets/RestorationScope/restorationId.html">restorationId</a>. If
-the <a href="widgets/RestorationScope-class.html">RestorationScope</a> is moved to a different part of the widget tree under
-a different <a href="widgets/RestorationScope-class.html">RestorationScope</a>, the bucket owned by this scope with all its
-children and the data contained in them is moved to the new scope as well.</p>
-<p>This widget will not make a <a href="services/RestorationBucket-class.html">RestorationBucket</a> available to descendants if
-<a href="widgets/RestorationScope/restorationId.html">restorationId</a> is null or when there is no surrounding restoration scope to
-claim a bucket from. In this case, descendant widgets invoking
-<a href="widgets/RestorationScope/of.html">RestorationScope.of</a> will receive null as a return value indicating that no
-bucket is available for storing restoration data. This will turn off state
-restoration for the widget subtree.</p>
+  <p>创建新的状态恢复作用域，供后代组件使用状态恢复 ID 获取 <a href="services/RestorationBucket-class.html">RestorationBucket</a>。</p>
+<p>状态恢复作用域会将 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 插入组件树，后代组件可通过 <a href="widgets/RestorationScope/of.html">RestorationScope.of</a> 访问它。后代通常不应直接将数据存入此 bucket，而应考虑从此作用域提供的 bucket 调用 <a href="services/RestorationBucket/claimChild.html">RestorationBucket.claimChild</a> 获取子 bucket，并将自身的状态恢复数据保存在该子 bucket 中。</p>
+<p>此作用域插入组件树的 bucket，是通过给定的 <a href="widgets/RestorationScope/restorationId.html">restorationId</a> 从外围 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 获取的。如果将此 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 移到组件树中另一个不同的 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 之下，那么此作用域拥有的 bucket、其中所有子 bucket 及其数据也会一同移到新的作用域中。</p>
+<p>如果 <a href="widgets/RestorationScope/restorationId.html">restorationId</a> 为 null，或外围没有可用于获取 bucket 的状态恢复作用域，此组件就不会向后代提供 <a href="services/RestorationBucket-class.html">RestorationBucket</a>。在这种情况下，后代调用 <a href="widgets/RestorationScope/of.html">RestorationScope.of</a> 会得到 null，表示没有可用于存储状态恢复数据的 bucket；该子树的状态恢复也会因此关闭。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a>, which inserts the root bucket provided by

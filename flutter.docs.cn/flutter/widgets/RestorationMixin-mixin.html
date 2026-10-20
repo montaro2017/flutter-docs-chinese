@@ -93,63 +93,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>Manages the restoration data for a <a href="widgets/State-class.html">State</a> object of a <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>.</p>
-<p>Restoration data can be serialized out and, at a later point in time, be
-used to restore the stateful members in the <a href="widgets/State-class.html">State</a> object to the same
-values they had when the data was generated.</p>
-<p>This mixin organizes the restoration data of a <a href="widgets/State-class.html">State</a> object in
-<a href="widgets/RestorableProperty-class.html">RestorableProperty</a>. All the information that the <a href="widgets/State-class.html">State</a> object wants to
-get restored during state restoration need to be saved in a subclass of
-<a href="widgets/RestorableProperty-class.html">RestorableProperty</a>. For example, to restore the count value in a counter
-app, that value should be stored in a member variable of type
-<a href="widgets/RestorableInt-class.html">RestorableInt</a> instead of a plain member variable of type <a href="dart-core/int-class.html">int</a>.</p>
-<p>The mixin ensures that the current values of the <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>s are
-serialized as part of the restoration state. It is up to the <a href="widgets/State-class.html">State</a> to
-ensure that the data stored in the properties is always up to date. When the
-widget is restored from previously generated restoration data, the values of
-the <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>s are automatically restored to the values that had
-when the restoration data was serialized out.</p>
-<p>Within a <a href="widgets/State-class.html">State</a> that uses this mixin, <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>s are usually
-instantiated to initialize member variables. Users of the mixin must
-override <a href="widgets/RestorationMixin/restoreState.html">restoreState</a> and register their previously instantiated
-<a href="widgets/RestorableProperty-class.html">RestorableProperty</a>s in this method by calling <a href="widgets/RestorationMixin/registerForRestoration.html">registerForRestoration</a>.
-The mixin calls this method for the first time right after
-<a href="widgets/State/initState.html">State.initState</a>. After registration, the values stored in the property
-have either been restored to their previous value or - if no restoration
-data for restoring is available - they are initialized with a
-property-specific default value. At the end of a <a href="widgets/State-class.html">State</a> object's life
-cycle, all restorable properties must be disposed in <a href="widgets/State/dispose.html">State.dispose</a>.</p>
-<p>In addition to being invoked right after <a href="widgets/State/initState.html">State.initState</a>, <a href="widgets/RestorationMixin/restoreState.html">restoreState</a>
-is invoked again when new restoration data has been provided to the mixin.
-When this happens, the <a href="widgets/State-class.html">State</a> object must re-register all properties with
-<a href="widgets/RestorationMixin/registerForRestoration.html">registerForRestoration</a> again to restore them to their previous values as
-described by the new restoration data. All initialization logic that depends
-on the current value of a restorable property should be included in the
-<a href="widgets/RestorationMixin/restoreState.html">restoreState</a> method to ensure it re-executes when the properties are
-restored to a different value during the life time of the <a href="widgets/State-class.html">State</a> object.</p>
-<p>Internally, the mixin stores the restoration data from all registered
-properties in a <a href="services/RestorationBucket-class.html">RestorationBucket</a> claimed from the surrounding
-<a href="widgets/RestorationScope-class.html">RestorationScope</a> using the <a href="widgets/State-class.html">State</a>-provided <a href="widgets/RestorationMixin/restorationId.html">restorationId</a>. The
-<a href="widgets/RestorationMixin/restorationId.html">restorationId</a> must be unique in the surrounding <a href="widgets/RestorationScope-class.html">RestorationScope</a>. State
-restoration is disabled for the <a href="widgets/State-class.html">State</a> object using this mixin if
-<a href="widgets/RestorationMixin/restorationId.html">restorationId</a> is null or when there is no surrounding <a href="widgets/RestorationScope-class.html">RestorationScope</a>.
-In that case, the values of the registered properties will not be restored
-during state restoration.</p>
-<p>The <a href="services/RestorationBucket-class.html">RestorationBucket</a> used to store the registered properties is available
-via the <a href="widgets/RestorationMixin/bucket.html">bucket</a> getter. Interacting directly with the bucket is uncommon,
-but the <a href="widgets/State-class.html">State</a> object may make this bucket available for its descendants to
-claim child buckets from. For that, the <a href="widgets/RestorationMixin/bucket.html">bucket</a> is injected into the widget
-tree in <a href="widgets/State/build.html">State.build</a> with the help of an <a href="widgets/UnmanagedRestorationScope-class.html">UnmanagedRestorationScope</a>.</p>
-<p>The <a href="widgets/RestorationMixin/bucket.html">bucket</a> getter returns null if state restoration is turned off. If
-state restoration is turned on or off during the lifetime of the widget
-(e.g. because <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> changes from null to non-null) the value
-returned by the getter will also change from null to non-null or vice versa.
-The mixin calls <a href="widgets/RestorationMixin/didToggleBucket.html">didToggleBucket</a> on itself to notify the <a href="widgets/State-class.html">State</a> object
-about this change. Overriding this method is not necessary as long as the
-<a href="widgets/State-class.html">State</a> object does not directly interact with the <a href="widgets/RestorationMixin/bucket.html">bucket</a>.</p>
-<p>Whenever the value returned by <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> changes,
-<a href="widgets/RestorationMixin/didUpdateRestorationId.html">didUpdateRestorationId</a> must be called (unless the change already triggers
-a call to <a href="widgets/RestorationMixin/didUpdateWidget.html">didUpdateWidget</a>).</p>
+  <p>管理 <a href="widgets/State-class.html">State</a> 对象的状态恢复数据；该对象属于 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>。</p>
+<p>状态恢复数据可以序列化保存，并在之后用于将 <a href="widgets/State-class.html">State</a> 对象中的有状态成员恢复为生成数据时的值。</p>
+<p>此 mixin 使用 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 组织 <a href="widgets/State-class.html">State</a> 对象的状态恢复数据。<a href="widgets/State-class.html">State</a> 对象希望在状态恢复时恢复的所有信息，都必须保存在 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 子类中。例如，计数器应用要恢复计数值时，应将其保存在 <a href="widgets/RestorableInt-class.html">RestorableInt</a> 类型的成员变量中，而不是普通的 <a href="dart-core/int-class.html">int</a> 类型成员变量中。</p>
+<p>此 mixin 会确保将 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 的当前值序列化为状态恢复数据的一部分。<a href="widgets/State-class.html">State</a> 负责确保属性中保存的数据始终是最新的。使用之前生成的状态恢复数据恢复组件时，<a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 的值会自动恢复为序列化数据时的值。</p>
+<p>使用此 mixin 的 <a href="widgets/State-class.html">State</a> 通常会实例化 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 来初始化成员变量。使用此 mixin 的类必须重写 <a href="widgets/RestorationMixin/restoreState.html">restoreState</a>，并在该方法中调用 <a href="widgets/RestorationMixin/registerForRestoration.html">registerForRestoration</a> 注册预先实例化的 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>。mixin 会在 <a href="widgets/State/initState.html">State.initState</a> 之后首次调用此方法。注册后，属性中保存的值要么恢复为之前的值，要么在没有可用恢复数据时初始化为该属性对应的默认值。<a href="widgets/State-class.html">State</a> 生命周期结束时，必须在 <a href="widgets/State/dispose.html">State.dispose</a> 中释放所有可恢复属性。</p>
+<p>除了在 <a href="widgets/State/initState.html">State.initState</a> 之后调用外，当有新的状态恢复数据提供给 mixin 时，也会再次调用 <a href="widgets/RestorationMixin/restoreState.html">restoreState</a>。此时，<a href="widgets/State-class.html">State</a> 对象必须再次通过 <a href="widgets/RestorationMixin/registerForRestoration.html">registerForRestoration</a> 重新注册所有属性，以便根据新数据将它们恢复为之前的值。依赖可恢复属性当前值的所有初始化逻辑都应放在 <a href="widgets/RestorationMixin/restoreState.html">restoreState</a> 中，以确保 <a href="widgets/State-class.html">State</a> 对象的生命周期内属性恢复为不同值时，这些逻辑会重新执行。</p>
+<p>此 mixin 会在内部将所有已注册属性的状态恢复数据保存在 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 中；它通过 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 获取该 bucket，使用 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> 标识，该 ID 由 <a href="widgets/State-class.html">State</a> 提供。该 ID 在外围 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 中必须唯一。如果 <a href="widgets/State-class.html">State</a> 的 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a>（<a href="widgets/RestorationMixin/restorationId.html">restorationId</a>）为 null，或外围不存在 <a href="widgets/RestorationScope-class.html">RestorationScope</a>，则会为使用此 mixin 的 State 对象禁用状态恢复。在这种情况下，不会恢复该 State 的已注册属性值。</p>
+<p>已注册属性所用的 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 可通过 <a href="widgets/RestorationMixin/bucket.html">bucket</a> getter 获取。通常不需要直接操作 bucket，但 <a href="widgets/State-class.html">State</a> 对象可以将该 bucket（<a href="widgets/RestorationMixin/bucket.html">bucket</a>）提供给后代，以便后代获取子 bucket。为此，可在 <a href="widgets/State/build.html">State.build</a> 中借助 <a href="widgets/UnmanagedRestorationScope-class.html">UnmanagedRestorationScope</a> 将 bucket 注入组件树。</p>
+<p>如果状态恢复已关闭，<a href="widgets/RestorationMixin/bucket.html">bucket</a> getter 会返回 null。如果在组件生命周期内启用或关闭状态恢复（例如 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> 从 null 变为非 null），该 getter 返回的值也会在 null 与非 null 之间相应变化。mixin 会调用自身的 <a href="widgets/RestorationMixin/didToggleBucket.html">didToggleBucket</a> 来通知 <a href="widgets/State-class.html">State</a> 对象发生了此变化。只要 <a href="widgets/State-class.html">State</a> 不直接操作 <a href="widgets/RestorationMixin/bucket.html">bucket</a>，就无需重写此方法。</p>
+<p>每当 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> 返回值发生变化时，都必须调用 <a href="widgets/RestorationMixin/didUpdateRestorationId.html">didUpdateRestorationId</a>，除非该变化已经触发了 <a href="widgets/RestorationMixin/didUpdateWidget.html">didUpdateWidget</a> 调用。</p>
 <p>
 <a name="widgets.RestorationMixin.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">

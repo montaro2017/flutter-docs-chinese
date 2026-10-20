@@ -259508,5 +259508,212 @@
     "0": "<p>此属性中保存的当前值。</p>",
     "1": "<p>当前值的表示形式会保存在状态恢复数据中。进行状态恢复时，此属性会将值恢复为收集其状态恢复数据时的值。</p>",
     "2": "<p>只有在通过调用 <a href=\"widgets/RestorationMixin/registerForRestoration.html\">RestorationMixin.registerForRestoration</a> 将此属性注册到 <a href=\"widgets/RestorationMixin-mixin.html\">RestorationMixin</a> 后，才能访问 <a href=\"widgets/RestorableValue/value.html\">value</a>。</p>"
+  },
+  "flutter/widgets/RestorableRouteBuilder.html": {
+    "0": "<p>创建一个将加入 <a href=\"widgets/Navigator-class.html\">Navigator</a> 的 <a href=\"widgets/Route-class.html\">Route</a>。</p>",
+    "1": "<p>可以使用提供的 <code>arguments</code> 配置路由。提供的 <code>context</code> 是要添加路由的 <a href=\"widgets/Navigator-class.html\">Navigator</a> 的 <code>BuildContext</code>。</p>",
+    "2": "<p><a href=\"widgets/Navigator-class.html\">Navigator</a> 添加匿名路由的可恢复方法会使用此构建器（例如 <a href=\"widgets/NavigatorState/restorablePush.html\">NavigatorState.restorablePush</a>）。在此用法中，<a href=\"widgets/RestorableRouteBuilder.html\">RestorableRouteBuilder</a> 必须是带有 <code>@pragma('vm:entry-point')</code> 注解的静态函数。状态恢复期间，<a href=\"widgets/Navigator-class.html\">Navigator</a> 会再次调用该函数来重新创建路由。</p>"
+  },
+  "flutter/widgets/RestorableRouteFuture-class.html": {
+    "0": "<p>提供对 <a href=\"widgets/Route-class.html\">Route</a> 对象及其返回值的访问；该路由通过 Navigator 的某个可恢复 API 方法添加。</p>",
+    "1": "<p>当 <a href=\"widgets/State-class.html\">State</a> 对象需要访问自己推入 <a href=\"widgets/Navigator-class.html\">Navigator</a> 的 <a href=\"widgets/Route-class.html\">Route</a> 返回值时，<a href=\"widgets/RestorableRouteFuture-class.html\">RestorableRouteFuture</a> 可确保状态恢复后仍能访问该值。</p>",
+    "2": "<p>要在由 <a href=\"widgets/RestorableRouteFuture/navigatorFinder.html\">navigatorFinder</a> 定位的 Navigator 上显示新路由，请调用 <a href=\"widgets/RestorableRouteFuture/present.html\">present</a>，该方法会调用 <a href=\"widgets/RestorableRouteFuture/onPresent.html\">onPresent</a> 回调。<a href=\"widgets/RestorableRouteFuture/onPresent.html\">onPresent</a> 回调必须使用某个可恢复 API 方法，将新路由添加到传入的 Navigator 中。新路由完成后，会执行 <a href=\"widgets/RestorableRouteFuture/onComplete.html\">onComplete</a> 回调，并向其传入路由的返回值（可能为 null）。</p>",
+    "3": "<p>通过 <a href=\"widgets/RestorableRouteFuture/present.html\">present</a> 添加的路由显示在 Navigator 上时，可以通过 <a href=\"widgets/RestorableRouteFuture/route.html\">route</a> getter 访问它。</p>",
+    "4": "<p>如果属性恢复到曾调用过 <a href=\"widgets/RestorableRouteFuture/present.html\">present</a>、但路由尚未完成的状态，<a href=\"widgets/RestorableRouteFuture-class.html\">RestorableRouteFuture</a> 会再次从 Navigator 获取恢复后的路由对象，并在路由完成时调用 <a href=\"widgets/RestorableRouteFuture/onComplete.html\">onComplete</a>。</p>",
+    "5": "<p><a href=\"widgets/RestorableRouteFuture-class.html\">RestorableRouteFuture</a> 一次只能跟踪一个活动的 <a href=\"widgets/RestorableRouteFuture/route.html\">route</a>。调用 <a href=\"widgets/RestorableRouteFuture/present.html\">present</a> 添加路由后，必须等该路由完成，才能再次调用 present。</p>",
+    "6": "<p>\n<a name=\"widgets.RestorableRouteFuture.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n此示例在 <code>_MyHomeState</code> 中使用 <a href=\"widgets/RestorableRouteFuture-class.html\">RestorableRouteFuture</a> 推入一个新的 <code>MyCounter</code> 路由，并获取其返回值。\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"Copy link to clipboard\"\n        onmouseenter=\"fixHref(this, 'widgets.RestorableRouteFuture.1');\" onclick=\"fixHref(this, 'widgets.RestorableRouteFuture.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>To create a local project with this code sample, run:<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.RestorableRouteFuture.1 mysample</span>\n        </p>"
+  },
+  "flutter/widgets/RestorableRouteFuture/enabled.html": {
+    "0": "<p>当前由 <a href=\"widgets/RestorableRouteFuture/toPrimitives.html\">toPrimitives</a> 返回的对象是否应包含在状态恢复状态中。</p>",
+    "1": "<p>返回 false 时，此属性的状态恢复数据中不会包含任何信息；下次使用该数据恢复状态时，属性会初始化为默认值（通过 <a href=\"widgets/RestorableRouteFuture/createDefaultValue.html\">createDefaultValue</a> 获取）。</p>",
+    "2": "<p>此 getter 返回值每次改变时，都必须调用 <a href=\"foundation/ChangeNotifier/notifyListeners.html\">notifyListeners</a>。值从 true 变为 false 时，之前从 <a href=\"widgets/RestorableRouteFuture/toPrimitives.html\">toPrimitives</a> 获取的信息会从状态恢复数据中移除；从 false 变为 true 时，会调用 <a href=\"widgets/RestorableRouteFuture/toPrimitives.html\">toPrimitives</a>，将此属性提供的最新状态恢复信息加入数据中。</p>"
+  },
+  "flutter/widgets/RestorableRouteFuture/isPresent.html": {
+    "0": "<p>由 <a href=\"widgets/RestorableRouteFuture/present.html\">present</a> 创建的 <a href=\"widgets/Route-class.html\">Route</a> 当前是否正在显示。</p>",
+    "1": "<p>调用 <a href=\"widgets/RestorableRouteFuture/present.html\">present</a> 后，此值会返回 true，直到 <a href=\"widgets/Route-class.html\">Route</a> 完成为止。</p>"
+  },
+  "flutter/widgets/RestorableRouteFuture/onComplete.html": {
+    "0": "<p>通过 <a href=\"widgets/RestorableRouteFuture/onPresent.html\">onPresent</a> 添加的 <a href=\"widgets/Route-class.html\">Route</a> 完成时调用的回调。</p>",
+    "1": "<p>该路由的返回值会传入此方法。</p>"
+  },
+  "flutter/widgets/RestorableRouteFuture/onPresent.html": {
+    "0": "<p>用于向指定 Navigator 添加新 <a href=\"widgets/Route-class.html\">Route</a> 的回调。</p>",
+    "1": "<p>此回调必须使用 <a href=\"widgets/NavigatorState-class.html\">NavigatorState</a> 上名称中带有“restorable”的 API 方法（例如 <a href=\"widgets/NavigatorState/restorablePush.html\">NavigatorState.restorablePush</a>、<a href=\"widgets/NavigatorState/restorablePushNamed.html\">NavigatorState.restorablePushNamed</a> 等），并返回这些方法生成的不透明 ID。</p>",
+    "2": "<p>调用 <a href=\"widgets/RestorableRouteFuture/present.html\">present</a> 时会执行此回调，并向其传入传给该方法的 <code>arguments</code> 对象，以及从 <a href=\"widgets/RestorableRouteFuture/navigatorFinder.html\">navigatorFinder</a> 获取的 <a href=\"widgets/NavigatorState-class.html\">NavigatorState</a>。</p>"
+  },
+  "flutter/widgets/RestorableRouteFuture/present.html": {
+    "0": "<p>显示由 <a href=\"widgets/RestorableRouteFuture/onPresent.html\">onPresent</a> 创建的路由，并在路由完成时调用 <a href=\"widgets/RestorableRouteFuture/onComplete.html\">onComplete</a>。</p>",
+    "1": "<p><code>arguments</code> 对象会传给 <a href=\"widgets/RestorableRouteFuture/onPresent.html\">onPresent</a>，可用于自定义路由。该对象必须能通过 <a href=\"services/StandardMessageCodec-class.html\">StandardMessageCodec</a> 序列化。通常使用 <a href=\"dart-core/Map-class.html\">Map</a> 来传递键值对。</p>"
+  },
+  "flutter/widgets/RestorableRouteFuture/route.html": {
+    "0": "<p><a href=\"widgets/RestorableRouteFuture/present.html\">present</a> 添加到 Navigator 的路由。</p>",
+    "1": "<p>当前没有显示路由时返回 null。</p>"
+  },
+  "flutter/widgets/RestorableTextEditingController-class.html": {
+    "0": "<p>一种 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a>，用于保存和恢复 <a href=\"widgets/TextEditingController-class.html\">TextEditingController</a>。</p>",
+    "1": "<p>可以通过 <a href=\"widgets/RestorableListenable/value.html\">value</a> getter 访问 <a href=\"widgets/TextEditingController-class.html\">TextEditingController</a>。进行状态恢复时，此属性会将 <a href=\"widgets/TextEditingController/text.html\">TextEditingController.text</a> 恢复为收集状态恢复数据时的值。</p>"
+  },
+  "flutter/widgets/RestorableTextEditingController/RestorableTextEditingController.fromValue.html": {
+    "0": "<p>根据初始 <a href=\"flutter_test/TextEditingValue-class.html\">TextEditingValue</a> 创建 <a href=\"widgets/RestorableTextEditingController-class.html\">RestorableTextEditingController</a>。</p>",
+    "1": "<p>如果 <code>value</code> 参数为 null，此构造函数会将其视为 <a href=\"flutter_test/TextEditingValue/empty-constant.html\">TextEditingValue.empty</a>。</p>"
+  },
+  "flutter/widgets/RestorableTextEditingController/RestorableTextEditingController.html": {
+    "0": "<p>创建一个 <a href=\"widgets/RestorableTextEditingController-class.html\">RestorableTextEditingController</a>。</p>",
+    "1": "<p>如果 <code>text</code> 参数为 null，此构造函数会将其视为空字符串。</p>"
+  },
+  "flutter/widgets/RestorationMixin-mixin.html": {
+    "0": "<p>管理 <a href=\"widgets/State-class.html\">State</a> 对象的状态恢复数据；该对象属于 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a>。</p>",
+    "1": "<p>状态恢复数据可以序列化保存，并在之后用于将 <a href=\"widgets/State-class.html\">State</a> 对象中的有状态成员恢复为生成数据时的值。</p>",
+    "2": "<p>此 mixin 使用 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 组织 <a href=\"widgets/State-class.html\">State</a> 对象的状态恢复数据。<a href=\"widgets/State-class.html\">State</a> 对象希望在状态恢复时恢复的所有信息，都必须保存在 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 子类中。例如，计数器应用要恢复计数值时，应将其保存在 <a href=\"widgets/RestorableInt-class.html\">RestorableInt</a> 类型的成员变量中，而不是普通的 <a href=\"dart-core/int-class.html\">int</a> 类型成员变量中。</p>",
+    "3": "<p>此 mixin 会确保将 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 的当前值序列化为状态恢复数据的一部分。<a href=\"widgets/State-class.html\">State</a> 负责确保属性中保存的数据始终是最新的。使用之前生成的状态恢复数据恢复组件时，<a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 的值会自动恢复为序列化数据时的值。</p>",
+    "4": "<p>使用此 mixin 的 <a href=\"widgets/State-class.html\">State</a> 通常会实例化 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 来初始化成员变量。使用此 mixin 的类必须重写 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a>，并在该方法中调用 <a href=\"widgets/RestorationMixin/registerForRestoration.html\">registerForRestoration</a> 注册预先实例化的 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a>。mixin 会在 <a href=\"widgets/State/initState.html\">State.initState</a> 之后首次调用此方法。注册后，属性中保存的值要么恢复为之前的值，要么在没有可用恢复数据时初始化为该属性对应的默认值。<a href=\"widgets/State-class.html\">State</a> 生命周期结束时，必须在 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中释放所有可恢复属性。</p>",
+    "5": "<p>除了在 <a href=\"widgets/State/initState.html\">State.initState</a> 之后调用外，当有新的状态恢复数据提供给 mixin 时，也会再次调用 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a>。此时，<a href=\"widgets/State-class.html\">State</a> 对象必须再次通过 <a href=\"widgets/RestorationMixin/registerForRestoration.html\">registerForRestoration</a> 重新注册所有属性，以便根据新数据将它们恢复为之前的值。依赖可恢复属性当前值的所有初始化逻辑都应放在 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a> 中，以确保 <a href=\"widgets/State-class.html\">State</a> 对象的生命周期内属性恢复为不同值时，这些逻辑会重新执行。</p>",
+    "6": "<p>此 mixin 会在内部将所有已注册属性的状态恢复数据保存在 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a> 中；它通过 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 获取该 bucket，使用 <a href=\"widgets/RestorationMixin/restorationId.html\">restorationId</a> 标识，该 ID 由 <a href=\"widgets/State-class.html\">State</a> 提供。该 ID 在外围 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 中必须唯一。如果 <a href=\"widgets/State-class.html\">State</a> 的 <a href=\"widgets/RestorationMixin/restorationId.html\">restorationId</a>（<a href=\"widgets/RestorationMixin/restorationId.html\">restorationId</a>）为 null，或外围不存在 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a>，则会为使用此 mixin 的 State 对象禁用状态恢复。在这种情况下，不会恢复该 State 的已注册属性值。</p>",
+    "7": "<p>已注册属性所用的 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a> 可通过 <a href=\"widgets/RestorationMixin/bucket.html\">bucket</a> getter 获取。通常不需要直接操作 bucket，但 <a href=\"widgets/State-class.html\">State</a> 对象可以将该 bucket（<a href=\"widgets/RestorationMixin/bucket.html\">bucket</a>）提供给后代，以便后代获取子 bucket。为此，可在 <a href=\"widgets/State/build.html\">State.build</a> 中借助 <a href=\"widgets/UnmanagedRestorationScope-class.html\">UnmanagedRestorationScope</a> 将 bucket 注入组件树。</p>",
+    "8": "<p>如果状态恢复已关闭，<a href=\"widgets/RestorationMixin/bucket.html\">bucket</a> getter 会返回 null。如果在组件生命周期内启用或关闭状态恢复（例如 <a href=\"widgets/RestorationMixin/restorationId.html\">restorationId</a> 从 null 变为非 null），该 getter 返回的值也会在 null 与非 null 之间相应变化。mixin 会调用自身的 <a href=\"widgets/RestorationMixin/didToggleBucket.html\">didToggleBucket</a> 来通知 <a href=\"widgets/State-class.html\">State</a> 对象发生了此变化。只要 <a href=\"widgets/State-class.html\">State</a> 不直接操作 <a href=\"widgets/RestorationMixin/bucket.html\">bucket</a>，就无需重写此方法。</p>",
+    "9": "<p>每当 <a href=\"widgets/RestorationMixin/restorationId.html\">restorationId</a> 返回值发生变化时，都必须调用 <a href=\"widgets/RestorationMixin/didUpdateRestorationId.html\">didUpdateRestorationId</a>，除非该变化已经触发了 <a href=\"widgets/RestorationMixin/didUpdateWidget.html\">didUpdateWidget</a> 调用。</p>"
+  },
+  "flutter/widgets/RestorationMixin/bucket.html": {
+    "0": "<p>此 mixin 中已注册的 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 的状态恢复数据所用的 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a>。</p>",
+    "1": "<p>此 bucket 从外围的 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 中获取，使用 <a href=\"widgets/RestorationMixin/restorationId.html\">restorationId</a> 作为标识。</p>",
+    "2": "<p>关闭状态恢复时，此 getter 会返回 null。在此 mixin 生命周期内启用或关闭状态恢复时（因此此 getter 的返回值会在 null 与非 null 之间切换），系统会调用 <a href=\"widgets/RestorationMixin/didToggleBucket.html\">didToggleBucket</a>。</p>",
+    "3": "<p>通常不需要直接操作此 bucket。不过，可以在 <a href=\"widgets/State-class.html\">State</a> 的 <code>build</code> 方法中，使用 <a href=\"widgets/UnmanagedRestorationScope-class.html\">UnmanagedRestorationScope</a> 将 bucket 注入组件树。这样，后代就能从此 bucket 获取子 bucket，以满足自身的状态恢复需求。</p>"
+  },
+  "flutter/widgets/RestorationMixin/registerForRestoration.html": {
+    "0": "<p>注册一个 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 以便进行状态恢复。</p>",
+    "1": "<p>注册时，会将提供的 <code>property</code> 与 <code>restorationId</code> 关联。如果给定 <code>restorationId</code> 有可用的状态恢复数据，属性值会恢复为该数据所描述的值。如果没有可用数据，属性会初始化为该属性对应的默认值。</p>",
+    "2": "<p>一个 <a href=\"widgets/State-class.html\">State</a> 对象中的每个属性都必须使用唯一 ID 注册。只有已注册的属性才会在状态恢复时恢复其值。</p>",
+    "3": "<p>通常会在 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a> 中调用此方法，为所属 <a href=\"widgets/State-class.html\">State</a> 对象注册所有可恢复属性。不过，如果只有在 <a href=\"widgets/State-class.html\">State</a> 满足特定条件时才需要某个 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a>，也可以在首次调用 <a href=\"widgets/RestorationMixin/registerForRestoration.html\">registerForRestoration</a> 之后的任意时间调用此方法注册该属性；首次调用 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a> 后，可以在此后任意时间注册。</p>",
+    "4": "<p>在 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a> 之外注册的属性，下次调用该方法时必须在 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a> 中重新注册，除非已经通过 <a href=\"widgets/RestorationMixin/unregisterFromRestoration.html\">unregisterFromRestoration</a> 注销该属性。</p>"
+  },
+  "flutter/widgets/RestorationMixin/didToggleBucket.html": {
+    "0": "<p><a href=\"widgets/RestorationMixin/bucket.html\">bucket</a> 在 null 与非 null 值之间切换时调用。</p>",
+    "1": "<p>希望直接操作 bucket 的 <a href=\"widgets/State-class.html\">State</a> 对象可以重写此方法：bucket 可用时将额外值存入其中，bucket 不再可用时将其中的值保存到其他位置。这种做法并不常见，通常应考虑改用 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 保存这些值。</p>",
+    "2": "<p>当 <a href=\"widgets/RestorationMixin/bucket.html\">bucket</a> getter 从非 null 变为 null 时，此方法会收到旧 bucket <code>oldBucket</code>。当 <a href=\"widgets/RestorationMixin/bucket.html\">bucket</a> 从 null 变为非 null 时，参数 <code>oldBucket</code> 为 null。</p>"
+  },
+  "flutter/widgets/RestorationMixin/didUpdateRestorationId.html": {
+    "0": "<p><a href=\"widgets/RestorationMixin/restorationId.html\">restorationId</a> 返回的值发生变化时必须调用。</p>",
+    "1": "<p>此方法会由 <a href=\"widgets/RestorationMixin/didUpdateWidget.html\">didUpdateWidget</a> 自动调用。因此，如果 <a href=\"widgets/RestorationMixin/restorationId.html\">restorationId</a> 的变化是由组件更新导致的，就无需手动调用此方法。</p>"
+  },
+  "flutter/widgets/RestorationMixin/mounted.html": {
+    "0": "<p>此 <a href=\"widgets/State-class.html\">State</a> 对象当前是否位于组件树中。</p>"
+  },
+  "flutter/widgets/RestorationMixin/restorationId.html": {
+    "0": "<p>用于 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a> 的状态恢复 ID。mixin 会在该 bucket 中保存所有已注册属性的状态恢复数据。</p>",
+    "1": "<p>此 ID 用于从外围的 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 中获取子 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a>（通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 访问）；它在该作用域内必须唯一，否则调试模式下会触发异常。</p>",
+    "2": "<p>当此 getter 返回 null，或没有可用的外围 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 时，会关闭此 mixin 的状态恢复。关闭后，已注册属性的值无法恢复。</p>",
+    "3": "<p>每当此 getter 返回值发生变化时，都必须调用 <a href=\"widgets/RestorationMixin/didUpdateRestorationId.html\">didUpdateRestorationId</a>，除非该变化已经触发了 <a href=\"widgets/RestorationMixin/didUpdateWidget.html\">didUpdateWidget</a> 调用。</p>",
+    "4": "<p>此 getter 返回的状态恢复 ID 通常由与此 <a href=\"widgets/State-class.html\">State</a> 对象关联的 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 构造函数提供。</p>"
+  },
+  "flutter/widgets/RestorationMixin/restorePending.html": {
+    "0": "<p>下一次构建阶段开始时是否会调用 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a>。</p>",
+    "1": "<p>当 mixin 收到新的状态恢复数据，但已注册的 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 尚未根据新数据恢复为新值时，此属性返回 true。在下一次构建周期开始时调用 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a> 后，这些属性就会恢复为相应的值。</p>",
+    "2": "<p>此值为 true 期间，<a href=\"widgets/RestorationMixin/bucket.html\">bucket</a> 也仍会返回保存旧状态恢复数据的旧 bucket。调用 <a href=\"widgets/RestorationMixin/restoreState.html\">restoreState</a> 前不久，它才会更新为包含新数据的新 bucket。</p>"
+  },
+  "flutter/widgets/RestorationMixin/restoreState.html": {
+    "0": "<p>调用此方法以初始化或恢复 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 对象使用的 <a href=\"widgets/State-class.html\">State</a>。</p>",
+    "1": "<p>此方法至少会调用一次，且总是在 <a href=\"widgets/State/initState.html\">State.initState</a> 之后调用，以便将 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 注册到 mixin；即使已关闭状态恢复或此 <a href=\"widgets/State-class.html\">State</a> 对象没有状态恢复数据，也会如此。</p>",
+    "2": "<p>通常会在此方法中调用 <a href=\"widgets/RestorationMixin/registerForRestoration.html\">registerForRestoration</a>，将 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 对象使用的所有 <a href=\"widgets/State-class.html\">State</a> 注册到 mixin。若有可用的状态恢复数据，注册时会将属性值恢复为数据所描述的值；否则会将其初始化为该属性对应的默认值。</p>",
+    "3": "<p>每当有新的状态恢复数据（以新的 <a href=\"widgets/RestorationMixin/bucket.html\">bucket</a> 形式）提供给 mixin 时，都会再次调用此方法。此时，<a href=\"widgets/State-class.html\">State</a> 对象必须重新注册所有先前注册的属性，以便将它们恢复为新数据所描述的值。</p>",
+    "4": "<p>有新的状态恢复数据时，此方法可能会更改已注册属性的值。因此，所有依赖 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 特定值的初始化逻辑都应放在此方法中。这样，当 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 根据新提供的状态恢复数据恢复值时，相关逻辑便会重新执行。</p>",
+    "5": "<p>首次调用此方法时，提供的旧 bucket 参数 <code>oldBucket</code> 始终为 null。之后因新 bucket 形式的状态恢复数据而再次调用时，该参数为之前的 <a href=\"widgets/RestorationMixin/bucket.html\">bucket</a> 值。</p>"
+  },
+  "flutter/widgets/RestorationMixin/unregisterFromRestoration.html": {
+    "0": "<p>将 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 从状态恢复中注销。</p>",
+    "1": "<p>属性 <code>property</code> 的值会从状态恢复数据中移除；将来使用该数据恢复状态时，不会再恢复此值。</p>",
+    "2": "<p>通常不需要调用此方法，但如果仅当 <a href=\"widgets/State-class.html\">State</a> 对象处于特定状态时，才需要恢复 <a href=\"widgets/RestorableProperty-class.html\">RestorableProperty</a> 中的数据，则可能需要调用。当恢复 <a href=\"widgets/State-class.html\">State</a> 对象的内部状态不再需要某个属性的数据时，可以调用此方法将数据从状态恢复数据中移除。</p>"
+  },
+  "flutter/widgets/RestorationMixin/setState.html": {
+    "1": "<p>每当更改 <a href=\"widgets/State-class.html\">State</a> 对象的内部状态时，都应在传递给 <a href=\"widgets/State/setState.html\">setState</a> 的函数中进行更改：</p>",
+    "10": "<p>此 API 最初是一个名为 <code>markNeedsBuild</code> 的方法，以便与 <a href=\"rendering/RenderObject/markNeedsLayout.html\">RenderObject.markNeedsLayout</a>、<a href=\"rendering/RenderObject/markNeedsPaint.html\">RenderObject.markNeedsPaint</a> 等保持一致。</p>",
+    "11": "<p>然而，Flutter 框架的早期用户测试发现，人们调用 <code>markNeedsBuild()</code> 的频率远超实际需要。实际上，他们把它当作护身符：只要不确定是否需要调用，就先调用再说。</p>",
+    "13": "<p>后来 API 改为接收回调，这种做法便大幅减少。一种解释是：要求开发者在回调中实际更新状态，促使他们更仔细地思考究竟更新了什么，从而更清楚地理解应在何时调用此方法。</p>"
+  },
+  "flutter/widgets/RestorationScope-class.html": {
+    "0": "<p>创建新的状态恢复作用域，供后代组件使用状态恢复 ID 获取 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a>。</p>",
+    "1": "<p>状态恢复作用域会将 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a> 插入组件树，后代组件可通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 访问它。后代通常不应直接将数据存入此 bucket，而应考虑从此作用域提供的 bucket 调用 <a href=\"services/RestorationBucket/claimChild.html\">RestorationBucket.claimChild</a> 获取子 bucket，并将自身的状态恢复数据保存在该子 bucket 中。</p>",
+    "2": "<p>此作用域插入组件树的 bucket，是通过给定的 <a href=\"widgets/RestorationScope/restorationId.html\">restorationId</a> 从外围 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 获取的。如果将此 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 移到组件树中另一个不同的 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 之下，那么此作用域拥有的 bucket、其中所有子 bucket 及其数据也会一同移到新的作用域中。</p>",
+    "3": "<p>如果 <a href=\"widgets/RestorationScope/restorationId.html\">restorationId</a> 为 null，或外围没有可用于获取 bucket 的状态恢复作用域，此组件就不会向后代提供 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a>。在这种情况下，后代调用 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 会得到 null，表示没有可用于存储状态恢复数据的 bucket；该子树的状态恢复也会因此关闭。</p>"
+  },
+  "flutter/widgets/RestorationScope/RestorationScope.html": {
+    "0": "<p>创建一个 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a>。</p>",
+    "1": "<p>将 <code>restorationId</code> 设为 null 会关闭 <code>child</code> 及其后代的状态恢复。</p>"
+  },
+  "flutter/widgets/RestorationScope/maybeOf.html": {
+    "0": "<p>返回由离 <code>context</code> 最近的祖先 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 插入组件树的 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a>。</p>",
+    "1": "<p>为避免意外覆盖 bucket 所有者已保存的数据，不应直接将数据存入此方法返回的 bucket。建议改为从返回的 bucket 调用 <a href=\"services/RestorationBucket/claimChild.html\">RestorationBucket.claimChild</a> 获取子 bucket，并将状态恢复数据保存在子 bucket 中。</p>",
+    "3": "<p>如果 <code>context</code> 中存在最近的 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a>，调用此方法会对此作用域建立依赖。</p>",
+    "2": "<p>如果此子树已关闭状态恢复，此方法会返回 null。</p>"
+  },
+  "flutter/widgets/RestorationScope/of.html": {
+    "0": "<p>返回由离 <code>context</code> 最近的祖先 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 插入组件树的 <a href=\"services/RestorationBucket-class.html\">RestorationBucket</a>。</p>",
+    "1": "<p>为避免意外覆盖 bucket 所有者已保存的数据，不应直接将数据存入此方法返回的 bucket。建议改为从返回的 bucket 调用 <a href=\"services/RestorationBucket/claimChild.html\">RestorationBucket.claimChild</a> 获取子 bucket，并将状态恢复数据保存在子 bucket 中。</p>",
+    "3": "<p>如果 <code>context</code> 中存在最近的 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a>，调用此方法会对此作用域建立依赖。</p>",
+    "2": "<p>如果此子树已关闭状态恢复，此方法会在调试模式下触发断言，在发布模式下抛出异常。</p>"
+  },
+  "flutter/widgets/RestorationScope/restorationId.html": {
+    "0": "<p>此组件用于从外围 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 获取子 bucket 的状态恢复 ID。</p>",
+    "1": "<p>从外围作用域获取的子 bucket 会通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 提供给后代组件。</p>",
+    "2": "<p>如果此值为 null，后代调用 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 时会返回 null，从而关闭此子树的状态恢复。</p>"
+  },
+  "flutter/widgets/RichText-class.html": {
+    "0": "<p>富文本段落。</p>",
+    "1": "<p><a href=\"widgets/RichText-class.html\">RichText</a> 组件用于显示包含多种样式的文本。要显示的内容由一组 <a href=\"painting/TextSpan-class.html\">TextSpan</a> 对象构成的树来描述；每个对象都有一个对应样式，该样式用于其子树。文本可能会根据布局约束换成多行，也可能始终显示在同一行。</p>",
+    "2": "<p><a href=\"widgets/RichText-class.html\">RichText</a> 组件显示的文本必须显式设置样式。选择样式时，可以使用当前 <a href=\"widgets/DefaultTextStyle/of.html\">DefaultTextStyle.of</a> 和 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 提供默认样式。还可以使用 <a href=\"widgets/MediaQuery/maybeBoldTextOf.html\">MediaQuery.maybeBoldTextOf</a>、<a href=\"widgets/MediaQuery/maybeLineHeightScaleFactorOverrideOf.html\">MediaQuery.maybeLineHeightScaleFactorOverrideOf</a>、<a href=\"widgets/MediaQuery/maybeLetterSpacingOverrideOf.html\">MediaQuery.maybeLetterSpacingOverrideOf</a>、<a href=\"widgets/MediaQuery/maybeWordSpacingOverrideOf.html\">MediaQuery.maybeWordSpacingOverrideOf</a> 和 <a href=\"widgets/MediaQuery/maybeParagraphSpacingOverrideOf.html\">MediaQuery.maybeParagraphSpacingOverrideOf</a>，确保文本样式具有良好的可访问性。有关如何为 <a href=\"widgets/RichText-class.html\">RichText</a> 设置样式的详情，请参见 <a href=\"painting/TextStyle-class.html\">TextStyle</a> 文档。</p>",
+    "3": "<p>若要自动集成 <a href=\"widgets/DefaultTextStyle-class.html\">DefaultTextStyle</a>，可以考虑使用 <a href=\"widgets/Text-class.html\">Text</a> 组件。当所有文本使用同一种样式时，Text 的默认构造函数更简洁。<a href=\"widgets/Text/Text.rich.html\">Text.rich</a> 构造函数允许多个文本片段使用默认文本样式，同时也可以为各个片段指定样式。</p>",
+    "6": "<h2 id=\"selections\">文本选择</h2>",
+    "7": "<p>若要使此 <a href=\"widgets/RichText-class.html\">RichText</a> 支持选择，此 <a href=\"widgets/RichText-class.html\">RichText</a> 需要放在 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 或 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 的子树中，并为它的 <a href=\"widgets/RichText/selectionRegistrar.html\">RichText.selectionRegistrar</a> 指定一个 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>。可以使用 <a href=\"widgets/SelectionContainer/maybeOf.html\">SelectionContainer.maybeOf</a>，从位于组件树中 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 或 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 下方的 context 获取 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>。这样，用户便可以通过鼠标或触摸事件选择 <a href=\"widgets/RichText-class.html\">RichText</a> 中的文本。</p>",
+    "8": "<p>如果同一个 build 方法同时创建 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 和 <a href=\"widgets/RichText-class.html\">RichText</a>，请使用 <a href=\"widgets/Builder-class.html\">Builder</a>，确保调用 <a href=\"widgets/SelectionContainer/maybeOf.html\">SelectionContainer.maybeOf</a> 时传入的 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 位于组件树中 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 的下方。</p>",
+    "9": "<p>启用文本选择以绘制选择高亮时，还需要设置 <a href=\"widgets/RichText/selectionColor.html\">selectionColor</a>。</p>"
+  },
+  "flutter/widgets/RichText/RichText.html": {
+    "0": "<p>创建富文本段落。</p>",
+    "1": "<p><code>maxLines</code> 属性可以为 null（默认值也确实为 null）；如果不为 null，则必须大于零。</p>",
+    "2": "<p>如果 <code>textDirection</code> 为 null，则默认使用环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>；此时该值必须不为 null。</p>"
+  },
+  "flutter/widgets/RichText/locale.html": {
+    "0": "<p>当同一 Unicode 字符会根据区域设置呈现为不同形式时，用于选择字体。</p>",
+    "1": "<p>通常无需设置此属性。默认情况下，它会从外围应用继承，值为 <code>Localizations.localeOf(context)</code>。</p>"
+  },
+  "flutter/widgets/RichText/maxLines.html": {
+    "0": "<p>文本最多显示的行数，可选；必要时会换行。如果文本超过指定行数，则会根据 <a href=\"widgets/RichText/overflow.html\">overflow</a> 截断。</p>",
+    "1": "<p>设为 1 时，文本不会换行；否则会在边界处换行。</p>"
+  },
+  "flutter/widgets/RichText/selectionColor.html": {
+    "0": "<p>绘制文本选区时使用的颜色。</p>",
+    "1": "<p>如果 <a href=\"widgets/RichText/selectionRegistrar.html\">selectionRegistrar</a> 为 null，则忽略此属性。</p>",
+    "2": "<p>有关如何在 <a href=\"widgets/RichText-class.html\">RichText</a> 组件中启用文本选择的详情，请参见 <a href=\"widgets/RichText-class.html\">RichText</a> 顶层 API 文档中的文本选择一节。</p>"
+  },
+  "flutter/widgets/RichText/selectionRegistrar.html": {
+    "0": "<p>此富文本订阅的 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a>。</p>",
+    "1": "<p>设置此属性时，<a href=\"widgets/RichText/selectionColor.html\">selectionColor</a> 必须为非 null。</p>"
+  },
+  "flutter/widgets/RichText/softWrap.html": {
+    "0": "<p>文本是否应在软换行符处换行。</p>",
+    "1": "<p>为 false 时，文本字形的位置计算会按照水平空间无限宽处理。</p>"
+  },
+  "flutter/widgets/RichText/strutStyle.html": {
+    "0": "<p>要使用的 strut 样式。Strut 样式定义支撑线，并设置垂直布局指标的最小值。</p>",
+    "1": "<p>省略此属性或将其设为 null 都会禁用 strut。</p>",
+    "2": "<p>省略 <a href=\"painting/StrutStyle-class.html\">StrutStyle</a> 的任何属性或将其设为 null，都会使用默认值。强烈建议至少指定 <a href=\"painting/StrutStyle/fontSize.html\">StrutStyle.fontSize</a>。</p>",
+    "3": "<p>详情请参见 <a href=\"painting/StrutStyle-class.html\">StrutStyle</a>。</p>"
+  },
+  "flutter/widgets/RichText/textDirection.html": {
+    "2": "<p>此属性还用于消除双向文本渲染方式的歧义。例如，如果 <a href=\"widgets/RichText/text.html\">text</a> 是先英文后希伯来文，那么在 <a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a> 环境中，英文会显示在左侧、希伯来文显示在右侧；在 <a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a> 环境中，英文会显示在右侧、希伯来文显示在左侧。</p>",
+    "3": "<p>默认使用环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>（如果存在）。如果环境中没有 <a href=\"widgets/Directionality-class.html\">Directionality</a>，则此值不能为 null。</p>"
+  },
+  "flutter/widgets/RichText/textHeightBehavior.html": {
+    "0": "<p>定义如何将 <a href=\"painting/TextStyle/height.html\">TextStyle.height</a> 应用于文本上方和下方。</p>",
+    "1": "<p><a href=\"dart-ui/TextHeightBehavior/applyHeightToFirstAscent.html\">TextHeightBehavior.applyHeightToFirstAscent</a> 和 <a href=\"dart-ui/TextHeightBehavior/applyHeightToLastDescent.html\">TextHeightBehavior.applyHeightToLastDescent</a> 分别表示是否将 <a href=\"painting/TextStyle/height.html\">TextStyle.height</a> 修饰应用到相应的指标上。默认情况下，两项属性都为 true，<a href=\"painting/TextStyle/height.html\">TextStyle.height</a> 会正常应用。设为 false 时，则使用字体的默认上升量。</p>",
+    "2": "<p><a href=\"dart-ui/TextHeightBehavior/leadingDistribution.html\">TextHeightBehavior.leadingDistribution</a> 决定如何在文本上方和下方分配行距。此属性会先于 <a href=\"dart-ui/TextHeightBehavior/applyHeightToFirstAscent.html\">TextHeightBehavior.applyHeightToFirstAscent</a> 和 <a href=\"dart-ui/TextHeightBehavior/applyHeightToLastDescent.html\">TextHeightBehavior.applyHeightToLastDescent</a> 生效。</p>"
+  },
+  "flutter/widgets/RichText/textScaleFactor.html": {
+    "0": "<p>已弃用。将在 Flutter 的未来版本中移除。请改用 <a href=\"widgets/RichText/textScaler.html\">textScaler</a>。</p>",
+    "1": "<p>每个逻辑像素对应的字体像素数。</p>",
+    "2": "<p>例如，文本缩放系数为 1.5 时，文本会比指定字号大 50%。</p>"
+  },
+  "flutter/widgets/RichText/textScaler.html": {
+    "0": "<p>布局和绘制文本时使用的字体缩放策略。</p>",
+    "1": "<p>此值通常来自 <a href=\"widgets/MediaQuery/textScalerOf.html\">MediaQuery.textScalerOf</a>，一般反映用户在平台无障碍设置中指定的文本缩放值。文本的 <a href=\"painting/TextStyle/fontSize.html\">TextStyle.fontSize</a> 会先由 <a href=\"painting/TextScaler-class.html\">TextScaler</a> 调整，然后再进行布局和绘制。</p>"
   }
 }

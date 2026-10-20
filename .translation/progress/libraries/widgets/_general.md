@@ -1,69 +1,10 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,831 页，部分翻译 395 页，未翻译 1,026 页；正文已译 20,862/24,807 段。
+模块共 8,093 页：已完整 5,872 页，部分翻译 384 页，未翻译 996 页；正文已译 20,995/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
-- `flutter/widgets/ReorderableList/anchor.html` — 部分；已译 3/4 段；待译段落：3
-
-- `flutter/widgets/RestorableEnum/values.html` — 部分；已译 4/5 段；待译段落：4
-
-- `flutter/widgets/RestorableEnumN/values.html` — 部分；已译 5/6 段；待译段落：5
-
-- `flutter/widgets/RestorableRouteBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RestorableRouteFuture-class.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
-
-- `flutter/widgets/RestorableRouteFuture/enabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RestorableRouteFuture/isPresent.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RestorableRouteFuture/onComplete.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RestorableRouteFuture/onPresent.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RestorableRouteFuture/present.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RestorableRouteFuture/route.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RestorableTextEditingController-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RestorableTextEditingController/RestorableTextEditingController.fromValue.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RestorableTextEditingController/RestorableTextEditingController.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RestorationMixin-mixin.html` — 部分；已译 2/12 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-
-- `flutter/widgets/RestorationMixin/bucket.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/RestorationMixin/didToggleBucket.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/RestorationMixin/didUpdateRestorationId.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RestorationMixin/mounted.html` — 部分；已译 2/3 段；待译段落：0
-
-- `flutter/widgets/RestorationMixin/registerForRestoration.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RestorationMixin/restorationId.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RestorationMixin/restorePending.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RestorationMixin/restoreState.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/RestorationMixin/setState.html` — 部分；已译 16/20 段；待译段落：1, 10, 11, 13
-
-- `flutter/widgets/RestorationMixin/unregisterFromRestoration.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RestorationScope-class.html` — 部分；已译 2/5 段；待译段落：1, 2, 3
-- `flutter/widgets/RestorationScope/RestorationScope.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RestorationScope/maybeOf.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RestorationScope/of.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RestorationScope/restorationId.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RichText-class.html` — 部分；已译 3/13 段；待译段落：0, 1, 2, 3, 4, 6, 7, 8, 9, 10
-- `flutter/widgets/RichText/RichText.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RichText/locale.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RichText/maxLines.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RichText/selectionColor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RichText/selectionRegistrar.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RichText/softWrap.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RichText/strutStyle.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/RichText/textDirection.html` — 部分；已译 2/4 段；待译段落：2, 3
-- `flutter/widgets/RichText/textHeightBehavior.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RichText/textScaleFactor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RichText/textScaler.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/RichText/locale.html` — 部分；已译 2/3 段；待译段落：2
 
 - `flutter/widgets/RootBackButtonDispatcher-class.html` — 未译；已译 0/2 段；待译段落：0, 1
 
