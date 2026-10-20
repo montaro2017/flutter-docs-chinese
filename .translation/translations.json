@@ -264880,5 +264880,115 @@
   },
   "flutter/widgets/WidgetStateColor/transparent-constant.html": {
     "0": "<p>一个在所有状态下值均为透明色的常量。</p>"
+  },
+  "flutter/widgets/WidgetStateMap.html": {
+    "0": "<p>根据当前 Widget 状态集合解析出单个 <code>T</code> 类型值的 <a href=\"dart-core/Map-class.html\">Map</a>。</p>",
+    "2": "<p>可以将一组 Widget 状态组合存储在变量中；对于不可为 null 的类型，可以使用 <a href=\"widgets/WidgetState/any-constant.html\">WidgetState.any</a> 确保总能匹配到值：</p>"
+  },
+  "flutter/widgets/WidgetStateMapper-class.html": {
+    "0": "<p>使用 <a href=\"widgets/WidgetStateMap.html\">WidgetStateMap</a> 根据当前 Widget 状态集合解析出单个 <code>T</code> 类型值。</p>",
+    "1": "<p>示例：</p>",
+    "2": "<p>可以将一组 Widget 状态组合存储在变量中；对于不可为 null 的类型，可以使用 <a href=\"widgets/WidgetState/any-constant.html\">WidgetState.any</a> 确保总能匹配到值：</p>",
+    "3": "<p>继承 <a href=\"widgets/WidgetStateMapper-class.html\">WidgetStateMapper</a> 的类可以实现其他任意接口，但它们仅应用于文档明确说明支持 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a> 对象的字段。</p>",
+    "4": "<p>唯一的例外是标记为 <code>base</code> 或 <code>final</code> 的 <a href=\"dart-core/double-class.html\">double</a> 等类，因为它们无法被实现；<a href=\"dart-core/double-class.html\">double</a> 属性无法同时接受 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a> 对象，因此必须二选一。</p>",
+    "5": "<p>例如，<a href=\"widgets/WidgetStateColor/WidgetStateColor.fromMap.html\">WidgetStateColor.fromMap</a> 对象可以传给接受 <a href=\"dart-ui/Color-class.html\">Color</a> 或 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a> 对象的位置，但尝试访问映射器对象上的 <a href=\"dart-ui/Color-class.html\">Color</a> 字段（例如 <a class=\"deprecated\" href=\"dart-ui/Color/value.html\">Color.value</a>）会抛出 <a href=\"foundation/FlutterError-class.html\">FlutterError</a>。</p>"
+  },
+  "flutter/widgets/WidgetStateMapper/WidgetStateMapper.html": {
+    "0": "<p>创建一个 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a> 对象，可使用提供的 <code>map</code> 解析出 <code>T</code> 类型的值。</p>"
+  },
+  "flutter/widgets/WidgetStateMapper/resolve.html": {
+    "0": "<p>返回一个取决于 <code>states</code> 的 <code>T</code> 类型值。</p>",
+    "1": "<p><a href=\"material/TextButton-class.html\">TextButton</a> 和 <a href=\"material/ElevatedButton-class.html\">ElevatedButton</a> 等组件会在构建时对当前的 <a href=\"widgets/WidgetState.html\">WidgetState</a> 调用此方法，以计算颜色及其他视觉参数。</p>"
+  },
+  "flutter/widgets/WidgetStateMouseCursor-class.html": {
+    "0": "<p>定义一个 <a href=\"services/MouseCursor-class.html\">MouseCursor</a>，其值取决于一组 <a href=\"widgets/WidgetState.html\">WidgetState</a>；这些状态表示组件的交互状态。</p>",
+    "1": "<p>当组件支持的交互操作会随状态变化时，这类 <a href=\"services/MouseCursor-class.html\">MouseCursor</a> 很有用。例如，鼠标悬停在已禁用的 <a href=\"material/ListTile-class.html\">ListTile</a> 上时，不应显示 <a href=\"services/SystemMouseCursors/click-constant.html\">SystemMouseCursors.click</a>，因为禁用的列表项不会响应鼠标点击。<a href=\"material/ListTile-class.html\">ListTile</a> 默认使用 <a href=\"widgets/WidgetStateMouseCursor/clickable-constant.html\">WidgetStateMouseCursor.clickable</a>；按钮禁用时，它会解析为 <a href=\"services/SystemMouseCursors/basic-constant.html\">SystemMouseCursors.basic</a>。</p>",
+    "2": "<p>此类仅应用于文档明确说明支持 <a href=\"widgets/WidgetStateMouseCursor-class.html\">WidgetStateMouseCursor</a> 的参数。</p>",
+    "3": "<p>可以通过以下方式之一创建 <a href=\"widgets/WidgetStateMouseCursor-class.html\">WidgetStateMouseCursor</a>：</p>"
+  },
+  "flutter/widgets/WidgetStateMouseCursor/WidgetStateMouseCursor.fromMap.html": {
+    "0": "<p>根据 <a href=\"widgets/WidgetStateMap.html\">WidgetStateMap</a> 创建 <a href=\"widgets/WidgetStateMouseCursor-class.html\">WidgetStateMouseCursor</a>。</p>",
+    "1": "<p>此构造函数的 <a href=\"widgets/WidgetStateMouseCursor/resolve.html\">resolve</a> 方法会查找第一个键满足状态集合条件的 <a href=\"dart-core/MapEntry-class.html\">MapEntry</a>，并返回其对应的值。此对象仅应与文档明确说明支持 <a href=\"widgets/WidgetStateMouseCursor-class.html\">WidgetStateMouseCursor</a> 的类搭配使用（若将其用作普通 <a href=\"services/MouseCursor-class.html\">MouseCursor</a>，则会抛出错误）。</p>"
+  },
+  "flutter/widgets/WidgetStateMouseCursor/WidgetStateMouseCursor.resolveWith.html": {
+    "0": "<p>使用 <a href=\"widgets/WidgetPropertyResolver.html\">WidgetPropertyResolver</a> 回调创建 <a href=\"widgets/WidgetStateMouseCursor-class.html\">WidgetStateMouseCursor</a>。</p>",
+    "1": "<p>可以选择提供 <code>debugDescription</code>。</p>",
+    "2": "<p>若将其用作普通 <a href=\"services/MouseCursor-class.html\">MouseCursor</a>，则使用默认状态（状态集合为空）下解析出的光标。</p>"
+  },
+  "flutter/widgets/WidgetStateMouseCursor/adaptiveClickable-constant.html": {
+    "0": "<p>一种适配平台的可点击组件鼠标光标，其解析结果会根据组件状态和平台而变化。</p>",
+    "1": "<p>在 Web 平台上，此光标默认解析为 <a href=\"services/SystemMouseCursors/click-constant.html\">SystemMouseCursors.click</a>。组件禁用时，则解析为 <a href=\"services/SystemMouseCursors/basic-constant.html\">SystemMouseCursors.basic</a>。</p>",
+    "2": "<p>在非 Web 平台上，此光标始终解析为 <a href=\"services/SystemMouseCursors/basic-constant.html\">SystemMouseCursors.basic</a>。</p>",
+    "3": "<p>此光标常用于按钮等可交互组件。不同平台上的行为差异反映了各自的惯例（例如，Web 上按钮使用手形指针，而桌面平台不会）。</p>"
+  },
+  "flutter/widgets/WidgetStateMouseCursor/clickable-constant.html": {
+    "0": "<p>一种用于可点击组件的鼠标光标，组件禁用时其解析结果会发生变化。</p>",
+    "1": "<p>默认情况下，此光标解析为 <a href=\"services/SystemMouseCursors/click-constant.html\">SystemMouseCursors.click</a>。组件禁用时，则解析为 <a href=\"services/SystemMouseCursors/basic-constant.html\">SystemMouseCursors.basic</a>。</p>"
+  },
+  "flutter/widgets/WidgetStateMouseCursor/createSession.html": {
+    "0": "<p>将指点设备关联到此光标。</p>",
+    "1": "<p>鼠标光标类通常有对应的 <a href=\"services/MouseCursorSession-class.html\">MouseCursorSession</a> 类，并在此方法中创建该类的实例。</p>",
+    "2": "<p>每当指点设备开始显示此光标时，都会调用此方法。同一光标可以同时显示在多个设备上，此时会为每个设备分别调用此方法。</p>"
+  },
+  "flutter/widgets/WidgetStateMouseCursor/resolve.html": {
+    "0": "<p>返回组件处于指定状态时使用的 <a href=\"services/MouseCursor-class.html\">MouseCursor</a>。</p>"
+  },
+  "flutter/widgets/WidgetStateMouseCursor/textable-constant.html": {
+    "0": "<p>一种用于文本相关组件的鼠标光标，组件禁用时其解析结果会发生变化。</p>",
+    "1": "<p>默认情况下，此光标解析为 <a href=\"services/SystemMouseCursors/text-constant.html\">SystemMouseCursors.text</a>。组件禁用时，则解析为 <a href=\"services/SystemMouseCursors/basic-constant.html\">SystemMouseCursors.basic</a>。</p>",
+    "2": "<p>这是许多组件的默认光标。</p>"
+  },
+  "flutter/widgets/WidgetStateOutlinedBorder-class.html": {
+    "0": "<p>定义一个 <a href=\"painting/OutlinedBorder-class.html\">OutlinedBorder</a>，其值取决于一组 <a href=\"widgets/WidgetState.html\">WidgetState</a>；这些状态表示组件的交互状态。</p>",
+    "1": "<p>可以通过以下方式之一创建 <a href=\"widgets/WidgetStateOutlinedBorder-class.html\">WidgetStateOutlinedBorder</a>：</p>",
+    "3": "<p>此类仅应用于文档明确说明接收 <a href=\"widgets/WidgetStateOutlinedBorder-class.html\">WidgetStateOutlinedBorder</a> 的参数；否则只会使用默认状态。</p>"
+  },
+  "flutter/widgets/WidgetStateOutlinedBorder/WidgetStateOutlinedBorder.fromMap.html": {
+    "0": "<p>根据 <a href=\"widgets/WidgetStateMap.html\">WidgetStateMap</a> 创建 <a href=\"widgets/WidgetStateOutlinedBorder-class.html\">WidgetStateOutlinedBorder</a>。</p>",
+    "1": "<p>此构造函数的 <a href=\"widgets/WidgetStateOutlinedBorder/resolve.html\">resolve</a> 方法会查找第一个键满足状态集合条件的 <a href=\"dart-core/MapEntry-class.html\">MapEntry</a>，并返回其对应的值。此对象仅应与支持 <a href=\"widgets/WidgetStateOutlinedBorder-class.html\">WidgetStateOutlinedBorder</a> 的组件搭配使用，例如 <a href=\"material/ChipThemeData/shape.html\">ChipThemeData.shape</a>（若将其用作普通 <a href=\"painting/OutlinedBorder-class.html\">OutlinedBorder</a>，则会抛出错误）。</p>",
+    "2": "<p>如果没有键匹配，则解析结果为 <code>null</code>，并沿用组件或主题的默认值。</p>"
+  },
+  "flutter/widgets/WidgetStateOutlinedBorder/WidgetStateOutlinedBorder.resolveWith.html": {
+    "0": "<p>使用 <a href=\"widgets/WidgetPropertyResolver.html\">WidgetPropertyResolver</a> 回调创建 <a href=\"widgets/WidgetStateOutlinedBorder-class.html\">WidgetStateOutlinedBorder</a>。</p>",
+    "1": "<p>此构造函数仅应与支持 <a href=\"widgets/WidgetStateOutlinedBorder-class.html\">WidgetStateOutlinedBorder</a> 的组件搭配使用，例如 <a href=\"material/ChipThemeData/shape.html\">ChipThemeData.shape</a>（若将其用作普通 <a href=\"painting/OutlinedBorder-class.html\">OutlinedBorder</a>，其行为与空的 <code>RoundedRectangleBorder()</code> 构造函数一致）。</p>"
+  },
+  "flutter/widgets/WidgetStateOutlinedBorder/resolve.html": {
+    "0": "<p>返回组件处于指定状态时使用的 <a href=\"painting/OutlinedBorder-class.html\">OutlinedBorder</a>。返回 null 可沿用组件或主题的默认值。</p>"
+  },
+  "flutter/widgets/WidgetStateProperty-class.html": {
+    "1": "<p>状态属性表示取决于组件“状态”的值。状态编码为一组 <a href=\"widgets/WidgetState.html\">WidgetState</a>，例如 <a href=\"widgets/WidgetState.html\">WidgetState.focused</a>、<a href=\"widgets/WidgetState.html\">WidgetState.hovered</a> 和 <a href=\"widgets/WidgetState.html\">WidgetState.pressed</a>。例如，<a href=\"material/InkResponse/overlayColor.html\">InkWell.overlayColor</a> 定义了墨水效果在按下（即“溅起颜色”）、获得焦点或悬停时所填充的颜色。<a href=\"material/InkWell-class.html\">InkWell</a> 会使用叠加颜色的 <a href=\"widgets/WidgetStateProperty/resolve.html\">resolve</a> 方法，根据当前状态计算墨水效果的颜色。</p>",
+    "2": "<p><a href=\"material/ButtonStyle-class.html\">ButtonStyle</a> 用于配置 <a href=\"material/TextButton-class.html\">TextButton</a>、<a href=\"material/ElevatedButton-class.html\">ElevatedButton</a> 和 <a href=\"material/OutlinedButton-class.html\">OutlinedButton</a> 等按钮的外观，其中包含许多 Material 状态属性。按钮组件会跟踪当前 Material 状态，并在需要值时<a href=\"widgets/WidgetStateProperty/resolve.html\">解析</a>样式中的状态属性。</p>",
+    "4": "<h2 id=\"performance-consideration\">性能注意事项</h2>",
+    "6": "<p>例如，比较两个 <a href=\"material/ThemeData-class.html\">ThemeData</a> 对象是否相等时，就会涉及这一点。</p>",
+    "7": "<p>如需支持稳定相等性检查的具体 <code>WidgetStateProperty</code> 对象，可以考虑使用 <a href=\"widgets/WidgetStateMapper-class.html\">WidgetStateMapper</a>。</p>"
+  },
+  "flutter/widgets/WidgetStateProperty/WidgetStateProperty.fromMap.html": {
+    "0": "<p>创建一个使用 <a href=\"widgets/WidgetStateMap.html\">WidgetStateMap</a> 解析值的属性。</p>",
+    "1": "<p>此构造函数的 <a href=\"widgets/WidgetStateProperty/resolve.html\">resolve</a> 方法会查找第一个键满足状态集合条件的 <a href=\"dart-core/MapEntry-class.html\">MapEntry</a>，并返回其对应的值。</p>",
+    "2": "<p>如果没有键匹配，则解析结果为 <code>null</code>；若 <code>T</code> 不可为 null，则会抛出 <a href=\"dart-core/ArgumentError-class.html\">ArgumentError</a>。为避免没有任何 <a href=\"widgets/WidgetStatesConstraint-mixin.html\">WidgetStatesConstraint</a> 满足给定状态集合，可以考虑将 <a href=\"widgets/WidgetState/any-constant.html\">WidgetState.any</a> 作为最后一个 <a href=\"widgets/WidgetStateMap.html\">WidgetStateMap</a> 键。</p>",
+    "3": "<p>示例：</p>",
+    "4": "<p>可以将一组 Widget 状态组合存储在变量中；对于不可为 null 的类型，可以使用 <a href=\"widgets/WidgetState/any-constant.html\">WidgetState.any</a> 确保总能匹配到值：</p>"
+  },
+  "flutter/widgets/WidgetStateProperty/WidgetStateProperty.html": {
+    "0": "<p>此抽象构造函数允许扩展该类。</p>",
+    "1": "<p><a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a> 设计为接口，因此保留此构造函数仅为向后兼容。</p>"
+  },
+  "flutter/widgets/WidgetStateProperty/all.html": {
+    "0": "<p>便捷方法：创建一个对所有状态都解析为同一值的 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a>。</p>",
+    "1": "<p>建议直接使用 <a href=\"widgets/WidgetStatePropertyAll-class.html\">WidgetStatePropertyAll</a>，这样可以创建 <code>const</code> 值。</p>"
+  },
+  "flutter/widgets/WidgetStateProperty/lerp.html": {
+    "0": "<p>在两个 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a> 之间进行线性插值。</p>"
+  },
+  "flutter/widgets/WidgetStateProperty/resolve.html": {
+    "0": "<p>返回一个取决于 <code>states</code> 的 <code>T</code> 类型值。</p>",
+    "1": "<p><a href=\"material/TextButton-class.html\">TextButton</a> 和 <a href=\"material/ElevatedButton-class.html\">ElevatedButton</a> 等组件会在构建时对当前的 <a href=\"widgets/WidgetState.html\">WidgetState</a> 调用此方法，以计算颜色及其他视觉参数。</p>"
+  },
+  "flutter/widgets/WidgetStateProperty/resolveAs.html": {
+    "0": "<p>如果 <code>value</code> 是 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a>，则根据给定的状态集合解析其值；否则直接返回该值。</p>",
+    "1": "<p>当组件的参数类型可以是 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a> 时，此方法很有用。例如，<a href=\"material/InkResponse/mouseCursor.html\">InkWell.mouseCursor</a> 可以是 <a href=\"services/MouseCursor-class.html\">MouseCursor</a>，也可以是 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty&lt;MouseCursor&gt;</a>。</p>"
+  },
+  "flutter/widgets/WidgetStateProperty/resolveWith.html": {
+    "0": "<p>便捷方法：仅通过 <a href=\"widgets/WidgetPropertyResolver.html\">WidgetPropertyResolver</a> 函数创建 <a href=\"widgets/WidgetStateProperty-class.html\">WidgetStateProperty</a>。</p>"
   }
 }

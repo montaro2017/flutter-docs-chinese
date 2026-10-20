@@ -87,14 +87,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;WidgetStateMapper-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/widget_state.dart#L1000"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">WidgetStateMapper&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类 
+<h1><span class="kind-class">WidgetStateMapper&lt;<wbr><span class="type-parameter">T</span>&gt;</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Uses a <a href="widgets/WidgetStateMap.html">WidgetStateMap</a> to resolve to a single value of type <code>T</code> based on
-the current set of Widget states.</p>
+  <p>使用 <a href="widgets/WidgetStateMap.html">WidgetStateMap</a> 根据当前 Widget 状态集合解析出单个 <code>T</code> 类型值。</p>
 <p>示例：</p>
 <pre class="language-dart"><code class="language-dart">// This WidgetStateMap&lt;Color?&gt; resolves to null if no keys match.
 WidgetStateProperty&lt;Color?&gt;.fromMap(&lt;WidgetStatesConstraint, Color?&gt;{
@@ -119,9 +118,7 @@ WidgetStateProperty.resolveWith&lt;Color?&gt;((Set&lt;WidgetState&gt; states) {
   return null;
 });
 </code></pre>
-<p>A widget state combination can be stored in a variable,
-and <a href="widgets/WidgetState/any-constant.html">WidgetState.any</a> can be used for non-nullable types to ensure
-that there's a match:</p>
+<p>可以将一组 Widget 状态组合存储在变量中；对于不可为 null 的类型，可以使用 <a href="widgets/WidgetState/any-constant.html">WidgetState.any</a> 确保总能匹配到值：</p>
 <pre class="language-dart"><code class="language-dart">final WidgetStatesConstraint selectedError = WidgetState.selected &amp; WidgetState.error;
 
 final WidgetStateProperty&lt;Color&gt; color = WidgetStateProperty&lt;Color&gt;.fromMap(
@@ -145,17 +142,9 @@ final WidgetStateProperty&lt;Color&gt; colorResolveWith = WidgetStateProperty.re
   },
 );
 </code></pre>
-<p>Classes that extend <a href="widgets/WidgetStateMapper-class.html">WidgetStateMapper</a> can implement any other interface,
-but should only be used for fields that document their support for
-<a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> objects.</p>
-<p>The only exceptions are classes such as <a href="dart-core/double-class.html">double</a> that are marked as
-<code>base</code> or <code>final</code>, since they can't be implemented—a <a href="dart-core/double-class.html">double</a> property
-can't be set up to also accept <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> objects
-and would need to pick one or the other.</p>
-<p>For example, a <a href="widgets/WidgetStateColor/WidgetStateColor.fromMap.html">WidgetStateColor.fromMap</a> object can be passed anywhere that
-accepts either a <a href="dart-ui/Color-class.html">Color</a> or a <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> object, but attempting
-to access a <a href="dart-ui/Color-class.html">Color</a> field (such as <a class="deprecated" href="dart-ui/Color/value.html">Color.value</a>) on the mapper object
-throws a <a href="foundation/FlutterError-class.html">FlutterError</a>.</p>
+<p>继承 <a href="widgets/WidgetStateMapper-class.html">WidgetStateMapper</a> 的类可以实现其他任意接口，但它们仅应用于文档明确说明支持 <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> 对象的字段。</p>
+<p>唯一的例外是标记为 <code>base</code> 或 <code>final</code> 的 <a href="dart-core/double-class.html">double</a> 等类，因为它们无法被实现；<a href="dart-core/double-class.html">double</a> 属性无法同时接受 <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> 对象，因此必须二选一。</p>
+<p>例如，<a href="widgets/WidgetStateColor/WidgetStateColor.fromMap.html">WidgetStateColor.fromMap</a> 对象可以传给接受 <a href="dart-ui/Color-class.html">Color</a> 或 <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> 对象的位置，但尝试访问映射器对象上的 <a href="dart-ui/Color-class.html">Color</a> 字段（例如 <a class="deprecated" href="dart-ui/Color/value.html">Color.value</a>）会抛出 <a href="foundation/FlutterError-class.html">FlutterError</a>。</p>
 </section>
 
 

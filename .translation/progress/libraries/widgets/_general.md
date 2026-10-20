@@ -1,6 +1,6 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,947 页，部分翻译 88 页，未翻译 217 页；正文已译 23,935/24,807 段。
+模块共 8,093 页：已完整 6,971 页，部分翻译 82 页，未翻译 199 页；正文已译 23,995/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
@@ -8,33 +8,8 @@
 
 - `flutter/widgets/WidgetStateColor-class.html` — 部分；已译 4/5 段；待译段落：4
 
-- `flutter/widgets/WidgetStateMap.html` — 部分；已译 1/3 段；待译段落：0, 2
-- `flutter/widgets/WidgetStateMapper-class.html` — 部分；已译 1/6 段；待译段落：0, 2, 3, 4, 5
-- `flutter/widgets/WidgetStateMapper/WidgetStateMapper.html` — 未译；已译 0/1 段；待译段落：0
-
 - `flutter/widgets/WidgetStateMapper/noSuchMethod.html` — 部分；已译 6/8 段；待译段落：3, 4
 
-- `flutter/widgets/WidgetStateMapper/resolve.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStateMouseCursor-class.html` — 部分；已译 2/6 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/WidgetStateMouseCursor/WidgetStateMouseCursor.fromMap.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStateMouseCursor/WidgetStateMouseCursor.resolveWith.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetStateMouseCursor/adaptiveClickable-constant.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/WidgetStateMouseCursor/clickable-constant.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStateMouseCursor/createSession.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetStateMouseCursor/resolve.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStateMouseCursor/textable-constant.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetStateOutlinedBorder-class.html` — 部分；已译 2/5 段；待译段落：0, 1, 3
-- `flutter/widgets/WidgetStateOutlinedBorder/WidgetStateOutlinedBorder.fromMap.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/WidgetStateOutlinedBorder/WidgetStateOutlinedBorder.resolveWith.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStateOutlinedBorder/resolve.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStateProperty-class.html` — 部分；已译 4/9 段；待译段落：1, 2, 4, 6, 7
-- `flutter/widgets/WidgetStateProperty/WidgetStateProperty.fromMap.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 4
-- `flutter/widgets/WidgetStateProperty/WidgetStateProperty.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStateProperty/all.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStateProperty/lerp.html` — 未译；已译 0/1 段；待译段落：0
-- `flutter/widgets/WidgetStateProperty/resolve.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStateProperty/resolveAs.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/WidgetStateProperty/resolveWith.html` — 未译；已译 0/1 段；待译段落：0
 - `flutter/widgets/WidgetStatePropertyAll-class.html` — 部分；已译 1/2 段；待译段落：0
 - `flutter/widgets/WidgetStatePropertyAll/WidgetStatePropertyAll.html` — 未译；已译 0/1 段；待译段落：0
 
