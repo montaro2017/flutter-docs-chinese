@@ -87,36 +87,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;Row-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/basic.dart#L5695"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">Row</span> 类 
+<h1><span class="kind-class">Row</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A widget that displays its children in a horizontal array.</p>
-<p>To cause a child to expand to fill the available horizontal space, wrap the
-child in an <a href="widgets/Expanded-class.html">Expanded</a> widget.</p>
-<p>The <a href="widgets/Row-class.html">Row</a> widget does not scroll (and in general it is considered an error
-to have more children in a <a href="widgets/Row-class.html">Row</a> than will fit in the available room). If
-you have a line of widgets and want them to be able to scroll if there is
-insufficient room, consider using a <a href="widgets/ListView-class.html">ListView</a>.</p>
-<p>For a vertical variant, see <a href="widgets/Column-class.html">Column</a>.</p>
-<p>If you only have one child, then consider using <a href="widgets/Align-class.html">Align</a> or <a href="widgets/Center-class.html">Center</a> to
-position the child.</p>
-<p>By default, <a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a> is <a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment.center</a>, which
-centers the children in the vertical axis.  If several of the children
-contain text, this is likely to make them visually misaligned if
-they have different font metrics (for example because they differ in
-<a href="painting/TextStyle/fontSize.html">TextStyle.fontSize</a> or other <a href="painting/TextStyle-class.html">TextStyle</a> properties, or because
-they use different fonts due to being written in different scripts).
-Consider using <a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment.baseline</a> instead.</p>
+  <p>沿水平方向排列并显示子 widget 的 widget。</p>
+<p>如果要让子 widget 扩展以填满可用的水平空间，请将其包装在 <a href="widgets/Expanded-class.html">Expanded</a> widget 中。</p>
+<p><a href="widgets/Row-class.html">Row</a> widget 不会滚动（通常，子 widget 多到无法放入可用空间也会被视为错误）。如果 <a href="widgets/Row-class.html">Row</a> 中有一行 widget，并希望空间不足时可以滚动，请考虑使用 <a href="widgets/ListView-class.html">ListView</a>。</p>
+<p>垂直排列的对应 widget 是 <a href="widgets/Column-class.html">Column</a>。</p>
+<p>如果只有一个子 widget，可以考虑使用 <a href="widgets/Align-class.html">Align</a> 或 <a href="widgets/Center-class.html">Center</a> 来定位它。</p>
+<p>默认情况下，<a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a> 为 <a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment.center</a>，会沿垂直轴居中排列子 widget。如果多个子 widget 包含文本，它们使用的字体度量不同（例如 <a href="painting/TextStyle/fontSize.html">TextStyle.fontSize</a> 或其他 <a href="painting/TextStyle-class.html">TextStyle</a> 属性不同，或者因为使用不同书写系统而采用不同字体），文本可能会在视觉上错位。此时可以考虑改用 <a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment.baseline</a>。</p>
 <p>
 <a name="widgets.Row.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-This example divides the available space into three (horizontally), and
-places text centered in the first two cells and the Flutter logo centered in
-the third:</p>
+此示例将可用空间水平分为三份，在前两个区域中居中放置文本，并在第三个区域中居中放置 Flutter logo：</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/row.png" alt="">
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
@@ -148,16 +135,10 @@ the third:</p>
 </div>
 </p>
 <h2 id="troubleshooting">问题排查</h2>
-<h3 id="why-does-my-row-have-a-yellow-and-black-warning-stripe">Why does my row have a yellow and black warning stripe?</h3>
-<p>If the non-flexible contents of the row (those that are not wrapped in
-<a href="widgets/Expanded-class.html">Expanded</a> or <a href="widgets/Flexible-class.html">Flexible</a> widgets) are together wider than the row itself,
-then the row is said to have overflowed. When a row overflows, the row does
-not have any remaining space to share between its <a href="widgets/Expanded-class.html">Expanded</a> 和 <a href="widgets/Flexible-class.html">Flexible</a>
-children. The row reports this by drawing a yellow and black striped
-warning box on the edge that is overflowing. If there is room on the outside
-of the row, the amount of overflow is printed in red lettering.</p>
-<h4 id="story-time">Story time</h4>
-<p>Suppose, for instance, that you had this code:</p>
+<h3 id="why-does-my-row-have-a-yellow-and-black-warning-stripe">为什么我的 Row 上出现黄黑警告条纹？</h3>
+<p>如果 Row 中不可伸缩的内容（即未包装在 <a href="widgets/Expanded-class.html">Expanded</a> 或 <a href="widgets/Flexible-class.html">Flexible</a> widget 中的内容）合起来比 Row 本身更宽，就会发生溢出。发生溢出时，Row 没有剩余空间可分配给其 <a href="widgets/Expanded-class.html">Expanded</a> 和 <a href="widgets/Flexible-class.html">Flexible</a> 子 widget。Row 会在发生溢出的边缘绘制黄黑相间的警告框来报告问题。如果 Row 外侧还有空间，溢出量会以红色文字显示。</p>
+<h4 id="story-time">问题示例</h4>
+<p>例如，假设有如下代码：</p>
 <pre class="language-dart"><code class="language-dart">const Row(
   children: &lt;Widget&gt;[
     FlutterLogo(),
@@ -166,19 +147,10 @@ of the row, the amount of overflow is printed in red lettering.</p>
   ],
 )
 </code></pre>
-<p>The row first asks its first child, the <a href="widgets/FlutterLogo-class.html">FlutterLogo</a>, to lay out, at
-whatever size the logo would like. The logo is friendly and happily decides
-to be 24 pixels to a side. This leaves lots of room for the next child. The
-row then asks that next child, the text, to lay out, at whatever size it
-thinks is best.</p>
-<p>At this point, the text, not knowing how wide is too wide, says "Ok, I will
-be thiiiiiiiiiiiiiiiiiiiis wide.", and goes well beyond the space that the
-row has available, not wrapping. The row responds, "That's not fair, now I
-have no more room available for my other children!", and gets angry and
-sprouts a yellow and black strip.</p>
-<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/row_error.png" alt=""></p>
-<p>The fix is to wrap the second child in an <a href="widgets/Expanded-class.html">Expanded</a> widget, which tells the
-row that the child should be given the remaining room:</p>
+<p>Row 首先要求第一个子 widget <a href="widgets/FlutterLogo-class.html">FlutterLogo</a> 进行布局，大小由 logo 自行决定。这个 logo 很友好，欣然选择边长 24 像素。这样便为下一个子 widget 留出了充足空间。随后 Row 要求文本 widget 按它认为合适的大小进行布局。</p>
+<p>此时文本并不知道多宽才算过宽，于是回答：“好吧，我就要这么宽。”然后它一路延伸，远远超出 Row 可用的空间，而且不换行。Row 便回应：“这不公平，我已经没有空间留给其他子 widget 了！”于是生气地显示出黄黑条纹。</p>
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/row_fixed.png" alt=""></p>
+<p>解决方法是将第二个子 widget 包装在 <a href="widgets/Expanded-class.html">Expanded</a> widget 中，告诉 Row 应将剩余空间分配给该子 widget：</p>
 <pre class="language-dart"><code class="language-dart">const Row(
   children: &lt;Widget&gt;[
     FlutterLogo(),
@@ -189,20 +161,9 @@ row that the child should be given the remaining room:</p>
   ],
 )
 </code></pre>
-<p>Now, the row first asks the logo to lay out, and then asks the <em>icon</em> to lay
-out. The <a href="widgets/Icon-class.html">Icon</a>, like the logo, is happy to take on a reasonable size (also
-24 pixels, not coincidentally, since both <a href="widgets/FlutterLogo-class.html">FlutterLogo</a> 和 <a href="widgets/Icon-class.html">Icon</a> honor the
-ambient <a href="widgets/IconTheme-class.html">IconTheme</a>). This leaves some room left over, and now the row tells
-the text exactly how wide to be: the exact width of the remaining space. The
-text, now happy to comply to a reasonable request, wraps the text within
-that width, and you end up with a paragraph split over several lines.</p>
+<p>现在，Row 会先要求 logo 进行布局，再要求 <em>icon</em> 布局。和 logo 一样，<a href="widgets/Icon-class.html">Icon</a> 也很乐意采用合理大小（同样为 24 像素；这并非巧合，因为 <a href="widgets/FlutterLogo-class.html">FlutterLogo</a> 和 <a href="widgets/Icon-class.html">Icon</a> 都遵循环境中的 <a href="widgets/IconTheme-class.html">IconTheme</a>）。这样会留下一些剩余空间，于是 Row 会明确告知文本其宽度，也就是剩余空间的精确宽度。文本现在可以按合理要求换行，因此最终会得到分成多行的段落。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/row_fixed.png" alt=""></p>
-<p>The <a href="widgets/Flex/textDirection.html">textDirection</a> property controls the direction that children are rendered in.
-<a href="dart-ui/TextDirection.html">TextDirection.ltr</a> is the default <a href="widgets/Flex/textDirection.html">textDirection</a> of <a href="widgets/Row-class.html">Row</a> children, so the first
-child is rendered at the <code>start</code> of the <a href="widgets/Row-class.html">Row</a>, to the left, with subsequent children
-following to the right. If you want to order children in the opposite
-direction (right to left), then <a href="widgets/Flex/textDirection.html">textDirection</a> can be set to
-<a href="dart-ui/TextDirection.html">TextDirection.rtl</a>. This is shown in the example below</p>
+<p><a href="widgets/Flex/textDirection.html">textDirection</a> 属性控制子 widget 的渲染方向。<a href="dart-ui/TextDirection.html">TextDirection.ltr</a> 是 <a href="widgets/Row-class.html">Row</a> 子 widget 默认的 <a href="widgets/Flex/textDirection.html">textDirection</a>，因此第一个子 widget 会渲染在 <a href="widgets/Row-class.html">Row</a> 的 <code>start</code> 端，也就是左侧；后续子 widget 依次排列在右侧。如果要让子 widget 按相反方向（从右向左）排列，可以将 <a href="widgets/Flex/textDirection.html">textDirection</a> 设为 <a href="dart-ui/TextDirection.html">TextDirection.rtl</a>。下例展示了这种情况。</p>
 <pre class="language-dart"><code class="language-dart">const Row(
   textDirection: TextDirection.rtl,
   children: &lt;Widget&gt;[
@@ -215,10 +176,9 @@ direction (right to left), then <a href="widgets/Flex/textDirection.html">textDi
 )
 </code></pre>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/row_textDirection.png" alt=""></p>
-<h2 id="layout-algorithm">Layout algorithm</h2>
-<p><em>This section describes how a <a href="widgets/Row-class.html">Row</a> is rendered by the framework.</em>
-<em>See <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> for an introduction to box layout models.</em></p>
-<p>Layout for a <a href="widgets/Row-class.html">Row</a> proceeds in six steps:</p>
+<h2 id="layout-algorithm">布局算法</h2>
+<p><em>本节介绍框架如何渲染 <a href="widgets/Row-class.html">Row</a>。</em> <em>有关盒约束布局模型的介绍，请参阅 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>。</em></p>
+<p><a href="widgets/Row-class.html">Row</a> 的布局分为六个步骤：</p>
 <ol>
 <li>Layout each child with a null or zero flex factor (e.g., those that are
 not <a href="widgets/Expanded-class.html">Expanded</a>) with unbounded horizontal constraints and the incoming

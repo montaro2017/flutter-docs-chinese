@@ -259819,7 +259819,8 @@
   },
   "flutter/widgets/RootElementMixin/debugVisitOnstageChildren.html": {
     "0": "<p>对每个被视为处于前台的子元素调用参数中的回调。</p>",
-    "2": "<p>元素是否处于前台会影响使用 Flutter 的 <a href=\"flutter_test/Finder-class.html\">Finder</a> 对象进行测试时能否找到该元素。例如，要求测试框架点按某个组件时，finder 默认只查找前台元素并忽略后台元素。</p>"
+    "2": "<p>元素是否处于前台会影响使用 Flutter 的 <a href=\"flutter_test/Finder-class.html\">Finder</a> 对象进行测试时能否找到该元素。例如，要求测试框架点按某个组件时，finder 默认只查找前台元素并忽略后台元素。</p>",
+    "3": "<p>默认实现会转交给 <a href=\"widgets/Element/visitChildren.html\">visitChildren</a>，因此会将此元素视为位于舞台上。</p>"
   },
   "flutter/widgets/RootElementMixin/dependOnInheritedElement.html": {
     "0": "<p>将此构建上下文注册到 <code>ancestor</code>，使 <code>ancestor</code> 的组件发生变化时，此构建上下文会重新构建。</p>",
@@ -260514,5 +260515,62 @@
     "0": "<p>状态恢复期间由 <a href=\"widgets/Router-class.html\">Router</a> 调用。</p>",
     "1": "<p>如果 <a href=\"widgets/Router-class.html\">Router</a> 配置了状态恢复，它会在序列化状态时持久化 <a href=\"widgets/RouterDelegate/currentConfiguration.html\">currentConfiguration</a> 的值。恢复状态期间，<a href=\"widgets/Router-class.html\">Router</a> 会调用此方法（而不是 <a href=\"widgets/RouterDelegate/setInitialRoutePath.html\">setInitialRoutePath</a>），将先前的配置传回委托。委托负责根据提供的配置恢复其内部状态。</p>",
     "2": "<p>默认情况下，此方法会将 <code>configuration</code> 转发给 <a href=\"widgets/RouterDelegate/setNewRoutePath.html\">setNewRoutePath</a>。</p>"
+  },
+  "flutter/widgets/Row-class.html": {
+    "0": "<p>沿水平方向排列并显示子 widget 的 widget。</p>",
+    "1": "<p>如果要让子 widget 扩展以填满可用的水平空间，请将其包装在 <a href=\"widgets/Expanded-class.html\">Expanded</a> widget 中。</p>",
+    "2": "<p><a href=\"widgets/Row-class.html\">Row</a> widget 不会滚动（通常，子 widget 多到无法放入可用空间也会被视为错误）。如果 <a href=\"widgets/Row-class.html\">Row</a> 中有一行 widget，并希望空间不足时可以滚动，请考虑使用 <a href=\"widgets/ListView-class.html\">ListView</a>。</p>",
+    "3": "<p>垂直排列的对应 widget 是 <a href=\"widgets/Column-class.html\">Column</a>。</p>",
+    "4": "<p>如果只有一个子 widget，可以考虑使用 <a href=\"widgets/Align-class.html\">Align</a> 或 <a href=\"widgets/Center-class.html\">Center</a> 来定位它。</p>",
+    "5": "<p>默认情况下，<a href=\"widgets/Flex/crossAxisAlignment.html\">crossAxisAlignment</a> 为 <a href=\"rendering/CrossAxisAlignment.html\">CrossAxisAlignment.center</a>，会沿垂直轴居中排列子 widget。如果多个子 widget 包含文本，它们使用的字体度量不同（例如 <a href=\"painting/TextStyle/fontSize.html\">TextStyle.fontSize</a> 或其他 <a href=\"painting/TextStyle-class.html\">TextStyle</a> 属性不同，或者因为使用不同书写系统而采用不同字体），文本可能会在视觉上错位。此时可以考虑改用 <a href=\"rendering/CrossAxisAlignment.html\">CrossAxisAlignment.baseline</a>。</p>",
+    "9": "<h3 id=\"why-does-my-row-have-a-yellow-and-black-warning-stripe\">为什么我的 Row 上出现黄黑警告条纹？</h3>",
+    "10": "<p>如果 Row 中不可伸缩的内容（即未包装在 <a href=\"widgets/Expanded-class.html\">Expanded</a> 或 <a href=\"widgets/Flexible-class.html\">Flexible</a> widget 中的内容）合起来比 Row 本身更宽，就会发生溢出。发生溢出时，Row 没有剩余空间可分配给其 <a href=\"widgets/Expanded-class.html\">Expanded</a> 和 <a href=\"widgets/Flexible-class.html\">Flexible</a> 子 widget。Row 会在发生溢出的边缘绘制黄黑相间的警告框来报告问题。如果 Row 外侧还有空间，溢出量会以红色文字显示。</p>",
+    "11": "<h4 id=\"story-time\">问题示例</h4>",
+    "12": "<p>例如，假设有如下代码：</p>",
+    "13": "<p>Row 首先要求第一个子 widget <a href=\"widgets/FlutterLogo-class.html\">FlutterLogo</a> 进行布局，大小由 logo 自行决定。这个 logo 很友好，欣然选择边长 24 像素。这样便为下一个子 widget 留出了充足空间。随后 Row 要求文本 widget 按它认为合适的大小进行布局。</p>",
+    "14": "<p>此时文本并不知道多宽才算过宽，于是回答：“好吧，我就要这么宽。”然后它一路延伸，远远超出 Row 可用的空间，而且不换行。Row 便回应：“这不公平，我已经没有空间留给其他子 widget 了！”于是生气地显示出黄黑条纹。</p>",
+    "15": "<p><img src=\"https://flutter.github.io/assets-for-api-docs/assets/widgets/row_fixed.png\" alt=\"\"></p>",
+    "16": "<p>解决方法是将第二个子 widget 包装在 <a href=\"widgets/Expanded-class.html\">Expanded</a> widget 中，告诉 Row 应将剩余空间分配给该子 widget：</p>",
+    "17": "<p>现在，Row 会先要求 logo 进行布局，再要求 <em>icon</em> 布局。和 logo 一样，<a href=\"widgets/Icon-class.html\">Icon</a> 也很乐意采用合理大小（同样为 24 像素；这并非巧合，因为 <a href=\"widgets/FlutterLogo-class.html\">FlutterLogo</a> 和 <a href=\"widgets/Icon-class.html\">Icon</a> 都遵循环境中的 <a href=\"widgets/IconTheme-class.html\">IconTheme</a>）。这样会留下一些剩余空间，于是 Row 会明确告知文本其宽度，也就是剩余空间的精确宽度。文本现在可以按合理要求换行，因此最终会得到分成多行的段落。</p>",
+    "18": "<p><img src=\"https://flutter.github.io/assets-for-api-docs/assets/widgets/row_fixed.png\" alt=\"\"></p>",
+    "19": "<p><a href=\"widgets/Flex/textDirection.html\">textDirection</a> 属性控制子 widget 的渲染方向。<a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a> 是 <a href=\"widgets/Row-class.html\">Row</a> 子 widget 默认的 <a href=\"widgets/Flex/textDirection.html\">textDirection</a>，因此第一个子 widget 会渲染在 <a href=\"widgets/Row-class.html\">Row</a> 的 <code>start</code> 端，也就是左侧；后续子 widget 依次排列在右侧。如果要让子 widget 按相反方向（从右向左）排列，可以将 <a href=\"widgets/Flex/textDirection.html\">textDirection</a> 设为 <a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a>。下例展示了这种情况。</p>",
+    "20": "<p><img src=\"https://flutter.github.io/assets-for-api-docs/assets/widgets/row_textDirection.png\" alt=\"\"></p>",
+    "21": "<h2 id=\"layout-algorithm\">布局算法</h2>",
+    "22": "<p><em>本节介绍框架如何渲染 <a href=\"widgets/Row-class.html\">Row</a>。</em> <em>有关盒约束布局模型的介绍，请参阅 <a href=\"rendering/BoxConstraints-class.html\">BoxConstraints</a>。</em></p>",
+    "23": "<p><a href=\"widgets/Row-class.html\">Row</a> 的布局分为六个步骤：</p>",
+    "6": "<p>\n<a name=\"widgets.Row.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  <div class=\"snippet-description\">\n此示例将可用空间水平分为三份，在前两个区域中居中放置文本，并在第三个区域中居中放置 Flutter logo：</p>",
+    "7": "<p><img src=\"https://flutter.github.io/assets-for-api-docs/assets/widgets/row.png\" alt=\"\">\n</div>\n  <a class=\"anchor-button-overlay anchor-button\" title=\"Copy link to clipboard\"\n    onmouseenter=\"fixHref(this, 'widgets.Row.1');\" onclick=\"fixHref(this, 'widgets.Row.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"Copy to clipboard\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">const Row(\n  children: &lt;Widget&gt;[\n    Expanded(\n      child: Text(&#39;Deliver features faster&#39;, textAlign: TextAlign.center),\n    ),\n    Expanded(\n      child: Text(&#39;Craft beautiful UIs&#39;, textAlign: TextAlign.center),\n    ),\n    Expanded(\n      child: FittedBox(\n        child: FlutterLogo(),\n      ),\n    ),\n  ],\n)</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "flutter/widgets/Row/Row.html": {
+    "0": "<p>创建水平排列的子 widget。</p>",
+    "1": "<p>如果 <code>crossAxisAlignment</code> 为 <a href=\"rendering/CrossAxisAlignment.html\">CrossAxisAlignment.baseline</a>，则 <code>textBaseline</code> 不得为 null。</p>",
+    "2": "<p><code>textDirection</code> 参数默认使用环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>。如果没有环境方向性，并且布局顺序需要依赖文本方向（除 Row 没有子 widget 或只有一个子 widget 外，始终如此），或者需要确定 <code>mainAxisAlignment</code> 的 <code>start</code> 或 <code>end</code> 值，那么 <code>textDirection</code> 就不得为 null。</p>"
+  },
+  "flutter/widgets/SafeArea-class.html": {
+    "0": "<p>通过为子 widget 添加足够的内边距，避免操作系统界面遮挡内容的 widget。</p>",
+    "1": "<p>指定 <a href=\"widgets/SafeArea/minimum.html\">minimum</a> 内边距时，会在最小内边距和安全区域内边距中取较大值应用。</p>",
+    "4": "<h3 id=\"mediaquery-impact\"><a href=\"widgets/MediaQuery-class.html\">MediaQuery</a> 的影响</h3>",
+    "5": "<p>此 widget 会适当调整 <a href=\"widgets/SafeArea/child.html\">child</a> 的 <a href=\"widgets/MediaQuery-class.html\">MediaQuery</a> 内边距，将被此 widget 避开的边对应的值清零。</p>"
+  },
+  "flutter/widgets/SafeArea/child.html": {
+    "0": "<p>此 widget 在树中的下一级 widget。</p>",
+    "1": "<p><a href=\"widgets/MediaQuery-class.html\">MediaQuery</a> 的 <a href=\"widgets/SafeArea/child.html\">child</a> 所对应的内边距会得到适当调整，将被此 widget 避开的边对应的值清零。</p>"
+  },
+  "flutter/widgets/SafeArea/maintainBottomViewPadding.html": {
+    "0": "<p>指定 <a href=\"widgets/SafeArea-class.html\">SafeArea</a> 是否应保留底部的 <a href=\"widgets/MediaQueryData/viewPadding.html\">MediaQueryData.viewPadding</a>，而不是底部的 <a href=\"widgets/MediaQueryData/padding.html\">MediaQueryData.padding</a>。默认值为 false。</p>",
+    "1": "<p>例如，如果屏幕键盘显示在 SafeArea 上方，可以在遮挡区域下方保留内边距，而不是将其消耗掉。如果布局中包含弹性 widget，这会很有帮助：打开软件键盘导致内边距值变化时，弹性 widget 可能会明显移动。将此值设为 true 可以避免界面跳动。</p>"
+  },
+  "flutter/widgets/SafeArea/minimum.html": {
+    "0": "<p>要应用的最小内边距。</p>",
+    "1": "<p>应用最小内边距与媒体内边距中的较大值。</p>"
+  },
+  "flutter/widgets/ScaleTransition-class.html": {
+    "0": "<p>为经过变换的 widget 的缩放添加动画。</p>",
+    "1": "<p>下面展示了 <a href=\"widgets/ScaleTransition-class.html\">ScaleTransition</a> widget 的示例，其中 <a href=\"widgets/ScaleTransition/scale.html\">scale</a> 由设置为 <a href=\"animation/Curves/fastOutSlowIn-constant.html\">Curves.fastOutSlowIn</a> 的 <a href=\"animation/CurvedAnimation-class.html\">CurvedAnimation</a> 驱动动画：</p>",
+    "2": "<p>\n<a name=\"widgets.ScaleTransition.1\"></a>\n<div class=\"snippet snippet-container anchor-container\" id=\"longSnippet1\">\n    <div class=\"snippet-description\">\n以下代码实现了上方视频中的 <a href=\"widgets/ScaleTransition-class.html\">ScaleTransition</a>：\n</div>\n    <a class=\"anchor-button-overlay anchor-button\" title=\"Copy link to clipboard\"\n        onmouseenter=\"fixHref(this, 'widgets.ScaleTransition.1');\" onclick=\"fixHref(this, 'widgets.ScaleTransition.1'); copyStringToClipboard(this.href);\"\n        href=\"#\">\n        <i class=\"material-icons anchor-image\">link</i>\n    </a>\n    <div class=\"snippet-description\">\n        <p>To create a local project with this code sample, run:<br />\n            <span class=\"snippet-create-command\">flutter create --sample=widgets.ScaleTransition.1 mysample</span>\n        </p>"
+  },
+  "flutter/widgets/ScaleTransition/ScaleTransition.html": {
+    "0": "<p>创建一个缩放转场。</p>",
+    "1": "<p><code>alignment</code> 参数默认值为 <a href=\"painting/Alignment/center-constant.html\">Alignment.center</a>。</p>"
   }
 }
