@@ -1,47 +1,10 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,026 页，部分翻译 329 页，未翻译 897 页；正文已译 21,520/24,807 段。
+模块共 8,093 页：已完整 6,048 页，部分翻译 324 页，未翻译 880 页；正文已译 21,576/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
-
-- `flutter/widgets/ScrollAction-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollAction/invoke.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/ScrollAction/isEnabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollActivity/isScrolling.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/ScrollActivity/resetActivity.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollActivity/shouldIgnorePointer.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/ScrollActivity/updateDelegate.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollBehavior-class.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollBehavior/getMultitouchDragStrategy.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/ScrollBehavior/pointerAxisModifiers.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/ScrollBehavior/velocityTrackerBuilder.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ScrollConfiguration-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollConfiguration/of.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollContext-class.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/ScrollContext/notificationContext.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollContext/saveOffset.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollContext/setIgnorePointer.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollContext/storageContext.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollDragController-class.html` — 部分；已译 1/2 段；待译段落：0
-
-- `flutter/widgets/ScrollDragController/cancel.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollDragController/end.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollDragController/updateDelegate.html` — 未译；已译 0/2 段；待译段落：0, 1
 
 - `flutter/widgets/ScrollEndNotification/dragDetails.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 - `flutter/widgets/ScrollHoldController-class.html` — 未译；已译 0/2 段；待译段落：0, 1
