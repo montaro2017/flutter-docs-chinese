@@ -262587,5 +262587,314 @@
   "flutter/widgets/TextMagnifierConfiguration/shouldDisplayHandlesInMagnifier.html": {
     "0": "<p>是否应在放大镜中显示文本编辑手柄。</p>",
     "1": "<p><a href=\"widgets/SelectionOverlay/showMagnifier.html\">SelectionOverlay.showMagnifier</a> 使用此标志控制渲染时的图层顺序；具体来说，它决定包含手柄的图层应放置在 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中包含放大镜的图层上方还是下方。</p>"
+  },
+  "flutter/widgets/TextSelectionControls-class.html": {
+    "0": "<p>用于构建选区 UI 的接口，由工具栏 widget 的实现者提供。</p>",
+    "1": "<p>此类的部分功能（包括 <a class=\"deprecated\" href=\"widgets/TextSelectionControls/buildToolbar.html\">buildToolbar</a>）已弃用，建议改用 <a href=\"widgets/EditableText/contextMenuBuilder.html\">EditableText.contextMenuBuilder</a> 来自定义上下文菜单。</p>",
+    "2": "<h2 id=\"use-with-editabletextcontextmenubuilder\">与 <a href=\"widgets/EditableText/contextMenuBuilder.html\">EditableText.contextMenuBuilder</a> 配合使用</h2>",
+    "3": "<p>在弃用期间，为保持向后兼容，如果将 <a href=\"widgets/EditableText/selectionControls.html\">EditableText.selectionControls</a> 设为未混入 <a href=\"widgets/TextSelectionHandleControls-mixin.html\">TextSelectionHandleControls</a> 的对象，则会忽略 <a href=\"widgets/EditableText/contextMenuBuilder.html\">EditableText.contextMenuBuilder</a>，转而使用已弃用的 <a class=\"deprecated\" href=\"widgets/TextSelectionControls/buildToolbar.html\">buildToolbar</a>。</p>",
+    "4": "<p>若要将代码从 <a class=\"deprecated\" href=\"widgets/TextSelectionControls/buildToolbar.html\">buildToolbar</a> 迁移到推荐的 <a href=\"widgets/EditableText/contextMenuBuilder.html\">EditableText.contextMenuBuilder</a>，同时继续使用 <a href=\"widgets/TextSelectionControls/buildHandle.html\">buildHandle</a>，请在 <a href=\"widgets/TextSelectionControls-class.html\">TextSelectionControls</a> 子类中混入 <a href=\"widgets/TextSelectionHandleControls-mixin.html\">TextSelectionHandleControls</a>，并将工具栏代码迁移到传给 <a href=\"widgets/EditableText/contextMenuBuilder.html\">EditableText.contextMenuBuilder</a> 的回调中。</p>",
+    "5": "<p>之后会移除 <a class=\"deprecated\" href=\"widgets/TextSelectionControls/buildToolbar.html\">buildToolbar</a>，此时该 mixin 也不再需要用于告知框架代码已完成迁移、不期望调用 <a class=\"deprecated\" href=\"widgets/TextSelectionControls/buildToolbar.html\">buildToolbar</a>。</p>",
+    "6": "<p>更多信息请参阅 <a href=\"https://docs.flutter.dev/release/breaking-changes/context-menus\">docs.flutter.dev/release/breaking-changes/context-menus</a>。</p>",
+    "7": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TextSelectionControls/buildHandle.html": {
+    "0": "<p>根据给定的 <code>type</code> 构建选区手柄。</p>",
+    "1": "<p>此 widget 的左上角会定位在选区位置的底部。</p>",
+    "2": "<p>如果允许与手柄交互，点按手柄时应调用提供的 <code>onTap</code>。例如，iOS 默认选区手柄 <a href=\"cupertino/cupertinoTextSelectionControls.html\">cupertinoTextSelectionControls</a> 完全不会调用 <code>onTap</code>，因为其手柄不支持点按。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/buildToolbar.html": {
+    "0": "<p>在文本选区附近构建工具栏。</p>",
+    "1": "<p>通常会显示复制和粘贴文本的按钮。</p>",
+    "2": "<p><code>globalEditableRegion</code> 参数表示 TextField 在全局坐标系中的尺寸，单位为逻辑像素。</p>",
+    "3": "<p><code>textLineHeight</code> 参数是当前要为其构建工具栏的 <a href=\"rendering/RenderEditable-class.html\">RenderEditable</a> 的 <a href=\"rendering/RenderEditable/preferredLineHeight.html\">RenderEditable.preferredLineHeight</a>。</p>",
+    "4": "<p><code>selectionMidpoint</code> 参数是工具栏位置计算中使用的通用中点。更详细的位置信息可以通过 <code>endpoints</code> 参数计算得出。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/canCopy.html": {
+    "0": "<p>由给定 <code>delegate</code> 管理的文本字段当前选区是否可以复制到 <a href=\"services/Clipboard-class.html\">Clipboard</a>。</p>",
+    "1": "<p>默认情况下，文本字段中没有选中内容时返回 false。</p>",
+    "2": "<p>子类可以用此方法判断是否应向用户提供复制功能。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/canCut.html": {
+    "0": "<p>由给定 <code>delegate</code> 管理的文本字段当前选区是否可以从文本字段中移除并放入 <a href=\"services/Clipboard-class.html\">Clipboard</a>。</p>",
+    "1": "<p>默认情况下，文本字段中没有选中内容时返回 false。</p>",
+    "2": "<p>子类可以用此方法判断是否应向用户提供剪切功能。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/canPaste.html": {
+    "0": "<p>给定 <code>delegate</code> 管理的文本字段是否支持从剪贴板粘贴内容。</p>",
+    "1": "<p>子类可以用此方法判断是否应向用户提供粘贴功能。</p>",
+    "2": "<p>此方法不会检查剪贴板的内容。例如，如果剪贴板中是空字符串，子类可以据此禁止粘贴。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/canSelectAll.html": {
+    "0": "<p>由给定 <code>delegate</code> 管理的文本字段当前选区是否可以扩展为包含文本字段的全部内容。</p>",
+    "1": "<p>子类可以用此方法判断是否应向用户提供全选功能。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/getHandleAnchor.html": {
+    "0": "<p>获取手柄自身的锚点。锚点是与文本中某个特定点对齐的点，手柄通常会在视觉上“指向”该位置。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/getHandleSize.html": {
+    "0": "<p>返回选区手柄的尺寸。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/handleCopy.html": {
+    "0": "<p>调用 <a href=\"services/TextSelectionDelegate/copySelection.html\">TextSelectionDelegate.copySelection</a> 复制当前选区。</p>",
+    "1": "<p>用户激活复制操作时，子类会调用此方法。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/handleCut.html": {
+    "0": "<p>调用 <a href=\"services/TextSelectionDelegate/cutSelection.html\">TextSelectionDelegate.cutSelection</a> 剪切当前选区。</p>",
+    "1": "<p>用户激活剪切操作时，子类会调用此方法。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/handlePaste.html": {
+    "0": "<p>调用 <a href=\"services/TextSelectionDelegate/pasteText.html\">TextSelectionDelegate.pasteText</a> 粘贴文本。</p>",
+    "1": "<p>用户激活粘贴操作时，子类会调用此方法。</p>",
+    "2": "<p>此函数是异步的，因为剪贴板交互本身是异步操作。当前实现可能存在竞态条件。</p>"
+  },
+  "flutter/widgets/TextSelectionControls/handleSelectAll.html": {
+    "0": "<p>调用 <a href=\"services/TextSelectionDelegate/selectAll.html\">TextSelectionDelegate.selectAll</a>，将当前选区设为包含整个文本值。</p>",
+    "1": "<p>不会隐藏工具栏。</p>",
+    "2": "<p>用户激活全选操作时，子类会调用此方法。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls-mixin.html": {
+    "0": "<p>专门用于管理选区手柄、不负责管理工具栏的 <a href=\"widgets/TextSelectionControls-class.html\">TextSelectionControls</a>，可将工具栏管理交给 <a href=\"widgets/EditableText/contextMenuBuilder.html\">EditableText.contextMenuBuilder</a>。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/buildHandle.html": {
+    "0": "<p>根据给定的 <code>type</code> 构建选区手柄。</p>",
+    "1": "<p>此 widget 的左上角会定位在选区位置的底部。</p>",
+    "2": "<p>如果允许与手柄交互，点按手柄时应调用提供的 <code>onTap</code>。例如，iOS 默认选区手柄 <a href=\"cupertino/cupertinoTextSelectionControls.html\">cupertinoTextSelectionControls</a> 完全不会调用 <code>onTap</code>，因为其手柄不支持点按。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/buildToolbar.html": {
+    "0": "<p>在文本选区附近构建工具栏。</p>",
+    "1": "<p>通常会显示复制和粘贴文本的按钮。</p>",
+    "2": "<p><code>globalEditableRegion</code> 参数表示 TextField 在全局坐标系中的尺寸，单位为逻辑像素。</p>",
+    "3": "<p><code>textLineHeight</code> 参数是当前要为其构建工具栏的 <a href=\"rendering/RenderEditable-class.html\">RenderEditable</a> 的 <a href=\"rendering/RenderEditable/preferredLineHeight.html\">RenderEditable.preferredLineHeight</a>。</p>",
+    "4": "<p><code>selectionMidpoint</code> 参数是工具栏位置计算中使用的通用中点。更详细的位置信息可以通过 <code>endpoints</code> 参数计算得出。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/canCopy.html": {
+    "0": "<p>由给定 <code>delegate</code> 管理的文本字段当前选区是否可以复制到 <a href=\"services/Clipboard-class.html\">Clipboard</a>。</p>",
+    "1": "<p>默认情况下，文本字段中没有选中内容时返回 false。</p>",
+    "2": "<p>子类可以用此方法判断是否应向用户提供复制功能。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/canCut.html": {
+    "0": "<p>由给定 <code>delegate</code> 管理的文本字段当前选区是否可以从文本字段中移除并放入 <a href=\"services/Clipboard-class.html\">Clipboard</a>。</p>",
+    "1": "<p>默认情况下，文本字段中没有选中内容时返回 false。</p>",
+    "2": "<p>子类可以用此方法判断是否应向用户提供剪切功能。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/canPaste.html": {
+    "0": "<p>给定 <code>delegate</code> 管理的文本字段是否支持从剪贴板粘贴内容。</p>",
+    "1": "<p>子类可以用此方法判断是否应向用户提供粘贴功能。</p>",
+    "2": "<p>此方法不会检查剪贴板的内容。例如，如果剪贴板中是空字符串，子类可以据此禁止粘贴。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/canSelectAll.html": {
+    "0": "<p>由给定 <code>delegate</code> 管理的文本字段当前选区是否可以扩展为包含文本字段的全部内容。</p>",
+    "1": "<p>子类可以用此方法判断是否应向用户提供全选功能。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/getHandleAnchor.html": {
+    "0": "<p>获取手柄自身的锚点。锚点是与文本中某个特定点对齐的点，手柄通常会在视觉上“指向”该位置。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/getHandleSize.html": {
+    "0": "<p>返回选区手柄的尺寸。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/handleCopy.html": {
+    "0": "<p>调用 <a href=\"services/TextSelectionDelegate/copySelection.html\">TextSelectionDelegate.copySelection</a> 复制当前选区。</p>",
+    "1": "<p>用户激活复制操作时，子类会调用此方法。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/handleCut.html": {
+    "0": "<p>调用 <a href=\"services/TextSelectionDelegate/cutSelection.html\">TextSelectionDelegate.cutSelection</a> 剪切当前选区。</p>",
+    "1": "<p>用户激活剪切操作时，子类会调用此方法。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/handlePaste.html": {
+    "0": "<p>调用 <a href=\"services/TextSelectionDelegate/pasteText.html\">TextSelectionDelegate.pasteText</a> 粘贴文本。</p>",
+    "1": "<p>用户激活粘贴操作时，子类会调用此方法。</p>",
+    "2": "<p>此函数是异步的，因为剪贴板交互本身是异步操作。当前实现可能存在竞态条件。</p>"
+  },
+  "flutter/widgets/TextSelectionHandleControls/handleSelectAll.html": {
+    "0": "<p>调用 <a href=\"services/TextSelectionDelegate/selectAll.html\">TextSelectionDelegate.selectAll</a>，将当前选区设为包含整个文本值。</p>",
+    "1": "<p>不会隐藏工具栏。</p>",
+    "2": "<p>用户激活全选操作时，子类会调用此方法。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay-class.html": {
+    "0": "<p>管理 <a href=\"rendering/RenderEditable-class.html\">RenderEditable</a> 的一对文本选区手柄的对象。</p>",
+    "1": "<p>此类是 <a href=\"widgets/SelectionOverlay-class.html\">SelectionOverlay</a> 的包装器，提供专用于 <a href=\"rendering/RenderEditable-class.html\">RenderEditable</a> 的 API。若要管理自定义 widget 的选区手柄，请改用 <a href=\"widgets/SelectionOverlay-class.html\">SelectionOverlay</a>。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/TextSelectionOverlay.html": {
+    "0": "<p>创建用于管理选区手柄 overlay 条目的对象。</p>",
+    "1": "<p><code>context</code> 的祖先中必须包含 <a href=\"widgets/Overlay-class.html\">Overlay</a>。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/context.html": {
+    "0": "<p>用于显示选区 UI 的上下文。</p>",
+    "1": "<p>此对象会在该 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中显示文本选区手柄，因此此上下文的祖先中必须包含 <a href=\"widgets/Overlay-class.html\">Overlay</a>。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/contextMenuBuilder.html": {
+    "1": "<p>用户请求显示工具栏时，会构建上下文菜单。调用 <a href=\"widgets/EditableTextState/showToolbar.html\">EditableTextState.showToolbar</a> 时会构建菜单，通常由 <a href=\"widgets/TextSelectionGestureDetectorBuilder/buildGestureDetector.html\">TextSelectionGestureDetectorBuilder.buildGestureDetector</a> 创建的 widget 所安装的某个回调触发。<a href=\"widgets/TextSelectionOverlay/contextMenuBuilder.html\">contextMenuBuilder</a> 返回的 widget 会传给 <a href=\"widgets/ContextMenuController-class.html\">ContextMenuController</a>。</p>",
+    "3": "<p><a href=\"widgets/TextSelectionOverlay/contextMenuBuilder.html\">contextMenuBuilder</a> 回调使用的 <a href=\"widgets/EditableTextContextMenuBuilder.html\">EditableTextContextMenuBuilder</a> 签名包含两个参数：<a href=\"widgets/EditableText-class.html\">EditableText</a> 的 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 和该 <a href=\"widgets/EditableText-class.html\">EditableText</a> 的 <a href=\"widgets/EditableTextState-class.html\">EditableTextState</a>。</p>",
+    "8": "<p>为保持向后兼容，如果将 <a href=\"widgets/EditableText/selectionControls.html\">EditableText.selectionControls</a> 设为未混入 <a href=\"widgets/TextSelectionHandleControls-mixin.html\">TextSelectionHandleControls</a> 的对象，则会忽略 <a href=\"widgets/TextSelectionOverlay/contextMenuBuilder.html\">contextMenuBuilder</a>，转而使用已弃用的 <a class=\"deprecated\" href=\"widgets/TextSelectionControls/buildToolbar.html\">TextSelectionControls.buildToolbar</a> 方法。</p>",
+    "12": "<p>如果未提供此回调，则不会构建上下文菜单。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/dispose.html": {
+    "0": "<p>销毁此对象并释放资源。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/handlesAreVisible.html": {
+    "0": "<p>手柄当前是否可见。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/handlesVisible.html": {
+    "0": "<p>选区手柄是否可见。</p>",
+    "1": "<p>若要隐藏手柄，请设为 false。使用此属性可显示或隐藏手柄，而无需重新构建手柄。</p>",
+    "2": "<p>默认为 false。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/hide.html": {
+    "0": "<p>隐藏整个 overlay，包括工具栏和手柄。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/hideHandles.html": {
+    "0": "<p>从 overlay 中移除手柄，以销毁它们。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/hideMagnifier.html": {
+    "0": "<p>隐藏当前放大镜。</p>",
+    "1": "<p>如果不存在放大镜，此方法不会执行任何操作。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/hideToolbar.html": {
+    "0": "<p>隐藏 overlay 中的工具栏部分。</p>",
+    "1": "<p>若要隐藏整个 overlay，请参阅 <a href=\"widgets/TextSelectionOverlay/hide.html\">hide</a>。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/magnifierExists.html": {
+    "0": "<p>放大镜当前是否存在。</p>",
+    "1": "<p>这与 <a href=\"widgets/TextSelectionOverlay/magnifierIsVisible.html\">magnifierIsVisible</a> 不同：放大镜可能存在于 overlay 中，但并未显示。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/magnifierIsVisible.html": {
+    "0": "<p>放大镜当前是否可见。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/renderObject.html": {
+    "0": "<p>显示所选文本的可编辑行。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/selectionControls.html": {
+    "0": "<p>构建文本选区手柄和工具栏。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/selectionDelegate.html": {
+    "0": "<p>用于操作所属文本字段当前选区的委托。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/showHandles.html": {
+    "0": "<p>通过将手柄插入 <a href=\"widgets/TextSelectionOverlay/context.html\">context</a> 的 overlay 来构建手柄。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/showMagnifier.html": {
+    "0": "<p>显示放大镜；如果调用 <a href=\"widgets/TextSelectionOverlay/showMagnifier.html\">showMagnifier</a> 时工具栏正在显示，则会将其隐藏。此方法在非移动平台上调用也是安全的，因为这些平台不会提供 magnifierBuilder，或者 magnifierBuilder 会返回 null。</p>",
+    "1": "<p>此属性并非判断放大镜是否显示的权威依据，因为放大镜可能会自行隐藏。如果需要此信息，请检查 <a href=\"widgets/MagnifierController/shown.html\">MagnifierController.shown</a>。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/showSpellCheckSuggestionsToolbar.html": {
+    "0": "<p>显示拼写检查工具栏，其中列出可点击并替换的拼写错误单词建议。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/showToolbar.html": {
+    "0": "<p>通过将工具栏插入 <a href=\"widgets/TextSelectionOverlay/context.html\">context</a> 的 overlay 来显示工具栏。</p>",
+    "1": "<p>此方法要求渲染树已完成布局（因为它会调用 <a href=\"rendering/RenderBox/localToGlobal.html\">RenderBox.localToGlobal</a>），因此不要在构建或布局阶段调用。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/spellCheckToolbarIsVisible.html": {
+    "0": "<p>拼写检查菜单当前是否可见。</p>",
+    "1": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/toolbarIsVisible.html": {
+    "0": "<p>工具栏当前是否可见。</p>",
+    "1": "<p>包括文本选区工具栏和拼写检查菜单。</p>",
+    "2": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/update.html": {
+    "0": "<p>选区发生变化后更新 overlay。</p>",
+    "1": "<p>如果在 <a href=\"scheduler/SchedulerBinding/schedulerPhase.html\">SchedulerBinding.schedulerPhase</a> 为 <a href=\"scheduler/SchedulerPhase.html\">SchedulerPhase.persistentCallbacks</a> 时调用此方法（即处于构建、布局或绘制阶段；参阅 <a href=\"widgets/WidgetsBinding/drawFrame.html\">WidgetsBinding.drawFrame</a>），更新会延迟到帧后回调阶段执行。否则会同步更新。这意味着可以在构建期间安全调用此方法，但此时 UI 要到下一帧（即数毫秒后）才会更新。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/updateForScroll.html": {
+    "0": "<p>使 overlay 更新其渲染内容。</p>",
+    "1": "<p>当 <a href=\"widgets/TextSelectionOverlay/renderObject.html\">renderObject</a> 的文本度量可能发生变化时（例如文本滚动后），应调用此方法。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/updateMagnifier.html": {
+    "0": "<p>使用新的选区数据更新当前放大镜，使放大镜能相应调整。</p>",
+    "1": "<p>即使放大镜当前未显示，此方法仍会更新其位置，因为放大镜可能自行隐藏，并正在等待重新显示的信号。</p>",
+    "2": "<p>如果 overlay 中不存在放大镜，此方法不会执行任何操作。</p>"
+  },
+  "flutter/widgets/TextSelectionOverlay/value.html": {
+    "0": "<p>获取当前值。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarAnchors-class.html": {
+    "0": "<p>文本选择工具栏的位置信息。</p>",
+    "1": "<p>菜单通常会尝试放置在 <a href=\"widgets/TextSelectionToolbarAnchors/primaryAnchor.html\">primaryAnchor</a> 处；如果无法放置在此处，则会改用 <a href=\"widgets/TextSelectionToolbarAnchors/secondaryAnchor.html\">secondaryAnchor</a>（如果存在）。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarAnchors/TextSelectionToolbarAnchors.fromSelection.html": {
+    "0": "<p>为某个选区创建 <a href=\"widgets/TextSelectionToolbarAnchors-class.html\">TextSelectionToolbarAnchors</a> 实例。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarAnchors/TextSelectionToolbarAnchors.html": {
+    "0": "<p>直接根据锚点创建 <a href=\"widgets/TextSelectionToolbarAnchors-class.html\">TextSelectionToolbarAnchors</a> 实例。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarAnchors/getSelectionRect.html": {
+    "0": "<p>以全局坐标返回给定 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 中覆盖给定选区的 <a href=\"dart-ui/Rect-class.html\">Rect</a>。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarAnchors/primaryAnchor.html": {
+    "0": "<p>工具栏应尝试放置的位置。</p>",
+    "1": "<p>如果工具栏无法放置在此处，则在存在 <a href=\"widgets/TextSelectionToolbarAnchors/secondaryAnchor.html\">secondaryAnchor</a> 时使用它。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarAnchors/secondaryAnchor.html": {
+    "0": "<p>当 <a href=\"widgets/TextSelectionToolbarAnchors/primaryAnchor.html\">primaryAnchor</a> 不可用时应使用的备用位置。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate-class.html": {
+    "0": "<p>用于 <a href=\"widgets/CustomSingleChildLayout-class.html\">CustomSingleChildLayout</a> 的 <a href=\"rendering/SingleChildLayoutDelegate-class.html\">SingleChildLayoutDelegate</a>：如果空间足够，就将子级放在 <a href=\"widgets/TextSelectionToolbarLayoutDelegate/anchorAbove.html\">anchorAbove</a> 上方，否则放在 <a href=\"widgets/TextSelectionToolbarLayoutDelegate/anchorBelow.html\">anchorBelow</a> 下方。</p>",
+    "1": "<p>主要用于工具栏或上下文菜单。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate/TextSelectionToolbarLayoutDelegate.html": {
+    "0": "<p>创建 TextSelectionToolbarLayoutDelegate 的实例。</p>",
+    "1": "<p><code>fitsAbove</code> 参数可选；如果省略，将自动计算。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate/anchorAbove.html": {
+    "0": "<p>工具栏尝试放置在其上方的焦点位置。</p>",
+    "1": "<p>如果到屏幕顶部的上方空间不足，工具栏就会放置在 <a href=\"widgets/TextSelectionToolbarLayoutDelegate/anchorBelow.html\">anchorBelow</a> 下方。</p>",
+    "2": "<p>应使用局部坐标提供。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate/anchorBelow.html": {
+    "0": "<p>工具栏尝试放置在其上方的焦点位置。</p>",
+    "1": "<p>如果到屏幕顶部的上方空间不足，工具栏就会放置在 <a href=\"widgets/TextSelectionToolbarLayoutDelegate/anchorBelow.html\">anchorBelow</a> 下方。</p>",
+    "2": "<p>应使用局部坐标提供。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate/centerOn.html": {
+    "0": "<p>返回相对于零点的距离，使 <code>width</code> 尽可能以 <code>position</code> 为中心，同时保持在零点和 <code>max</code> 之间。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate/fitsAbove.html": {
+    "0": "<p>子级是否应被视为适合放置在 anchorAbove 上方。</p>",
+    "1": "<p>通常用于强制子级放置在 anchorAbove，即使空间不足也是如此；例如 Material <a href=\"material/TextSelectionToolbar-class.html\">TextSelectionToolbar</a> 显示展开的溢出菜单时。</p>",
+    "2": "<p>如果未提供，将自动计算。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate/getConstraintsForChild.html": {
+    "0": "<p>根据传入约束为子级提供的约束。</p>",
+    "1": "<p>布局期间，子级会收到此函数返回的布局约束。子级必须选择符合这些约束的尺寸。</p>",
+    "2": "<p>默认使用给定的约束。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate/getPositionForChild.html": {
+    "0": "<p>子级应放置的位置。</p>",
+    "1": "<p><code>size</code> 参数是父级的尺寸；如果 <a href=\"rendering/SingleChildLayoutDelegate/getSize.html\">getSize</a> 返回的尺寸不符合传给 <a href=\"rendering/SingleChildLayoutDelegate/getSize.html\">getSize</a> 的约束，它可能与该返回值不同。<code>childSize</code> 参数是子级的尺寸，并且符合 <a href=\"widgets/TextSelectionToolbarLayoutDelegate/getConstraintsForChild.html\">getConstraintsForChild</a> 返回的约束。</p>",
+    "2": "<p>默认将子级放置在父级的左上角。</p>"
+  },
+  "flutter/widgets/TextSelectionToolbarLayoutDelegate/shouldRelayout.html": {
+    "0": "<p>每当新的自定义布局委托类实例被提供给 <a href=\"rendering/RenderCustomSingleChildLayoutBox-class.html\">RenderCustomSingleChildLayoutBox</a> 对象时，或每当创建带有新自定义布局委托类实例的 <a href=\"widgets/CustomSingleChildLayout-class.html\">CustomSingleChildLayout</a> 对象时调用。（两者本质相同，因为后者是基于前者实现的。）</p>",
+    "2": "<p>如果此方法返回 false，则对 <a href=\"rendering/SingleChildLayoutDelegate/getSize.html\">getSize</a>、<a href=\"widgets/TextSelectionToolbarLayoutDelegate/getConstraintsForChild.html\">getConstraintsForChild</a> 和 <a href=\"widgets/TextSelectionToolbarLayoutDelegate/getPositionForChild.html\">getPositionForChild</a> 的调用可能会被优化掉。</p>",
+    "3": "<p>即使 <a href=\"widgets/TextSelectionToolbarLayoutDelegate/shouldRelayout.html\">shouldRelayout</a> 返回 false，布局方法仍可能被调用（例如祖先布局发生变化时）。即使完全没有调用 <a href=\"widgets/TextSelectionToolbarLayoutDelegate/shouldRelayout.html\">shouldRelayout</a>，布局方法也可能被调用（例如父级尺寸发生变化时）。</p>"
+  },
+  "flutter/widgets/TextStyleTween-class.html": {
+    "1": "<p>此类专门处理 <a href=\"animation/Tween-class.html\">Tween&lt;TextStyle&gt;</a> 的插值，并使用 <a href=\"painting/TextStyle/lerp.html\">TextStyle.lerp</a>。</p>",
+    "2": "<p>如果两种样式设置的字段不同，效果可能不理想。</p>"
+  },
+  "flutter/widgets/TextStyleTween/TextStyleTween.html": {
+    "0": "<p>创建文本样式补间动画。</p>"
+  },
+  "flutter/widgets/Texture-class.html": {
+    "0": "<p>用于显示后端纹理的矩形区域。</p>",
+    "1": "<p>后端纹理是可应用（映射）到 Flutter 视图某个区域的图像。它们通过特定平台的纹理注册表创建、管理和更新。这通常由插件完成，插件会接入宿主平台的视频播放器、摄像头或 OpenGL API 等图像来源。</p>",
+    "2": "<p>Texture widget 使用整数 ID 引用其后端纹理。纹理 ID 从纹理注册表获取，并限定于对应的 Flutter 视图。注销后，注册表可以自行决定是否重用纹理 ID。使用注册表当前未知的纹理 ID 时，会静默显示为空白矩形。</p>",
+    "3": "<p>Texture widget 会按照后端的指示自主重绘（例如收到视频帧时）。此类重绘通常不需要执行 Dart 代码。</p>",
+    "4": "<p>矩形区域的尺寸由其父级 widget 决定，纹理会自动缩放以适应该区域。</p>"
+  },
+  "flutter/widgets/Texture/Texture.html": {
+    "0": "<p>创建由 <code>textureId</code> 标识的纹理提供内容的 widget，并使用 <code>filterQuality</code> 设置纹理的 <a href=\"dart-ui/FilterQuality.html\">FilterQuality</a>。</p>"
+  },
+  "flutter/widgets/Texture/filterQuality.html": {
+    "0": "<p>纹理采样并渲染到屏幕上的质量。</p>",
+    "1": "<p>缩放纹理时，默认使用 <a href=\"dart-ui/FilterQuality.html\">FilterQuality.low</a>，以获得更高质量但较慢的插值（通常为双线性插值）。可以改用 <a href=\"dart-ui/FilterQuality.html\">FilterQuality.none</a>，获得较低质量但较快的插值（通常为最近邻插值）。另请参阅 <a href=\"dart-ui/FilterQuality.html\">FilterQuality.medium</a> 和 <a href=\"dart-ui/FilterQuality.html\">FilterQuality.high</a>。</p>"
+  },
+  "flutter/widgets/Texture/freeze.html": {
+    "0": "<p>为 true 时，纹理不会随新帧到来而更新。</p>"
+  },
+  "flutter/widgets/Texture/textureId.html": {
+    "0": "<p>后端纹理的标识符。</p>"
   }
 }
