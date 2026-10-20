@@ -1,53 +1,10 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,070 页，部分翻译 319 页，未翻译 863 页；正文已译 21,658/24,807 段。
+模块共 8,093 页：已完整 6,099 页，部分翻译 312 页，未翻译 841 页；正文已译 21,758/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
-
-- `flutter/widgets/ScrollStartNotification/dragDetails.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollUpdateNotification/dragDetails.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollView/ScrollView.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/ScrollView/buildSlivers.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/ScrollView/buildViewport.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/ScrollView/getDirection.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollView/paintOrder.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ScrollView/physics.html` — 部分；已译 1/7 段；待译段落：1, 2, 3, 4, 5, 6
-
-- `flutter/widgets/ScrollView/scrollBehavior.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollView/shrinkWrap.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollableWidgetBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ScrollbarPainter-class.html` — 部分；已译 1/8 段；待译段落：0, 1, 2, 3, 4, 5, 6
-
-- `flutter/widgets/ScrollbarPainter/crossAxisMargin.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollbarPainter/getTrackToScroll.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollbarPainter/hitTest.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ScrollbarPainter/hitTestInteractive.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ScrollbarPainter/mainAxisMargin.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollbarPainter/minLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollbarPainter/minOverscrollLength.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollbarPainter/padding.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ScrollbarPainter/paint.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/ScrollbarPainter/radius.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollbarPainter/scrollbarOrientation.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ScrollbarPainter/semanticsBuilder.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/ScrollbarPainter/shape.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ScrollbarPainter/shouldRebuildSemantics.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/ScrollbarPainter/shouldRepaint.html` — 部分；已译 1/6 段；待译段落：0, 2, 3, 4, 5
-
-- `flutter/widgets/ScrollbarPainter/trackRadius.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ScrollbarPainter/update.html` — 未译；已译 0/2 段；待译段落：0, 1
 
 - `flutter/widgets/SelectAction-class.html` — 未译；已译 0/2 段；待译段落：0, 1
 

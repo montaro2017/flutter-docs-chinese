@@ -1,4 +1,169 @@
 {
+  "flutter/widgets/ScrollbarPainter/paint.html": {
+    "0": "<p>需要绘制对象时调用此方法。提供的 <a href=\"dart-ui/Canvas-class.html\">Canvas</a> 已配置坐标空间，使原点位于方框左上角。方框区域的尺寸由 <code>size</code> 参数指定。</p>",
+    "1": "<p>绘制操作应限制在给定区域内。边界之外的图形操作可能会被静默忽略、裁剪，也可能不会被裁剪。有时很难确保某项操作位于边界内（例如矩形尺寸由用户输入决定）。此时可考虑在 <a href=\"widgets/ScrollbarPainter/paint.html\">paint</a> 开始时调用 <a href=\"dart-ui/Canvas/clipRect.html\">Canvas.clipRect</a>，这样之后的所有绘制都能保证限制在裁剪区域内。</p>",
+    "2": "<p>实现时应谨慎配对调用 <a href=\"dart-ui/Canvas/save.html\">Canvas.save</a>/<a href=\"dart-ui/Canvas/saveLayer.html\">Canvas.saveLayer</a> 和 <a href=\"dart-ui/Canvas/restore.html\">Canvas.restore</a>，否则此画布上后续的绘制都可能受到影响，产生令人发笑却又困惑的结果。</p>",
+    "3": "<p>要在 <a href=\"dart-ui/Canvas-class.html\">Canvas</a> 上绘制文本，请使用 <a href=\"painting/TextPainter-class.html\">TextPainter</a>。</p>",
+    "4": "<p>要在 <a href=\"dart-ui/Canvas-class.html\">Canvas</a> 上绘制图像：</p>",
+    "5": "<p>获取一个 <a href=\"painting/ImageStream-class.html\">ImageStream</a>，例如对 <a href=\"painting/AssetImage-class.html\">AssetImage</a> 或 <a href=\"painting/NetworkImage-class.html\">NetworkImage</a> 对象调用 <a href=\"painting/ImageProvider/resolve.html\">ImageProvider.resolve</a>。</p>",
+    "6": "<p>每当 <a href=\"painting/ImageStream-class.html\">ImageStream</a> 底层的 <a href=\"painting/ImageInfo-class.html\">ImageInfo</a> 对象发生变化时（参见 <a href=\"painting/ImageStream/addListener.html\">ImageStream.addListener</a>），都应创建自定义绘制委托的新实例，并将新的 <a href=\"painting/ImageInfo-class.html\">ImageInfo</a> 对象传给它。</p>",
+    "7": "<p>在委托的 <a href=\"widgets/ScrollbarPainter/paint.html\">paint</a> 方法中，调用 <a href=\"dart-ui/Canvas/drawImage.html\">Canvas.drawImage</a>、<a href=\"dart-ui/Canvas/drawImageRect.html\">Canvas.drawImageRect</a> 或 <a href=\"dart-ui/Canvas/drawImageNine.html\">Canvas.drawImageNine</a> 方法绘制 <a href=\"painting/ImageInfo/image.html\">ImageInfo.image</a> 对象，并应用 <a href=\"painting/ImageInfo/scale.html\">ImageInfo.scale</a> 值以获得正确的渲染尺寸。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/radius.html": {
+    "0": "<p>滚动条需要圆角时使用的 <a href=\"dart-ui/Radius-class.html\">Radius</a>。</p>",
+    "1": "<p>如果 <a href=\"widgets/ScrollbarPainter/radius.html\">radius</a> 为 null，滚动条将呈矩形。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/scrollbarOrientation.html": {
+    "0": "<p>指定滚动条的方向和位置。</p>",
+    "1": "<p><a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.top</a> 会将滚动条放在屏幕顶部；<a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.bottom</a> 放在屏幕底部；<a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.left</a> 放在屏幕左侧；<a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.right</a> 放在屏幕右侧。</p>",
+    "2": "<p><a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.top</a> 和 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.bottom</a> 只能用于垂直滚动；<a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.left</a> 和 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.right</a> 只能用于水平滚动。</p>",
+    "3": "<p>垂直滚动时，方向默认为：<a href=\"dart-ui/TextDirection.html\">TextDirection.ltr</a> 时为 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.right</a>，<a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a> 时为 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.left</a>。水平滚动时，默认方向为 <a href=\"widgets/ScrollbarOrientation.html\">ScrollbarOrientation.bottom</a>。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/semanticsBuilder.html": {
+    "0": "<p>返回一个函数，该函数为此绘制器绘制的图像构建语义信息。</p>",
+    "1": "<p>如果返回的函数为 null，此绘制器就不会向语义树添加新的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>，并且对应的 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 不会创建语义边界。不过，如果 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 有子项，子项仍可能向语义树添加 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>。</p>",
+    "2": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/shape.html": {
+    "0": "<p>滚动条滑块的 <a href=\"painting/OutlinedBorder-class.html\">OutlinedBorder</a>。</p>",
+    "1": "<p><a href=\"widgets/ScrollbarPainter/radius.html\">radius</a> 和 <a href=\"widgets/ScrollbarPainter/shape.html\">shape</a> 只能指定其中一个。若要使用圆角矩形，直接指定 <a href=\"widgets/ScrollbarPainter/radius.html\">radius</a> 最简单。默认情况下，滚动条滑块为简单矩形。</p>",
+    "2": "<p>如果指定了 <a href=\"widgets/ScrollbarPainter/shape.html\">shape</a>，滑块将采用传入的 <a href=\"painting/OutlinedBorder-class.html\">OutlinedBorder</a> 形状，并使用 <a href=\"widgets/ScrollbarPainter/color.html\">color</a> 填充；如果未指定颜色，则使用灰色。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/shouldRebuildSemantics.html": {
+    "0": "<p>每当自定义绘制委托类的新实例提供给 <a href=\"rendering/RenderCustomPaint-class.html\">RenderCustomPaint</a> 对象时，都会调用此方法；每当创建新的 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 对象并为其提供该绘制委托类的新实例时，也会调用此方法（两者效果相同，因为后者是通过前者实现的）。</p>",
+    "1": "<p>如果新实例会使 <a href=\"widgets/ScrollbarPainter/semanticsBuilder.html\">semanticsBuilder</a> 创建不同的语义信息，此方法应返回 true，否则应返回 false。</p>",
+    "2": "<p>如果此方法返回 false，对 <a href=\"widgets/ScrollbarPainter/semanticsBuilder.html\">semanticsBuilder</a> 的调用可能会被优化掉。</p>",
+    "3": "<p>即使 <a href=\"widgets/ScrollbarPainter/shouldRebuildSemantics.html\">shouldRebuildSemantics</a> 返回 false，仍可能调用 <a href=\"widgets/ScrollbarPainter/semanticsBuilder.html\">semanticsBuilder</a>。例如，首次渲染 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a>，或方框尺寸发生变化时，就会调用它。</p>",
+    "4": "<p>默认情况下，此方法会委托给 <a href=\"widgets/ScrollbarPainter/shouldRepaint.html\">shouldRepaint</a>，因为大多数情况下，绘制内容发生变化时语义也会随之变化。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/shouldRepaint.html": {
+    "0": "<p>每当自定义绘制委托类的新实例提供给 <a href=\"rendering/RenderCustomPaint-class.html\">RenderCustomPaint</a> 对象时，都会调用此方法；每当创建新的 <a href=\"widgets/CustomPaint-class.html\">CustomPaint</a> 对象并为其提供该绘制委托类的新实例时，也会调用此方法（两者效果相同，因为后者是通过前者实现的）。</p>",
+    "1": "<p>如果新实例表示的信息与旧实例不同，此方法应返回 true，否则应返回 false。</p>",
+    "2": "<p>如果此方法返回 false，对 <a href=\"widgets/ScrollbarPainter/paint.html\">paint</a> 的调用可能会被优化掉。</p>",
+    "3": "<p>即使 <a href=\"widgets/ScrollbarPainter/shouldRepaint.html\">shouldRepaint</a> 返回 false，仍可能调用 <a href=\"widgets/ScrollbarPainter/paint.html\">paint</a>（例如，某个祖先或后代需要重绘时）。即使完全没有调用 <a href=\"widgets/ScrollbarPainter/shouldRepaint.html\">shouldRepaint</a>，也可能调用 <a href=\"widgets/ScrollbarPainter/paint.html\">paint</a>（例如，方框尺寸发生变化时）。</p>",
+    "4": "<p>如果自定义委托的绘制函数开销特别大，应尽可能避免重绘，此时使用 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a>、<a href=\"rendering/RenderRepaintBoundary-class.html\">RenderRepaintBoundary</a>，或其他将 <a href=\"rendering/RenderObject/isRepaintBoundary.html\">RenderObject.isRepaintBoundary</a> 设为 true 的渲染对象，可能会有帮助。</p>",
+    "5": "<p><code>oldDelegate</code> 参数永远不会为 null。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/trackRadius.html": {
+    "0": "<p>滚动条轨道各个角的 <a href=\"dart-ui/Radius-class.html\">Radius</a>。</p>",
+    "1": "<p>如果 <a href=\"widgets/ScrollbarPainter/trackRadius.html\">trackRadius</a> 为 null，滚动条轨道将呈矩形。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/update.html": {
+    "0": "<p>使用新的 <a href=\"widgets/ScrollMetrics-mixin.html\">ScrollMetrics</a> 更新。如果度量值发生变化，滚动条会根据新度量值显示并重绘。</p>",
+    "1": "<p>滚动条会继续显示在屏幕上。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter-class.html": {
+    "0": "<p>绘制滚动条的轨道和滑块。</p>",
+    "1": "<p>通常，滚动条沿滚动方向的尺寸与屏幕上完全可见的内容比例成正比；但其尺寸不会小于 <a href=\"widgets/ScrollbarPainter/minLength.html\">minLength</a>，且越界滚动时不适用此比例。</p>",
+    "2": "<p>如果 <a href=\"widgets/ScrollbarPainter/padding.html\">padding</a> 是 <a href=\"painting/EdgeInsetsDirectional-class.html\">EdgeInsetsDirectional</a>，则必须提供非 null 的 <a href=\"widgets/ScrollbarPainter/textDirection.html\">textDirection</a>，才能正确解析 padding 值。</p>",
+    "3": "<p>与 <a href=\"rendering/CustomPainter-class.html\">CustomPainter</a> 子类不同，继承 <a href=\"rendering/CustomPainter-class.html\">CustomPainter</a> 的绘制器只有在 <a href=\"widgets/ScrollbarPainter/shouldRepaint.html\">shouldRepaint</a> 返回 true 时才会重绘（这要求重新构建此 <a href=\"rendering/CustomPainter-class.html\">CustomPainter</a>），而此绘制器还进行了优化：在以下情况下会重绘而无需重新构建：</p>",
+    "4": "<p>使用新的 <a href=\"widgets/ScrollMetrics-mixin.html\">ScrollMetrics</a> 调用 <a href=\"widgets/ScrollbarPainter/update.html\">update</a>，会根据新的滚动条位置重新绘制。</p>",
+    "5": "<p>所提供的 <a href=\"widgets/ScrollbarPainter/fadeoutOpacityAnimation.html\">fadeoutOpacityAnimation</a> 的值更新时，会以新的不透明度重新绘制。</p>",
+    "6": "<p>不再使用此 <a href=\"widgets/ScrollbarPainter-class.html\">ScrollbarPainter</a> 时，必须调用其 <a href=\"widgets/ScrollbarPainter/dispose.html\">dispose</a>。</p>",
+    "7": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/crossAxisMargin.html": {
+    "0": "<p>滚动条滑块到最近的横轴边缘的距离，单位为逻辑像素。</p>",
+    "1": "<p>滚动条轨道会占用这部分空间。</p>",
+    "2": "<p>默认为零。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/getTrackToScroll.html": {
+    "0": "<p>在滑块轨道位置与对应的滚动位置之间进行转换。</p>",
+    "1": "<p><code>thumbOffsetLocal</code> 参数表示滑块轨道上的一个位置。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/hitTest.html": {
+    "0": "<p>当使用此自定义绘制委托的对象执行命中测试时，会调用此方法。</p>",
+    "1": "<p>给定点相对于上一次调用 <a href=\"widgets/ScrollbarPainter/paint.html\">paint</a> 时使用的同一坐标空间。</p>",
+    "2": "<p>默认行为是：背景绘制器将所有点都视为命中，前景绘制器则不将任何点视为命中。</p>",
+    "3": "<p>如果给定位置对应于绘制图像中应视为“命中”的点，则返回 true；如果对应于应视为绘制图像之外的点，则返回 false；返回 null 表示使用默认行为。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/hitTestInteractive.html": {
+    "0": "<p>与 hitTest 相同，但当 <a href=\"gestures/PointerEvent-class.html\">PointerEvent</a> 由 <a href=\"dart-ui/PointerDeviceKind.html\">PointerDeviceKind.touch</a> 触发时，会增加一些内边距，以确保交互区域不会小到用户难以操作。</p>",
+    "1": "<p>使用 <a href=\"dart-ui/PointerDeviceKind.html\">PointerDeviceKind.mouse</a> 悬停在滚动条上时，命中测试区域也会使用这段额外内边距。这样鼠标靠近滚动条时即可触发交互，从而更容易操作。当 <code>forHover</code> 为 true 时，会使用更大的命中测试区域。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/mainAxisMargin.html": {
+    "0": "<p>滚动条滑块起点和终点到视口边缘的距离，单位为逻辑像素。它会影响可用于绘制的区域大小。</p>",
+    "1": "<p>滚动条轨道会占用这部分空间。</p>",
+    "2": "<p>不能为 null，默认为 0。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/minLength.html": {
+    "0": "<p>当可滚动范围较大、当前可见视口较小且视口未越界滚动时，滚动条滑块可收缩到的首选最小尺寸。</p>",
+    "1": "<p>为适应可用绘制区域，滚动条尺寸可能会小于 <a href=\"widgets/ScrollbarPainter/minLength.html\">minLength</a>。例如，即使 <a href=\"widgets/ScrollbarPainter/minLength.html\">minLength</a> 为 <code>double.infinity</code>，只要 <a href=\"widgets/ScrollMetrics/viewportDimension.html\">ScrollMetrics.viewportDimension</a> 和 <a href=\"widgets/ScrollbarPainter/mainAxisMargin.html\">mainAxisMargin</a> 有限，该值也不会得到遵守。</p>",
+    "2": "<p>不能为 null，且其值必须大于或等于 <a href=\"widgets/ScrollbarPainter/minOverscrollLength.html\">minOverscrollLength</a>，而后者必须大于或等于 0。默认为 18.0。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/minOverscrollLength.html": {
+    "0": "<p>视口越界滚动时，滚动条滑块可收缩到的首选最小尺寸。</p>",
+    "1": "<p>越界滚动时，为适应可用绘制区域，滚动条尺寸可能会小于 <a href=\"widgets/ScrollbarPainter/minOverscrollLength.html\">minOverscrollLength</a>。例如，即使 <a href=\"widgets/ScrollbarPainter/minOverscrollLength.html\">minOverscrollLength</a> 为 <code>double.infinity</code>，只要 <a href=\"widgets/ScrollMetrics/viewportDimension.html\">ScrollMetrics.viewportDimension</a> 和 <a href=\"widgets/ScrollbarPainter/mainAxisMargin.html\">mainAxisMargin</a> 有限，该值也不会得到遵守。</p>",
+    "2": "<p>此值小于或等于 <a href=\"widgets/ScrollbarPainter/minLength.html\">minLength</a>，且大于或等于 0。若为 null，则默认为 <a href=\"widgets/ScrollbarPainter/minLength.html\">minLength</a> 的值。</p>"
+  },
+  "flutter/widgets/ScrollbarPainter/padding.html": {
+    "0": "<p>滚动条起点、终点以及靠近边缘的一侧需要缩进的空间，单位为逻辑像素。</p>",
+    "1": "<p>通常将其设为当前的 <a href=\"widgets/MediaQueryData/padding.html\">MediaQueryData.padding</a>，以避开显示屏刘海等局部遮挡。如果只需要在滚动条周围增加边距，请参阅 <a href=\"widgets/ScrollbarPainter/mainAxisMargin.html\">mainAxisMargin</a>。</p>",
+    "2": "<p>默认为 <a href=\"painting/EdgeInsets/zero-constant.html\">EdgeInsets.zero</a>。四个方向的偏移量都必须大于或等于零。</p>",
+    "3": "<p>要支持 RTL（从右向左），可以提供 <a href=\"painting/EdgeInsetsDirectional-class.html\">EdgeInsetsDirectional</a>，但还必须提供非 null 的 <a href=\"widgets/ScrollbarPainter/textDirection.html\">textDirection</a>，才能正确解析 padding 值。滚动条会根据文本方向自动调整 padding。</p>"
+  },
+  "flutter/widgets/ScrollStartNotification/dragDetails.html": {
+    "0": "<p>如果 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 因拖动而开始滚动，则此处为该次拖动开始时的详细信息。</p>",
+    "1": "<p>否则为 null。</p>"
+  },
+  "flutter/widgets/ScrollUpdateNotification/dragDetails.html": {
+    "0": "<p>如果 <a href=\"widgets/Scrollable-class.html\">Scrollable</a> 因拖动而改变滚动位置，则此处为该次拖动更新的详细信息。</p>",
+    "1": "<p>否则为 null。</p>"
+  },
+  "flutter/widgets/ScrollView/ScrollView.html": {
+    "0": "<p>创建一个可滚动的 widget。</p>",
+    "1": "<p>如果未提供 <code>controller</code>，垂直滚动视图的 <a href=\"widgets/ScrollView/primary.html\">ScrollView.primary</a> 参数默认为 true。显式设置 <code>primary</code> 为 true 时，<code>controller</code> 参数必须为 null。如果 <code>primary</code> 为 true，widget 周围最近的 <a href=\"widgets/PrimaryScrollController-class.html\">PrimaryScrollController</a> 会附加到此滚动视图。</p>",
+    "2": "<p>如果 <code>shrinkWrap</code> 参数为 true，则 <code>center</code> 参数必须为 null。</p>",
+    "3": "<p><code>anchor</code> 参数必须在 0 到 1（含两端）的范围内。</p>"
+  },
+  "flutter/widgets/ScrollView/buildSlivers.html": {
+    "0": "<p>构建要放入视口中的 widget 列表。</p>",
+    "1": "<p>子类应重写此方法，以构建视口内部的 sliver。</p>",
+    "2": "<p>有关 sliver 的更多信息，请参阅 <a href=\"widgets/CustomScrollView/slivers.html\">CustomScrollView.slivers</a>。</p>"
+  },
+  "flutter/widgets/ScrollView/buildViewport.html": {
+    "0": "<p>构建视口。</p>",
+    "1": "<p>子类可以重写此方法以更改视口的构建方式。默认实现会在 <a href=\"widgets/ScrollView/shrinkWrap.html\">shrinkWrap</a> 为 true 时使用 <a href=\"widgets/ShrinkWrappingViewport-class.html\">ShrinkWrappingViewport</a>，否则使用常规的 <a href=\"widgets/Viewport-class.html\">Viewport</a>。</p>",
+    "2": "<p><code>offset</code> 参数是从 <a href=\"widgets/Scrollable/viewportBuilder.html\">Scrollable.viewportBuilder</a> 获取的值。</p>",
+    "3": "<p><code>axisDirection</code> 参数是从 <a href=\"widgets/ScrollView/getDirection.html\">getDirection</a> 获取的值；默认情况下，该值使用 <a href=\"widgets/ScrollView/scrollDirection.html\">scrollDirection</a> 和 <a href=\"widgets/ScrollView/reverse.html\">reverse</a>。</p>",
+    "4": "<p><code>slivers</code> 参数是从 <a href=\"widgets/ScrollView/buildSlivers.html\">buildSlivers</a> 获取的值。</p>"
+  },
+  "flutter/widgets/ScrollView/getDirection.html": {
+    "0": "<p>返回滚动视图滚动方向上的 <a href=\"painting/AxisDirection.html\">AxisDirection</a>。</p>",
+    "1": "<p>此方法将 <a href=\"widgets/ScrollView/scrollDirection.html\">scrollDirection</a> 与 <a href=\"widgets/ScrollView/reverse.html\">reverse</a> 布尔值组合起来，以确定具体的 <a href=\"painting/AxisDirection.html\">AxisDirection</a>。</p>",
+    "2": "<p>如果 <a href=\"widgets/ScrollView/scrollDirection.html\">scrollDirection</a> 为 <a href=\"painting/Axis.html\">Axis.horizontal</a>，选择具体的 <a href=\"painting/AxisDirection.html\">AxisDirection</a> 时还会考虑环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>。例如，若环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a> 为 <a href=\"dart-ui/TextDirection.html\">TextDirection.rtl</a>，则未反向时的 <a href=\"painting/AxisDirection.html\">AxisDirection</a> 为 <a href=\"painting/AxisDirection.html\">AxisDirection.left</a>，反向时的 <a href=\"painting/AxisDirection.html\">AxisDirection</a> 为 <a href=\"painting/AxisDirection.html\">AxisDirection.right</a>。</p>"
+  },
+  "flutter/widgets/ScrollView/paintOrder.html": {
+    "0": "<p>sliver 的绘制顺序，也就是它们沿 z 轴排列的顺序。</p>",
+    "1": "<p>无论 sliver 按什么顺序绘制，命中测试都会按相反顺序进行。</p>",
+    "2": "<p>可以将其理解为沿 z 轴的排列：最后绘制（并最先进行命中测试）的 sliver 位于顶部，因为发生重叠时它会绘制在其他 sliver 之上。同理，最先绘制（并最后进行命中测试）的 sliver 位于底部。</p>",
+    "3": "<p>默认为 <a href=\"rendering/SliverPaintOrder.html\">SliverPaintOrder.firstIsTop</a>。</p>"
+  },
+  "flutter/widgets/ScrollView/physics.html": {
+    "0": "<p>滚动视图应如何响应用户输入。</p>",
+    "1": "<p>例如，它决定用户停止拖动滚动视图后，滚动视图如何继续执行动画。</p>",
+    "2": "<p>默认与平台惯例一致。此外，如果 <a href=\"widgets/ScrollView/primary.html\">primary</a> 为 false，内容不足以滚动时用户无法滚动；如果 <a href=\"widgets/ScrollView/primary.html\">primary</a> 为 true，用户则始终可以尝试滚动。</p>",
+    "3": "<p>若要强制滚动视图始终可滚动，即使内容不足也如此（效果类似于将 <a href=\"widgets/ScrollView/primary.html\">primary</a> 设为 true，但不必真的这样设置），请提供一个 <a href=\"widgets/AlwaysScrollableScrollPhysics-class.html\">AlwaysScrollableScrollPhysics</a> physics 对象，例如：</p>",
+    "4": "<p>若要强制滚动视图遵循默认的平台惯例，并在内容不足时禁止滚动，而不受 <a href=\"widgets/ScrollView/primary.html\">primary</a> 值的影响，请显式提供一个 <a href=\"widgets/ScrollPhysics-class.html\">ScrollPhysics</a> 对象，例如：</p>",
+    "5": "<p>可以动态更改 physics（在后续构建中提供新对象），但只有所提供对象的<em>类</em>发生变化时，新的 physics 才会生效。仅创建配置不同的新实例，不足以触发重新应用 physics。（这是因为最终使用的对象是动态生成的，开销可能较大；每一帧都试探性地创建该对象来判断是否需要更新，会造成低效。）</p>",
+    "6": "<p>如果为 <a href=\"widgets/ScrollView/scrollBehavior.html\">scrollBehavior</a> 显式提供了 <a href=\"widgets/ScrollBehavior-class.html\">ScrollBehavior</a>，该行为提供的 <a href=\"widgets/ScrollPhysics-class.html\">ScrollPhysics</a> 将在 <a href=\"widgets/ScrollView/physics.html\">physics</a> 之后应用，并具有更高优先级。</p>"
+  },
+  "flutter/widgets/ScrollView/scrollBehavior.html": {
+    "0": "<p>将单独应用于此 widget 的 <a href=\"widgets/ScrollBehavior-class.html\">ScrollBehavior</a>。</p>",
+    "1": "<p>默认为 null；此时会复制继承的 <a href=\"widgets/ScrollBehavior-class.html\">ScrollBehavior</a> 并对其进行修改，以改变视口装饰，例如添加 <a href=\"material/Scrollbar-class.html\">Scrollbar</a>。</p>",
+    "2": "<p><a href=\"widgets/ScrollBehavior-class.html\">ScrollBehavior</a> 还会提供 <a href=\"widgets/ScrollPhysics-class.html\">ScrollPhysics</a>。如果在 <a href=\"widgets/ScrollView/physics.html\">physics</a> 中显式提供 <a href=\"widgets/ScrollPhysics-class.html\">ScrollPhysics</a>，它的优先级最高，其次是 <a href=\"widgets/ScrollView/scrollBehavior.html\">scrollBehavior</a>，最后是继承自祖先节点的 <a href=\"widgets/ScrollBehavior-class.html\">ScrollBehavior</a>。</p>"
+  },
+  "flutter/widgets/ScrollView/shrinkWrap.html": {
+    "0": "<p>是否根据所查看的内容来确定滚动视图沿 <a href=\"widgets/ScrollView/scrollDirection.html\">scrollDirection</a> 方向上的范围。</p>",
+    "1": "<p>如果滚动视图不收缩包裹，就会沿 <a href=\"widgets/ScrollView/scrollDirection.html\">scrollDirection</a> 扩展到允许的最大尺寸。如果滚动视图在 <a href=\"widgets/ScrollView/scrollDirection.html\">scrollDirection</a> 方向上受到无界约束，则 <a href=\"widgets/ScrollView/shrinkWrap.html\">shrinkWrap</a> 必须为 true。</p>",
+    "2": "<p>收缩包裹滚动视图的内容，比扩展到最大允许尺寸的开销大得多，因为滚动过程中内容可能扩展或收缩；这意味着每当滚动位置变化时，都需要重新计算滚动视图的尺寸。</p>",
+    "3": "<p>默认为 false。</p>"
+  },
+  "flutter/widgets/ScrollableWidgetBuilder.html": {
+    "0": "<p>一种方法签名：该方法接收 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 和 <a href=\"widgets/ScrollController-class.html\">ScrollController</a>，用于构建可能超出所在区域可拖动 <a href=\"painting/Axis.html\">Axis</a> 范围的 widget。</p>",
+    "1": "<p>当预期某个 widget 包含可滚动的子 widget，且垂直手势需要在同一次手势中既触发滚动又执行其他行为时，会使用此构建器。</p>",
+    "2": "<p>例如，使用 <a href=\"widgets/DraggableScrollableSheet-class.html\">DraggableScrollableSheet</a> 的用户应将 <code>scrollController</code> 传给 <a href=\"widgets/SingleChildScrollView-class.html\">SingleChildScrollView</a>、<a href=\"widgets/ListView-class.html\">ListView</a> 或 <a href=\"widgets/GridView-class.html\">GridView</a> 等 <a href=\"widgets/ScrollView-class.html\">ScrollView</a> 子类，使整个 sheet 都可以拖动。</p>"
+  },
   "flutter/widgets/ScrollPositionWithSingleContext/ScrollPositionWithSingleContext.html": {
     "0": "<p>创建一个 <a href=\"widgets/ScrollPosition-class.html\">ScrollPosition</a> 对象，并使用 <a href=\"widgets/ScrollActivity-class.html\">ScrollActivity</a> 对象管理其行为。</p>",
     "1": "<p><code>initialPixels</code> 参数可以为 null，但在这种情况下，必须在调用该方法的继承实现之前，一旦调用 <a href=\"widgets/ScrollPositionWithSingleContext/applyNewDimensions.html\">applyNewDimensions</a>，就使用 <a href=\"widgets/ScrollPosition/correctPixels.html\">correctPixels</a> 设置该值。</p>",
