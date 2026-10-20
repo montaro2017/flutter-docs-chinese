@@ -1,70 +1,14 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,872 页，部分翻译 384 页，未翻译 996 页；正文已译 20,995/24,807 段。
+模块共 8,093 页：已完整 5,918 页，部分翻译 364 页，未翻译 970 页；正文已译 21,133/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
-- `flutter/widgets/RichText/locale.html` — 部分；已译 2/3 段；待译段落：2
+- `flutter/widgets/RichText/locale.html` — 部分；已译 1/3 段；待译段落：0, 1
 
-- `flutter/widgets/RootBackButtonDispatcher-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RootBackButtonDispatcher/addCallback.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootBackButtonDispatcher/didPopRoute.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/RootBackButtonDispatcher/removeCallback.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElement-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RootElement/debugDoingBuild.html` — 部分；已译 2/4 段；待译段落：0, 2
-- `flutter/widgets/RootElement/debugExpectsRenderObjectForSlot.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/RootElementMixin-mixin.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/activate.html` — 部分；已译 2/4 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/assignOwner.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RootElementMixin/attachNotificationTree.html` — 部分；已译 2/3 段；待译段落：1
-
-- `flutter/widgets/RootElementMixin/buildScope.html` — 部分；已译 2/7 段；待译段落：0, 1, 2, 4, 5
-- `flutter/widgets/RootElementMixin/deactivate.html` — 部分；已译 4/6 段；待译段落：0, 3
-- `flutter/widgets/RootElementMixin/deactivateChild.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RootElementMixin/debugDeactivated.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RootElementMixin/debugDoingBuild.html` — 部分；已译 2/4 段；待译段落：0, 2
-- `flutter/widgets/RootElementMixin/debugExpectsRenderObjectForSlot.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/RootElementMixin/debugGetCreatorChain.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/debugGetDiagnosticChain.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/debugIsActive.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/RootElementMixin/debugIsDefunct.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/RootElementMixin/debugVisitOnstageChildren.html` — 部分；已译 2/5 段；待译段落：0, 2, 3
-- `flutter/widgets/RootElementMixin/dependOnInheritedElement.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html` — 部分；已译 2/11 段；待译段落：0, 1, 2, 3, 4, 5, 6, 9, 10
-
-- `flutter/widgets/RootElementMixin/describeElement.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/describeMissingAncestor.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/describeOwnershipChain.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/describeWidget.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/detachRenderObject.html` — 部分；已译 2/3 段；待译段落：2
-- `flutter/widgets/RootElementMixin/didChangeDependencies.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/dirty.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/dispatchNotification.html` — 部分；已译 1/2 段；待译段落：1
-
-- `flutter/widgets/RootElementMixin/findAncestorRenderObjectOfType.html` — 部分；已译 1/4 段；待译段落：0, 1, 3
-- `flutter/widgets/RootElementMixin/findAncestorStateOfType.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 4, 5
-- `flutter/widgets/RootElementMixin/findAncestorWidgetOfExactType.html` — 部分；已译 1/5 段；待译段落：0, 1, 3, 4
-- `flutter/widgets/RootElementMixin/findRenderObject.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 4
-- `flutter/widgets/RootElementMixin/findRootAncestorStateOfType.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RootElementMixin/getElementForInheritedWidgetOfExactType.html` — 部分；已译 1/5 段；待译段落：0, 1, 3, 4
-- `flutter/widgets/RootElementMixin/getInheritedWidgetOfExactType.html` — 部分；已译 3/5 段；待译段落：0, 1
-- `flutter/widgets/RootElementMixin/inflateWidget.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 4
-- `flutter/widgets/RootElementMixin/markNeedsBuild.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RootElementMixin/mounted.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RootElementMixin/operator_equals.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
+- `flutter/widgets/RootElementMixin/debugVisitOnstageChildren.html` — 部分；已译 4/5 段；待译段落：3
 
 - `flutter/widgets/RootElementMixin/rebuild.html` — 未译；已译 0/26 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
-- `flutter/widgets/RootElementMixin/renderObject.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RootElementMixin/renderObjectAttachingChild.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RootElementMixin/size.html` — 部分；已译 1/5 段；待译段落：0, 1, 3, 4
-- `flutter/widgets/RootElementMixin/slot.html` — 未译；已译 0/2 段；待译段落：0, 1
 
 - `flutter/widgets/RootElementMixin/toStringDeep.html` — 部分；已译 5/6 段；待译段落：4
 - `flutter/widgets/RootElementMixin/toStringShallow.html` — 部分；已译 2/5 段；待译段落：0, 1, 2

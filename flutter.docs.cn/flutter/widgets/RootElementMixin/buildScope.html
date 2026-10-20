@@ -106,27 +106,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>A <a href="widgets/BuildScope-class.html">BuildScope</a> whose dirty <a href="widgets/Element-class.html">Element</a>s can only be rebuilt by
-<a href="widgets/BuildOwner/buildScope.html">BuildOwner.buildScope</a> calls whose <code>context</code> argument is an <a href="widgets/Element-class.html">Element</a>
-within this <a href="widgets/BuildScope-class.html">BuildScope</a>.</p>
-<p>The getter typically is only safe to access when this <a href="widgets/Element-class.html">Element</a> is <a href="widgets/Element/mounted.html">mounted</a>.</p>
-<p>The default implementation returns the parent <a href="widgets/Element-class.html">Element</a>'s <a href="widgets/Element/buildScope.html">buildScope</a>,
-as in most cases an <a href="widgets/Element-class.html">Element</a> is ready to rebuild as soon as its ancestors
-are no longer dirty. One notable exception is <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a>'s
-descendants, which must not rebuild until the incoming constraints become
-available. <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a>'s <a href="widgets/Element-class.html">Element</a> overrides <a href="widgets/Element/buildScope.html">buildScope</a> to make none
-of its descendants can rebuild until the incoming constraints are known.</p>
+  <p>一个 <a href="widgets/BuildScope-class.html">BuildScope</a>。其中的脏 <a href="widgets/Element-class.html">Element</a> 只能通过调用 <a href="widgets/BuildOwner/buildScope.html">BuildOwner.buildScope</a> 重建，并且该调用的 <code>context</code> 参数必须是此 <a href="widgets/Element-class.html">Element</a> 内的 <a href="widgets/BuildScope-class.html">BuildScope</a>。</p>
+<p>通常只有在此 <a href="widgets/Element-class.html">Element</a> 已 <a href="widgets/Element/mounted.html">mounted</a> 时，才能安全地访问此 getter。</p>
+<p>默认实现返回父级 <a href="widgets/Element-class.html">Element</a> 的 <a href="widgets/Element/buildScope.html">buildScope</a>。大多数情况下，只要某个 <a href="widgets/Element-class.html">Element</a> 的祖先不再处于脏状态，该元素就可以重建。一个明显例外是 <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> 的后代：在传入约束可用之前，它们不能重建。<a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> 的 <a href="widgets/Element-class.html">Element</a> 会重写 <a href="widgets/Element/buildScope.html">buildScope</a>，确保在获知传入约束之前，不重建其任何后代。</p>
 <p>If you choose to override this getter to establish your own <a href="widgets/BuildScope-class.html">BuildScope</a>,
 to flush the dirty <a href="widgets/Element-class.html">Element</a>s in the <a href="widgets/BuildScope-class.html">BuildScope</a> you need to manually call
 <a href="widgets/BuildOwner/buildScope.html">BuildOwner.buildScope</a> with the root <a href="widgets/Element-class.html">Element</a> of your <a href="widgets/BuildScope-class.html">BuildScope</a> when
 appropriate, as the Flutter framework does not try to register or manage
 custom <a href="widgets/BuildScope-class.html">BuildScope</a>。</p>
-<p>Always return the same <a href="widgets/BuildScope-class.html">BuildScope</a> instance if you override this getter.
-Changing the value returned by this getter at runtime is not
-supported.</p>
-<p>The <a href="widgets/Element/updateChild.html">updateChild</a> method ignores <a href="widgets/Element/buildScope.html">buildScope</a>: if the parent <a href="widgets/Element-class.html">Element</a>
-calls <a href="widgets/Element/updateChild.html">updateChild</a> on a child with a different <a href="widgets/BuildScope-class.html">BuildScope</a>, the child may
-still rebuild.</p>
+<p>如果重写此 getter，始终应返回同一个 <a href="widgets/BuildScope-class.html">BuildScope</a> 实例。运行时更改 getter 的返回值是不受支持的。</p>
+<p><a href="widgets/Element/updateChild.html">updateChild</a> 方法会忽略 <a href="widgets/Element/buildScope.html">buildScope</a>：如果父级 <a href="widgets/Element-class.html">Element</a> 使用不同的 <a href="widgets/BuildScope-class.html">BuildScope</a> 调用 <a href="widgets/Element/updateChild.html">updateChild</a> 更新子节点，该子节点仍可能重建。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a>, a widget that establishes a custom <a href="widgets/BuildScope-class.html">BuildScope</a>.</li>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the didPopRoute method from the RootBackButtonDispatcher class, for the Dart programming language.">
-  <title>didPopRoute method - RootBackButtonDispatcher class - widgets library - Dart API</title>
+  <title>didPopRoute 方法 - RootBackButtonDispatcher 类 - widgets 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets.dart</a></li>
     <li><a href="widgets/RootBackButtonDispatcher-class.html">RootBackButtonDispatcher</a></li>
-    <li class="self-crumb">didPopRoute method</li>
+    <li class="self-crumb">didPopRoute 方法</li>
   </ol>
   <div class="self-name">didPopRoute</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,57 +87,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="widgets&#47;RootBackButtonDispatcher-class-sidebar.html"
     data-below-sidebar="">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/router.dart#L1112"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">didPopRoute</span> method 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/router.dart#L1112"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">didPopRoute</span> 方法
 </h1></div>
 
     <section class="multi-line-signature">
       
   <div>
     <ol class="annotation-list">
-        <li>@<a href="dart-core/override-constant.html">override</a></li>
+        <li>@<a href="dart-core/override-constant.html">重写</a></li>
     </ol>
   </div>
 <span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span>
 <span class="name ">didPopRoute</span>(<wbr>)
 
-      <div class="features"><span class="feature">override</span></div>
+      <div class="features"><span class="feature">重写</span></div>
 
     </section>
     
 <section class="desc markdown">
-  <p>Called when the system tells the app to pop the current route, such as
-after a system back button press or back gesture.</p>
-<p>Observers are notified in registration order until one returns
-true. If none return true, the application quits.</p>
-<p>Observers are expected to return true if they were able to
-handle the notification, for example by closing an active dialog
-box, and false otherwise. The <a href="widgets/WidgetsApp-class.html">WidgetsApp</a> widget uses this
-mechanism to notify the <a href="widgets/Navigator-class.html">Navigator</a> widget that it should pop
-its current route if possible.</p>
-<p>This method exposes the <code>popRoute</code> notification from
-<a href="services/SystemChannels/navigation-constant.html">SystemChannels.navigation</a>.</p>
-<h2 id="handling-backs-ahead-of-time">Handling backs ahead of time</h2>
-<p>Not all system backs will result in a call to this method. Some are
-handled entirely by the system without informing the Flutter framework.</p>
-<p>Android API 33+ introduced a feature called predictive back, which allows
-the user to peek behind the current app or route during a back gesture and
-then decide to cancel or commit the back. Flutter enables or disables this
-feature ahead of time, before a back gesture occurs, and back gestures
-that trigger predictive back are handled entirely by the system and do not
-trigger this method here in the framework.</p>
-<p>By default, the framework communicates when it would like to handle system
-back gestures using <a href="services/SystemNavigator/setFrameworkHandlesBack.html">SystemNavigator.setFrameworkHandlesBack</a> in
-<a href="widgets/WidgetsApp-class.html">WidgetsApp</a>. This is done automatically based on the status of the
-<a href="widgets/Navigator-class.html">Navigator</a> stack and the state of any <a href="widgets/PopScope-class.html">PopScope</a> widgets present.
-Developers can manually set this by calling the method directly or by
-using <a href="widgets/NavigationNotification-class.html">NavigationNotification</a>.</p>
+  <p>系统要求应用弹出当前路由时调用，例如用户按下系统返回按钮或执行返回手势后。</p>
+<p>系统会按注册顺序通知观察者，直到其中一个返回 true。如果所有观察者都未返回 true，应用就会退出。</p>
+<p>观察者能够处理此通知时应返回 true（例如关闭当前对话框），否则返回 false。<a href="widgets/WidgetsApp-class.html">WidgetsApp</a> 组件使用此机制通知 <a href="widgets/Navigator-class.html">Navigator</a> 组件：如果可能，应弹出当前路由。</p>
+<p>此方法公开了来自 <a href="services/SystemChannels/navigation-constant.html">SystemChannels.navigation</a> 的 <code>popRoute</code> 通知。</p>
+<h2 id="handling-backs-ahead-of-time">提前处理返回操作</h2>
+<p>并非所有系统返回操作都会调用此方法。有些操作完全由系统处理，不会通知 Flutter 框架。</p>
+<p>Android API 33 引入了预测性返回功能。用户执行返回手势时，可以预览当前应用或路由后方的内容，再决定取消还是确认返回。Flutter 会在返回手势发生前提前启用或停用此功能；触发预测性返回的手势完全由系统处理，不会在框架中调用此方法。</p>
+<p>默认情况下，框架会通过 <a href="services/SystemNavigator/setFrameworkHandlesBack.html">SystemNavigator.setFrameworkHandlesBack</a> 通知 <a href="widgets/WidgetsApp-class.html">WidgetsApp</a> 是否要处理系统返回手势。框架会根据 <a href="widgets/Navigator-class.html">Navigator</a> 堆栈状态以及当前存在的 <a href="widgets/PopScope-class.html">PopScope</a> 组件状态自动作出判断。开发者也可以直接调用该方法或使用 <a href="widgets/NavigationNotification-class.html">NavigationNotification</a> 手动设置。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;bool&gt; didPopRoute() =&gt; invokeCallback(Future&lt;bool&gt;.value(false));</code></pre>
 </section>
@@ -148,17 +130,17 @@ Future&lt;bool&gt; didPopRoute() =&gt; invokeCallback(Future&lt;bool&gt;.value(f
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets</a></li>
     <li><a href="widgets/RootBackButtonDispatcher-class.html">RootBackButtonDispatcher</a></li>
-    <li class="self-crumb">didPopRoute method</li>
+    <li class="self-crumb">didPopRoute 方法</li>
 </ol>
 
-    <h5>RootBackButtonDispatcher class</h5>
+    <h5>RootBackButtonDispatcher 类</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -181,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

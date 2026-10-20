@@ -259672,8 +259672,7 @@
     "2": "<p>如果 <code>textDirection</code> 为 null，则默认使用环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>；此时该值必须不为 null。</p>"
   },
   "flutter/widgets/RichText/locale.html": {
-    "0": "<p>当同一 Unicode 字符会根据区域设置呈现为不同形式时，用于选择字体。</p>",
-    "1": "<p>通常无需设置此属性。默认情况下，它会从外围应用继承，值为 <code>Localizations.localeOf(context)</code>。</p>"
+    "2": "<p>更多信息请参见 <a href=\"rendering/RenderParagraph/locale.html\">RenderParagraph.locale</a>。</p>"
   },
   "flutter/widgets/RichText/maxLines.html": {
     "0": "<p>文本最多显示的行数，可选；必要时会换行。如果文本超过指定行数，则会根据 <a href=\"widgets/RichText/overflow.html\">overflow</a> 截断。</p>",
@@ -259715,5 +259714,244 @@
   "flutter/widgets/RichText/textScaler.html": {
     "0": "<p>布局和绘制文本时使用的字体缩放策略。</p>",
     "1": "<p>此值通常来自 <a href=\"widgets/MediaQuery/textScalerOf.html\">MediaQuery.textScalerOf</a>，一般反映用户在平台无障碍设置中指定的文本缩放值。文本的 <a href=\"painting/TextStyle/fontSize.html\">TextStyle.fontSize</a> 会先由 <a href=\"painting/TextScaler-class.html\">TextScaler</a> 调整，然后再进行布局和绘制。</p>"
+  },
+  "flutter/widgets/RootBackButtonDispatcher-class.html": {
+    "0": "<p>根路由器的默认返回按钮分发器实现。</p>",
+    "1": "<p>此分发器会监听平台发出的弹出路由通知。平台希望弹出当前路由时，分发器会调用 <a href=\"widgets/BackButtonDispatcher/invokeCallback.html\">BackButtonDispatcher.invokeCallback</a> 方法处理请求。</p>"
+  },
+  "flutter/widgets/RootBackButtonDispatcher/addCallback.html": {
+    "0": "<p>注册在对象发生变化时调用的回调。</p>",
+    "1": "<p>如果已经注册了其他回调，则必须在下次调用该回调之前将其移除（使用 <a href=\"widgets/RootBackButtonDispatcher/removeCallback.html\">removeCallback</a>）。</p>"
+  },
+  "flutter/widgets/RootBackButtonDispatcher/didPopRoute.html": {
+    "0": "<p>系统要求应用弹出当前路由时调用，例如用户按下系统返回按钮或执行返回手势后。</p>",
+    "1": "<p>系统会按注册顺序通知观察者，直到其中一个返回 true。如果所有观察者都未返回 true，应用就会退出。</p>",
+    "2": "<p>观察者能够处理此通知时应返回 true（例如关闭当前对话框），否则返回 false。<a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 组件使用此机制通知 <a href=\"widgets/Navigator-class.html\">Navigator</a> 组件：如果可能，应弹出当前路由。</p>",
+    "3": "<p>此方法公开了来自 <a href=\"services/SystemChannels/navigation-constant.html\">SystemChannels.navigation</a> 的 <code>popRoute</code> 通知。</p>",
+    "4": "<h2 id=\"handling-backs-ahead-of-time\">提前处理返回操作</h2>",
+    "5": "<p>并非所有系统返回操作都会调用此方法。有些操作完全由系统处理，不会通知 Flutter 框架。</p>",
+    "6": "<p>Android API 33 引入了预测性返回功能。用户执行返回手势时，可以预览当前应用或路由后方的内容，再决定取消还是确认返回。Flutter 会在返回手势发生前提前启用或停用此功能；触发预测性返回的手势完全由系统处理，不会在框架中调用此方法。</p>",
+    "7": "<p>默认情况下，框架会通过 <a href=\"services/SystemNavigator/setFrameworkHandlesBack.html\">SystemNavigator.setFrameworkHandlesBack</a> 通知 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 是否要处理系统返回手势。框架会根据 <a href=\"widgets/Navigator-class.html\">Navigator</a> 堆栈状态以及当前存在的 <a href=\"widgets/PopScope-class.html\">PopScope</a> 组件状态自动作出判断。开发者也可以直接调用该方法或使用 <a href=\"widgets/NavigationNotification-class.html\">NavigationNotification</a> 手动设置。</p>"
+  },
+  "flutter/widgets/RootBackButtonDispatcher/removeCallback.html": {
+    "0": "<p>移除先前注册的回调。</p>",
+    "1": "<p>如果给定回调尚未注册，则忽略此次调用。</p>"
+  },
+  "flutter/widgets/RootElement-class.html": {
+    "0": "<p>元素树的根节点。</p>",
+    "1": "<p>此元素类是 <a href=\"widgets/RootWidget-class.html\">RootWidget</a> 的实例化结果，只能用作 <a href=\"widgets/Element-class.html\">Element</a> 树的根节点（不能挂载到另一个 <a href=\"widgets/Element-class.html\">Element</a> 中；其父节点必须为 null）。</p>",
+    "2": "<p>典型用法是调用 <a href=\"widgets/RootWidget/attach.html\">RootWidget.attach</a> 为 <a href=\"widgets/RootWidget-class.html\">RootWidget</a> 实例化此对象。通常，创建 <a href=\"widgets/runApp.html\">runApp</a> 时所生成的 <a href=\"widgets/WidgetsFlutterBinding-class.html\">WidgetsFlutterBinding</a> 单例会在启动逻辑中完成此操作。</p>"
+  },
+  "flutter/widgets/RootElement/debugDoingBuild.html": {
+    "0": "<p><a href=\"widgets/Element/widget.html\">widget</a> 当前是否正在更新 widget 树或渲染树。</p>",
+    "2": "<p>此值为 true 时，<a href=\"widgets/Element/widget.html\">widget</a> 可以通过调用 <a href=\"widgets/Element/dependOnInheritedElement.html\">dependOnInheritedElement</a> 或 <a href=\"widgets/Element/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a>，安全地依赖某个 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>。</p>"
+  },
+  "flutter/widgets/RootElement/debugExpectsRenderObjectForSlot.html": {
+    "0": "<p>给定 <code>slot</code> 中的子节点（或其后代）是否必须通过调用其祖先 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 上的 <a href=\"widgets/RenderObjectElement/insertRenderObjectChild.html\">RenderObjectElement.insertRenderObjectChild</a>，将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入该祖先中。</p>",
+    "1": "<p>此方法用于在元素树中定义非渲染区域（有关渲染区和非渲染区的说明，请参见 <a href=\"widgets/WidgetsBinding-mixin.html\">WidgetsBinding</a>）：</p>",
+    "2": "<p>元素树中的大多数 <a href=\"widgets/Element-class.html\">Element</a> 分支最终都应将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入其祖先 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>，以构建渲染树。但有一个明显例外：某个 <a href=\"widgets/Element-class.html\">Element</a> 可能预期特定子 slot 中的内容会创建独立的新渲染树，因此不允许它将渲染对象插入现有渲染树。这种元素对于相应 slot 必须从此方法返回 false，以告知该 slot 中的子节点不得在其祖先上调用 <a href=\"widgets/RenderObjectElement/insertRenderObjectChild.html\">RenderObjectElement.insertRenderObjectChild</a>。</p>",
+    "3": "<p>例如，<a href=\"widgets/ViewAnchor-class.html\">ViewAnchor</a> 对应的元素会对此方法在 <a href=\"widgets/ViewAnchor/view.html\">ViewAnchor.view</a> slot 中返回 false，确保其中放置的是例如 <a href=\"widgets/View-class.html\">View</a> 组件，由它为该视图启动独立的渲染树。另一个例子是 <a href=\"widgets/ViewCollection-class.html\">ViewCollection</a> 组件；出于同样的原因，它对所有 slot 都返回 false。</p>",
+    "4": "<p>由于上述行为的元素很少见，因此通常不会重写此方法。</p>"
+  },
+  "flutter/widgets/RootElementMixin-mixin.html": {
+    "0": "<p>供树根元素使用的 mixin。</p>",
+    "1": "<p>只有根元素可以显式设置 owner。其他所有元素都会从父元素继承 owner。</p>"
+  },
+  "flutter/widgets/RootElementMixin/activate.html": {
+    "0": "<p>从“不活跃”生命周期状态转换为“活跃”状态。</p>",
+    "1": "<p>先前已停用的元素重新加入元素树时，框架会调用此方法。元素首次进入活跃状态（即从“初始”生命周期状态转换）时，框架不会调用此方法；在这种情况下，框架会调用 <a href=\"widgets/Element/mount.html\">mount</a>。</p>"
+  },
+  "flutter/widgets/RootElementMixin/assignOwner.html": {
+    "0": "<p>设置此元素的 owner。该 owner 会传递给此元素的所有后代。</p>",
+    "1": "<p>owner 负责管理脏元素列表。</p>",
+    "2": "<p><a href=\"widgets/WidgetsBinding-mixin.html\">WidgetsBinding</a> 会创建主要 owner <a href=\"widgets/WidgetsBinding/buildOwner.html\">WidgetsBinding.buildOwner</a>，并在调用 <a href=\"widgets/runApp.html\">runApp</a> 时将其分配给 widget 树。Binding 负责调用 build owner 的 <a href=\"widgets/BuildOwner/buildScope.html\">BuildOwner.buildScope</a> 方法来驱动构建流程。参见 <a href=\"widgets/WidgetsBinding/drawFrame.html\">WidgetsBinding.drawFrame</a>。</p>"
+  },
+  "flutter/widgets/RootElementMixin/attachNotificationTree.html": {
+    "1": "<p>此方法仅用于让 <a href=\"widgets/NotifiableElementMixin-mixin.html\">NotifiableElementMixin</a> 得以实现。希望响应通知的 <a href=\"widgets/Element-class.html\">Element</a> 子类应改为混入 NotifiableElementMixin。</p>"
+  },
+  "flutter/widgets/RootElementMixin/buildScope.html": {
+    "0": "<p>一个 <a href=\"widgets/BuildScope-class.html\">BuildScope</a>。其中的脏 <a href=\"widgets/Element-class.html\">Element</a> 只能通过调用 <a href=\"widgets/BuildOwner/buildScope.html\">BuildOwner.buildScope</a> 重建，并且该调用的 <code>context</code> 参数必须是此 <a href=\"widgets/Element-class.html\">Element</a> 内的 <a href=\"widgets/BuildScope-class.html\">BuildScope</a>。</p>",
+    "1": "<p>通常只有在此 <a href=\"widgets/Element-class.html\">Element</a> 已 <a href=\"widgets/Element/mounted.html\">mounted</a> 时，才能安全地访问此 getter。</p>",
+    "2": "<p>默认实现返回父级 <a href=\"widgets/Element-class.html\">Element</a> 的 <a href=\"widgets/Element/buildScope.html\">buildScope</a>。大多数情况下，只要某个 <a href=\"widgets/Element-class.html\">Element</a> 的祖先不再处于脏状态，该元素就可以重建。一个明显例外是 <a href=\"widgets/LayoutBuilder-class.html\">LayoutBuilder</a> 的后代：在传入约束可用之前，它们不能重建。<a href=\"widgets/LayoutBuilder-class.html\">LayoutBuilder</a> 的 <a href=\"widgets/Element-class.html\">Element</a> 会重写 <a href=\"widgets/Element/buildScope.html\">buildScope</a>，确保在获知传入约束之前，不重建其任何后代。</p>",
+    "4": "<p>如果重写此 getter，始终应返回同一个 <a href=\"widgets/BuildScope-class.html\">BuildScope</a> 实例。运行时更改 getter 的返回值是不受支持的。</p>",
+    "5": "<p><a href=\"widgets/Element/updateChild.html\">updateChild</a> 方法会忽略 <a href=\"widgets/Element/buildScope.html\">buildScope</a>：如果父级 <a href=\"widgets/Element-class.html\">Element</a> 使用不同的 <a href=\"widgets/BuildScope-class.html\">BuildScope</a> 调用 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 更新子节点，该子节点仍可能重建。</p>"
+  },
+  "flutter/widgets/RootElementMixin/deactivate.html": {
+    "0": "<p>从“活跃”生命周期状态转换为“不活跃”状态。</p>",
+    "3": "<p>此方法会间接通过 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a> 调用。</p>"
+  },
+  "flutter/widgets/RootElementMixin/deactivateChild.html": {
+    "0": "<p>将给定元素移至不活跃元素列表，并从渲染树中分离其渲染对象。</p>",
+    "1": "<p>此方法会从当前元素中移除给定元素：将其渲染对象从渲染树中分离，并将该元素移至不活跃元素列表。</p>",
+    "2": "<p>此方法会（间接）对该子元素调用 <a href=\"widgets/Element/deactivate.html\">deactivate</a>。</p>",
+    "3": "<p>调用方负责将子元素从子节点模型中移除。通常，元素在更新子节点模型时会自行调用 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a>；不过，在 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 重新挂接期间，新父元素会主动调用旧父元素的 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a>，并先使用 <a href=\"widgets/Element/forgetChild.html\">forgetChild</a> 让旧父元素更新其子节点模型。</p>"
+  },
+  "flutter/widgets/RootElementMixin/debugDeactivated.html": {
+    "0": "<p>子元素停用后在调试模式下调用（参见 <a href=\"widgets/Element/deactivate.html\">deactivate</a>）。</p>",
+    "1": "<p>发布版本中不会调用此方法。</p>"
+  },
+  "flutter/widgets/RootElementMixin/debugDoingBuild.html": {
+    "0": "<p><a href=\"widgets/BuildContext/widget.html\">widget</a> 当前是否正在更新 widget 树或渲染树。</p>",
+    "2": "<p>此值为 true 时，<a href=\"widgets/BuildContext/widget.html\">widget</a> 可以通过调用 <a href=\"widgets/BuildContext/dependOnInheritedElement.html\">dependOnInheritedElement</a> 或 <a href=\"widgets/BuildContext/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a>，安全地依赖某个 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>。</p>"
+  },
+  "flutter/widgets/RootElementMixin/debugExpectsRenderObjectForSlot.html": {
+    "0": "<p>给定 <code>slot</code> 中的子节点（或其后代）是否必须通过调用其祖先 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 上的 <a href=\"widgets/RenderObjectElement/insertRenderObjectChild.html\">RenderObjectElement.insertRenderObjectChild</a>，将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入该祖先中。</p>",
+    "1": "<p>此方法用于在元素树中定义非渲染区域（有关渲染区和非渲染区的说明，请参见 <a href=\"widgets/WidgetsBinding-mixin.html\">WidgetsBinding</a>）：</p>",
+    "2": "<p>元素树中的大多数 <a href=\"widgets/Element-class.html\">Element</a> 分支最终都应将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入其祖先 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>，以构建渲染树。但有一个明显例外：某个 <a href=\"widgets/Element-class.html\">Element</a> 可能预期特定子 slot 中的内容会创建独立的新渲染树，因此不允许它将渲染对象插入现有渲染树。这种元素对于相应 slot 必须从此方法返回 false，以告知该 slot 中的子节点不得在其祖先上调用 <a href=\"widgets/RenderObjectElement/insertRenderObjectChild.html\">RenderObjectElement.insertRenderObjectChild</a>。</p>",
+    "3": "<p>例如，<a href=\"widgets/ViewAnchor-class.html\">ViewAnchor</a> 对应的元素会对此方法在 <a href=\"widgets/ViewAnchor/view.html\">ViewAnchor.view</a> slot 中返回 false，确保其中放置的是例如 <a href=\"widgets/View-class.html\">View</a> 组件，由它为该视图启动独立的渲染树。另一个例子是 <a href=\"widgets/ViewCollection-class.html\">ViewCollection</a> 组件；出于同样的原因，它对所有 slot 都返回 false。</p>",
+    "4": "<p>由于上述行为的元素很少见，因此通常不会重写此方法。</p>"
+  },
+  "flutter/widgets/RootElementMixin/debugGetCreatorChain.html": {
+    "0": "<p>返回说明此元素由什么创建的描述。</p>",
+    "1": "<p>可用于调试元素的来源。</p>"
+  },
+  "flutter/widgets/RootElementMixin/debugGetDiagnosticChain.html": {
+    "0": "<p>返回从此元素沿父级链一直到树根的路径。</p>",
+    "1": "<p>可用于调试显示元素树：仅展开从根节点到此元素路径上的节点。</p>"
+  },
+  "flutter/widgets/RootElementMixin/debugIsActive.html": {
+    "0": "<p>如果 Element 处于活跃状态，则返回 true。</p>"
+  },
+  "flutter/widgets/RootElementMixin/debugIsDefunct.html": {
+    "0": "<p>如果 Element 已失效，则返回 true。</p>"
+  },
+  "flutter/widgets/RootElementMixin/debugVisitOnstageChildren.html": {
+    "0": "<p>对每个被视为处于前台的子元素调用参数中的回调。</p>",
+    "2": "<p>元素是否处于前台会影响使用 Flutter 的 <a href=\"flutter_test/Finder-class.html\">Finder</a> 对象进行测试时能否找到该元素。例如，要求测试框架点按某个组件时，finder 默认只查找前台元素并忽略后台元素。</p>"
+  },
+  "flutter/widgets/RootElementMixin/dependOnInheritedElement.html": {
+    "0": "<p>将此构建上下文注册到 <code>ancestor</code>，使 <code>ancestor</code> 的组件发生变化时，此构建上下文会重新构建。</p>",
+    "1": "<p>返回 <code>ancestor.widget</code>。</p>",
+    "2": "<p>通常很少直接调用此方法。大多数应用应使用 <a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a>；它会先找到合适的 <a href=\"widgets/InheritedElement-class.html\">InheritedElement</a> 祖先，然后调用此方法。</p>",
+    "3": "<p>关于何时可以调用 <a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 的所有限制，同样适用于此方法。</p>"
+  },
+  "flutter/widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html": {
+    "0": "<p>返回最近的指定类型 <code>T</code> 的组件并对其建立依赖；如果找不到合适的组件，则返回 null。</p>",
+    "1": "<p>找到的组件一定是具体的 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 子类。调用 <a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 会将此构建上下文注册到返回的组件。当该组件发生变化、出现该类型的新组件或原组件被移除时，此构建上下文会重新构建，以便从该组件获取新值。</p>",
+    "2": "<p>通常会从 <code>of()</code> 等静态方法中隐式调用此方法，例如 <a href=\"material/Theme/of.html\">Theme.of</a>。</p>",
+    "3": "<p>不应在组件构造函数或 <a href=\"widgets/State/initState.html\">State.initState</a> 方法中调用此方法。虽然调用此方法会将 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 注册为依赖项，以便之后重新构建，但构造函数和 <a href=\"widgets/State/initState.html\">State.initState</a> 受生命周期限制，在元素首次创建期间只会执行一次。</p>",
+    "4": "<p>如果之后继承值发生变化，框架会正确地再次调用 <a href=\"widgets/State/build.html\">State.build</a>，但不会重新运行构造函数或 <a href=\"widgets/State/initState.html\">State.initState</a>。因此，如果这些只执行一次的方法基于继承值的“快照”初始化了内部变量、控制器或副作用，它们仍会保留原有的过时值。这样就会造成状态不同步：组件的 <a href=\"widgets/State/build.html\">State.build</a> 可能使用更新后的数据，而内部逻辑仍依赖在 <a href=\"widgets/State/initState.html\">State.initState</a> 中捕获的旧数据。</p>",
+    "5": "<p>要确保组件保持同步，请在 build 方法、布局和绘制回调，或 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中直接或间接调用此方法。</p>",
+    "6": "<p><a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 会在 <a href=\"widgets/State/initState.html\">State.initState</a> 之后立即调用；每当此上下文所依赖的继承组件发生变化，也会再次调用，直到组件或其某个祖先下一次移动为止（例如添加或移除祖先）。这样，在调用 <a href=\"widgets/State/build.html\">State.build</a> 之前，<a href=\"widgets/State-class.html\">State</a> 就可以更新内部变量，或执行依赖继承值的初始化逻辑。</p>",
+    "9": "<p>调用此方法的时间复杂度为 O(1)，常数开销较小，但会导致组件更频繁地重建。</p>",
+    "10": "<p>只有当 <code>T</code> 是支持部分更新的 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 子类（例如 <a href=\"widgets/InheritedModel-class.html\">InheritedModel</a>）时，才会使用 <code>aspect</code> 参数。它指定此上下文依赖该继承组件的哪个“方面”。</p>"
+  },
+  "flutter/widgets/RootElementMixin/describeElement.html": {
+    "0": "<p>返回当前构建上下文所关联 <a href=\"widgets/Element-class.html\">Element</a> 的描述。</p>",
+    "1": "<p><code>name</code> 通常类似于“正在重建的元素是”。</p>"
+  },
+  "flutter/widgets/RootElementMixin/describeMissingAncestor.html": {
+    "0": "<p>为当前构建上下文的祖先树中缺少的特定类型组件添加说明。</p>",
+    "1": "<p>有关此方法的使用示例，请参见 <a href=\"material/debugCheckHasMaterial.html\">debugCheckHasMaterial</a>。</p>"
+  },
+  "flutter/widgets/RootElementMixin/describeOwnershipChain.html": {
+    "0": "<p>添加从特定 <a href=\"widgets/Element-class.html\">Element</a> 到错误报告的所有权链说明。</p>",
+    "1": "<p>所有权链可用于调试元素的来源。</p>"
+  },
+  "flutter/widgets/RootElementMixin/describeWidget.html": {
+    "0": "<p>返回当前构建上下文所关联 <a href=\"widgets/Widget-class.html\">Widget</a> 的描述。</p>",
+    "1": "<p><code>name</code> 通常类似于“正在重建的组件是”。</p>"
+  },
+  "flutter/widgets/RootElementMixin/detachRenderObject.html": {
+    "2": "<p>此方法由 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a> 调用。</p>"
+  },
+  "flutter/widgets/RootElementMixin/didChangeDependencies.html": {
+    "0": "<p>此元素的依赖项发生变化时调用。</p>",
+    "1": "<p><a href=\"widgets/Element/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 会将此元素注册为依赖给定类型的继承信息。当该类型的信息在此树位置发生变化时（例如 <a href=\"widgets/InheritedElement-class.html\">InheritedElement</a> 更新为新的 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a>，且 <a href=\"widgets/InheritedWidget/updateShouldNotify.html\">InheritedWidget.updateShouldNotify</a> 返回 true），框架就会调用此方法通知此元素。</p>"
+  },
+  "flutter/widgets/RootElementMixin/dirty.html": {
+    "0": "<p>如果此元素已标记为需要重建，则返回 true。</p>",
+    "1": "<p>元素首次创建时，以及调用 <a href=\"widgets/Element/markNeedsBuild.html\">markNeedsBuild</a> 后，此标记为 true。通常会在 <a href=\"widgets/Element/performRebuild.html\">performRebuild</a> 实现中将其重置为 false；不过，某些元素（例如 <a href=\"widgets/LayoutBuilder-class.html\">LayoutBuilder</a> 组件对应的元素）可能会重写 <a href=\"widgets/Element/markNeedsBuild.html\">markNeedsBuild</a>，使其调用时不会将 <a href=\"widgets/Element/dirty.html\">dirty</a> 标记设为 <code>true</code>。</p>"
+  },
+  "flutter/widgets/RootElementMixin/dispatchNotification.html": {
+    "1": "<p>此通知会传递给给定 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 的所有祖先中，类型参数匹配的 <a href=\"widgets/NotificationListener-class.html\">NotificationListener</a> 组件。</p>"
+  },
+  "flutter/widgets/RootElementMixin/findAncestorRenderObjectOfType.html": {
+    "0": "<p>返回最近祖先 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 组件所创建的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 对象；该组件必须是给定类型 <code>T</code> 的实例。</p>",
+    "1": "<p>不应在 build 方法中调用此方法，因为如果它的返回值发生变化，构建上下文不会重建。通常，对于这类情况，使用 <a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 更合适。只有在一些特殊情况下此方法才有用，例如组件需要让祖先改变布局或绘制行为。比如，<a href=\"material/Material-class.html\">Material</a> 会使用此方法，让 <a href=\"material/InkWell-class.html\">InkWell</a> 组件能够在 <a href=\"material/Material-class.html\">Material</a> 的实际渲染对象上触发墨水飞溅效果。</p>",
+    "2": "<p>调用此方法的开销相对较高（与树的深度 N 成正比）。只有在已知此组件与目标祖先之间的距离较小且有界时，才应调用此方法。</p>",
+    "3": "<p>由于此时组件树不再稳定，不应在 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 或 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中调用此方法。若需在这些方法中引用祖先，应在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中调用 <a href=\"widgets/RootElementMixin/findAncestorRenderObjectOfType.html\">findAncestorRenderObjectOfType</a> 并保存祖先引用。</p>"
+  },
+  "flutter/widgets/RootElementMixin/findAncestorStateOfType.html": {
+    "0": "<p>返回最近祖先 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 组件所对应的 <a href=\"widgets/State-class.html\">State</a> 对象；该组件必须是给定类型 <code>T</code> 的实例。</p>",
+    "1": "<p>不应在 build 方法中调用此方法，因为如果它的返回值发生变化，构建上下文不会重建。通常，对于这类情况，使用 <a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 更合适。此方法适用于一次性更改祖先组件状态，例如让祖先滚动列表将当前构建上下文中的组件滚动到视野内，或响应用户交互移动焦点。</p>",
+    "2": "<p>不过，通常应考虑使用回调来触发祖先中的有状态更改，而不是使用此方法所暗示的命令式方式。这样通常能让代码更易维护和复用，因为组件之间的耦合更低。</p>",
+    "3": "<p>调用此方法的开销相对较高（与树的深度 N 成正比）。只有在已知此组件与目标祖先之间的距离较小且有界时，才应调用此方法。</p>",
+    "4": "<p>由于此时组件树不再稳定，不应在 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 或 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中调用此方法。若需在这些方法中引用祖先，应在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中调用 <a href=\"widgets/RootElementMixin/findAncestorStateOfType.html\">findAncestorStateOfType</a> 并保存祖先引用。</p>",
+    "5": "<p>\n<a name=\"widgets.BuildContext.findAncestorStateOfType.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  \n  <a class=\"anchor-button-overlay anchor-button\" title=\"Copy link to clipboard\"\n    onmouseenter=\"fixHref(this, 'widgets.BuildContext.findAncestorStateOfType.1');\" onclick=\"fixHref(this, 'widgets.BuildContext.findAncestorStateOfType.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"Copy to clipboard\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">ScrollableState? scrollable = context.findAncestorStateOfType&lt;ScrollableState&gt;();</code></pre>\n  </div>\n</div>\n</p>"
+  },
+  "flutter/widgets/RootElementMixin/findAncestorWidgetOfExactType.html": {
+    "0": "<p>返回类型为 <code>T</code> 的最近祖先组件；其中 T 必须是具体的 <a href=\"widgets/Widget-class.html\">Widget</a> 子类。</p>",
+    "1": "<p>通常，<a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 更有用，因为继承组件发生变化时会触发使用方重建。此方法适用于交互事件处理程序（例如手势回调），或执行一次性任务，例如断言某个特定类型的组件是否为祖先。组件 build 方法的返回值不应依赖此方法的返回值，因为后者变化时构建上下文不会重建。这可能导致 build 方法使用的数据发生变化，但组件却没有重建。</p>",
+    "2": "<p>调用此方法的开销相对较高（与树的深度 N 成正比）。只有在已知此组件与目标祖先之间的距离较小且有界时，才应调用此方法。</p>",
+    "3": "<p>由于此时组件树不再稳定，不应在 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 或 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中调用此方法。若需在这些方法中引用祖先，应在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中调用 <a href=\"widgets/RootElementMixin/findAncestorWidgetOfExactType.html\">findAncestorWidgetOfExactType</a> 并保存祖先引用。</p>",
+    "4": "<p>如果此上下文的祖先中不存在请求类型的组件，则返回 null。</p>"
+  },
+  "flutter/widgets/RootElementMixin/findRenderObject.html": {
+    "0": "<p>此组件当前的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。如果组件是 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a>，则返回它为自身创建的渲染对象；否则返回第一个后代 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 的渲染对象。</p>",
+    "1": "<p>只有构建阶段完成后，此方法才会返回有效结果，因此不能在 build 方法中调用。只能在交互事件处理程序（例如手势回调）、布局回调或绘制回调中调用。如果 <a href=\"widgets/State/mounted.html\">State.mounted</a> 返回 false，也不能调用此方法。</p>",
+    "2": "<p>如果渲染对象是常见的 <a href=\"rendering/RenderBox-class.html\">RenderBox</a>，可以通过 <a href=\"widgets/RootElementMixin/size.html\">size</a> getter 获取其尺寸。此操作只有布局阶段完成后才有效，因此应仅在绘制回调或交互事件处理程序（例如手势回调）中执行。</p>",
+    "3": "<p>有关一帧中各个阶段的详情，请参见 <a href=\"widgets/WidgetsBinding/drawFrame.html\">WidgetsBinding.drawFrame</a> 中的说明。</p>",
+    "4": "<p>从理论上说，此方法的开销相对较高（与树的深度 N 成正比）；但实际上通常开销很小，因为树中一般有许多渲染对象，因此到最近渲染对象的距离通常很短。</p>"
+  },
+  "flutter/widgets/RootElementMixin/findRootAncestorStateOfType.html": {
+    "0": "<p>返回最远祖先 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 组件所对应的 <a href=\"widgets/State-class.html\">State</a> 对象；该组件必须是给定类型 <code>T</code> 的实例。</p>",
+    "1": "<p>此方法与 <a href=\"widgets/RootElementMixin/findAncestorStateOfType.html\">findAncestorStateOfType</a> 类似，但会继续遍历后续祖先，直到找不到类型为 <code>T</code> 的其他实例，然后返回最后找到的实例。</p>",
+    "2": "<p>此操作的时间复杂度同样为 O(N)，但 N 是整个组件树，而非某个子树。</p>"
+  },
+  "flutter/widgets/RootElementMixin/getElementForInheritedWidgetOfExactType.html": {
+    "0": "<p>获取与给定类型 <code>T</code> 对应的最近组件相对应的元素；其中 T 必须是具体的 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 子类。</p>",
+    "1": "<p>如果找不到这样的元素，则返回 null。</p>",
+    "3": "<p>此方法不会像 <a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 那样与目标建立依赖关系。</p>",
+    "4": "<p>由于此时元素树不再稳定，不应在 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中调用此方法。若需在该方法中引用祖先，应调用 <a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 并保存祖先引用。可以在组件从树中移除时调用的 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 中安全地使用此方法；也可以在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中获取并保存祖先引用。</p>"
+  },
+  "flutter/widgets/RootElementMixin/getInheritedWidgetOfExactType.html": {
+    "0": "<p>返回类型为 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 子类的最近祖先组件 <code>T</code>；如果没有合适的祖先，则返回 null。</p>",
+    "1": "<p>此方法不像常用的 <a href=\"widgets/RootElementMixin/dependOnInheritedWidgetOfExactType.html\">dependOnInheritedWidgetOfExactType</a> 那样建立依赖，因此 <a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 发生变化时，此上下文不会重建。此函数适用于不希望建立依赖关系的少数情况。</p>",
+    "2": "<p>由于此时元素树不再稳定，不应在 <a href=\"widgets/State/dispose.html\">State.dispose</a> 中调用此方法。若需在该方法中引用祖先，应在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中保存祖先引用。可以在组件从树中移除时调用的 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 中安全地使用此方法。</p>"
+  },
+  "flutter/widgets/RootElementMixin/inflateWidget.html": {
+    "0": "<p>为给定组件创建一个元素，并将其作为子元素放入当前元素的指定 slot 中。</p>",
+    "1": "<p>通常由 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 调用此方法；需要更精细地控制元素创建过程的子类也可以直接调用。</p>",
+    "2": "<p>如果给定组件具有全局键，且已有元素所对应的组件使用相同全局键，此函数会复用该元素（可能会将它从树中的其他位置移接过来，或从不活跃元素列表中重新激活），而不是创建新元素。</p>",
+    "3": "<p><code>newSlot</code> 参数指定此元素 <a href=\"widgets/Element/slot.html\">slot</a> 的新值。</p>",
+    "4": "<p>此函数返回的元素已完成挂载，并处于“活跃”生命周期状态。</p>"
+  },
+  "flutter/widgets/RootElementMixin/markNeedsBuild.html": {
+    "0": "<p>将此元素标记为脏，并将其加入全局列表，以便在下一帧中重建。</p>",
+    "1": "<p>由于在一帧中构建同一个元素两次效率低下，应用和组件应合理组织逻辑：只在帧开始前的事件处理程序中将组件标记为脏，而不要在构建过程中这样做。</p>"
+  },
+  "flutter/widgets/RootElementMixin/mounted.html": {
+    "0": "<p>此上下文关联的 <a href=\"widgets/Widget-class.html\">Widget</a> 当前是否已挂载到组件树中。</p>",
+    "1": "<p>只有当 mounted 为 true 时，才能访问 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 的属性或调用其方法。如果 mounted 为 false，就会触发断言。</p>",
+    "2": "<p><a href=\"widgets/BuildContext-class.html\">BuildContext</a> 一旦卸载，就不会再次挂载。</p>",
+    "3": "<p>如果在异步间隔后继续使用 <a href=\"widgets/BuildContext-class.html\">BuildContext</a>（即执行完异步操作后），在与其交互前，请考虑检查 <a href=\"widgets/RootElementMixin/mounted.html\">mounted</a>，以确认该上下文仍然有效：</p>"
+  },
+  "flutter/widgets/RootElementMixin/operator_equals.html": {
+    "0": "<p>比较两个组件是否相等。</p>",
+    "1": "<p>使用另一个组件重建某组件时，如果两者根据 <code>operator ==</code> 比较后相等，就会认为此次更新是多余的，并跳过更新树中该分支的工作。</p>",
+    "2": "<p>通常不建议为包含子组件的组件重写 <code>operator ==</code>，因为正确实现还必须递归比较子组件的相等性，开销为 O(N²)：每个子组件都要遍历自己的所有后代，树的每一层都会如此。</p>",
+    "3": "<p>如果已知重建组件的成本远高于检查其参数是否相等的成本，并且该组件经常使用相同参数重建，那么为没有子组件的叶子组件实现此方法有时是合理的。</p>",
+    "4": "<p>不过通常来说，如果已知 build 方法中使用的组件不会变化，缓存这些组件会更高效。</p>"
+  },
+  "flutter/widgets/RootElementMixin/renderObject.html": {
+    "0": "<p>树中此位置（或其下方）的渲染对象。</p>",
+    "1": "<p>如果此对象是 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>，则返回树中此位置的渲染对象；否则，此 getter 会沿树向下遍历，直到找到一个 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>。</p>",
+    "2": "<p>树中的某些位置没有关联渲染对象。在这种情况下，此 getter 会返回 null。例如，元素位于 <a href=\"widgets/View-class.html\">View</a> 外部时就可能如此，因为只有 View 根节点下的元素子树才关联渲染树。</p>"
+  },
+  "flutter/widgets/RootElementMixin/renderObjectAttachingChild.html": {
+    "0": "<p>返回此 <a href=\"widgets/Element-class.html\">Element</a> 的子元素中，会将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入该元素某个祖先以构建渲染树的那个子元素。</p>",
+    "1": "<p>如果此 <a href=\"widgets/Element-class.html\">Element</a> 没有需要将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 附加到其祖先的子元素，则返回 null。因此，<a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 会返回 null，因为它的子元素会将自己的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 本身，而不是插入该 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 的祖先。</p>",
+    "2": "<p>此外，对于会提升自身独立渲染树，且不会扩展祖先渲染树的 <a href=\"widgets/Element-class.html\">Element</a>，此方法也可能返回 null。</p>"
+  },
+  "flutter/widgets/RootElementMixin/size.html": {
+    "0": "<p><a href=\"widgets/RootElementMixin/findRenderObject.html\">findRenderObject</a> 返回的 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 的尺寸。</p>",
+    "1": "<p>只有布局阶段完成后，此 getter 才会返回有效结果，因此不能在 build 方法中调用。只能在绘制回调或交互事件处理程序（例如手势回调）中调用。</p>",
+    "3": "<p>只有当 <a href=\"widgets/RootElementMixin/findRenderObject.html\">findRenderObject</a> 实际返回 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 时，此 getter 才会返回有效结果。如果 <a href=\"widgets/RootElementMixin/findRenderObject.html\">findRenderObject</a> 返回的渲染对象不是 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 的子类型（例如 <a href=\"rendering/RenderView-class.html\">RenderView</a>），则调试模式下此 getter 会抛出异常，发布模式下则返回 null。</p>",
+    "4": "<p>从理论上说，调用此 getter 的开销相对较高（与树的深度 N 成正比）；但实际上通常开销很小，因为树中一般有许多渲染对象，到最近渲染对象的距离通常很短。</p>"
+  },
+  "flutter/widgets/RootElementMixin/slot.html": {
+    "0": "<p>由父元素设置的信息，用于确定此子元素在父元素子节点列表中的位置。</p>",
+    "1": "<p>调用父元素的 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 方法来扩充子组件时，会确定该子组件的 slot。有关 slot 的详情，请参见 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>。</p>"
   }
 }
