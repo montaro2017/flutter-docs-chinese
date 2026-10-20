@@ -1,77 +1,12 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,711 页，部分翻译 450 页，未翻译 1,091 页；正文已译 20,498/24,807 段。
+模块共 8,093 页：已完整 5,757 页，部分翻译 436 页，未翻译 1,059 页；正文已译 20,666/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
-- `flutter/widgets/RenderObjectToWidgetAdapter-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RenderObjectToWidgetAdapter/attachToRenderTree.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RenderObjectToWidgetElement-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RenderObjectToWidgetElement/RenderObjectToWidgetElement.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RenderObjectToWidgetElement/moveRenderObjectChild.html` — 部分；已译 3/4 段；待译段落：3
-
-- `flutter/widgets/RenderObjectWidget-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RenderTapRegion-class.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/RenderTapRegion/consumeOutsideTaps.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RenderTapRegion/dispose.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/RenderTapRegion/groupId.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RenderTapRegion/layout.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RenderTapRegion/onTapInside.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RenderTapRegion/onTapOutside.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RenderTapRegion/onTapUpInside.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RenderTapRegion/onTapUpOutside.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RenderTapRegion/registry.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RenderTapRegionSurface-class.html` — 部分；已译 2/8 段；待译段落：0, 1, 2, 3, 5, 6
-- `flutter/widgets/RenderTapRegionSurface/attach.html` — 部分；已译 2/3 段；待译段落：1
-- `flutter/widgets/RenderTapRegionSurface/detach.html` — 部分；已译 2/3 段；待译段落：1
-- `flutter/widgets/RenderTapRegionSurface/handleEvent.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RenderTapRegionSurface/hitTest.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/RenderTreeRootElement-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RenderTreeRootElement/detachRenderObject.html` — 部分；已译 2/3 段；待译段落：2
-
-- `flutter/widgets/RenderTwoDimensionalViewport-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RenderTwoDimensionalViewport/RenderTwoDimensionalViewport.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RenderTwoDimensionalViewport/buildOrObtainChildFor.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/RenderTwoDimensionalViewport/computeMaxIntrinsicHeight.html` — 部分；已译 1/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-- `flutter/widgets/RenderTwoDimensionalViewport/computeMaxIntrinsicWidth.html` — 部分；已译 1/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-- `flutter/widgets/RenderTwoDimensionalViewport/computeMinIntrinsicHeight.html` — 部分；已译 1/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/RenderTwoDimensionalViewport/computeMinIntrinsicWidth.html` — 部分；已译 2/25 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23
-
-- `flutter/widgets/RenderTwoDimensionalViewport/isRepaintBoundary.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/RenderTwoDimensionalViewport/markNeedsLayout.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-
-- `flutter/widgets/RenderTwoDimensionalViewport/sizedByParent.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/RenderTwoDimensionalViewport/visitChildren.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RenderTwoDimensionalViewport/visitChildrenForSemantics.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ReorderCallback.html` — 部分；已译 2/4 段；待译段落：0, 1
-
-- `flutter/widgets/ReorderItemProxyDecorator.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ReorderableDelayedDragStartListener-class.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/ReorderableDelayedDragStartListener/ReorderableDelayedDragStartListener.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ReorderableDelayedDragStartListener/createRecognizer.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ReorderableDragStartListener-class.html` — 部分；已译 1/2 段；待译段落：0
 - `flutter/widgets/ReorderableDragStartListener/ReorderableDragStartListener.html` — 未译；已译 0/2 段；待译段落：0, 1
 
-- `flutter/widgets/ReorderableDragStartListener/createRecognizer.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ReorderableDragStartListener/enabled.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ReorderableList-class.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ReorderableList/ReorderableList.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/ReorderableList/anchor.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/ReorderableList/autoScrollerVelocityScalar.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 
 - `flutter/widgets/ReorderableList/controller.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
 

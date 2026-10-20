@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the markNeedsLayout method from the RenderTwoDimensionalViewport class, for the Dart programming language.">
-  <title>markNeedsLayout method - RenderTwoDimensionalViewport class - widgets library - Dart API</title>
+  <title>markNeedsLayout 方法 - RenderTwoDimensionalViewport 类 - widgets 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets.dart</a></li>
     <li><a href="widgets/RenderTwoDimensionalViewport-class.html">RenderTwoDimensionalViewport</a></li>
-    <li class="self-crumb">markNeedsLayout method</li>
+    <li class="self-crumb">markNeedsLayout 方法</li>
   </ol>
   <div class="self-name">markNeedsLayout</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,62 +87,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="widgets&#47;RenderTwoDimensionalViewport-class-sidebar.html"
     data-below-sidebar="">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/two_dimensional_viewport.dart#L1301"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">markNeedsLayout</span> method 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/two_dimensional_viewport.dart#L1301"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">markNeedsLayout</span> 方法
 </h1></div>
 
     <section class="multi-line-signature">
       
   <div>
     <ol class="annotation-list">
-        <li>@<a href="dart-core/override-constant.html">override</a></li>
+        <li>@<a href="dart-core/override-constant.html">重写</a></li>
     </ol>
   </div>
 <span class="returntype">void</span>
 <span class="name ">markNeedsLayout</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="markNeedsLayout-param-withDelegateRebuild"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">withDelegateRebuild</span> = <span class="default-value">false</span>, </span></li>
 </ol>})
 
-      <div class="features"><span class="feature">override</span></div>
+      <div class="features"><span class="feature">重写</span></div>
 
     </section>
     
 <section class="desc markdown">
-  <p>Mark this render object's layout information as dirty, and either register
-this object with its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>, or defer to the parent, depending on
-whether this object is a relayout boundary or not respectively.</p>
-<h2 id="background">Background</h2>
-<p>Rather than eagerly updating layout information in response to writes into
-a render object, we instead mark the layout information as dirty, which
-schedules a visual update. As part of the visual update, the rendering
-pipeline updates the render object's layout information.</p>
-<p>This mechanism batches the layout work so that multiple sequential writes
-are coalesced, removing redundant computation.</p>
-<p>If a render object's parent indicates that it uses the size of one of its
-render object children when computing its layout information, this
-function, when called for the child, will also mark the parent as needing
-layout. In that case, since both the parent and the child need to have
-their layout recomputed, the pipeline owner is only notified about the
-parent; when the parent is laid out, it will call the child's <a href="rendering/RenderObject/layout.html">layout</a>
-method and thus the child will be laid out as well.</p>
-<p>Once <a href="widgets/RenderTwoDimensionalViewport/markNeedsLayout.html">markNeedsLayout</a> has been called on a render object,
-<a href="rendering/RenderObject/debugNeedsLayout.html">debugNeedsLayout</a> returns true for that render object until just after
-the pipeline owner has called <a href="rendering/RenderObject/layout.html">layout</a> on the render object.</p>
-<h2 id="special-cases">Special cases</h2>
-<p>Some subclasses of <a href="rendering/RenderObject-class.html">RenderObject</a>, notably <a href="rendering/RenderBox-class.html">RenderBox</a>, have other
-situations in which the parent needs to be notified if the child is
-dirtied (e.g., if the child's intrinsic dimensions or baseline changes).
-Such subclasses override markNeedsLayout and either call
-<code>super.markNeedsLayout()</code>, in the normal case, or call
-<a href="rendering/RenderObject/markParentNeedsLayout.html">markParentNeedsLayout</a>, in the case where the parent needs to be laid out
-as well as the child.</p>
-<p>If <a href="widgets/RenderTwoDimensionalViewport/sizedByParent.html">sizedByParent</a> has changed, calls
-<a href="rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html">markNeedsLayoutForSizedByParentChange</a> instead of <a href="widgets/RenderTwoDimensionalViewport/markNeedsLayout.html">markNeedsLayout</a>.</p>
+  <p>将此渲染对象的布局信息标记为脏状态；如果此对象是重新布局边界，则向其 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 注册，否则交由父对象处理。</p>
+<h2 id="background">背景</h2>
+<p>收到对渲染对象的写入时，我们不会立即更新布局信息，而是将其标记为脏状态并安排一次视觉更新。视觉更新过程中，渲染流水线会更新渲染对象的布局信息。</p>
+<p>此机制会批量处理布局工作，将连续发生的多次写入合并，从而避免重复计算。</p>
+<p>如果渲染对象的父对象表示在计算布局信息时会使用某个渲染子项的尺寸，那么对此子项调用此函数时，也会将父对象标记为需要布局。在这种情况下，父对象和子项都需要重新计算布局，因此渲染流水线只会收到父对象的通知；父对象完成布局时会调用子项的 <a href="rendering/RenderObject/layout.html">layout</a> 方法，子项也会随之布局。</p>
+<p>对渲染对象调用 <a href="widgets/RenderTwoDimensionalViewport/markNeedsLayout.html">markNeedsLayout</a> 后，<a href="rendering/RenderObject/debugNeedsLayout.html">debugNeedsLayout</a> 会一直对该对象返回 true，直到流水线所有者调用该对象的 <a href="rendering/RenderObject/layout.html">layout</a> 后才恢复。</p>
+<h2 id="special-cases">特殊情况</h2>
+<p><a href="rendering/RenderObject-class.html">RenderObject</a> 的部分子类（尤其是 <a href="rendering/RenderBox-class.html">RenderBox</a>）还存在其他需要在子项变脏时通知父对象的情况，例如子项的固有尺寸或基线发生变化。这些子类会重写 markNeedsLayout：常规情况下调用 <code>super.markNeedsLayout()</code>；如果父对象和子项都需要重新布局，则调用 <a href="rendering/RenderObject/markParentNeedsLayout.html">markParentNeedsLayout</a>。</p>
+<p>如果 <a href="widgets/RenderTwoDimensionalViewport/sizedByParent.html">sizedByParent</a> 发生变化，应改为调用 <a href="rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html">markNeedsLayoutForSizedByParentChange</a>，而不是 <a href="widgets/RenderTwoDimensionalViewport/markNeedsLayout.html">markNeedsLayout</a>。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 void markNeedsLayout({bool withDelegateRebuild = false}) {
   _needsDelegateRebuild = _needsDelegateRebuild || withDelegateRebuild;
@@ -156,17 +135,17 @@ void markNeedsLayout({bool withDelegateRebuild = false}) {
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="widgets/">widgets</a></li>
     <li><a href="widgets/RenderTwoDimensionalViewport-class.html">RenderTwoDimensionalViewport</a></li>
-    <li class="self-crumb">markNeedsLayout method</li>
+    <li class="self-crumb">markNeedsLayout 方法</li>
 </ol>
 
-    <h5>RenderTwoDimensionalViewport class</h5>
+    <h5>RenderTwoDimensionalViewport 类</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -189,7 +168,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

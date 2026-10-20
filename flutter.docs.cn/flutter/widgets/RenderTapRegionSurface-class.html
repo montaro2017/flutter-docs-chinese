@@ -87,30 +87,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;RenderTapRegionSurface-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/tap_region.dart#L204"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RenderTapRegionSurface</span> 类 
+<h1><span class="kind-class">RenderTapRegionSurface</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A render object that provides notification of a tap inside or outside of a
-set of registered regions, without participating in the <a href="https://flutter.dev/to/gesture-disambiguation">gesture
-disambiguation</a> system
-(other than to consume tap down events if <a href="widgets/TapRegion/consumeOutsideTaps.html">TapRegion.consumeOutsideTaps</a> is
-true).</p>
-<p>The regions are defined by adding <a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a> render objects in the
-render tree around the regions of interest, and they will register with this
-<a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a>. Each of the tap regions can optionally belong to a
-group by assigning a <a href="widgets/RenderTapRegion/groupId.html">RenderTapRegion.groupId</a>, where all the regions with
-the same groupId act as if they were all one region.</p>
-<p>When a tap down or tap up outside of a registered region or region group is
-detected, its <a href="widgets/TapRegion/onTapOutside.html">TapRegion.onTapOutside</a> or <a href="widgets/TapRegion/onTapUpOutside.html">TapRegion.onTapUpOutside</a>
-callback is called, respectively. If the tap is outside one member of a
-group, but inside another, no notification is made.</p>
-<p>When a tap down or tap up inside of a registered region or region group is
-detected, its <a href="widgets/TapRegion/onTapInside.html">TapRegion.onTapInside</a> or <a href="widgets/TapRegion/onTapUpInside.html">TapRegion.onTapUpInside</a>
-callback is called, respectively. If the tap is inside one member of a
-group, all members are notified.</p>
+  <p>一种渲染对象，可针对一组已注册区域提供内部或外部轻点通知，而无需参与<a href="https://flutter.dev/to/gesture-disambiguation">手势判定</a>系统（但如果 <a href="widgets/TapRegion/consumeOutsideTaps.html">TapRegion.consumeOutsideTaps</a> 为 true，则会消耗轻点按下事件）。</p>
+<p>通过在感兴趣的区域周围向渲染树添加 <a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a> 渲染对象来定义各区域，它们会向此 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 注册。每个轻点区域都可以通过设置 <a href="widgets/RenderTapRegion/groupId.html">RenderTapRegion.groupId</a> 加入某个组；具有相同 groupId 的所有区域会作为一个整体运行。</p>
+<p>检测到在已注册区域或区域组外部轻点按下或抬起时，会分别调用 <a href="widgets/TapRegion/onTapOutside.html">TapRegion.onTapOutside</a> 或 <a href="widgets/TapRegion/onTapUpOutside.html">TapRegion.onTapUpOutside</a> 回调。如果轻点位于组中一个成员之外、但另一个成员之内，则不会发出通知。</p>
+<p>检测到在已注册区域或区域组内部轻点按下或抬起时，会分别调用 <a href="widgets/TapRegion/onTapInside.html">TapRegion.onTapInside</a> 或 <a href="widgets/TapRegion/onTapUpInside.html">TapRegion.onTapUpInside</a> 回调。如果轻点位于组中一个成员内部，则会通知所有成员。</p>
 <p>The <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> should be defined at the highest level needed
 to encompass the entire area where taps should be monitored. This is
 typically around the entire app. If the entire app isn't covered, then taps
@@ -119,13 +105,8 @@ outside of the <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegi
 will be made for those events. The <a href="widgets/WidgetsApp-class.html">WidgetsApp</a>, <a href="material/MaterialApp-class.html">MaterialApp</a> 和
 <a href="cupertino/CupertinoApp-class.html">CupertinoApp</a> automatically include a <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> around the
 entire app.</p>
-<p><a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> does not participate in the <a href="https://flutter.dev/to/gesture-disambiguation">gesture
-disambiguation</a>
-system, so if multiple <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a>s are active at the same
-time, they will all fire, and so will any other gestures recognized by a
-<a href="widgets/GestureDetector-class.html">GestureDetector</a> or other pointer event handlers.</p>
-<p><a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a>s register only with the nearest ancestor
-<a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a>.</p>
+<p><a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 不参与<a href="https://flutter.dev/to/gesture-disambiguation">手势判定</a>系统，因此，如果多个 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 同时处于活动状态，它们都会触发通知；<a href="widgets/GestureDetector-class.html">GestureDetector</a> 或其他指针事件处理器识别到的其他手势也会照常触发。</p>
+<p><a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a> 只会向最近的祖先 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 注册。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a>, a widget that inserts a <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> into

@@ -20112,24 +20112,39 @@
     "1": "<p>此类专门为 <a href=\"animation/Tween-class.html\">Tween&lt;RelativeRect&gt;</a> 实现插值，并使用 <a href=\"rendering/RelativeRect/lerp.html\">RelativeRect.lerp</a>。</p>"
   },
   "widgets/RenderTapRegion-class.html": {
-    "5": "<p>另请参阅：</p>"
+    "5": "<p>另请参阅：</p>",
+    "0": "<p>一种渲染对象，可定义一个检测自身内部或外部轻点操作的区域，也可检测其所属的一组区域，而无需参与<a href=\"https://flutter.dev/to/gesture-disambiguation\">手势判定</a>系统。</p>",
+    "1": "<p>此渲染对象会告知最近的祖先 <a href=\"widgets/TapRegionSurface-class.html\">TapRegionSurface</a>：其子项（如果 <a href=\"rendering/RenderProxyBoxWithHitTestBehavior/behavior.html\">behavior</a> 为 <a href=\"rendering/HitTestBehavior.html\">HitTestBehavior.opaque</a>，则为其自身）占据的区域将参与该 surface 的轻点检测。</p>",
+    "2": "<p>如果此区域属于某个组（由其 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a> 决定），组内所有区域都会作为一个整体运行。</p>",
+    "3": "<p>如果渲染树中没有 <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> 祖先，<a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 将不起作用。</p>",
+    "4": "<p><a href=\"rendering/RenderProxyBoxWithHitTestBehavior/behavior.html\">behavior</a> 属性描述命中测试时应如何处理：决定命中测试如何传播到子项，以及是否考虑轻点区域后方的目标。默认值为 <a href=\"rendering/HitTestBehavior.html\">HitTestBehavior.deferToChild</a>。允许的值及其含义请参阅 <a href=\"rendering/HitTestBehavior.html\">HitTestBehavior</a>。</p>"
   },
   "widgets/RenderTapRegionSurface-class.html": {
     "4": "<p>The <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> should be defined at the highest level needed\nto encompass the entire area where taps should be monitored. This is\ntypically around the entire app. If the entire app isn't covered, then taps\noutside of the <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> will be ignored and no\n<a href=\"widgets/RenderTapRegion/onTapOutside.html\">RenderTapRegion.onTapOutside</a> or <a href=\"widgets/RenderTapRegion/onTapUpOutside.html\">RenderTapRegion.onTapUpOutside</a> calls\nwill be made for those events. The <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a>, <a href=\"material/MaterialApp-class.html\">MaterialApp</a> 和\n<a href=\"cupertino/CupertinoApp-class.html\">CupertinoApp</a> automatically include a <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> around the\nentire app.</p>",
-    "7": "<p>另请参阅：</p>"
+    "7": "<p>另请参阅：</p>",
+    "0": "<p>一种渲染对象，可针对一组已注册区域提供内部或外部轻点通知，而无需参与<a href=\"https://flutter.dev/to/gesture-disambiguation\">手势判定</a>系统（但如果 <a href=\"widgets/TapRegion/consumeOutsideTaps.html\">TapRegion.consumeOutsideTaps</a> 为 true，则会消耗轻点按下事件）。</p>",
+    "1": "<p>通过在感兴趣的区域周围向渲染树添加 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 渲染对象来定义各区域，它们会向此 <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> 注册。每个轻点区域都可以通过设置 <a href=\"widgets/RenderTapRegion/groupId.html\">RenderTapRegion.groupId</a> 加入某个组；具有相同 groupId 的所有区域会作为一个整体运行。</p>",
+    "2": "<p>检测到在已注册区域或区域组外部轻点按下或抬起时，会分别调用 <a href=\"widgets/TapRegion/onTapOutside.html\">TapRegion.onTapOutside</a> 或 <a href=\"widgets/TapRegion/onTapUpOutside.html\">TapRegion.onTapUpOutside</a> 回调。如果轻点位于组中一个成员之外、但另一个成员之内，则不会发出通知。</p>",
+    "3": "<p>检测到在已注册区域或区域组内部轻点按下或抬起时，会分别调用 <a href=\"widgets/TapRegion/onTapInside.html\">TapRegion.onTapInside</a> 或 <a href=\"widgets/TapRegion/onTapUpInside.html\">TapRegion.onTapUpInside</a> 回调。如果轻点位于组中一个成员内部，则会通知所有成员。</p>",
+    "5": "<p><a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> 不参与<a href=\"https://flutter.dev/to/gesture-disambiguation\">手势判定</a>系统，因此，如果多个 <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> 同时处于活动状态，它们都会触发通知；<a href=\"widgets/GestureDetector-class.html\">GestureDetector</a> 或其他指针事件处理器识别到的其他手势也会照常触发。</p>",
+    "6": "<p><a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 只会向最近的祖先 <a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> 注册。</p>"
   },
   "widgets/ReorderableDelayedDragStartListener-class.html": {
-    "1": "<p>另请参阅：</p>"
+    "1": "<p>另请参阅：</p>",
+    "0": "<p>一个包装组件，通过检测长按事件来识别拖动操作的开始。识别到长按后，它会在可重新排序列表中对被包装的列表项启动拖动操作。</p>"
   },
   "widgets/ReorderableDragStartListener-class.html": {
-    "1": "<p>另请参阅：</p>"
+    "1": "<p>另请参阅：</p>",
+    "0": "<p>一个包装组件，通过 <a href=\"gestures/PointerDownEvent-class.html\">PointerDownEvent</a> 识别被包装组件上的拖动开始，并立即将被包装的列表项拖动到可重新排序列表中的新位置。</p>"
   },
   "widgets/ReorderableList-class.html": {
     "4": "<p>另请参阅：</p>"
   },
   "widgets/ReorderCallback.html": {
     "2": "<p>\n<a name=\"widgets.ReorderCallback.1\"></a>\n<div class=\"snippet snippet-container anchor-container\">\n  \n  <a class=\"anchor-button-overlay anchor-button\" title=\"复制链接到剪贴板\"\n    onmouseenter=\"fixHref(this, 'widgets.ReorderCallback.1');\" onclick=\"fixHref(this, 'widgets.ReorderCallback.1'); copyStringToClipboard(this.href);\"\n    href=\"#\">\n    <i class=\"material-icons anchor-image\">link</i>\n  </a>\n  <div class=\"copyable-container\">\n    <button class=\"copy-button-overlay copy-button\" title=\"复制到剪贴板\"\n      onclick=\"copyTextToClipboard(findSiblingWithId(this, 'sample-code'));\">\n      <i class=\"material-icons copy-image\">content_copy</i>\n    </button>\n    <pre class=\"language-dart\" id=\"sample-code\"><code class=\"language-dart\">final List&lt;MyDataObject&gt; backingList = &lt;MyDataObject&gt;[&#47;* ... *&#47;];\n\nvoid handleReorderItem(int oldIndex, int newIndex) {\n  final MyDataObject element = backingList.removeAt(oldIndex);\n  backingList.insert(newIndex, element);\n}</code></pre>\n  </div>\n</div>\n</p>",
-    "3": "<p>另请参阅：</p>"
+    "3": "<p>另请参阅：</p>",
+    "0": "<p>供 <a href=\"widgets/ReorderableList-class.html\">ReorderableList</a> 报告列表项已移动到新位置时使用的回调。</p>",
+    "1": "<p>实现应先从列表中移除索引为 <code>oldIndex</code> 的对应列表项，再将其插入索引 <code>newIndex</code> 处。</p>"
   },
   "widgets/ReorderDragBoundaryProvider.html": {
     "0": "<p>用于在拖放重排过程中提供拖动边界。</p>",
@@ -35360,17 +35375,66 @@
     "7": "<p>在这种情况下，可能无法（或至少不切实际）返回有效答案。此时，函数应在 assert 中调用 <a href=\"rendering/RenderBox/debugCannotComputeDryLayout.html\">debugCannotComputeDryLayout</a>，并返回虚设值 <code>const Size(0, 0)</code>。</p>"
   },
   "widgets/RenderTwoDimensionalViewport/computeMaxIntrinsicHeight.html": {
-    "9": "<p>另请参阅：</p>"
+    "9": "<p>另请参阅：</p>",
+    "0": "<p>计算 <a href=\"rendering/RenderBox/getMaxIntrinsicHeight.html\">getMaxIntrinsicHeight</a> 返回的值。不要直接调用此函数，而应调用 <a href=\"rendering/RenderBox/getMaxIntrinsicHeight.html\">getMaxIntrinsicHeight</a>。</p>",
+    "1": "<p>在实现 <a href=\"widgets/RenderTwoDimensionalViewport/performLayout.html\">performLayout</a> 的子类中重写此方法。应返回一个最小高度；超过该高度后，即使继续增加高度，首选宽度也不会再减小。首选宽度是针对该高度调用 <a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicWidth.html\">computeMinIntrinsicWidth</a> 时会返回的值。</p>",
+    "2": "<p>如果布局算法严格遵循“输入宽度、输出高度”，或者在高度不受约束时遵循该模式，那么对于相同宽度，此方法应返回与 <a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicHeight.html\">computeMinIntrinsicHeight</a> 相同的值。</p>",
+    "3": "<p>否则，应忽略 width 参数，且返回值应大于或等于 <a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicHeight.html\">computeMinIntrinsicHeight</a> 返回的值。</p>",
+    "4": "<p><code>width</code> 参数不会为负数或 null，但可以是无穷大。</p>",
+    "5": "<p>此方法的返回值可能与对象实际采用的尺寸不同。例如，始终使用 <a href=\"rendering/BoxConstraints/biggest.html\">BoxConstraints.biggest</a> 精确确定自身尺寸的 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 子类，其实际尺寸可能大于最大固有尺寸。</p>",
+    "6": "<p>如果此算法依赖子项的固有尺寸，应使用名称以 <code>get</code> 开头的函数获取子项固有尺寸，而不是使用 <code>compute</code> 开头的函数。</p>",
+    "7": "<p>此函数绝不能返回负数或无穷大。</p>",
+    "8": "<p>如果重写此方法，请务必在单元测试中将 <a href=\"rendering/debugCheckIntrinsicSizes.html\">debugCheckIntrinsicSizes</a> 设为 true；这会添加额外检查，帮助验证实现。</p>"
   },
   "widgets/RenderTwoDimensionalViewport/computeMaxIntrinsicWidth.html": {
-    "9": "<p>另请参阅：</p>"
+    "9": "<p>另请参阅：</p>",
+    "0": "<p>计算 <a href=\"rendering/RenderBox/getMaxIntrinsicWidth.html\">getMaxIntrinsicWidth</a> 返回的值。不要直接调用此函数，而应调用 <a href=\"rendering/RenderBox/getMaxIntrinsicWidth.html\">getMaxIntrinsicWidth</a>。</p>",
+    "1": "<p>在实现 <a href=\"widgets/RenderTwoDimensionalViewport/performLayout.html\">performLayout</a> 的子类中重写此方法。应返回一个最小宽度；超过该宽度后，即使继续增加宽度，首选高度也不会再减小。首选高度是针对该宽度调用 <a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicHeight.html\">computeMinIntrinsicHeight</a> 时会返回的值。</p>",
+    "2": "<p>如果布局算法严格遵循“输入高度、输出宽度”，或者在宽度不受约束时遵循该模式，那么对于相同高度，此方法应返回与 <a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicWidth.html\">computeMinIntrinsicWidth</a> 相同的值。</p>",
+    "3": "<p>否则，应忽略 height 参数，且返回值应大于或等于 <a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicWidth.html\">computeMinIntrinsicWidth</a> 返回的值。</p>",
+    "4": "<p><code>height</code> 参数不会为负数或 null，但可以是无穷大。</p>",
+    "5": "<p>此方法的返回值可能与对象实际采用的尺寸不同。例如，始终使用 <a href=\"rendering/BoxConstraints/biggest.html\">BoxConstraints.biggest</a> 精确确定自身尺寸的 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 子类，其实际尺寸可能大于最大固有尺寸。</p>",
+    "6": "<p>如果此算法依赖子项的固有尺寸，应使用名称以 <code>get</code> 开头的函数获取子项固有尺寸，而不是使用 <code>compute</code> 开头的函数。</p>",
+    "7": "<p>此函数绝不能返回负数或无穷大。</p>",
+    "8": "<p>如果重写此方法，请务必在单元测试中将 <a href=\"rendering/debugCheckIntrinsicSizes.html\">debugCheckIntrinsicSizes</a> 设为 true；这会添加额外检查，帮助验证实现。</p>"
   },
   "widgets/RenderTwoDimensionalViewport/computeMinIntrinsicHeight.html": {
-    "8": "<p>另请参阅：</p>"
+    "8": "<p>另请参阅：</p>",
+    "0": "<p>计算 <a href=\"rendering/RenderBox/getMinIntrinsicHeight.html\">getMinIntrinsicHeight</a> 返回的值。不要直接调用此函数，而应调用 <a href=\"rendering/RenderBox/getMinIntrinsicHeight.html\">getMinIntrinsicHeight</a>。</p>",
+    "1": "<p>在实现 <a href=\"widgets/RenderTwoDimensionalViewport/performLayout.html\">performLayout</a> 的子类中重写此方法。应返回此 box 在不裁剪内容且能正确绘制自身内容的前提下可以采用的最小高度。</p>",
+    "2": "<p>如果布局算法与上下文无关（例如始终尝试采用特定尺寸）、遵循“输入宽度、输出高度”，或同时使用传入的高度和宽度约束（例如始终将自身尺寸设为 <a href=\"rendering/BoxConstraints/biggest.html\">BoxConstraints.biggest</a>），则应忽略 <code>width</code> 参数。</p>",
+    "3": "<p>如果布局算法严格遵循“输入宽度、输出高度”，或者在高度不受约束时遵循该模式，则应使用传入的 width 参数。</p>",
+    "4": "<p><code>width</code> 参数不会为负数或 null，但可以是无穷大。</p>",
+    "5": "<p>如果此算法依赖子项的固有尺寸，应使用名称以 <code>get</code> 开头的函数获取子项固有尺寸，而不是使用 <code>compute</code> 开头的函数。</p>",
+    "6": "<p>此函数绝不能返回负数或无穷大。</p>",
+    "7": "<p>如果重写此方法，请务必在单元测试中将 <a href=\"rendering/debugCheckIntrinsicSizes.html\">debugCheckIntrinsicSizes</a> 设为 true；这会添加额外检查，帮助验证实现。</p>"
   },
   "widgets/RenderTwoDimensionalViewport/computeMinIntrinsicWidth.html": {
     "22": "<p>Some boxes always return a fixed size based on the constraints. For these\nboxes, the intrinsic functions should return the appropriate size when the\nincoming <code>height</code> or <code>width</code> argument is finite, treating that as a tight\nconstraint in the respective direction and treating the other direction's\nconstraints as unbounded. This is because the definitions of\n<a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicWidth.html\">computeMinIntrinsicWidth</a> 和 <a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicHeight.html\">computeMinIntrinsicHeight</a> are in terms of\nwhat the dimensions <em>could be</em>, and such boxes can only be one size in\nsuch cases.</p>",
-    "24": "<p>另请参阅：</p>"
+    "24": "<p>另请参阅：</p>",
+    "0": "<p>计算 <a href=\"rendering/RenderBox/getMinIntrinsicWidth.html\">getMinIntrinsicWidth</a> 返回的值。不要直接调用此函数，而应调用 <a href=\"rendering/RenderBox/getMinIntrinsicWidth.html\">getMinIntrinsicWidth</a>。</p>",
+    "1": "<p>在实现 <a href=\"widgets/RenderTwoDimensionalViewport/performLayout.html\">performLayout</a> 的子类中重写此方法。应返回此 box 在不裁剪内容且能正确绘制自身内容的前提下可以采用的最小宽度。</p>",
+    "2": "<p>如果布局算法与上下文无关（例如始终尝试采用特定尺寸）、遵循“输入宽度、输出高度”，或同时使用传入的宽度和高度约束（例如始终将自身尺寸设为 <a href=\"rendering/BoxConstraints/biggest.html\">BoxConstraints.biggest</a>），则应忽略 <code>height</code> 参数。</p>",
+    "3": "<p>如果布局算法严格遵循“输入高度、输出宽度”，或者在宽度不受约束时遵循该模式，则应使用传入的 height 参数。</p>",
+    "4": "<p><code>height</code> 参数不会为负数或 null，但可以是无穷大。</p>",
+    "5": "<p>如果此算法依赖子项的固有尺寸，应使用名称以 <code>get</code> 开头的函数获取子项固有尺寸，而不是使用 <code>compute</code> 开头的函数。</p>",
+    "6": "<p>此函数绝不能返回负数或无穷大。</p>",
+    "7": "<p>如果重写此方法，请务必在单元测试中将 <a href=\"rendering/debugCheckIntrinsicSizes.html\">debugCheckIntrinsicSizes</a> 设为 true；这会添加额外检查，帮助验证实现。</p>",
+    "8": "<h2 id=\"examples\">示例</h2>",
+    "9": "<h3 id=\"text\">文本</h3>",
+    "10": "<p>英文文本是典型的“输入宽度、输出高度”算法示例。因此，<code>height</code> 参数会被忽略。</p>",
+    "11": "<p>以字符串 “Hello World” 为例。最大固有宽度（由 <a href=\"widgets/RenderTwoDimensionalViewport/computeMaxIntrinsicWidth.html\">computeMaxIntrinsicWidth</a> 返回）是该字符串不换行时的宽度。</p>",
+    "12": "<p>最小固有宽度是最宽单词（“Hello”或“World”）的宽度。不过，如果文本以更窄的宽度绘制，它仍可能不会溢出。例如，渲染时可能会在单词中间换行，形成“Hel⁞lo⁞Wor⁞ld”。但这并不是<em>正确</em>的绘制方式；<a href=\"widgets/RenderTwoDimensionalViewport/computeMinIntrinsicWidth.html\">computeMinIntrinsicWidth</a> 的定义是：返回 box 能正确绘制自身内容而不失败时所需的最小宽度。</p>",
+    "13": "<p>因此，对于小于最小固有宽度的给定宽度，其最小固有<em>高度</em>可能大于最小固有宽度对应的最小固有高度。</p>",
+    "14": "<h3 id=\"viewports-eg-scrolling-lists\">视口（例如滚动列表）</h3>",
+    "15": "<p>有些渲染框的用途就是裁剪其子项。例如，滚动列表的渲染框可能始终按父项尺寸（更准确地说，按传入的最大约束）确定自身尺寸，而不受子项尺寸影响；随后再裁剪子项，并根据当前滚动偏移量定位它们。</p>",
+    "16": "<p>在这些情况下，尽管布局算法以独立于子项的方式确定 box 尺寸，固有尺寸仍取决于子项。关键是绘制 box 内容（此处为子项）所需的尺寸，应能使内容<em>不被裁剪</em>。</p>",
+    "17": "<h3 id=\"when-the-intrinsic-dimensions-cannot-be-known\">无法确定固有尺寸时</h3>",
+    "18": "<p>某些渲染对象无法高效地计算固有尺寸。例如，扩展并测量延迟构建视口的每个子项可能开销过高（视口通常只会实例化当前可见的子项）；或者尺寸由一个渲染对象无法推理的回调计算得出。</p>",
+    "19": "<p>在这些情况下，可能无法（或至少难以实际）返回有效结果。如果启用了断言且 <a href=\"rendering/RenderObject/debugCheckingIntrinsics.html\">RenderObject.debugCheckingIntrinsics</a> 为 false，固有尺寸函数应抛出异常；否则返回 0.0。</p>",
+    "20": "<p>有关示例，请参阅 <a href=\"widgets/LayoutBuilder-class.html\">LayoutBuilder</a> 或 <a href=\"rendering/RenderViewportBase-class.html\">RenderViewportBase</a> 的实现（特别是 <a href=\"rendering/RenderViewportBase/debugThrowIfNotCheckingIntrinsics.html\">RenderViewportBase.debugThrowIfNotCheckingIntrinsics</a>）。</p>",
+    "21": "<h3 id=\"aspect-ratio-driven-boxes\">由宽高比决定尺寸的 box</h3>",
+    "23": "<p>如果传入的参数不是有限值，则应像其他 box 一样，根据内容返回实际固有尺寸。</p>"
   },
   "widgets/RenderTwoDimensionalViewport/debugDescribeChildren.html": {
     "3": "<p>Used by <a href=\"rendering/RenderObject/toStringDeep.html\">toStringDeep</a>, <a href=\"foundation/DiagnosticableTreeMixin/toDiagnosticsNode.html\">toDiagnosticsNode</a> 和 <a href=\"rendering/RenderObject/toStringShallow.html\">toStringShallow</a>.</p>",
@@ -252116,7 +252180,8 @@
   "widgets/RenderObjectToWidgetElement/moveRenderObjectChild.html": {
     "2": "<p><code>slot</code> 的语义由此元素决定。例如，如果此元素只有一个子节点，slot 应始终为 null；如果此元素有多个子节点，将前一个兄弟元素包装在 <a href=\"widgets/IndexedSlot-class.html\">IndexedSlot</a> 中，便可作为 slot 的合适值。</p>",
     "0": "<p>将指定子节点从旧 slot 移动到新 slot。</p>",
-    "1": "<p>保证指定子节点的父节点为 <a href=\"widgets/RenderObjectToWidgetElement/renderObject.html\">renderObject</a>。</p>"
+    "1": "<p>保证指定子节点的父节点为 <a href=\"widgets/RenderObjectToWidgetElement/renderObject.html\">renderObject</a>。</p>",
+    "3": "<p>只有当 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 可能使用现有的子 <a href=\"widgets/Element-class.html\">Element</a> 调用，并且传入的 <code>slot</code> 与此前分配给该元素的 slot 不同时，才会调用此方法。例如，<a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a> 会这样做，而 <a href=\"widgets/SingleChildRenderObjectElement-class.html\">SingleChildRenderObjectElement</a> 不会（因为 <code>slot</code> 始终为 null）。如果某个 <a href=\"widgets/Element-class.html\">Element</a> 的子项具有固定的一组 slot，每个子项的 slot 始终不变，且更新一个 slot 时不会与其他 slot 中的子项相互比较，那么就永远不会调用此方法。</p>"
   },
   "widgets/SingleChildRenderObjectElement/insertRenderObjectChild.html": {
     "1": "<p><code>slot</code> 的语义由此元素决定。例如，如果此元素只有一个子节点，slot 应始终为 null；如果此元素有多个子节点，将前一个兄弟元素包装在 <a href=\"widgets/IndexedSlot-class.html\">IndexedSlot</a> 中，便可作为 slot 的合适值。</p>",
@@ -254426,7 +254491,8 @@
   },
   "widgets/RenderTapRegionSurface/attach.html": {
     "0": "<p>将此渲染对象标记为已附加到指定的 owner。</p>",
-    "2": "<p>带有子项的子类应重写此方法，在调用继承的方法后，将所有子项 <a href=\"widgets/RenderTapRegionSurface/attach.html\">attach</a> 到同一个 <code>owner</code>，例如调用 <code>super.attach(owner)</code>。</p>"
+    "2": "<p>带有子项的子类应重写此方法，在调用继承的方法后，将所有子项 <a href=\"widgets/RenderTapRegionSurface/attach.html\">attach</a> 到同一个 <code>owner</code>，例如调用 <code>super.attach(owner)</code>。</p>",
+    "1": "<p>通常只会从 <a href=\"rendering/RenderObject/parent.html\">parent</a> 的 <a href=\"widgets/RenderTapRegionSurface/attach.html\">attach</a> 方法调用；也会由 <code>owner</code> 调用，以将树的根节点标记为已附加。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/attach.html": {
     "0": "<p>将此渲染对象标记为已附加到指定的 owner。</p>",
@@ -254450,7 +254516,8 @@
   },
   "widgets/RenderTapRegionSurface/detach.html": {
     "0": "<p>将此渲染对象标记为已从其 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a> 分离。</p>",
-    "2": "<p>带有子项的子类应重写此方法，在调用继承的方法后，将所有子项 <a href=\"widgets/RenderTapRegionSurface/detach.html\">detach</a>，例如调用 <code>super.detach()</code>。</p>"
+    "2": "<p>带有子项的子类应重写此方法，在调用继承的方法后，将所有子项 <a href=\"widgets/RenderTapRegionSurface/detach.html\">detach</a>，例如调用 <code>super.detach()</code>。</p>",
+    "1": "<p>通常只会从 <a href=\"rendering/RenderObject/parent.html\">parent</a> 的 <a href=\"widgets/RenderTapRegionSurface/detach.html\">detach</a> 方法调用；也会由 <a href=\"rendering/RenderObject/owner.html\">owner</a> 调用，以将树的根节点标记为已分离。</p>"
   },
   "widgets/RenderAbstractLayoutBuilderMixin/detach.html": {
     "0": "<p>将此渲染对象标记为已从其 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a> 分离。</p>",
@@ -254477,7 +254544,8 @@
   },
   "widgets/RenderTreeRootElement/detachRenderObject.html": {
     "0": "<p>从渲染树中移除 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a>。</p>",
-    "1": "<p>默认实现会对每个子项递归调用 <a href=\"widgets/RenderTreeRootElement/detachRenderObject.html\">detachRenderObject</a>。<a href=\"widgets/RenderObjectElement/detachRenderObject.html\">RenderObjectElement.detachRenderObject</a> 重写的方法负责实际将 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a> 从渲染树中移除。</p>"
+    "1": "<p>默认实现会对每个子项递归调用 <a href=\"widgets/RenderTreeRootElement/detachRenderObject.html\">detachRenderObject</a>。<a href=\"widgets/RenderObjectElement/detachRenderObject.html\">RenderObjectElement.detachRenderObject</a> 重写的方法负责实际将 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a> 从渲染树中移除。</p>",
+    "2": "<p>此方法由 <a href=\"widgets/Element/deactivateChild.html\">deactivateChild</a> 调用。</p>"
   },
   "widgets/RequestFocusAction-class.html": {
     "5": "<p>有关焦点遍历的更多信息，请参阅 <a href=\"widgets/FocusTraversalPolicy-class.html\">FocusTraversalPolicy</a>。</p>"
@@ -258918,5 +258986,175 @@
     "0": "<p>返回此 <a href=\"widgets/Element-class.html\">Element</a> 的一个子项，该子项会将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入此 Element 的某个祖先中，以构建渲染树。</p>",
     "1": "<p>如果此 <a href=\"widgets/Element-class.html\">Element</a> 没有任何需要将 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 附加到某个祖先的子项，则返回 null。因此，<a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 会返回 null，因为它的子项会将其 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 插入 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 自身，而不是插入 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 的某个祖先中。</p>",
     "2": "<p>此外，如果 <a href=\"widgets/Element-class.html\">Element</a> 会提升自己的独立渲染树，而不会扩展祖先的渲染树，此方法也可能返回 null。</p>"
+  },
+  "widgets/RenderObjectToWidgetAdapter-class.html": {
+    "0": "<p>连接 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 与 <a href=\"widgets/Element-class.html\">Element</a> 树的桥接组件。</p>",
+    "1": "<p>给定的容器是应插入 <a href=\"widgets/Element-class.html\">Element</a> 树的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。它必须是实现 <a href=\"rendering/RenderObjectWithChildMixin-mixin.html\">RenderObjectWithChildMixin</a> 协议的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>。类型参数 <code>T</code> 表示容器期望作为子项的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 类型。</p>",
+    "2": "<p><a href=\"widgets/RenderObjectToWidgetAdapter-class.html\">RenderObjectToWidgetAdapter</a> 是用于启动元素树的另一种方式，可替代 <a href=\"widgets/RootWidget-class.html\">RootWidget</a>。与 <a href=\"widgets/RootWidget-class.html\">RootWidget</a> 不同，它要求渲染树已经存在，并通过 <a href=\"widgets/RenderObjectToWidgetAdapter/container.html\">container</a> 将元素树附加到该渲染树。</p>"
+  },
+  "widgets/RenderObjectToWidgetAdapter/attachToRenderTree.html": {
+    "0": "<p>扩展此组件，并将生成的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 设为 <a href=\"widgets/RenderObjectToWidgetAdapter/container.html\">container</a> 的子项。</p>",
+    "1": "<p>如果 <code>element</code> 为 null，此函数会创建一个新元素；否则会安排给定元素更新，以切换为此组件。</p>"
+  },
+  "widgets/RenderObjectToWidgetElement-class.html": {
+    "0": "<p>由 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 承载的元素树的根节点。</p>",
+    "1": "<p>此元素类是 <a href=\"widgets/RenderObjectToWidgetAdapter-class.html\">RenderObjectToWidgetAdapter</a> 组件的实例化。它只能作为 <a href=\"widgets/Element-class.html\">Element</a> 树的根节点（不能挂载到其他 <a href=\"widgets/Element-class.html\">Element</a> 中；其 parent 必须为 null）。</p>",
+    "2": "<p>通常，此元素会为容器是 <a href=\"rendering/RenderView-class.html\">RenderView</a> 的 <a href=\"widgets/RenderObjectToWidgetAdapter-class.html\">RenderObjectToWidgetAdapter</a> 实例化。</p>"
+  },
+  "widgets/RenderObjectToWidgetElement/RenderObjectToWidgetElement.html": {
+    "0": "<p>创建一个由 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 承载的元素。</p>",
+    "1": "<p>此元素创建的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 不会自动设为承载它的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的子项。若要将此元素实际附加到渲染树，请调用 <a href=\"widgets/RenderObjectToWidgetAdapter/attachToRenderTree.html\">RenderObjectToWidgetAdapter.attachToRenderTree</a>。</p>"
+  },
+  "widgets/RenderObjectWidget-class.html": {
+    "0": "<p><a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a> 为 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 提供配置；RenderObjectElement 包装 <a href=\"rendering/RenderObject-class.html\">RenderObject</a>，而 RenderObject 负责应用的实际渲染。</p>",
+    "1": "<p>通常，渲染对象组件不会直接继承 <a href=\"widgets/RenderObjectWidget-class.html\">RenderObjectWidget</a>，而会继承以下某个类：</p>",
+    "2": "<p>子类必须实现 <a href=\"widgets/RenderObjectWidget/createRenderObject.html\">createRenderObject</a> 和 <a href=\"widgets/RenderObjectWidget/updateRenderObject.html\">updateRenderObject</a>。</p>"
+  },
+  "widgets/RenderTapRegion/consumeOutsideTaps.html": {
+    "0": "<p>触发 <a href=\"widgets/RenderTapRegion/onTapOutside.html\">onTapOutside</a> 或 <a href=\"widgets/RenderTapRegion/onTapUpOutside.html\">onTapUpOutside</a> 调用的轻点事件，是否继续参与手势竞技场。</p>",
+    "1": "<p>如果同组中的任一 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 将 <a href=\"widgets/RenderTapRegion/consumeOutsideTaps.html\">consumeOutsideTaps</a> 设为 true，则其他手势识别器处理轻点按下事件之前，该事件就会被消耗。</p>"
+  },
+  "widgets/RenderTapRegion/groupId.html": {
+    "0": "<p>可选的组 ID，用于将多个 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 归为一组，使其作为一个区域运行。如果某次轻点命中了组中任一成员，则不会为任何成员调用 <a href=\"widgets/RenderTapRegion/onTapOutside.html\">onTapOutside</a> 或 <a href=\"widgets/RenderTapRegion/onTapUpOutside.html\">onTapUpOutside</a>。如果命中了组中任一成员，则会为所有成员调用 <a href=\"widgets/RenderTapRegion/onTapInside.html\">onTapInside</a> 或 <a href=\"widgets/RenderTapRegion/onTapUpInside.html\">onTapUpInside</a>。</p>",
+    "1": "<p>如果 group ID 为 null，则命中测试只会针对当前区域进行。</p>"
+  },
+  "widgets/RenderTapRegion/onTapInside.html": {
+    "0": "<p>检测到在此 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 内部轻点按下时调用的回调；如果存在具有相同 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a> 的其他轻点区域，在其内部按下也会调用此回调。</p>",
+    "1": "<p>传给函数的 <a href=\"gestures/PointerDownEvent-class.html\">PointerDownEvent</a> 是触发通知的事件。如果此区域属于一个组（即设置了 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a>），该事件可能发生在当前区域之外，但仍位于某个组成员的区域内。</p>"
+  },
+  "widgets/RenderTapRegion/onTapOutside.html": {
+    "0": "<p>检测到在此 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 及具有相同 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a> 的其他区域之外轻点按下时调用的回调。</p>",
+    "1": "<p>传给函数的 <a href=\"gestures/PointerDownEvent-class.html\">PointerDownEvent</a> 是触发通知的事件。如果此区域属于一个组（即设置了 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a>），该事件可能发生在当前区域之外，但仍位于某个组成员的区域内。</p>"
+  },
+  "widgets/RenderTapRegion/onTapUpInside.html": {
+    "0": "<p>检测到在此 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 内部轻点抬起时调用的回调；如果存在具有相同 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a> 的其他轻点区域，在其内部抬起也会调用此回调。</p>",
+    "1": "<p>传给函数的 <a href=\"gestures/PointerUpEvent-class.html\">PointerUpEvent</a> 是触发通知的事件。如果此区域属于一个组（即设置了 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a>），该事件可能发生在当前区域之外，但仍位于某个组成员的区域内。</p>"
+  },
+  "widgets/RenderTapRegion/onTapUpOutside.html": {
+    "0": "<p>检测到在此 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 及具有相同 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a> 的其他区域之外轻点抬起时调用的回调。</p>",
+    "1": "<p>传给函数的 <a href=\"gestures/PointerUpEvent-class.html\">PointerUpEvent</a> 是触发通知的事件。如果此区域属于一个组（即设置了 <a href=\"widgets/RenderTapRegion/groupId.html\">groupId</a>），该事件可能发生在当前区域之外，但仍位于某个组成员的区域内。</p>"
+  },
+  "widgets/RenderTapRegion/registry.html": {
+    "0": "<p>此 <a href=\"widgets/RenderTapRegion-class.html\">RenderTapRegion</a> 应向其注册的 registry。</p>",
+    "1": "<p>如果 <a href=\"widgets/RenderTapRegion/registry.html\">registry</a> 为 null，此区域将不会注册到任何位置，也不会执行轻点检测。</p>",
+    "2": "<p><a href=\"widgets/RenderTapRegionSurface-class.html\">RenderTapRegionSurface</a> 是一种 <a href=\"widgets/TapRegionRegistry-class.html\">TapRegionRegistry</a>。</p>"
+  },
+  "widgets/RenderTapRegion/dispose.html": {
+    "0": "<p>释放此渲染对象持有的所有资源。</p>",
+    "1": "<p>创建 RenderObject 的对象负责释放它。如果此渲染对象直接创建了子项，也必须在此方法中释放这些子项。不得释放由其他对象（例如 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>）创建的子项。这些子项会在对应元素卸载时释放；如果元素被移动到树的其他部分，释放可能会延迟进行。</p>",
+    "2": "<p>此方法的实现必须以调用继承的方法结束，例如 <code>super.dispose()</code>。</p>",
+    "3": "<p>调用 dispose 后，此对象将无法继续使用。</p>"
+  },
+  "widgets/RenderTapRegion/layout.html": {
+    "0": "<p>计算此渲染对象的布局。</p>",
+    "1": "<p>父对象主要通过此方法要求子项更新其布局信息。父对象会传入一个约束对象，告知子项允许采用哪些布局；子项必须遵守给定约束。</p>",
+    "2": "<p>如果父对象会读取子项布局期间计算的信息，就必须将 <code>parentUsesSize</code> 设为 true。在这种情况下，当子项被标记为需要布局时，父对象也会被标记为需要布局，因为父对象的布局信息依赖于子项的布局信息。如果父对象对 <code>parentUsesSize</code> 使用默认值 false，子项可以在给定约束范围内更改布局信息，而无需通知父对象。</p>",
+    "3": "<p>子类不应直接重写 <a href=\"widgets/RenderTapRegion/layout.html\">layout</a>。应改为重写 <a href=\"rendering/RenderBox/performResize.html\">performResize</a> 和/或 <a href=\"rendering/RenderProxyBoxMixin/performLayout.html\">performLayout</a>。<a href=\"widgets/RenderTapRegion/layout.html\">layout</a> 方法会将实际工作委托给 <a href=\"rendering/RenderBox/performResize.html\">performResize</a> 和 <a href=\"rendering/RenderProxyBoxMixin/performLayout.html\">performLayout</a>。</p>",
+    "4": "<p>父对象的 <a href=\"rendering/RenderProxyBoxMixin/performLayout.html\">performLayout</a> 方法应无条件地对所有子项调用 <a href=\"widgets/RenderTapRegion/layout.html\">layout</a>。如果子项无需执行任何工作来更新布局信息，<a href=\"widgets/RenderTapRegion/layout.html\">layout</a> 方法（如本实现所示）负责提前返回。</p>"
+  },
+  "widgets/RenderTapRegionSurface/handleEvent.html": {
+    "0": "<p>重写此方法，以处理命中此渲染对象的指针事件。</p>",
+    "1": "<p>对于 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 对象，<code>entry</code> 参数是一个 <a href=\"rendering/BoxHitTestEntry-class.html\">BoxHitTestEntry</a>。可通过它获取 <a href=\"gestures/PointerDownEvent-class.html\">PointerDownEvent</a> 的局部坐标位置。（这很有用，因为 <a href=\"gestures/PointerEvent/position.html\">PointerEvent.position</a> 使用全局坐标。）</p>",
+    "2": "<p>此方法的实现应按以下方式调用 <a href=\"rendering/RenderBox/debugHandleEvent.html\">debugHandleEvent</a>，以支持 <a href=\"rendering/debugPaintPointersEnabled.html\">debugPaintPointersEnabled</a>：</p>"
+  },
+  "widgets/RenderTapRegionSurface/hitTest.html": {
+    "0": "<p>确定给定位置上的渲染对象集合。</p>",
+    "1": "<p>如果此渲染对象或其后代吸收了命中（阻止其下方的对象被命中），则返回 true，并将所有包含该点的渲染对象添加到给定的命中测试结果中。如果命中可以继续传递给其下方的其他对象，则返回 false。</p>",
+    "2": "<p>调用方负责将 <code>position</code> 从全局坐标转换为相对于此 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 原点的位置坐标。此 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 负责检查给定位置是否在其边界内。</p>",
+    "3": "<p>如果需要进行坐标转换，调用方必须调用 <a href=\"rendering/BoxHitTestResult/addWithPaintTransform.html\">BoxHitTestResult.addWithPaintTransform</a>、<a href=\"rendering/BoxHitTestResult/addWithPaintOffset.html\">BoxHitTestResult.addWithPaintOffset</a> 或 <a href=\"rendering/BoxHitTestResult/addWithRawTransform.html\">BoxHitTestResult.addWithRawTransform</a>，以便在 <a href=\"gestures/HitTestResult-class.html\">HitTestResult</a> 中记录所需的变换操作。这些方法也有助于将变换应用到 <code>position</code>。</p>",
+    "4": "<p>命中测试要求布局信息是最新的，但不要求绘制信息是最新的。这意味着渲染对象可以依赖 <a href=\"rendering/RenderProxyBoxMixin/performLayout.html\">performLayout</a> 已在 <a href=\"widgets/RenderTapRegionSurface/hitTest.html\">hitTest</a> 中调用，但不能依赖 <a href=\"rendering/RenderProxyBoxMixin/paint.html\">paint</a> 已调用。例如，即使 <a href=\"rendering/RenderOpacity-class.html\">RenderOpacity</a> 的透明度为零且不会 <a href=\"rendering/RenderProxyBoxMixin/paint.html\">paint</a> 子项，它仍可能对其子项调用 <a href=\"widgets/RenderTapRegionSurface/hitTest.html\">hitTest</a>。</p>"
+  },
+  "widgets/RenderTreeRootElement-class.html": {
+    "0": "<p>用于管理渲染树根节点的 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>。</p>",
+    "1": "<p>与其他 RenderObjectElement 不同，此元素不会尝试将其 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a> 附加到最近的祖先 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>。子类必须重写 <a href=\"widgets/RenderTreeRootElement/attachRenderObject.html\">attachRenderObject</a> 和 <a href=\"widgets/RenderTreeRootElement/detachRenderObject.html\">detachRenderObject</a>，将 <a href=\"widgets/RenderObjectElement/renderObject.html\">renderObject</a> 附加到管理渲染树的对象实例（例如，将其赋给 <a href=\"rendering/PipelineOwner/rootNode.html\">PipelineOwner.rootNode</a>），并在需要时从该实例分离。</p>"
+  },
+  "widgets/RenderTwoDimensionalViewport-class.html": {
+    "0": "<p>用于呈现二维滚动渲染对象的基类。</p>",
+    "1": "<p>视口会监听两个 <a href=\"rendering/ViewportOffset-class.html\">ViewportOffset</a>，由此确定可见内容。</p>",
+    "2": "<p>子类必须实现 <a href=\"widgets/RenderTwoDimensionalViewport/layoutChildSequence.html\">layoutChildSequence</a>，并在其中调用 <a href=\"widgets/RenderTwoDimensionalViewport/buildOrObtainChildFor.html\">buildOrObtainChildFor</a> 来管理视口的子项。</p>",
+    "3": "<p>子类不应重写 <a href=\"widgets/RenderTwoDimensionalViewport/performLayout.html\">performLayout</a>，因为它会在调用 <a href=\"widgets/RenderTwoDimensionalViewport/layoutChildSequence.html\">layoutChildSequence</a> 前后执行必要的清理工作。</p>"
+  },
+  "widgets/RenderTwoDimensionalViewport/RenderTwoDimensionalViewport.html": {
+    "0": "<p>为子类初始化字段。</p>",
+    "1": "<p>如果 <code>cacheExtent</code> 为 null，默认使用 <a href=\"rendering/RenderAbstractViewport/defaultCacheExtent-constant.html\">RenderAbstractViewport.defaultCacheExtent</a>。</p>"
+  },
+  "widgets/RenderTwoDimensionalViewport/buildOrObtainChildFor.html": {
+    "0": "<p>返回给定 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 对应的子项。应在 <a href=\"widgets/RenderTwoDimensionalViewport/layoutChildSequence.html\">layoutChildSequence</a> 期间调用，以实例化或获取子项。</p>",
+    "1": "<p>如果子项尚未构建，此方法会构建它；如果已经存在，则会复用它，无论它来自上一帧还是被保活。</p>",
+    "2": "<p>给定 <a href=\"widgets/ChildVicinity-class.html\">ChildVicinity</a> 对应的子项会插入活动子项列表，因此应当处于可见范围内，或位于 <a class=\"deprecated\" href=\"widgets/RenderTwoDimensionalViewport/cacheExtent.html\">cacheExtent</a> 内。</p>"
+  },
+  "widgets/RenderTwoDimensionalViewport/visitChildren.html": {
+    "0": "<p>对这个渲染对象的每个直接子项调用 visitor。</p>",
+    "1": "<p>有子项的子类应重写此方法，并对每个子项调用 visitor。</p>"
+  },
+  "widgets/RenderTwoDimensionalViewport/visitChildrenForSemantics.html": {
+    "0": "<p>收集此节点的语义信息时调用。</p>",
+    "1": "<p>实现必须按绘制顺序返回相关子项，并跳过所有与语义无关的子项（例如不可见的子项）。</p>",
+    "2": "<p>默认实现与 <a href=\"widgets/RenderTwoDimensionalViewport/visitChildren.html\">visitChildren</a> 的行为一致；后者应遍历所有子项。</p>"
+  },
+  "widgets/RenderTwoDimensionalViewport/isRepaintBoundary.html": {
+    "0": "<p>此渲染对象是否与其父对象分开重新绘制。</p>",
+    "1": "<p>子类可以重写此属性，声明其类的实例应独立重新绘制。例如，经常需要重绘的渲染对象可以只重绘自身，而不要求父对象一同重绘。</p>",
+    "2": "<p>如果此 getter 返回 true，<a href=\"rendering/RenderBox/paintBounds.html\">paintBounds</a> 会应用于此对象及其所有后代。框架会调用 <a href=\"rendering/RenderObject/updateCompositedLayer.html\">RenderObject.updateCompositedLayer</a> 创建 <a href=\"rendering/OffsetLayer-class.html\">OffsetLayer</a>，并将其赋给 <a href=\"rendering/RenderObject/layer.html\">layer</a> 字段。声明自己是重绘边界的渲染对象不得替换框架创建的图层。</p>",
+    "3": "<p>如果此 getter 的值发生变化，必须调用 <a href=\"rendering/RenderObject/markNeedsCompositingBitsUpdate.html\">markNeedsCompositingBitsUpdate</a>。</p>",
+    "4": "<p>有关重绘边界工作方式的更多信息，请参阅 <a href=\"widgets/RepaintBoundary-class.html\">RepaintBoundary</a>。</p>"
+  },
+  "widgets/RenderTwoDimensionalViewport/sizedByParent.html": {
+    "0": "<p>尺寸计算算法是否只以约束为输入（也就是说，子节点不会影响尺寸）。</p>",
+    "1": "<p>返回 false 始终是正确的；但如果返回 true，在计算此渲染对象尺寸时可能更高效，因为约束不变时无需重新计算尺寸。</p>",
+    "2": "<p>通常，子类始终返回相同的值。如果此值可能变化，那么发生变化时，子类应确保调用 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a>。</p>",
+    "3": "<p>返回 true 的子类不得在 <a href=\"widgets/RenderTwoDimensionalViewport/performLayout.html\">performLayout</a> 中更改此渲染对象的尺寸。此工作应由 <a href=\"widgets/RenderTwoDimensionalViewport/performResize.html\">performResize</a> 完成；对于 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 子类，也可以在 <a href=\"rendering/RenderBox/computeDryLayout.html\">RenderBox.computeDryLayout</a> 中完成。</p>"
+  },
+  "widgets/RenderTwoDimensionalViewport/markNeedsLayout.html": {
+    "0": "<p>将此渲染对象的布局信息标记为脏状态；如果此对象是重新布局边界，则向其 <a href=\"rendering/PipelineOwner-class.html\">PipelineOwner</a> 注册，否则交由父对象处理。</p>",
+    "1": "<h2 id=\"background\">背景</h2>",
+    "2": "<p>收到对渲染对象的写入时，我们不会立即更新布局信息，而是将其标记为脏状态并安排一次视觉更新。视觉更新过程中，渲染流水线会更新渲染对象的布局信息。</p>",
+    "3": "<p>此机制会批量处理布局工作，将连续发生的多次写入合并，从而避免重复计算。</p>",
+    "4": "<p>如果渲染对象的父对象表示在计算布局信息时会使用某个渲染子项的尺寸，那么对此子项调用此函数时，也会将父对象标记为需要布局。在这种情况下，父对象和子项都需要重新计算布局，因此渲染流水线只会收到父对象的通知；父对象完成布局时会调用子项的 <a href=\"rendering/RenderObject/layout.html\">layout</a> 方法，子项也会随之布局。</p>",
+    "5": "<p>对渲染对象调用 <a href=\"widgets/RenderTwoDimensionalViewport/markNeedsLayout.html\">markNeedsLayout</a> 后，<a href=\"rendering/RenderObject/debugNeedsLayout.html\">debugNeedsLayout</a> 会一直对该对象返回 true，直到流水线所有者调用该对象的 <a href=\"rendering/RenderObject/layout.html\">layout</a> 后才恢复。</p>",
+    "6": "<h2 id=\"special-cases\">特殊情况</h2>",
+    "7": "<p><a href=\"rendering/RenderObject-class.html\">RenderObject</a> 的部分子类（尤其是 <a href=\"rendering/RenderBox-class.html\">RenderBox</a>）还存在其他需要在子项变脏时通知父对象的情况，例如子项的固有尺寸或基线发生变化。这些子类会重写 markNeedsLayout：常规情况下调用 <code>super.markNeedsLayout()</code>；如果父对象和子项都需要重新布局，则调用 <a href=\"rendering/RenderObject/markParentNeedsLayout.html\">markParentNeedsLayout</a>。</p>",
+    "8": "<p>如果 <a href=\"widgets/RenderTwoDimensionalViewport/sizedByParent.html\">sizedByParent</a> 发生变化，应改为调用 <a href=\"rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html\">markNeedsLayoutForSizedByParentChange</a>，而不是 <a href=\"widgets/RenderTwoDimensionalViewport/markNeedsLayout.html\">markNeedsLayout</a>。</p>"
+  },
+  "widgets/ReorderItemProxyDecorator.html": {
+    "0": "<p>用于装饰 <a href=\"widgets/ReorderableList-class.html\">ReorderableList</a> 和 <a href=\"widgets/SliverReorderableList-class.html\">SliverReorderableList</a> 中正在拖动列表项的 builder 回调签名。</p>",
+    "1": "<p><code>child</code> 是当前正在拖动的列表项，<code>index</code> 是该列表项在列表中的位置。</p>",
+    "2": "<p>拖动操作开始并提起列表项时，<code>animation</code> 会从 0.0 正向变化到 1.0；放下列表项时则从 1.0 反向变化到 0.0。可用它为代理组件的属性添加动画，例如高度或边框动画。</p>",
+    "3": "<p>返回值通常是用其他组件包裹后的 <code>child</code>。</p>"
+  },
+  "widgets/ReorderableDelayedDragStartListener/ReorderableDelayedDragStartListener.html": {
+    "0": "<p>为给定的子 widget 创建一个监听器，用于在其上发生长按后开始拖动。</p>",
+    "1": "<p>最常见的用法是用它包裹可重新排序列表中的整个列表项。</p>"
+  },
+  "widgets/ReorderableDelayedDragStartListener/createRecognizer.html": {
+    "0": "<p>提供用于指示重新排序拖动操作开始的手势识别器。</p>",
+    "1": "<p>默认情况下，此方法返回 <a href=\"gestures/ImmediateMultiDragGestureRecognizer-class.html\">ImmediateMultiDragGestureRecognizer</a>；子类可以重写此方法，自定义拖动开始手势。</p>"
+  },
+  "flutter/widgets/ReorderableDragStartListener-class.html": {
+    "0": "<p>一个包装组件。它会在被包装的组件收到 <a href=\"gestures/PointerDownEvent-class.html\">PointerDownEvent</a> 时识别拖动的开始，并立即开始将该列表项拖到可重新排序列表中的新位置。</p>",
+    "1": "<p>另请参阅：</p>"
+  },
+  "flutter/widgets/ReorderableDragStartListener/createRecognizer.html": {
+    "0": "<p>提供用于指示重新排序拖动操作开始的手势识别器。</p>",
+    "1": "<p>默认情况下，此方法返回 <a href=\"gestures/ImmediateMultiDragGestureRecognizer-class.html\">ImmediateMultiDragGestureRecognizer</a>，但子类可以通过重写此方法来自定义拖动开始手势。</p>"
+  },
+  "flutter/widgets/ReorderableDragStartListener/enabled.html": {
+    "0": "<p><a href=\"widgets/ReorderableDragStartListener/child.html\">child</a> 列表项是否可以拖动并在列表中移动。</p>",
+    "1": "<p>如果为 true，用户点按子项时，该列表项可以移动到列表中的其他位置。如果为 false，点按子项将被忽略。</p>"
+  },
+  "flutter/widgets/ReorderableList-class.html": {
+    "0": "<p>允许用户通过交互重新排列列表项的滚动容器。</p>",
+    "1": "<p>此组件类似于通过 <a href=\"widgets/ListView/ListView.builder.html\">ListView.builder</a> 创建的组件，并使用 <a href=\"widgets/IndexedWidgetBuilder.html\">IndexedWidgetBuilder</a> 创建每个列表项。</p>",
+    "2": "<p>应用需要为每个子项（或子项中的某个部分，例如拖动手柄）包装一个拖动监听器。该监听器负责识别列表项拖动的开始，并调用 <a href=\"widgets/ReorderableListState/startItemDragReorder.html\">ReorderableListState.startItemDragReorder</a> 开始重新排序。最简单的做法是用 <a href=\"widgets/ReorderableDragStartListener-class.html\">ReorderableDragStartListener</a> 或 <a href=\"widgets/ReorderableDelayedDragStartListener-class.html\">ReorderableDelayedDragStartListener</a> 包装每个子项。它们会识别拖动手势的开始，并调用列表状态对象的 <a href=\"widgets/ReorderableListState/startItemDragReorder.html\">ReorderableListState.startItemDragReorder</a> 方法。</p>",
+    "3": "<p>此组件的 <a href=\"widgets/ReorderableListState-class.html\">ReorderableListState</a> 可用于手动开始重新排列列表项，或取消当前拖动。可以为 <a href=\"widgets/ReorderableListState-class.html\">ReorderableListState</a> 提供 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 来引用它，也可以在列表项的 build 方法中使用静态方法 <a href=\"widgets/ReorderableList/of.html\">ReorderableList.of</a>。</p>"
+  },
+  "flutter/widgets/ReorderableList/ReorderableList.html": {
+    "0": "<p>创建一个滚动容器，允许用户通过交互重新排列列表项。</p>",
+    "1": "<p><code>itemCount</code> 必须大于或等于零。</p>"
+  },
+  "flutter/widgets/ReorderableList/autoScrollerVelocityScalar.html": {
+    "0": "<p>每单位滚动距离对应的速度系数。</p>",
+    "1": "<p>它表示滚动超出边界的距离如何影响速度。自动滚动速度 =（超出边界的距离）× velocityScalar。</p>",
+    "2": "<p>如果未设置或设为 null，默认值为 50。</p>"
   }
 }
