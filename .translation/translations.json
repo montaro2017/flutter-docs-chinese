@@ -1,4 +1,213 @@
 {
+  "flutter/widgets/SensitiveContent-class.html": {
+    "0": "<p>用于设置 widget 树中内容的 <a href=\"services/ContentSensitivity.html\">ContentSensitivity</a> 的 widget。</p>",
+    "1": "<p>此 widget 的 <a href=\"widgets/SensitiveContent/sensitivity.html\">sensitivity</a> 会与树中的其他 <a href=\"widgets/SensitiveContent-class.html\">SensitiveContent</a> widget 一起，决定屏幕投影（例如屏幕共享）时是否遮挡屏幕。</p>",
+    "2": "<p><a href=\"services/ContentSensitivity.html\">ContentSensitivity</a> 有三个级别，可通过 <code>SensitiveContent</code> widget 设置。</p>",
+    "3": "<p><a href=\"services/ContentSensitivity.html\">ContentSensitivity.sensitive</a> 的优先级最高。若设置了此值，即使树中还有其他 <code>SensitiveContent</code> widget，也会使整棵树始终标记为敏感。</p>",
+    "4": "<p><a href=\"services/ContentSensitivity.html\">ContentSensitivity.autoSensitive</a> 的优先级次之。如果树中其他位置没有敏感级别的 <code>SensitiveContent</code> widget，它会使整棵树保持自动敏感状态。</p>",
+    "5": "<p><a href=\"services/ContentSensitivity.html\">ContentSensitivity.notSensitive</a> 的优先级最低。如果树中其他位置没有敏感级别的 <code>SensitiveContent</code> widget，它会使整棵树保持自动敏感状态。如果树中没有 <code>SensitiveContent</code> widget，则会采用嵌入端查询到的默认设置。Flutter 开发者可以在原生 Android 代码中设置此值；否则，Android 默认使用 <a href=\"services/ContentSensitivity.html\">ContentSensitivity.autoSensitive</a>；请参阅 <a href=\"https://developer.android.com/reference/android/view/View#getContentSensitivity()\">Android View.getContentSensitivity</a>。</p>",
+    "6": "<p>目前，此 widget 仅支持 Android API 35 及更高版本。在更低版本的 Android 和非 Android 平台上，此 widget 不执行任何操作；无论设置了什么 <a href=\"widgets/SensitiveContent/sensitivity.html\">sensitivity</a>，屏幕都不会被遮挡。可调用 <a href=\"services/SensitiveContentService/isSupported.html\">SensitiveContentService.isSupported</a> 以编程方式检查设备是否支持此 widget。</p>",
+    "8": "<p>屏幕更新到与 widget 的 <code>sensitivityLevel</code> 相匹配之前，某一帧仍可能先被投影，从而在该帧中泄露敏感信息。例如，在使用 <code>Navigator.of(context).pushReplacement</code> 从不含 <code>SensitiveContent</code> 的页面导航到新页面时，如果新页面使用 <code>PageRouteBuilder</code>，其 <code>pageBuilder</code> 包含 <a href=\"widgets/SensitiveContent-class.html\">SensitiveContent</a> widget，并将 <code>sensitivity</code> 设为 <a href=\"services/ContentSensitivity.html\">ContentSensitivity.sensitive</a>，同时将 <code>transitionDuration: Duration.zero</code> 设为零，那么屏幕被遮挡前，仍会有一帧应用内容被投影。有关已知漏洞的讨论或报告，请参阅 <a href=\"https://github.com/flutter/flutter/issues/164820\">Flutter issue 164820</a>。</p>"
+  },
+  "flutter/widgets/SensitiveContent/child.html": {
+    "0": "<p>此 <a href=\"widgets/SensitiveContent-class.html\">SensitiveContent</a> 的子 widget。</p>",
+    "1": "<p>如果 <a href=\"widgets/SensitiveContent/sensitivity.html\">sensitivity</a> 设为 <a href=\"services/ContentSensitivity.html\">ContentSensitivity.sensitive</a>，无论父子 widget 如何设置，屏幕投影时都会遮挡整个屏幕。</p>"
+  },
+  "flutter/widgets/SensitiveContentHost-class.html": {
+    "0": "<p>用于为包含若干 <a href=\"widgets/SensitiveContent-class.html\">SensitiveContent</a> widget 的 widget 树托管当前内容敏感级别的对象。</p>",
+    "1": "<p>此功能尚未准备好用于生产环境。</p>"
+  },
+  "flutter/widgets/ShaderMask-class.html": {
+    "0": "<p>将 <a href=\"dart-ui/Shader-class.html\">Shader</a> 生成的遮罩应用到子 widget 的 widget。</p>",
+    "1": "<p>例如，<a href=\"widgets/ShaderMask-class.html\">ShaderMask</a> 可以使用 <a href=\"painting/RadialGradient-class.html\">RadialGradient</a> 遮罩，让子 widget 的边缘逐渐淡出。</p>"
+  },
+  "flutter/widgets/ShaderMask/blendMode.html": {
+    "0": "<p>将 shader 应用到子 widget 时使用的 <a href=\"dart-ui/BlendMode.html\">BlendMode</a>。</p>",
+    "1": "<p>默认值 <a href=\"dart-ui/BlendMode.html\">BlendMode.modulate</a> 适用于对子 widget 执行 alpha 混合。也可以使用其他混合模式创建不同效果。</p>"
+  },
+  "flutter/widgets/ShaderMask/shaderCallback.html": {
+    "0": "<p>调用此回调以创建用于生成遮罩的 <a href=\"dart-ui/Shader-class.html\">dart:ui.Shader</a>。</p>",
+    "1": "<p>调用 shader 回调时会传入子 widget 当前的尺寸，以便回调根据子 widget 的尺寸和位置自定义 shader。</p>",
+    "2": "<p>通常会使用 <a href=\"painting/LinearGradient-class.html\">LinearGradient</a>、<a href=\"painting/RadialGradient-class.html\">RadialGradient</a> 或 <a href=\"painting/SweepGradient-class.html\">SweepGradient</a> 创建 <a href=\"dart-ui/Shader-class.html\">dart:ui.Shader</a>，也可以使用 <a href=\"dart-ui/ImageShader-class.html\">dart:ui.ImageShader</a> 类。</p>"
+  },
+  "flutter/widgets/SemanticIndexCallback.html": {
+    "0": "<p>根据 widget 和本地索引生成语义索引的回调。</p>",
+    "1": "<p>返回 null 可阻止 widget 获得索引。</p>",
+    "2": "<p>语义索引用于标记子语义节点，以便滚动视图进行无障碍播报。</p>"
+  },
+  "flutter/widgets/Semantics-class.html": {
+    "0": "<p>用于为 widget 树添加说明，描述各 widget 含义的 widget。</p>",
+    "1": "<p>辅助技术、搜索引擎和其他语义分析软件会使用这些信息来确定应用的含义。</p>"
+  },
+  "flutter/widgets/Semantics/Semantics.html": {
+    "0": "<p>创建语义注释。</p>",
+    "1": "<p>要创建 <a href=\"widgets/Semantics-class.html\">Semantics</a> 的 <code>const</code> 实例，请使用 <a href=\"widgets/Semantics/Semantics.fromProperties.html\">Semantics.fromProperties</a> 构造函数。</p>",
+    "2": "<p>辅助技术、搜索引擎和其他语义分析软件会使用这些信息来确定应用的含义。</p>"
+  },
+  "flutter/widgets/Semantics/blockUserActions.html": {
+    "0": "<p>是否阻止用户与此渲染子树进行交互。</p>",
+    "1": "<p>设为 true 后，辅助技术用户将无法通过指针相关的 <a href=\"dart-ui/SemanticsAction-class.html\">SemanticsAction</a> 与此 widget 配置的渲染对象及其子树交互。</p>",
+    "2": "<p>辅助技术仍可聚焦由此 widget 创建的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>。只有指针相关的 <a href=\"dart-ui/SemanticsAction-class.html\">SemanticsAction</a>（例如 <a href=\"dart-ui/SemanticsAction/tap-constant.html\">SemanticsAction.tap</a> 等操作）会被阻止。</p>",
+    "3": "<p>如果此 widget 合并到父语义节点中，则只会阻止此 widget 及其子树中 widget 的 <a href=\"dart-ui/SemanticsAction-class.html\">SemanticsAction</a>。</p>",
+    "4": "<p>例如，使用 <a href=\"widgets/Semantics-class.html\">Semantics</a>：</p>",
+    "5": "<p>生成的语义节点仍会包含 <code>_myTap</code>，但会阻止 <code>_myLongPress</code>。</p>",
+    "6": "<p>使用 <a href=\"widgets/SliverSemantics-class.html\">SliverSemantics</a> 时也类似：</p>",
+    "7": "<p>生成的语义节点仍会包含 <code>_myTap</code>，但会阻止 <code>_myLongPress</code>。</p>"
+  },
+  "flutter/widgets/Semantics/container.html": {
+    "0": "<p>如果 <code>container</code> 为 true，此 widget 会在语义树中引入一个新节点。否则，其语义会与祖先节点的语义合并（前提是祖先允许合并）。</p>",
+    "1": "<p>即使 <code>container</code> 为 false，设置 <a href=\"semantics/SemanticsProperties/identifier.html\">SemanticsProperties.identifier</a> 也会隐式引入新节点。</p>",
+    "2": "<p>此配置是否允许后代将语义信息添加到它引入的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>，由 <code>explicitChildNodes</code> 控制。</p>"
+  },
+  "flutter/widgets/Semantics/excludeSemantics.html": {
+    "0": "<p>是否用此节点替换所有子级语义。</p>",
+    "2": "<p>此标志设为 true 时，会忽略所有子语义节点。如果子 widget 先被 <a href=\"widgets/ExcludeSemantics-class.html\">ExcludeSemantics</a> 包裹，再由另一个 <a href=\"widgets/Semantics-class.html\">Semantics</a> widget 包裹，此标志可以简化这种用法。</p>"
+  },
+  "flutter/widgets/Semantics/explicitChildNodes.html": {
+    "0": "<p>是否允许此 widget 的后代向此 widget 标注的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 添加语义信息。</p>",
+    "1": "<p>设为 false 时，后代可以用其希望贡献的语义信息标注父级的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a>，并将信息贡献给语义树。设为 true 时，后代只能通过向语义树显式引入新的 <a href=\"semantics/SemanticsNode-class.html\">SemanticsNode</a> 来贡献语义信息。</p>",
+    "2": "<p>如果此节点的语义属性将 <a href=\"semantics/SemanticsProperties/scopesRoute.html\">SemanticsProperties.scopesRoute</a> 设为 true，则 <code>explicitChildNodes</code> 也必须为 true。</p>",
+    "3": "<p>此设置通常与 <a href=\"semantics/SemanticsConfiguration/isSemanticBoundary.html\">SemanticsConfiguration.isSemanticBoundary</a> 一起使用，以创建允许或禁止子级写入语义信息的语义边界。</p>"
+  },
+  "flutter/widgets/Semantics/localeForSubtree.html": {
+    "0": "<p>此子树中 widget 使用的 <a href=\"dart-ui/Locale-class.html\">Locale</a>。</p>",
+    "1": "<p>如果为 null，子树会继承祖先 widget 的 locale。</p>"
+  },
+  "flutter/widgets/SemanticsDebugger-class.html": {
+    "0": "<p>用于可视化子级语义信息的 widget。</p>",
+    "1": "<p>此 widget 有助于了解应用向无障碍技术呈现自身信息的方式。</p>"
+  },
+  "flutter/widgets/SemanticsDebugger/SemanticsDebugger.html": {
+    "0": "<p>创建一个用于可视化子级语义信息的 widget。</p>",
+    "1": "<p><code>labelStyle</code> 指定语义标签使用的 <a href=\"painting/TextStyle-class.html\">TextStyle</a>。</p>"
+  },
+  "flutter/widgets/SemanticsGestureDelegate-class.html": {
+    "0": "<p>用于描述 <a href=\"widgets/RawGestureDetector-class.html\">RawGestureDetector</a> 应向 <a href=\"rendering/RenderSemanticsGestureHandler-class.html\">RenderSemanticsGestureHandler</a> 渲染对象添加哪些语义注释的基类。</p>",
+    "1": "<p>它用于允许自定义 <a href=\"widgets/GestureDetector-class.html\">GestureDetector</a> 添加语义注释。</p>"
+  },
+  "flutter/widgets/SemanticsGestureDelegate/assignSemantics.html": {
+    "0": "<p>为手势检测器的 <a href=\"rendering/RenderSemanticsGestureHandler-class.html\">RenderSemanticsGestureHandler</a> 渲染对象分配语义注释。</p>",
+    "1": "<p>创建或更新 widget 时会调用此方法；在 <a href=\"widgets/RawGestureDetectorState/replaceGestureRecognizers.html\">RawGestureDetectorState.replaceGestureRecognizers</a> 期间也会调用。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/endHandleType.html": {
+    "0": "<p>结束选区控制柄的类型。</p>",
+    "1": "<p>控制柄可见时更改此值，会导致控制柄重新构建。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/endHandlesVisible.html": {
+    "0": "<p>结束控制柄是否可见。</p>",
+    "1": "<p>此值发生变化时，结束控制柄会使用 <a href=\"widgets/FadeTransition-class.html\">FadeTransition</a> 执行淡入或淡出动画。</p>",
+    "2": "<p>如果此值为 null，结束选区控制柄将始终可见。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/hideMagnifier.html": {
+    "0": "<p>隐藏当前放大镜。</p>",
+    "1": "<p>如果不存在放大镜，此方法不执行任何操作。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/hideToolbar.html": {
+    "0": "<p>隐藏 overlay 中的工具栏部分。</p>",
+    "1": "<p>若要隐藏整个 overlay，请参阅 <a href=\"widgets/SelectionOverlay/hide.html\">hide</a>。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/lineHeightAtEnd.html": {
+    "0": "<p>选区末端的行高。</p>",
+    "1": "<p>此值用于计算结束选区控制柄的尺寸。</p>",
+    "2": "<p>控制柄可见时更改此值，会导致控制柄重新构建。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/lineHeightAtStart.html": {
+    "0": "<p>选区起点的行高。</p>",
+    "1": "<p>此值用于计算起始选区控制柄的尺寸。</p>",
+    "2": "<p>控制柄可见时更改此值，会导致控制柄重新构建。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/magnifierConfiguration.html": {
+    "0": "<p>放大镜的配置。</p>",
+    "1": "<p>默认情况下，<a href=\"widgets/SelectionOverlay-class.html\">SelectionOverlay</a> 的 <a href=\"widgets/TextMagnifierConfiguration-class.html\">TextMagnifierConfiguration</a> 已禁用。</p>",
+    "2": "<p>在移动设备上，当用户手指遮挡了正在进行精细操作的屏幕区域时，此放大镜很有用；例如，通过拖动手势在图像或文本上移动小光标。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/magnifierExists.html": {
+    "0": "<p>放大镜当前是否存在。</p>",
+    "1": "<p>这与 <a href=\"widgets/SelectionOverlay/magnifierIsVisible.html\">magnifierIsVisible</a> 不同：放大镜可能存在于 overlay 中，但当前并未显示。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/onSelectionHandleTapped.html": {
+    "0": "<p>点击选区控制柄时可选调用的回调。</p>",
+    "1": "<p>文本字段使用的 <a href=\"widgets/TextSelectionControls/buildHandle.html\">TextSelectionControls.buildHandle</a> 实现会决定控制柄点击“热点”的位置，以及选区控制柄是否支持点击手势。例如，点击 Material 控制柄的“旋钮”时，<a href=\"material/MaterialTextSelectionControls-class.html\">MaterialTextSelectionControls</a> 会调用 <a href=\"widgets/SelectionOverlay/onSelectionHandleTapped.html\">onSelectionHandleTapped</a>；而 <a href=\"cupertino/CupertinoTextSelectionControls-class.html\">CupertinoTextSelectionControls</a> 构建的控制柄尺寸不足以供点击（因为它本来就不是用来点击的），所以即使被点击也不会调用 <a href=\"widgets/SelectionOverlay/onSelectionHandleTapped.html\">onSelectionHandleTapped</a>。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/showMagnifier.html": {
+    "0": "<p>显示放大镜；如果调用 <a href=\"widgets/SelectionOverlay/showMagnifier.html\">showMagnifier</a> 时工具栏正在显示，也会将其隐藏。在非移动平台上调用此方法是安全的，因为这些平台不会提供 magnifierBuilder，或者 magnifierBuilder 会返回 null。</p>",
+    "1": "<p>此属性<em>不是</em>判断放大镜是否显示的权威依据，因为放大镜可能会自行隐藏。如果需要此信息，请检查 <a href=\"widgets/MagnifierController/shown.html\">MagnifierController.shown</a>。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/startHandleType.html": {
+    "0": "<p>起始选区控制柄的类型。</p>",
+    "1": "<p>控制柄可见时更改此值，会导致控制柄重新构建。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/startHandlesVisible.html": {
+    "0": "<p>起始控制柄是否可见。</p>",
+    "1": "<p>此值发生变化时，起始控制柄会使用 <a href=\"widgets/FadeTransition-class.html\">FadeTransition</a> 执行淡入或淡出动画。</p>",
+    "2": "<p>如果此值为 null，起始选区控制柄将始终可见。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/toolbarIsVisible.html": {
+    "0": "<p>工具栏当前是否可见。</p>",
+    "1": "<p>包括文本选区工具栏和拼写检查菜单。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/toolbarLocation.html": {
+    "0": "<p>工具栏相对于 <a href=\"widgets/SelectionOverlay/toolbarLayerLink.html\">toolbarLayerLink</a> 的绘制位置。</p>",
+    "1": "<p>如果此值为 null，工具栏会根据 <a href=\"widgets/SelectionOverlay/selectionEndpoints.html\">selectionEndpoints</a> 以及 <a href=\"widgets/SelectionOverlay/context.html\">context</a> 对应渲染对象的矩形绘制。</p>",
+    "2": "<p>此属性适用于在桌面设备上，将工具栏显示在鼠标右键单击的位置。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/toolbarVisible.html": {
+    "0": "<p>工具栏是否可见。</p>",
+    "1": "<p>此值发生变化时，工具栏会使用 <a href=\"widgets/FadeTransition-class.html\">FadeTransition</a> 执行淡入或淡出动画。</p>",
+    "2": "<p>如果此值为 null，工具栏将始终可见。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/updateMagnifier.html": {
+    "0": "<p>使用新的选区数据更新当前放大镜，使其据此调整显示。</p>",
+    "1": "<p>即使放大镜当前未显示，此方法仍会更新其位置，因为放大镜可能是自行隐藏的，并正在等待提示以重新显示。</p>",
+    "2": "<p>如果 overlay 中不存在放大镜，此方法不执行任何操作。</p>"
+  },
+  "flutter/widgets/SelectionRegistrarScope-class.html": {
+    "0": "<p>用于在子树中提供 <a href=\"rendering/SelectionRegistrar-class.html\">SelectionRegistrar</a> 的继承 widget。</p>",
+    "1": "<p>使用 <a href=\"widgets/SelectionContainer/maybeOf.html\">SelectionContainer.maybeOf</a> 可从 context 获取 SelectionRegistrar。</p>",
+    "2": "<p>此 widget 会作为 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a> 的一部分自动创建。通常不会直接使用它，只有在需要禁用子树某一部分的选区时例外；此时可用 <a href=\"widgets/SelectionContainer/SelectionContainer.disabled.html\">SelectionContainer.disabled</a> 包裹该子树。</p>"
+  },
+  "flutter/widgets/SelectionListener-class.html": {
+    "0": "<p>一种 <a href=\"widgets/SelectionContainer-class.html\">SelectionContainer</a>，可让用户访问 <a href=\"widgets/SelectionDetails-class.html\">SelectionDetails</a>，并监听其在 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 或 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 下包裹的子树中的选区变化。</p>",
+    "1": "<p>选区更新通过 <a href=\"widgets/SelectionListener/selectionNotifier.html\">selectionNotifier</a> 提供。要监听这些更新，可通过 <a href=\"widgets/SelectionListenerNotifier/addListener.html\">SelectionListenerNotifier.addListener</a> 添加监听器。</p>",
+    "2": "<p>此 widget 不会监听其子树中嵌套的 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 或 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 的选区变化，因为这些 widget 是独立的，不会向上冒泡其选区。如果要监听此 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a> 下方某个 <a href=\"material/SelectionArea-class.html\">SelectionArea</a> 或 <a href=\"widgets/SelectableRegion-class.html\">SelectableRegion</a> 的选区变化，请在每个 widget 下方再添加一个 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a>。</p>"
+  },
+  "flutter/widgets/SelectionListener/child.html": {
+    "0": "<p>此选区监听器应用到的子 widget。</p>"
+  },
+  "flutter/widgets/SelectionListenerNotifier-class.html": {
+    "0": "<p>当 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a> 下方的选区发生变化时通知监听器。</p>",
+    "1": "<p>通常会将此对象提供给 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a>。</p>"
+  },
+  "flutter/widgets/SelectionListenerNotifier/addListener.html": {
+    "0": "<p>每当 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a> 下方选区的 <a href=\"rendering/SelectionGeometry-class.html\">SelectionGeometry</a> 发生变化时，都会调用此监听器。</p>",
+    "1": "<p>可通过 <a href=\"foundation/ChangeNotifier/removeListener.html\">removeListener</a> 移除监听器。</p>"
+  },
+  "flutter/widgets/SelectionListenerNotifier/dispose.html": {
+    "1": "<p>调用此方法后，对象将无法继续使用，应将其丢弃（对象处置后调用 <a href=\"widgets/SelectionListenerNotifier/addListener.html\">addListener</a> 会抛出异常）。</p>"
+  },
+  "flutter/widgets/SelectionListenerNotifier/selection.html": {
+    "0": "<p>拥有此 notifier 的 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a> 下方选区的详情。</p>",
+    "1": "<p>如果此 notifier 尚未注册到 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a>，则会抛出异常。要检查 notifier 是否已注册到 <a href=\"widgets/SelectionListener-class.html\">SelectionListener</a>，请使用 <a href=\"widgets/SelectionListenerNotifier/registered.html\">registered</a>。</p>"
+  },
+  "flutter/widgets/SelectionOverlay-class.html": {
+    "0": "<p>用于管理一对选区控制柄和工具栏的对象。</p>",
+    "1": "<p>选区控制柄会显示在最接近给定 <a href=\"widgets/BuildContext-class.html\">BuildContext</a> 的 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/SelectionOverlay.html": {
+    "0": "<p>创建一个用于管理选区控制柄 overlay 条目的对象。</p>",
+    "1": "<p><code>context</code> 的祖先中必须包含 <a href=\"widgets/Overlay-class.html\">Overlay</a>。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/clipboardStatus.html": {
+    "0": "<p>维护剪贴板状态，以判断其中的内容是否可以粘贴。</p>",
+    "1": "<p>此属性很有用，因为只能通过异步方式检查剪贴板的实际值（参见 <a href=\"services/Clipboard/getData.html\">Clipboard.getData</a>）。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/context.html": {
+    "0": "<p>显示选区 UI 所使用的 context。</p>",
+    "1": "<p>此 context 的祖先中必须包含 <a href=\"widgets/Overlay-class.html\">Overlay</a>，因为此对象会在该 <a href=\"widgets/Overlay-class.html\">Overlay</a> 中显示文本选区控制柄。</p>"
+  },
+  "flutter/widgets/SelectionOverlay/dragStartBehavior.html": {
+    "1": "<p>如果设为 <a href=\"gestures/DragStartBehavior.html\">DragStartBehavior.start</a>，控制柄拖动行为会从拖动手势赢得手势竞技场时的位置开始。如果设为 <a href=\"gestures/DragStartBehavior.html\">DragStartBehavior.down</a>，则会从首次检测到按下事件的位置开始。</p>"
+  },
   "flutter/widgets/SelectionContainer-class.html": {
     "0": "<p>用于处理子树中 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 的 <a href=\"rendering/SelectionEvent-class.html\">SelectionEvent</a> 的容器。</p>",
     "1": "<p>当需要自定义一组 <a href=\"rendering/Selectable-mixin.html\">Selectable</a> 的选区行为时，此 widget 很有用。</p>",

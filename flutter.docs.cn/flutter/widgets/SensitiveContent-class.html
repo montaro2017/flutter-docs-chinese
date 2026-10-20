@@ -87,35 +87,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;SensitiveContent-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/sensitive_content.dart#L337"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">SensitiveContent</span> 类 
+<h1><span class="kind-class">SensitiveContent</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Widget to set the <a href="services/ContentSensitivity.html">ContentSensitivity</a> of content in the widget
-tree.</p>
-<p>The <a href="widgets/SensitiveContent/sensitivity.html">sensitivity</a> of the widget in conjunction with the other
-<a href="widgets/SensitiveContent-class.html">SensitiveContent</a> widgets in the tree will determine whether or not the
-screen will be obscured during media projection, e.g. screen sharing.</p>
-<p>There are three <a href="services/ContentSensitivity.html">ContentSensitivity</a> levels, and these can be set via the
-<code>SensitiveContent</code> widget.</p>
-<p><a href="services/ContentSensitivity.html">ContentSensitivity.sensitive</a> is the highest prioritized setting, and if it is set,
-it will cause the tree to remain marked sensitive even if there are other
-<code>SensitiveContent</code> widgets in the tree.</p>
-<p><a href="services/ContentSensitivity.html">ContentSensitivity.autoSensitive</a> is the second most prioritized setting, and it will
-cause the tree to remain marked auto-sensitive if there are no sensitive <code>SensitiveContent</code>
-widgets elsewhere in the tree.</p>
-<p><a href="services/ContentSensitivity.html">ContentSensitivity.notSensitive</a> is the least prioritized setting, and it will cause the tree to
-remain marked auto-sensitive if there are no sensitive <code>SensitiveContent</code> widgets elsewhere in
-the tree. If there are no <code>SensitiveContent</code> widgets in the tree, the default setting as
-queried from the embedding will be used. This could be set by a Flutter developer in native
-Android; otherwise, Android uses <a href="services/ContentSensitivity.html">ContentSensitivity.autoSensitive</a> by default; see
-<a href="https://developer.android.com/reference/android/view/View#getContentSensitivity()">https://developer.android.com/reference/android/view/View#getContentSensitivity()</a>.</p>
-<p>Currently, this widget is only supported on Android API 35+. On all lower Android
-versions and non-Android platforms, this does nothing; the screen will never be
-obscured regardless of the <a href="widgets/SensitiveContent/sensitivity.html">sensitivity</a> set. To programmatically check if
-a device supports this widget, call <a href="services/SensitiveContentService/isSupported.html">SensitiveContentService.isSupported</a>.</p>
+  <p>用于设置 widget 树中内容的 <a href="services/ContentSensitivity.html">ContentSensitivity</a> 的 widget。</p>
+<p>此 widget 的 <a href="widgets/SensitiveContent/sensitivity.html">sensitivity</a> 会与树中的其他 <a href="widgets/SensitiveContent-class.html">SensitiveContent</a> widget 一起，决定屏幕投影（例如屏幕共享）时是否遮挡屏幕。</p>
+<p><a href="services/ContentSensitivity.html">ContentSensitivity</a> 有三个级别，可通过 <code>SensitiveContent</code> widget 设置。</p>
+<p><a href="services/ContentSensitivity.html">ContentSensitivity.sensitive</a> 的优先级最高。若设置了此值，即使树中还有其他 <code>SensitiveContent</code> widget，也会使整棵树始终标记为敏感。</p>
+<p><a href="services/ContentSensitivity.html">ContentSensitivity.autoSensitive</a> 的优先级次之。如果树中其他位置没有敏感级别的 <code>SensitiveContent</code> widget，它会使整棵树保持自动敏感状态。</p>
+<p><a href="services/ContentSensitivity.html">ContentSensitivity.notSensitive</a> 的优先级最低。如果树中其他位置没有敏感级别的 <code>SensitiveContent</code> widget，它会使整棵树保持自动敏感状态。如果树中没有 <code>SensitiveContent</code> widget，则会采用嵌入端查询到的默认设置。Flutter 开发者可以在原生 Android 代码中设置此值；否则，Android 默认使用 <a href="services/ContentSensitivity.html">ContentSensitivity.autoSensitive</a>；请参阅 <a href="https://developer.android.com/reference/android/view/View#getContentSensitivity()">Android View.getContentSensitivity</a>。</p>
+<p>目前，此 widget 仅支持 Android API 35 及更高版本。在更低版本的 Android 和非 Android 平台上，此 widget 不执行任何操作；无论设置了什么 <a href="widgets/SensitiveContent/sensitivity.html">sensitivity</a>，屏幕都不会被遮挡。可调用 <a href="services/SensitiveContentService/isSupported.html">SensitiveContentService.isSupported</a> 以编程方式检查设备是否支持此 widget。</p>
 <p>
 <a name="widgets.SensitiveContent.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
@@ -139,15 +123,7 @@ sharing.
     </iframe>
 </div>
 </p>
-<p>It is possible for a frame to be projected before the screen is updated to match
-the widget's <code>sensitivityLevel</code>, potentially revealing sensitive information during
-that frame. For example, when navigating from a page with no <code>SensitiveContent</code> to a
-new page in an app using a <code>Navigator.of(context).pushReplacement</code> to push a new
-<code>PageRouteBuilder</code> with (1) a <code>pageBuilder</code> that includes a <a href="widgets/SensitiveContent-class.html">SensitiveContent</a> widget
-with <code>sensitivity</code> <a href="services/ContentSensitivity.html">ContentSensitivity.sensitive</a> and (2)
-<code>transitionDuration: Duration.zero</code>, one frame showing the app content is projected
-before the screen is obscured. See <a href="https://github.com/flutter/flutter/issues/164820">https://github.com/flutter/flutter/issues/164820</a> for
-for a discussion on known vulnerabilities or to report encountered vulnerabilities.</p>
+<p>屏幕更新到与 widget 的 <code>sensitivityLevel</code> 相匹配之前，某一帧仍可能先被投影，从而在该帧中泄露敏感信息。例如，在使用 <code>Navigator.of(context).pushReplacement</code> 从不含 <code>SensitiveContent</code> 的页面导航到新页面时，如果新页面使用 <code>PageRouteBuilder</code>，其 <code>pageBuilder</code> 包含 <a href="widgets/SensitiveContent-class.html">SensitiveContent</a> widget，并将 <code>sensitivity</code> 设为 <a href="services/ContentSensitivity.html">ContentSensitivity.sensitive</a>，同时将 <code>transitionDuration: Duration.zero</code> 设为零，那么屏幕被遮挡前，仍会有一帧应用内容被投影。有关已知漏洞的讨论或报告，请参阅 <a href="https://github.com/flutter/flutter/issues/164820">Flutter issue 164820</a>。</p>
 <iframe src="https://www.youtube.com/embed/WnzHARTIZww?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
