@@ -87,43 +87,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;RootRestorationScope-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/restoration.dart#L262"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RootRestorationScope</span> 类 
+<h1><span class="kind-class">RootRestorationScope</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Inserts a child bucket of <a href="services/RestorationManager/rootBucket.html">RestorationManager.rootBucket</a> into the widget
-tree and makes it available to descendants via <a href="widgets/RestorationScope/of.html">RestorationScope.of</a>.</p>
-<p>This widget is usually used near the root of the widget tree to enable the
-state restoration functionality for the application. For all other use
-cases, consider using a regular <a href="widgets/RestorationScope-class.html">RestorationScope</a> instead.</p>
-<p>The root restoration bucket can only be retrieved asynchronously from the
-<a href="services/RestorationManager-class.html">RestorationManager</a>. To ensure that the provided <a href="widgets/RootRestorationScope/child.html">child</a> has its
-restoration data available the first time it builds, the
-<a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> will build an empty <a href="widgets/Container-class.html">Container</a> instead of the actual
-<a href="widgets/RootRestorationScope/child.html">child</a> until the root bucket is available. To hide the empty container from
-the eyes of users, the <a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> also delays rendering the
-first frame while the container is shown. On platforms that show a splash
-screen on app launch the splash screen is kept up (hiding the empty
-container) until the bucket is available and the <a href="widgets/RootRestorationScope/child.html">child</a> is ready to be
-build.</p>
-<p>The exact behavior of this widget depends on its ancestors: When the
-<a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> does not find an ancestor restoration bucket via
-<a href="widgets/RestorationScope/of.html">RestorationScope.of</a> it will claim a child bucket from the root restoration
-bucket (<a href="services/RestorationManager/rootBucket.html">RestorationManager.rootBucket</a>) using the provided <a href="widgets/RootRestorationScope/restorationId.html">restorationId</a>
-and inserts that bucket into the widget tree where descendants may access it
-via <a href="widgets/RestorationScope/of.html">RestorationScope.of</a>. If the <a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> finds a non-null
-ancestor restoration bucket via <a href="widgets/RestorationScope/of.html">RestorationScope.of</a> it will behave like a
-regular <a href="widgets/RestorationScope-class.html">RestorationScope</a> instead: It will claim a child bucket from that
-ancestor and insert that child into the widget tree.</p>
-<p>Unlike the <a href="widgets/RestorationScope-class.html">RestorationScope</a> widget, the <a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> will
-guarantee that descendants have a bucket available for storing restoration
-data as long as <a href="widgets/RootRestorationScope/restorationId.html">restorationId</a> is not null and <a href="services/RestorationManager-class.html">RestorationManager</a> is
-able to provide a root bucket. In other words, it will force-enable
-state restoration for the subtree if <a href="widgets/RootRestorationScope/restorationId.html">restorationId</a> is not null.</p>
-<p>If <a href="widgets/RootRestorationScope/restorationId.html">restorationId</a> is null, no bucket is made available to descendants,
-which effectively turns off state restoration for this subtree.</p>
+  <p>将 <a href="services/RestorationManager/rootBucket.html">RestorationManager.rootBucket</a> 的子 bucket 插入 widget 树，并通过 <a href="widgets/RestorationScope/of.html">RestorationScope.of</a> 将其提供给后代。</p>
+<p>此 widget 通常放在 widget 树靠近根的位置，以启用应用的状态恢复功能。其他使用场景请考虑改用常规的 <a href="widgets/RestorationScope-class.html">RestorationScope</a>。</p>
+<p>根 restoration bucket 只能从 <a href="services/RestorationManager-class.html">RestorationManager</a> 异步获取。为确保提供的 <a href="widgets/RootRestorationScope/child.html">child</a> 首次构建时就能获得其恢复数据，根 bucket 可用之前，<a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> 会构建一个空的 <a href="widgets/Container-class.html">Container</a>，而不是实际的 <a href="widgets/RootRestorationScope/child.html">child</a>。为了不让用户看到这个空容器，显示容器期间 <a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> 还会延迟渲染第一帧。在启动时显示启动画面的平台上，启动画面会持续显示（隐藏空容器），直到 bucket 可用且 <a href="widgets/RootRestorationScope/child.html">child</a> 准备构建为止。</p>
+<p>此 widget 的具体行为取决于其祖先：如果 <a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> 通过 <a href="widgets/RestorationScope/of.html">RestorationScope.of</a> 找不到祖先 restoration bucket，就会使用提供的 <a href="widgets/RootRestorationScope/restorationId.html">restorationId</a> 从根 restoration bucket（<a href="services/RestorationManager/rootBucket.html">RestorationManager.rootBucket</a>）中获取一个子 bucket，并将其插入 widget 树，使后代能够通过 <a href="widgets/RestorationScope/of.html">RestorationScope.of</a> 访问。如果 <a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> 通过 <a href="widgets/RestorationScope/of.html">RestorationScope.of</a> 找到了非 null 的祖先 restoration bucket，则其行为与常规的 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 相同：它会从该祖先获取子 bucket 并将其插入 widget 树。</p>
+<p>与 <a href="widgets/RestorationScope-class.html">RestorationScope</a> widget 不同，只要 <a href="widgets/RootRestorationScope/restorationId.html">restorationId</a> 不为 null 且 <a href="services/RestorationManager-class.html">RestorationManager</a> 能够提供根 bucket，<a href="widgets/RootRestorationScope-class.html">RootRestorationScope</a> 就会确保后代拥有可用于存储恢复数据的 bucket。换言之，只要 <a href="widgets/RootRestorationScope/restorationId.html">restorationId</a> 不为 null，它就会为该子树强制启用状态恢复。</p>
+<p>如果 <a href="widgets/RootRestorationScope/restorationId.html">restorationId</a> 为 null，则不会向后代提供 bucket，这实际上会关闭此子树的状态恢复。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/RestorationScope-class.html">RestorationScope</a>, which inserts a bucket obtained from a surrounding

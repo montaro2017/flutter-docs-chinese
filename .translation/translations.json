@@ -259672,7 +259672,9 @@
     "2": "<p>如果 <code>textDirection</code> 为 null，则默认使用环境中的 <a href=\"widgets/Directionality-class.html\">Directionality</a>；此时该值必须不为 null。</p>"
   },
   "flutter/widgets/RichText/locale.html": {
-    "2": "<p>更多信息请参见 <a href=\"rendering/RenderParagraph/locale.html\">RenderParagraph.locale</a>。</p>"
+    "2": "<p>更多信息请参见 <a href=\"rendering/RenderParagraph/locale.html\">RenderParagraph.locale</a>。</p>",
+    "0": "<p>当同一个 Unicode 字符会因区域设置不同而呈现为不同字形时，用于选择字体。</p>",
+    "1": "<p>通常无需设置此属性。默认值从外层应用继承，等同于 <code>Localizations.localeOf(context)</code>。</p>"
   },
   "flutter/widgets/RichText/maxLines.html": {
     "0": "<p>文本最多显示的行数，可选；必要时会换行。如果文本超过指定行数，则会根据 <a href=\"widgets/RichText/overflow.html\">overflow</a> 截断。</p>",
@@ -259953,5 +259955,106 @@
   "flutter/widgets/RootElementMixin/slot.html": {
     "0": "<p>由父元素设置的信息，用于确定此子元素在父元素子节点列表中的位置。</p>",
     "1": "<p>调用父元素的 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 方法来扩充子组件时，会确定该子组件的 slot。有关 slot 的详情，请参见 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>。</p>"
+  },
+  "flutter/widgets/RootElementMixin/rebuild.html": {
+    "0": "<p>使组件更新自身。在调试构建中，还会检查各种不变量。</p>",
+    "1": "<p><a href=\"widgets/BuildOwner-class.html\">BuildOwner</a> 调用 <a href=\"widgets/BuildOwner/scheduleBuildFor.html\">BuildOwner.scheduleBuildFor</a> 将此元素标记为脏时、元素首次构建时的 <a href=\"widgets/Element/mount.html\">mount</a> 调用中，以及组件发生变化时的 <a href=\"widgets/Element/update.html\">update</a> 调用中，都会调用此方法。</p>",
+    "2": "<p>只有当 <a href=\"widgets/Element/dirty.html\">dirty</a> 为 true 时，此方法才会执行重建。若要忽略 <a href=\"widgets/Element/dirty.html\">dirty</a> 标记并强制重建，请将 <code>force</code> 设为 true。在 <a href=\"widgets/Element/update.html\">update</a> 期间强制重建很方便，因为这时 <a href=\"widgets/Element/dirty.html\">dirty</a> 为 false。</p>",
+    "3": "<h2 id=\"when-rebuilds-happen\">何时发生重建</h2>",
+    "4": "<h3 id=\"terminology\">术语</h3>",
+    "5": "<p><a href=\"widgets/Widget-class.html\">Widget</a> 表示 <a href=\"widgets/Element-class.html\">Element</a> 的配置。每个 <a href=\"widgets/Element-class.html\">Element</a> 都有一个 widget，由 <a href=\"widgets/Element/widget.html\">Element.widget</a> 指定。严格来说，在某些上下文中“element”更准确，但通常也会使用“widget”一词。</p>",
+    "6": "<p><a href=\"widgets/Element-class.html\">Element</a> 虽然有当前的 <a href=\"widgets/Widget-class.html\">Widget</a>，但随着时间推移，该 widget 可能会被其他 widget 替换。例如，某个 <a href=\"widgets/ColoredBox-class.html\">ColoredBox</a> 对应的元素最初可能使用颜色为蓝色的 <a href=\"widgets/ColoredBox-class.html\">ColoredBox</a> 作为 widget，之后则会被赋予一个颜色为绿色的新 <a href=\"widgets/ColoredBox-class.html\">ColoredBox</a>，其 <a href=\"widgets/ColoredBox/color.html\">ColoredBox.color</a> 属性也会相应改变。</p>",
+    "7": "<p>在同一棵树中的某个时刻，多个 <a href=\"widgets/Element-class.html\">Element</a> 可以拥有相同的 <a href=\"widgets/Widget-class.html\">Widget</a>。例如，绿色的同一个 <a href=\"widgets/ColoredBox-class.html\">ColoredBox</a> 可以同时用于组件树中的多个位置，而每个位置都由不同的 <a href=\"widgets/Element-class.html\">Element</a> 支持。</p>",
+    "8": "<h3 id=\"marking-an-element-dirty\">将元素标记为脏</h3>",
+    "9": "<p>元素树帧与帧之间，<a href=\"widgets/Element-class.html\">Element</a> 可以被标记为脏。这可能由多种原因造成，包括以下情况：</p>",
+    "10": "<p><a href=\"widgets/State-class.html\">State</a> 可以调用 <a href=\"widgets/State/setState.html\">State.setState</a>，从而将其 <a href=\"widgets/StatefulWidget-class.html\">StatefulWidget</a> 对应的 <a href=\"widgets/Element-class.html\">Element</a> 标记为脏。</p>",
+    "11": "<p><a href=\"widgets/InheritedWidget-class.html\">InheritedWidget</a> 发生变化时，先前订阅了它的后代会被标记为脏。</p>",
+    "12": "<p>热重载期间，会通过 <a href=\"widgets/Element/reassemble.html\">Element.reassemble</a> 将每个元素标记为脏。</p>",
+    "13": "<h3 id=\"rebuilding\">重建</h3>",
+    "14": "<p>脏元素会在下一帧中重建。具体方式取决于元素类型。<a href=\"widgets/StatelessElement-class.html\">StatelessElement</a> 会使用其 widget 的 <a href=\"widgets/StatelessWidget/build.html\">StatelessWidget.build</a> 方法重建。<a href=\"widgets/StatefulElement-class.html\">StatefulElement</a> 会使用其 widget 对应状态的 <a href=\"widgets/State/build.html\">State.build</a> 方法重建。<a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 则通过更新其 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 来重建。</p>",
+    "15": "<p>很多情况下，重建的最终结果是一个子组件；对于 <a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a>，则是一个子组件列表。</p>",
+    "16": "<p>这些子组件用于更新子元素的 <a href=\"widgets/Element/widget.html\">widget</a> 属性。如果新 <a href=\"widgets/Widget-class.html\">Widget</a> 与现有 <a href=\"widgets/Element-class.html\">Element</a> 具有相同的 <a href=\"dart-core/Type-class.html\">Type</a> 和 <a href=\"foundation/Key-class.html\">Key</a>，就认为两者相对应。（对于 <a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a>，框架还会尽力跟踪顺序发生变化的 widget；参见 <a href=\"widgets/Element/updateChildren.html\">RenderObjectElement.updateChildren</a>。）</p>",
+    "17": "<p>如果没有与之前子元素对应的新子组件，就会使用 <a href=\"widgets/Widget/createElement.html\">Widget.createElement</a> 创建新的 <a href=\"widgets/Element-class.html\">Element</a>，然后递归构建该元素。</p>",
+    "18": "<p>如果之前存在子元素，但这次构建没有提供与之对应的子元素来更新它，那么旧子元素就会被丢弃（若涉及 <a href=\"widgets/GlobalKey-class.html\">GlobalKey</a> 重新挂接，则可能在元素树的其他位置复用）。</p>",
+    "19": "<p>不过，最常见的情况是存在对应的旧子元素。此时会让子 <a href=\"widgets/Element-class.html\">Element</a> 使用新的子 <a href=\"widgets/Widget-class.html\">Widget</a> 更新自身。对于 <a href=\"widgets/StatefulElement-class.html\">StatefulElement</a>，这会触发 <a href=\"widgets/State/didUpdateWidget.html\">State.didUpdateWidget</a>。</p>",
+    "20": "<h3 id=\"not-rebuilding\">不进行重建</h3>",
+    "21": "<p>在通知 <a href=\"widgets/Element-class.html\">Element</a> 使用新的 <a href=\"widgets/Widget-class.html\">Widget</a> 更新自身之前，会使用 <code>operator ==</code> 比较新旧对象。</p>",
+    "22": "<p>通常，这相当于使用 <a href=\"dart-core/identical.html\">identical</a> 比较两个对象是否确实为同一个实例。如果是同一实例，并且该元素没有因其他原因被标记为脏，那么元素就会跳过更新，因为可以确定更新自身及其后代都没有价值。</p>",
+    "23": "<p>强烈建议不要为 <a href=\"widgets/Widget-class.html\">Widget</a> 对象重写 <code>operator ==</code>。这样看似可以提升性能，但对于非叶子 widget，实际上会造成 O(N²) 开销。这是因为比较时必然要比较子 widget；如果这些子 widget 也实现了 <code>operator ==</code>，最终就会完整遍历组件树，并在树的每一层重复遍历。实际情况下，直接重建反而更便宜。（此外，只要应用中任意一个 <a href=\"widgets/Widget-class.html\">Widget</a> 子类实现了 <code>operator ==</code>，编译器就无法在任何位置内联该比较，因为必须将调用视为虚调用，以防实例恰好使用了重写版本。）</p>",
+    "24": "<p>避免不必要重建的最佳方式，是缓存从 <a href=\"widgets/State/build.html\">State.build</a> 返回的 widget，这样在它们发生变化之前，每一帧都会复用相同的 widget。有多种机制可以帮助实现这一点，例如 <code>const</code> widget 就是一种自动缓存方式（如果使用 <code>const</code> 关键字构造 widget，那么每次使用相同参数构造时都会返回同一个实例）。</p>",
+    "25": "<p>另一个例子是 <a href=\"widgets/ListenableBuilder/child.html\">AnimatedBuilder.child</a> 属性：即使 <a href=\"widgets/AnimatedBuilder/builder.html\">AnimatedBuilder.builder</a> 回调重新创建其他组件，它也能让子树中不执行动画的部分保持不变。</p>"
+  },
+  "flutter/widgets/RootElementMixin/toStringDeep.html": {
+    "0": "<p>返回此节点及其后代的字符串表示。</p>",
+    "1": "<p><code>prefixLineOne</code> 会添加到输出第一行的开头。<code>prefixOtherLines</code> 会添加到其余每一行的开头。如果 <code>prefixOtherLines</code> 为 null，则每一行都会使用 <code>prefixLineOne</code>。默认情况下不添加前缀。</p>",
+    "2": "<p><code>minLevel</code> 指定输出中包含的属性所需的最低 <a href=\"foundation/DiagnosticLevel.html\">DiagnosticLevel</a>。</p>",
+    "3": "<p><code>wrapWidth</code> 指定应用自动换行的列号。</p>",
+    "4": "<p><a href=\"foundation/DiagnosticableTree/toStringDeep.html\">toStringDeep</a> 方法还接受其他参数，但这些参数供递归处理后代时内部使用，因此可以忽略。</p>"
+  },
+  "flutter/widgets/RootElementMixin/toStringShallow.html": {
+    "0": "<p>返回对象的单行详细说明。</p>",
+    "1": "<p>此说明通常比较长。它包含与 <a href=\"foundation/DiagnosticableTree/toStringDeep.html\">toStringDeep</a> 相同的信息，但不会递归遍历任何子对象。</p>",
+    "2": "<p><code>joiner</code> 指定从 <a href=\"foundation/Diagnosticable/debugFillProperties.html\">debugFillProperties</a> 获取的各部分之间使用的字符串。传入 <code>'\\n '</code> 之类的字符串，会生成多行文本，并将对象属性缩进显示在对象名称下方（类似于 <a href=\"foundation/Diagnosticable/toString.html\">toString</a>）。</p>",
+    "3": "<p><code>minLevel</code> 指定输出中包含的属性所需的最低 <a href=\"foundation/DiagnosticLevel.html\">DiagnosticLevel</a>。</p>"
+  },
+  "flutter/widgets/RootElementMixin/unmount.html": {
+    "0": "<p>从“inactive”（非活动）生命周期状态转换到“defunct”（失效）状态。</p>"
+  },
+  "flutter/widgets/RootElementMixin/updateChild.html": {
+    "0": "<p>使用给定的新配置更新指定的子元素。</p>",
+    "1": "<p>此方法是 widgets 系统的核心。每当需要根据更新后的配置添加、更新或移除子元素时，都会调用它。</p>"
+  },
+  "flutter/widgets/RootElementMixin/updateChildren.html": {
+    "0": "<p>更新此元素的子元素，使其使用新的 widgets。</p>",
+    "1": "<p>尝试使用给定的新 widgets 更新旧子元素列表，按需移除过时的元素并添加新元素，然后返回新的子元素列表。</p>",
+    "2": "<p>执行此函数期间不得修改 <code>oldChildren</code> 列表。如果调用方希望在此函数仍处于调用栈中时重入并从 <code>oldChildren</code> 中移除元素，可以提供 <code>forgottenChildren</code> 参数，并在此期间修改该参数。每当此函数读取 <code>oldChildren</code> 时，都会先检查对应子元素是否位于 <code>forgottenChildren</code> 中。如果在其中，此函数就会将该子元素视为不在 <code>oldChildren</code> 中。</p>",
+    "3": "<p>此函数是 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 的便捷封装，后者负责更新每个子元素。如果 <code>slots</code> 不为 null，则根据当前处理的 <code>child</code> 在 <code>newWidgets</code> 列表中的索引，从该列表中取得 <a href=\"widgets/Element/updateChild.html\">updateChild</a> 的 <code>newSlot</code> 参数值（<code>newWidgets</code> 与 <code>slots</code> 必须长度相同）。如果 <code>slots</code> 为 null，则使用 <a href=\"widgets/IndexedSlot-class.html\">IndexedSlot&lt;Element&gt;</a> 作为 <code>newSlot</code> 参数值。此时，<a href=\"widgets/IndexedSlot/index.html\">IndexedSlot.index</a> 会设为当前处理的 <code>child</code> 在 <code>newWidgets</code> 列表中的索引，而 <a href=\"widgets/IndexedSlot/value.html\">IndexedSlot.value</a> 会设为该列表中前一个 widget 对应的 <a href=\"widgets/Element-class.html\">Element</a>（如果这是第一个子元素，则为 null）。</p>",
+    "4": "<p>当 <a href=\"widgets/Element/slot.html\">slot</a> 值发生变化时，关联的 <a href=\"widgets/Element-class.html\">Element</a> 的 <a href=\"widgets/Element/renderObject.html\">renderObject</a> 需要移动到其父元素子列表中的新位置。如果该 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 使用链表组织子元素（例如 <a href=\"rendering/ContainerRenderObjectMixin-mixin.html\">ContainerRenderObjectMixin</a>），可以把与 <a href=\"widgets/Element-class.html\">Element</a> 关联的子 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 重新插入到列表中，位置在 <a href=\"widgets/IndexedSlot/value.html\">IndexedSlot.value</a> 所提供的 对应的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 之后；该值来自 <a href=\"widgets/Element/slot.html\">slot</a> 对象。</p>",
+    "5": "<p>不过，仅将前一个兄弟元素用作 <a href=\"widgets/Element/slot.html\">slot</a> 还不够，因为只有关联的 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 的 <a href=\"widgets/Element/slot.html\">slot</a> 更新时，子 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 才会移动。子 <a href=\"widgets/Element-class.html\">Element</a> 的顺序改变时，列表中的某些元素可能移动到新索引，但前一个兄弟元素仍然相同。例如，将 <code>[e1, e2, e3, e4]</code> 改为 <code>[e1, e3, e4, e2]</code> 后，元素 e4 的前一个兄弟仍是 e3，但它在列表中的索引已改变；它对应的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 需要移动到 e2 对应的 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 之前。要触发此移动，每当元素在父元素子列表中的索引改变时，都需要为其 <a href=\"widgets/Element-class.html\">Element</a> 赋予新的 <a href=\"widgets/Element/slot.html\">slot</a> 值。使用 <a href=\"widgets/IndexedSlot-class.html\">IndexedSlot&lt;Element&gt;</a> 正好可以做到这一点，同时通过提供新的前一个兄弟元素，让底层父 <a href=\"rendering/RenderObject-class.html\">RenderObject</a> 知道子元素在链表中应移动到的位置。</p>"
+  },
+  "flutter/widgets/RootElementMixin/updateSlotForChild.html": {
+    "0": "<p>更改给定子元素在其父元素中占据的 slot。</p>",
+    "1": "<p>当子元素在此元素的子列表中从一个位置移动到另一个位置时，由 <a href=\"widgets/MultiChildRenderObjectElement-class.html\">MultiChildRenderObjectElement</a> 及其他具有多个子元素的 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a> 子类调用。</p>"
+  },
+  "flutter/widgets/RootElementMixin/visitAncestorElements.html": {
+    "0": "<p>从此构建上下文的 widget 的父级开始遍历祖先链，并对每个祖先调用传入的回调。</p>",
+    "1": "<p>回调会收到祖先 widget 对应的 <a href=\"widgets/Element-class.html\">Element</a> 对象引用。遍历会在到达根 widget 或回调返回 false 时停止。回调不得返回 null。</p>",
+    "2": "<p>此方法适用于检查 widget 树。</p>",
+    "3": "<p>调用此方法的开销相对较高，复杂度为树深度的 O(N)。</p>",
+    "4": "<p>由于此时元素树不再稳定，不应从 <a href=\"widgets/State/deactivate.html\">State.deactivate</a> 或 <a href=\"widgets/State/dispose.html\">State.dispose</a> 调用此方法。若要在这些方法中引用祖先，请在 <a href=\"widgets/State/didChangeDependencies.html\">State.didChangeDependencies</a> 中调用 <a href=\"widgets/RootElementMixin/visitAncestorElements.html\">visitAncestorElements</a> 并保存祖先引用。</p>"
+  },
+  "flutter/widgets/RootElementMixin/widget.html": {
+    "0": "<p>此元素的配置。</p>",
+    "1": "<p>请避免在 <a href=\"widgets/Element-class.html\">Element</a> 子类型中重写此字段以提供更具体的 widget 类型（例如 <a href=\"widgets/StatelessElement-class.html\">StatelessElement</a> 和 <a href=\"widgets/StatelessWidget-class.html\">StatelessWidget</a>）。需要更具体类型时，应在调用点进行类型转换。这样可避免 getter 上显著的类型转换开销；框架内部在构建阶段会频繁访问此 getter，但并不使用更具体的类型信息。</p>"
+  },
+  "flutter/widgets/RootRenderObjectElement-class.html": {
+    "0": "<p>已弃用。在框架中未使用，并将在 Flutter 的未来版本中移除。</p>",
+    "1": "<p>扩展此类的类可以改为扩展 <a href=\"widgets/RenderObjectElement-class.html\">RenderObjectElement</a>，并混入 <a href=\"widgets/RootElementMixin-mixin.html\">RootElementMixin</a>。</p>"
+  },
+  "flutter/widgets/RootRestorationScope-class.html": {
+    "0": "<p>将 <a href=\"services/RestorationManager/rootBucket.html\">RestorationManager.rootBucket</a> 的子 bucket 插入 widget 树，并通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 将其提供给后代。</p>",
+    "1": "<p>此 widget 通常放在 widget 树靠近根的位置，以启用应用的状态恢复功能。其他使用场景请考虑改用常规的 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a>。</p>",
+    "2": "<p>根 restoration bucket 只能从 <a href=\"services/RestorationManager-class.html\">RestorationManager</a> 异步获取。为确保提供的 <a href=\"widgets/RootRestorationScope/child.html\">child</a> 首次构建时就能获得其恢复数据，根 bucket 可用之前，<a href=\"widgets/RootRestorationScope-class.html\">RootRestorationScope</a> 会构建一个空的 <a href=\"widgets/Container-class.html\">Container</a>，而不是实际的 <a href=\"widgets/RootRestorationScope/child.html\">child</a>。为了不让用户看到这个空容器，显示容器期间 <a href=\"widgets/RootRestorationScope-class.html\">RootRestorationScope</a> 还会延迟渲染第一帧。在启动时显示启动画面的平台上，启动画面会持续显示（隐藏空容器），直到 bucket 可用且 <a href=\"widgets/RootRestorationScope/child.html\">child</a> 准备构建为止。</p>",
+    "3": "<p>此 widget 的具体行为取决于其祖先：如果 <a href=\"widgets/RootRestorationScope-class.html\">RootRestorationScope</a> 通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 找不到祖先 restoration bucket，就会使用提供的 <a href=\"widgets/RootRestorationScope/restorationId.html\">restorationId</a> 从根 restoration bucket（<a href=\"services/RestorationManager/rootBucket.html\">RestorationManager.rootBucket</a>）中获取一个子 bucket，并将其插入 widget 树，使后代能够通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 访问。如果 <a href=\"widgets/RootRestorationScope-class.html\">RootRestorationScope</a> 通过 <a href=\"widgets/RestorationScope/of.html\">RestorationScope.of</a> 找到了非 null 的祖先 restoration bucket，则其行为与常规的 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> 相同：它会从该祖先获取子 bucket 并将其插入 widget 树。</p>",
+    "4": "<p>与 <a href=\"widgets/RestorationScope-class.html\">RestorationScope</a> widget 不同，只要 <a href=\"widgets/RootRestorationScope/restorationId.html\">restorationId</a> 不为 null 且 <a href=\"services/RestorationManager-class.html\">RestorationManager</a> 能够提供根 bucket，<a href=\"widgets/RootRestorationScope-class.html\">RootRestorationScope</a> 就会确保后代拥有可用于存储恢复数据的 bucket。换言之，只要 <a href=\"widgets/RootRestorationScope/restorationId.html\">restorationId</a> 不为 null，它就会为该子树强制启用状态恢复。</p>",
+    "5": "<p>如果 <a href=\"widgets/RootRestorationScope/restorationId.html\">restorationId</a> 为 null，则不会向后代提供 bucket，这实际上会关闭此子树的状态恢复。</p>"
+  },
+  "flutter/widgets/RootRestorationScope/RootRestorationScope.html": {
+    "0": "<p>创建一个 <a href=\"widgets/RootRestorationScope-class.html\">RootRestorationScope</a>。</p>",
+    "1": "<p>将 <code>restorationId</code> 设为 null 会关闭 <code>child</code> 及其后代的状态恢复。</p>"
+  },
+  "flutter/widgets/RootRestorationScope/restorationId.html": {
+    "0": "<p>用于标识此 widget 将插入树中的子 bucket 的恢复 ID。</p>",
+    "1": "<p>如果此值为 null，则不会向后代提供 bucket，实质上会关闭该子树的状态恢复。</p>"
+  },
+  "flutter/widgets/RootWidget-class.html": {
+    "0": "<p>widget 树的根 widget。</p>",
+    "1": "<p>提供 <a href=\"widgets/RootWidget/attach.html\">attach</a> 方法，用于将 widget 树附加到 <a href=\"widgets/BuildOwner-class.html\">BuildOwner</a>。该方法还会引导启动元素树。</p>",
+    "2": "<p><a href=\"widgets/WidgetsBinding/attachRootWidget.html\">WidgetsBinding.attachRootWidget</a> 使用此类引导应用；该方法会由 <a href=\"widgets/runApp.html\">runApp</a> 间接调用。</p>"
+  },
+  "flutter/widgets/RootWidget/attach.html": {
+    "0": "<p>将此 widget 实例化，并附加到提供的 <a href=\"widgets/BuildOwner-class.html\">BuildOwner</a>。</p>",
+    "1": "<p>如果 <code>element</code> 为 null，此函数会创建一个新元素。否则，会安排更新给定元素，使其切换为此 widget。</p>",
+    "2": "<p><a href=\"widgets/WidgetsBinding/attachToBuildOwner.html\">WidgetsBinding.attachToBuildOwner</a> 使用此方法引导应用；该方法会由 <a href=\"widgets/runApp.html\">runApp</a> 间接调用。</p>"
   }
 }
