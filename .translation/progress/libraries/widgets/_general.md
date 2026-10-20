@@ -1,6 +1,6 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,447 页，部分翻译 534 页，未翻译 1,271 页；正文已译 19,644/24,807 段。
+模块共 8,093 页：已完整 5,509 页，部分翻译 525 页，未翻译 1,218 页；正文已译 19,869/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
@@ -8,117 +8,53 @@
 
 - `flutter/widgets/MagnifierController/overlayEntry.html` — 部分；已译 3/4 段；待译段落：2
 
-- `flutter/widgets/PopNavigatorRouterDelegateMixin/currentConfiguration.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/widgets/PopNavigatorRouterDelegateMixin/setInitialRoutePath.html` — 部分；已译 4/5 段；待译段落：2
 
-- `flutter/widgets/PopNavigatorRouterDelegateMixin/popRoute.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/PopNavigatorRouterDelegateMixin/setInitialRoutePath.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
-- `flutter/widgets/PopNavigatorRouterDelegateMixin/setNewRoutePath.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/PopNavigatorRouterDelegateMixin/setRestoredRoutePath.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PopPageCallback.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/PopNavigatorRouterDelegateMixin/setRestoredRoutePath.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/PopScope-class.html` — 部分；已译 3/10 段；待译段落：0, 1, 2, 3, 4, 5, 6
+- `flutter/widgets/PopScope-class.html` — 部分；已译 5/10 段；待译段落：1, 2, 3, 5, 6
 
-- `flutter/widgets/PopScope/canPop.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
+- `flutter/widgets/PopScope/canPop.html` — 部分；已译 3/4 段；待译段落：2
 
-- `flutter/widgets/PopScope/onPopInvoked.html` — 部分；已译 1/3 段；待译段落：1, 2
-- `flutter/widgets/PopScope/onPopInvokedWithResult.html` — 部分；已译 2/5 段；待译段落：1, 2, 3
-- `flutter/widgets/PopupRoute-class.html` — 部分；已译 5/11 段；待译段落：0, 1, 4, 5, 6, 7
+- `flutter/widgets/PopScope/onPopInvoked.html` — 部分；已译 2/3 段；待译段落：2
+- `flutter/widgets/PopScope/onPopInvokedWithResult.html` — 部分；已译 3/5 段；待译段落：2, 3
+- `flutter/widgets/PopupRoute-class.html` — 部分；已译 10/11 段；待译段落：7
 
-- `flutter/widgets/PopupRoute/allowSnapshotting.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PopupRoute/maintainState.html` — 部分；已译 1/5 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/PopupRoute/opaque.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Positioned-class.html` — 部分；已译 2/7 段；待译段落：0, 1, 2, 4, 5
-- `flutter/widgets/Positioned/Positioned.directional.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
+- `flutter/widgets/Positioned/Positioned.directional.html` — 部分；已译 2/4 段；待译段落：1, 2
 
-- `flutter/widgets/Positioned/Positioned.fromRect.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Positioned/Positioned.fromRelativeRect.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/Positioned/Positioned.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/Positioned/applyParentData.html` — 部分；已译 3/4 段；待译段落：0
-- `flutter/widgets/Positioned/bottom.html` — 部分；已译 1/3 段；待译段落：0, 2
+- `flutter/widgets/Positioned/Positioned.html` — 部分；已译 2/3 段；待译段落：1
 
-- `flutter/widgets/Positioned/debugTypicalAncestorWidgetClass.html` — 部分；已译 2/5 段；待译段落：1, 2, 4
-- `flutter/widgets/Positioned/height.html` — 部分；已译 1/3 段；待译段落：0, 2
-- `flutter/widgets/Positioned/left.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Positioned/right.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/Positioned/top.html` — 部分；已译 1/3 段；待译段落：0, 2
-- `flutter/widgets/Positioned/width.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PositionedDirectional-class.html` — 部分；已译 2/6 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/PositionedDirectional/PositionedDirectional.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/PositionedDirectional/bottom.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/widgets/Positioned/debugTypicalAncestorWidgetClass.html` — 部分；已译 4/5 段；待译段落：4
 
-- `flutter/widgets/PositionedDirectional/end.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PositionedDirectional/height.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/PositionedDirectional/start.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PositionedDirectional/top.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/PositionedDirectional/width.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PositionedTransition-class.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
+- `flutter/widgets/PositionedDirectional/PositionedDirectional.html` — 部分；已译 2/3 段；待译段落：1
 
-- `flutter/widgets/PredictiveBackRoute-class.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/widgets/PredictiveBackRoute/handleStartBackGesture.html` — 部分；已译 1/2 段；待译段落：1
+- `flutter/widgets/PredictiveBackRoute/handleUpdateBackGestureProgress.html` — 部分；已译 1/2 段；待译段落：1
 
-- `flutter/widgets/PredictiveBackRoute/handleStartBackGesture.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PredictiveBackRoute/handleUpdateBackGestureProgress.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/PreferredSize-class.html` — 部分；已译 5/6 段；待译段落：2
 
-- `flutter/widgets/PreferredSize-class.html` — 部分；已译 2/6 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/PreferredSize/PreferredSize.html` — 未译；已译 0/1 段；待译段落：0
+- `flutter/widgets/PreferredSize/preferredSize.html` — 部分；已译 1/2 段；待译段落：1
+- `flutter/widgets/PreferredSizeWidget-class.html` — 部分；已译 3/4 段；待译段落：2
+- `flutter/widgets/PreferredSizeWidget/preferredSize.html` — 部分；已译 1/2 段；待译段落：1
 
-- `flutter/widgets/PreferredSize/preferredSize.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PreferredSizeWidget-class.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/PreferredSizeWidget/preferredSize.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PreviousFocusAction-class.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/PreviousFocusAction/invoke.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PreviousFocusAction/toKeyEventResult.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/PreviousFocusIntent-class.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/widgets/PreviousFocusAction/toKeyEventResult.html` — 部分；已译 3/5 段；待译段落：2, 4
 
-- `flutter/widgets/PrioritizedAction-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/PrioritizedAction/invoke.html` — 未译；已译 0/6 段；待译段落：0, 1, 2, 3, 4, 5
-- `flutter/widgets/PrioritizedAction/isEnabled.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/PrioritizedIntents-class.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/PrioritizedAction/invoke.html` — 部分；已译 4/6 段；待译段落：3, 5
+- `flutter/widgets/PrioritizedAction/isEnabled.html` — 部分；已译 2/3 段；待译段落：2
 
 - `flutter/widgets/ProxyElement/notifyClients.html` — 未译；已译 0/2 段；待译段落：0, 1
 
 - `flutter/widgets/ProxyElement/updated.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/ProxyWidget-class.html` — 部分；已译 2/3 段；待译段落：0
 
-- `flutter/widgets/RadioBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RadioClient-mixin.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RadioClient/enabled.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RadioClient/focusNode.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RadioClient/radioValue.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RadioClient/registry.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RadioClient/tristate.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RadioGroup-class.html` — 未译；已译 0/8 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-- `flutter/widgets/RadioGroup/RadioGroup.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/widgets/RadioBuilder.html` — 部分；已译 2/3 段；待译段落：1
 
-- `flutter/widgets/RadioGroup/groupValue.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RadioGroup/maybeOf.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RadioGroup/onChanged.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RadioGroupRegistry-class.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
+- `flutter/widgets/RadioGroup/RadioGroup.html` — 部分；已译 1/3 段；待译段落：1, 2
 
-- `flutter/widgets/RadioGroupRegistry/registerClient.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/RawAutocomplete/RawAutocomplete.html` — 部分；已译 1/2 段；待译段落：1
 
-- `flutter/widgets/RawAutocomplete-class.html` — 部分；已译 5/9 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RawAutocomplete/RawAutocomplete.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RawAutocomplete/defaultStringForOption.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RawAutocomplete/displayStringForOption.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RawAutocomplete/fieldViewBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RawAutocomplete/focusNode.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RawAutocomplete/initialValue.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RawAutocomplete/onFieldSubmitted.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/RawAutocomplete/optionsViewBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RawAutocomplete/optionsViewOpenDirection.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RawAutocomplete/textEditingController.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RawDialogRoute-class.html` — 部分；已译 1/10 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-
-- `flutter/widgets/RawDialogRoute/anchorPoint.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RawDialogRoute/barrierColor.html` — 部分；已译 4/9 段；待译段落：0, 3, 4, 5, 6
-
-- `flutter/widgets/RawDialogRoute/barrierLabel.html` — 部分；已译 3/7 段；待译段落：0, 1, 4, 5
-- `flutter/widgets/RawDialogRoute/buildPage.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-- `flutter/widgets/RawDialogRoute/buildTransitions.html` — 部分；已译 3/11 段；待译段落：0, 1, 2, 3, 4, 6, 8, 9
-- `flutter/widgets/RawDialogRoute/fullscreenDialog.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RawDialogRoute/transitionDuration.html` — 部分；已译 1/2 段；待译段落：0
+- `flutter/widgets/RawAutocomplete/defaultStringForOption.html` — 部分；已译 1/2 段；待译段落：1
+- `flutter/widgets/RawAutocomplete/displayStringForOption.html` — 部分；已译 2/3 段；待译段落：2
 
 - `flutter/widgets/RawMagnifier-class.html` — 部分；已译 2/5 段；待译段落：0, 3, 4
 - `flutter/widgets/RawMagnifier/RawMagnifier.html` — 未译；已译 0/2 段；待译段落：0, 1
@@ -227,10 +163,7 @@
 
 - `flutter/widgets/RegisterServiceExtensionCallback.html` — 未译；已译 0/2 段；待译段落：0, 1
 
-- `flutter/widgets/RelativePositionedTransition-class.html` — 部分；已译 2/5 段；待译段落：0, 1, 2
-- `flutter/widgets/RelativePositionedTransition/RelativePositionedTransition.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RelativePositionedTransition/rect.html` — 部分；已译 1/3 段；待译段落：0, 1
+- `flutter/widgets/RelativePositionedTransition/RelativePositionedTransition.html` — 部分；已译 1/2 段；待译段落：1
 
 - `flutter/widgets/RelativeRectTween-class.html` — 部分；已译 1/3 段；待译段落：0, 1
 - `flutter/widgets/RelativeRectTween/RelativeRectTween.html` — 未译；已译 0/2 段；待译段落：0, 1

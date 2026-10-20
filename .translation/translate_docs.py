@@ -53,7 +53,8 @@ else:
             for line in args.page_list.read_text(encoding='utf-8').splitlines()
             if line.strip()
         }
-    sidebars = set()
+    sidebars_file = DATA / 'translated-sidebars.json'
+    sidebars = set(json.loads(sidebars_file.read_text(encoding='utf-8'))) if sidebars_file.exists() else set()
     extras_file = DATA / 'translations-extra.json'
     extras_all = json.loads(extras_file.read_text(encoding='utf-8')) if extras_file.exists() else {}
     fragments_file = DATA / 'translations-fragments.json'
@@ -154,8 +155,11 @@ else:
             if not sidebar_source.is_relative_to(SOURCE.resolve()):
                 raise ValueError('Sidebar outside source')
             if sidebar_source.is_file():
-                (OUTPUT / sidebar).write_text(rewrite_links(translate_shared(sidebar_source.read_text(encoding='utf-8')),'flutter/'+sidebar),encoding='utf-8')
+                sidebar_output = OUTPUT / sidebar
+                if not sidebar_output.exists():
+                    sidebar_output.parent.mkdir(parents=True, exist_ok=True)
+                    sidebar_output.write_text(rewrite_links(translate_shared(sidebar_source.read_text(encoding='utf-8')),'flutter/'+sidebar),encoding='utf-8')
                 sidebars.add(sidebar)
         print(f'{page}: translated {len(entries)}/{len(blocks(text))} description blocks')
     subprocess.run([sys.executable, str(DATA / 'homepage_translation.py')], check=True)
-    (DATA / 'translated-sidebars.json').write_text(json.dumps(sorted(sidebars), indent=2),encoding='utf-8')
+    sidebars_file.write_text(json.dumps(sorted(sidebars), indent=2),encoding='utf-8')

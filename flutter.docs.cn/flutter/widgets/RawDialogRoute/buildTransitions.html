@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/routes.dart#L2666"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">buildTransitions</span> 方法 
+<h1><span class="kind-method">buildTransitions</span> 方法
 </h1></div>
 
     <section class="multi-line-signature">
@@ -110,31 +110,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Override this method to wrap the <code>child</code> with one or more transition
-widgets that define how the route arrives on and leaves the screen.</p>
-<p>By default, the child (which contains the widget returned by <a href="widgets/RawDialogRoute/buildPage.html">buildPage</a>)
-is not wrapped in any transition widgets.</p>
-<p>The <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> method, in contrast to <a href="widgets/RawDialogRoute/buildPage.html">buildPage</a>, is called each
-time the <a href="widgets/Route-class.html">Route</a>'s state changes while it is visible (e.g. if the value of
-<a href="widgets/ModalRoute/canPop.html">canPop</a> changes on the active route).</p>
-<p>The <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> method is typically used to define transitions
-that animate the new topmost route's comings and goings. When the
-<a href="widgets/Navigator-class.html">Navigator</a> pushes a route on the top of its stack, the new route's
-primary <code>animation</code> runs from 0.0 to 1.0. When the Navigator pops the
-topmost route, e.g. because the use pressed the back button, the
-primary animation runs from 1.0 to 0.0.</p>
+  <p>重写此方法，用一个或多个转场组件包裹 <code>child</code>，以定义路由进入和离开屏幕的方式。</p>
+<p>默认情况下，包含 <a href="widgets/RawDialogRoute/buildPage.html">buildPage</a> 返回组件的子组件不会被任何转场组件包裹。</p>
+<p>与 <a href="widgets/RawDialogRoute/buildPage.html">buildPage</a> 不同，<a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> 会在 <a href="widgets/Route-class.html">Route</a> 可见期间每次状态变化时调用（例如活动路由的 <a href="widgets/ModalRoute/canPop.html">canPop</a> 值发生变化时）。</p>
+<p><a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> 通常用于定义最顶层新路由进入和离开时的动画。当 <a href="widgets/Navigator-class.html">Navigator</a> 将路由推入栈顶时，新路由的主 <code>animation</code> 会从 0.0 变化到 1.0。Navigator 弹出栈顶路由时（例如用户按下返回键），主动画则从 1.0 变化到 0.0。</p>
 <p>
 <a name="widgets.ModalRoute.buildTransitions.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-The following example uses the primary animation to drive a
-<a href="widgets/SlideTransition-class.html">SlideTransition</a> that translates the top of the new route vertically
-from the bottom of the screen when it is pushed on the Navigator's
-stack. When the route is popped the SlideTransition translates the
-route from the top of the screen back to the bottom.</p>
-<p>We've used <a href="widgets/PageRouteBuilder-class.html">PageRouteBuilder</a> to demonstrate the <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> method
-here. The body of an override of the <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> method would be
-defined in the same way.
+下面的示例使用主动画驱动 <a href="widgets/SlideTransition-class.html">SlideTransition</a>：新路由被推入 Navigator 栈时，转场会使路由从屏幕底部垂直进入；路由弹出时，SlideTransition 则会使其从屏幕顶部返回底部。</p>
+<p>此处使用 <a href="widgets/PageRouteBuilder-class.html">PageRouteBuilder</a> 演示 <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> 方法。重写 <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> 方法时，方法体也应以相同方式编写。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.ModalRoute.buildTransitions.1');" onclick="fixHref(this, 'widgets.ModalRoute.buildTransitions.1'); copyStringToClipboard(this.href);"
@@ -176,23 +161,12 @@ defined in the same way.
   </div>
 </div>
 </p>
-<p>When the <a href="widgets/Navigator-class.html">Navigator</a> pushes a route on the top of its stack, the
-<code>secondaryAnimation</code> can be used to define how the route that was on
-the top of the stack leaves the screen. Similarly when the topmost route
-is popped, the secondaryAnimation can be used to define how the route
-below it reappears on the screen. When the Navigator pushes a new route
-on the top of its stack, the old topmost route's secondaryAnimation
-runs from 0.0 to 1.0. When the Navigator pops the topmost route, the
-secondaryAnimation for the route below it runs from 1.0 to 0.0.</p>
+<p>当 <a href="widgets/Navigator-class.html">Navigator</a> 将路由推入栈顶时，可以使用 <code>secondaryAnimation</code> 定义原栈顶路由离开屏幕的方式。类似地，栈顶路由弹出时，也可以用它定义下方路由重新显示的方式。Navigator 推入新路由时，原栈顶路由的 secondaryAnimation 会从 0.0 变化到 1.0；Navigator 弹出栈顶路由时，下方路由的 secondaryAnimation 会从 1.0 变化到 0.0。</p>
 <p>
 <a name="widgets.ModalRoute.buildTransitions.2"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-The example below adds a transition that's driven by the
-<code>secondaryAnimation</code>. When this route disappears because a new route has
-been pushed on top of it, it translates in the opposite direction of
-the new route. Likewise when the route is exposed because the topmost
-route has been popped off.
+下面的示例添加了由 <code>secondaryAnimation</code> 驱动的转场。当新路由被推入此路由上方而使此路由消失时，它会沿新路由的相反方向移动；栈顶路由弹出、此路由重新显示时也同样如此。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.ModalRoute.buildTransitions.2');" onclick="fixHref(this, 'widgets.ModalRoute.buildTransitions.2'); copyStringToClipboard(this.href);"
@@ -240,8 +214,8 @@ route has been popped off.
   </div>
 </div>
 </p>
-<p>In practice the <code>secondaryAnimation</code> is used pretty rarely.</p>
-<p>The arguments to this method are as follows:</p>
+<p>实际上，<code>secondaryAnimation</code> 很少使用。</p>
+<p>此方法的参数如下：</p>
 <ul>
 <li><code>context</code>: The context in which the route is being built.</li>
 <li><code>animation</code>: When the <a href="widgets/Navigator-class.html">Navigator</a> pushes a route on the top of its stack,
