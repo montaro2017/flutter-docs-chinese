@@ -42759,7 +42759,9 @@
     "2": "<p>这段无效代码会对整数 <code>1</code> 调用 <code>noSuchMethod</code> 方法，并传入一个表示 <code>.add(42)</code> 调用及其参数的 <a href=\"dart-core/Invocation-class.html\">Invocation</a>（随后会抛出异常）。</p>",
     "5": "<p>尽管 <code>MockList</code> 类没有实现 <code>List</code> 接口的任何方法，这段代码在编译时也没有任何警告或错误。对 <code>List</code> 方法的调用会被转发到 <code>noSuchMethod</code>，因此这段代码会 <code>log</code> 一个类似 <code>Invocation.method(#add, [42])</code> 的调用，然后抛出异常。</p>",
     "6": "<p>如果 <code>noSuchMethod</code> 返回了一个值，它就成为原始调用的结果。如果该值的类型不是原始调用可以返回的类型，则会在调用处发生类型错误。</p>",
-    "7": "<p>默认行为是抛出 <a href=\"dart-core/NoSuchMethodError-class.html\">NoSuchMethodError</a>。</p>"
+    "7": "<p>默认行为是抛出 <a href=\"dart-core/NoSuchMethodError-class.html\">NoSuchMethodError</a>。</p>",
+    "3": "<p>类可以重写 <a href=\"widgets/WidgetStateMapper/noSuchMethod.html\">noSuchMethod</a>，为这类无效的动态调用提供自定义行为。</p>",
+    "4": "<p>如果类的 <a href=\"widgets/WidgetStateMapper/noSuchMethod.html\">noSuchMethod</a> 调用实现不是默认行为，那么也可以省略其接口成员的实现。示例：</p>"
   },
   "widgets/WidgetStateMapper/operator_equals.html": {
     "0": "<p>相等运算符。</p>",
@@ -265077,5 +265079,58 @@
   "flutter/widgets/WidgetToRenderBoxAdapter/renderBox.html": {
     "0": "<p>要放入 Widget 树的 RenderBox。</p>",
     "1": "<p>此组件会取得该渲染对象的所有权。组件卸载时，也会调用 <a href=\"rendering/RenderObject/dispose.html\">RenderObject.dispose</a>。</p>"
+  },
+  "flutter/widgets/WidgetsApp-class.html": {
+    "0": "<p>用于包装应用常用组件的便捷 Widget。</p>",
+    "1": "<p><a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 的主要职责之一，是将系统返回按钮绑定为弹出 <a href=\"widgets/Navigator-class.html\">Navigator</a> 页面或退出应用。</p>",
+    "3": "<p>“另请参阅”部分列出了许多由 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 包装的组件。</p>"
+  },
+  "flutter/widgets/WidgetsApp/WidgetsApp.html": {
+    "0": "<p>创建一个用于包装应用常用组件的 Widget。</p>",
+    "1": "<p>大多数调用方会使用 <code>home</code> 或 <code>routes</code> 参数，也可以同时使用两者。<code>home</code> 参数相当于以下 <code>routes</code> 映射：</p>",
+    "2": "<p>可以同时指定 <code>home</code> 和 <code>routes</code>，但前提是 <code>routes</code> 中<em>不</em>包含 <code>'/'</code> 条目。反过来，如果省略 <code>home</code>，则 <code>routes</code> <em>必须</em>包含 <code>'/'</code> 条目。</p>",
+    "3": "<p>如果 <code>home</code> 或 <code>routes</code> 不为 null，路由实现就需要知道如何创建 <a href=\"widgets/PageRoute-class.html\">PageRoute</a>。可通过提供 <code>pageRouteBuilder</code> 参数实现。<a href=\"material/MaterialApp-class.html\">MaterialApp</a> 和 <a href=\"cupertino/CupertinoApp-class.html\">CupertinoApp</a> 分别使用 <code>pageRouteBuilder</code> 创建 <a href=\"material/MaterialPageRoute-class.html\">MaterialPageRoute</a> 和 <a href=\"cupertino/CupertinoPageRoute-class.html\">CupertinoPageRoute</a>。</p>",
+    "4": "<p><code>builder</code> 参数用于将应用的可见内容包装在其他 Widget 中。如果应用只显示单个路由，建议使用 <code>home</code>，而不是 <code>builder</code>。</p>",
+    "5": "<p><a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 还可以通过 <code>onGenerateRoute</code> 和 <code>onUnknownRoute</code> 参数提供自定义路由实现。这两个参数分别对应 <a href=\"widgets/Navigator/onGenerateRoute.html\">Navigator.onGenerateRoute</a> 和 <a href=\"widgets/Navigator/onUnknownRoute.html\">Navigator.onUnknownRoute</a>。如果 <code>home</code>、<code>routes</code> 和 <code>builder</code> 均为 null，或者它们无法创建请求的路由，就会调用 <code>onGenerateRoute</code>。若该方法也未能处理，则会调用 <code>onUnknownRoute</code>。</p>",
+    "6": "<p><code>pageRouteBuilder</code> 用于创建包装新建路由的 <a href=\"widgets/PageRoute-class.html\">PageRoute</a>。如果 <code>builder</code> 不为 null 且 <code>onGenerateRoute</code> 参数为 null，那么 <code>builder</code> 只会收到 context 和 child Widget，而 <code>pageRouteBuilder</code> 会收到 <a href=\"widgets/RouteSettings-class.html\">RouteSettings</a>。在此配置下，<code>navigatorKey</code>、<code>onUnknownRoute</code>、<code>navigatorObservers</code> 和 <code>initialRoute</code> 属性必须使用默认值，因为它们不会生效。</p>",
+    "7": "<p><code>supportedLocales</code> 参数必须至少包含一个元素。默认值为 <code>[const Locale('en', 'US')]</code>。</p>"
+  },
+  "flutter/widgets/WidgetsApp/WidgetsApp.router.html": {
+    "0": "<p>创建一个使用 <a href=\"widgets/Router-class.html\">Router</a> 而非 <a href=\"widgets/Navigator-class.html\">Navigator</a> 的 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a>。</p>",
+    "1": "<p>如果提供了 <code>routerConfig</code>，则其他与路由相关的委托参数——<code>routeInformationParser</code>、<code>routeInformationProvider</code>、<code>routerDelegate</code> 和 <code>backButtonDispatcher</code>——都必须为 null。</p>"
+  },
+  "flutter/widgets/WidgetsApp/actions.html": {
+    "1": "<p>默认情况下，此值是以 <a href=\"foundation/defaultTargetPlatform.html\">defaultTargetPlatform</a> 为参数调用 <a href=\"widgets/WidgetsApp/defaultActions.html\">WidgetsApp.defaultActions</a> 的结果。为应用指定 <a href=\"widgets/WidgetsApp/actions.html\">actions</a> 会覆盖默认值。因此，如果要修改默认 <a href=\"widgets/WidgetsApp/actions.html\">actions</a>，可以调用 <a href=\"widgets/WidgetsApp/defaultActions.html\">WidgetsApp.defaultActions</a>、修改返回的映射，再将其作为此应用的 <a href=\"widgets/WidgetsApp/actions.html\">actions</a> 传入。也可以添加自己的 <a href=\"widgets/Actions-class.html\">Actions</a> Widget，为某个 Widget 子树添加绑定或覆盖特定绑定。</p>"
+  },
+  "flutter/widgets/WidgetsApp/builder.html": {
+    "3": "<p>如果要根据 <a href=\"widgets/Localizations-class.html\">Localizations</a> 特别设置 <a href=\"widgets/WidgetsApp/title.html\">title</a>，请考虑改用 <a href=\"widgets/WidgetsApp/onGenerateTitle.html\">onGenerateTitle</a>。</p>",
+    "4": "<p><a href=\"widgets/WidgetsApp/builder.html\">builder</a> 回调会收到两个参数：<a href=\"widgets/BuildContext-class.html\">BuildContext</a>（即 <code>context</code>）以及 <a href=\"widgets/Navigator-class.html\">Navigator</a> 或 <a href=\"widgets/Router-class.html\">Router</a> Widget（即 <code>child</code>）。</p>",
+    "5": "<p>如果没有通过 <a href=\"widgets/WidgetsApp/home.html\">home</a>、<a href=\"widgets/WidgetsApp/routes.html\">routes</a>、<a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a> 或 <a href=\"widgets/WidgetsApp/onUnknownRoute.html\">onUnknownRoute</a> 为常规 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 构造函数提供路由，则 <code>child</code> 为 null，<a href=\"widgets/WidgetsApp/builder.html\">builder</a> 需要负责提供应用的路由机制。</p>",
+    "6": "<p>如果通过上述一个或多个属性为常规 <a href=\"widgets/WidgetsApp-class.html\">WidgetsApp</a> 构造函数提供了路由，或者使用了 <a href=\"widgets/WidgetsApp/WidgetsApp.router.html\">WidgetsApp.router</a> 构造函数，则 <code>child</code> 不为 null，返回值应在 Widget 子树中包含 <code>child</code>。否则，应用将没有 <a href=\"widgets/Navigator-class.html\">Navigator</a> 或 <a href=\"widgets/Router-class.html\">Router</a>，并且路由相关属性（即 <a href=\"widgets/WidgetsApp/navigatorKey.html\">navigatorKey</a>、<a href=\"widgets/WidgetsApp/home.html\">home</a>、<a href=\"widgets/WidgetsApp/routes.html\">routes</a>、<a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a>、<a href=\"widgets/WidgetsApp/onUnknownRoute.html\">onUnknownRoute</a>、<a href=\"widgets/WidgetsApp/initialRoute.html\">initialRoute</a>、<a href=\"widgets/WidgetsApp/navigatorObservers.html\">navigatorObservers</a>、<a href=\"widgets/WidgetsApp/routeInformationProvider.html\">routeInformationProvider</a>、<a href=\"widgets/WidgetsApp/backButtonDispatcher.html\">backButtonDispatcher</a>、<a href=\"widgets/WidgetsApp/routerDelegate.html\">routerDelegate</a> 和 <a href=\"widgets/WidgetsApp/routeInformationParser.html\">routeInformationParser</a>）都会被忽略。</p>",
+    "7": "<p>如果 <a href=\"widgets/WidgetsApp/builder.html\">builder</a> 为 null，效果相当于指定了一个直接返回 <code>child</code> 的 builder。若其为 null，则必须使用上文列出的其他属性之一提供路由。</p>",
+    "8": "<p>必须提供一个 <a href=\"widgets/Navigator-class.html\">Navigator</a>：可以由 <a href=\"widgets/WidgetsApp/builder.html\">builder</a> 为 null 时隐式提供，也可以由 <a href=\"widgets/WidgetsApp/builder.html\">builder</a> 在返回内容中包含 <code>child</code>，或由 <a href=\"widgets/WidgetsApp/builder.html\">builder</a> 显式提供自己的 <a href=\"widgets/Navigator-class.html\">Navigator</a>，也可以由 <a href=\"widgets/WidgetsApp/routerDelegate.html\">routerDelegate</a> 构建。否则，<a href=\"widgets/Hero-class.html\">Hero</a>、<a href=\"widgets/Navigator/push.html\">Navigator.push</a> 和 <a href=\"widgets/Navigator/pop.html\">Navigator.pop</a> 等组件与 API 将无法工作。</p>"
+  },
+  "flutter/widgets/WidgetsApp/home.html": {
+    "1": "<p>应用正常启动时首先显示此路由，除非指定了 <a href=\"widgets/WidgetsApp/initialRoute.html\">initialRoute</a>。如果无法显示 <a href=\"widgets/WidgetsApp/initialRoute.html\">initialRoute</a>，也会显示此路由。</p>",
+    "2": "<p>如果要在构造函数中设置 <a href=\"widgets/WidgetsApp/home.html\">home</a> 参数的代码里直接调用 <a href=\"material/Theme/of.html\">Theme.of</a>、<a href=\"widgets/MediaQuery/of.html\">MediaQuery.of</a> 等方法，可以使用 <a href=\"widgets/Builder-class.html\">Builder</a> Widget 获取 <a href=\"widgets/BuildContext-class.html\">BuildContext</a>。</p>",
+    "3": "<p>如果指定了 <a href=\"widgets/WidgetsApp/home.html\">home</a>，则 <a href=\"widgets/WidgetsApp/routes.html\">routes</a> 不能包含 <code>/</code> 条目，因为该条目会由 <a href=\"widgets/WidgetsApp/home.html\">home</a> 取代。</p>",
+    "4": "<p>只有在提供了路由（通过 <a href=\"widgets/WidgetsApp/home.html\">home</a>、<a href=\"widgets/WidgetsApp/routes.html\">routes</a>、<a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a> 或 <a href=\"widgets/WidgetsApp/onUnknownRoute.html\">onUnknownRoute</a>）时，才会构建 <a href=\"widgets/Navigator-class.html\">Navigator</a>；否则，<a href=\"widgets/WidgetsApp/builder.html\">builder</a> 不能为 null。</p>",
+    "6": "<p>如果设置了此属性，也必须设置 <a href=\"widgets/WidgetsApp/pageRouteBuilder.html\">pageRouteBuilder</a>，这样默认路由处理器才知道应创建哪种 <a href=\"widgets/PageRoute-class.html\">PageRoute</a>。</p>"
+  },
+  "flutter/widgets/WidgetsApp/initialRoute.html": {
+    "4": "<p>只有在提供了路由（通过 <a href=\"widgets/WidgetsApp/home.html\">home</a>、<a href=\"widgets/WidgetsApp/routes.html\">routes</a>、<a href=\"widgets/WidgetsApp/onGenerateRoute.html\">onGenerateRoute</a> 或 <a href=\"widgets/WidgetsApp/onUnknownRoute.html\">onUnknownRoute</a>）时，才会构建 <a href=\"widgets/Navigator-class.html\">Navigator</a>；否则 <a href=\"widgets/WidgetsApp/initialRoute.html\">initialRoute</a> 必须为 null，且 <a href=\"widgets/WidgetsApp/builder.html\">builder</a> 不能为 null。</p>",
+    "5": "<p>更改 <a href=\"widgets/WidgetsApp/initialRoute.html\">initialRoute</a> 不会产生影响，因为它只控制<em>初始</em>路由。若要在应用运行时更改路由，请使用 <a href=\"widgets/Navigator-class.html\">Navigator</a> 或 <a href=\"widgets/Router-class.html\">Router</a> API。</p>"
+  },
+  "flutter/widgets/WidgetsApp/locale.html": {
+    "2": "<p>如果此 locale 与 <a href=\"widgets/WidgetsApp/supportedLocales.html\">supportedLocales</a> 中的某个值匹配，<a href=\"widgets/Localizations/locale.html\">Localizations.locale</a> 就会等于此 locale；否则它会使用 <a href=\"widgets/WidgetsApp/supportedLocales.html\">supportedLocales</a> 中的第一个值。</p>"
+  },
+  "flutter/widgets/WidgetsApp/title.html": {
+    "2": "<p>若要提供本地化标题，请使用 <a href=\"widgets/WidgetsApp/onGenerateTitle.html\">onGenerateTitle</a>。</p>"
+  },
+  "flutter/widgets/WidgetsApp/supportedLocales.html": {
+    "5": "<p>提供 <a href=\"widgets/WidgetsApp/localeListResolutionCallback.html\">localeListResolutionCallback</a> 的值即可覆盖默认语言区域解析算法。提供的 <a href=\"widgets/basicLocaleListResolution.html\">basicLocaleListResolution</a> 针对速度进行了优化，并未实现完整算法（例如 <a href=\"https://unicode.org/reports/tr35/#LanguageMatching\">Unicode TR35</a> 中定义的算法），因此不会考虑语言之间的距离。</p>"
+  },
+  "flutter/widgets/WidgetsApp/routerConfig.html": {
+    "1": "<p>如果提供了 <a href=\"widgets/WidgetsApp/routerConfig.html\">routerConfig</a>，则其他与路由相关的委托参数——<a href=\"widgets/WidgetsApp/routeInformationParser.html\">routeInformationParser</a>、<a href=\"widgets/WidgetsApp/routeInformationProvider.html\">routeInformationProvider</a>、<a href=\"widgets/WidgetsApp/routerDelegate.html\">routerDelegate</a> 和 <a href=\"widgets/WidgetsApp/backButtonDispatcher.html\">backButtonDispatcher</a>——都必须为 null。</p>"
   }
 }
