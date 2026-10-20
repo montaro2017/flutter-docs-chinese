@@ -1,29 +1,12 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 6,099 页，部分翻译 312 页，未翻译 841 页；正文已译 21,758/24,807 段。
+模块共 8,093 页：已完整 6,113 页，部分翻译 306 页，未翻译 833 页；正文已译 21,786/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
 - `flutter/widgets/RouteAware/didPushNext.html` — 部分；已译 2/3 段；待译段落：2
 
-- `flutter/widgets/SelectAction-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/SelectableDayPredicate.html` — 未译；已译 0/2 段；待译段落：0, 1
 - `flutter/widgets/SelectableRegion-class.html` — 部分；已译 7/31 段；待译段落：0, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 14, 15, 17, 18, 20, 22, 23, 24, 25, 26, 27, 28, 29
-- `flutter/widgets/SelectableRegion/SelectableRegion.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectableRegion/child.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/SelectableRegion/contextMenuBuilder.html` — 部分；已译 9/12 段；待译段落：1, 3, 8
-
-- `flutter/widgets/SelectableRegion/focusNode.html` — 部分；已译 2/3 段；待译段落：1
-- `flutter/widgets/SelectableRegion/getSelectableButtonItems.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/SelectableRegion/magnifierConfiguration.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/SelectableRegion/selectionControls.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectableRegionContextMenuBuilder.html` — 部分；已译 1/2 段；待译段落：0
-- `flutter/widgets/SelectableRegionSelectionStatus.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SelectableRegionSelectionStatusScope-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/SelectableRegionSelectionStatusScope/maybeOf.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/SelectableRegionSelectionStatusScope/selectionStatusNotifier.html` — 未译；已译 0/2 段；待译段落：0, 1
 
 - `flutter/widgets/SelectableRegionState/add.html` — 未译；已译 0/2 段；待译段落：0, 1
 
