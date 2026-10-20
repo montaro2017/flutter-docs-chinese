@@ -87,13 +87,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="widgets&#47;RepaintBoundary-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/widgets/basic.dart#L7544"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RepaintBoundary</span> 类 
+<h1><span class="kind-class">RepaintBoundary</span> 类
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A widget that creates a separate display list for its child.</p>
+  <p>为子组件创建独立显示列表的组件。</p>
 <iframe src="https://www.youtube.com/embed/cVAGLDuc2xE?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -105,42 +105,13 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<p>This widget creates a separate display list for its child, which
-can improve performance if the subtree repaints at different times than
-the surrounding parts of the tree.</p>
-<p>This is useful since <a href="rendering/RenderObject/paint.html">RenderObject.paint</a> may be triggered even if its
-associated <a href="widgets/Widget-class.html">Widget</a> instances did not change or rebuild. A <a href="rendering/RenderObject-class.html">RenderObject</a>
-will repaint whenever any <a href="rendering/RenderObject-class.html">RenderObject</a> that shares the same <a href="rendering/Layer-class.html">Layer</a> is
-marked as being dirty and needing paint (see <a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a>),
-such as when an ancestor scrolls or when an ancestor or descendant animates.</p>
-<p>Containing <a href="rendering/RenderObject/paint.html">RenderObject.paint</a> to parts of the render subtree that are
-actually visually changing using <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> explicitly or implicitly
-is therefore critical to minimizing redundant work and improving the app's
-performance.</p>
-<p>When a <a href="rendering/RenderObject-class.html">RenderObject</a> is flagged as needing to paint via
-<a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a>, the nearest ancestor <a href="rendering/RenderObject-class.html">RenderObject</a> with
-<a href="rendering/RenderObject/isRepaintBoundary.html">RenderObject.isRepaintBoundary</a>, up to possibly the root of the application,
-is requested to repaint. That nearest ancestor's <a href="rendering/RenderObject/paint.html">RenderObject.paint</a> method
-will cause <em>all</em> of its descendant <a href="rendering/RenderObject-class.html">RenderObject</a>s to repaint in the same
-layer.</p>
-<p><a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> is therefore used, both while propagating the
-<code>markNeedsPaint</code> flag up the render tree and while traversing down the
-render tree via <a href="rendering/PaintingContext/paintChild.html">PaintingContext.paintChild</a>, to strategically contain
-repaints to the render subtree that visually changed for performance. This
-is done because the <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> widget creates a <a href="rendering/RenderObject-class.html">RenderObject</a> that
-always has a <a href="rendering/Layer-class.html">Layer</a>, decoupling ancestor render objects from the descendant
-render objects.</p>
-<p><a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> has the further side-effect of possibly hinting to the
-engine that it should further optimize animation performance if the render
-subtree behind the <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> is sufficiently complex and is static
-while the surrounding tree changes frequently. In those cases, the engine
-may choose to pay a one time cost of rasterizing and caching the pixel
-values of the subtree for faster future GPU re-rendering speed.</p>
-<p>Several framework widgets insert <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> widgets to mark natural
-separation points in applications. For instance, contents in Material Design
-drawers typically don't change while the drawer opens and closes, so
-repaints are automatically contained to regions inside or outside the drawer
-when using the <a href="material/Drawer-class.html">Drawer</a> widget during transitions.</p>
+<p>此组件会为其子组件创建独立的显示列表。如果子树重绘的时间与树中周围部分不同，这样做可以提升性能。</p>
+<p>这是有用的，因为即使关联的 <a href="widgets/Widget-class.html">Widget</a> 实例没有变化或重建，也可能触发 <a href="rendering/RenderObject/paint.html">RenderObject.paint</a>。只要与某个 <a href="rendering/RenderObject-class.html">RenderObject</a> 共用同一 <a href="rendering/Layer-class.html">Layer</a> 的任意 <a href="rendering/RenderObject-class.html">RenderObject</a> 被标记为脏并需要绘制（参见 <a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a>），该 RenderObject 就会重绘；例如祖先滚动，或祖先、后代执行动画时都可能发生。</p>
+<p>因此，显式或隐式地使用 <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a>，将 <a href="rendering/RenderObject/paint.html">RenderObject.paint</a> 限制在渲染子树中实际发生视觉变化的部分，对于尽量减少冗余工作、提升应用性能至关重要。</p>
+<p>当某个 <a href="rendering/RenderObject-class.html">RenderObject</a> 通过 <a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a> 被标记为需要绘制时，离它最近且设置了 <a href="rendering/RenderObject/isRepaintBoundary.html">RenderObject.isRepaintBoundary</a> 的祖先 <a href="rendering/RenderObject-class.html">RenderObject</a>（最远可能到应用根节点）会收到重绘请求。该祖先的 <a href="rendering/RenderObject/paint.html">RenderObject.paint</a> 方法会使同一图层中的所有后代 <a href="rendering/RenderObject-class.html">RenderObject</a> 都重绘。</p>
+<p>因此，<a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> 在渲染树中向上传播 <code>markNeedsPaint</code> 标记，以及通过 <a href="rendering/PaintingContext/paintChild.html">PaintingContext.paintChild</a> 向下遍历渲染树时都会发挥作用，从而有策略地将重绘限制在发生视觉变化的渲染子树中，以提升性能。该组件会创建一个始终带有 <a href="rendering/Layer-class.html">Layer</a> 的 <a href="rendering/RenderObject-class.html">RenderObject</a>，使祖先和后代渲染对象彼此解耦。使用 <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> 可创建该组件。</p>
+<p><a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> 还可能提示引擎进一步优化动画性能：如果其下方的渲染子树足够复杂，且保持静止，而周围的树频繁变化，引擎可能会一次性付出栅格化成本并缓存该子树的像素值，以便之后更快地通过 GPU 重新渲染。这个子树位于 <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> 后方。</p>
+<p>框架中的多个组件会插入 <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a>，在应用中标记自然的分隔点。例如，Material Design 抽屉中的内容通常不会在抽屉打开或关闭时发生变化，因此在过渡期间使用 <a href="material/Drawer-class.html">Drawer</a> 组件时，重绘会自动限制在抽屉内部或外部的区域。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/debugRepaintRainbowEnabled.html">debugRepaintRainbowEnabled</a>, a debugging flag to help visually monitor

@@ -1,61 +1,10 @@
 # widgets / _general 待翻译清单
 
-模块共 8,093 页：已完整 5,757 页，部分翻译 436 页，未翻译 1,059 页；正文已译 20,666/24,807 段。
+模块共 8,093 页：已完整 5,793 页，部分翻译 423 页，未翻译 1,036 页；正文已译 20,782/24,807 段。
 
 只列出仍有待译正文的页面；`待译段落` 为源 HTML 正文块的从 0 开始编号。
 
-- `flutter/widgets/ReorderableDragStartListener/ReorderableDragStartListener.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ReorderableList/anchor.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/ReorderableList/controller.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ReorderableList/dragBoundaryProvider.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ReorderableList/itemBuilder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ReorderableList/itemCount.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ReorderableList/itemExtent.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/ReorderableList/itemExtentBuilder.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
-
-- `flutter/widgets/ReorderableList/maybeOf.html` — 部分；已译 3/5 段；待译段落：1, 2
-- `flutter/widgets/ReorderableList/of.html` — 部分；已译 3/5 段；待译段落：1, 2
-- `flutter/widgets/ReorderableList/onReorder.html` — 未译；已译 0/5 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/ReorderableList/onReorderEnd.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/ReorderableList/onReorderStart.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/ReorderableList/padding.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/ReorderableList/physics.html` — 部分；已译 1/6 段；待译段落：1, 2, 3, 4, 5
-- `flutter/widgets/ReorderableList/primary.html` — 未译；已译 0/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7, 8
-- `flutter/widgets/ReorderableList/prototypeItem.html` — 部分；已译 1/3 段；待译段落：0, 1
-
-- `flutter/widgets/ReorderableList/reverse.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-
-- `flutter/widgets/ReorderableList/scrollDirection.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ReorderableList/shrinkWrap.html` — 部分；已译 1/4 段；待译段落：0, 1, 2
-- `flutter/widgets/ReorderableListState-class.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/ReorderableListState/cancelReorder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/ReorderableListState/startItemDragReorder.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RepaintBoundary-class.html` — 部分；已译 1/9 段；待译段落：0, 1, 2, 3, 4, 5, 6, 7
-
-- `flutter/widgets/RepaintBoundary/RepaintBoundary.wrap.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RepaintBoundary/wrapAll.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RepeatingAnimationBuilder-class.html` — 部分；已译 2/5 段；待译段落：0, 1, 3
-
-- `flutter/widgets/RepeatingAnimationBuilder/animatable.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RepeatingAnimationBuilder/builder.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RepeatingAnimationBuilder/child.html` — 未译；已译 0/4 段；待译段落：0, 1, 2, 3
-
-- `flutter/widgets/RepeatingAnimationBuilder/curve.html` — 部分；已译 1/3 段；待译段落：0, 1
-- `flutter/widgets/RepeatingAnimationBuilder/duration.html` — 未译；已译 0/3 段；待译段落：0, 1, 2
-- `flutter/widgets/RepeatingAnimationBuilder/paused.html` — 未译；已译 0/2 段；待译段落：0, 1
-- `flutter/widgets/RepeatingAnimationBuilder/repeatMode.html` — 未译；已译 0/2 段；待译段落：0, 1
-
-- `flutter/widgets/RequestFocusAction-class.html` — 部分；已译 1/6 段；待译段落：0, 1, 2, 3, 4
-- `flutter/widgets/RequestFocusAction/invoke.html` — 未译；已译 0/7 段；待译段落：0, 1, 2, 3, 4, 5, 6
-
-- `flutter/widgets/RequestFocusIntent/RequestFocusIntent.html` — 未译；已译 0/2 段；待译段落：0, 1
+- `flutter/widgets/ReorderableList/anchor.html` — 部分；已译 3/4 段；待译段落：3
 
 - `flutter/widgets/RestorableBool-class.html` — 部分；已译 3/4 段；待译段落：0
 - `flutter/widgets/RestorableBool/RestorableBool.html` — 部分；已译 1/2 段；待译段落：0
