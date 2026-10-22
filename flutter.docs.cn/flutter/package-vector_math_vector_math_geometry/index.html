@@ -115,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <span class="name "><a href="package-vector_math_vector_math_geometry/CircleGenerator-class.html">CircleGenerator</a></span> 
 
 </dt>
-<dd>在 XZ 平面上生成以原点为中心的平面圆形或部分圆形（扇形）网格。</dd>
+<dd>在 XZ 平面生成以原点为中心的平面圆形或部分圆形（扇形）网格。</dd>
 
           <dt id="ColorFilter">
   <span class="name "><a href="package-vector_math_vector_math_geometry/ColorFilter-class.html">ColorFilter</a></span> 
@@ -149,7 +149,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <span class="name "><a href="package-vector_math_vector_math_geometry/GeometryFilter-class.html">GeometryFilter</a></span> 
 
 </dt>
-<dd>生成变换后 <a href="package-vector_math_vector_math_geometry/MeshGeometry-class.html">MeshGeometry</a> 副本的筛选器。</dd>
+<dd>一种过滤器，可生成经过变换的 <a href="package-vector_math_vector_math_geometry/MeshGeometry-class.html">MeshGeometry</a> 副本。</dd>
 
           <dt id="GeometryGenerator">
   <span class="name "><a href="package-vector_math_vector_math_geometry/GeometryGenerator-class.html">GeometryGenerator</a></span> 
@@ -171,13 +171,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <span class="name "><a href="package-vector_math_vector_math_geometry/InplaceGeometryFilter-class.html">InplaceGeometryFilter</a></span> 
 
 </dt>
-<dd>可直接在网格上原地应用变换的 <a href="package-vector_math_vector_math_geometry/GeometryFilter-class.html">GeometryFilter</a>。</dd>
+<dd>一种 <a href="package-vector_math_vector_math_geometry/GeometryFilter-class.html">GeometryFilter</a>，可直接在网格上就地应用变换。</dd>
 
           <dt id="InvertFilter">
   <span class="name "><a href="package-vector_math_vector_math_geometry/InvertFilter-class.html">InvertFilter</a></span> 
 
 </dt>
-<dd>反转网格的三角形绕序并翻转法线。</dd>
+<dd>反转网格三角形的绕序，并翻转法线。</dd>
 
           <dt id="MeshGeometry">
   <span class="name "><a href="package-vector_math_vector_math_geometry/MeshGeometry-class.html">MeshGeometry</a></span> 
@@ -207,7 +207,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <span class="name "><a href="package-vector_math_vector_math_geometry/TransformFilter-class.html">TransformFilter</a></span> 
 
 </dt>
-<dd>将矩阵变换原地应用于网格中的每个顶点位置。</dd>
+<dd>对网格中的每个顶点位置就地应用矩阵变换。</dd>
 
           <dt id="VertexAttrib">
   <span class="name "><a href="package-vector_math_vector_math_geometry/VertexAttrib-class.html">VertexAttrib</a></span> 
@@ -236,13 +236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
 
 </dt>
-<dd>
-  Generate vertex normals based on a list of <code>positions</code> 和 <code>indices</code>.
-<code>normals</code> is assumed to be zeroed out, and much match <code>positions</code> in length.
-<code>indices</code> is assumed to represent a triangle list.
-  
-
-</dd>
+<dd>根据 <code>positions</code> 和 <code>indices</code> 生成顶点法线。假定 <code>normals</code> 已清零，且长度必须与 <code>positions</code> 相同。<code>indices</code> 假定表示三角形列表。</dd>
 
           <dt id="generateTangents" class="callable">
   <span class="name"><a href="package-vector_math_vector_math_geometry/generateTangents.html">generateTangents</a></span><span class="signature">(<wbr><span class="parameter" id="generateTangents-param-tangents"><span class="type-annotation"><a href="package-vector_math_vector_math_lists/Vector4List-class.html">Vector4List</a></span> <span class="parameter-name">tangents</span>, </span><span class="parameter" id="generateTangents-param-positions"><span class="type-annotation"><a href="package-vector_math_vector_math_lists/Vector3List-class.html">Vector3List</a></span> <span class="parameter-name">positions</span>, </span><span class="parameter" id="generateTangents-param-normals"><span class="type-annotation"><a href="package-vector_math_vector_math_lists/Vector3List-class.html">Vector3List</a></span> <span class="parameter-name">normals</span>, </span><span class="parameter" id="generateTangents-param-texCoords"><span class="type-annotation"><a href="package-vector_math_vector_math_lists/Vector2List-class.html">Vector2List</a></span> <span class="parameter-name">texCoords</span>, </span><span class="parameter" id="generateTangents-param-indices"><span class="type-annotation"><a href="dart-typed_data/Uint16List-class.html">Uint16List</a></span> <span class="parameter-name">indices</span></span>)
@@ -251,21 +245,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
 
 </dt>
-<dd>
-  Generate vertex tangents based on a list of <code>positions</code>, <code>normals</code>,
-<code>texCoords</code> 和 <code>indices</code>.
-<code>tangents</code> is assumed to be zeroed out, and much match <code>positions</code>,
-<code>normals</code>, and <code>texCoords</code> in length.
-<code>indices</code> is assumed to represent a triangle list.
-Tangents are returned as Vector4s. The X, Y, and Z component represent
-the tangent and the W component represents the direction of the bitangent
-which can be generated as:
-vec4 bitangent = cross(normal, tangent.xyz) * tangent.w;
-Derived from the granddaddy of all tangent generation functions:
-<a href="http://www.terathon.com/code/tangent.html">http://www.terathon.com/code/tangent.html</a>
-  
-
-</dd>
+<dd>根据 <code>positions</code>、<code>normals</code>、<code>texCoords</code> 和 <code>indices</code> 生成顶点切线。假定 <code>tangents</code> 已清零，且长度必须分别与 <code>positions</code>、<code>normals</code> 和 <code>texCoords</code> 相同。<code>indices</code> 假定表示三角形列表。切线以 Vector4 形式返回；X、Y、Z 分量表示切线，W 分量表示副切线方向，可按以下方式生成：vec4 bitangent = cross(normal, tangent.xyz) * tangent.w; 此算法源自最经典的切线生成函数：<a href="http://www.terathon.com/code/tangent.html">http://www.terathon.com/code/tangent.html</a></dd>
 
       </dl>
     </section>
