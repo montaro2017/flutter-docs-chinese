@@ -38,7 +38,7 @@ if args.action == 'copy':
     print('Copied documentation to flutter.docs.cn/flutter/ with supporting assets.')
 elif args.action == 'inspect-extra':
     text = read_source(args.page)
-    for i, match in enumerate(re.finditer(r'<dd>.*?</dd>', text, re.S)):
+    for i, match in enumerate(re.finditer(r'<dd\b[^>]*>.*?</dd>', text, re.S)):
         print(f'{i}: {match.group(0)}')
 elif args.action == 'inspect':
     text = read_source(args.page)
@@ -114,7 +114,7 @@ else:
             text = text[:section.start(1)] + content + text[section.end(1):]
         if extras_all:
             extras = extras_all.get(page, {})
-            matches = list(re.finditer(r'<dd>.*?</dd>', text, re.S))
+            matches = list(re.finditer(r'<dd\b[^>]*>.*?</dd>', text, re.S))
             for number, translated in sorted(extras.items(), key=lambda x:int(x[0]), reverse=True):
                 if int(number) < 0 or int(number) >= len(matches):
                     print(f'{page} summary {number}: skipped out-of-range summary')
