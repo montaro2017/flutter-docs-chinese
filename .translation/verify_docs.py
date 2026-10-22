@@ -17,7 +17,7 @@ skipped_mappings = 0
 reachable_file = data_root / 'reachable-pages.json'
 reachable_pages = set(json.loads(reachable_file.read_text(encoding='utf-8'))['pages']) if reachable_file.is_file() else None
 translation_pages = sorted({
-    page.removeprefix('flutter/') for page in translations
+    page.removeprefix('flutter/') for page in (*translations, *extras)
     if reachable_pages is None or 'flutter/' + page.removeprefix('flutter/') in reachable_pages
 })
 for page in translation_pages:

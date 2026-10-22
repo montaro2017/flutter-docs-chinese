@@ -59,7 +59,10 @@ else:
     extras_all = json.loads(extras_file.read_text(encoding='utf-8')) if extras_file.exists() else {}
     fragments_file = DATA / 'translations-fragments.json'
     fragments_all = json.loads(fragments_file.read_text(encoding='utf-8')) if fragments_file.exists() else {}
-    pages = sorted({page.removeprefix('flutter/') for page in translations})
+    pages = sorted(
+        {page.removeprefix('flutter/') for page in translations}
+        | {page.removeprefix('flutter/') for page in extras_all}
+    )
     target_page = args.page.removeprefix('flutter/')
     for page in pages:
         if args.from_page and page < args.from_page.removeprefix('flutter/'):
@@ -82,7 +85,7 @@ else:
             continue
         section = re.search(r'<section class="desc markdown">(.*?)</section>', text, re.S)
         matches = blocks(text)
-        content = section.group(1)
+        content = section.group(1) if section else ''
         for number, translated in sorted(entries.items(), key=lambda x:int(x[0]), reverse=True):
             if int(number) < 0 or int(number) >= len(matches):
                 print(f'{page} block {number}: skipped out-of-range translation')
@@ -107,7 +110,8 @@ else:
             if altered_anchor:
                 continue
             content = content[:match.start()] + translated + content[match.end():]
-        text = text[:section.start(1)] + content + text[section.end(1):]
+        if section:
+            text = text[:section.start(1)] + content + text[section.end(1):]
         if extras_all:
             extras = extras_all.get(page, {})
             matches = list(re.finditer(r'<dd>.*?</dd>', text, re.S))
