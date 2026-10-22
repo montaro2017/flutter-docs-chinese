@@ -109,7 +109,7 @@ def merged(mapping, page, default):
 def evidence(source, page, mappings, extras, fragments):
     section = re.search(r'<section class="desc markdown">(.*?)</section>', source, re.S)
     body = list(re.finditer(r'<(p|h[2-6])\b[^>]*>.*?</\1>', section[1], re.S)) if section else []
-    summaries = list(re.finditer(r'<dd>.*?</dd>', source, re.S))
+    summaries = list(re.finditer(r'<dd\b[^>]*>.*?</dd>', source, re.S))
     pairs = []
     for blocks, mapping in ((body, merged(mappings, page, {})), (summaries, merged(extras, page, {}))):
         for number, translation in mapping.items():
