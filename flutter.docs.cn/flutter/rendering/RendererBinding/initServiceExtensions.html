@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/binding.dart#L78"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">initServiceExtensions</span> 方法
+<h1><span class="kind-method">initServiceExtensions</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -106,22 +106,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Called when the binding is initialized, to register service
-extensions.</p>
-<p>Bindings that want to expose service extensions should overload
-this method to register them using calls to
-<a href="rendering/RendererBinding/registerSignalServiceExtension.html">registerSignalServiceExtension</a>,
-<a href="rendering/RendererBinding/registerBoolServiceExtension.html">registerBoolServiceExtension</a>,
-<a href="rendering/RendererBinding/registerNumericServiceExtension.html">registerNumericServiceExtension</a>, and
-<a href="rendering/RendererBinding/registerServiceExtension.html">registerServiceExtension</a> (in increasing order of complexity).</p>
-<p>Implementations of this method must call their superclass
-implementation.</p>
-<p>A registered service extension can only be activated if the vm-service
-is included in the build, which only happens in debug and profile mode.
-Although a service extension cannot be used in release mode its code may
-still be included in the Dart snapshot and blow up binary size if it is
-not wrapped in a guard that allows the tree shaker to remove it (see
-sample code below).</p>
+  <p>binding 初始化时调用，用于注册服务扩展。</p>
+<p>需要公开服务扩展的 binding 应重写此方法，并通过调用 <a href="rendering/RendererBinding/registerSignalServiceExtension.html">registerSignalServiceExtension</a>、<a href="rendering/RendererBinding/registerBoolServiceExtension.html">registerBoolServiceExtension</a>、<a href="rendering/RendererBinding/registerNumericServiceExtension.html">registerNumericServiceExtension</a> 和 <a href="rendering/RendererBinding/registerServiceExtension.html">registerServiceExtension</a> 来注册扩展（复杂度依次递增）。</p>
+<p>此方法的实现必须调用父类实现。</p>
+<p>只有构建中包含 vm-service 时，注册的服务扩展才能启用；vm-service 仅包含在调试模式和性能分析模式的构建中。虽然发布模式下无法使用服务扩展，其代码仍可能进入 Dart 快照并增大二进制文件；若要避免这种情况，必须将代码放在能让 tree shaker 移除它的保护条件中（见下方示例代码）。</p>
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.1"></a>
 <div class="snippet snippet-container anchor-container">
@@ -174,8 +162,7 @@ available in debug and profile mode.
   </div>
 </div>
 </p>
-<p>Both guards ensure that Dart's tree shaker can remove the code for the
-service extension in release builds.</p>
+<p>这两个保护条件都能确保 Dart 的 tree shaker 在发布构建中移除服务扩展代码。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="https://github.com/dart-lang/sdk/blob/main/runtime/vm/service/service.md#rpcs-requests-and-responses">github.com/dart-lang/sdk/blob/main/runtime/vm/service/service.md#rpcs-requests-and-responses</a></li>

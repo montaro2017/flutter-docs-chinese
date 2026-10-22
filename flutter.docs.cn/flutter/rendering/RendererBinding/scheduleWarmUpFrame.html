@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/scheduler/binding.dart#L1037"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">scheduleWarmUpFrame</span> 方法
+<h1><span class="kind-method">scheduleWarmUpFrame</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -101,35 +101,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Schedule a frame to run as soon as possible, rather than waiting for
-the engine to request a frame in response to a system "Vsync" signal.</p>
-<p>This is used during application startup so that the first frame (which is
-likely to be quite expensive) gets a few extra milliseconds to run.</p>
-<p>Locks events dispatching until the scheduled frame has completed.</p>
-<p>If a frame has already been scheduled with <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> or
-<a href="scheduler/SchedulerBinding/scheduleForcedFrame.html">scheduleForcedFrame</a>, this call may delay that frame.</p>
-<p>If any scheduled frame has already begun or if another
-<a href="scheduler/SchedulerBinding/scheduleWarmUpFrame.html">scheduleWarmUpFrame</a> was already called, this call will be ignored.</p>
-<p>Prefer <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> to update the display in normal operation.</p>
+  <p>尽快安排一帧，而不是等待引擎响应系统“Vsync”信号后再请求帧。</p>
+<p>应用启动时会使用此方法，让通常开销较大的第一帧多获得几毫秒的处理时间。</p>
+<p>在所安排的帧完成之前，锁定事件分发。</p>
+<p>如果此前已通过 <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> 或 <a href="scheduler/SchedulerBinding/scheduleForcedFrame.html">scheduleForcedFrame</a> 安排了帧，此调用可能会延迟该帧。</p>
+<p>如果已有帧开始执行，或者此前已调用另一个 <a href="scheduler/SchedulerBinding/scheduleWarmUpFrame.html">scheduleWarmUpFrame</a>，则会忽略此调用。</p>
+<p>正常运行时，建议使用 <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> 更新显示。</p>
 <h2 id="design-discussion">设计讨论</h2>
-<p>The Flutter engine prompts the framework to generate frames when it
-receives a request from the operating system (known for historical reasons
-as a vsync). However, this may not happen for several milliseconds after
-the app starts (or after a hot reload). To make use of the time between
-when the widget tree is first configured and when the engine requests an
-update, the framework schedules a <em>warm-up frame</em>.</p>
-<p>A warm-up frame may never actually render (as the engine did not request
-it and therefore does not have a valid context in which to paint), but it
-will cause the framework to go through the steps of building, laying out,
-and painting, which can together take several milliseconds. Thus, when the
-engine requests a real frame, much of the work will already have been
-completed, and the framework can generate the frame with minimal
-additional effort.</p>
-<p>Warm-up frames are scheduled by <a href="widgets/runApp.html">runApp</a> on startup, and by
-<a href="rendering/RendererBinding/performReassemble.html">RendererBinding.performReassemble</a> during a hot reload.</p>
-<p>Warm-up frames are also scheduled when the framework is unblocked by a
-call to <a href="rendering/RendererBinding/allowFirstFrame.html">RendererBinding.allowFirstFrame</a> (corresponding to a call to
-<a href="rendering/RendererBinding/deferFirstFrame.html">RendererBinding.deferFirstFrame</a> that blocked the rendering).</p>
+<p>Flutter 引擎收到操作系统的请求时，会提示框架生成帧。出于历史原因，这种请求称为 vsync。但应用启动后（或热重载后），引擎可能要过几毫秒才发出请求。为了利用首次配置 widget 树到引擎请求更新之间的时间，框架会安排一个<em>预热帧</em>。</p>
+<p>预热帧可能永远不会真正渲染（因为引擎没有请求该帧，因此也没有可用于绘制的有效上下文），但它会促使框架执行构建、布局和绘制步骤，这些工作合计可能需要几毫秒。因此，引擎请求真正的帧时，大部分工作已经完成，框架只需付出很少的额外开销即可生成该帧。</p>
+<p>应用启动时由 <a href="widgets/runApp.html">runApp</a> 安排预热帧；热重载时则由 <a href="rendering/RendererBinding/performReassemble.html">RendererBinding.performReassemble</a> 安排。</p>
+<p>框架解除阻塞时也会安排预热帧：调用 <a href="rendering/RendererBinding/allowFirstFrame.html">RendererBinding.allowFirstFrame</a> 会解除先前由 <a href="rendering/RendererBinding/deferFirstFrame.html">RendererBinding.deferFirstFrame</a> 设置的渲染阻塞。</p>
 </section>
 
 

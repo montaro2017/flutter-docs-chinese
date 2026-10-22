@@ -93,28 +93,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>A <a href="rendering/RenderBox-class.html">RenderBox</a> that applies an arbitrary transform to its constraints,
-and sizes its child using the resulting <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>, optionally
-clipping, or treating the overflow as an error.</p>
-<p>This <a href="rendering/RenderBox-class.html">RenderBox</a> sizes its child using a <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> created by
-applying <a href="rendering/RenderConstraintsTransformBox/constraintsTransform.html">constraintsTransform</a> to this <a href="rendering/RenderBox-class.html">RenderBox</a>'s own <a href="rendering/RenderBox/constraints.html">constraints</a>.
-This box will then attempt to adopt the same size, within the limits of its
-own constraints. If it ends up with a different size, it will align the
-child based on <a href="rendering/RenderAligningShiftedBox/alignment.html">alignment</a>. If the box cannot expand enough to accommodate
-the entire child, the child will be clipped if <a href="rendering/RenderConstraintsTransformBox/clipBehavior.html">clipBehavior</a> is not
-<a href="dart-ui/Clip.html">Clip.none</a>.</p>
-<p>In debug mode, if <a href="rendering/RenderConstraintsTransformBox/clipBehavior.html">clipBehavior</a> is <a href="dart-ui/Clip.html">Clip.none</a> and the child overflows the
-container, a warning will be printed on the console, and black and yellow
-striped areas will appear where the overflow occurs.</p>
-<p>When <a href="rendering/RenderObjectWithChildMixin/child.html">child</a> is null, this <a href="rendering/RenderBox-class.html">RenderBox</a> takes the smallest possible size and
-never overflows.</p>
-<p>This <a href="rendering/RenderBox-class.html">RenderBox</a> can be used to ensure some of <a href="rendering/RenderObjectWithChildMixin/child.html">child</a>'s natural dimensions
-are honored, and get an early warning during development otherwise. For
-instance, if <a href="rendering/RenderObjectWithChildMixin/child.html">child</a> requires a minimum height to fully display its content,
-<a href="rendering/RenderConstraintsTransformBox/constraintsTransform.html">constraintsTransform</a> can be set to a function that removes the <code>maxHeight</code>
-constraint from the incoming <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>, so that if the parent
-<a href="rendering/RenderObject-class.html">RenderObject</a> fails to provide enough vertical space, a warning will be
-displayed in debug mode, while still allowing <a href="rendering/RenderObjectWithChildMixin/child.html">child</a> to grow vertically.</p>
+  <p>一种 <a href="rendering/RenderBox-class.html">RenderBox</a>，可对自身约束应用任意变换，再使用变换后的 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 布局子节点；还可选择裁剪溢出内容，或将溢出视为错误。</p>
+<p>此 <a href="rendering/RenderBox-class.html">RenderBox</a> 使用将 <a href="rendering/RenderConstraintsTransformBox/constraintsTransform.html">constraintsTransform</a> 应用于此 <a href="rendering/RenderBox-class.html">RenderBox</a> 自身 <a href="rendering/RenderBox/constraints.html">constraints</a> 后生成的 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 来布局子节点。随后，该盒子会尝试在自身约束允许的范围内采用与子节点相同的尺寸。如果最终尺寸不同，则会根据 <a href="rendering/RenderAligningShiftedBox/alignment.html">alignment</a> 对齐子节点。如果盒子无法扩展到足以容纳整个子节点，且 <a href="rendering/RenderConstraintsTransformBox/clipBehavior.html">clipBehavior</a> 不是 <a href="dart-ui/Clip.html">Clip.none</a>，则会裁剪子节点。</p>
+<p>在调试模式下，如果 <a href="rendering/RenderConstraintsTransformBox/clipBehavior.html">clipBehavior</a> 为 <a href="dart-ui/Clip.html">Clip.none</a> 且子节点溢出容器，控制台会打印警告，并在发生溢出的位置显示黑黄相间的条纹区域。</p>
+<p>当 <a href="rendering/RenderObjectWithChildMixin/child.html">child</a> 为 null 时，此 <a href="rendering/RenderBox-class.html">RenderBox</a> 会采用尽可能小的尺寸，且不会发生溢出。</p>
+<p>此 <a href="rendering/RenderBox-class.html">RenderBox</a> 可用于确保遵循 <a href="rendering/RenderObjectWithChildMixin/child.html">child</a> 的部分自然尺寸，并在开发期间提前发出警告。例如，如果 <a href="rendering/RenderObjectWithChildMixin/child.html">child</a> 需要最小高度才能完整显示内容，可以将 <a href="rendering/RenderConstraintsTransformBox/constraintsTransform.html">constraintsTransform</a> 设为一个会移除传入 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 中 <code>maxHeight</code> 约束的函数。这样，即使父级 <a href="rendering/RenderObject-class.html">RenderObject</a> 未能提供足够的垂直空间，调试模式仍会显示警告，同时允许 <a href="rendering/RenderObjectWithChildMixin/child.html">child</a> 继续沿垂直方向增长。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/ConstraintsTransformBox-class.html">ConstraintsTransformBox</a>, the widget that makes use of this

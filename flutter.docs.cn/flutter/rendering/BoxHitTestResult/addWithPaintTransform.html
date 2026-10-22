@@ -104,27 +104,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Transforms <code>position</code> to the local coordinate system of a child for
-hit-testing the child.</p>
-<p>The actual hit testing of the child needs to be implemented in the
-provided <code>hitTest</code> callback, which is invoked with the transformed
-<code>position</code> as argument.</p>
-<p>The provided paint <code>transform</code> (which describes the transform from the
-child to the parent in 3D) is processed by
-<a href="gestures/PointerEvent/removePerspectiveTransform.html">PointerEvent.removePerspectiveTransform</a> to remove the
-perspective component and inverted before it is used to transform
-<code>position</code> from the coordinate system of the parent to the system of the
-child.</p>
-<p>If <code>transform</code> is null it will be treated as the identity transform and
-<code>position</code> is provided to the <code>hitTest</code> callback as-is. If <code>transform</code>
-cannot be inverted, the <code>hitTest</code> callback is not invoked and false is
-returned. Otherwise, the return value of the <code>hitTest</code> callback is
-returned.</p>
-<p>The <code>position</code> argument may be null, which will be forwarded to the
-<code>hitTest</code> callback as-is. Using null as the position can be useful if
-the child speaks a different hit test protocol than the parent and the
-position is not required to do the actual hit testing in that protocol.</p>
-<p>The function returns the return value of the <code>hitTest</code> callback.</p>
+  <p>将 <code>position</code> 转换到子对象的局部坐标系，以便对该子对象执行命中测试。</p>
+<p>必须在提供的 <code>hitTest</code> 回调中实现对子对象的实际命中测试；调用回调时，会将变换后的 <code>position</code> 作为参数传入。</p>
+<p>此方法会先通过 <a href="gestures/PointerEvent/removePerspectiveTransform.html">PointerEvent.removePerspectiveTransform</a> 处理提供的绘制 <code>transform</code>（该变换描述子对象到父对象的三维变换），移除其中的透视分量，然后将其求逆，再用它把 <code>position</code> 从父对象的坐标系转换到子对象的坐标系。</p>
+<p>如果 <code>transform</code> 为 null，则按恒等变换处理，并将 <code>position</code> 原样传给 <code>hitTest</code> 回调。如果 <code>transform</code> 无法求逆，则不会调用 <code>hitTest</code> 回调，并返回 false。否则返回 <code>hitTest</code> 回调的结果。</p>
+<p><code>position</code> 参数可以为 null，此时会将其原样传给 <code>hitTest</code> 回调。如果子对象使用的命中测试协议与父对象不同，且该协议执行实际命中测试时不需要位置，则传入 null 会很有用。</p>
+<p>此函数返回 <code>hitTest</code> 回调的返回值。</p>
 <p>
 <a name="rendering.BoxHitTestResult.addWithPaintTransform.1"></a>
 <div class="snippet snippet-container anchor-container">

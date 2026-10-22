@@ -245,15 +245,19 @@ if not args.dry_run:
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     p = data / '翻译进度.md'
     overview = p.read_text(encoding='utf-8')
-    mat = state['material']
     overall_percent = total_translated * 100 / state['totals']['body_blocks']
-    status_line = (
-        f"**最新状态（{date.today().isoformat()}）**：全站正文已译 {total_translated:,}/"
-        f"{state['totals']['body_blocks']:,} 段（约 {overall_percent:.1f}%）；"
-        f"Material 已译 {mat['translated_blocks']:,}/{mat['body_blocks']:,} 段"
-        f"（剩 {mat['pending_blocks']:,} 段）。"
+    progress_line = (
+        f"**最新进度（{date.today().isoformat()}）**：正文已译 {total_translated:,}/"
+        f"{state['totals']['body_blocks']:,} 段（约 {overall_percent:.1f}%，"
+        f"剩余 {state['totals']['body_blocks'] - total_translated:,} 段）。"
     )
-    overview = re.sub(r'^\*\*最新状态（.*?）\*\*：.*$', status_line, overview, count=1, flags=re.M)
+    overview = re.sub(
+        r'^\*\*最新(?:进度|状态)（.*?）\*\*：.*$',
+        progress_line,
+        overview,
+        count=1,
+        flags=re.M,
+    )
     p.write_text(overview, encoding='utf-8')
 
     if module_parts[0] == 'material':

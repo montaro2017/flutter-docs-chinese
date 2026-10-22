@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the markNeedsLayout method from the ContainerRenderObjectMixin mixin, for the Dart programming language.">
-  <title>markNeedsLayout method - ContainerRenderObjectMixin mixin - rendering library - Dart API</title>
+  <title>markNeedsLayout method - ContainerRenderObjectMixin mixin - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
     <li><a href="rendering/ContainerRenderObjectMixin-mixin.html">ContainerRenderObjectMixin<span class="signature">&lt;<wbr><span class="type-parameter">ChildType extends RenderObject</span>, <span class="type-parameter">ParentDataType extends ContainerParentDataMixin&lt;<wbr><span class="type-parameter">ChildType</span>&gt;</span>&gt;</span></a></li>
-    <li class="self-crumb">markNeedsLayout method</li>
+    <li class="self-crumb">markNeedsLayout 方法</li>
   </ol>
   <div class="self-name">markNeedsLayout</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,8 +87,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;ContainerRenderObjectMixin-mixin-sidebar.html"
     data-below-sidebar="">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L2676"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">markNeedsLayout</span> method 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L2676"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">markNeedsLayout</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -96,47 +96,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="returntype">void</span>
 <span class="name ">markNeedsLayout</span>(<wbr>)
 
-      <div class="features"><span class="feature">inherited</span></div>
+      <div class="features"><span class="feature">继承</span></div>
 
     </section>
     
 <section class="desc markdown">
-  <p>Mark this render object's layout information as dirty, and either register
-this object with its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>, or defer to the parent, depending on
-whether this object is a relayout boundary or not respectively.</p>
-<h2 id="background">Background</h2>
-<p>Rather than eagerly updating layout information in response to writes into
-a render object, we instead mark the layout information as dirty, which
-schedules a visual update. As part of the visual update, the rendering
-pipeline updates the render object's layout information.</p>
-<p>This mechanism batches the layout work so that multiple sequential writes
-are coalesced, removing redundant computation.</p>
-<p>If a render object's parent indicates that it uses the size of one of its
-render object children when computing its layout information, this
-function, when called for the child, will also mark the parent as needing
-layout. In that case, since both the parent and the child need to have
-their layout recomputed, the pipeline owner is only notified about the
-parent; when the parent is laid out, it will call the child's <a href="rendering/RenderObject/layout.html">layout</a>
-method and thus the child will be laid out as well.</p>
-<p>Once <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a> has been called on a render object,
-<a href="rendering/RenderObject/debugNeedsLayout.html">debugNeedsLayout</a> returns true for that render object until just after
-the pipeline owner has called <a href="rendering/RenderObject/layout.html">layout</a> on the render object.</p>
-<h2 id="special-cases">Special cases</h2>
-<p>Some subclasses of <a href="rendering/RenderObject-class.html">RenderObject</a>, notably <a href="rendering/RenderBox-class.html">RenderBox</a>, have other
-situations in which the parent needs to be notified if the child is
-dirtied (e.g., if the child's intrinsic dimensions or baseline changes).
-Such subclasses override markNeedsLayout and either call
-<code>super.markNeedsLayout()</code>, in the normal case, or call
-<a href="rendering/RenderObject/markParentNeedsLayout.html">markParentNeedsLayout</a>, in the case where the parent needs to be laid out
-as well as the child.</p>
-<p>If <a href="rendering/RenderObject/sizedByParent.html">sizedByParent</a> has changed, calls
-<a href="rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html">markNeedsLayoutForSizedByParentChange</a> instead of <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>.</p>
+  <p>将此渲染对象的布局信息标记为变脏，并根据此对象是否为 relayout boundary，选择向其 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 注册此对象，或将处理工作交由父对象。</p>
+<h2 id="background">背景</h2>
+<p>写入渲染对象时，我们不会立即更新布局信息，而是将布局信息标记为变脏，从而安排一次视觉更新。作为视觉更新的一部分，渲染流水线会更新该渲染对象的布局信息。</p>
+<p>此机制会批量处理布局工作，将连续的多次写入合并，从而消除重复计算。</p>
+<p>如果渲染对象的父对象表示，在计算布局信息时会使用某个渲染子对象的尺寸，那么对此子对象调用此函数时，也会将父对象标记为需要布局。在这种情况下，父对象和子对象都需要重新计算布局，因此流水线只会通知父对象；父对象完成布局时会调用子对象的 <a href="rendering/RenderObject/layout.html">layout</a> 方法，子对象也因此会重新布局。</p>
+<p>对此渲染对象调用 <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a> 后，<a href="rendering/RenderObject/debugNeedsLayout.html">debugNeedsLayout</a> 会对该对象返回 true，直到 pipeline owner 调用该对象的 <a href="rendering/RenderObject/layout.html">layout</a> 后才会恢复。</p>
+<h2 id="special-cases">特殊情况</h2>
+<p><a href="rendering/RenderObject-class.html">RenderObject</a> 的某些子类（尤其是 <a href="rendering/RenderBox-class.html">RenderBox</a>）还存在其他情况：子对象变脏时也需要通知父对象（例如子对象的固有尺寸或基线发生变化）。此类子类会重写 markNeedsLayout；在常规情况下调用 <code>super.markNeedsLayout()</code>，在父对象也需要布局时调用 <a href="rendering/RenderObject/markParentNeedsLayout.html">markParentNeedsLayout</a>。</p>
+<p>如果 <a href="rendering/RenderObject/sizedByParent.html">sizedByParent</a> 已发生变化，请调用 <a href="rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html">markNeedsLayoutForSizedByParentChange</a>，而不是 <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">void markNeedsLayout() {
   assert(_debugCanPerformMutations);
   if (_needsLayout) {
@@ -165,14 +144,14 @@ as well as the child.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
     <li><a href="rendering/ContainerRenderObjectMixin-mixin.html">ContainerRenderObjectMixin<span class="signature">&lt;<wbr><span class="type-parameter">ChildType extends RenderObject</span>, <span class="type-parameter">ParentDataType extends ContainerParentDataMixin&lt;<wbr><span class="type-parameter">ChildType</span>&gt;</span>&gt;</span></a></li>
-    <li class="self-crumb">markNeedsLayout method</li>
+    <li class="self-crumb">markNeedsLayout 方法</li>
 </ol>
 
     <h5>ContainerRenderObjectMixin mixin</h5>
@@ -198,7 +177,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

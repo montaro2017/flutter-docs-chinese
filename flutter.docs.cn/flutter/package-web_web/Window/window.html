@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the window property from the Window extension type, for the Dart programming language.">
-  <title>window property - Window extension type - web library - Dart API</title>
+  <title>window property - Window extension type - web 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web.dart</a></li>
     <li><a href="package-web_web/Window-extension-type.html">Window</a></li>
-    <li class="self-crumb">window property</li>
+    <li class="self-crumb">window 属性</li>
   </ol>
   <div class="self-name">window</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="package-web_web&#47;Window-extension-type-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-property">window</span> property 
+<h1><span class="kind-property">window</span> 属性 
 </h1></div>
 
     
@@ -105,56 +105,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>The <strong><code>window</code></strong> property of a <a href="package-web_web/Window-extension-type.html">Window</a> object points to the window object
-itself.</p>
-<p>Thus, the following expressions all return the same window object:</p>
+  <p><a href="package-web_web/Window-extension-type.html">Window</a> 对象的 <strong><code>window</code></strong> 属性指向窗口对象自身。</p>
+<p>因此，以下表达式都会返回同一个窗口对象：</p>
 <pre class="language-js"><code class="language-js">window.window;
 window.window.window;
 window.window.window.window;
 // …
 </code></pre>
-<p>In web pages, the window object is also a <em>global object</em>. This means:</p>
+<p>在网页中，window 对象也是一个<em>全局对象</em>。这意味着：</p>
 <ol>
-<li>Global variables of your script are, in fact, properties of <code>window</code>:</li>
+<li>脚本中的全局变量实际上都是 <code>window</code> 的属性：</li>
 </ol>
 <pre class="language-js"><code class="language-js">var global = { data: 0 };
 alert(global === window.global); // displays "true"
 </code></pre>
 <ol start="2">
-<li>You can access the built-in properties of the window object without
-having to prefix them with <code>window.</code>:</li>
+<li>可以直接访问 window 对象的内置属性，无需在属性名前添加 <code>window.</code>：</li>
 </ol>
 <pre class="language-js"><code class="language-js">setTimeout("alert('Hi!')", 50); // equivalent to using
 window.setTimeout().
 alert(window === window.window); // displays "true"
 </code></pre>
-<p>The point of having the <code>window</code> property refer to the object itself, was
-likely to make it easy to refer to the global object. Otherwise, you'd
-have to do a manual <code>let window = this;</code> assignment at the top of your
-script.</p>
-<p>Another reason, is that without this property you wouldn't be able to
-write, for example, "". You'd have to use <code>open('https://google.com/')</code>
-instead.</p>
-<p>Yet another reason to use this property, is for libraries which wish to
-offer OOP-versions, and non-OOP versions (especially JavaScript modules).
-For example, if we refer to "this.window.location.href", a
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">JavaScript module</a>
-could define a property called "window" inside of a class it defined
-(since no global "window" variable exists for it by default) which could
-be created after passing in a window object to the module class'
-constructor. Thus, "this.window" inside of its functions would refer to
-that window object. In the non-namespaced version, "this.window" would
-refer back to "window", and also be able to readily get the document
-location. Another advantage, is that the objects of such a class (even if
-the class were defined outside of a module) could change their reference
-to the window at will, they would not be able to do this if they had
-hard-coded a reference to "window". The default in the class could still
-be set as the current window object.</p>
+<p><code>window</code> 属性指向对象自身，可能是为了便于引用全局对象。否则，就必须在脚本顶部手动执行 <code>let window = this;</code> 赋值。</p>
+<p>设置此属性的另一个原因是，如果没有它，就无法写出例如 window.open('https://google.com/') 这样的调用；只能使用 <code>open('https://google.com/')</code>。</p>
+<p>使用此属性的另一个原因是，一些库希望同时提供面向对象版本和非面向对象版本（尤其是 JavaScript 模块）。例如，如果使用“this.window.location.href”，<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">JavaScript 模块</a>可以在其定义的类中创建名为“window”的属性（因为模块默认没有全局“window”变量），并在构造该模块类时传入一个窗口对象。这样，该类函数中的“this.window”就会指向该窗口对象。在非命名空间版本中，“this.window”会指回“window”，从而也能方便地获取文档位置。另一个优点是，此类对象（即使类定义在模块之外）可以随时更改其窗口引用；如果将“window”引用写死，就无法做到这一点。类中的默认值仍可设为当前窗口对象。</p>
 </section>
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">external Window get window;</code></pre>
 </section>
 
@@ -166,14 +145,14 @@ be set as the current window object.</p>
   <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web</a></li>
     <li><a href="package-web_web/Window-extension-type.html">Window</a></li>
-    <li class="self-crumb">window property</li>
+    <li class="self-crumb">window 属性</li>
 </ol>
 
   <h5>Window extension type</h5>
@@ -199,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

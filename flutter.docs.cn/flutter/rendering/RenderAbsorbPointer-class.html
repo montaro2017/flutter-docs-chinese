@@ -93,31 +93,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>A render object that absorbs pointers during hit testing.</p>
-<p>When <a href="rendering/RenderAbsorbPointer/absorbing.html">absorbing</a> is true, this render object prevents its subtree from
-receiving pointer events by terminating hit testing at itself. It still
-consumes space during layout and paints its child as usual. It just prevents
-its children from being the target of located events, because its render
-object returns true from <a href="rendering/RenderAbsorbPointer/hitTest.html">hitTest</a>.</p>
-<h2 id="semantics">Semantics</h2>
-<p>Using this class may also affect how the semantics subtree underneath is
-collected.</p>
-<p>If <a href="rendering/RenderAbsorbPointer/absorbing.html">absorbing</a> is true, pointer-related <a href="dart-ui/SemanticsAction-class.html">SemanticsAction</a>s are removed from
-the semantics subtree. Otherwise, the subtree remains untouched.</p>
-<p>The usages of <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a> are deprecated and not recommended. This
-property was introduced to workaround the semantics behavior of the
-<a href="widgets/IgnorePointer-class.html">IgnorePointer</a> and its friends before v3.8.0-12.0.pre.</p>
-<p>Before that version, entire semantics subtree is dropped if <a href="rendering/RenderAbsorbPointer/absorbing.html">absorbing</a> is
-true. Developers can only use <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a> to preserver the semantics
-subtrees.</p>
-<p>After that version, with <a href="rendering/RenderAbsorbPointer/absorbing.html">absorbing</a> set to true, it only prevents semantics
-user actions in the semantics subtree but leaves the other
-<a href="semantics/SemanticsProperties-class.html">SemanticsProperties</a> intact. Therefore, the <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a> is no
-longer needed.</p>
-<p>If <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a> is true, the semantics subtree is dropped. Therefore,
-the subtree will be invisible to assistive technologies.</p>
-<p>If <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a> is false, the semantics subtree is collected as
-usual.</p>
+  <p>在命中测试期间吸收指针事件的渲染对象。</p>
+<p>当 <a href="rendering/RenderAbsorbPointer/absorbing.html">absorbing</a> 为 true 时，此渲染对象会在自身处终止命中测试，阻止其子树接收指针事件。它仍会在布局期间占用空间，并照常绘制子对象。由于它的 <a href="rendering/RenderAbsorbPointer/hitTest.html">hitTest</a> 返回 true，因此子对象不会成为定位事件的目标。</p>
+<h2 id="semantics">语义信息</h2>
+<p>使用此类也可能影响其下方语义子树的收集方式。</p>
+<p>如果 <a href="rendering/RenderAbsorbPointer/absorbing.html">absorbing</a> 为 true，则会从语义子树中移除与指针相关的 <a href="dart-ui/SemanticsAction-class.html">SemanticsAction</a>；否则子树保持不变。</p>
+<p>不建议使用 <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a>，该用法已弃用。此属性是在 v3.8.0-12.0.pre 之前引入的，用于绕过 <a href="widgets/IgnorePointer-class.html">IgnorePointer</a> 及相关组件的语义行为。</p>
+<p>在该版本之前，如果 <a href="rendering/RenderAbsorbPointer/absorbing.html">absorbing</a> 为 true，整个语义子树都会被丢弃。开发者只能使用 <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a> 来保留语义子树。</p>
+<p>在该版本之后，即使将 <a href="rendering/RenderAbsorbPointer/absorbing.html">absorbing</a> 设为 true，也只会阻止语义子树中的用户操作，其他 <a href="semantics/SemanticsProperties-class.html">SemanticsProperties</a> 仍会保留。因此不再需要 <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a>。</p>
+<p>如果 <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a> 为 true，语义子树就会被丢弃，因此辅助技术将无法访问该子树。</p>
+<p>如果 <a href="rendering/RenderAbsorbPointer/ignoringSemantics.html">ignoringSemantics</a> 为 false，则照常收集语义子树。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/RenderIgnorePointer-class.html">RenderIgnorePointer</a>, which has the opposite effect: removing the

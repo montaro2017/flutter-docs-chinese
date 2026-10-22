@@ -94,9 +94,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>An object in the render tree.</p>
-<p>The <a href="rendering/RenderObject-class.html">RenderObject</a> class hierarchy is the core of the rendering
-library's reason for being.</p>
+  <p>渲染树中的一个对象。</p>
+<p><a href="rendering/RenderObject-class.html">RenderObject</a> 类层次结构是渲染库存在的核心基础。</p>
 <iframe src="https://www.youtube.com/embed/zmbmrw07qBc?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -108,101 +107,30 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<p><a href="rendering/RenderObject-class.html">RenderObject</a>s have a <a href="rendering/RenderObject/parent.html">parent</a>, and have a slot called <a href="rendering/RenderObject/parentData.html">parentData</a> in
-which the parent <a href="rendering/RenderObject-class.html">RenderObject</a> can store child-specific data, for example,
-the child position. The <a href="rendering/RenderObject-class.html">RenderObject</a> class also implements the basic
-layout and paint protocols.</p>
-<p>The <a href="rendering/RenderObject-class.html">RenderObject</a> class, however, does not define a child model (e.g.
-whether a node has zero, one, or more children). It also doesn't define a
-coordinate system (e.g. whether children are positioned in Cartesian
-coordinates, in polar coordinates, etc) or a specific layout protocol (e.g.
-whether the layout is width-in-height-out, or constraint-in-size-out, or
-whether the parent sets the size and position of the child before or after
-the child lays out, etc; or indeed whether the children are allowed to read
-their parent's <a href="rendering/RenderObject/parentData.html">parentData</a> slot).</p>
-<p>The <a href="rendering/RenderBox-class.html">RenderBox</a> subclass introduces the opinion that the layout
-system uses Cartesian coordinates.</p>
+<p><a href="rendering/RenderObject-class.html">RenderObject</a> 有一个 <a href="rendering/RenderObject/parent.html">parent</a>，并包含一个名为 <a href="rendering/RenderObject/parentData.html">parentData</a> 的槽位，父级 <a href="rendering/RenderObject-class.html">RenderObject</a> 可在其中存储子项专属的数据，例如子项的位置。<a href="rendering/RenderObject-class.html">RenderObject</a> 类还实现了基本的布局和绘制协议。</p>
+<p>不过，<a href="rendering/RenderObject-class.html">RenderObject</a> 类并未定义子项模型（例如节点有零个、一个还是多个子项），也未定义坐标系（例如子项采用笛卡尔坐标还是极坐标等），或特定的布局协议（例如布局是宽度输入、高度输出，还是约束输入、尺寸输出；父级是在子项布局之前还是之后设置其尺寸和位置；以及是否允许子项读取父级的 <a href="rendering/RenderObject/parentData.html">parentData</a> 槽位）。</p>
+<p><a href="rendering/RenderBox-class.html">RenderBox</a> 子类规定布局系统使用笛卡尔坐标。</p>
 <h2 id="lifecycle">生命周期</h2>
-<p>A <a href="rendering/RenderObject-class.html">RenderObject</a> must <a href="rendering/RenderObject/dispose.html">dispose</a> when it is no longer needed. The creator
-of the object is responsible for disposing of it. Typically, the creator is
-a <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a>, and that element will dispose the object it creates
-when it is unmounted.</p>
-<p><a href="rendering/RenderObject-class.html">RenderObject</a>s are responsible for cleaning up any expensive resources
-they hold when <a href="rendering/RenderObject/dispose.html">dispose</a> is called, such as <a href="dart-ui/Picture-class.html">Picture</a> or <a href="dart-ui/Image-class.html">Image</a> objects.
-This includes any <a href="rendering/Layer-class.html">Layer</a>s that the render object has directly created. The
-base implementation of dispose will nullify the <a href="rendering/RenderObject/layer.html">layer</a> property. Subclasses
-must also nullify any other layer(s) it directly creates.</p>
-<h2 id="writing-a-renderobject-subclass">Writing a RenderObject subclass</h2>
-<p>In most cases, subclassing <a href="rendering/RenderObject-class.html">RenderObject</a> itself is overkill, and
-<a href="rendering/RenderBox-class.html">RenderBox</a> would be a better starting point. However, if a render object
-doesn't want to use a Cartesian coordinate system, then it should indeed
-inherit from <a href="rendering/RenderObject-class.html">RenderObject</a> directly. This allows it to define its own
-layout protocol by using a new subclass of <a href="rendering/Constraints-class.html">Constraints</a> rather than using
-<a href="rendering/BoxConstraints-class.html">BoxConstraints</a>, and by potentially using an entirely new set of objects
-and values to represent the result of the output rather than just a <a href="dart-ui/Size-class.html">Size</a>.
-This increased flexibility comes at the cost of not being able to rely on
-the features of <a href="rendering/RenderBox-class.html">RenderBox</a>. For example, <a href="rendering/RenderBox-class.html">RenderBox</a> implements an
-intrinsic sizing protocol that allows you to measure a child without fully
-laying it out, in such a way that if that child changes size, the parent
-will be laid out again (to take into account the new dimensions of the
-child). This is a subtle and bug-prone feature to get right.</p>
-<p>Most aspects of writing a <a href="rendering/RenderBox-class.html">RenderBox</a> apply to writing a <a href="rendering/RenderObject-class.html">RenderObject</a> as
-well, and therefore the discussion at <a href="rendering/RenderBox-class.html">RenderBox</a> is recommended background
-reading. The main differences are around layout and hit testing, since those
-are the aspects that <a href="rendering/RenderBox-class.html">RenderBox</a> primarily specializes.</p>
-<h3 id="layout">Layout</h3>
-<p>A layout protocol begins with a subclass of <a href="rendering/Constraints-class.html">Constraints</a>. See the
-discussion at <a href="rendering/Constraints-class.html">Constraints</a> for more information on how to write a
-<a href="rendering/Constraints-class.html">Constraints</a> subclass.</p>
-<p>The <a href="rendering/RenderObject/performLayout.html">performLayout</a> method should take the <a href="rendering/RenderObject/constraints.html">constraints</a>, and apply them.
-The output of the layout algorithm is fields set on the object that describe
-the geometry of the object for the purposes of the parent's layout. For
-example, with <a href="rendering/RenderBox-class.html">RenderBox</a> the output is the <a href="rendering/RenderBox/size.html">RenderBox.size</a> field. This
-output should only be read by the parent if the parent specified
-<code>parentUsesSize</code> as true when calling <a href="rendering/RenderObject/layout.html">layout</a> on the child.</p>
-<p>Anytime anything changes on a render object that would affect the layout of
-that object, it should call <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>.</p>
-<h3 id="hit-testing">Hit Testing</h3>
-<p>Hit testing is even more open-ended than layout. There is no method to
-override, you are expected to provide one.</p>
-<p>The general behavior of your hit-testing method should be similar to the
-behavior described for <a href="rendering/RenderBox-class.html">RenderBox</a>. The main difference is that the input
-need not be an <a href="dart-ui/Offset-class.html">Offset</a>. You are also allowed to use a different subclass of
-<a href="gestures/HitTestEntry-class.html">HitTestEntry</a> when adding entries to the <a href="gestures/HitTestResult-class.html">HitTestResult</a>. When the
-<a href="rendering/RenderObject/handleEvent.html">handleEvent</a> method is called, the same object that was added to the
-<a href="gestures/HitTestResult-class.html">HitTestResult</a> will be passed in, so it can be used to track information
-like the precise coordinate of the hit, in whatever coordinate system is
-used by the new layout protocol.</p>
-<h3 id="adapting-from-one-protocol-to-another">Adapting from one protocol to another</h3>
-<p>In general, the root of a Flutter render object tree is a <a href="rendering/RenderView-class.html">RenderView</a>. This
-object has a single child, which must be a <a href="rendering/RenderBox-class.html">RenderBox</a>. Thus, if you want to
-have a custom <a href="rendering/RenderObject-class.html">RenderObject</a> subclass in the render tree, you have two
-choices: you either need to replace the <a href="rendering/RenderView-class.html">RenderView</a> itself, or you need to
-have a <a href="rendering/RenderBox-class.html">RenderBox</a> that has your class as its child. (The latter is the much
-more common case.)</p>
-<p>This <a href="rendering/RenderBox-class.html">RenderBox</a> subclass converts from the box protocol to the protocol of
-your class.</p>
-<p>In particular, this means that for hit testing it overrides
-<a href="rendering/RenderBox/hitTest.html">RenderBox.hitTest</a>, and calls whatever method you have in your class for
-hit testing.</p>
-<p>Similarly, it overrides <a href="rendering/RenderObject/performLayout.html">performLayout</a> to create a <a href="rendering/Constraints-class.html">Constraints</a> object
-appropriate for your class and passes that to the child's <a href="rendering/RenderObject/layout.html">layout</a> method.</p>
-<h3 id="layout-interactions-between-render-objects">Layout interactions between render objects</h3>
-<p>In general, the layout of a render object should only depend on the output of
-its child's layout, and then only if <code>parentUsesSize</code> is set to true in the
-<a href="rendering/RenderObject/layout.html">layout</a> call. Furthermore, if it is set to true, the parent must call the
-child's <a href="rendering/RenderObject/layout.html">layout</a> if the child is to be rendered, because otherwise the
-parent will not be notified when the child changes its layout outputs.</p>
-<p>It is possible to set up render object protocols that transfer additional
-information. For example, in the <a href="rendering/RenderBox-class.html">RenderBox</a> protocol you can query your
-children's intrinsic dimensions and baseline geometry. However, if this is
-done then it is imperative that the child call <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a> on the
-parent any time that additional information changes, if the parent used it
-in the last layout phase. For an example of how to implement this, see the
-<a href="rendering/RenderBox/markNeedsLayout.html">RenderBox.markNeedsLayout</a> method. It overrides
-<a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a> so that if a parent has queried the intrinsic
-or baseline information, it gets marked dirty whenever the child's geometry
-changes.</p>
+<p>不再需要 <a href="rendering/RenderObject-class.html">RenderObject</a> 时必须调用 <a href="rendering/RenderObject/dispose.html">dispose</a>。对象的创建者负责释放它。通常创建者是 <a href="widgets/RenderObjectElement-class.html">RenderObjectElement</a>；该 element 卸载时会释放自己创建的对象。</p>
+<p>调用 <a href="rendering/RenderObject/dispose.html">dispose</a> 时，<a href="rendering/RenderObject-class.html">RenderObject</a> 负责清理其持有的所有昂贵资源，例如 <a href="dart-ui/Picture-class.html">Picture</a> 或 <a href="dart-ui/Image-class.html">Image</a> 对象。这也包括渲染对象直接创建的所有 <a href="rendering/Layer-class.html">Layer</a>。基类的 dispose 实现会将 <a href="rendering/RenderObject/layer.html">layer</a> 属性置为 null；子类也必须将其直接创建的其他图层置为 null。</p>
+<h2 id="writing-a-renderobject-subclass">编写 RenderObject 子类</h2>
+<p>在大多数情况下，直接继承 <a href="rendering/RenderObject-class.html">RenderObject</a> 过于复杂，以 <a href="rendering/RenderBox-class.html">RenderBox</a> 为起点会更合适。不过，如果渲染对象不打算使用笛卡尔坐标系，就应直接继承 <a href="rendering/RenderObject-class.html">RenderObject</a>。这样便可以通过创建新的 <a href="rendering/Constraints-class.html">Constraints</a> 子类，而不是使用 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>，来定义自己的布局协议；也可以使用一套全新的对象和值来表示布局结果，而不局限于 <a href="dart-ui/Size-class.html">Size</a>。这种灵活性提高的代价是无法依赖 <a href="rendering/RenderBox-class.html">RenderBox</a> 的功能。例如，<a href="rendering/RenderBox-class.html">RenderBox</a> 实现了固有尺寸协议，可在不完整布局子项的情况下测量其尺寸；如果子项尺寸变化，父级会重新布局以适应新尺寸。要正确实现这一功能并不容易，也容易引入错误。</p>
+<p>编写 <a href="rendering/RenderBox-class.html">RenderBox</a> 的大多数经验同样适用于编写 <a href="rendering/RenderObject-class.html">RenderObject</a>，因此建议先阅读 <a href="rendering/RenderBox-class.html">RenderBox</a> 相关讨论作为背景。主要区别在布局和命中测试，因为这正是 <a href="rendering/RenderBox-class.html">RenderBox</a> 重点专门化的部分。</p>
+<h3 id="layout">布局</h3>
+<p>布局协议始于一个 <a href="rendering/Constraints-class.html">Constraints</a> 子类。有关如何编写 <a href="rendering/Constraints-class.html">Constraints</a> 子类的更多信息，请参阅 <a href="rendering/Constraints-class.html">Constraints</a> 中的说明。</p>
+<p><a href="rendering/RenderObject/performLayout.html">performLayout</a> 方法应获取并应用 <a href="rendering/RenderObject/constraints.html">constraints</a>。布局算法的输出会保存为对象的字段，用于描述该对象在父级布局中的几何信息。例如，对于 <a href="rendering/RenderBox-class.html">RenderBox</a>，输出就是 <a href="rendering/RenderBox/size.html">RenderBox.size</a> 字段。只有在父级调用子项的 <a href="rendering/RenderObject/layout.html">layout</a> 时将 <code>parentUsesSize</code> 指定为 true，父级才应读取此输出。</p>
+<p>渲染对象中任何会影响自身布局的内容发生变化时，都应调用 <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>。</p>
+<h3 id="hit-testing">命中测试</h3>
+<p>命中测试比布局更开放，没有可供重写的固定方法，需要由你自行提供实现。</p>
+<p>命中测试方法的整体行为应与 <a href="rendering/RenderBox-class.html">RenderBox</a> 中所述的行为相似。主要区别在于，输入不一定是 <a href="dart-ui/Offset-class.html">Offset</a>。向 <a href="gestures/HitTestResult-class.html">HitTestResult</a> 添加条目时，也可以使用其他 <a href="gestures/HitTestEntry-class.html">HitTestEntry</a> 子类。调用 <a href="rendering/RenderObject/handleEvent.html">handleEvent</a> 方法时，会传入添加到 <a href="gestures/HitTestResult-class.html">HitTestResult</a> 中的同一个对象，因此可以用它跟踪信息，例如命中点的精确坐标（坐标系由新的布局协议决定）。</p>
+<h3 id="adapting-from-one-protocol-to-another">从一种协议适配到另一种协议</h3>
+<p>通常，Flutter 渲染对象树的根节点是 <a href="rendering/RenderView-class.html">RenderView</a>。它只有一个子项，而且该子项必须是 <a href="rendering/RenderBox-class.html">RenderBox</a>。因此，如果要在渲染树中使用自定义 <a href="rendering/RenderObject-class.html">RenderObject</a> 子类，有两种选择：替换 <a href="rendering/RenderView-class.html">RenderView</a> 本身，或者让一个 <a href="rendering/RenderBox-class.html">RenderBox</a> 将你的类作为子项（后一种方式更常见）。</p>
+<p>此 <a href="rendering/RenderBox-class.html">RenderBox</a> 子类负责将 box 协议转换为你的类所使用的协议。</p>
+<p>具体来说，在命中测试时，它会重写 <a href="rendering/RenderBox/hitTest.html">RenderBox.hitTest</a>，并调用你在类中提供的命中测试方法。</p>
+<p>同样，它会重写 <a href="rendering/RenderObject/performLayout.html">performLayout</a>，创建适用于你的类的 <a href="rendering/Constraints-class.html">Constraints</a> 对象，并将其传给子项的 <a href="rendering/RenderObject/layout.html">layout</a> 方法。</p>
+<h3 id="layout-interactions-between-render-objects">渲染对象之间的布局交互</h3>
+<p>通常，渲染对象的布局只应依赖其子项布局的输出，并且只有在调用 <a href="rendering/RenderObject/layout.html">layout</a> 时将 <code>parentUsesSize</code> 设为 true 才能如此。如果设为 true，那么只要要渲染子项，父级就必须调用该子项的 <a href="rendering/RenderObject/layout.html">layout</a>；否则，子项的布局输出发生变化时，父级不会收到通知。</p>
+<p>渲染对象协议也可以传递额外信息。例如，在 <a href="rendering/RenderBox-class.html">RenderBox</a> 协议中，可以查询子项的固有尺寸和基线几何信息。但如果这样做，只要这些额外信息发生变化，且父级在上一布局阶段使用过这些信息，子项就必须对父级调用 <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>。有关实现示例，请参阅 <a href="rendering/RenderBox/markNeedsLayout.html">RenderBox.markNeedsLayout</a> 方法。该方法会重写 <a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a>，这样父级查询过固有尺寸或基线信息后，只要子项的几何信息变化，父级就会被标记为需要布局。</p>
 </section>
 
 

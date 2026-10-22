@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the getPerfettoVMTimeline method from the VmService class, for the Dart programming language.">
-  <title>getPerfettoVMTimeline method - VmService class - vm_service library - Dart API</title>
+  <title>getPerfettoVMTimeline 方法 - VmService 类 - vm_service 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="vm_service/">vm_service.dart</a></li>
     <li><a href="vm_service/VmService-class.html">VmService</a></li>
-    <li class="self-crumb">getPerfettoVMTimeline method</li>
+    <li class="self-crumb">getPerfettoVMTimeline 方法</li>
   </ol>
   <div class="self-name">getPerfettoVMTimeline</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="vm_service&#47;VmService-class-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">getPerfettoVMTimeline</span> method 
+<h1><span class="kind-method">getPerfettoVMTimeline</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -102,36 +102,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>The <code>getPerfettoVMTimeline</code> RPC is used to retrieve an object which
-contains a VM timeline trace represented in Perfetto's proto format. See
-<a href="vm_service/PerfettoTimeline-class.html">PerfettoTimeline</a> for a detailed description of the response.</p>
-<p>The <code>timeOriginMicros</code> parameter is the beginning of the time range used
-to filter timeline events. It uses the same monotonic clock as
-dart:developer's <code>Timeline.now</code> and the VM embedding API's
-<code>Dart_TimelineGetMicros</code>. See <a href="vm_service/VmService/getVMTimelineMicros.html">VmService.getVMTimelineMicros</a> for access
-to this clock through the service protocol.</p>
-<p>The <code>timeExtentMicros</code> parameter specifies how large the time range used
-to filter timeline events should be.</p>
-<p>For example, given <code>timeOriginMicros</code> and <code>timeExtentMicros</code>, only
-timeline events from the following time range will be returned:
-<code>(timeOriginMicros, timeOriginMicros + timeExtentMicros)</code>.</p>
-<p>If <code>getPerfettoVMTimeline</code> is invoked while the current recorder is
-Callback, an <a href="vm_service/RPCError-class.html">RPCError</a> with error code <code>114</code>, <code>invalid timeline request</code>,
-will be returned as timeline events are handled by the embedder in this
-mode.</p>
-<p>If <code>getPerfettoVMTimeline</code> is invoked while the current recorder is one of
-Fuchsia or Macos or Systrace, an <a href="vm_service/RPCError-class.html">RPCError</a> with error code <code>114</code>,
-<code>invalid timeline request</code>, will be returned as timeline events are
-handled by the OS in these modes.</p>
-<p>If <code>getPerfettoVMTimeline</code> is invoked while the current recorder is File
-or Perfettofile, an <a href="vm_service/RPCError-class.html">RPCError</a> with error code <code>114</code>, <code>invalid timeline request</code>, will be returned as timeline events are written directly to a
-file, and thus cannot be retrieved through the VM Service, in these modes.</p>
+  <p><code>getPerfettoVMTimeline</code> RPC 用于获取一个对象，其中包含以 Perfetto proto 格式表示的 VM 时间轴跟踪。响应的详细说明请参阅 <a href="vm_service/PerfettoTimeline-class.html">PerfettoTimeline</a>。</p>
+<p><code>timeOriginMicros</code> 参数表示用于筛选时间轴事件的时间范围起点。它使用与 dart:developer 的 <code>Timeline.now</code> 和 VM 嵌入 API 的 <code>Dart_TimelineGetMicros</code> 相同的单调时钟。通过服务协议访问此时钟，请参阅 <a href="vm_service/VmService/getVMTimelineMicros.html">VmService.getVMTimelineMicros</a>。</p>
+<p><code>timeExtentMicros</code> 参数指定用于筛选时间轴事件的时间范围长度。</p>
+<p>例如，给定 <code>timeOriginMicros</code> 和 <code>timeExtentMicros</code> 后，只会返回以下时间范围内的时间轴事件：<code>(timeOriginMicros, timeOriginMicros + timeExtentMicros)</code>。</p>
+<p>如果在当前记录器为 Callback 时调用 <code>getPerfettoVMTimeline</code>，将返回错误代码为 <code>114</code> 的 <a href="vm_service/RPCError-class.html">RPCError</a>（<code>invalid timeline request</code>），因为在此模式下，时间轴事件由嵌入器处理。</p>
+<p>如果在当前记录器为 Fuchsia、Macos 或 Systrace 时调用 <code>getPerfettoVMTimeline</code>，将返回错误代码为 <code>114</code> 的 <a href="vm_service/RPCError-class.html">RPCError</a>（<code>invalid timeline request</code>），因为在这些模式下，时间轴事件由操作系统处理。</p>
+<p>如果在当前记录器为 File 或 Perfettofile 时调用 <code>getPerfettoVMTimeline</code>，将返回错误代码为 <code>114</code> 的 <a href="vm_service/RPCError-class.html">RPCError</a>（<code>invalid timeline request</code>），因为在这些模式下，时间轴事件会直接写入文件，因此无法通过 VM Service 获取。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;PerfettoTimeline&gt; getPerfettoVMTimeline(
         {int? timeOriginMicros, int? timeExtentMicros}) =&gt;
     _call(&#39;getPerfettoVMTimeline&#39;, {
@@ -146,17 +129,17 @@ file, and thus cannot be retrieved through the VM Service, in these modes.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="vm_service/">vm_service</a></li>
     <li><a href="vm_service/VmService-class.html">VmService</a></li>
-    <li class="self-crumb">getPerfettoVMTimeline method</li>
+    <li class="self-crumb">getPerfettoVMTimeline 方法</li>
 </ol>
 
-    <h5>VmService class</h5>
+    <h5>VmService 类</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -179,7 +162,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

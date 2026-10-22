@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the IDBTransaction extension type from the web library, for the Dart programming language.">
-  <title>IDBTransaction extension type - web library - Dart API</title>
+  <title>IDBTransaction extension type - web 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -68,9 +68,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </ol>
   <div class="self-name">IDBTransaction</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -93,16 +93,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>The <strong><code>IDBTransaction</code></strong> interface of the
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB API</a>
-provides a static, asynchronous transaction on a database using event
-handler attributes. All reading and writing of data is done within
-transactions. You use <a href="package-web_web/IDBDatabase-extension-type.html">IDBDatabase</a> to start transactions, <a href="package-web_web/IDBTransaction-extension-type.html">IDBTransaction</a>
-to set the mode of the transaction (e.g. is it <code>readonly</code> or <code>readwrite</code>),
-and you access an <a href="package-web_web/IDBObjectStore-extension-type.html">IDBObjectStore</a> to make a request. You can also use an
-<code>IDBTransaction</code> object to abort transactions.</p>
-<p>Transactions are started when the transaction is created, not when the first
-request is placed; for example consider this:</p>
+  <p><strong><code>IDBTransaction</code></strong> 接口属于 <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB API</a>，通过事件处理程序属性提供对数据库的静态异步事务。所有数据读写都在事务中进行。使用 <a href="package-web_web/IDBDatabase-extension-type.html">IDBDatabase</a> 启动事务，使用 <a href="package-web_web/IDBTransaction-extension-type.html">IDBTransaction</a> 设置事务模式（例如 <code>readonly</code> 或 <code>readwrite</code>），然后访问 <a href="package-web_web/IDBObjectStore-extension-type.html">IDBObjectStore</a> 发出请求。也可以使用 <code>IDBTransaction</code> 对象中止事务。</p>
+<p>创建事务时事务就已启动，而不是等到发出第一个请求时才启动。请看下面的示例：</p>
 <pre class="language-js"><code class="language-js">const trans1 = db.transaction("foo", "readwrite");
 const trans2 = db.transaction("foo", "readwrite");
 const objectStore2 = trans2.objectStore("foo");
@@ -110,21 +102,10 @@ const objectStore1 = trans1.objectStore("foo");
 objectStore2.put("2", "key");
 objectStore1.put("1", "key");
 </code></pre>
-<p>After the code is executed the object store should contain the value "2",
-since <code>trans2</code> should run after <code>trans1</code>.</p>
-<p>A transaction alternates between <em>active</em> and <em>inactive</em> states between
-event loop tasks. It's active in the task when it was created, and in each
-task of the requests'
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBRequest/success"><code>success</code></a>
-or
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBRequest/error"><code>error</code></a>
-event handlers. It's inactive in all other tasks, in which case placing
-requests will fail. If no new requests are placed when the transaction is
-active, and there are no other outstanding requests, the transaction will
-automatically commit.</p>
+<p>代码执行后，对象存储中应包含值 &quot;2&quot;，因为 <code>trans2</code> 应在 <code>trans1</code> 之后运行。</p>
+<p>在事件循环任务之间，事务会在<em>活动</em>和<em>非活动</em>状态之间切换。在创建事务的任务中，以及各个请求的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBRequest/success"><code>success</code></a> 或 <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBRequest/error"><code>error</code></a> 事件处理程序所在的任务中，事务处于活动状态。在其他所有任务中，事务均处于非活动状态，此时发出请求会失败。如果事务处于活动状态时没有发出新请求，并且也没有其他尚未完成的请求，事务就会自动提交。</p>
 <hr>
-<p>API documentation sourced from
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction">MDN Web Docs</a>.</p>
+<p>API 文档来源：<a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction">MDN Web Docs</a>。</p>
 </section>
 
     <section>
@@ -136,7 +117,7 @@ automatically commit.</p>
           </ul>
         </dd>
         
-  <dt>Implemented types</dt>
+  <dt>实现的类型</dt>
   <dd>
     <ul class="comma-separated clazz-relationships">
         <li><a href="package-web_web/EventTarget-extension-type.html">EventTarget</a></li>
@@ -162,7 +143,7 @@ automatically commit.</p>
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="db" class="property">
   <span class="name"><a href="package-web_web/IDBTransaction/db.html">db</a></span>
@@ -174,7 +155,7 @@ automatically commit.</p>
   The <strong><code>db</code></strong> read-only property of the <a href="package-web_web/IDBTransaction-extension-type.html">IDBTransaction</a> interface returns
 the database connection
 with which this transaction is associated.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -189,7 +170,7 @@ with which this transaction is associated.
 returns the durability hint the transaction was created with.
 This is a hint to the user agent of whether to prioritize performance or
 durability when committing the transaction.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -202,7 +183,7 @@ durability when committing the transaction.
 <dd>
   The <strong><code>IDBTransaction.error</code></strong> property of the <a href="package-web_web/IDBTransaction-extension-type.html">IDBTransaction</a> interface
 returns the type of error when there is an unsuccessful transaction.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -213,8 +194,8 @@ returns the type of error when there is an unsuccessful transaction.
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -230,7 +211,7 @@ returns the type of error when there is an unsuccessful transaction.
         provided by the <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> extension</span>
       </p>
   
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -246,7 +227,7 @@ returns the type of error when there is an unsuccessful transaction.
         provided by the <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> extension</span>
       </p>
   Whether this value corresponds to JavaScript <code>null</code>.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -262,7 +243,7 @@ returns the type of error when there is an unsuccessful transaction.
         provided by the <a href="dart-js_interop/JSAnyOperatorExtension.html">JSAnyOperatorExtension</a> extension</span>
       </p>
   The result of <code>!!<code>this</code></code> in JavaScript.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -278,7 +259,7 @@ returns the type of error when there is an unsuccessful transaction.
         provided by the <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> extension</span>
       </p>
   Whether this value corresponds to JavaScript <code>undefined</code>.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -294,7 +275,7 @@ returns the type of error when there is an unsuccessful transaction.
         provided by the <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> extension</span>
       </p>
   
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -312,7 +293,7 @@ mode to be
 read-only, or do you want to write to the object stores?) The default
 value is
 <code>readonly</code>.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -328,7 +309,7 @@ value is
         provided by the <a href="dart-js_interop/JSAnyOperatorExtension.html">JSAnyOperatorExtension</a> extension</span>
       </p>
   The result of <code>!<code>this</code></code> in JavaScript.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -342,7 +323,7 @@ value is
   The <strong><code>objectStoreNames</code></strong> read-only property of the
 <a href="package-web_web/IDBTransaction-extension-type.html">IDBTransaction</a> interface returns a <a href="package-web_web/DOMStringList-extension-type.html">DOMStringList</a> of names
 of <a href="package-web_web/IDBObjectStore-extension-type.html">IDBObjectStore</a> objects.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -354,7 +335,7 @@ of <a href="package-web_web/IDBObjectStore-extension-type.html">IDBObjectStore</
 </dt>
 <dd>
   
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -366,7 +347,7 @@ of <a href="package-web_web/IDBObjectStore-extension-type.html">IDBObjectStore</
 </dt>
 <dd>
   
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -378,7 +359,7 @@ of <a href="package-web_web/IDBObjectStore-extension-type.html">IDBObjectStore</
 </dt>
 <dd>
   
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -389,8 +370,8 @@ of <a href="package-web_web/IDBObjectStore-extension-type.html">IDBObjectStore</
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -401,7 +382,7 @@ of <a href="package-web_web/IDBObjectStore-extension-type.html">IDBObjectStore</
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="abort" class="callable">
   <span class="name"><a href="package-web_web/IDBTransaction/abort.html">abort</a></span><span class="signature">(<wbr>)
@@ -447,12 +428,12 @@ transaction.
   The <strong><code>addEventListener()</code></strong> method of the <a href="package-web_web/EventTarget-extension-type.html">EventTarget</a> interface
 sets up a function that will be called whenever the specified event is
 delivered to the target.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
         <dt id="and" class="callable">
-  <span class="name"><a href="dart-js_interop/JSAnyOperatorExtension/and.html">and</a></span><span class="signature">(<wbr><span class="parameter" id="and-param-any"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">any</span></span>)
+  <span class="name"><a href="dart-js_interop/JSAnyOperatorExtension/and.html">和</a></span><span class="signature">(<wbr><span class="parameter" id="and-param-any"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">any</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>
   </span>
   
@@ -469,7 +450,7 @@ delivered to the target.
 </dd>
 
         <dt id="callMethod" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/callMethod.html">callMethod</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="callMethod-param-method"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">method</span>, [</span><span class="parameter" id="callMethod-param-arg1"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg1</span>, </span><span class="parameter" id="callMethod-param-arg2"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg2</span>, </span><span class="parameter" id="callMethod-param-arg3"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg3</span>, </span><span class="parameter" id="callMethod-param-arg4"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg4</span></span>])
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/callMethod.html">callMethod</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="callMethod-param-method"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">方法</span>, [</span><span class="parameter" id="callMethod-param-arg1"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg1</span>, </span><span class="parameter" id="callMethod-param-arg2"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg2</span>, </span><span class="parameter" id="callMethod-param-arg3"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg3</span>, </span><span class="parameter" id="callMethod-param-arg4"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg4</span></span>])
     <span class="returntype parameter">&#8594; R</span>
   </span>
   
@@ -486,7 +467,7 @@ delivered to the target.
 </dd>
 
         <dt id="callMethodVarArgs" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/callMethodVarArgs.html">callMethodVarArgs</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="callMethodVarArgs-param-method"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">method</span>, [</span><span class="parameter" id="callMethodVarArgs-param-arguments"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span>?</span> <span class="parameter-name">arguments</span></span>])
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/callMethodVarArgs.html">callMethodVarArgs</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="callMethodVarArgs-param-method"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">方法</span>, [</span><span class="parameter" id="callMethodVarArgs-param-arguments"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span>?</span> <span class="parameter-name">arguments</span></span>])
     <span class="returntype parameter">&#8594; R</span>
   </span>
   
@@ -534,7 +515,7 @@ transaction if it is called on an active transaction.
 </dd>
 
         <dt id="delete" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/delete.html">delete</a></span><span class="signature">(<wbr><span class="parameter" id="delete-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/delete.html">delete</a></span><span class="signature">(<wbr><span class="parameter" id="delete-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSBoolean-extension-type.html">JSBoolean</a></span>
   </span>
   
@@ -564,7 +545,7 @@ event listeners in the appropriate order. The normal event processing
 rules (including the capturing and optional bubbling phase) also apply to
 events
 dispatched manually with <code>dispatchEvent()</code>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -620,7 +601,7 @@ dispatched manually with <code>dispatchEvent()</code>.
 </dd>
 
         <dt id="getProperty" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/getProperty.html">getProperty</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="getProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/getProperty.html">getProperty</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="getProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; R</span>
   </span>
   
@@ -671,7 +652,7 @@ dispatched manually with <code>dispatchEvent()</code>.
 </dd>
 
         <dt id="has" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/has.html">has</a></span><span class="signature">(<wbr><span class="parameter" id="has-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/has.html">has</a></span><span class="signature">(<wbr><span class="parameter" id="has-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
   
@@ -689,7 +670,7 @@ contains the property key <code>property</code>, but takes and returns a Dart va
 </dd>
 
         <dt id="hasProperty" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/hasProperty.html">hasProperty</a></span><span class="signature">(<wbr><span class="parameter" id="hasProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/hasProperty.html">hasProperty</a></span><span class="signature">(<wbr><span class="parameter" id="hasProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSBoolean-extension-type.html">JSBoolean</a></span>
   </span>
   
@@ -706,7 +687,7 @@ contains the property key <code>property</code>, but takes and returns a Dart va
 </dd>
 
         <dt id="instanceof" class="callable">
-  <span class="name"><a href="dart-js_interop/JSAnyUtilityExtension/instanceof.html">instanceof</a></span><span class="signature">(<wbr><span class="parameter" id="instanceof-param-constructor"><span class="type-annotation"><a href="dart-js_interop/JSFunction-extension-type.html">JSFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Function-class.html">Function</a></span>&gt;</span></span> <span class="parameter-name">constructor</span></span>)
+  <span class="name"><a href="dart-js_interop/JSAnyUtilityExtension/instanceof.html">instanceof</a></span><span class="signature">(<wbr><span class="parameter" id="instanceof-param-constructor"><span class="type-annotation"><a href="dart-js_interop/JSFunction-extension-type.html">JSFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Function-class.html">Function</a></span>&gt;</span></span> <span class="parameter-name">构造函数</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
   
@@ -817,8 +798,8 @@ is defined by <code>constructorName</code>, which is looked up in the
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -888,12 +869,12 @@ the event listener function itself, and various optional options that may
 affect the matching process;
 see
 <a href="#matching_event_listeners_for_removal">Matching event listeners for removal</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
         <dt id="setProperty" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/setProperty.html">setProperty</a></span><span class="signature">(<wbr><span class="parameter" id="setProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">property</span>, </span><span class="parameter" id="setProperty-param-value"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">value</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/setProperty.html">setProperty</a></span><span class="signature">(<wbr><span class="parameter" id="setProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">属性</span>, </span><span class="parameter" id="setProperty-param-value"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">value</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
   
@@ -968,8 +949,8 @@ see
 
 </dt>
 <dd class="inherited">
-  A string representation of this object.
-  <div class="features"><span class="feature">inherited</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1014,7 +995,7 @@ see
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -1024,13 +1005,13 @@ see
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
         <dt id="operator []" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/operator_get.html">operator []</a></span><span class="signature">(<wbr><span class="parameter" id="[]-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/operator_get.html">operator []</a></span><span class="signature">(<wbr><span class="parameter" id="[]-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>
   </span>
   
@@ -1048,7 +1029,7 @@ see
 </dd>
 
         <dt id="operator []=" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/operator_put.html">operator []=</a></span><span class="signature">(<wbr><span class="parameter" id="[]=-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">property</span>, </span><span class="parameter" id="[]=-param-value"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">value</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/operator_put.html">operator []=</a></span><span class="signature">(<wbr><span class="parameter" id="[]=-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">属性</span>, </span><span class="parameter" id="[]=-param-value"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">value</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
   
@@ -1077,7 +1058,7 @@ key <code>property</code> of this <a href="dart-js_interop/JSObject-extension-ty
   <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
@@ -1086,7 +1067,7 @@ key <code>property</code> of this <a href="dart-js_interop/JSObject-extension-ty
     <li class="self-crumb">IDBTransaction extension type</li>
 </ol>
 
-  <h5>web library</h5>
+  <h5>web 库</h5>
   <div id="dartdoc-sidebar-left-content"></div>
 </div>
 <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -1109,7 +1090,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

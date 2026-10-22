@@ -108,22 +108,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Registers a service extension method with the given name (full name
-"ext.flutter.name").</p>
-<p>The given callback is called when the extension method is called. The
-callback must return a <a href="dart-async/Future-class.html">Future</a> that either eventually completes to a
-return value in the form of a name/value map where the values can all be
-converted to JSON using <code>json.encode()</code> (see <a href="dart-convert/JsonEncoder-class.html">JsonEncoder</a>), or fails. In
-case of failure, the failure is reported to the remote caller and is
-dumped to the logs.</p>
-<p>The returned map will be mutated.</p>
-<p>只有在构建中包含 vm-service 时，才能启用已注册的服务扩展；只有调试模式和 profile 模式会包含它。服务扩展在发布模式下无法使用，但如果没有用可供 tree shaker 移除相关代码的保护条件包起来，这些代码仍可能进入 Dart 快照，增大二进制文件（参见下方示例代码）。</p>
+  <p>使用给定名称注册服务扩展方法（完整名称为 "ext.flutter.name"）。</p>
+<p>调用扩展方法时会调用给定的回调。回调必须返回一个 <a href="dart-async/Future-class.html">Future</a>，该 Future 最终成功完成时应返回名称/值映射，其中的值都可通过 <code>json.encode()</code> 转换为 JSON（参见 <a href="dart-convert/JsonEncoder-class.html">JsonEncoder</a>）；也可以失败。失败时，会将错误报告给远程调用方并写入日志。</p>
+<p>返回的映射会被修改。</p>
+<p>只有在构建中包含 vm-service 时，才能启用已注册的服务扩展；只有调试模式和性能分析模式会包含它。服务扩展在发布模式下无法使用，但如果没有用 tree shaker 可识别的保护条件包起来，其代码仍可能进入 Dart 快照并增大二进制文件（参见下方示例代码）。</p>
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-The following code registers a service extension that is only included in
-debug builds.
+以下代码注册的服务扩展仅包含在调试构建中。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'foundation.BindingBase.registerServiceExtension.1');" onclick="fixHref(this, 'foundation.BindingBase.registerServiceExtension.1'); copyStringToClipboard(this.href);"
@@ -148,8 +141,7 @@ debug builds.
 <a name="foundation.BindingBase.registerServiceExtension.2"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-A service extension registered with the following code snippet is
-available in debug and profile mode.
+使用以下代码片段注册的服务扩展可在调试模式和性能分析模式下使用。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'foundation.BindingBase.registerServiceExtension.2');" onclick="fixHref(this, 'foundation.BindingBase.registerServiceExtension.2'); copyStringToClipboard(this.href);"

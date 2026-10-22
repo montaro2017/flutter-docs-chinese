@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the BoxConstraints class from the rendering library, for the Dart programming language.">
-  <title>BoxConstraints class - rendering library - Dart API</title>
+  <meta name="description" content="rendering 库中 BoxConstraints 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>BoxConstraints 类 - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -64,13 +64,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
-    <li class="self-crumb">BoxConstraints class</li>
+    <li class="self-crumb">BoxConstraints 类</li>
   </ol>
   <div class="self-name">BoxConstraints</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -86,69 +86,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;rendering-library-sidebar.html"
     data-below-sidebar="rendering&#47;BoxConstraints-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/box.dart#L100"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">BoxConstraints</span> class 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/box.dart#L100"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">BoxConstraints</span> 类 
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Immutable layout constraints for <a href="rendering/RenderBox-class.html">RenderBox</a> layout.</p>
-<p>A <a href="dart-ui/Size-class.html">Size</a> respects a <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> if, and only if, all of the following
-relations hold:</p>
+  <p><a href="rendering/RenderBox-class.html">RenderBox</a> 布局所使用的不可变布局约束。</p>
+<p>当且仅当以下关系全部成立时，<a href="dart-ui/Size-class.html">Size</a> 才符合 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>：</p>
 <ul>
 <li><a href="rendering/BoxConstraints/minWidth.html">minWidth</a> &lt;= <a href="dart-ui/Size/width.html">Size.width</a> &lt;= <a href="rendering/BoxConstraints/maxWidth.html">maxWidth</a></li>
 <li><a href="rendering/BoxConstraints/minHeight.html">minHeight</a> &lt;= <a href="dart-ui/Size/height.html">Size.height</a> &lt;= <a href="rendering/BoxConstraints/maxHeight.html">maxHeight</a></li>
 </ul>
-<p>The constraints themselves must satisfy these relations:</p>
+<p>约束本身必须满足以下关系：</p>
 <ul>
 <li>0.0 &lt;= <a href="rendering/BoxConstraints/minWidth.html">minWidth</a> &lt;= <a href="rendering/BoxConstraints/maxWidth.html">maxWidth</a> &lt;= <a href="dart-core/double/infinity-constant.html">double.infinity</a></li>
 <li>0.0 &lt;= <a href="rendering/BoxConstraints/minHeight.html">minHeight</a> &lt;= <a href="rendering/BoxConstraints/maxHeight.html">maxHeight</a> &lt;= <a href="dart-core/double/infinity-constant.html">double.infinity</a></li>
 </ul>
-<p><a href="dart-core/double/infinity-constant.html">double.infinity</a> is a legal value for each constraint.</p>
-<h2 id="the-box-layout-model">The box layout model</h2>
-<p>Render objects in the Flutter framework are laid out by a one-pass layout
-model which walks down the render tree passing constraints, then walks back
-up the render tree passing concrete geometry.</p>
-<p>For boxes, the constraints are <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>, which, as described herein,
-consist of four numbers: a minimum width <a href="rendering/BoxConstraints/minWidth.html">minWidth</a>, a maximum width
-<a href="rendering/BoxConstraints/maxWidth.html">maxWidth</a>, a minimum height <a href="rendering/BoxConstraints/minHeight.html">minHeight</a>, and a maximum height <a href="rendering/BoxConstraints/maxHeight.html">maxHeight</a>.</p>
-<p>The geometry for boxes consists of a <a href="dart-ui/Size-class.html">Size</a>, which must satisfy the
-constraints described above.</p>
-<p>Each <a href="rendering/RenderBox-class.html">RenderBox</a> (the objects that provide the layout models for box
-widgets) receives <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> from its parent, then lays out each of
-its children, then picks a <a href="dart-ui/Size-class.html">Size</a> that satisfies the <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>.</p>
-<p>Render objects position their children independently of laying them out.
-Frequently, the parent will use the children's sizes to determine their
-position. A child does not know its position and will not necessarily be
-laid out again, or repainted, if its position changes.</p>
-<h2 id="terminology">Terminology</h2>
-<p>When the minimum constraints and the maximum constraint in an axis are the
-same, that axis is <em>tightly</em> constrained. See: <a href="rendering/BoxConstraints/BoxConstraints.tightFor.html">
-BoxConstraints.tightFor</a>, <a href="rendering/BoxConstraints/BoxConstraints.tightForFinite.html">BoxConstraints.tightForFinite</a>, <a href="rendering/BoxConstraints/tighten.html">tighten</a>,
-<a href="rendering/BoxConstraints/hasTightWidth.html">hasTightWidth</a>, <a href="rendering/BoxConstraints/hasTightHeight.html">hasTightHeight</a>, <a href="rendering/BoxConstraints/isTight.html">isTight</a>.</p>
-<p>An axis with a minimum constraint of 0.0 is <em>loose</em> (regardless of the
-maximum constraint; if it is also 0.0, then the axis is simultaneously tight
-and loose!). See: <a href="rendering/BoxConstraints/BoxConstraints.loose.html">BoxConstraints.loose</a>, <a href="rendering/BoxConstraints/loosen.html">loosen</a>.</p>
-<p>An axis whose maximum constraint is not infinite is <em>bounded</em>. See:
-<a href="rendering/BoxConstraints/hasBoundedWidth.html">hasBoundedWidth</a>, <a href="rendering/BoxConstraints/hasBoundedHeight.html">hasBoundedHeight</a>.</p>
-<p>An axis whose maximum constraint is infinite is <em>unbounded</em>. An axis is
-<em>expanding</em> if it is tightly infinite (its minimum and maximum constraints
-are both infinite). See: <a href="rendering/BoxConstraints/BoxConstraints.expand.html">BoxConstraints.expand</a>.</p>
-<p>An axis whose <em>minimum</em> constraint is infinite is just said to be <em>infinite</em>
-(since by definition the maximum constraint must also be infinite in that
-case). See: <a href="rendering/BoxConstraints/hasInfiniteWidth.html">hasInfiniteWidth</a>, <a href="rendering/BoxConstraints/hasInfiniteHeight.html">hasInfiniteHeight</a>.</p>
-<p>A size is <em>constrained</em> when it satisfies a <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> description.
-See: <a href="rendering/BoxConstraints/constrain.html">constrain</a>, <a href="rendering/BoxConstraints/constrainWidth.html">constrainWidth</a>, <a href="rendering/BoxConstraints/constrainHeight.html">constrainHeight</a>,
-<a href="rendering/BoxConstraints/constrainDimensions.html">constrainDimensions</a>, <a href="rendering/BoxConstraints/constrainSizeAndAttemptToPreserveAspectRatio.html">constrainSizeAndAttemptToPreserveAspectRatio</a>,
-<a href="rendering/BoxConstraints/isSatisfiedBy.html">isSatisfiedBy</a>.</p>
+<p><a href="dart-core/double/infinity-constant.html">double.infinity</a> 是每项约束都允许使用的合法值。</p>
+<h2 id="the-box-layout-model">盒子布局模型</h2>
+<p>Flutter 框架中的渲染对象采用单遍布局模型：先沿渲染树向下传递约束，再沿渲染树向上返回具体几何信息。</p>
+<p>对于盒子，约束由 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 表示，如上所述，它由四个数值组成：最小宽度 <a href="rendering/BoxConstraints/minWidth.html">minWidth</a>、最大宽度 <a href="rendering/BoxConstraints/maxWidth.html">maxWidth</a>、最小高度 <a href="rendering/BoxConstraints/minHeight.html">minHeight</a> 和最大高度 <a href="rendering/BoxConstraints/maxHeight.html">maxHeight</a>。</p>
+<p>盒子的几何信息由 <a href="dart-ui/Size-class.html">Size</a> 表示，并且必须满足上述约束。</p>
+<p>每个 <a href="rendering/RenderBox-class.html">RenderBox</a>（为盒子类 widget 提供布局模型的对象）都会从父级接收 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>，随后布局自己的每个子级，最后选取一个符合 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 的 <a href="dart-ui/Size-class.html">Size</a>。</p>
+<p>渲染对象会独立于布局过程来定位子级。父级通常会根据子级大小决定其位置。子级并不知道自己的位置，因此位置变化时不一定会重新布局或重新绘制。</p>
+<h2 id="terminology">术语</h2>
+<p>如果某个轴上的最小约束和最大约束相同，则该轴受到<em>紧约束</em>。另请参阅：<a href="rendering/BoxConstraints/BoxConstraints.tightFor.html">BoxConstraints.tightFor</a>、<a href="rendering/BoxConstraints/BoxConstraints.tightForFinite.html">BoxConstraints.tightForFinite</a>、<a href="rendering/BoxConstraints/tighten.html">tighten</a>、<a href="rendering/BoxConstraints/hasTightWidth.html">hasTightWidth</a>、<a href="rendering/BoxConstraints/hasTightHeight.html">hasTightHeight</a>、<a href="rendering/BoxConstraints/isTight.html">isTight</a>。</p>
+<p>某个轴的最小约束为 0.0 时，该轴是<em>宽松的</em>（无论最大约束是多少；如果最大约束也为 0.0，则该轴会同时受到紧约束和宽松约束！）。另请参阅：<a href="rendering/BoxConstraints/BoxConstraints.loose.html">BoxConstraints.loose</a>、<a href="rendering/BoxConstraints/loosen.html">loosen</a>。</p>
+<p>最大约束不是无穷大的轴称为<em>有界</em>。另请参阅：<a href="rendering/BoxConstraints/hasBoundedWidth.html">hasBoundedWidth</a>、<a href="rendering/BoxConstraints/hasBoundedHeight.html">hasBoundedHeight</a>。</p>
+<p>最大约束为无穷大的轴称为<em>无界</em>。如果某个轴受到无穷大的紧约束（其最小和最大约束均为无穷大），则该轴是<em>扩展的</em>。另请参阅：<a href="rendering/BoxConstraints/BoxConstraints.expand.html">BoxConstraints.expand</a>。</p>
+<p>最小约束为无穷大的轴称为<em>无限</em>（根据定义，此时最大约束也必定为无穷大）。另请参阅：<a href="rendering/BoxConstraints/hasInfiniteWidth.html">hasInfiniteWidth</a>、<a href="rendering/BoxConstraints/hasInfiniteHeight.html">hasInfiniteHeight</a>。</p>
+<p>当一个尺寸满足 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 描述时，该尺寸即为<em>受约束</em>。另请参阅：<a href="rendering/BoxConstraints/constrain.html">constrain</a>、<a href="rendering/BoxConstraints/constrainWidth.html">constrainWidth</a>、<a href="rendering/BoxConstraints/constrainHeight.html">constrainHeight</a>、<a href="rendering/BoxConstraints/constrainDimensions.html">constrainDimensions</a>、<a href="rendering/BoxConstraints/constrainSizeAndAttemptToPreserveAspectRatio.html">constrainSizeAndAttemptToPreserveAspectRatio</a>、<a href="rendering/BoxConstraints/isSatisfiedBy.html">isSatisfiedBy</a>。</p>
 </section>
 
 
     <section>
       <dl class="dl-horizontal">
         
-  <dt>Inheritance</dt>
+  <dt>继承关系</dt>
   <dd>
     <ul class="gt-separated dark clazz-relationships">
       <li><a href="dart-core/Object-class.html">Object</a></li>
@@ -170,7 +146,7 @@ See: <a href="rendering/BoxConstraints/constrain.html">constrain</a>, <a href="r
 
     
   <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
+    <h2>构造函数</h2>
     <dl class="constructor-summary-list">
         <dt id="BoxConstraints.new" class="callable">
           <span class="name"><a href="rendering/BoxConstraints/BoxConstraints.html">BoxConstraints</a></span><span class="signature">({<span class="parameter" id="-param-minWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">minWidth</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="-param-maxWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">maxWidth</span> = <span class="default-value">double.infinity</span>, </span><span class="parameter" id="-param-minHeight"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">minHeight</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="-param-maxHeight"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">maxHeight</span> = <span class="default-value">double.infinity</span></span>})</span>
@@ -225,7 +201,7 @@ they are infinite.
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="biggest" class="property">
   <span class="name"><a href="rendering/BoxConstraints/biggest.html">biggest</a></span>
@@ -235,7 +211,7 @@ they are infinite.
 </dt>
 <dd>
   The biggest size that satisfies the constraints.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -247,7 +223,7 @@ they are infinite.
 </dt>
 <dd>
   A box constraints with the width and height constraints flipped.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -259,7 +235,7 @@ they are infinite.
 </dt>
 <dd>
   Whether there is an upper bound on the maximum height.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -271,7 +247,7 @@ they are infinite.
 </dt>
 <dd>
   Whether there is an upper bound on the maximum width.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -282,8 +258,8 @@ they are infinite.
 
 </dt>
 <dd>
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -295,7 +271,7 @@ they are infinite.
 </dt>
 <dd>
   Whether the height constraint is infinite.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -307,7 +283,7 @@ they are infinite.
 </dt>
 <dd>
   Whether the width constraint is infinite.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -319,7 +295,7 @@ they are infinite.
 </dt>
 <dd>
   Whether there is exactly one height value that satisfies the constraints.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -331,7 +307,7 @@ they are infinite.
 </dt>
 <dd>
   Whether there is exactly one width value that satisfies the constraints.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -345,7 +321,7 @@ they are infinite.
   Returns whether the object's constraints are normalized.
 Constraints are normalized if the minimums are less than or
 equal to the corresponding maximums.
-  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -357,7 +333,7 @@ equal to the corresponding maximums.
 </dt>
 <dd>
   Whether there is exactly one size that satisfies the constraints.
-  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -416,8 +392,8 @@ equal to the corresponding maximums.
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -429,7 +405,7 @@ equal to the corresponding maximums.
 </dt>
 <dd>
   The smallest size that satisfies the constraints.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -440,7 +416,7 @@ equal to the corresponding maximums.
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="constrain" class="callable">
   <span class="name"><a href="rendering/BoxConstraints/constrain.html">constrain</a></span><span class="signature">(<wbr><span class="parameter" id="constrain-param-size"><span class="type-annotation"><a href="dart-ui/Size-class.html">Size</a></span> <span class="parameter-name">size</span></span>)
@@ -533,7 +509,7 @@ possible to the given width.
 </dt>
 <dd>
   Asserts that the constraints are valid.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -625,8 +601,8 @@ unconstrained width.
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -653,8 +629,8 @@ box constraints.
 
 </dt>
 <dd>
-  A string representation of this object.
-  <div class="features"><span class="feature">override</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -678,7 +654,7 @@ unconstrained height.
   <section
       class="summary offset-anchor"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator %" class="callable">
   <span class="name"><a href="rendering/BoxConstraints/operator_modulo.html">operator %</a></span><span class="signature">(<wbr><span class="parameter" id="%-param-value"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">value</span></span>)
@@ -727,8 +703,8 @@ unconstrained height.
 
 </dt>
 <dd>
-  The equality operator.
-  <div class="features"><span class="feature">override</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -774,16 +750,16 @@ unconstrained height.
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
-    <li class="self-crumb">BoxConstraints class</li>
+    <li class="self-crumb">BoxConstraints 类</li>
 </ol>
 
-    <h5>rendering library</h5>
+    <h5>rendering 库</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -806,7 +782,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

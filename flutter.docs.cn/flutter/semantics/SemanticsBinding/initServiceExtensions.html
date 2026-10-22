@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/foundation/binding.dart#L550"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">initServiceExtensions</span> 方法
+<h1><span class="kind-method">initServiceExtensions</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -107,29 +107,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Called when the binding is initialized, to register service
-extensions.</p>
-<p>Bindings that want to expose service extensions should overload
-this method to register them using calls to
-<a href="foundation/BindingBase/registerSignalServiceExtension.html">registerSignalServiceExtension</a>,
-<a href="foundation/BindingBase/registerBoolServiceExtension.html">registerBoolServiceExtension</a>,
-<a href="foundation/BindingBase/registerNumericServiceExtension.html">registerNumericServiceExtension</a>, and
-<a href="foundation/BindingBase/registerServiceExtension.html">registerServiceExtension</a> (in increasing order of complexity).</p>
-<p>Implementations of this method must call their superclass
-implementation.</p>
-<p>A registered service extension can only be activated if the vm-service
-is included in the build, which only happens in debug and profile mode.
-Although a service extension cannot be used in release mode its code may
-still be included in the Dart snapshot and blow up binary size if it is
-not wrapped in a guard that allows the tree shaker to remove it (see
-sample code below).</p>
+  <p>在 binding 初始化时调用，用于注册服务扩展。</p>
+<p>要公开服务扩展的 binding 应重写此方法，并通过调用 <a href="foundation/BindingBase/registerSignalServiceExtension.html">registerSignalServiceExtension</a>、<a href="foundation/BindingBase/registerBoolServiceExtension.html">registerBoolServiceExtension</a>、<a href="foundation/BindingBase/registerNumericServiceExtension.html">registerNumericServiceExtension</a> 和 <a href="foundation/BindingBase/registerServiceExtension.html">registerServiceExtension</a>（复杂度依次递增）来注册这些扩展。</p>
+<p>此方法的实现必须调用其父类实现。</p>
+<p>只有在构建中包含 vm-service 时，注册的服务扩展才能启用；vm-service 仅在调试模式和性能分析模式下包含。虽然发布模式下无法使用服务扩展，但其代码仍可能被包含在 Dart 快照中，导致二进制文件变大。因此，必须用适当的保护条件包裹代码，以便树摇器将其移除（见下方示例代码）。</p>
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.1"></a>
 <div class="snippet snippet-container anchor-container">
-  <div class="snippet-description">
-The following code registers a service extension that is only included in
-debug builds.
-</div>
+  <div class="snippet-description">以下代码会注册一个仅包含在调试版本中的服务扩展。</div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'foundation.BindingBase.registerServiceExtension.1');" onclick="fixHref(this, 'foundation.BindingBase.registerServiceExtension.1'); copyStringToClipboard(this.href);"
     href="#">
@@ -152,10 +137,7 @@ debug builds.
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.2"></a>
 <div class="snippet snippet-container anchor-container">
-  <div class="snippet-description">
-A service extension registered with the following code snippet is
-available in debug and profile mode.
-</div>
+  <div class="snippet-description">通过以下代码片段注册的服务扩展，在调试模式和性能分析模式下均可用。</div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'foundation.BindingBase.registerServiceExtension.2');" onclick="fixHref(this, 'foundation.BindingBase.registerServiceExtension.2'); copyStringToClipboard(this.href);"
     href="#">
@@ -175,8 +157,7 @@ available in debug and profile mode.
   </div>
 </div>
 </p>
-<p>Both guards ensure that Dart's tree shaker can remove the code for the
-service extension in release builds.</p>
+<p>这两个保护条件都能确保 Dart 的树摇器在发布版本构建中移除服务扩展代码。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="https://github.com/dart-lang/sdk/blob/main/runtime/vm/service/service.md#rpcs-requests-and-responses">github.com/dart-lang/sdk/blob/main/runtime/vm/service/service.md#rpcs-requests-and-responses</a></li>

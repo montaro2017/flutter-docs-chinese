@@ -110,29 +110,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Returns the offset that would be needed to reveal the <code>target</code>
-<a href="rendering/RenderObject-class.html">RenderObject</a>.</p>
-<p>This is used by <a href="rendering/RenderViewportBase/showInViewport.html">RenderViewportBase.showInViewport</a>, which is
-itself used by <a href="rendering/RenderObject/showOnScreen.html">RenderObject.showOnScreen</a> for
-<a href="rendering/RenderViewportBase-class.html">RenderViewportBase</a>, which is in turn used by the semantics
-system to implement scrolling for accessibility tools.</p>
-<p>The optional <code>rect</code> parameter describes which area of that <code>target</code> object
-should be revealed in the viewport. If <code>rect</code> is null, the entire
-<code>target</code> <a href="rendering/RenderObject-class.html">RenderObject</a> (as defined by its <a href="rendering/RenderObject/paintBounds.html">RenderObject.paintBounds</a>)
-will be revealed. If <code>rect</code> is provided it has to be given in the
-coordinate system of the <code>target</code> object.</p>
-<p>The <code>alignment</code> argument describes where the target should be positioned
-after applying the returned offset. If <code>alignment</code> is 0.0, the child must
-be positioned as close to the leading edge of the viewport as possible. If
-<code>alignment</code> is 1.0, the child must be positioned as close to the trailing
-edge of the viewport as possible. If <code>alignment</code> is 0.5, the child must be
-positioned as close to the center of the viewport as possible.</p>
-<p>The <code>target</code> might not be a direct child of this viewport but it must be a
-descendant of the viewport. Other viewports in between this viewport and
-the <code>target</code> will not be adjusted.</p>
-<p>This method assumes that the content of the viewport moves linearly, i.e.
-when the offset of the viewport is changed by x then <code>target</code> also moves
-by x within the viewport.</p>
+  <p>返回用于显示目标 <code>target</code> <a href="rendering/RenderObject-class.html">RenderObject</a> 所需的偏移量。</p>
+<p><a href="rendering/RenderViewportBase/showInViewport.html">RenderViewportBase.showInViewport</a> 会使用此方法；它又会被 <a href="rendering/RenderObject/showOnScreen.html">RenderObject.showOnScreen</a> 用于 <a href="rendering/RenderViewportBase-class.html">RenderViewportBase</a>，而后者又由语义系统用于实现无障碍工具的滚动功能。</p>
+<p>可选的 <code>rect</code> 参数用于描述 viewport 中应显示 <code>target</code> 对象的哪个区域。如果 <code>rect</code> 为 null，则显示整个 <code>target</code> <a href="rendering/RenderObject-class.html">RenderObject</a>（由其 <a href="rendering/RenderObject/paintBounds.html">RenderObject.paintBounds</a> 定义）。如果提供了 <code>rect</code>，它必须使用 <code>target</code> 对象的坐标系。</p>
+<p><code>alignment</code> 参数描述应用返回的偏移量后目标应位于何处。如果 <code>alignment</code> 为 0.0，子对象应尽可能靠近 viewport 的前缘；如果 <code>alignment</code> 为 1.0，子对象应尽可能靠近后缘；如果 <code>alignment</code> 为 0.5，子对象应尽可能靠近 viewport 的中心。</p>
+<p><code>target</code> 不一定是此 viewport 的直接子对象，但必须是其后代。位于此 viewport 与 <code>target</code> 之间的其他 viewport 不会被调整。</p>
+<p>此方法假设 viewport 的内容呈线性移动；也就是说，viewport 的偏移量变化 x 时，<code>target</code> 在 viewport 中也会移动 x。</p>
 <p>The optional <a href="painting/Axis.html">Axis</a> is used by
 <a href="widgets/RenderTwoDimensionalViewport/getOffsetToReveal.html">RenderTwoDimensionalViewport.getOffsetToReveal</a> to
 determine which of the two axes to compute an offset for. One dimensional

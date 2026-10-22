@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the RenderListWheelViewport class from the rendering library, for the Dart programming language.">
-  <title>RenderListWheelViewport class - rendering library - Dart API</title>
+  <meta name="description" content="rendering 库中 RenderListWheelViewport 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>RenderListWheelViewport 类 - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -64,13 +64,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
-    <li class="self-crumb">RenderListWheelViewport class</li>
+    <li class="self-crumb">RenderListWheelViewport 类</li>
   </ol>
   <div class="self-name">RenderListWheelViewport</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -86,74 +86,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;rendering-library-sidebar.html"
     data-below-sidebar="rendering&#47;RenderListWheelViewport-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/list_wheel_viewport.dart#L147"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RenderListWheelViewport</span> class 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/list_wheel_viewport.dart#L147"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">RenderListWheelViewport</span> 类 
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>Render, onto a wheel, a bigger sequential set of objects inside this viewport.</p>
-<p>Takes a scrollable set of fixed sized <a href="rendering/RenderBox-class.html">RenderBox</a>es and renders them
-sequentially from top down on a vertical scrolling axis.</p>
-<p>It starts with the first scrollable item in the center of the main axis
-and ends with the last scrollable item in the center of the main axis. This
-is in contrast to typical lists that start with the first scrollable item
-at the start of the main axis and ends with the last scrollable item at the
-end of the main axis.</p>
-<p>Instead of rendering its children on a flat plane, it renders them
-as if each child is broken into its own plane and that plane is
-perpendicularly fixed onto a cylinder which rotates along the scrolling
-axis.</p>
-<p>This class works in 3 coordinate systems:</p>
+  <p>在此视口内的滚轮上渲染一组数量较多、连续排列的对象。</p>
+<p>接收一组可滚动、尺寸固定的 <a href="rendering/RenderBox-class.html">RenderBox</a>，并沿垂直滚动轴从上到下依次渲染。</p>
+<p>它从位于主轴中心的第一个可滚动项目开始，到位于主轴中心的最后一个可滚动项目结束。这与常见列表不同：常见列表从主轴起始处的第一个可滚动项目开始，到主轴末端的最后一个可滚动项目结束。</p>
+<p>它不会将子节点绘制在平面上，而是将每个子节点视为独立平面，并将这些平面垂直固定在沿滚动轴旋转的圆柱体上进行绘制。</p>
+<p>此类涉及三个坐标系：</p>
 <ol>
 <li>
-<p>The <strong>scrollable layout coordinates</strong>. This coordinate system is used to
-communicate with <a href="rendering/ViewportOffset-class.html">ViewportOffset</a> and describes its children's abstract
-offset from the beginning of the scrollable list at (0.0, 0.0).</p>
-<p>The list is scrollable from the start of the first child item to the
-start of the last child item.</p>
-<p>Children's layout coordinates don't change as the viewport scrolls.</p>
+<p><strong>可滚动布局坐标</strong>。此坐标系用于与 <a href="rendering/ViewportOffset-class.html">ViewportOffset</a> 通信，并描述子节点相对于可滚动列表起点 (0.0, 0.0) 的抽象偏移量。</p>
+<p>列表可从第一个子节点的起点滚动到最后一个子节点的起点。</p>
+<p>视口滚动时，子节点的布局坐标不会改变。</p>
 </li>
 <li>
-<p>The <strong>untransformed plane's viewport painting coordinates</strong>. Children are
-not painted in this coordinate system. It's an abstract intermediary used
-before transforming into the next cylindrical coordinate system.</p>
-<p>This system is the <strong>scrollable layout coordinates</strong> translated by the
-scroll offset such that (0.0, 0.0) is the top left corner of the
-viewport.</p>
-<p>Because the viewport is centered at the scrollable list's scroll offset
-instead of starting at the scroll offset, there are paintable children
-~1/2 viewport length before and after the scroll offset instead of ~1
-viewport length after the scroll offset.</p>
-<p>Children's visibility inclusion in the viewport is determined in this
-system regardless of the cylinder's properties such as <a href="rendering/RenderListWheelViewport/diameterRatio.html">diameterRatio</a>
-or <a href="rendering/RenderListWheelViewport/perspective.html">perspective</a>. In other words, a 100px long viewport will always
-paint 10-11 visible 10px children if there are enough children in the
-viewport.</p>
+<p><strong>未变换平面的视口绘制坐标</strong>。子节点不会在此坐标系中绘制。它是一个抽象的中间坐标系，用于在变换到下一个圆柱坐标系之前表示位置。</p>
+<p>此坐标系是在<strong>可滚动布局坐标</strong>的基础上减去滚动偏移量，使 (0.0, 0.0) 成为视口左上角。</p>
+<p>由于视口以可滚动列表的滚动偏移量为中心，而不是从滚动偏移量处开始，因此在滚动偏移量前后各约半个视口长度的范围内都有可绘制子节点；滚动偏移量之后则约为一个视口长度。</p>
+<p>无论圆柱体属性（例如 <a href="rendering/RenderListWheelViewport/diameterRatio.html">diameterRatio</a> 或 <a href="rendering/RenderListWheelViewport/perspective.html">perspective</a>）如何，都会在此坐标系中确定子节点是否位于视口内。例如，只要子节点足够多，长度为 100px 的视口始终会绘制 10 到 11 个可见的 10px 子节点。</p>
 </li>
 <li>
-<p>The <strong>transformed cylindrical space viewport painting coordinates</strong>.
-Children from system 2 get their positions transformed into a cylindrical
-projection matrix instead of its Cartesian offset with respect to the
-scroll offset.</p>
-<p>Children in this coordinate system are painted.</p>
-<p>The wheel's size and the maximum and minimum visible angles are both
-controlled by <a href="rendering/RenderListWheelViewport/diameterRatio.html">diameterRatio</a>. Children visible in the <strong>untransformed
-plane's viewport painting coordinates</strong>'s viewport will be radially
-evenly laid out between the maximum and minimum angles determined by
-intersecting the viewport's main axis length with a cylinder whose
-diameter is <a href="rendering/RenderListWheelViewport/diameterRatio.html">diameterRatio</a> times longer, as long as those angles are
-between -pi/2 and pi/2.</p>
-<p>For example, if <a href="rendering/RenderListWheelViewport/diameterRatio.html">diameterRatio</a> is 2.0 and this <a href="rendering/RenderListWheelViewport-class.html">RenderListWheelViewport</a>
-is 100.0px in the main axis, then the diameter is 200.0. And children
-will be evenly laid out between that cylinder's -arcsin(1/2) and
-arcsin(1/2) angles.</p>
-<p>The cylinder's 0 degree side is always centered in the
-<a href="rendering/RenderListWheelViewport-class.html">RenderListWheelViewport</a>. The transformation from <strong>untransformed
-plane's viewport painting coordinates</strong> is also done such that the child
-in the center of that plane will be mostly untransformed with children
-above and below it being transformed more as the angle increases.</p>
+<p><strong>变换后的圆柱空间视口绘制坐标</strong>。系统 2 中的子节点会转换为圆柱投影矩阵中的位置，而不是相对于滚动偏移量的笛卡尔坐标偏移量。</p>
+<p>子节点会在此坐标系中绘制。</p>
+<p>滚轮的尺寸以及可见角度的最大值和最小值都由 <a href="rendering/RenderListWheelViewport/diameterRatio.html">diameterRatio</a> 控制。未变换平面的视口绘制坐标中可见的子节点会沿径向均匀分布在最大角度和最小角度之间；这两个角度由视口主轴长度与圆柱体相交的位置决定，其中圆柱体直径是视口主轴长度的 <a href="rendering/RenderListWheelViewport/diameterRatio.html">diameterRatio</a> 倍，且角度必须位于 -pi/2 到 pi/2 之间。</p>
+<p>例如，如果 <a href="rendering/RenderListWheelViewport/diameterRatio.html">diameterRatio</a> 为 2.0，且此 <a href="rendering/RenderListWheelViewport-class.html">RenderListWheelViewport</a> 沿主轴的尺寸为 100.0px，则圆柱体直径为 200.0。子节点会均匀分布在圆柱体的 -arcsin(1/2) 到 arcsin(1/2) 角度之间。</p>
+<p>圆柱体的 0 度位置始终位于 <a href="rendering/RenderListWheelViewport-class.html">RenderListWheelViewport</a> 的中心。从<strong>未变换平面的视口绘制坐标</strong>进行的变换也会以该平面中心的子节点基本不发生变换为基准；子节点越靠上方或下方，随角度增加而发生的变换就越大。</p>
 </li>
 </ol>
 </section>
@@ -162,7 +124,7 @@ above and below it being transformed more as the angle increases.</p>
     <section>
       <dl class="dl-horizontal">
         
-  <dt>Inheritance</dt>
+  <dt>继承关系</dt>
   <dd>
     <ul class="gt-separated dark clazz-relationships">
       <li><a href="dart-core/Object-class.html">Object</a></li>
@@ -173,14 +135,14 @@ above and below it being transformed more as the angle increases.</p>
   </dd>
 
         
-  <dt>Implemented types</dt>
+  <dt>实现的类型</dt>
   <dd>
     <ul class="comma-separated clazz-relationships">
         <li><a href="rendering/RenderAbstractViewport-class.html">RenderAbstractViewport</a></li>
     </ul>
   </dd>
         
-  <dt>Mixed-in types</dt>
+  <dt>混入的类型</dt>
   <dd>
     <ul class="comma-separated clazz-relationships">
         <li><a href="rendering/ContainerRenderObjectMixin-mixin.html">ContainerRenderObjectMixin</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/RenderBox-class.html">RenderBox</a></span>, <span class="type-parameter"><a href="rendering/ListWheelParentData-class.html">ListWheelParentData</a></span>&gt;</span></li>
@@ -197,13 +159,13 @@ above and below it being transformed more as the angle increases.</p>
 
     
   <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
+    <h2>构造函数</h2>
     <dl class="constructor-summary-list">
         <dt id="RenderListWheelViewport.new" class="callable">
           <span class="name"><a href="rendering/RenderListWheelViewport/RenderListWheelViewport.html">RenderListWheelViewport</a></span><span class="signature">({<span class="parameter" id="-param-childManager"><span>required</span> <span class="type-annotation"><a href="rendering/ListWheelChildManager-class.html">ListWheelChildManager</a></span> <span class="parameter-name">childManager</span>, </span><span class="parameter" id="-param-offset"><span>required</span> <span class="type-annotation"><a href="rendering/ViewportOffset-class.html">ViewportOffset</a></span> <span class="parameter-name">offset</span>, </span><span class="parameter" id="-param-diameterRatio"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">diameterRatio</span> = <span class="default-value">defaultDiameterRatio</span>, </span><span class="parameter" id="-param-perspective"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">perspective</span> = <span class="default-value">defaultPerspective</span>, </span><span class="parameter" id="-param-offAxisFraction"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">offAxisFraction</span> = <span class="default-value">0</span>, </span><span class="parameter" id="-param-useMagnifier"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useMagnifier</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-magnification"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">magnification</span> = <span class="default-value">1</span>, </span><span class="parameter" id="-param-overAndUnderCenterOpacity"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">overAndUnderCenterOpacity</span> = <span class="default-value">1</span>, </span><span class="parameter" id="-param-itemExtent"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">itemExtent</span>, </span><span class="parameter" id="-param-squeeze"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">squeeze</span> = <span class="default-value">1</span>, </span><span class="parameter" id="-param-renderChildrenOutsideViewport"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">renderChildrenOutsideViewport</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.none</span>, </span><span class="parameter" id="-param-children"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/RenderBox-class.html">RenderBox</a></span>&gt;</span>?</span> <span class="parameter-name">children</span></span>})</span>
         </dt>
         <dd>
-          Creates a <a href="rendering/RenderListWheelViewport-class.html">RenderListWheelViewport</a> which renders children on a wheel.
+          创建一个 <a href="rendering/RenderListWheelViewport-class.html">RenderListWheelViewport</a> which renders children on a wheel.
         </dd>
     </dl>
   </section>
@@ -211,7 +173,7 @@ above and below it being transformed more as the angle increases.</p>
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="alwaysNeedsCompositing" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/alwaysNeedsCompositing.html">alwaysNeedsCompositing</a></span>
@@ -221,7 +183,7 @@ above and below it being transformed more as the angle increases.</p>
 </dt>
 <dd class="inherited">
   Whether this render object always needs compositing.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -233,7 +195,7 @@ above and below it being transformed more as the angle increases.</p>
 </dt>
 <dd class="inherited">
   Whether the render tree this render object belongs to is attached to a <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -245,7 +207,7 @@ above and below it being transformed more as the angle increases.</p>
 </dt>
 <dd class="inherited">
   The number of children.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -269,7 +231,7 @@ above and below it being transformed more as the angle increases.</p>
 </dt>
 <dd>
   The content will be clipped (or not) according to this option.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -281,7 +243,7 @@ above and below it being transformed more as the angle increases.</p>
 </dt>
 <dd class="inherited">
   The box constraints most recently received from the parent.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -294,7 +256,7 @@ above and below it being transformed more as the angle increases.</p>
 <dd class="inherited">
   Whether the parent render object is permitted to use this render object's
 size.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -306,7 +268,7 @@ size.
 </dt>
 <dd class="inherited">
   The object responsible for creating this render object.
-  <div class="features"><span class="feature">getter/setter pair</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -318,7 +280,7 @@ size.
 </dt>
 <dd class="inherited">
   Whether this has been disposed.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -330,7 +292,7 @@ size.
 </dt>
 <dd class="inherited">
   Whether <a href="rendering/RenderObject/performLayout.html">performLayout</a> for this render object is currently running.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -342,7 +304,7 @@ size.
 </dt>
 <dd class="inherited">
   Whether <a href="rendering/RenderObject/invokeLayoutCallback.html">invokeLayoutCallback</a> for this render object is currently running.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -354,7 +316,7 @@ size.
 </dt>
 <dd class="inherited">
   Whether <a href="rendering/RenderObject/paint.html">paint</a> for this render object is currently running.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -366,7 +328,7 @@ size.
 </dt>
 <dd class="inherited">
   Whether <a href="rendering/RenderObject/performResize.html">performResize</a> for this render object is currently running.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -378,7 +340,7 @@ size.
 </dt>
 <dd class="inherited">
   In debug mode, the compositing layer that this render object uses to repaint.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -391,7 +353,7 @@ size.
 <dd class="inherited">
   The <a href="rendering/RenderObject-class.html">RenderObject</a> that's expected to call <a href="rendering/RenderObject/layout.html">layout</a> on this <a href="rendering/RenderObject-class.html">RenderObject</a>
 in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> implementation.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -403,7 +365,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
 </dt>
 <dd class="inherited">
   Whether this render object's layer information is dirty.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -415,7 +377,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
 </dt>
 <dd class="inherited">
   Whether this render object's layout information is dirty.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -427,7 +389,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
 </dt>
 <dd class="inherited">
   Whether this render object's paint information is dirty.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -439,7 +401,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
 </dt>
 <dd class="inherited">
   Whether the semantics of this render object is dirty and await the update.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -451,7 +413,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
 </dt>
 <dd class="inherited">
   The semantics of this render object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -463,7 +425,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
 </dt>
 <dd class="inherited">
   The depth of this render object in the render tree.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -476,7 +438,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
 <dd>
   A ratio between the diameter of the cylinder and the viewport's size
 in the main axis.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -488,7 +450,7 @@ in the main axis.
 </dt>
 <dd class="inherited">
   The first child in the child list.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -499,8 +461,8 @@ in the main axis.
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -512,7 +474,7 @@ in the main axis.
 </dt>
 <dd class="inherited">
   Whether this render object has undergone layout and has a <a href="rendering/RenderBox/size.html">size</a>.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -524,7 +486,7 @@ in the main axis.
 </dt>
 <dd>
   Whether this render object repaints separately from its parent.
-  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -537,7 +499,7 @@ in the main axis.
 <dd>
   The size of the children along the main axis. Children <a href="rendering/RenderBox-class.html">RenderBox</a>es will
 be given the <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> of this exact size.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -549,7 +511,7 @@ be given the <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> of
 </dt>
 <dd class="inherited">
   The last child in the child list.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -561,7 +523,7 @@ be given the <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> of
 </dt>
 <dd class="inherited">
   The compositing layer that this render object uses to repaint.
-  <div class="features"><span class="feature">getter/setter pair</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -573,7 +535,7 @@ be given the <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> of
 </dt>
 <dd>
   The zoomed-in rate of the magnifier, if it is used.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -585,7 +547,7 @@ be given the <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> of
 </dt>
 <dd class="inherited">
   Whether we or one of our descendants has a compositing layer.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -600,7 +562,7 @@ be given the <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> of
 This property creates the visual effect of looking at a vertical wheel from
 its side where its vanishing points at the edge curves to one side instead
 of looking at the wheel head-on.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -613,7 +575,7 @@ of looking at the wheel head-on.
 <dd>
   The associated ViewportOffset object for the viewport describing the part
 of the content inside that's visible.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -626,7 +588,7 @@ of the content inside that's visible.
 <dd>
   The opacity value that will be applied to the wheel that appears below and
 above the magnifier.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -638,7 +600,7 @@ above the magnifier.
 </dt>
 <dd class="inherited">
   The owner for this render object (null if unattached).
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -650,7 +612,7 @@ above the magnifier.
 </dt>
 <dd class="inherited">
   Returns a rectangle that contains all the pixels painted by this box.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -662,7 +624,7 @@ above the magnifier.
 </dt>
 <dd class="inherited">
   The parent of this render object in the render tree.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -674,7 +636,7 @@ above the magnifier.
 </dt>
 <dd class="inherited">
   Data for use by the parent render object.
-  <div class="features"><span class="feature">getter/setter pair</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -686,7 +648,7 @@ above the magnifier.
 </dt>
 <dd>
   Perspective of the cylindrical projection.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -698,7 +660,7 @@ above the magnifier.
 </dt>
 <dd>
   Whether to paint children inside the viewport only.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -709,8 +671,8 @@ above the magnifier.
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -723,7 +685,7 @@ above the magnifier.
 <dd class="inherited">
   The bounding box, in the local coordinate system, of this
 object, for accessibility purposes.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -735,7 +697,7 @@ object, for accessibility purposes.
 </dt>
 <dd class="inherited">
   The size of this render box computed during layout.
-  <div class="features"><span class="feature">getter/setter pair</span><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -748,7 +710,7 @@ object, for accessibility purposes.
 <dd>
   Whether the constraints are the only input to the sizing algorithm (in
 particular, child nodes have no impact).
-  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
+  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -760,7 +722,7 @@ particular, child nodes have no impact).
 </dt>
 <dd>
   The angular compactness of the children on the wheel.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -772,7 +734,7 @@ particular, child nodes have no impact).
 </dt>
 <dd>
   Whether to use the magnifier for the center item of the wheel.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -783,7 +745,7 @@ particular, child nodes have no impact).
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="add" class="callable inherited">
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-child"><span class="type-annotation"><a href="rendering/RenderBox-class.html">RenderBox</a></span> <span class="parameter-name">child</span></span>)
@@ -794,7 +756,7 @@ particular, child nodes have no impact).
 </dt>
 <dd class="inherited">
   Append child to the end of this render object's child list.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -807,7 +769,7 @@ particular, child nodes have no impact).
 </dt>
 <dd class="inherited">
   Add all the children to the end of this render object's child list.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -820,7 +782,7 @@ particular, child nodes have no impact).
 </dt>
 <dd class="inherited">
   Called by subclasses when they decide a render object is a child.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -834,7 +796,7 @@ particular, child nodes have no impact).
 <dd>
   Multiply the transform from the parent's coordinate system to this box's
 coordinate system into the given transform.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -847,7 +809,7 @@ coordinate system into the given transform.
 </dt>
 <dd class="inherited">
   Assemble the <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> for this <a href="rendering/RenderObject-class.html">RenderObject</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -860,7 +822,7 @@ coordinate system into the given transform.
 </dt>
 <dd>
   Mark this render object as attached to the given owner.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -873,7 +835,7 @@ coordinate system into the given transform.
 </dt>
 <dd class="inherited">
   The next child after the given child in the child list.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -886,7 +848,7 @@ coordinate system into the given transform.
 </dt>
 <dd class="inherited">
   The previous child before the given child in the child list.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -899,7 +861,7 @@ coordinate system into the given transform.
 </dt>
 <dd class="inherited">
   Removes all semantics from this render object and its descendants.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -914,7 +876,7 @@ coordinate system into the given transform.
   Returns the distance from the y-coordinate of the position of the box to
 the y-coordinate of the first given baseline in the box's contents, if
 any, or null otherwise.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -927,7 +889,7 @@ any, or null otherwise.
 </dt>
 <dd class="inherited">
   Computes the value returned by <a href="rendering/RenderBox/getDryBaseline.html">getDryBaseline</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -941,7 +903,7 @@ any, or null otherwise.
 <dd>
   Computes the value returned by <a href="rendering/RenderBox/getDryLayout.html">getDryLayout</a>. Do not call this
 function directly, instead, call <a href="rendering/RenderBox/getDryLayout.html">getDryLayout</a>.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -955,7 +917,7 @@ function directly, instead, call <a href="rendering/RenderBox/getDryLayout.html"
 <dd>
   Computes the value returned by <a href="rendering/RenderBox/getMaxIntrinsicHeight.html">getMaxIntrinsicHeight</a>. Do not call this
 function directly, instead, call <a href="rendering/RenderBox/getMaxIntrinsicHeight.html">getMaxIntrinsicHeight</a>.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -969,7 +931,7 @@ function directly, instead, call <a href="rendering/RenderBox/getMaxIntrinsicHei
 <dd>
   Computes the value returned by <a href="rendering/RenderBox/getMaxIntrinsicWidth.html">getMaxIntrinsicWidth</a>. Do not call this
 function directly, instead, call <a href="rendering/RenderBox/getMaxIntrinsicWidth.html">getMaxIntrinsicWidth</a>.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -983,7 +945,7 @@ function directly, instead, call <a href="rendering/RenderBox/getMaxIntrinsicWid
 <dd>
   Computes the value returned by <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a>. Do not call this
 function directly, instead, call <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a>.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -997,7 +959,7 @@ function directly, instead, call <a href="rendering/RenderBox/getMinIntrinsicHei
 <dd>
   Computes the value returned by <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a>. Do not call this
 function directly, instead, call <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a>.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1010,7 +972,7 @@ function directly, instead, call <a href="rendering/RenderBox/getMinIntrinsicWid
 </dt>
 <dd class="inherited">
   Claims ownership of the given <a href="dart-ui/Size-class.html">Size</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1027,7 +989,7 @@ in a subclass to verify that your state matches the constraints object.
 This function is only called when asserts are enabled (i.e. in debug mode)
 and only when needsLayout is false. If the constraints are not met, it
 should assert or throw an exception.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1041,7 +1003,7 @@ should assert or throw an exception.
 <dd class="inherited">
   Called from <a href="rendering/RenderBox/computeDryLayout.html">computeDryLayout</a> or <a href="rendering/RenderBox/computeDryBaseline.html">computeDryBaseline</a> within an assert if
 the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does not support calculating a dry layout.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1055,7 +1017,7 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
 <dd class="inherited">
   Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
 children.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1068,7 +1030,7 @@ children.
 </dt>
 <dd class="inherited">
   Add additional properties associated with the node.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1081,7 +1043,7 @@ children.
 </dt>
 <dd class="inherited">
   Implements the <a href="rendering/debugPaintPointersEnabled.html">debugPaintPointersEnabled</a> debugging feature.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1094,7 +1056,7 @@ children.
 </dt>
 <dd class="inherited">
   Override this method to paint debugging information.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1107,7 +1069,7 @@ children.
 </dt>
 <dd class="inherited">
   In debug mode, paints a line for each baseline.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1121,7 +1083,7 @@ children.
 <dd class="inherited">
   In debug mode, paints a rectangle if this render box has counted more
 pointer downs than pointer up events.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1134,7 +1096,7 @@ pointer downs than pointer up events.
 </dt>
 <dd class="inherited">
   In debug mode, paints a border around this render box.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1148,7 +1110,7 @@ pointer downs than pointer up events.
 <dd class="inherited">
   Called, in debug mode, if <a href="rendering/RenderObject/isRepaintBoundary.html">isRepaintBoundary</a> is true, when either the
 this render object or its parent attempt to paint.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1166,7 +1128,7 @@ whatever it is in the subclass, e.g. the actual <code>size</code> property of
 property isn't used when <a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a> isn't set, then that
 subclass should override <a href="rendering/RenderBox/debugResetSize.html">debugResetSize</a> to reapply the current values of
 <a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a> to that state.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1180,7 +1142,7 @@ subclass should override <a href="rendering/RenderBox/debugResetSize.html">debug
 <dd class="inherited">
   Checks whether the given render object has the correct <a href="dart-core/Object/runtimeType.html">runtimeType</a> to be
 a child of this render object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1195,7 +1157,7 @@ a child of this render object.
   Returns a rect in this object's coordinate system that describes
 the approximate bounding box of the clip rect that would be
 applied to the given child during the paint phase, if any.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1209,7 +1171,7 @@ applied to the given child during the paint phase, if any.
 <dd class="inherited">
   Adds a debug representation of a <a href="rendering/RenderObject-class.html">RenderObject</a> optimized for including in
 error messages.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1229,7 +1191,7 @@ positioned inside this rect, but outside of <a href="rendering/RenderObject/desc
 will be included in the tree marked as hidden. Child <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s
 that are inside of both rect will be included in the tree as regular
 nodes.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1242,7 +1204,7 @@ nodes.
 </dt>
 <dd class="inherited">
   Report the semantics of this node, for example for accessibility purposes.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1255,7 +1217,7 @@ nodes.
 </dt>
 <dd>
   Mark this render object as detached from its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1268,7 +1230,7 @@ nodes.
 </dt>
 <dd>
   Release any resources held by this render object.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1281,7 +1243,7 @@ nodes.
 </dt>
 <dd class="inherited">
   Called by subclasses when they decide a render object is no longer a child.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1294,7 +1256,7 @@ nodes.
 </dt>
 <dd class="inherited">
   Calls <a href="rendering/RenderBox/computeDistanceToActualBaseline.html">computeDistanceToActualBaseline</a> and caches the result.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1308,7 +1270,7 @@ nodes.
 <dd class="inherited">
   Returns the distance from the y-coordinate of the position of the box to
 the y-coordinate of the first given baseline in the box's contents.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1323,7 +1285,7 @@ the y-coordinate of the first given baseline in the box's contents.
   Returns the distance from the top of the box to the first baseline of the
 box's contents for the given <code>constraints</code>, or <code>null</code> if this <a href="rendering/RenderBox-class.html">RenderBox</a>
 does not have any baselines.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1337,7 +1299,7 @@ does not have any baselines.
 <dd class="inherited">
   Returns the <a href="dart-ui/Size-class.html">Size</a> that this <a href="rendering/RenderBox-class.html">RenderBox</a> would like to be given the
 provided <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1352,7 +1314,7 @@ provided <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>.
   Returns the smallest height beyond which increasing the height never
 decreases the preferred width. The preferred width is the value that
 would be returned by <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a> for that height.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1367,7 +1329,7 @@ would be returned by <a href="rendering/RenderBox/getMinIntrinsicWidth.html">get
   Returns the smallest width beyond which increasing the width never
 decreases the preferred height. The preferred height is the value that
 would be returned by <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a> for that width.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1381,7 +1343,7 @@ would be returned by <a href="rendering/RenderBox/getMinIntrinsicHeight.html">ge
 <dd class="inherited">
   Returns the minimum height that this box could be without failing to
 correctly paint its contents within itself, without clipping.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1395,7 +1357,7 @@ correctly paint its contents within itself, without clipping.
 <dd class="inherited">
   Returns the minimum width that this box could be without failing to
 correctly paint its contents within itself, without clipping.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1409,7 +1371,7 @@ correctly paint its contents within itself, without clipping.
 <dd>
   Returns the offset that would be needed to reveal the <code>target</code>
 <a href="rendering/RenderObject-class.html">RenderObject</a>.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1423,7 +1385,7 @@ correctly paint its contents within itself, without clipping.
 <dd class="inherited">
   Applies the paint transform from this <a href="rendering/RenderObject-class.html">RenderObject</a> to the <code>target</code>
 <a href="rendering/RenderObject-class.html">RenderObject</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1437,7 +1399,7 @@ correctly paint its contents within itself, without clipping.
 <dd class="inherited">
   Convert the given point from the global coordinate system in logical pixels
 to the local coordinate system for this box.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1450,7 +1412,7 @@ to the local coordinate system for this box.
 </dt>
 <dd class="inherited">
   Override this method to handle pointer events that hit this render object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1463,7 +1425,7 @@ to the local coordinate system for this box.
 </dt>
 <dd class="inherited">
   Determines the set of render objects located at the given position.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1477,7 +1439,7 @@ to the local coordinate system for this box.
 <dd>
   Override this method to check whether any children are located at the
 given position.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1491,7 +1453,7 @@ given position.
 <dd class="inherited">
   Override this method if this render object can be hit even if its
 children were not hit.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1530,7 +1492,7 @@ children were not hit.
 </dt>
 <dd class="inherited">
   Insert child into this render object's child list after the given child.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1547,7 +1509,7 @@ descendants) as well as to any other dirty nodes in the render tree owned
 by the same <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> as this object. The <code>callback</code> argument is
 invoked synchronously, and the mutations are allowed only during that
 callback's execution.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1560,7 +1522,7 @@ callback's execution.
 </dt>
 <dd class="inherited">
   Compute the layout for this render object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1574,7 +1536,7 @@ callback's execution.
 <dd class="inherited">
   Convert the given point from the local coordinate system for this box to
 the global coordinate system in logical pixels.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1588,7 +1550,7 @@ the global coordinate system in logical pixels.
 <dd class="inherited">
   Mark this render object as having changed a property on its composited
 layer.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1601,7 +1563,7 @@ layer.
 </dt>
 <dd class="inherited">
   Mark the compositing state for this render object as dirty.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1616,7 +1578,7 @@ layer.
   Mark this render object's layout information as dirty, and either register
 this object with its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>, or defer to the parent, depending on
 whether this object is a relayout boundary or not respectively.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1631,7 +1593,7 @@ whether this object is a relayout boundary or not respectively.
   Mark this render object's layout information as dirty (like
 <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>), and additionally also handle any necessary work to
 handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedByParent</a> has changed value.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1644,7 +1606,7 @@ handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedB
 </dt>
 <dd class="inherited">
   Mark this render object as having changed its visual appearance.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1657,7 +1619,7 @@ handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedB
 </dt>
 <dd class="inherited">
   Mark this node as needing an update to its semantics description.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1671,7 +1633,7 @@ handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedB
 <dd class="inherited">
   Mark this render object's layout information as dirty, and then defer to
 the parent.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1684,7 +1646,7 @@ the parent.
 </dt>
 <dd class="inherited">
   Move the given <code>child</code> in the child list to be after another child.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1696,8 +1658,8 @@ the parent.
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1710,7 +1672,7 @@ the parent.
 </dt>
 <dd>
   Paint this render object into the given context at the given offset.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1723,7 +1685,7 @@ the parent.
 </dt>
 <dd class="inherited">
   Whether the given child would be painted if <a href="rendering/RenderObject/paint.html">paint</a> were called.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1736,7 +1698,7 @@ the parent.
 </dt>
 <dd>
   Performs layout based on how <a href="rendering/RenderListWheelViewport/childManager.html">childManager</a> provides children.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1749,7 +1711,7 @@ the parent.
 </dt>
 <dd class="inherited">
   Updates the render objects size using only the constraints.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1765,7 +1727,7 @@ the parent.
 dirty for layout, paint, etc, so that the effects of a hot reload can be
 seen, or so that the effect of changing a global debug flag (such as
 <a href="rendering/debugPaintSizeEnabled.html">debugPaintSizeEnabled</a>) can be applied.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1779,7 +1741,7 @@ seen, or so that the effect of changing a global debug flag (such as
 <dd class="inherited">
   Adjust the <a href="rendering/RenderObject/depth.html">depth</a> of the given <code>child</code> to be greater than this node's own
 <a href="rendering/RenderObject/depth.html">depth</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1792,7 +1754,7 @@ seen, or so that the effect of changing a global debug flag (such as
 </dt>
 <dd class="inherited">
   Adjust the <a href="rendering/RenderObject/depth.html">depth</a> of this node's children, if any.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1805,7 +1767,7 @@ seen, or so that the effect of changing a global debug flag (such as
 </dt>
 <dd class="inherited">
   Remove this child from the child list.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1818,7 +1780,7 @@ seen, or so that the effect of changing a global debug flag (such as
 </dt>
 <dd class="inherited">
   Remove all their children from this render object's child list.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1833,7 +1795,7 @@ seen, or so that the effect of changing a global debug flag (such as
   Replace the layer. This is only valid for the root of a render
 object subtree (whatever object <a href="rendering/RenderObject/scheduleInitialPaint.html">scheduleInitialPaint</a> was
 called on).
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1846,7 +1808,7 @@ called on).
 </dt>
 <dd class="inherited">
   Bootstrap the rendering pipeline by scheduling the very first layout.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1859,7 +1821,7 @@ called on).
 </dt>
 <dd class="inherited">
   Bootstrap the rendering pipeline by scheduling the very first paint.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1873,7 +1835,7 @@ called on).
 <dd class="inherited">
   Bootstrap the semantics reporting mechanism by marking this node
 as needing a semantics update.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1899,7 +1861,7 @@ as needing a semantics update.
 </dt>
 <dd class="inherited">
   Sends a <a href="semantics/SemanticsEvent-class.html">SemanticsEvent</a> associated with this render object's <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1912,7 +1874,7 @@ as needing a semantics update.
 </dt>
 <dd>
   Override to setup parent data correctly for your children.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1926,7 +1888,7 @@ as needing a semantics update.
 <dd>
   Attempt to make (a portion of) this or a descendant <a href="rendering/RenderObject-class.html">RenderObject</a> visible
 on screen.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -1940,7 +1902,7 @@ on screen.
 <dd class="inherited">
   Returns a debug representation of the object that is used by debugging
 tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1952,8 +1914,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  A string representation of this object.
-  <div class="features"><span class="feature">inherited</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1968,7 +1930,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
   Returns a description of the tree rooted at this node.
 If the prefix argument is provided, then every line in the output
 will be prefixed by that string.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1982,7 +1944,7 @@ will be prefixed by that string.
 <dd class="inherited">
   Returns a one-line detailed description of the render object.
 This description is often somewhat long.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1995,7 +1957,7 @@ This description is often somewhat long.
 </dt>
 <dd class="inherited">
   Returns a human understandable name.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -2008,7 +1970,7 @@ This description is often somewhat long.
 </dt>
 <dd class="inherited">
   Update the composited layer owned by this render object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -2021,7 +1983,7 @@ This description is often somewhat long.
 </dt>
 <dd class="inherited">
   Calls visitor for each immediate child of this render object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -2034,7 +1996,7 @@ This description is often somewhat long.
 </dt>
 <dd class="inherited">
   Called when collecting the semantics of this node.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -2044,7 +2006,7 @@ This description is often somewhat long.
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -2054,8 +2016,8 @@ This description is often somewhat long.
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -2066,7 +2028,7 @@ This description is often somewhat long.
     
 
   <section class="summary offset-anchor" id="constants">
-    <h2>Constants</h2>
+    <h2>常量</h2>
     <dl class="properties">
         <dt id="clipBehaviorAndRenderChildrenOutsideViewportConflict" class="constant">
     <span class="name "><a href="rendering/RenderListWheelViewport/clipBehaviorAndRenderChildrenOutsideViewportConflict-constant.html">clipBehaviorAndRenderChildrenOutsideViewportConflict</a></span>
@@ -2075,7 +2037,7 @@ This description is often somewhat long.
 
 </dt>
 <dd>
-  An error message to show when <a href="rendering/RenderListWheelViewport/clipBehavior.html">clipBehavior</a> and <a href="rendering/RenderListWheelViewport/renderChildrenOutsideViewport.html">renderChildrenOutsideViewport</a>
+  An error message to show when <a href="rendering/RenderListWheelViewport/clipBehavior.html">clipBehavior</a> 和 <a href="rendering/RenderListWheelViewport/renderChildrenOutsideViewport.html">renderChildrenOutsideViewport</a>
 are set to conflicting values.
   
 
@@ -2136,16 +2098,16 @@ are set to conflicting values.
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
-    <li class="self-crumb">RenderListWheelViewport class</li>
+    <li class="self-crumb">RenderListWheelViewport 类</li>
 </ol>
 
-    <h5>rendering library</h5>
+    <h5>rendering 库</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -2168,7 +2130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

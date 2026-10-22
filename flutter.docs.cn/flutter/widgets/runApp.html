@@ -102,35 +102,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Inflate the given widget and attach it to the view.</p>
-<p>The <a href="widgets/runApp.html">runApp</a> method renders the provided <code>app</code> widget into the
-<a href="dart-ui/PlatformDispatcher/implicitView.html">PlatformDispatcher.implicitView</a> by wrapping it in a <a href="widgets/View-class.html">View</a> widget, which
-will bootstrap the render tree for the app. Apps that want to control which
-<a href="dart-ui/FlutterView-class.html">FlutterView</a> they render into can use <a href="widgets/runWidget.html">runWidget</a> instead.</p>
-<p>The widget is given constraints during layout that force it to fill the
-entire view. If you wish to align your widget to one side of the view
-(e.g., the top), consider using the <a href="widgets/Align-class.html">Align</a> widget. If you wish to center
-your widget, you can also use the <a href="widgets/Center-class.html">Center</a> widget.</p>
-<p>Calling <a href="widgets/runApp.html">runApp</a> again will detach the previous root widget from the view
-and attach the given widget in its place. The new widget tree is compared
-against the previous widget tree and any differences are applied to the
-underlying render tree, similar to what happens when a <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>
-rebuilds after calling <a href="widgets/State/setState.html">State.setState</a>.</p>
-<p>Initializes the binding using <a href="widgets/WidgetsFlutterBinding-class.html">WidgetsFlutterBinding</a> if necessary.</p>
+  <p>膨胀给定的 widget，并将其附加到 view。</p>
+<p><a href="widgets/runApp.html">runApp</a> 方法会将提供的 <code>app</code> widget 包装在 <a href="widgets/View-class.html">View</a> widget 中，并渲染到 <a href="dart-ui/PlatformDispatcher/implicitView.html">PlatformDispatcher.implicitView</a>，由此为应用建立渲染树。需要自行控制内容渲染到哪个 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 的应用可以改用 <a href="widgets/runWidget.html">runWidget</a>。</p>
+<p>布局期间，widget 会收到填满整个 view 的约束。如果要将 widget 对齐到 view 的一侧（例如顶部），可以使用 <a href="widgets/Align-class.html">Align</a> widget。也可以使用 <a href="widgets/Center-class.html">Center</a> widget 将其居中。</p>
+<p>再次调用 <a href="widgets/runApp.html">runApp</a> 会从 view 分离之前的根 widget，并在原位置附加给定的 widget。新旧 widget 树会进行比较，差异会应用到底层渲染树；这与 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 调用 <a href="widgets/State/setState.html">State.setState</a> 后重建时的处理方式类似。</p>
+<p>如有必要，会使用 <a href="widgets/WidgetsFlutterBinding-class.html">WidgetsFlutterBinding</a> 初始化 binding。</p>
 <h2 id="application-shutdown">应用关闭</h2>
-<p>This widget tree is not torn down when the application shuts down, because
-there is no way to predict when that will happen. For example, a user could
-physically remove power from their device, or the application could crash
-unexpectedly, or the malware on the device could forcibly terminate the
-process.</p>
+<p>应用关闭时不会拆除此 widget 树，因为无法预知应用何时关闭。例如，用户可能直接切断设备电源，应用可能意外崩溃，也可能被设备上的恶意软件强制终止进程。</p>
 <p>应用应确保自身即使在快速且非计划的终止情况下也能妥善处理。</p>
 <p>若要监听平台关闭消息（以及其他生命周期变化），可以使用 <a href="widgets/AppLifecycleListener-class.html">AppLifecycleListener</a> API。</p>
 <p>若要人为地销毁整个组件树，可考虑调用 <a href="widgets/runApp.html">runApp</a> 并传入诸如 <a href="widgets/SizedBox/SizedBox.shrink.html">SizedBox.shrink</a> 这样的组件。</p>
 <h2 id="dismissing-flutter-ui-via-platform-native-methods">通过平台原生方法关闭 Flutter 界面</h2>
 <p>应用可能同时包含 Flutter 界面和非 Flutter 界面。如果应用调用非 Flutter 方法移除基于 Flutter 的界面（例如通过平台原生 API 操作平台原生导航栈），框架无法判断开发者是否希望立即释放资源。Widget 树会保持挂载状态，并在界面再次显示时立即恢复渲染。</p>
-<p>To release resources more eagerly, establish a <a href="https://flutter.dev/to/platform-channels">platform channel</a>
-and use it to call <a href="widgets/runApp.html">runApp</a> with a widget such as <a href="widgets/SizedBox/SizedBox.shrink.html">SizedBox.shrink</a> when
-the framework should dispose of the active widget tree.</p>
+<p>若要更早释放资源，请建立 <a href="https://flutter.dev/to/platform-channels">platform channel</a>，并在框架需要处置当前 widget 树时，通过该通道调用 <a href="widgets/runApp.html">runApp</a>，传入类似 <a href="widgets/SizedBox/SizedBox.shrink.html">SizedBox.shrink</a> 的 widget。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/runWidget.html">runWidget</a>, which bootstraps a widget tree without assuming the

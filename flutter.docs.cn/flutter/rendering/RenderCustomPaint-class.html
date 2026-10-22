@@ -93,22 +93,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>Provides a canvas on which to draw during the paint phase.</p>
-<p>When asked to paint, <a href="rendering/RenderCustomPaint-class.html">RenderCustomPaint</a> first asks its <a href="rendering/RenderCustomPaint/painter.html">painter</a> to paint
-on the current canvas, then it paints its child, and then, after painting
-its child, it asks its <a href="rendering/RenderCustomPaint/foregroundPainter.html">foregroundPainter</a> to paint. The coordinate system of
-the canvas matches the coordinate system of the <a href="widgets/CustomPaint-class.html">CustomPaint</a> object. The
-painters are expected to paint within a rectangle starting at the origin and
-encompassing a region of the given size. (If the painters paint outside
-those bounds, there might be insufficient memory allocated to rasterize the
-painting commands and the resulting behavior is undefined.)</p>
-<p>Painters are implemented by subclassing or implementing <a href="rendering/CustomPainter-class.html">CustomPainter</a>.</p>
-<p>Because custom paint calls its painters during paint, you cannot mark the
-tree as needing a new layout during the callback (the layout for this frame
-has already happened).</p>
-<p>Custom painters normally size themselves to their child. If they do not have
-a child, they attempt to size themselves to the <a href="rendering/RenderCustomPaint/preferredSize.html">preferredSize</a>, which
-defaults to <a href="dart-ui/Size/zero-constant.html">Size.zero</a>.</p>
+  <p>在绘制阶段提供一个用于绘图的画布。</p>
+<p>需要绘制时，<a href="rendering/RenderCustomPaint-class.html">RenderCustomPaint</a> 会先让 <a href="rendering/RenderCustomPaint/painter.html">painter</a> 在当前画布上绘制，然后绘制其子节点，最后再让 <a href="rendering/RenderCustomPaint/foregroundPainter.html">foregroundPainter</a> 绘制。画布的坐标系与 <a href="widgets/CustomPaint-class.html">CustomPaint</a> 对象的坐标系一致。绘制器应在从原点开始、覆盖给定尺寸区域的矩形内绘制。（如果绘制器超出该范围，可能没有分配足够的内存来栅格化绘制指令，因此结果行为未定义。）</p>
+<p>绘制器通过继承或实现 <a href="rendering/CustomPainter-class.html">CustomPainter</a> 来实现。</p>
+<p>由于自定义绘制会在绘制阶段调用绘制器，因此不能在回调期间将树标记为需要重新布局（当前帧的布局已经完成）。</p>
+<p>自定义绘制器通常会将尺寸设为与其子节点相同。如果没有子节点，则会尝试采用 <a href="rendering/RenderCustomPaint/preferredSize.html">preferredSize</a> 作为尺寸，该属性默认为 <a href="dart-ui/Size/zero-constant.html">Size.zero</a>。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/CustomPainter-class.html">CustomPainter</a>, the class that custom painter delegates should extend.</li>

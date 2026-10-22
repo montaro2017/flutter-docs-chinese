@@ -102,14 +102,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Inflate the given widget and bootstrap the widget tree.</p>
-<p>Unlike <a href="widgets/runApp.html">runApp</a>, this method does not define a <a href="dart-ui/FlutterView-class.html">FlutterView</a> into which the
-provided <code>app</code> widget is rendered into. It is up to the caller to include at
-least one <a href="widgets/View-class.html">View</a> widget in the provided <code>app</code> widget that will bootstrap a
-render tree and define the <a href="dart-ui/FlutterView-class.html">FlutterView</a> into which content is rendered.
-<a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>s without an ancestor <a href="widgets/View-class.html">View</a> widget will result in an
-exception. Apps that want to render into the default view without dealing
-with view management should consider calling <a href="widgets/runApp.html">runApp</a> instead.</p>
+  <p>膨胀给定的 widget，并建立 widget 树。</p>
+<p>与 <a href="widgets/runApp.html">runApp</a> 不同，此方法不会指定用于渲染所提供 <code>app</code> widget 的 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。调用方需要在所提供的 <code>app</code> widget 中至少包含一个 <a href="widgets/View-class.html">View</a> widget，由它建立渲染树并指定内容渲染到哪个 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。没有祖先 <a href="widgets/View-class.html">View</a> widget 的 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 会导致异常。如果应用要渲染到默认 view，且不想处理 view 管理，可以改为调用 <a href="widgets/runApp.html">runApp</a>。</p>
 <p>
 <a name="widgets.runWidget.1"></a>
 <div class="snippet snippet-container anchor-container">
@@ -136,28 +130,16 @@ into which the <code>MyApp</code> widget will be drawn:
   </div>
 </div>
 </p>
-<p>Calling <a href="widgets/runWidget.html">runWidget</a> again will detach the previous root widget and attach
-the given widget in its place. The new widget tree is compared against the
-previous widget tree and any differences are applied to the underlying
-render tree, similar to what happens when a <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> rebuilds after
-calling <a href="widgets/State/setState.html">State.setState</a>.</p>
-<p>Initializes the binding using <a href="widgets/WidgetsFlutterBinding-class.html">WidgetsFlutterBinding</a> if necessary.</p>
+<p>再次调用 <a href="widgets/runWidget.html">runWidget</a> 会分离之前的根 widget，并在原位置附加给定的 widget。新旧 widget 树会进行比较，差异会应用到底层渲染树；这与 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 调用 <a href="widgets/State/setState.html">State.setState</a> 后重建时的处理方式类似。</p>
+<p>如有必要，会使用 <a href="widgets/WidgetsFlutterBinding-class.html">WidgetsFlutterBinding</a> 初始化 binding。</p>
 <h2 id="application-shutdown">应用关闭</h2>
-<p>This widget tree is not torn down when the application shuts down, because
-there is no way to predict when that will happen. For example, a user could
-physically remove power from their device, or the application could crash
-unexpectedly, or the malware on the device could forcibly terminate the
-process.</p>
+<p>应用关闭时不会拆除此 widget 树，因为无法预知应用何时关闭。例如，用户可能直接切断设备电源，应用可能意外崩溃，也可能被设备上的恶意软件强制终止进程。</p>
 <p>应用应确保自身即使在快速且非计划的终止情况下也能妥善处理。</p>
 <p>若要监听平台关闭消息（以及其他生命周期变化），可以使用 <a href="widgets/AppLifecycleListener-class.html">AppLifecycleListener</a> API。</p>
-<p>To artificially cause the entire widget tree to be disposed, consider
-calling <a href="widgets/runWidget.html">runWidget</a> with a <a href="widgets/ViewCollection-class.html">ViewCollection</a> that does not specify any
-<a href="widgets/ViewCollection/views.html">ViewCollection.views</a>.</p>
+<p>若要人为地处置整个 widget 树，可以考虑调用 <a href="widgets/runWidget.html">runWidget</a>，并传入不指定任何 <a href="widgets/ViewCollection/views.html">ViewCollection.views</a> 的 <a href="widgets/ViewCollection-class.html">ViewCollection</a>。</p>
 <h2 id="dismissing-flutter-ui-via-platform-native-methods">通过平台原生方法关闭 Flutter 界面</h2>
 <p>应用可能同时包含 Flutter 界面和非 Flutter 界面。如果应用调用非 Flutter 方法移除基于 Flutter 的界面（例如通过平台原生 API 操作平台原生导航栈），框架无法判断开发者是否希望立即释放资源。Widget 树会保持挂载状态，并在界面再次显示时立即恢复渲染。</p>
-<p>To release resources more eagerly, establish a <a href="https://flutter.dev/to/platform-channels">platform channel</a>
-and use it to remove the <a href="widgets/View-class.html">View</a> whose widget resources should be released
-from the <code>app</code> widget tree provided to <a href="widgets/runWidget.html">runWidget</a>.</p>
+<p>若要更早释放资源，请建立 <a href="https://flutter.dev/to/platform-channels">platform channel</a>，并从传给 <a href="widgets/runWidget.html">runWidget</a> 的 <code>app</code> widget 树中移除需要释放其 widget 资源的 <a href="widgets/View-class.html">View</a>。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/runApp.html">runApp</a>, which bootstraps a widget tree and renders it into a default

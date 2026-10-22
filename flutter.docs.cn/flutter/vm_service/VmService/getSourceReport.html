@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the getSourceReport method from the VmService class, for the Dart programming language.">
-  <title>getSourceReport method - VmService class - vm_service library - Dart API</title>
+  <title>getSourceReport 方法 - VmService 类 - vm_service 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="vm_service/">vm_service.dart</a></li>
     <li><a href="vm_service/VmService-class.html">VmService</a></li>
-    <li class="self-crumb">getSourceReport method</li>
+    <li class="self-crumb">getSourceReport 方法</li>
   </ol>
   <div class="self-name">getSourceReport</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="vm_service&#47;VmService-class-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">getSourceReport</span> method 
+<h1><span class="kind-method">getSourceReport</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -109,78 +109,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>The <code>getSourceReport</code> RPC is used to generate a set of reports tied to
-source locations in an isolate.</p>
-<p>The <code>reports</code> parameter is used to specify which reports should be
-generated. The <code>reports</code> parameter is a list, which allows multiple
-reports to be generated simultaneously from a consistent isolate state.
-The <code>reports</code> parameter is allowed to be empty (this might be used to
-force compilation of a particular subrange of some script).</p>
-<p>The available report kinds are:</p>
+  <p><code>getSourceReport</code> RPC 用于生成一组与某个 isolate 中源代码位置相关的报告。</p>
+<p><code>reports</code> 参数用于指定要生成哪些报告。<code>reports</code> 参数是一个列表，因此可以基于一致的 isolate 状态同时生成多份报告。<code>reports</code> 参数允许为空（例如，可用于强制编译脚本中的某个子范围）。</p>
+<p>可用的报告类型包括：</p>
 <table>
 <thead>
 <tr>
-<th>report kind</th>
-<th>meaning</th>
+<th>报告类型</th>
+<th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Coverage</td>
-<td>Provide code coverage information</td>
+<td>覆盖率</td>
+<td>提供代码覆盖率信息</td>
 </tr>
 <tr>
 <td>PossibleBreakpoints</td>
-<td>Provide a list of token positions which correspond</td>
+<td>提供与以下内容对应的标记位置列表</td>
 </tr>
 <tr>
-<td>to possible breakpoints.</td>
+<td>可作为可能断点的位置。</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p>The <code>scriptId</code> parameter is used to restrict the report to a particular
-script. When analyzing a particular script, either or both of the
-<code>tokenPos</code> and <code>endTokenPos</code> parameters may be provided to restrict the
-analysis to a subrange of a script (for example, these can be used to
-restrict the report to the range of a particular class or function).</p>
-<p>If the <code>scriptId</code> parameter is not provided then the reports are generated
-for all loaded scripts and the <code>tokenPos</code> and <code>endTokenPos</code> parameters are
-disallowed.</p>
-<p>The <code>forceCompilation</code> parameter can be used to force compilation of all
-functions in the range of the report. Forcing compilation can cause a
-compilation error, which could terminate the running Dart program. If this
-parameter is not provided, it is considered to have the value <code>false</code>.</p>
-<p>The <code>reportLines</code> parameter changes the token positions in
-<code>SourceReportRange.possibleBreakpoints</code> and <code>SourceReportCoverage</code> to be
-line numbers. This is designed to reduce the number of RPCs that need to
-be performed in the case that the client is only interested in line
-numbers. If this parameter is not provided, it is considered to have the
-value <code>false</code>.</p>
-<p>The <code>libraryFilters</code> parameter is intended to be used when gathering
-coverage for the whole isolate. If it is provided, the <code>SourceReport</code> will
-only contain results from scripts with URIs that start with one of the
-filter strings. For example, pass <code>["package:foo/"]</code> to only include
-scripts from the foo package.</p>
-<p>The <code>librariesAlreadyCompiled</code> parameter overrides the <code>forceCompilation</code>
-parameter on a per-library basis, setting it to <code>false</code> for any libary in
-this list. This is useful for cases where multiple <code>getSourceReport</code> RPCs
-are sent with <code>forceCompilation</code> enabled, to avoid recompiling the same
-libraries repeatedly. To use this parameter, enable <code>forceCompilation</code>,
-cache the results of each <code>getSourceReport</code> RPC, and pass all the
-libraries mentioned in the <code>SourceReport</code> to subsequent RPCs in the
-<code>librariesAlreadyCompiled</code>.</p>
-<p>If <code>isolateId</code> refers to an isolate which has exited, then the <code>Collected</code>
-<a href="vm_service/Sentinel-class.html">Sentinel</a> is returned.</p>
-<p>See <a href="vm_service/SourceReport-class.html">SourceReport</a>.</p>
-<p>This method will throw a <a href="vm_service/SentinelException-class.html">SentinelException</a> in the case a <a href="vm_service/Sentinel-class.html">Sentinel</a> is
-returned.</p>
+<p><code>scriptId</code> 参数用于将报告限制到特定脚本。分析特定脚本时，可以提供 <code>tokenPos</code> 和 <code>endTokenPos</code> 参数中的一个或两个，以将分析限制在脚本的某个子范围内（例如，可用于限制到特定类或函数的范围）。</p>
+<p>如果未提供 <code>scriptId</code> 参数，则会为所有已加载的脚本生成报告，并且不允许使用 <code>tokenPos</code> 和 <code>endTokenPos</code> 参数。</p>
+<p><code>forceCompilation</code> 参数可用于强制编译报告范围内的所有函数。强制编译可能导致编译错误，进而终止正在运行的 Dart 程序。如果未提供此参数，则视为其值为 <code>false</code>。</p>
+<p><code>reportLines</code> 参数会将 <code>SourceReportRange.possibleBreakpoints</code> 和 <code>SourceReportCoverage</code> 中的标记位置转换为行号。如果客户端只关心行号，这可以减少所需执行的 RPC 数量。未提供此参数时，视为其值为 <code>false</code>。</p>
+<p><code>libraryFilters</code> 参数适用于收集整个 isolate 的覆盖率。提供该参数后，<code>SourceReport</code> 只会包含 URI 以某个过滤字符串开头的脚本的结果。例如，传入 <code>["package:foo/"]</code> 可只包含 foo 包中的脚本。</p>
+<p><code>librariesAlreadyCompiled</code> 参数会按库覆盖 <code>forceCompilation</code> 参数，将列表中的库对应值设为 <code>false</code>。当启用了 <code>forceCompilation</code> 并发送多个 <code>getSourceReport</code> RPC 时，此参数可避免重复编译同一个库。使用时，先启用 <code>forceCompilation</code>，缓存每次 <code>getSourceReport</code> RPC 的结果，然后在后续 RPC 的 <code>librariesAlreadyCompiled</code> 中传入此前 <code>SourceReport</code> 提到的所有库。</p>
+<p>如果 <code>isolateId</code> 指向的 isolate 已退出，则返回 <code>Collected</code> <a href="vm_service/Sentinel-class.html">Sentinel</a>。</p>
+<p>另请参阅 <a href="vm_service/SourceReport-class.html">SourceReport</a>。</p>
+<p>如果返回了 <a href="vm_service/Sentinel-class.html">Sentinel</a>，此方法将抛出 <a href="vm_service/SentinelException-class.html">SentinelException</a>。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;SourceReport&gt; getSourceReport(
   String isolateId,
   &#47;*List&lt;SourceReportKind&gt;*&#47; List&lt;String&gt; reports, {
@@ -212,17 +180,17 @@ returned.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="vm_service/">vm_service</a></li>
     <li><a href="vm_service/VmService-class.html">VmService</a></li>
-    <li class="self-crumb">getSourceReport method</li>
+    <li class="self-crumb">getSourceReport 方法</li>
 </ol>
 
-    <h5>VmService class</h5>
+    <h5>VmService 类</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -245,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

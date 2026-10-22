@@ -93,21 +93,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>Implements the flow layout algorithm.</p>
-<p>Flow layouts are optimized for repositioning children using transformation
-matrices.</p>
-<p>The flow container is sized independently from the children by the
-<a href="rendering/FlowDelegate/getSize.html">FlowDelegate.getSize</a> function of the delegate. The children are then sized
-independently given the constraints from the
-<a href="rendering/FlowDelegate/getConstraintsForChild.html">FlowDelegate.getConstraintsForChild</a> function.</p>
-<p>Rather than positioning the children during layout, the children are
-positioned using transformation matrices during the paint phase using the
-matrices from the <a href="rendering/FlowDelegate/paintChildren.html">FlowDelegate.paintChildren</a> function. The children are thus
-repositioned efficiently by repainting the flow, skipping layout.</p>
-<p>The most efficient way to trigger a repaint of the flow is to supply a
-repaint argument to the constructor of the <a href="rendering/FlowDelegate-class.html">FlowDelegate</a>. The flow will
-listen to this animation and repaint whenever the animation ticks, avoiding
-both the build and layout phases of the pipeline.</p>
+  <p>实现流式布局算法。</p>
+<p>流式布局针对使用变换矩阵重新定位子节点进行了优化。</p>
+<p>流式容器的尺寸由委托对象的 <a href="rendering/FlowDelegate/getSize.html">FlowDelegate.getSize</a> 函数独立于子节点确定。随后，子节点会根据 <a href="rendering/FlowDelegate/getConstraintsForChild.html">FlowDelegate.getConstraintsForChild</a> 函数提供的约束分别确定尺寸。</p>
+<p>子节点不是在布局阶段定位，而是在绘制阶段使用来自 <a href="rendering/FlowDelegate/paintChildren.html">FlowDelegate.paintChildren</a> 函数的矩阵，通过变换矩阵进行定位。因此，只需重新绘制 flow 即可高效地重新定位子节点，无需重新布局。</p>
+<p>触发 flow 重新绘制的最高效方式，是向 <a href="rendering/FlowDelegate-class.html">FlowDelegate</a> 构造函数提供 repaint 参数。flow 会监听此动画，并在每次动画刻度变化时重新绘制，从而跳过流水线中的构建和布局阶段。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/FlowDelegate-class.html">FlowDelegate</a></li>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the LayerHandle class from the rendering library, for the Dart programming language.">
-  <title>LayerHandle class - rendering library - Dart API</title>
+  <meta name="description" content="rendering 库中 LayerHandle 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>LayerHandle 类 - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -64,13 +64,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
-    <li class="self-crumb">LayerHandle<span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="rendering/Layer-class.html">Layer</a></span>&gt;</span> class</li>
+    <li class="self-crumb">LayerHandle<span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="rendering/Layer-class.html">Layer</a></span>&gt;</span> 类</li>
   </ol>
   <div class="self-name">LayerHandle</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -86,45 +86,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;rendering-library-sidebar.html"
     data-below-sidebar="rendering&#47;LayerHandle-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/layer.dart#L783"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">LayerHandle&lt;<wbr><span class="type-parameter">T extends Layer</span>&gt;</span> class 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/layer.dart#L783"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">LayerHandle&lt;<wbr><span class="type-parameter">T extends Layer</span>&gt;</span> 类 
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A handle to prevent a <a href="rendering/Layer-class.html">Layer</a>'s platform graphics resources from being
-disposed.</p>
-<p><a href="rendering/Layer-class.html">Layer</a> objects retain native resources such as <a href="dart-ui/EngineLayer-class.html">ui.EngineLayer</a>s and <a href="dart-ui/Picture-class.html">ui.Picture</a>
-objects. These objects may in turn retain large chunks of texture memory,
-either directly or indirectly.</p>
-<p>The layer's native resources must be retained as long as there is some
-object that can add it to a scene. Typically, this is either its
-<a href="rendering/Layer/parent.html">Layer.parent</a> or an undisposed <a href="rendering/RenderObject-class.html">RenderObject</a> that will append it to a
-<a href="rendering/ContainerLayer-class.html">ContainerLayer</a>. Layers automatically hold a handle to their children, and
-RenderObjects automatically hold a handle to their <a href="rendering/RenderObject/layer.html">RenderObject.layer</a> as
-well as any <a href="rendering/PictureLayer-class.html">PictureLayer</a>s that they paint into using the
-<a href="rendering/PaintingContext/canvas.html">PaintingContext.canvas</a>. A layer automatically releases its resources once
-at least one handle has been acquired and all handles have been disposed.
-<a href="rendering/RenderObject-class.html">RenderObject</a>s that create additional layer objects must manually manage
-the handles for that layer similarly to the implementation of
-<a href="rendering/RenderObject/layer.html">RenderObject.layer</a>.</p>
-<p>A handle is automatically managed for <a href="rendering/RenderObject/layer.html">RenderObject.layer</a>.</p>
-<p>If a <a href="rendering/RenderObject-class.html">RenderObject</a> creates layers in addition to its <a href="rendering/RenderObject/layer.html">RenderObject.layer</a>
-and it intends to reuse those layers separately from <a href="rendering/RenderObject/layer.html">RenderObject.layer</a>,
-it must create a handle to that layer and dispose of it when the layer is
-no longer needed. For example, if it re-creates or nulls out an existing
-layer in <a href="rendering/RenderObject/paint.html">RenderObject.paint</a>, it should dispose of the handle to the
-old layer. It should also dispose of any layer handles it holds in
-<a href="rendering/RenderObject/dispose.html">RenderObject.dispose</a>.</p>
-<p>To dispose of a layer handle, set its <a href="rendering/LayerHandle/layer.html">layer</a> property to null.</p>
+  <p>用于防止 <a href="rendering/Layer-class.html">Layer</a> 的平台图形资源被释放的句柄。</p>
+<p><a href="rendering/Layer-class.html">Layer</a> 对象会保留 <a href="dart-ui/EngineLayer-class.html">ui.EngineLayer</a> 和 <a href="dart-ui/Picture-class.html">ui.Picture</a> 等原生资源。这些对象本身可能直接或间接保留大量纹理内存。</p>
+<p>只要还有对象能够将图层添加到场景中，就必须保留该图层的原生资源。通常，这类对象是其 <a href="rendering/Layer/parent.html">Layer.parent</a>，或尚未释放、会将该图层添加到 <a href="rendering/ContainerLayer-class.html">ContainerLayer</a> 的 <a href="rendering/RenderObject-class.html">RenderObject</a>。图层会自动持有其子项的句柄；RenderObject 会自动持有其 <a href="rendering/RenderObject/layer.html">RenderObject.layer</a> 的句柄，以及通过 <a href="rendering/PaintingContext/canvas.html">PaintingContext.canvas</a> 绘制到其中的任何 <a href="rendering/PictureLayer-class.html">PictureLayer</a> 的句柄。在至少获取过一个句柄且所有句柄都已释放后，图层会自动释放其资源。创建其他图层对象的 <a href="rendering/RenderObject-class.html">RenderObject</a> 必须手动管理这些图层的句柄，方式与 <a href="rendering/RenderObject/layer.html">RenderObject.layer</a> 的实现类似。</p>
+<p><a href="rendering/RenderObject/layer.html">RenderObject.layer</a> 会自动管理句柄。</p>
+<p>如果 <a href="rendering/RenderObject-class.html">RenderObject</a> 除了 <a href="rendering/RenderObject/layer.html">RenderObject.layer</a> 之外还创建了其他图层，并且打算将这些图层与 <a href="rendering/RenderObject/layer.html">RenderObject.layer</a> 分开复用，就必须为这些图层创建句柄，并在不再需要时将其释放。例如，如果它在 <a href="rendering/RenderObject/paint.html">RenderObject.paint</a> 中重新创建现有图层或将其置为 null，就应释放旧图层的句柄。它还应释放在 <a href="rendering/RenderObject/dispose.html">RenderObject.dispose</a> 中持有的所有图层句柄。</p>
+<p>要释放图层句柄，请将其 <a href="rendering/LayerHandle/layer.html">layer</a> 属性设为 null。</p>
 </section>
 
 
 
     
   <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
+    <h2>构造函数</h2>
     <dl class="constructor-summary-list">
         <dt id="LayerHandle.new" class="callable">
           <span class="name"><a href="rendering/LayerHandle/LayerHandle.html">LayerHandle</a></span><span class="signature">([<span class="parameter" id="-param-_layer"><span class="type-annotation">T?</span> <span class="parameter-name">_layer</span></span>])</span>
@@ -138,7 +119,7 @@ old layer. It should also dispose of any layer handles it holds in
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="hashCode" class="property inherited">
   <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
@@ -147,8 +128,8 @@ old layer. It should also dispose of any layer handles it holds in
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -160,7 +141,7 @@ old layer. It should also dispose of any layer handles it holds in
 </dt>
 <dd>
   The <a href="rendering/Layer-class.html">Layer</a> whose resources this object keeps alive.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -171,8 +152,8 @@ old layer. It should also dispose of any layer handles it holds in
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -183,7 +164,7 @@ old layer. It should also dispose of any layer handles it holds in
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="noSuchMethod" class="callable inherited">
   <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
@@ -193,8 +174,8 @@ old layer. It should also dispose of any layer handles it holds in
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -206,8 +187,8 @@ old layer. It should also dispose of any layer handles it holds in
 
 </dt>
 <dd>
-  A string representation of this object.
-  <div class="features"><span class="feature">override</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -217,7 +198,7 @@ old layer. It should also dispose of any layer handles it holds in
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -227,8 +208,8 @@ old layer. It should also dispose of any layer handles it holds in
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -243,16 +224,16 @@ old layer. It should also dispose of any layer handles it holds in
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
-    <li class="self-crumb">LayerHandle<span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="rendering/Layer-class.html">Layer</a></span>&gt;</span> class</li>
+    <li class="self-crumb">LayerHandle<span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="rendering/Layer-class.html">Layer</a></span>&gt;</span> 类</li>
 </ol>
 
-    <h5>rendering library</h5>
+    <h5>rendering 库</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -275,7 +256,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

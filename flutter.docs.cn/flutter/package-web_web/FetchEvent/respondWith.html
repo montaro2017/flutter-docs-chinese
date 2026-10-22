@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the respondWith method from the FetchEvent extension type, for the Dart programming language.">
-  <title>respondWith method - FetchEvent extension type - web library - Dart API</title>
+  <title>respondWith method - FetchEvent extension type - web 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web.dart</a></li>
     <li><a href="package-web_web/FetchEvent-extension-type.html">FetchEvent</a></li>
-    <li class="self-crumb">respondWith method</li>
+    <li class="self-crumb">respondWith 方法</li>
   </ol>
   <div class="self-name">respondWith</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="package-web_web&#47;FetchEvent-extension-type-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">respondWith</span> method 
+<h1><span class="kind-method">respondWith</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -102,13 +102,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>@AvailableInWorkers("service")</p>
-<p>The <strong><code>respondWith()</code></strong> method of
-<a href="package-web_web/FetchEvent-extension-type.html">FetchEvent</a> prevents the browser's default fetch handling, and
-allows you to provide a promise for a <a href="package-web_web/Response-extension-type.html">Response</a> yourself.</p>
-<p>In most cases you can provide any response that the receiver understands.
-For example,
-if an <code>img</code> initiates the request, the response body needs to be
-image data. For security reasons, there are a few global rules:</p>
+<p><a href="package-web_web/FetchEvent-extension-type.html">FetchEvent</a> 的 <strong><code>respondWith()</code></strong> 方法会阻止浏览器执行默认的 fetch 处理，并允许你自行提供一个解析为 <a href="package-web_web/Response-extension-type.html">Response</a> 的 Promise。</p>
+<p>大多数情况下，你可以提供接收方能够理解的任何响应。例如，如果请求由 <code>img</code> 发起，响应正文就必须是图像数据。出于安全原因，有几项全局规则：</p>
 <ul>
 <li>You can only return <a href="package-web_web/Response-extension-type.html">Response</a> objects of <a href="package-web_web/Response/type.html">Response.type</a>
 "<code>opaque</code>" if the <code>fetchEvent.request</code> object's
@@ -121,25 +116,11 @@ object's <code>request.mode</code> is "<code>manual</code>".</li>
 "<code>cors</code>" if the <code>fetchEvent.request</code> object's
 <code>request.mode</code> is "<code>same-origin</code>".</li>
 </ul>
-<h3 id="specifying-the-final-url-of-a-resource">Specifying the final URL of a resource</h3>
-<p>From Firefox 59 onwards, when a service worker provides a <a href="package-web_web/Response-extension-type.html">Response</a> to
-<a href="package-web_web/FetchEvent/respondWith.html">FetchEvent.respondWith</a>, the <a href="package-web_web/Response/url.html">Response.url</a> value will be
-propagated to the intercepted network request as the final resolved URL.
-If the
-<a href="package-web_web/Response/url.html">Response.url</a> value is the empty string, then the
-<a href="package-web_web/Request/url.html">Request.url</a> is used as the final URL.</p>
-<p>In the past the <a href="package-web_web/Request/url.html">Request.url</a> was used as the
-final URL in all cases. The provided <a href="package-web_web/Response/url.html">Response.url</a> was effectively
-ignored.</p>
-<p>This means, for example, if a service worker intercepts a stylesheet or
-worker script,
-then the provided <a href="package-web_web/Response/url.html">Response.url</a> will be used to resolve any relative
-or
-<a href="package-web_web/WorkerGlobalScope/importScripts.html">WorkerGlobalScope.importScripts</a> subresource loads
-(<a href="https://bugzil.la/1222008">Firefox bug 1222008</a>).</p>
-<p>For most types of network request this change has no impact because you
-can't observe
-the final URL. There are a few, though, where it does matter:</p>
+<h3 id="specifying-the-final-url-of-a-resource">指定资源的最终 URL</h3>
+<p>从 Firefox 59 开始，Service Worker 为 <a href="package-web_web/FetchEvent/respondWith.html">FetchEvent.respondWith</a> 提供 <a href="package-web_web/Response-extension-type.html">Response</a> 时，<a href="package-web_web/Response/url.html">Response.url</a> 的值会作为最终解析出的 URL，传递给被拦截的网络请求。如果 <a href="package-web_web/Response/url.html">Response.url</a> 的值为空字符串，则使用 <a href="package-web_web/Request/url.html">Request.url</a> 作为最终 URL。</p>
+<p>过去所有情况下都会将 <a href="package-web_web/Request/url.html">Request.url</a> 用作最终 URL，提供的 <a href="package-web_web/Response/url.html">Response.url</a> 实际上会被忽略。</p>
+<p>例如，如果 Service Worker 拦截了样式表或 Worker 脚本，提供的 <a href="package-web_web/Response/url.html">Response.url</a> 就会用于解析相对路径资源或 <a href="package-web_web/WorkerGlobalScope/importScripts.html">WorkerGlobalScope.importScripts</a> 子资源加载（<a href="https://bugzil.la/1222008">Firefox 错误 1222008</a>）。</p>
+<p>对于大多数类型的网络请求，此更改没有影响，因为你无法观察最终 URL。不过，少数情况下它确实会产生影响：</p>
 <ul>
 <li>If a <code>fetch</code> is intercepted,
 then you can observe the final URL on the result's <a href="package-web_web/Response/url.html">Response.url</a>.</li>
@@ -153,19 +134,13 @@ and used as the base URL for relative URLs in the worker script.</li>
 URL for
 resolving relative  loads.</li>
 </ul>
-<p>Note that navigation requests for <a href="package-web_web/Window-extension-type.html">Window</a> and
-<a href="package-web_web/HTMLIFrameElement-extension-type.html">HTMLIFrameElement</a> do NOT use the final URL. The way the HTML
-specification handles redirects for navigations ends up using the request
-URL for the
-resulting <a href="package-web_web/Window/location.html">Window.location</a>. This means sites can still provide an
-"alternate" view of a web page when offline without changing the
-user-visible URL.</p>
+<p>请注意，针对 <a href="package-web_web/Window-extension-type.html">Window</a> 和 <a href="package-web_web/HTMLIFrameElement-extension-type.html">HTMLIFrameElement</a> 的导航请求不会使用最终 URL。HTML 规范处理导航重定向的方式最终会让生成的 <a href="package-web_web/Window/location.html">Window.location</a> 使用请求 URL。这意味着网站离线时仍可提供网页的“替代”视图，而无需更改用户可见的 URL。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">external void respondWith(JSPromise&lt;Response&gt; r);</code></pre>
 </section>
 
@@ -175,14 +150,14 @@ user-visible URL.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web</a></li>
     <li><a href="package-web_web/FetchEvent-extension-type.html">FetchEvent</a></li>
-    <li class="self-crumb">respondWith method</li>
+    <li class="self-crumb">respondWith 方法</li>
 </ol>
 
     <h5>FetchEvent extension type</h5>
@@ -208,7 +183,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

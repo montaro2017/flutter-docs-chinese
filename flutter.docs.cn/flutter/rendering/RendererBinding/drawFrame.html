@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the drawFrame method from the RendererBinding mixin, for the Dart programming language.">
-  <title>drawFrame method - RendererBinding mixin - rendering library - Dart API</title>
+  <title>drawFrame method - RendererBinding mixin - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
     <li><a href="rendering/RendererBinding-mixin.html">RendererBinding</a></li>
-    <li class="self-crumb">drawFrame method</li>
+    <li class="self-crumb">drawFrame 方法</li>
   </ol>
   <div class="self-name">drawFrame</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,8 +87,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;RendererBinding-mixin-sidebar.html"
     data-below-sidebar="">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/binding.dart#L691"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">drawFrame</span> method 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/binding.dart#L691"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">drawFrame</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -106,71 +106,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Pump the rendering pipeline to generate a frame.</p>
-<p>This method is called by <a href="scheduler/SchedulerBinding/handleDrawFrame.html">handleDrawFrame</a>, which itself is called
-automatically by the engine when it is time to lay out and paint a frame.</p>
-<p>Each frame consists of the following phases:</p>
+  <p>驱动渲染流水线以生成一帧。</p>
+<p>此方法由 <a href="scheduler/SchedulerBinding/handleDrawFrame.html">handleDrawFrame</a> 调用；当引擎需要布局并绘制一帧时，会自动调用后者。</p>
+<p>每一帧都包含以下阶段：</p>
 <ol>
 <li>
-<p>The animation phase: The <a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a> method, which is registered
-with <a href="dart-ui/PlatformDispatcher/onBeginFrame.html">PlatformDispatcher.onBeginFrame</a>, invokes all the transient frame
-callbacks registered with <a href="scheduler/SchedulerBinding/scheduleFrameCallback.html">scheduleFrameCallback</a>, in registration order.
-This includes all the <a href="scheduler/Ticker-class.html">Ticker</a> instances that are driving
-<a href="animation/AnimationController-class.html">AnimationController</a> objects, which means all of the active <a href="animation/Animation-class.html">Animation</a>
-objects tick at this point.</p>
+<p>动画阶段：由 <a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a> 方法按注册顺序调用所有通过 <a href="scheduler/SchedulerBinding/scheduleFrameCallback.html">scheduleFrameCallback</a> 注册的临时帧回调；该方法已注册到 <a href="dart-ui/PlatformDispatcher/onBeginFrame.html">PlatformDispatcher.onBeginFrame</a>。这些回调包括驱动 <a href="animation/AnimationController-class.html">AnimationController</a> 对象的所有 <a href="scheduler/Ticker-class.html">Ticker</a> 实例，因此所有活动的 <a href="animation/Animation-class.html">Animation</a> 对象都会在此阶段更新。</p>
 </li>
 <li>
-<p>Microtasks: After <a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a> returns, any microtasks that got
-scheduled by transient frame callbacks get to run. This typically includes
-callbacks for futures from <a href="scheduler/Ticker-class.html">Ticker</a>s and <a href="animation/AnimationController-class.html">AnimationController</a>s that
-completed this frame.</p>
+<p>微任务阶段：<a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a> 返回后，由临时帧回调安排的微任务会开始运行。这通常包括本帧中已完成的 <a href="scheduler/Ticker-class.html">Ticker</a> 和 <a href="animation/AnimationController-class.html">AnimationController</a> 所对应 Future 的回调。</p>
 </li>
 </ol>
-<p>After <a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a>, <a href="scheduler/SchedulerBinding/handleDrawFrame.html">handleDrawFrame</a>, which is registered with
-<a href="dart-ui/PlatformDispatcher/onDrawFrame.html">dart:ui.PlatformDispatcher.onDrawFrame</a>, is called, which invokes all the
-persistent frame callbacks, of which the most notable is this method,
-<a href="rendering/RendererBinding/drawFrame.html">drawFrame</a>, which proceeds as follows:</p>
+<p>在 <a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a> 之后，会调用已注册到 <a href="dart-ui/PlatformDispatcher/onDrawFrame.html">dart:ui.PlatformDispatcher.onDrawFrame</a> 的 <a href="scheduler/SchedulerBinding/handleDrawFrame.html">handleDrawFrame</a>。它会调用所有持久帧回调，其中最重要的是本方法 <a href="rendering/RendererBinding/drawFrame.html">drawFrame</a>；该方法按以下步骤执行：</p>
 <ol start="3">
 <li>
-<p>The layout phase: All the dirty <a href="rendering/RenderObject-class.html">RenderObject</a>s in the system are laid
-out (see <a href="rendering/RenderObject/performLayout.html">RenderObject.performLayout</a>). See <a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a>
-for further details on marking an object dirty for layout.</p>
+<p>布局阶段：系统中所有需要布局的 <a href="rendering/RenderObject-class.html">RenderObject</a> 都会执行布局（参见 <a href="rendering/RenderObject/performLayout.html">RenderObject.performLayout</a>）。有关如何将对象标记为需要布局的详情，请参阅 <a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a>。</p>
 </li>
 <li>
-<p>The compositing bits phase: The compositing bits on any dirty
-<a href="rendering/RenderObject-class.html">RenderObject</a> objects are updated. See
-<a href="rendering/RenderObject/markNeedsCompositingBitsUpdate.html">RenderObject.markNeedsCompositingBitsUpdate</a>.</p>
+<p>合成位阶段：更新所有需要处理的 <a href="rendering/RenderObject-class.html">RenderObject</a> 的合成位。详情请参阅 <a href="rendering/RenderObject/markNeedsCompositingBitsUpdate.html">RenderObject.markNeedsCompositingBitsUpdate</a>。</p>
 </li>
 <li>
-<p>The paint phase: All the dirty <a href="rendering/RenderObject-class.html">RenderObject</a>s in the system are
-repainted (see <a href="rendering/RenderObject/paint.html">RenderObject.paint</a>). This generates the <a href="rendering/Layer-class.html">Layer</a> tree. See
-<a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a> for further details on marking an object
-dirty for paint.</p>
+<p>绘制阶段：重新绘制系统中所有需要绘制的 <a href="rendering/RenderObject-class.html">RenderObject</a>（参见 <a href="rendering/RenderObject/paint.html">RenderObject.paint</a>），并生成 <a href="rendering/Layer-class.html">Layer</a> 树。有关如何将对象标记为需要绘制的详情，请参阅 <a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a>。</p>
 </li>
 <li>
-<p>The compositing phase: The layer tree is turned into a <a href="dart-ui/Scene-class.html">Scene</a> and
-sent to the GPU.</p>
+<p>合成阶段：将图层树转换为 <a href="dart-ui/Scene-class.html">Scene</a> 并发送到 GPU。</p>
 </li>
 <li>
-<p>The semantics phase: All the dirty <a href="rendering/RenderObject-class.html">RenderObject</a>s in the system have
-their semantics updated. This generates the <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> tree. See
-<a href="rendering/RenderObject/markNeedsSemanticsUpdate.html">RenderObject.markNeedsSemanticsUpdate</a> for further details on marking an
-object dirty for semantics.</p>
+<p>语义阶段：更新系统中所有需要处理的 <a href="rendering/RenderObject-class.html">RenderObject</a> 的语义信息，并生成 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 树。有关如何将对象标记为需要更新语义的详情，请参阅 <a href="rendering/RenderObject/markNeedsSemanticsUpdate.html">RenderObject.markNeedsSemanticsUpdate</a>。</p>
 </li>
 </ol>
-<p>For more details on steps 3-7, see <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>.</p>
+<p>有关第 3 至第 7 步的详情，请参阅 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>。</p>
 <ol start="8">
 <li>The finalization phase: After <a href="rendering/RendererBinding/drawFrame.html">drawFrame</a> returns, <a href="scheduler/SchedulerBinding/handleDrawFrame.html">handleDrawFrame</a>
 then invokes post-frame callbacks (registered with <a href="scheduler/SchedulerBinding/addPostFrameCallback.html">addPostFrameCallback</a>).</li>
 </ol>
-<p>Some bindings (for example, the <a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a>) add extra steps to this
-list (for example, see <a href="widgets/WidgetsBinding/drawFrame.html">WidgetsBinding.drawFrame</a>).</p>
+<p>某些 binding（例如 <a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a>）会在此列表中添加额外步骤（例如参阅 <a href="widgets/WidgetsBinding/drawFrame.html">WidgetsBinding.drawFrame</a>）。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">&#47;&#47;
 &#47;&#47; When editing the above, also update widgets&#47;binding.dart&#39;s copy.
 @protected
@@ -194,14 +170,14 @@ void drawFrame() {
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
     <li><a href="rendering/RendererBinding-mixin.html">RendererBinding</a></li>
-    <li class="self-crumb">drawFrame method</li>
+    <li class="self-crumb">drawFrame 方法</li>
 </ol>
 
     <h5>RendererBinding mixin</h5>
@@ -227,7 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

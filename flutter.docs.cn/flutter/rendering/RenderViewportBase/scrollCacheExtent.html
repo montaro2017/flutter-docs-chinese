@@ -106,23 +106,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>The viewport has an area before and after the visible area to cache items
-that are about to become visible when the user scrolls.</p>
-<p>Items that fall in this cache area are laid out even though they are not
-(yet) visible on screen. The <a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a> describes how much
-the cache area extends before the leading edge and after the trailing edge
-of the viewport.</p>
-<p>The total extent, which the viewport will try to cover with children, is
-<a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a> before the leading edge + extent of the main axis +
-<a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a> after the trailing edge.</p>
-<p>The cache area is also used to implement implicit accessibility scrolling
-on iOS: When the accessibility focus moves from an item in the visible
-viewport to an invisible item in the cache area, the framework will bring
-that item into view with an (implicit) scroll action.</p>
-<p>The getter can never return null, but the field is nullable
-because the setter can be set to null to reset the value to
-<a href="rendering/RenderAbstractViewport/defaultCacheExtent-constant.html">RenderAbstractViewport.defaultCacheExtent</a> pixels (in which case
-<a href="rendering/ScrollCacheExtent/style.html">ScrollCacheExtent.style</a> must be <a href="rendering/CacheExtentStyle.html">CacheExtentStyle.pixel</a>).</p>
+  <p>视口会在可见区域的前后各保留一段缓存范围，以缓存用户滚动后即将显示的子项。</p>
+<p>位于此缓存范围内的子项即使尚未显示在屏幕上，也会参与布局。<a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a> 描述缓存范围在视口前缘之前和后缘之后延伸的距离。</p>
+<p>视口尝试用子项覆盖的总范围为：前缘之前的 <a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a> + 主轴范围 + 后缘之后的 <a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a>。</p>
+<p>缓存范围也用于实现 iOS 上隐式的无障碍滚动：当无障碍焦点从视口内可见的子项移动到缓存范围内不可见的子项时，框架会通过一次（隐式）滚动操作将该子项滚动到视野中。</p>
+<p>getter 永远不会返回 null，但字段可以为空，因为 setter 可以设为 null，以将值重置为 <a href="rendering/RenderAbstractViewport/defaultCacheExtent-constant.html">RenderAbstractViewport.defaultCacheExtent</a> 像素（此时 <a href="rendering/ScrollCacheExtent/style.html">ScrollCacheExtent.style</a> 必须为 <a href="rendering/CacheExtentStyle.html">CacheExtentStyle.pixel</a>）。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/ScrollCacheExtent/style.html">ScrollCacheExtent.style</a>, which controls the units of the <a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a>.</li>

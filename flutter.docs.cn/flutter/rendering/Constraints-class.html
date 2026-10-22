@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the Constraints class from the rendering library, for the Dart programming language.">
-  <title>Constraints class - rendering library - Dart API</title>
+  <meta name="description" content="rendering 库中 Constraints 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>Constraints 类 - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -64,13 +64,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
-    <li class="self-crumb">Constraints class</li>
+    <li class="self-crumb">Constraints 类</li>
   </ol>
   <div class="self-name">Constraints</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -86,61 +86,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;rendering-library-sidebar.html"
     data-below-sidebar="rendering&#47;Constraints-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L902"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">Constraints</span> class 
-    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">abstract</a>
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L902"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">Constraints</span> 类 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>An abstract set of layout constraints.</p>
-<p>Concrete layout models (such as box) will create concrete subclasses to
-communicate layout constraints between parents and children.</p>
-<h2 id="writing-a-constraints-subclass">Writing a Constraints subclass</h2>
-<p>When creating a new <a href="rendering/RenderObject-class.html">RenderObject</a> subclass with a new layout protocol, one
-will usually need to create a new <a href="rendering/Constraints-class.html">Constraints</a> subclass to express the
-input to the layout algorithms.</p>
-<p>A <a href="rendering/Constraints-class.html">Constraints</a> subclass should be immutable (all fields final). There are
-several members to implement, in addition to whatever fields, constructors,
-and helper methods one may find useful for a particular layout protocol:</p>
+  <p>一组抽象的布局约束。</p>
+<p>具体布局模型（例如盒子布局）会创建具体子类，用于在父级和子级之间传递布局约束。</p>
+<h2 id="writing-a-constraints-subclass">编写 Constraints 子类</h2>
+<p>创建具有新布局协议的 <a href="rendering/RenderObject-class.html">RenderObject</a> 子类时，通常还需要创建新的 <a href="rendering/Constraints-class.html">Constraints</a> 子类，以表示布局算法的输入。</p>
+<p><a href="rendering/Constraints-class.html">Constraints</a> 子类应为不可变类型（所有字段均为 final）。除特定布局协议所需的字段、构造函数和辅助方法外，还应实现以下成员：</p>
 <ul>
 <li>
-<p>The <a href="rendering/Constraints/isTight.html">isTight</a> getter, which should return true if the object represents a
-case where the <a href="rendering/RenderObject-class.html">RenderObject</a> class has no choice for how to lay itself
-out. For example, <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> returns true for <a href="rendering/Constraints/isTight.html">isTight</a> when both
-the minimum and maximum widths and the minimum and maximum heights are
-equal.</p>
+<p><a href="rendering/Constraints/isTight.html">isTight</a> getter：如果对象表示 <a href="rendering/RenderObject-class.html">RenderObject</a> 无法选择自身布局方式的情况，就应返回 true。例如，<a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 在最小和最大宽度相等、且最小和最大高度也相等时，会让 <a href="rendering/Constraints/isTight.html">isTight</a> 返回 true。</p>
 </li>
 <li>
-<p>The <a href="rendering/Constraints/isNormalized.html">isNormalized</a> getter, which should return true if the object
-represents its data in its canonical form. Sometimes, it is possible for
-fields to be redundant with each other, such that several different
-representations have the same implications. For example, a
-<a href="rendering/BoxConstraints-class.html">BoxConstraints</a> instance with its minimum width greater than its maximum
-width is equivalent to one where the maximum width is set to that minimum
-width (<code>2&lt;w&lt;1</code> is equivalent to <code>2&lt;w&lt;2</code>, since minimum constraints have
-priority). This getter is used by the default implementation of
-<a href="rendering/Constraints/debugAssertIsValid.html">debugAssertIsValid</a>.</p>
+<p><a href="rendering/Constraints/isNormalized.html">isNormalized</a> getter：如果对象以规范形式表示其数据，就应返回 true。有时字段之间可能存在冗余，导致几种不同表示具有相同含义。例如，最小宽度大于最大宽度的 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 实例，等价于将最大宽度设为该最小宽度的实例（由于最小约束优先，<code>2&lt;w&lt;1</code> 等价于 <code>2&lt;w&lt;2</code>）。默认的 <a href="rendering/Constraints/debugAssertIsValid.html">debugAssertIsValid</a> 实现会使用此 getter。</p>
 </li>
 <li>
-<p>The <a href="rendering/Constraints/debugAssertIsValid.html">debugAssertIsValid</a> method, which should assert if there's anything
-wrong with the constraints object. (We use this approach rather than
-asserting in constructors so that our constructors can be <code>const</code> and so
-that it is possible to create invalid constraints temporarily while
-building valid ones.) See the implementation of
-<a href="rendering/BoxConstraints/debugAssertIsValid.html">BoxConstraints.debugAssertIsValid</a> for an example of the detailed checks
-that can be made.</p>
+<p><a href="rendering/Constraints/debugAssertIsValid.html">debugAssertIsValid</a> 方法：如果约束对象存在任何问题，就应触发断言。我们采用这种方式，而不在构造函数中断言，是为了让构造函数可以为 <code>const</code>，并允许在构建有效约束期间暂时创建无效约束。详细检查示例可参阅 <a href="rendering/BoxConstraints/debugAssertIsValid.html">BoxConstraints.debugAssertIsValid</a> 的实现。</p>
 </li>
 <li>
-<p>The <a href="dart-core/Object/operator_equals.html">==</a> operator and the <a href="dart-core/Object/hashCode.html">hashCode</a> getter, so that constraints can be
-compared for equality. If a render object is given constraints that are
-equal, then the rendering library will avoid laying the object out again
-if it is not dirty.</p>
+<p><a href="dart-core/Object/operator_equals.html">==</a> 运算符和 <a href="dart-core/Object/hashCode.html">hashCode</a> getter：用于比较约束是否相等。如果传给渲染对象的约束与现有约束相等，且对象未标记为需要布局，渲染库就会避免再次布局该对象。</p>
 </li>
 <li>
-<p>The <a href="dart-core/Object/toString.html">toString</a> method, which should describe the constraints so that they
-appear in a usefully readable form in the output of <a href="rendering/debugDumpRenderTree.html">debugDumpRenderTree</a>.</p>
+<p><a href="dart-core/Object/toString.html">toString</a> 方法：应描述约束，使其在 <a href="rendering/debugDumpRenderTree.html">debugDumpRenderTree</a> 的输出中易于阅读。</p>
 </li>
 </ul>
 </section>
@@ -153,7 +126,7 @@ appear in a usefully readable form in the output of <a href="rendering/debugDump
         
         
 
-          <dt>Implementers</dt>
+          <dt>实现类</dt>
           <dd><ul class="comma-separated clazz-relationships">
               <li><a href="rendering/BoxConstraints-class.html">BoxConstraints</a></li>
               <li><a href="rendering/SliverConstraints-class.html">SliverConstraints</a></li>
@@ -161,7 +134,7 @@ appear in a usefully readable form in the output of <a href="rendering/debugDump
 
         
         
-  <dt>Annotations</dt>
+  <dt>注解</dt>
   <dd>
     <ul class="annotation-list clazz-relationships">
         <li>@<a href="meta/immutable-constant.html">immutable</a></li>
@@ -174,14 +147,13 @@ appear in a usefully readable form in the output of <a href="rendering/debugDump
 
     
   <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
+    <h2>构造函数</h2>
     <dl class="constructor-summary-list">
         <dt id="Constraints.new" class="callable">
           <span class="name"><a href="rendering/Constraints/Constraints.html">Constraints</a></span><span class="signature">()</span>
         </dt>
         <dd>
-          Abstract const constructor. This constructor enables subclasses to provide
-const constructors so that they can be used in const expressions.
+          抽象 const 构造函数。此构造函数使子类能够提供 const 构造函数，从而用于 const 表达式。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -190,7 +162,7 @@ const constructors so that they can be used in const expressions.
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="hashCode" class="property inherited">
   <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
@@ -199,8 +171,8 @@ const constructors so that they can be used in const expressions.
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -212,7 +184,7 @@ const constructors so that they can be used in const expressions.
 </dt>
 <dd>
   Whether the constraint is expressed in a consistent manner.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -224,7 +196,7 @@ const constructors so that they can be used in const expressions.
 </dt>
 <dd>
   Whether there is exactly one size possible given these constraints.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -235,8 +207,8 @@ const constructors so that they can be used in const expressions.
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -247,7 +219,7 @@ const constructors so that they can be used in const expressions.
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="debugAssertIsValid" class="callable">
   <span class="name"><a href="rendering/Constraints/debugAssertIsValid.html">debugAssertIsValid</a></span><span class="signature">(<wbr>{<span class="parameter" id="debugAssertIsValid-param-isAppliedConstraint"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isAppliedConstraint</span> = <span class="default-value">false</span>, </span><span class="parameter" id="debugAssertIsValid-param-informationCollector"><span class="type-annotation"><a href="foundation/InformationCollector.html">InformationCollector</a>?</span> <span class="parameter-name">informationCollector</span></span>})
@@ -270,8 +242,8 @@ const constructors so that they can be used in const expressions.
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -283,8 +255,8 @@ const constructors so that they can be used in const expressions.
 
 </dt>
 <dd class="inherited">
-  A string representation of this object.
-  <div class="features"><span class="feature">inherited</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -294,7 +266,7 @@ const constructors so that they can be used in const expressions.
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -304,8 +276,8 @@ const constructors so that they can be used in const expressions.
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -320,16 +292,16 @@ const constructors so that they can be used in const expressions.
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
-    <li class="self-crumb">Constraints class</li>
+    <li class="self-crumb">Constraints 类</li>
 </ol>
 
-    <h5>rendering library</h5>
+    <h5>rendering 库</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -352,7 +324,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

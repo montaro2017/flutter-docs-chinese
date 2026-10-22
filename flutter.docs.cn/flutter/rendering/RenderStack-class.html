@@ -93,35 +93,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>Implements the stack layout algorithm.</p>
-<p>In a stack layout, the children are positioned on top of each other in the
-order in which they appear in the child list. First, the non-positioned
-children (those with null values for top, right, bottom, and left) are
-laid out and initially placed in the upper-left corner of the stack. The
-stack is then sized to enclose all of the non-positioned children. If there
-are no non-positioned children, the stack becomes as large as possible.</p>
-<p>The final location of non-positioned children is determined by the alignment
-parameter. The left of each non-positioned child becomes the difference
-between the stack's width and the child's width multiplied by
-(alignment.x + 1.0) / 2.0. The top of each non-positioned child is computed
-similarly from the stack's height, the child's height, and <code>alignment.y</code>.</p>
-<p>So if the alignment x and y properties are -1.0, then the non-positioned
-children remain in the upper-left corner (the top-start). If the
-alignment x and y properties are 0.0, then the non-positioned children
-are centered within the stack.</p>
-<p>Next, the positioned children are laid out. If a child has top and bottom
-values that are both non-null, the child is given a fixed height determined
-by subtracting the sum of the top and bottom values from the height of the stack.
-Similarly, if the child has right and left values that are both non-null,
-the child is given a fixed width derived from the stack's width.
-Otherwise, the child is given unbounded constraints in the non-fixed dimensions.</p>
-<p>Once the child is laid out, the stack positions the child
-according to the top, right, bottom, and left properties of their
-<a href="rendering/StackParentData-class.html">StackParentData</a>. For example, if the bottom value is 10.0, the
-bottom edge of the child will be inset 10.0 pixels from the bottom
-edge of the stack. If the child extends beyond the bounds of the
-stack, the stack will clip the child's painting to the bounds of
-the stack.</p>
+  <p>实现层叠布局算法。</p>
+<p>在层叠布局中，子节点按照其在子节点列表中的顺序彼此叠放。首先对未定位子节点（即 top、right、bottom 和 left 均为 null 的子节点）执行布局，并将它们初始放置在层叠区域的左上角。随后调整层叠区域的尺寸，使其包住所有未定位子节点。如果没有未定位子节点，层叠区域会尽可能扩展到最大尺寸。</p>
+<p>未定位子节点的最终位置由 alignment 参数决定。每个未定位子节点的 left 坐标等于层叠区域宽度与子节点宽度之差，乘以 (alignment.x + 1.0) / 2.0。top 坐标则根据层叠区域高度、子节点高度和 <code>alignment.y</code> 以类似方式计算。</p>
+<p>因此，如果 alignment 的 x 和 y 属性均为 -1.0，未定位子节点会留在左上角（起始顶部）。如果 x 和 y 属性均为 0.0，未定位子节点则会在层叠区域内居中。</p>
+<p>接下来对已定位子节点执行布局。如果某个子节点的 top 和 bottom 均不为 null，则会为其指定固定高度，即层叠区域高度减去 top 与 bottom 之和。类似地，如果 right 和 left 均不为 null，则会为其指定固定宽度，即层叠区域宽度减去两者之和。其他非固定维度则使用无界约束。</p>
+<p>子节点完成布局后，层叠区域会根据其 <a href="rendering/StackParentData-class.html">StackParentData</a> 的 top、right、bottom 和 left 属性定位该子节点。例如，如果 bottom 为 10.0，子节点底边与层叠区域底边之间会留出 10.0 像素的间距。如果子节点超出层叠区域边界，其绘制内容会被裁剪到层叠区域边界内。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/RenderFlow-class.html">RenderFlow</a></li>

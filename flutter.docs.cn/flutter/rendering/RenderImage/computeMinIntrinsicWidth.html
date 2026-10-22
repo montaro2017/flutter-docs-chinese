@@ -107,69 +107,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Computes the value returned by <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a>. Do not call this
-function directly, instead, call <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a>.</p>
-<p>Override in subclasses that implement <a href="rendering/RenderImage/performLayout.html">performLayout</a>. This method should
-return the minimum width that this box could be without failing to
-correctly paint its contents within itself, without clipping.</p>
-<p>If the layout algorithm is independent of the context (e.g. it always
-tries to be a particular size), or if the layout algorithm is
-width-in-height-out, or if the layout algorithm uses both the incoming
-width and height constraints (e.g. it always sizes itself to
-<a href="rendering/BoxConstraints/biggest.html">BoxConstraints.biggest</a>), then the <code>height</code> argument should be ignored.</p>
-<p>If the layout algorithm is strictly height-in-width-out, or is
-height-in-width-out when the width is unconstrained, then the height
-argument is the height to use.</p>
-<p>The <code>height</code> argument will never be negative or null. It may be infinite.</p>
-<p>If this algorithm depends on the intrinsic dimensions of a child, the
-intrinsic dimensions of that child should be obtained using the functions
-whose names start with <code>get</code>, not <code>compute</code>.</p>
-<p>This function should never return a negative or infinite value.</p>
-<p>Be sure to set <a href="rendering/debugCheckIntrinsicSizes.html">debugCheckIntrinsicSizes</a> to true in your unit tests if
-you do override this method, which will add additional checks to help
-validate your implementation.</p>
-<h2 id="examples">Examples</h2>
-<h3 id="text">Text</h3>
-<p>English text is the canonical example of a width-in-height-out algorithm.
-The <code>height</code> argument is therefore ignored.</p>
-<p>Consider the string "Hello World". The <em>maximum</em> intrinsic width (as
-returned from <a href="rendering/RenderImage/computeMaxIntrinsicWidth.html">computeMaxIntrinsicWidth</a>) would be the width of the string
-with no line breaks.</p>
-<p>The minimum intrinsic width would be the width of the widest word, "Hello"
-or "World". If the text is rendered in an even narrower width, however, it
-might still not overflow. For example, maybe the rendering would put a
-line-break half-way through the words, as in "Hel⁞lo⁞Wor⁞ld". However,
-this wouldn't be a <em>correct</em> rendering, and <a href="rendering/RenderImage/computeMinIntrinsicWidth.html">computeMinIntrinsicWidth</a> is
-defined as returning the minimum width that the box could be without
-failing to <em>correctly</em> paint the contents within itself.</p>
-<p>The minimum intrinsic <em>height</em> for a given width <em>smaller</em> than the
-minimum intrinsic width could therefore be greater than the minimum
-intrinsic height for the minimum intrinsic width.</p>
-<h3 id="viewports-eg-scrolling-lists">Viewports (e.g. scrolling lists)</h3>
-<p>Some render boxes are intended to clip their children. For example, the
-render box for a scrolling list might always size itself to its parents'
-size (or rather, to the maximum incoming constraints), regardless of the
-children's sizes, and then clip the children and position them based on
-the current scroll offset.</p>
-<p>The intrinsic dimensions in these cases still depend on the children, even
-though the layout algorithm sizes the box in a way independent of the
-children. It is the size that is needed to paint the box's contents (in
-this case, the children) <em>without clipping</em> that matters.</p>
-<h3 id="when-the-intrinsic-dimensions-cannot-be-known">When the intrinsic dimensions cannot be known</h3>
-<p>There are cases where render objects do not have an efficient way to
-compute their intrinsic dimensions. For example, it may be prohibitively
-expensive to reify and measure every child of a lazy viewport (viewports
-generally only instantiate the actually visible children), or the
-dimensions may be computed by a callback about which the render object
-cannot reason.</p>
-<p>In such cases, it may be impossible (or at least impractical) to actually
-return a valid answer. In such cases, the intrinsic functions should throw
-when <a href="rendering/RenderObject/debugCheckingIntrinsics.html">RenderObject.debugCheckingIntrinsics</a> is false and asserts are
-enabled, and return 0.0 otherwise.</p>
-<p>See the implementations of <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> or <a href="rendering/RenderViewportBase-class.html">RenderViewportBase</a> for
-examples (in particular,
-<a href="rendering/RenderViewportBase/debugThrowIfNotCheckingIntrinsics.html">RenderViewportBase.debugThrowIfNotCheckingIntrinsics</a>).</p>
-<h3 id="aspect-ratio-driven-boxes">Aspect-ratio-driven boxes</h3>
+  <p>计算 <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a> 返回的值。不要直接调用此函数，应改为调用 <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a>。</p>
+<p>在实现 <a href="rendering/RenderImage/performLayout.html">performLayout</a> 的子类中重写此方法。此方法应返回此盒子能够采用的最小宽度，同时确保其内容能在盒子内部正确绘制且不会被裁剪。</p>
+<p>如果布局算法不依赖上下文（例如始终尝试采用特定尺寸）、遵循“输入宽度、输出高度”，或同时使用传入的宽度和高度约束（例如始终将自身调整为 <a href="rendering/BoxConstraints/biggest.html">BoxConstraints.biggest</a>），则应忽略 <code>height</code> 参数。</p>
+<p>如果布局算法严格遵循“输入高度、输出宽度”，或在宽度不受约束时遵循该规则，则应使用 height 参数指定的高度。</p>
+<p><code>height</code> 参数永远不会是负数或 null，但可以是无穷大。</p>
+<p>如果此算法依赖子对象的固有尺寸，应使用名称以 <code>get</code> 开头的函数获取这些尺寸，而不要使用以 <code>compute</code> 开头的函数。</p>
+<p>此函数绝不能返回负值或无穷大。</p>
+<p>如果重写此方法，请务必在单元测试中将 <a href="rendering/debugCheckIntrinsicSizes.html">debugCheckIntrinsicSizes</a> 设为 true，以启用额外检查来帮助验证实现。</p>
+<h2 id="examples">示例</h2>
+<h3 id="text">文本</h3>
+<p>英语文本是“输入宽度、输出高度”算法的典型示例。因此会忽略 <code>height</code> 参数。</p>
+<p>以字符串 “Hello World” 为例。其<em>最大</em>固有宽度（由 <a href="rendering/RenderImage/computeMaxIntrinsicWidth.html">computeMaxIntrinsicWidth</a> 返回）是字符串不换行时的宽度。</p>
+<p>最小固有宽度则是最宽单词（“Hello” 或 “World”）的宽度。不过，如果文本以更窄的宽度呈现，它仍可能不会溢出。例如，渲染时也许会在单词中间换行，如 “Hel⁞lo⁞Wor⁞ld”。然而，这并非<em>正确</em>的呈现方式；<a href="rendering/RenderImage/computeMinIntrinsicWidth.html">computeMinIntrinsicWidth</a> 的定义是：返回盒子能够采用的最小宽度，同时确保内容在盒子内部得到<em>正确</em>绘制。</p>
+<p>因此，对于小于最小固有宽度的给定宽度，其最小固有<em>高度</em>可能大于最小固有宽度下的最小固有高度。</p>
+<h3 id="viewports-eg-scrolling-lists">Viewport（例如滚动列表）</h3>
+<p>有些渲染盒会裁剪其子对象。例如，滚动列表的渲染盒可能始终将自身调整为父对象的尺寸（更准确地说，是传入约束允许的最大尺寸），而不考虑子对象的尺寸；随后裁剪子对象，并根据当前滚动偏移对其定位。</p>
+<p>在这种情况下，固有尺寸仍取决于子对象，尽管布局算法会以不依赖子对象的方式调整盒子尺寸。关键在于，绘制盒子内容（此处即子对象）时所需的尺寸应能确保内容<em>不被裁剪</em>。</p>
+<h3 id="when-the-intrinsic-dimensions-cannot-be-known">无法确定固有尺寸时</h3>
+<p>有些渲染对象无法高效计算其固有尺寸。例如，延迟加载的 viewport 通常只会实例化实际可见的子对象，因此重新创建并测量每个子对象的成本可能高得难以接受；又如，尺寸可能由某个回调计算，而渲染对象无法推断该回调的行为。</p>
+<p>在这种情况下，可能无法（或至少不切实际地）返回有效结果。当启用断言且 <a href="rendering/RenderObject/debugCheckingIntrinsics.html">RenderObject.debugCheckingIntrinsics</a> 为 false 时，固有尺寸函数应抛出异常；否则应返回 0.0。</p>
+<p>可查看 <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> 或 <a href="rendering/RenderViewportBase-class.html">RenderViewportBase</a> 的实现示例，尤其是 <a href="rendering/RenderViewportBase/debugThrowIfNotCheckingIntrinsics.html">RenderViewportBase.debugThrowIfNotCheckingIntrinsics</a>。</p>
+<h3 id="aspect-ratio-driven-boxes">由宽高比决定尺寸的盒子</h3>
 <p>Some boxes always return a fixed size based on the constraints. For these
 boxes, the intrinsic functions should return the appropriate size when the
 incoming <code>height</code> or <code>width</code> argument is finite, treating that as a tight
@@ -178,8 +137,7 @@ constraints as unbounded. This is because the definitions of
 <a href="rendering/RenderImage/computeMinIntrinsicWidth.html">computeMinIntrinsicWidth</a> 和 <a href="rendering/RenderImage/computeMinIntrinsicHeight.html">computeMinIntrinsicHeight</a> are in terms of
 what the dimensions <em>could be</em>, and such boxes can only be one size in
 such cases.</p>
-<p>When the incoming argument is not finite, then they should return the
-actual intrinsic dimensions based on the contents, as any other box would.</p>
+<p>当传入参数不是有限值时，这些盒子应像其他盒子一样，根据内容返回实际的固有尺寸。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/RenderImage/computeMaxIntrinsicWidth.html">computeMaxIntrinsicWidth</a>, which computes the smallest width beyond

@@ -87,30 +87,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="rendering&#47;RenderObjectWithLayoutCallbackMixin-mixin-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L4291"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-mixin">RenderObjectWithLayoutCallbackMixin</span> mixin
+<h1><span class="kind-mixin">RenderObjectWithLayoutCallbackMixin</span> mixin 
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>A mixin for managing <a href="rendering/RenderObject-class.html">RenderObject</a> with a <a href="rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html">layoutCallback</a>, which will be
-invoked during this <a href="rendering/RenderObject-class.html">RenderObject</a>'s layout process if scheduled using
-<a href="rendering/RenderObjectWithLayoutCallbackMixin/scheduleLayoutCallback.html">scheduleLayoutCallback</a>.</p>
-<p>A layout callback is typically a callback that mutates the <a href="rendering/RenderObject-class.html">RenderObject</a>'s
-render subtree during the <a href="rendering/RenderObject-class.html">RenderObject</a>'s layout process. When an ancestor
-<a href="rendering/RenderObject-class.html">RenderObject</a> chooses to skip laying out this <a href="rendering/RenderObject-class.html">RenderObject</a> in its
-<a href="rendering/RenderObject/performLayout.html">performLayout</a> implementation (for example, for performance reasons, an
-<a href="widgets/Overlay-class.html">Overlay</a> may skip laying out an offstage <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> while keeping it in
-the tree), normally the <a href="rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html">layoutCallback</a> will not be invoked because the
-<a href="rendering/RenderObject/layout.html">layout</a> method will not be called. This can be undesirable when the
-<a href="rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html">layoutCallback</a> involves rebuilding dirty widgets (most notably, the
-<a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> widget). Unlike render subtrees, typically all dirty widgets
-(even off-screen ones) in a widget tree must be rebuilt. This mixin makes
-sure once scheduled, the <a href="rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html">layoutCallback</a> method will be invoked even if it's
-skipped by an ancestor <a href="rendering/RenderObject-class.html">RenderObject</a>, unless this <a href="rendering/RenderObject-class.html">RenderObject</a> has never
-been laid out.</p>
-<p>Subclasses must not invoke the layout callback directly. Instead, call
-<a href="rendering/RenderObjectWithLayoutCallbackMixin/runLayoutCallback.html">runLayoutCallback</a> in the <a href="rendering/RenderObject/performLayout.html">performLayout</a> implementation.</p>
+  <p>用于管理带有 <a href="rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html">layoutCallback</a> 的 <a href="rendering/RenderObject-class.html">RenderObject</a> 的 mixin。如果通过 <a href="rendering/RenderObjectWithLayoutCallbackMixin/scheduleLayoutCallback.html">scheduleLayoutCallback</a> 安排了回调，它会在此 <a href="rendering/RenderObject-class.html">RenderObject</a> 的布局过程中执行。</p>
+<p>布局回调通常会在 <a href="rendering/RenderObject-class.html">RenderObject</a> 的布局过程中修改该 <a href="rendering/RenderObject-class.html">RenderObject</a> 的渲染子树。当祖先 <a href="rendering/RenderObject-class.html">RenderObject</a> 在其 <a href="rendering/RenderObject/performLayout.html">performLayout</a> 实现中选择跳过此 <a href="rendering/RenderObject-class.html">RenderObject</a> 的布局时（例如出于性能考虑，<a href="widgets/Overlay-class.html">Overlay</a> 可能会跳过树中处于屏幕外的 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的布局），通常不会调用 <a href="rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html">layoutCallback</a>，因为不会调用 <a href="rendering/RenderObject/layout.html">layout</a> 方法。如果 <a href="rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html">layoutCallback</a> 涉及重建已标记为脏的 Widget（尤其是 <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> Widget），这可能会带来问题。与渲染子树不同，Widget 树中所有已标记为脏的 Widget（包括屏幕外的 Widget）通常都必须重建。此 mixin 可确保：一旦安排了 <a href="rendering/RenderObjectWithLayoutCallbackMixin/layoutCallback.html">layoutCallback</a>，即使祖先 <a href="rendering/RenderObject-class.html">RenderObject</a> 跳过了它，也仍会调用该回调；但如果此 <a href="rendering/RenderObject-class.html">RenderObject</a> 从未完成过布局，则不会调用。</p>
+<p>子类不得直接调用布局回调。应在 <a href="rendering/RenderObject/performLayout.html">performLayout</a> 实现中调用 <a href="rendering/RenderObjectWithLayoutCallbackMixin/runLayoutCallback.html">runLayoutCallback</a>。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> 和 <a href="widgets/SliverLayoutBuilder-class.html">SliverLayoutBuilder</a>, which use the mixin.</li>

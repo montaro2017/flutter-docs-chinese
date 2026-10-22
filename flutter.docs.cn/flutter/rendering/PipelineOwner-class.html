@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the PipelineOwner class from the rendering library, for the Dart programming language.">
-  <title>PipelineOwner class - rendering library - Dart API</title>
+  <meta name="description" content="rendering 库中 PipelineOwner 类的 API 中文文档，适用于 Dart 编程语言。">
+  <title>PipelineOwner 类 - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -64,13 +64,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
-    <li class="self-crumb">PipelineOwner class</li>
+    <li class="self-crumb">PipelineOwner 类</li>
   </ol>
   <div class="self-name">PipelineOwner</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -86,54 +86,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;rendering-library-sidebar.html"
     data-below-sidebar="rendering&#47;PipelineOwner-class-sidebar.html">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L1019"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">PipelineOwner</span> class 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/object.dart#L1019"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-class">PipelineOwner</span> 类 
     <a href="https://dart.dev/language/class-modifiers#base" class="feature feature-base" title="This class or mixin can only be extended (not implemented or mixed in).">base</a>
  
 </h1></div>
 
     
 <section class="desc markdown">
-  <p>The pipeline owner manages the rendering pipeline.</p>
-<p>The pipeline owner provides an interface for driving the rendering pipeline
-and stores the state about which render objects have requested to be visited
-in each stage of the pipeline. To flush the pipeline, call the following
-functions in order:</p>
+  <p>管线所有者负责管理渲染管线。</p>
+<p>管线所有者提供驱动渲染管线的接口，并存储各个阶段中哪些渲染对象请求过遍历的状态。若要刷新管线，请按以下顺序调用这些函数：</p>
 <ol>
-<li><a href="rendering/PipelineOwner/flushLayout.html">flushLayout</a> updates any render objects that need to compute their
-layout. During this phase, the size and position of each render
-object is calculated. Render objects might dirty their painting or
-compositing state during this phase.</li>
-<li><a href="rendering/PipelineOwner/flushCompositingBits.html">flushCompositingBits</a> updates any render objects that have dirty
-compositing bits. During this phase, each render object learns whether
-any of its children require compositing. This information is used during
-the painting phase when selecting how to implement visual effects such as
-clipping. If a render object has a composited child, it needs to use a
-<a href="rendering/Layer-class.html">Layer</a> to create the clip in order for the clip to apply to the
-composited child (which will be painted into its own <a href="rendering/Layer-class.html">Layer</a>).</li>
-<li><a href="rendering/PipelineOwner/flushPaint.html">flushPaint</a> visits any render objects that need to paint. During this
-phase, render objects get a chance to record painting commands into
-<a href="rendering/PictureLayer-class.html">PictureLayer</a>s and construct other composited <a href="rendering/Layer-class.html">Layer</a>s.</li>
-<li>Finally, if semantics are enabled, <a href="rendering/PipelineOwner/flushSemantics.html">flushSemantics</a> will compile the
-semantics for the render objects. This semantic information is used by
-assistive technology to improve the accessibility of the render tree.</li>
+<li><a href="rendering/PipelineOwner/flushLayout.html">flushLayout</a> 会更新需要计算布局的渲染对象。在此阶段，会计算每个渲染对象的尺寸和位置。渲染对象可能会在此阶段将自身的绘制状态或合成状态标记为脏。</li>
+<li><a href="rendering/PipelineOwner/flushCompositingBits.html">flushCompositingBits</a> 会更新合成位为脏的渲染对象。在此阶段，每个渲染对象都会确定其子项是否需要合成。绘制阶段会使用这些信息来选择如何实现裁剪等视觉效果。如果渲染对象有合成子项，就需要使用 <a href="rendering/Layer-class.html">Layer</a> 创建裁剪，才能将裁剪应用到该合成子项（该子项会绘制到自己的 <a href="rendering/Layer-class.html">Layer</a> 中）。</li>
+<li><a href="rendering/PipelineOwner/flushPaint.html">flushPaint</a> 会遍历需要绘制的渲染对象。在此阶段，渲染对象可以将绘制命令记录到 <a href="rendering/PictureLayer-class.html">PictureLayer</a> 中，并构建其他合成 <a href="rendering/Layer-class.html">Layer</a>。</li>
+<li>最后，如果启用了语义功能，<a href="rendering/PipelineOwner/flushSemantics.html">flushSemantics</a> 会为渲染对象生成语义信息。辅助技术会使用这些语义信息来提升渲染树的可访问性。</li>
 </ol>
-<p>The <a href="rendering/RendererBinding-mixin.html">RendererBinding</a> holds the pipeline owner for the render objects that
-are visible on screen. You can create other pipeline owners to manage
-off-screen objects, which can flush their pipelines independently of the
-on-screen render objects.</p>
-<p><a href="rendering/PipelineOwner-class.html">PipelineOwner</a>s can be organized in a tree to manage multiple render trees,
-where each <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> is responsible for one of the render trees. To
-build or modify the tree, call <a href="rendering/PipelineOwner/adoptChild.html">adoptChild</a> or <a href="rendering/PipelineOwner/dropChild.html">dropChild</a>. During each of
-the different flush phases described above, a <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> will first
-perform the phase on the nodes it manages in its own render tree before
-calling the same flush method on its children. No assumption must be made
-about the order in which child <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>s are flushed.</p>
-<p>A <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> may also be <a href="rendering/PipelineOwner/attach.html">attach</a>ed to a <a href="rendering/PipelineManifold-class.html">PipelineManifold</a>, which
-gives it access to platform functionality usually exposed by the bindings
-without tying it to a specific binding implementation. All <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>s
-in a given tree must be attached to the same <a href="rendering/PipelineManifold-class.html">PipelineManifold</a>. This
-happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">adoptChild</a>.</p>
+<p><a href="rendering/RendererBinding-mixin.html">RendererBinding</a> 持有负责管理屏幕可见渲染对象的管线所有者。你也可以创建其他管线所有者来管理屏幕外的对象，并让它们独立刷新自己的管线。</p>
+<p>可以将多个 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 组织成一棵树，以管理多棵渲染树；每个 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 负责其中一棵渲染树。要构建或修改这棵树，请调用 <a href="rendering/PipelineOwner/adoptChild.html">adoptChild</a> 或 <a href="rendering/PipelineOwner/dropChild.html">dropChild</a>。在上述各刷新阶段中，<a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 会先在自己的渲染树中处理其管理的节点，然后再对其子节点调用相同的刷新方法。不得假定子 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 的刷新顺序。</p>
+<p><a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 也可以 <a href="rendering/PipelineOwner/attach.html">attach</a> 到 <a href="rendering/PipelineManifold-class.html">PipelineManifold</a>，以访问通常由绑定提供的平台功能，同时不受特定绑定实现的限制。给定树中的所有 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 都必须附加到同一个 <a href="rendering/PipelineManifold-class.html">PipelineManifold</a>。调用 <a href="rendering/PipelineOwner/adoptChild.html">adoptChild</a> 时会自动完成此操作。</p>
 </section>
 
 
@@ -143,7 +114,7 @@ happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">a
 
         
         
-  <dt>Mixed-in types</dt>
+  <dt>混入的类型</dt>
   <dd>
     <ul class="comma-separated clazz-relationships">
         <li><a href="foundation/DiagnosticableTreeMixin-mixin.html">DiagnosticableTreeMixin</a></li>
@@ -160,7 +131,7 @@ happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">a
 
     
   <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
+    <h2>构造函数</h2>
     <dl class="constructor-summary-list">
         <dt id="PipelineOwner.new" class="callable">
           <span class="name"><a href="rendering/PipelineOwner/PipelineOwner.html">PipelineOwner</a></span><span class="signature">({<span class="parameter" id="-param-onNeedVisualUpdate"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onNeedVisualUpdate</span>, </span><span class="parameter" id="-param-onSemanticsOwnerCreated"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onSemanticsOwnerCreated</span>, </span><span class="parameter" id="-param-onSemanticsUpdate"><span class="type-annotation"><a href="semantics/SemanticsUpdateCallback.html">SemanticsUpdateCallback</a>?</span> <span class="parameter-name">onSemanticsUpdate</span>, </span><span class="parameter" id="-param-onSemanticsOwnerDisposed"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onSemanticsOwnerDisposed</span></span>})</span>
@@ -174,7 +145,7 @@ happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">a
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="debugDoingLayout" class="property">
   <span class="name"><a href="rendering/PipelineOwner/debugDoingLayout.html">debugDoingLayout</a></span>
@@ -184,7 +155,7 @@ happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">a
 </dt>
 <dd>
   Whether this pipeline is currently in the layout phase.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -196,7 +167,7 @@ happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">a
 </dt>
 <dd>
   Whether this pipeline is currently in the paint phase.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -208,7 +179,7 @@ happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">a
 </dt>
 <dd>
   Deprecated.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -219,8 +190,8 @@ happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">a
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -233,7 +204,7 @@ happens automatically during <a href="rendering/PipelineOwner/adoptChild.html">a
 <dd>
   The <a href="rendering/RenderObject-class.html">RenderObject</a>s representing relayout boundaries which need to be laid out
 in the next <a href="rendering/PipelineOwner/flushLayout.html">flushLayout</a> pass.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -245,7 +216,7 @@ in the next <a href="rendering/PipelineOwner/flushLayout.html">flushLayout</a> p
 </dt>
 <dd>
   The <a href="rendering/RenderObject-class.html">RenderObject</a>s which need to be painted in the next <a href="rendering/PipelineOwner/flushPaint.html">flushPaint</a> pass.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -306,7 +277,7 @@ update its visual appearance.
 </dt>
 <dd>
   The unique object managed by this pipeline that has no parent.
-  <div class="features"><span class="feature">getter/setter pair</span></div>
+  <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -317,8 +288,8 @@ update its visual appearance.
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -330,7 +301,7 @@ update its visual appearance.
 </dt>
 <dd>
   The object that is managing semantics for this pipeline owner, if any.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -341,7 +312,7 @@ update its visual appearance.
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="adoptChild" class="callable">
   <span class="name"><a href="rendering/PipelineOwner/adoptChild.html">adoptChild</a></span><span class="signature">(<wbr><span class="parameter" id="adoptChild-param-child"><span class="type-annotation"><a href="rendering/PipelineOwner-class.html">PipelineOwner</a></span> <span class="parameter-name">child</span></span>)
@@ -379,7 +350,7 @@ update its visual appearance.
 <dd>
   Returns a list of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
 children.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -392,7 +363,7 @@ children.
 </dt>
 <dd>
   Add additional properties associated with the node.
-  <div class="features"><span class="feature">override</span></div>
+  <div class="features"><span class="feature">重写</span></div>
 
 </dd>
 
@@ -509,8 +480,8 @@ update.
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -537,7 +508,7 @@ update.
 <dd class="inherited">
   Returns a debug representation of the object that is used by debugging
 tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -549,8 +520,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  A string representation of this object.
-  <div class="features"><span class="feature">inherited</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -563,7 +534,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   Returns a string representation of this node and its descendants.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -576,7 +547,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 </dt>
 <dd class="inherited">
   Returns a one-line detailed description of the object.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -590,7 +561,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 <dd class="inherited">
   A brief description of this object, usually just the <a href="dart-core/Object/runtimeType.html">runtimeType</a> and the
 <a href="dart-core/Object/hashCode.html">hashCode</a>.
-  <div class="features"><span class="feature">inherited</span></div>
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -613,7 +584,7 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -623,8 +594,8 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -639,16 +610,16 @@ tools and by <a href="foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsN
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
-    <li class="self-crumb">PipelineOwner class</li>
+    <li class="self-crumb">PipelineOwner 类</li>
 </ol>
 
-    <h5>rendering library</h5>
+    <h5>rendering 库</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -671,7 +642,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

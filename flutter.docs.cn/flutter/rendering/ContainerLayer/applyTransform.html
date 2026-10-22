@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the applyTransform method from the ContainerLayer class, for the Dart programming language.">
-  <title>applyTransform method - ContainerLayer class - rendering library - Dart API</title>
+  <title>applyTransform 方法 - ContainerLayer 类 - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
     <li><a href="rendering/ContainerLayer-class.html">ContainerLayer</a></li>
-    <li class="self-crumb">applyTransform method</li>
+    <li class="self-crumb">applyTransform 方法</li>
   </ol>
   <div class="self-name">applyTransform</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,8 +87,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;ContainerLayer-class-sidebar.html"
     data-below-sidebar="">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/layer.dart#L1408"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">applyTransform</span> method 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/layer.dart#L1408"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">applyTransform</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -103,37 +103,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Applies the transform that would be applied when compositing the given
-child to the given matrix.</p>
-<p>Specifically, this should apply the transform that is applied to child's
-<em>origin</em>. When using <a href="rendering/ContainerLayer/applyTransform.html">applyTransform</a> with a chain of layers, results will
-be unreliable unless the deepest layer in the chain collapses the
-<code>layerOffset</code> in <a href="rendering/ContainerLayer/addToScene.html">addToScene</a> to zero, meaning that it passes
-<a href="dart-ui/Offset/zero-constant.html">Offset.zero</a> to its children, and bakes any incoming <code>layerOffset</code> into
-the <a href="dart-ui/SceneBuilder-class.html">ui.SceneBuilder</a> as (for instance) a transform (which is then also
-included in the transformation applied by <a href="rendering/ContainerLayer/applyTransform.html">applyTransform</a>).</p>
-<p>For example, if <a href="rendering/ContainerLayer/addToScene.html">addToScene</a> applies the <code>layerOffset</code> and then
-passes <a href="dart-ui/Offset/zero-constant.html">Offset.zero</a> to the children, then it should be included in the
-transform applied here, whereas if <a href="rendering/ContainerLayer/addToScene.html">addToScene</a> just passes the
-<code>layerOffset</code> to the child, then it should not be included in the
-transform applied here.</p>
-<p>This method is only valid immediately after <a href="rendering/ContainerLayer/addToScene.html">addToScene</a> has been called,
-before any of the properties have been changed.</p>
-<p>The default implementation does nothing, since <a href="rendering/ContainerLayer-class.html">ContainerLayer</a>, by
-default, composites its children at the origin of the <a href="rendering/ContainerLayer-class.html">ContainerLayer</a>
-itself.</p>
-<p>The <code>child</code> argument should generally not be null, since in principle a
-layer could transform each child independently. However, certain layers
-may explicitly allow null as a value, for example if they know that they
-transform all their children identically.</p>
-<p>Used by <a href="rendering/FollowerLayer-class.html">FollowerLayer</a> to transform its child to a <a href="rendering/LeaderLayer-class.html">LeaderLayer</a>'s
-position.</p>
+  <p>将合成给定子级时会应用的变换应用到给定矩阵。</p>
+<p>具体来说，此方法应应用于子级<em>原点</em>的变换。若对一系列图层调用 <a href="rendering/ContainerLayer/applyTransform.html">applyTransform</a>，除非最深层图层在 <a href="rendering/ContainerLayer/addToScene.html">addToScene</a> 中将 <code>layerOffset</code> 归零（即向其子级传递 <a href="dart-ui/Offset/zero-constant.html">Offset.zero</a>），并将传入的 <code>layerOffset</code>（例如作为变换）合并到 <a href="dart-ui/SceneBuilder-class.html">ui.SceneBuilder</a> 中，否则结果将不可靠；该变换也会包含在 <a href="rendering/ContainerLayer/applyTransform.html">applyTransform</a> 应用的变换中。</p>
+<p>例如，如果 <a href="rendering/ContainerLayer/addToScene.html">addToScene</a> 应用 <code>layerOffset</code> 后向子级传递 <a href="dart-ui/Offset/zero-constant.html">Offset.zero</a>，那么该偏移应包含在此处应用的变换中；如果 <a href="rendering/ContainerLayer/addToScene.html">addToScene</a> 只是将 <code>layerOffset</code> 传递给子级，则不应将其包含在此处应用的变换中。</p>
+<p>此方法仅在调用 <a href="rendering/ContainerLayer/addToScene.html">addToScene</a> 后立即有效，且必须在任何属性发生更改之前调用。</p>
+<p>默认实现不执行任何操作，因为 <a href="rendering/ContainerLayer-class.html">ContainerLayer</a> 默认会在其自身（<a href="rendering/ContainerLayer-class.html">ContainerLayer</a>）的原点处合成子级。</p>
+<p>通常 <code>child</code> 参数不应为 null，因为理论上图层可以分别变换每个子级。不过，某些图层可能明确允许该值为 null，例如它们确定会对所有子级应用相同的变换。</p>
+<p><a href="rendering/FollowerLayer-class.html">FollowerLayer</a> 使用此方法将其子级变换到 <a href="rendering/LeaderLayer-class.html">LeaderLayer</a> 的位置。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">void applyTransform(Layer? child, Matrix4 transform) {
   assert(child != null);
 }</code></pre>
@@ -145,17 +127,17 @@ position.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
     <li><a href="rendering/ContainerLayer-class.html">ContainerLayer</a></li>
-    <li class="self-crumb">applyTransform method</li>
+    <li class="self-crumb">applyTransform 方法</li>
 </ol>
 
-    <h5>ContainerLayer class</h5>
+    <h5>ContainerLayer 类</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -178,7 +160,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

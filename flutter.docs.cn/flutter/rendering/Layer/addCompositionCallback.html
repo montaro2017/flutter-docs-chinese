@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the addCompositionCallback method from the Layer class, for the Dart programming language.">
-  <title>addCompositionCallback method - Layer class - rendering library - Dart API</title>
+  <title>addCompositionCallback 方法 - Layer 类 - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
     <li><a href="rendering/Layer-class.html">Layer</a></li>
-    <li class="self-crumb">addCompositionCallback method</li>
+    <li class="self-crumb">addCompositionCallback 方法</li>
   </ol>
   <div class="self-name">addCompositionCallback</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,8 +87,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;Layer-class-sidebar.html"
     data-below-sidebar="">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/layer.dart#L227"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">addCompositionCallback</span> method 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/layer.dart#L227"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">addCompositionCallback</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -102,32 +102,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Adds a callback for when the layer tree that this layer is part of gets
-composited, or when it is detached and will not be rendered again.</p>
-<p>This callback will fire even if an ancestor layer is added with retained
-rendering, meaning that it will fire even if this layer gets added to the
-scene via some call to <a href="dart-ui/SceneBuilder/addRetained.html">ui.SceneBuilder.addRetained</a> on one of its
-ancestor layers.</p>
-<p>The callback receives a reference to this layer. The recipient must not
-mutate the layer during the scope of the callback, but may traverse the
-tree to find information about the current transform or clip. The layer
-may not be <a href="rendering/Layer/attached.html">attached</a> anymore in this state, but even if it is detached it
-may still have an also detached parent it can visit.</p>
-<p>If new callbacks are added or removed within the <code>callback</code>, the new
-callbacks will fire (or stop firing) on the <em>next</em> compositing event.</p>
-<p>Composition callbacks are useful in place of pushing a layer that would
-otherwise try to observe the layer tree without actually affecting
-compositing. For example, a composition callback may be used to observe
-the total transform and clip of the current container layer to determine
-whether a render object drawn into it is visible or not.</p>
-<p>Calling the returned callback will remove <code>callback</code> from the composition
-callbacks.</p>
+  <p>添加一个回调：当此图层所属的图层树完成合成，或此图层已分离且不会再渲染时，该回调会触发。</p>
+<p>即使某个祖先图层通过保留渲染方式添加，此回调仍会触发。也就是说，即使此图层是通过对某个祖先图层调用 <a href="dart-ui/SceneBuilder/addRetained.html">ui.SceneBuilder.addRetained</a> 添加到场景中的，回调也会触发。</p>
+<p>回调会收到对此图层的引用。回调执行期间，接收方不得修改图层，但可以遍历图层树以查找当前变换或裁剪信息。此时图层可能已不再 <a href="rendering/Layer/attached.html">attached</a>；即使已分离，它仍可能有一个同样已分离、可供遍历的父级。</p>
+<p>如果在 <code>callback</code> 执行期间添加或移除回调，新的回调会在下一个合成事件中触发（或停止触发）。</p>
+<p>如果某项操作只是为了观察图层树而推入图层，却不会实际影响合成，那么可以使用合成回调替代。例如，合成回调可用于观察当前容器图层的整体变换和裁剪区域，以判断绘制到其中的渲染对象是否可见。</p>
+<p>调用返回的回调即可从合成回调列表中移除 <code>callback</code>。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">VoidCallback addCompositionCallback(CompositionCallback callback) {
   _updateSubtreeCompositionObserverCount(1);
   final int callbackId = _nextCallbackId += 1;
@@ -156,17 +142,17 @@ callbacks.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
     <li><a href="rendering/Layer-class.html">Layer</a></li>
-    <li class="self-crumb">addCompositionCallback method</li>
+    <li class="self-crumb">addCompositionCallback 方法</li>
 </ol>
 
-    <h5>Layer class</h5>
+    <h5>Layer 类</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -189,7 +175,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

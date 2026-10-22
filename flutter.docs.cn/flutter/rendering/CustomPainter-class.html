@@ -94,17 +94,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>The interface used by <a href="widgets/CustomPaint-class.html">CustomPaint</a> (in the widgets library) and
-<a href="rendering/RenderCustomPaint-class.html">RenderCustomPaint</a> (in the rendering library).</p>
+  <p>供 widgets 库中的 <a href="widgets/CustomPaint-class.html">CustomPaint</a> 和 rendering 库中的 <a href="rendering/RenderCustomPaint-class.html">RenderCustomPaint</a> 使用的接口。</p>
 <p>To implement a custom painter, either subclass or implement this interface
 to define your custom paint delegate. <a href="rendering/CustomPainter-class.html">CustomPainter</a> subclasses must
 implement the <a href="rendering/CustomPainter/paint.html">paint</a> 和 <a href="rendering/CustomPainter/shouldRepaint.html">shouldRepaint</a> methods, and may optionally also
 implement the <a href="rendering/CustomPainter/hitTest.html">hitTest</a> 和 <a href="rendering/CustomPainter/shouldRebuildSemantics.html">shouldRebuildSemantics</a> methods, and the
 <a href="rendering/CustomPainter/semanticsBuilder.html">semanticsBuilder</a> getter.</p>
-<p>The <a href="rendering/CustomPainter/paint.html">paint</a> method is called whenever the custom object needs to be repainted.</p>
-<p>The <a href="rendering/CustomPainter/shouldRepaint.html">shouldRepaint</a> method is called when a new instance of the class
-is provided, to check if the new instance actually represents different
-information.</p>
+<p>每当需要重新绘制自定义对象时，都会调用 <a href="rendering/CustomPainter/paint.html">paint</a> 方法。</p>
+<p>提供此类的新实例时，会调用 <a href="rendering/CustomPainter/shouldRepaint.html">shouldRepaint</a> 方法，以检查新实例实际表示的信息是否不同。</p>
 <iframe src="https://www.youtube.com/embed/vvI_NUXK00s?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -116,25 +113,15 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<p>The most efficient way to trigger a repaint is to either:</p>
+<p>触发重新绘制的最高效方式有以下两种：</p>
 <ul>
-<li>Extend this class and supply a <code>repaint</code> argument to the constructor of
-the <a href="rendering/CustomPainter-class.html">CustomPainter</a>, where that object notifies its listeners when it is
-time to repaint.</li>
-<li>Extend <a href="foundation/Listenable-class.html">Listenable</a> (e.g. via <a href="foundation/ChangeNotifier-class.html">ChangeNotifier</a>) and implement
-<a href="rendering/CustomPainter-class.html">CustomPainter</a>, so that the object itself provides the notifications
-directly.</li>
+<li>继承此类，并在 <a href="rendering/CustomPainter-class.html">CustomPainter</a> 构造函数中提供 <code>repaint</code> 参数；该对象会在需要重新绘制时通知其监听器。</li>
+<li>继承 <a href="foundation/Listenable-class.html">Listenable</a>（例如通过 <a href="foundation/ChangeNotifier-class.html">ChangeNotifier</a>），并实现 <a href="rendering/CustomPainter-class.html">CustomPainter</a>，使对象本身直接提供通知。</li>
 </ul>
-<p>In either case, the <a href="widgets/CustomPaint-class.html">CustomPaint</a> widget or <a href="rendering/RenderCustomPaint-class.html">RenderCustomPaint</a>
-render object will listen to the <a href="foundation/Listenable-class.html">Listenable</a> and repaint whenever the
-animation ticks, avoiding both the build and layout phases of the pipeline.</p>
-<p>The <a href="rendering/CustomPainter/hitTest.html">hitTest</a> method is called when the user interacts with the underlying
-render object, to determine if the user hit the object or missed it.</p>
-<p>The <a href="rendering/CustomPainter/semanticsBuilder.html">semanticsBuilder</a> is called whenever the custom object needs to rebuild
-its semantics information.</p>
-<p>The <a href="rendering/CustomPainter/shouldRebuildSemantics.html">shouldRebuildSemantics</a> method is called when a new instance of the
-class is provided, to check if the new instance contains different
-information that affects the semantics tree.</p>
+<p>无论采用哪种方式，<a href="widgets/CustomPaint-class.html">CustomPaint</a> widget 或 <a href="rendering/RenderCustomPaint-class.html">RenderCustomPaint</a> 渲染对象都会监听 <a href="foundation/Listenable-class.html">Listenable</a>，并在动画每次触发时重新绘制，从而跳过流水线的构建和布局阶段。</p>
+<p>用户与底层渲染对象交互时，会调用 <a href="rendering/CustomPainter/hitTest.html">hitTest</a> 方法，以判断用户是否命中了该对象。</p>
+<p>每当自定义对象需要重建语义信息时，都会调用 <a href="rendering/CustomPainter/semanticsBuilder.html">semanticsBuilder</a>。</p>
+<p>提供此类的新实例时，会调用 <a href="rendering/CustomPainter/shouldRebuildSemantics.html">shouldRebuildSemantics</a> 方法，以检查新实例是否包含会影响语义树的不同信息。</p>
 <p>
 <a name="rendering.CustomPainter.1"></a>
 <div class="snippet snippet-container anchor-container">
@@ -203,15 +190,9 @@ custom painter that paints a sky.
   </div>
 </div>
 </p>
-<h2 id="composition-and-the-sharing-of-canvases">Composition and the sharing of canvases</h2>
-<p>Widgets (or rather, render objects) are composited together using a minimum
-number of <a href="dart-ui/Canvas-class.html">Canvas</a>es, for performance reasons. As a result, a
-<a href="rendering/CustomPainter-class.html">CustomPainter</a>'s <a href="dart-ui/Canvas-class.html">Canvas</a> may be the same as that used by other widgets
-(including other <a href="widgets/CustomPaint-class.html">CustomPaint</a> widgets).</p>
-<p>This is mostly unnoticeable, except when using unusual <a href="dart-ui/BlendMode.html">BlendMode</a>s. For
-example, trying to use <a href="dart-ui/BlendMode.html">BlendMode.dstOut</a> to "punch a hole" through a
-previously-drawn image may erase more than was intended, because previous
-widgets will have been painted onto the same canvas.</p>
+<h2 id="composition-and-the-sharing-of-canvases">画布的合成与共享</h2>
+<p>出于性能考虑，widget（更准确地说是渲染对象）会使用尽可能少的 <a href="dart-ui/Canvas-class.html">Canvas</a> 进行合成。因此，<a href="rendering/CustomPainter-class.html">CustomPainter</a> 使用的 <a href="dart-ui/Canvas-class.html">Canvas</a> 可能也被其他 widget 使用（包括其他 <a href="widgets/CustomPaint-class.html">CustomPaint</a> widget）。</p>
+<p>除非使用不常见的 <a href="dart-ui/BlendMode.html">BlendMode</a>，否则通常不会注意到这一点。例如，尝试使用 <a href="dart-ui/BlendMode.html">BlendMode.dstOut</a> 在先前绘制的图像上“打孔”，可能会擦除超出预期的内容，因为之前的 widget 也绘制在同一画布上。</p>
 <p>To avoid this issue, consider using <a href="dart-ui/Canvas/saveLayer.html">Canvas.saveLayer</a> 和
 <a href="dart-ui/Canvas/restore.html">Canvas.restore</a> when using such blend modes. Creating new layers is
 relatively expensive, however, and should be done sparingly to avoid

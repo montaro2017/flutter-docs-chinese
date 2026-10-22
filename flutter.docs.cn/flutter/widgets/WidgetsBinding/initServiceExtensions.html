@@ -106,16 +106,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Called when the binding is initialized, to register service
-extensions.</p>
-<p>Bindings that want to expose service extensions should overload
-this method to register them using calls to
-<a href="widgets/WidgetsBinding/registerSignalServiceExtension.html">registerSignalServiceExtension</a>,
-<a href="widgets/WidgetsBinding/registerBoolServiceExtension.html">registerBoolServiceExtension</a>,
-<a href="widgets/WidgetsBinding/registerNumericServiceExtension.html">registerNumericServiceExtension</a>, and
-<a href="widgets/WidgetsBinding/registerServiceExtension.html">registerServiceExtension</a> (in increasing order of complexity).</p>
-<p>Implementations of this method must call their superclass
-implementation.</p>
+  <p>binding 初始化时调用，用于注册服务扩展。</p>
+<p>需要公开服务扩展的 binding 应重写此方法，并依次使用 <a href="widgets/WidgetsBinding/registerSignalServiceExtension.html">registerSignalServiceExtension</a>、<a href="widgets/WidgetsBinding/registerBoolServiceExtension.html">registerBoolServiceExtension</a>、<a href="widgets/WidgetsBinding/registerNumericServiceExtension.html">registerNumericServiceExtension</a> 和 <a href="widgets/WidgetsBinding/registerServiceExtension.html">registerServiceExtension</a> 注册扩展（复杂度依次递增）。</p>
+<p>此方法的实现必须调用其父类实现。</p>
 <p>只有在构建中包含 vm-service 时，才能启用已注册的服务扩展；只有调试模式和 profile 模式会包含它。服务扩展在发布模式下无法使用，但如果没有用可供 tree shaker 移除相关代码的保护条件包起来，这些代码仍可能进入 Dart 快照，增大二进制文件（参见下方示例代码）。</p>
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.1"></a>

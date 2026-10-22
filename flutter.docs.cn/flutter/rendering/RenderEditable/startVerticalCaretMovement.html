@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the startVerticalCaretMovement method from the RenderEditable class, for the Dart programming language.">
-  <title>startVerticalCaretMovement method - RenderEditable class - rendering library - Dart API</title>
+  <title>startVerticalCaretMovement 方法 - RenderEditable 类 - rendering 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering.dart</a></li>
     <li><a href="rendering/RenderEditable-class.html">RenderEditable</a></li>
-    <li class="self-crumb">startVerticalCaretMovement method</li>
+    <li class="self-crumb">startVerticalCaretMovement 方法</li>
   </ol>
   <div class="self-name">startVerticalCaretMovement</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,8 +87,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="rendering&#47;RenderEditable-class-sidebar.html"
     data-below-sidebar="">
     <div>
-  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/editable.dart#L2599"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">startVerticalCaretMovement</span> method 
+  <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/editable.dart#L2599"><span class="material-symbols-outlined">description</span></a></div>
+<h1><span class="kind-method">startVerticalCaretMovement</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -102,48 +102,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Starts a <a href="rendering/VerticalCaretMovementRun-class.html">VerticalCaretMovementRun</a> at the given location in the text, for
-handling consecutive vertical caret movements.</p>
-<p>This can be used to handle consecutive upward/downward arrow key movements
-in an input field.</p>
-<p>When the user presses the upward arrow key or the downward arrow key, on
-many platforms (macOS for instance), the caret will move to the previous
-line or the next line, while maintaining its original horizontal location.
-When it encounters a shorter line, the caret moves to the closest horizontal
-location within that line, and restores the original horizontal location
-when a long enough line is encountered.</p>
-<p>Additionally, the caret will move to the beginning of the document if the
-upward arrow key is pressed and the caret is already on the first line. If
-the downward arrow key is pressed next, the caret will restore its original
-horizontal location and move to the second line. Similarly the caret moves
-to the end of the document if the downward arrow key is pressed when it's
-already on the last line.</p>
-<p>Consider a left-aligned paragraph:
+  <p>在文本中的给定位置启动一个 <a href="rendering/VerticalCaretMovementRun-class.html">VerticalCaretMovementRun</a>，以处理连续的垂直光标移动。</p>
+<p>此功能可用于处理输入框中连续按下向上或向下箭头键的操作。</p>
+<p>在许多平台（例如 macOS）上，用户按向上或向下箭头键时，光标会移动到上一行或下一行，同时保持原来的水平位置。遇到较短的行时，光标会移动到该行中最接近原水平位置的位置；当遇到足够长的行后，则会恢复原来的水平位置。</p>
+<p>此外，如果光标已在第一行，用户再按向上箭头键，光标会移动到文档开头。如果接着按向下箭头键，光标会恢复原来的水平位置并移动到第二行。同样，如果光标已在最后一行时按向下箭头键，光标会移动到文档末尾。</p>
+<p>例如，考虑一个左对齐的段落：
 aa|
 a
 aaa
-where the caret was initially placed at the end of the first line. Pressing
-the downward arrow key once will move the caret to the end of the second
-line, and twice the arrow key moves to the third line after the second "a"
-on that line. Pressing the downward arrow key again, the caret will move to
-the end of the third line (the end of the document). Pressing the upward
-arrow key in this state will result in the caret moving to the end of the
-second line.</p>
-<p>Vertical caret runs are typically interrupted when the layout of the text
-changes (including when the text itself changes), or when the selection is
-changed by other input events or programmatically (for example, when the
-user pressed the left arrow key).</p>
-<p>The <a href="rendering/VerticalCaretMovementRun/isValid.html">VerticalCaretMovementRun.isValid</a> property indicates whether the text
-layout has changed and the vertical caret run is invalidated.</p>
-<p>The caller should typically discard a <a href="rendering/VerticalCaretMovementRun-class.html">VerticalCaretMovementRun</a> when
-its <a href="rendering/VerticalCaretMovementRun/isValid.html">VerticalCaretMovementRun.isValid</a> becomes false, or on other
-occasions where the vertical caret run should be interrupted.</p>
+其中光标最初位于第一行末尾。按一次向下箭头键，光标会移动到第二行末尾；按两次，则会移动到第三行中第二个 “a” 后面。再次按向下箭头键，光标会移动到第三行末尾（即文档末尾）。在此状态下按向上箭头键，光标会移动到第二行末尾。</p>
+<p>文本布局发生变化时（包括文本内容本身发生变化），通常会中断垂直光标移动序列；通过其他输入事件或编程方式更改选区时也会中断，例如用户按下向左箭头键。</p>
+<p><a href="rendering/VerticalCaretMovementRun/isValid.html">VerticalCaretMovementRun.isValid</a> 属性用于指示文本布局是否已更改，以及垂直光标移动序列是否因此失效。</p>
+<p>当 <a href="rendering/VerticalCaretMovementRun-class.html">VerticalCaretMovementRun</a> 的 <a href="rendering/VerticalCaretMovementRun/isValid.html">VerticalCaretMovementRun.isValid</a> 变为 false，或在其他应中断垂直光标移动序列的情况下，调用方通常应丢弃该对象。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">VerticalCaretMovementRun startVerticalCaretMovement(TextPosition startPosition) {
   final List&lt;ui.LineMetrics&gt; metrics = _textPainter.computeLineMetrics();
   final MapEntry&lt;int, Offset&gt; currentLine = _lineNumberFor(startPosition, metrics);
@@ -163,17 +139,17 @@ occasions where the vertical caret run should be interrupted.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="rendering/">rendering</a></li>
     <li><a href="rendering/RenderEditable-class.html">RenderEditable</a></li>
-    <li class="self-crumb">startVerticalCaretMovement method</li>
+    <li class="self-crumb">startVerticalCaretMovement 方法</li>
 </ol>
 
-    <h5>RenderEditable class</h5>
+    <h5>RenderEditable 类</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -196,7 +172,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

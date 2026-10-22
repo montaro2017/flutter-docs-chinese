@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the ReadableByteStreamController extension type from the web library, for the Dart programming language.">
-  <title>ReadableByteStreamController extension type - web library - Dart API</title>
+  <title>ReadableByteStreamController extension type - web 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
@@ -68,9 +68,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </ol>
   <div class="self-name">ReadableByteStreamController</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -93,60 +93,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>The <strong><code>ReadableByteStreamController</code></strong> interface of the
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API">Streams API</a>
-represents a controller for a
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Using_readable_byte_streams">readable byte stream</a>.
-It allows control of the state and internal queue of a <a href="package-web_web/ReadableStream-extension-type.html">ReadableStream</a> with
-an underlying byte source, and enables efficient zero-copy transfer of data
-from the underlying source to a consumer when the stream's internal queue is
-empty.</p>
-<p>An instance of this controller type is created if an <code>underlyingSource</code>
-object with the property <code>type="bytes"</code> is passed as an argument to the
-<a href="/en-US/docs/Web/API/ReadableStream/ReadableStream#type"><code>ReadableStream()</code>
-constructor</a>.
-The <code>underlyingSource</code> object may also define
-<a href="/en-US/docs/Web/API/ReadableStream/ReadableStream#start"><code>start()</code></a> and
-<a href="/en-US/docs/Web/API/ReadableStream/ReadableStream#pull"><code>pull()</code></a> callback
-functions.
-These are called with the controller as a parameter, in order to set up the
-underlying source, and request data when needed.</p>
-<p>The underlying source uses the controller to supply data to the stream via
-its <a href="#readablebytestreamcontroller.byobrequest"><code>byobRequest</code></a> property or
-<a href="#readablebytestreamcontroller.enqueue"><code>enqueue()</code></a> method.
-<a href="#readablebytestreamcontroller.byobrequest"><code>byobRequest</code></a> is a
-<a href="package-web_web/ReadableStreamBYOBRequest-extension-type.html">ReadableStreamBYOBRequest</a> object that represents a pending request from a
-consumer to make a zero-copy transfer of data direct to a consumer.
-<code>byobRequest</code> must be used to copy data if it exists (do not use <code>enqueue()</code>
-in this case)!
-If the underlying source needs to pass data to the stream and <code>byobRequest</code>
-is <code>null</code> then the source can call
-<a href="#readablebytestreamcontroller.enqueue"><code>enqueue()</code></a> to add the data to the
-stream's internal queues.</p>
-<p>Note that the <a href="#readablebytestreamcontroller.byobrequest"><code>byobRequest</code></a> is
-only created in "BYOB mode" when there is a request from a reader and the
-stream's internal queue is empty.
-"BYOB mode" is enabled when using a <a href="package-web_web/ReadableStreamBYOBReader-extension-type.html">ReadableStreamBYOBReader</a> (typically
-constructed by calling <a href="package-web_web/ReadableStream/getReader.html">ReadableStream.getReader</a> with the argument <code>{ mode: 'byob' }</code>).
-It is also enabled when using a default reader and
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize"><code>autoAllocateChunkSize</code></a>
-is specified in the <a href="/en-US/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize"><code>ReadableController()</code>
-constructor</a>.</p>
-<p>An underlying byte source can also use the controller to
-<a href="#readablebytestreamcontroller.close"><code>close()</code></a> the stream when all the
-data has been sent and report errors from the underlying source using
-<a href="#readablebytestreamcontroller.error"><code>error()</code></a>.
-The controller's <a href="#readablebytestreamcontroller.desiredsize"><code>desiredSize</code></a>
-property is used to apply "backpressure", informing the underlying source of
-the size of the internal queue (small values indicate that the queue is
-filling up, hinting to the underlying source that it is be desirable to
-pause or throttle the inflow).</p>
-<p>Note that even though the controller is primarily used by the underlying
-byte source, there is no reason it cannot be stored used by other parts of
-the system to signal the stream.</p>
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API">Streams API</a> 的 <strong><code>ReadableByteStreamController</code></strong> 接口表示<a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Using_readable_byte_streams">可读字节流</a>的控制器。它可以控制底层字节源所关联 <a href="package-web_web/ReadableStream-extension-type.html">ReadableStream</a> 的状态和内部队列；当内部队列为空时，还能让数据从底层源高效地以零拷贝方式传输给使用者。</p>
+<p>如果将带有 <code>type="bytes"</code> 属性的 <code>underlyingSource</code> 对象作为参数传给 <a href="/en-US/docs/Web/API/ReadableStream/ReadableStream#type"><code>ReadableStream()</code> 构造函数</a>，就会创建此控制器类型的实例。<code>underlyingSource</code> 对象还可以定义 <a href="/en-US/docs/Web/API/ReadableStream/ReadableStream#start"><code>start()</code></a> 和 <a href="/en-US/docs/Web/API/ReadableStream/ReadableStream#pull"><code>pull()</code></a> 回调函数。调用这些函数时会将控制器作为参数传入，以便设置底层源，并在需要时请求数据。</p>
+<p>底层源通过控制器的 <a href="#readablebytestreamcontroller.byobrequest"><code>byobRequest</code></a> 属性或 <a href="#readablebytestreamcontroller.enqueue"><code>enqueue()</code></a> 方法向流提供数据。<a href="#readablebytestreamcontroller.byobrequest"><code>byobRequest</code></a> 是一个 <a href="package-web_web/ReadableStreamBYOBRequest-extension-type.html">ReadableStreamBYOBRequest</a> 对象，表示使用者提出的待处理请求，要求将数据直接零拷贝传输给自己。如果该 <code>byobRequest</code> 请求存在，必须用它来复制数据（此时不要使用 <code>enqueue()</code>！）。如果底层源需要向流传递数据，而 <code>byobRequest</code> 为 <code>null</code>，则可以调用 <a href="#readablebytestreamcontroller.enqueue"><code>enqueue()</code></a> 将数据加入流的内部队列。</p>
+<p>请注意，只有在“BYOB 模式”下、读取器提出请求且流的内部队列为空时，才会创建 <a href="#readablebytestreamcontroller.byobrequest"><code>byobRequest</code></a>。使用 <a href="package-web_web/ReadableStreamBYOBReader-extension-type.html">ReadableStreamBYOBReader</a>（通常通过调用 <a href="package-web_web/ReadableStream/getReader.html">ReadableStream.getReader</a> 并传入参数 <code>{ mode: 'byob' }</code> 创建）时会启用“BYOB 模式”。如果使用默认读取器，并在 <a href="/en-US/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize"><code>ReadableController()</code> 构造函数</a>中指定 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize"><code>autoAllocateChunkSize</code></a>，也会启用此模式。</p>
+<p>当所有数据都已发送完毕时，底层字节源也可以使用控制器通过 <a href="#readablebytestreamcontroller.close"><code>close()</code></a> 关闭流，并通过 <a href="#readablebytestreamcontroller.error"><code>error()</code></a> 报告底层源中的错误。控制器的 <a href="#readablebytestreamcontroller.desiredsize"><code>desiredSize</code></a> 属性用于施加“背压”，将内部队列大小告知底层源（值较小时表示队列快满了，提示底层源最好暂停或降低数据流入速度）。</p>
+<p>请注意，虽然控制器主要由底层字节源使用，但也可以将它保存起来，供系统的其他部分用来通知该流。</p>
 <hr>
-<p>API documentation sourced from
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableByteStreamController">MDN Web Docs</a>.</p>
+<p>API 文档来源：<a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableByteStreamController">MDN Web Docs</a>。</p>
 </section>
 
     <section>
@@ -158,7 +112,7 @@ the system to signal the stream.</p>
           </ul>
         </dd>
         
-  <dt>Implemented types</dt>
+  <dt>实现的类型</dt>
   <dd>
     <ul class="comma-separated clazz-relationships">
         <li><a href="dart-js_interop/JSObject-extension-type.html">JSObject</a></li>
@@ -183,7 +137,7 @@ the system to signal the stream.</p>
   <section
       class="summary offset-anchor"
       id="instance-properties">
-    <h2>Properties</h2>
+    <h2>属性</h2>
     <dl class="properties">
         <dt id="byobRequest" class="property">
   <span class="name"><a href="package-web_web/ReadableByteStreamController/byobRequest.html">byobRequest</a></span>
@@ -195,7 +149,7 @@ the system to signal the stream.</p>
   The <strong><code>byobRequest</code></strong> read-only property of the
 <a href="package-web_web/ReadableByteStreamController-extension-type.html">ReadableByteStreamController</a> interface returns the current BYOB request,
 or <code>null</code> if there are no pending requests.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -209,7 +163,7 @@ or <code>null</code> if there are no pending requests.
   The <strong><code>desiredSize</code></strong> read-only property of the
 <a href="package-web_web/ReadableByteStreamController-extension-type.html">ReadableByteStreamController</a> interface returns the number of bytes
 required to fill the stream's internal queue to its "desired size".
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -220,8 +174,8 @@ required to fill the stream's internal queue to its "desired size".
 
 </dt>
 <dd class="inherited">
-  The hash code for this object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象的哈希码。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -237,7 +191,7 @@ required to fill the stream's internal queue to its "desired size".
         provided by the <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> extension</span>
       </p>
   
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -253,7 +207,7 @@ required to fill the stream's internal queue to its "desired size".
         provided by the <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> extension</span>
       </p>
   Whether this value corresponds to JavaScript <code>null</code>.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -269,7 +223,7 @@ required to fill the stream's internal queue to its "desired size".
         provided by the <a href="dart-js_interop/JSAnyOperatorExtension.html">JSAnyOperatorExtension</a> extension</span>
       </p>
   The result of <code>!!<code>this</code></code> in JavaScript.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -285,7 +239,7 @@ required to fill the stream's internal queue to its "desired size".
         provided by the <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> extension</span>
       </p>
   Whether this value corresponds to JavaScript <code>undefined</code>.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -301,7 +255,7 @@ required to fill the stream's internal queue to its "desired size".
         provided by the <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> extension</span>
       </p>
   
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -317,7 +271,7 @@ required to fill the stream's internal queue to its "desired size".
         provided by the <a href="dart-js_interop/JSAnyOperatorExtension.html">JSAnyOperatorExtension</a> extension</span>
       </p>
   The result of <code>!<code>this</code></code> in JavaScript.
-  <div class="features"><span class="feature">no setter</span></div>
+  <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -328,8 +282,8 @@ required to fill the stream's internal queue to its "desired size".
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object.
-  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+  此对象运行时类型的表示。
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -340,7 +294,7 @@ required to fill the stream's internal queue to its "desired size".
   <section
       class="summary offset-anchor"
       id="instance-methods">
-    <h2>Methods</h2>
+    <h2>方法</h2>
     <dl class="callables">
         <dt id="add" class="callable">
   <span class="name"><a href="dart-js_interop/JSAnyOperatorExtension/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-any"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">any</span></span>)
@@ -360,7 +314,7 @@ required to fill the stream's internal queue to its "desired size".
 </dd>
 
         <dt id="and" class="callable">
-  <span class="name"><a href="dart-js_interop/JSAnyOperatorExtension/and.html">and</a></span><span class="signature">(<wbr><span class="parameter" id="and-param-any"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">any</span></span>)
+  <span class="name"><a href="dart-js_interop/JSAnyOperatorExtension/and.html">和</a></span><span class="signature">(<wbr><span class="parameter" id="and-param-any"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">any</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>
   </span>
   
@@ -377,7 +331,7 @@ required to fill the stream's internal queue to its "desired size".
 </dd>
 
         <dt id="callMethod" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/callMethod.html">callMethod</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="callMethod-param-method"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">method</span>, [</span><span class="parameter" id="callMethod-param-arg1"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg1</span>, </span><span class="parameter" id="callMethod-param-arg2"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg2</span>, </span><span class="parameter" id="callMethod-param-arg3"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg3</span>, </span><span class="parameter" id="callMethod-param-arg4"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg4</span></span>])
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/callMethod.html">callMethod</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="callMethod-param-method"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">方法</span>, [</span><span class="parameter" id="callMethod-param-arg1"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg1</span>, </span><span class="parameter" id="callMethod-param-arg2"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg2</span>, </span><span class="parameter" id="callMethod-param-arg3"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg3</span>, </span><span class="parameter" id="callMethod-param-arg4"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">arg4</span></span>])
     <span class="returntype parameter">&#8594; R</span>
   </span>
   
@@ -394,7 +348,7 @@ required to fill the stream's internal queue to its "desired size".
 </dd>
 
         <dt id="callMethodVarArgs" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/callMethodVarArgs.html">callMethodVarArgs</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="callMethodVarArgs-param-method"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">method</span>, [</span><span class="parameter" id="callMethodVarArgs-param-arguments"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span>?</span> <span class="parameter-name">arguments</span></span>])
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/callMethodVarArgs.html">callMethodVarArgs</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="callMethodVarArgs-param-method"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">方法</span>, [</span><span class="parameter" id="callMethodVarArgs-param-arguments"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span>?</span> <span class="parameter-name">arguments</span></span>])
     <span class="returntype parameter">&#8594; R</span>
   </span>
   
@@ -442,7 +396,7 @@ closes the associated stream.
 </dd>
 
         <dt id="delete" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/delete.html">delete</a></span><span class="signature">(<wbr><span class="parameter" id="delete-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/delete.html">delete</a></span><span class="signature">(<wbr><span class="parameter" id="delete-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSBoolean-extension-type.html">JSBoolean</a></span>
   </span>
   
@@ -540,7 +494,7 @@ the specified reason.
 </dd>
 
         <dt id="getProperty" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/getProperty.html">getProperty</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="getProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/getProperty.html">getProperty</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R extends <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="getProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; R</span>
   </span>
   
@@ -591,7 +545,7 @@ the specified reason.
 </dd>
 
         <dt id="has" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/has.html">has</a></span><span class="signature">(<wbr><span class="parameter" id="has-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/has.html">has</a></span><span class="signature">(<wbr><span class="parameter" id="has-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
   
@@ -609,7 +563,7 @@ contains the property key <code>property</code>, but takes and returns a Dart va
 </dd>
 
         <dt id="hasProperty" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/hasProperty.html">hasProperty</a></span><span class="signature">(<wbr><span class="parameter" id="hasProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/hasProperty.html">hasProperty</a></span><span class="signature">(<wbr><span class="parameter" id="hasProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSBoolean-extension-type.html">JSBoolean</a></span>
   </span>
   
@@ -626,7 +580,7 @@ contains the property key <code>property</code>, but takes and returns a Dart va
 </dd>
 
         <dt id="instanceof" class="callable">
-  <span class="name"><a href="dart-js_interop/JSAnyUtilityExtension/instanceof.html">instanceof</a></span><span class="signature">(<wbr><span class="parameter" id="instanceof-param-constructor"><span class="type-annotation"><a href="dart-js_interop/JSFunction-extension-type.html">JSFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Function-class.html">Function</a></span>&gt;</span></span> <span class="parameter-name">constructor</span></span>)
+  <span class="name"><a href="dart-js_interop/JSAnyUtilityExtension/instanceof.html">instanceof</a></span><span class="signature">(<wbr><span class="parameter" id="instanceof-param-constructor"><span class="type-annotation"><a href="dart-js_interop/JSFunction-extension-type.html">JSFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Function-class.html">Function</a></span>&gt;</span></span> <span class="parameter-name">构造函数</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
   
@@ -737,8 +691,8 @@ is defined by <code>constructorName</code>, which is looked up in the
 
 </dt>
 <dd class="inherited">
-  Invoked when a nonexistent method or property is accessed.
-  <div class="features"><span class="feature">inherited</span></div>
+  访问不存在的方法或属性时调用。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -777,7 +731,7 @@ is defined by <code>constructorName</code>, which is looked up in the
 </dd>
 
         <dt id="setProperty" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/setProperty.html">setProperty</a></span><span class="signature">(<wbr><span class="parameter" id="setProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">property</span>, </span><span class="parameter" id="setProperty-param-value"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">value</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/setProperty.html">setProperty</a></span><span class="signature">(<wbr><span class="parameter" id="setProperty-param-property"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a></span> <span class="parameter-name">属性</span>, </span><span class="parameter" id="setProperty-param-value"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">value</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
   
@@ -852,8 +806,8 @@ is defined by <code>constructorName</code>, which is looked up in the
 
 </dt>
 <dd class="inherited">
-  A string representation of this object.
-  <div class="features"><span class="feature">inherited</span></div>
+  此对象的字符串表示。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -898,7 +852,7 @@ is defined by <code>constructorName</code>, which is looked up in the
   <section
       class="summary offset-anchor inherited"
       id="operators">
-    <h2>Operators</h2>
+    <h2>运算符</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
@@ -908,13 +862,13 @@ is defined by <code>constructorName</code>, which is looked up in the
 
 </dt>
 <dd class="inherited">
-  The equality operator.
-  <div class="features"><span class="feature">inherited</span></div>
+  相等运算符。
+  <div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
         <dt id="operator []" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/operator_get.html">operator []</a></span><span class="signature">(<wbr><span class="parameter" id="[]-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">property</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/operator_get.html">operator []</a></span><span class="signature">(<wbr><span class="parameter" id="[]-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">属性</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span>
   </span>
   
@@ -932,7 +886,7 @@ is defined by <code>constructorName</code>, which is looked up in the
 </dd>
 
         <dt id="operator []=" class="callable">
-  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/operator_put.html">operator []=</a></span><span class="signature">(<wbr><span class="parameter" id="[]=-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">property</span>, </span><span class="parameter" id="[]=-param-value"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">value</span></span>)
+  <span class="name"><a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/operator_put.html">operator []=</a></span><span class="signature">(<wbr><span class="parameter" id="[]=-param-property"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">属性</span>, </span><span class="parameter" id="[]=-param-value"><span class="type-annotation"><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</span> <span class="parameter-name">value</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
   
@@ -961,7 +915,7 @@ key <code>property</code> of this <a href="dart-js_interop/JSObject-extension-ty
   <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
@@ -970,7 +924,7 @@ key <code>property</code> of this <a href="dart-js_interop/JSObject-extension-ty
     <li class="self-crumb">ReadableByteStreamController extension type</li>
 </ol>
 
-  <h5>web library</h5>
+  <h5>web 库</h5>
   <div id="dartdoc-sidebar-left-content"></div>
 </div>
 <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -993,7 +947,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

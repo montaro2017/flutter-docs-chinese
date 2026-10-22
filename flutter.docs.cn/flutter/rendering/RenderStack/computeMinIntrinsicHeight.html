@@ -107,27 +107,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Computes the value returned by <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a>. Do not call this
-function directly, instead, call <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a>.</p>
-<p>Override in subclasses that implement <a href="rendering/RenderStack/performLayout.html">performLayout</a>. Should return the
-minimum height that this box could be without failing to correctly paint
-its contents within itself, without clipping.</p>
-<p>If the layout algorithm is independent of the context (e.g. it always
-tries to be a particular size), or if the layout algorithm is
-height-in-width-out, or if the layout algorithm uses both the incoming
-height and width constraints (e.g. it always sizes itself to
-<a href="rendering/BoxConstraints/biggest.html">BoxConstraints.biggest</a>), then the <code>width</code> argument should be ignored.</p>
-<p>If the layout algorithm is strictly width-in-height-out, or is
-width-in-height-out when the height is unconstrained, then the width
-argument is the width to use.</p>
-<p>The <code>width</code> argument will never be negative or null. It may be infinite.</p>
-<p>If this algorithm depends on the intrinsic dimensions of a child, the
-intrinsic dimensions of that child should be obtained using the functions
-whose names start with <code>get</code>, not <code>compute</code>.</p>
-<p>This function should never return a negative or infinite value.</p>
-<p>Be sure to set <a href="rendering/debugCheckIntrinsicSizes.html">debugCheckIntrinsicSizes</a> to true in your unit tests if
-you do override this method, which will add additional checks to help
-validate your implementation.</p>
+  <p>计算 <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a> 返回的值。不要直接调用此函数，而应调用 <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a>。</p>
+<p>实现 <a href="rendering/RenderStack/performLayout.html">performLayout</a> 的子类应重写此方法。应返回此盒子在不裁剪内容的情况下能够采用的最小高度。</p>
+<p>如果布局算法与上下文无关（例如始终尝试采用特定尺寸）、遵循“输入高度、输出宽度”，或同时使用传入的高度和宽度约束（例如始终将自身尺寸设为 <a href="rendering/BoxConstraints/biggest.html">BoxConstraints.biggest</a>），则应忽略 <code>width</code> 参数。</p>
+<p>如果布局算法严格遵循“输入宽度、输出高度”，或在高度不受约束时遵循“输入宽度、输出高度”，则 width 参数就是应使用的宽度。</p>
+<p><code>width</code> 参数不会为负数或 null，但可以为无穷大。</p>
+<p>如果此算法依赖子节点的固有尺寸，应使用名称以 <code>get</code> 开头的函数获取，而不是使用以 <code>compute</code> 开头的函数。</p>
+<p>此函数绝不能返回负值或无穷大。</p>
+<p>如果重写此方法，请务必在单元测试中将 <a href="rendering/debugCheckIntrinsicSizes.html">debugCheckIntrinsicSizes</a> 设为 true，以启用额外检查并帮助验证实现。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/RenderStack/computeMinIntrinsicWidth.html">computeMinIntrinsicWidth</a>, which has usage examples.</li>

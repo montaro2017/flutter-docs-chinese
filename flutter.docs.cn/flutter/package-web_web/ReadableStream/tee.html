@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the tee method from the ReadableStream extension type, for the Dart programming language.">
-  <title>tee method - ReadableStream extension type - web library - Dart API</title>
+  <title>tee method - ReadableStream extension type - web 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web.dart</a></li>
     <li><a href="package-web_web/ReadableStream-extension-type.html">ReadableStream</a></li>
-    <li class="self-crumb">tee method</li>
+    <li class="self-crumb">tee 方法</li>
   </ol>
   <div class="self-name">tee</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="package-web_web&#47;ReadableStream-extension-type-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">tee</span> method 
+<h1><span class="kind-method">tee</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -100,52 +100,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>The <strong><code>tee()</code></strong> method of the
-<a href="package-web_web/ReadableStream-extension-type.html">ReadableStream</a> interface
-<a href="https://streams.spec.whatwg.org/#tee-a-readable-stream">tees</a> the current
-readable stream, returning a
-two-element array containing the two resulting branches as
-new <a href="package-web_web/ReadableStream-extension-type.html">ReadableStream</a> instances.</p>
-<p>This is useful for allowing two readers to read a stream sequentially or
-simultaneously,
-perhaps at different speeds.
-For example, you might do this in a ServiceWorker if you want to fetch
-a response from the server and stream it to the browser, but also stream
-it to the
-ServiceWorker cache. Since a response body cannot be consumed more than
-once, you'd need
-two copies to do this.</p>
-<p>A teed stream will partially signal backpressure at the rate of the
-<em>faster</em> consumer
-of the two <code>ReadableStream</code> branches,
-and unread data is enqueued internally on the slower consumed
-<code>ReadableStream</code>
-without any limit or backpressure.
-That is, when <em>both</em> branches have an unread element in their internal
-queue,
-then the original <code>ReadableStream</code>'s controller's internal queue will
-start to fill up,
-and once its <a href="package-web_web/ReadableStreamDefaultController/desiredSize.html">ReadableStreamDefaultController.desiredSize</a> ≤ 0
-or byte stream controller <a href="package-web_web/ReadableByteStreamController/desiredSize.html">ReadableByteStreamController.desiredSize</a> ≤ 0,
-then the controller will stop calling <code>pull(controller)</code> on the
-underlying source passed to <code>ReadableStream.ReadableStream</code>.
-If only one branch is consumed, then the entire body will be enqueued in
-memory.
-Therefore, you should not use the built-in <code>tee()</code> to read very large
-streams
-in parallel at different speeds.
-Instead, search for an implementation that fully backpressures
-to the speed of the <em>slower</em> consumed branch.</p>
-<p>To cancel the stream you then need to cancel both resulting branches.
-Teeing a stream
-will generally lock it for the duration, preventing other readers from
-locking it.</p>
+  <p><a href="package-web_web/ReadableStream-extension-type.html">ReadableStream</a> 接口的 <strong><code>tee()</code></strong> 方法会<a href="https://streams.spec.whatwg.org/#tee-a-readable-stream">分流</a>当前可读流，并返回一个包含两个新 <a href="package-web_web/ReadableStream-extension-type.html">ReadableStream</a> 实例的双元素数组，分别代表生成的两个分支。</p>
+<p>这样可以让两个读取器按顺序或同时读取一个流，也可以让它们以不同速度读取。例如，在 ServiceWorker 中，你可能希望从服务器获取响应并将其流式传输到浏览器，同时也传输到 ServiceWorker 缓存。由于响应正文只能消费一次，因此需要创建两个副本。</p>
+<p>分流后的流会按照两个 <code>ReadableStream</code> 分支中<em>较快</em>的使用者速率部分施加背压；未读取的数据则会无限制地排入消费较慢的 <code>ReadableStream</code> 队列中，且没有背压。也就是说，当<em>两个</em>分支的内部队列中都存在未读元素时，原始 <code>ReadableStream</code> 控制器的内部队列才会开始填充；当其 <a href="package-web_web/ReadableStreamDefaultController/desiredSize.html">ReadableStreamDefaultController.desiredSize</a> ≤ 0，或字节流控制器的 <a href="package-web_web/ReadableByteStreamController/desiredSize.html">ReadableByteStreamController.desiredSize</a> ≤ 0 时，控制器就会停止对传入 <code>ReadableStream.ReadableStream</code> 的底层源调用 <code>pull(controller)</code>。如果只消费一个分支，整个正文都会被排入内存。因此，不要使用内置 <code>tee()</code> 以不同速度并行读取非常大的流。应改为寻找能够完全按照消费较慢分支的速度施加背压的实现。</p>
+<p>要取消流，需要分别取消生成的两个分支。分流通常会在整个过程中锁定原始流，阻止其他读取器锁定它。</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">external JSArray&lt;ReadableStream&gt; tee();</code></pre>
 </section>
 
@@ -155,14 +119,14 @@ locking it.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web</a></li>
     <li><a href="package-web_web/ReadableStream-extension-type.html">ReadableStream</a></li>
-    <li class="self-crumb">tee method</li>
+    <li class="self-crumb">tee 方法</li>
 </ol>
 
     <h5>ReadableStream extension type</h5>
@@ -188,7 +152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

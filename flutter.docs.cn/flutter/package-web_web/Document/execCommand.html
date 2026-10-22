@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the execCommand method from the Document extension type, for the Dart programming language.">
-  <title>execCommand method - Document extension type - web library - Dart API</title>
+  <title>execCommand method - Document extension type - web 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web.dart</a></li>
     <li><a href="package-web_web/Document-extension-type.html">Document</a></li>
-    <li class="self-crumb">execCommand method</li>
+    <li class="self-crumb">execCommand 方法</li>
   </ol>
   <div class="self-name">execCommand</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="package-web_web&#47;Document-extension-type-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">execCommand</span> method 
+<h1><span class="kind-method">execCommand</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -103,40 +103,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>The <strong><code>execCommand</code></strong> method implements multiple different commands. Some
-of them provide access to the clipboard, while others are for editing
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">form inputs</a>,
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable"><code>contenteditable</code></a>
-elements or entire documents (when switched to
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/designMode">design mode</a>).</p>
-<p>To access the clipboard, the newer
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">Clipboard API</a>
-is recommended over <code>execCommand()</code>. However, there is no replacement for
-the editing commands: unlike direct DOM manipulation, modifications
-performed by <code>execCommand()</code> preserve the undo buffer (edit history).</p>
-<p>Most commands affect the document's
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Selection">selection</a>.
-For example, some commands (bold, italics, etc.) format the currently
-selected text, while others delete the selection, insert new elements
-(replacing the selection) or affect an entire line (indenting). Only the
-currently active editable element can be modified, but some commands (e.g.
-<code>copy</code>) can work without an editable element.</p>
+  <p><strong><code>execCommand</code></strong> 方法实现了多种不同的命令。其中一些命令可以访问剪贴板，另一些则用于编辑<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">表单输入控件</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable"><code>contenteditable</code></a> 元素，或整个文档（在启用<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/designMode">设计模式</a>时）。</p>
+<p>访问剪贴板时，建议使用较新的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">Clipboard API</a>，而不是 <code>execCommand()</code>。不过，编辑命令目前没有替代方案：与直接操作 DOM 不同，<code>execCommand()</code> 执行的修改会保留撤销缓冲区（编辑历史）。</p>
+<p>大多数命令都会影响文档中的<a href="https://developer.mozilla.org/en-US/docs/Web/API/Selection">选区</a>。例如，某些命令（加粗、斜体等）会设置当前选中文本的格式；另一些命令会删除选区、插入新元素（替换选区），或影响整行内容（例如缩进）。只有当前处于活动状态的可编辑元素可以被修改，但某些命令（例如 <code>copy</code>）无需可编辑元素也能执行。</p>
 <blockquote>
-<p><strong>Note:</strong> Modifications performed by <code>execCommand()</code> may or may not
-trigger <code>Element.beforeinput_event</code> and <code>Element.input_event</code> events,
-depending on the browser and configuration. If triggered, the handlers
-for the events will run before <code>execCommand()</code> returns. Authors need to
-be careful about such recursive calls, especially if they call
-<code>execCommand()</code> in response to these events. From Firefox 82, nested
-<code>execCommand()</code> calls will always fail, see
-<a href="https://bugzil.la/1634262">bug 1634262</a>.</p>
+<p><strong>注意：</strong>根据浏览器和配置，<code>execCommand()</code> 执行的修改可能会触发，也可能不会触发 <code>Element.beforeinput_event</code> 和 <code>Element.input_event</code> 事件。如果触发了这些事件，其处理程序会在 <code>execCommand()</code> 返回前运行。开发者需要注意此类递归调用，尤其是在响应这些事件时调用 <code>execCommand()</code>。从 Firefox 82 开始，嵌套的 <code>execCommand()</code> 调用始终会失败，详见 <a href="https://bugzil.la/1634262">bug 1634262</a>。</p>
 </blockquote>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">external bool execCommand(
   String commandId, [
   bool showUI,
@@ -150,14 +128,14 @@ be careful about such recursive calls, especially if they call
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web</a></li>
     <li><a href="package-web_web/Document-extension-type.html">Document</a></li>
-    <li class="self-crumb">execCommand method</li>
+    <li class="self-crumb">execCommand 方法</li>
 </ol>
 
     <h5>Document extension type</h5>
@@ -183,7 +161,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

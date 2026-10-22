@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/scheduler/binding.dart#L608"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-method">scheduleFrameCallback</span> 方法
+<h1><span class="kind-method">scheduleFrameCallback</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -104,26 +104,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Schedules the given transient frame callback.</p>
-<p>Adds the given callback to the list of frame callbacks, and ensures that a
-frame is scheduled if the <code>scheduleNewFrame</code> argument is true.</p>
-<p>The <code>scheduleNewFrame</code> argument dictates whether <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> should be
-called to ensure a new frame. Defaults to true.</p>
-<p>If this is called during the frame's animation phase (when transient frame
-callbacks are still being invoked), <code>callback</code> will be called in the next
-frame, not in the current frame.</p>
-<p>If this is a one-off registration, ignore the <code>rescheduling</code> argument.</p>
-<p>If this is a callback that will be re-registered each time it fires, then
-when you re-register the callback, set the <code>rescheduling</code> argument to
-true. This has no effect in release builds, but in debug builds, it
-ensures that the stack trace that is stored for this callback is the
-original stack trace for when the callback was <em>first</em> registered, rather
-than the stack trace for when the callback is re-registered. This makes it
-easier to track down the original reason that a particular callback was
-called. If <code>rescheduling</code> is true, the call must be in the context of a
-frame callback.</p>
-<p>Callbacks registered with this method can be canceled using
-<a href="scheduler/SchedulerBinding/cancelFrameCallbackWithId.html">cancelFrameCallbackWithId</a>.</p>
+  <p>安排指定的瞬时帧回调。</p>
+<p>将给定回调添加到帧回调列表中；如果 <code>scheduleNewFrame</code> 参数为 true，还会确保安排一个新帧。</p>
+<p><code>scheduleNewFrame</code> 参数决定是否应调用 <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> 来确保生成新帧。默认为 true。</p>
+<p>如果在帧的动画阶段调用此方法（此时仍在执行瞬时帧回调），<code>callback</code> 会在下一帧调用，而不是当前帧。</p>
+<p>如果这是一次性注册，请忽略 <code>rescheduling</code> 参数。</p>
+<p>如果此回调每次触发后都会重新注册，那么重新注册时应将 <code>rescheduling</code> 参数设为 true。此设置在发布构建中不起作用；但在调试构建中，它会确保为此回调保存的堆栈跟踪是该回调<em>首次</em>注册时的原始堆栈跟踪，而不是重新注册时的堆栈跟踪。这样更容易追查调用该回调的最初原因。如果 <code>rescheduling</code> 为 true，则调用必须位于帧回调的上下文中。</p>
+<p>使用此方法注册的回调可以通过 <a href="scheduler/SchedulerBinding/cancelFrameCallbackWithId.html">cancelFrameCallbackWithId</a> 取消。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/WidgetsBinding/drawFrame.html">WidgetsBinding.drawFrame</a>, which explains the phases of each frame

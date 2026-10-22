@@ -105,30 +105,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Pass-through method for adding a hit test while manually managing
-the position transformation logic.</p>
-<p>The actual hit testing of the child needs to be implemented in the
-provided <code>hitTest</code> callback. The position needs to be handled by
-the caller.</p>
-<p>The function returns the return value of the <code>hitTest</code> callback.</p>
-<p>A <code>paintOffset</code>, <code>paintTransform</code>, or <code>rawTransform</code> should be
-passed to the method to update the hit test stack.</p>
+  <p>用于添加命中测试的透传方法；位置变换逻辑由调用方手动管理。</p>
+<p>必须在提供的 <code>hitTest</code> 回调中实现对子对象的实际命中测试。位置由调用方负责处理。</p>
+<p>此函数返回 <code>hitTest</code> 回调的返回值。</p>
+<p>调用此方法时应传入 <code>paintOffset</code>、<code>paintTransform</code> 或 <code>rawTransform</code>，以更新命中测试栈。</p>
 <ul>
 <li>
-<p><code>paintOffset</code> has the semantics of the <code>offset</code> passed to
-<a href="rendering/BoxHitTestResult/addWithPaintOffset.html">addWithPaintOffset</a>.</p>
+<p><code>paintOffset</code> 的含义与传递给 <a href="rendering/BoxHitTestResult/addWithPaintOffset.html">addWithPaintOffset</a> 的 <code>offset</code> 相同。</p>
 </li>
 <li>
-<p><code>paintTransform</code> has the semantics of the <code>transform</code> passed to
-<a href="rendering/BoxHitTestResult/addWithPaintTransform.html">addWithPaintTransform</a>, except that it must be invertible; it
-is the responsibility of the caller to ensure this.</p>
+<p><code>paintTransform</code> 的含义与传递给 <a href="rendering/BoxHitTestResult/addWithPaintTransform.html">addWithPaintTransform</a> 的 <code>transform</code> 相同，但它必须可逆；调用方负责确保这一点。</p>
 </li>
 <li>
-<p><code>rawTransform</code> has the semantics of the <code>transform</code> passed to
-<a href="rendering/BoxHitTestResult/addWithRawTransform.html">addWithRawTransform</a>.</p>
+<p><code>rawTransform</code> 的含义与传递给 <a href="rendering/BoxHitTestResult/addWithRawTransform.html">addWithRawTransform</a> 的 <code>transform</code> 相同。</p>
 </li>
 </ul>
-<p>Exactly one of these must be non-null.</p>
+<p>以上参数必须且只能有一个为非 null。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/BoxHitTestResult/addWithPaintTransform.html">addWithPaintTransform</a>, which takes a generic paint transform matrix and

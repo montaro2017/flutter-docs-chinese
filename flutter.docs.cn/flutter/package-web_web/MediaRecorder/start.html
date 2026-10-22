@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <meta name="description" content="API docs for the start method from the MediaRecorder extension type, for the Dart programming language.">
-  <title>start method - MediaRecorder extension type - web library - Dart API</title>
+  <title>start method - MediaRecorder extension type - web 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
   <base href="../../">
@@ -65,13 +65,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web.dart</a></li>
     <li><a href="package-web_web/MediaRecorder-extension-type.html">MediaRecorder</a></li>
-    <li class="self-crumb">start method</li>
+    <li class="self-crumb">start 方法</li>
   </ol>
   <div class="self-name">start</div>
   <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
-  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+  <button class="toggle" id="theme-button" title="切换浅色与深色模式" aria-label="切换浅色与深色模式">
     <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
       dark_mode
     </span>
@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-above-sidebar="package-web_web&#47;MediaRecorder-extension-type-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">start</span> method 
+<h1><span class="kind-method">start</span> 方法 
 </h1></div>
 
     <section class="multi-line-signature">
@@ -101,45 +101,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>The <strong><code>start()</code></strong> method of the <a href="package-web_web/MediaRecorder-extension-type.html">MediaRecorder</a> interface begins recording
-media into one or more <a href="package-web_web/Blob-extension-type.html">Blob</a> objects.</p>
-<p>You can
-record the entire duration of the media into a single <code>Blob</code> (or until you
-call <a href="package-web_web/MediaRecorder/requestData.html">MediaRecorder.requestData</a>), or you can specify the
-number of milliseconds to record at a time. Then, each time that amount of
-media has
-been recorded, an event will be delivered to let you act upon the recorded
-media, while
-a new <code>Blob</code> is created to record the next slice of the media.</p>
-<p>Assuming the <code>MediaRecorder</code>'s <a href="package-web_web/MediaRecorder/state.html">MediaRecorder.state</a>
-is <code>inactive</code>, <code>start()</code> sets the <code>state</code> to
-<code>recording</code>, then begins capturing media from the input stream. A
-<code>Blob</code> is created and the data is collected in it until the time slice
-period
-elapses or the source media ends. Each time a <code>Blob</code> is filled up to that
-point (the timeslice duration or the end-of-media, if no slice duration
-was provided), a
-<code>MediaRecorder.dataavailable_event</code> event is sent to the <code>MediaRecorder</code>
-with the
-recorded data. If the source is still playing, a new <code>Blob</code> is created and
-recording continues into that, and so forth.</p>
-<p>When the source stream ends, <code>state</code> is set to <code>inactive</code> and
-data gathering stops. A final <code>MediaRecorder.dataavailable_event</code> event is
-sent to the
-<code>MediaRecorder</code>, followed by a <code>MediaRecorder.stop_event</code> event.</p>
+  <p><a href="package-web_web/MediaRecorder-extension-type.html">MediaRecorder</a> 接口的 <strong><code>start()</code></strong> 方法会开始将媒体录制到一个或多个 <a href="package-web_web/Blob-extension-type.html">Blob</a> 对象中。</p>
+<p>你可以将媒体的整个时长录制到单个 <code>Blob</code> 中（或录制到调用 <a href="package-web_web/MediaRecorder/requestData.html">MediaRecorder.requestData</a> 为止），也可以指定每次录制的毫秒数。之后，每录制完指定时长的媒体，系统都会触发一个事件，让你处理录制内容，同时创建新的 <code>Blob</code> 以录制媒体的下一段。</p>
+<p>假设 <code>MediaRecorder</code> 的 <a href="package-web_web/MediaRecorder/state.html">MediaRecorder.state</a> 为 <code>inactive</code>，调用 <code>start()</code> 会将 <code>state</code> 设为 <code>recording</code>，然后开始从输入流捕获媒体。系统会创建一个 <code>Blob</code> 并将数据收集到其中，直到时间片周期结束或源媒体结束。每当 <code>Blob</code> 收集到指定时长的数据（如果未指定时间片时长，则收集到媒体结束），系统就会向 <code>MediaRecorder</code> 发送一个 <code>MediaRecorder.dataavailable_event</code> 事件，其中包含录制的数据。如果源媒体仍在播放，系统会创建新的 <code>Blob</code> 并继续录制，依此类推。</p>
+<p>源流结束时，<code>state</code> 会设为 <code>inactive</code>，数据收集也会停止。随后，系统会向 <code>MediaRecorder</code> 发送最后一个 <code>MediaRecorder.dataavailable_event</code> 事件，再发送 <code>MediaRecorder.stop_event</code> 事件。</p>
 <blockquote>
-<p><strong>Note:</strong> If the browser is unable to start recording or continue
-recording, it will raise an <code>MediaRecorder.error_event</code> event, followed
-by a
-<code>MediaRecorder.dataavailable_event</code> event containing the <code>Blob</code> it
-has gathered, followed by the <code>MediaRecorder.stop_event</code> event.</p>
+<p><strong>注意：</strong>如果浏览器无法开始或继续录制，就会触发 <code>MediaRecorder.error_event</code> 事件，随后触发一个包含已收集 <code>Blob</code> 的 <code>MediaRecorder.dataavailable_event</code> 事件，最后触发 <code>MediaRecorder.stop_event</code> 事件。</p>
 </blockquote>
 </section>
 
 
     
 <section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
+  <h2><span>实现</span></h2>
   <pre class="language-dart"><code class="language-dart">external void start([int timeslice]);</code></pre>
 </section>
 
@@ -149,14 +123,14 @@ has gathered, followed by the <code>MediaRecorder.stop_event</code> event.</p>
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
-    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="正在加载搜索…">
   </form>
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="index.html">Flutter</a></li>
     <li><a href="package-web_web/">web</a></li>
     <li><a href="package-web_web/MediaRecorder-extension-type.html">MediaRecorder</a></li>
-    <li class="self-crumb">start method</li>
+    <li class="self-crumb">start 方法</li>
 </ol>
 
     <h5>MediaRecorder extension type</h5>
@@ -182,7 +156,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!-- Cookie Banner -->
 <div class="glue-footer"></div>
-<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
+<button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookie 管理设置</button>
 <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B"></script>
 <!-- End Cookie Banner -->
 

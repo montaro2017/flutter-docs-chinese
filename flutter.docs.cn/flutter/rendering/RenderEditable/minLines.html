@@ -106,23 +106,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>当内容行数较少时，输入框仍占用的最小行数。</p>
-<p>此值会影响输入框自身的高度，但不会限制用户可输入的总行数。</p>
-<p>如果为 null（默认值），文字容器会预留一行的垂直空间，并随着输入内容增加而增高。</p>
-<p>This can be used in combination with <a href="rendering/RenderEditable/maxLines.html">maxLines</a> for a varying set of behaviors.</p>
-<p>If the value is set, it must be greater than zero. If the value is greater
-than 1, <a href="rendering/RenderEditable/maxLines.html">maxLines</a> should also be set to either null or greater than
-this value.</p>
-<p>When <a href="rendering/RenderEditable/maxLines.html">maxLines</a> is set as well, the height will grow between the indicated
-range of lines. When <a href="rendering/RenderEditable/maxLines.html">maxLines</a> is null, it will grow as high as needed,
-starting from <a href="rendering/RenderEditable/minLines.html">minLines</a>.</p>
-<p>A few examples of behaviors possible with <a href="rendering/RenderEditable/minLines.html">minLines</a> 和 <a href="rendering/RenderEditable/maxLines.html">maxLines</a> are as follows.
-These apply equally to <a href="material/TextField-class.html">TextField</a>, <a href="material/TextFormField-class.html">TextFormField</a>, <a href="cupertino/CupertinoTextField-class.html">CupertinoTextField</a>,
-and <a href="widgets/EditableText-class.html">EditableText</a>.</p>
-<p>输入框始终至少占用两行，最大行数不受限，并会根据内容按需增高。</p>
+  <p>当内容占用的行数较少时，文本字段至少应占用的行数。</p>
+<p>此属性会影响文本字段本身的高度，但不会限制用户可以输入的行数。</p>
+<p>如果此值为 null（默认值），文本容器会从足以容纳一行的垂直空间开始，并随着输入更多行而扩展。</p>
+<p>此属性可以与 <a href="rendering/RenderEditable/maxLines.html">maxLines</a> 配合使用，以实现多种不同的行为。</p>
+<p>如果设置了此值，则必须大于零。如果此值大于 1，<a href="rendering/RenderEditable/maxLines.html">maxLines</a> 也必须设为 null 或大于此值。</p>
+<p>同时设置 <a href="rendering/RenderEditable/maxLines.html">maxLines</a> 时，高度会在指定的行数范围内增长。<a href="rendering/RenderEditable/maxLines.html">maxLines</a> 为 null 时，高度会从 <a href="rendering/RenderEditable/minLines.html">minLines</a> 开始按需增长。</p>
+<p>以下是 <a href="rendering/RenderEditable/minLines.html">minLines</a> 和 <a href="rendering/RenderEditable/maxLines.html">maxLines</a> 可以实现的几种行为示例。这些行为同样适用于 <a href="material/TextField-class.html">TextField</a>、<a href="material/TextFormField-class.html">TextFormField</a>、<a href="cupertino/CupertinoTextField-class.html">CupertinoTextField</a> 和 <a href="widgets/EditableText-class.html">EditableText</a>。</p>
+<p>输入内容始终至少占 2 行，且最大行数不受限制。内容增加时会垂直扩展。</p>
 <pre class="language-dart"><code class="language-dart">TextField(minLines: 2)
 </code></pre>
-<p>输入框高度从两行开始，最多增至四行；达到高度限制后，继续输入的内容会垂直滚动。</p>
+<p>输入框高度从 2 行开始增长，最多到 4 行；达到高度上限后，如果继续输入更多行，内容将改为垂直滚动。</p>
 <pre class="language-dart"><code class="language-dart">const TextField(minLines:2, maxLines: 4)
 </code></pre>
 <p>默认为 null。</p>

@@ -93,26 +93,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>A render object that is bigger on the inside.</p>
-<p><a href="rendering/RenderViewport-class.html">RenderViewport</a> is the visual workhorse of the scrolling machinery. It
-displays a subset of its children according to its own dimensions and the
-given <a href="rendering/RenderViewportBase/offset.html">offset</a>. As the offset varies, different children are visible through
-the viewport.</p>
-<p><a href="rendering/RenderViewport-class.html">RenderViewport</a> hosts a bidirectional list of slivers in a single shared
-<a href="painting/Axis.html">Axis</a>, anchored on a <a href="rendering/RenderViewport/center.html">center</a> sliver, which is placed at the zero scroll
-offset. The center widget is displayed in the viewport according to the
-<a href="rendering/RenderViewport/anchor.html">anchor</a> property.</p>
-<p>Slivers that are earlier in the child list than <a href="rendering/RenderViewport/center.html">center</a> are displayed in
-reverse order in the reverse <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> starting from the <a href="rendering/RenderViewport/center.html">center</a>. For
-example, if the <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> is <a href="painting/AxisDirection.html">AxisDirection.down</a>, the first sliver
-before <a href="rendering/RenderViewport/center.html">center</a> is placed above the <a href="rendering/RenderViewport/center.html">center</a>. The slivers that are later in
-the child list than <a href="rendering/RenderViewport/center.html">center</a> are placed in order in the <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a>. For
-example, in the preceding scenario, the first sliver after <a href="rendering/RenderViewport/center.html">center</a> is
-placed below the <a href="rendering/RenderViewport/center.html">center</a>.</p>
-<p>Most scroll views by default are ordered <a href="rendering/GrowthDirection.html">GrowthDirection.forward</a>.
-Changing the default values of <a href="widgets/ScrollView/anchor.html">ScrollView.anchor</a>,
-<a href="widgets/ScrollView/center.html">ScrollView.center</a>, or both, can configure a scroll view for
-<a href="rendering/GrowthDirection.html">GrowthDirection.reverse</a>.</p>
+  <p>一种内部尺寸大于外部尺寸的渲染对象。</p>
+<p><a href="rendering/RenderViewport-class.html">RenderViewport</a> 是滚动机制中的核心组件。它会根据自身尺寸和给定的 <a href="rendering/RenderViewportBase/offset.html">offset</a> 显示部分子项。随着偏移量变化，视口中可见的子项也会随之改变。</p>
+<p><a href="rendering/RenderViewport-class.html">RenderViewport</a> 在同一共享 <a href="painting/Axis.html">Axis</a> 上承载双向 sliver 列表，并以一个 <a href="rendering/RenderViewport/center.html">center</a> sliver 为锚点；该 sliver 位于零滚动偏移量处。中心 widget 在视口中的显示位置由 <a href="rendering/RenderViewport/anchor.html">anchor</a> 属性决定。</p>
+<p>子项列表中位于 <a href="rendering/RenderViewport/center.html">center</a> 之前的 sliver，会从 <a href="rendering/RenderViewport/center.html">center</a> 开始沿反向的 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 以相反顺序显示。例如，如果 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 为 <a href="painting/AxisDirection.html">AxisDirection.down</a>，那么 <a href="rendering/RenderViewport/center.html">center</a> 之前的第一个 sliver 会放在 <a href="rendering/RenderViewport/center.html">center</a> 上方。子项列表中位于 <a href="rendering/RenderViewport/center.html">center</a> 之后的 sliver，则按 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 顺序排列。例如，在上述情形中，<a href="rendering/RenderViewport/center.html">center</a> 之后的第一个 sliver 会放在 <a href="rendering/RenderViewport/center.html">center</a> 下方。</p>
+<p>大多数滚动视图默认按 <a href="rendering/GrowthDirection.html">GrowthDirection.forward</a> 排列。更改 <a href="widgets/ScrollView/anchor.html">ScrollView.anchor</a>、<a href="widgets/ScrollView/center.html">ScrollView.center</a> 的默认值，或同时更改两者，可以将滚动视图配置为 <a href="rendering/GrowthDirection.html">GrowthDirection.reverse</a>。</p>
 <p>
 <a name="rendering.GrowthDirection.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
@@ -140,9 +125,7 @@ illustrated on either side. The sliver that shares the
     </iframe>
 </div>
 </p>
-<p><a href="rendering/RenderViewport-class.html">RenderViewport</a> cannot contain <a href="rendering/RenderBox-class.html">RenderBox</a> children directly. Instead, use
-a <a href="rendering/RenderSliverList-class.html">RenderSliverList</a>, <a href="rendering/RenderSliverFixedExtentList-class.html">RenderSliverFixedExtentList</a>, <a href="rendering/RenderSliverGrid-class.html">RenderSliverGrid</a>, or
-a <a href="rendering/RenderSliverToBoxAdapter-class.html">RenderSliverToBoxAdapter</a>, for example.</p>
+<p><a href="rendering/RenderViewport-class.html">RenderViewport</a> 不能直接包含 <a href="rendering/RenderBox-class.html">RenderBox</a> 子项。例如，可以改用 <a href="rendering/RenderSliverList-class.html">RenderSliverList</a>、<a href="rendering/RenderSliverFixedExtentList-class.html">RenderSliverFixedExtentList</a>、<a href="rendering/RenderSliverGrid-class.html">RenderSliverGrid</a> 或 <a href="rendering/RenderSliverToBoxAdapter-class.html">RenderSliverToBoxAdapter</a>。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="rendering/RenderSliver-class.html">RenderSliver</a>, which explains more about the Sliver protocol.</li>

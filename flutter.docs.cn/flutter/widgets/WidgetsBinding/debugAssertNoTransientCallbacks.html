@@ -102,20 +102,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Asserts that there are no registered transient callbacks; if
-there are, prints their locations and throws an exception.</p>
-<p>A transient frame callback is one that was registered with
-<a href="scheduler/SchedulerBinding/scheduleFrameCallback.html">scheduleFrameCallback</a>.</p>
-<p>This is expected to be called at the end of tests (the
-flutter_test framework does it automatically in normal cases).</p>
-<p>Call this method when you expect there to be no transient
-callbacks registered, in an assert statement with a message that
-you want printed when a transient callback is registered:</p>
+  <p>断言没有已注册的瞬态回调；如果有，则打印其位置并抛出异常。</p>
+<p>瞬态帧回调是通过 <a href="scheduler/SchedulerBinding/scheduleFrameCallback.html">scheduleFrameCallback</a> 注册的回调。</p>
+<p>此方法通常应在测试结束时调用（在一般情况下，flutter_test 框架会自动调用）。</p>
+<p>当你预期没有已注册的瞬态回调时，可在 assert 语句中调用此方法，并提供一条在存在瞬态回调时显示的消息：</p>
 <pre class="language-dart"><code class="language-dart">assert(SchedulerBinding.instance.debugAssertNoTransientCallbacks(
   'A leak of transient callbacks was detected while doing foo.'
 ));
 </code></pre>
-<p>若断言已禁用，则不执行任何操作；始终返回 true。</p>
+<p>如果断言已禁用，则不执行任何操作；始终返回 true。</p>
 </section>
 
 
