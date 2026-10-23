@@ -150,10 +150,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>定义了 <code>+</code> 和 <code>-</code> 运算符用于组合值（<code>T + T → T</code> 和 <code>T - T → T</code>），以及 <code>*</code> 运算符用于乘以 double 进行缩放（<code>T * double → T</code>）的类型，可以直接与 <code>Tween&lt;T&gt;</code> 一起使用。</p>
 <p>这并不适用于任何具有 <code>+</code>、<code>-</code> 和 <code>*</code> 运算符的类型。特别是，<a href="dart-core/int-class.html">int</a> 并不满足这一严格的约定（<code>int * double</code> 实际返回的是 <a href="dart-core/num-class.html">num</a>，而不是 <a href="dart-core/int-class.html">int</a>）。因此有两个专门的类可用于对整数进行插值：</p>
 <ul>
-<li><a href="animation/IntTween-class.html">IntTween</a>, which is an approximation of a linear interpolation (using
-<a href="dart-core/double/round.html">double.round</a>).</li>
-<li><a href="animation/StepTween-class.html">StepTween</a>, which uses <a href="dart-core/double/floor.html">double.floor</a> to ensure that the result is
-never greater than it would be using if a <code>Tween&lt;double&gt;</code>.</li>
+<li><a href="animation/IntTween-class.html">IntTween</a> 使用 <a href="dart-core/double/round.html">double.round</a> 近似实现线性插值。</li>
+<li><a href="animation/StepTween-class.html">StepTween</a> 使用 <a href="dart-core/double/floor.html">double.floor</a>，确保结果不会大于使用 <code>Tween&lt;double&gt;</code> 时的结果。</li>
 </ul>
 <p><a href="dart-ui/Size-class.html">Size</a> 上的相关运算符同样不满足这一约定，因此 <a href="animation/SizeTween-class.html">SizeTween</a> 使用 <a href="dart-ui/Size/lerp.html">Size.lerp</a>。</p>
 <p>此外，一些<em>确实</em>具有合适的 <code>+</code>、<code>-</code> 和 <code>*</code> 运算符的类型，也仍然拥有以更专门的方式执行插值的 <a href="animation/Tween-class.html">Tween</a> 子类。其中一个例子是上面提到的 <a href="material/MaterialPointArcTween-class.html">MaterialPointArcTween</a>。<a href="rendering/AlignmentTween-class.html">AlignmentTween</a>、<a href="rendering/AlignmentGeometryTween-class.html">AlignmentGeometryTween</a> 和 <a href="rendering/FractionalOffsetTween-class.html">FractionalOffsetTween</a> 则是另一组使用专用 <code>lerp</code> 方法、而不是仅仅依赖运算符的 <a href="animation/Tween-class.html">Tween</a>（尤其是，这使它们能够以更有用的方式处理 null 值）。</p>
