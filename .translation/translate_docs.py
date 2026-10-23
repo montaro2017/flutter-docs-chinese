@@ -137,17 +137,20 @@ else:
             fragments = [item for item in fragments if not any(item['source'] != other['source'] and item['source'] in other['source'] for other in fragments)]
             for fragment in fragments:
                 old, new = fragment['source'], fragment['translation']
-                if text.count(old) == 0 and new in text:
+                match_count = text.count(old)
+                if match_count == 0 and new in text:
                     continue  # The containing translated block already includes this fragment.
-                if text.count(old) != 1:
-                    print(f'{page}: skipped fragment that does not match exactly once')
+                if match_count == 0:
+                    print(f'{page}: skipped fragment that does not match')
                     continue
                 for pattern in [r'href="([^"]*)"', r'<code\b.*?</code>']:
                     if sorted(re.findall(pattern, old, re.S)) != sorted(re.findall(pattern, new, re.S)):
                         print(f'{page}: skipped fragment with altered link/code')
                         break
                 else:
-                    text = text.replace(old, new, 1)
+                    # Identical description blocks can appear several times on a page.
+                    # Their shared mapping applies to every exact occurrence.
+                    text = text.replace(old, new)
                     continue
                 continue
         text = translate_shared(text)
