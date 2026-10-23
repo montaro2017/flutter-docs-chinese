@@ -106,19 +106,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>Create an <a href="painting/ImageStream-class.html">ImageStream</a> using <a href="painting/ImageProvider/createStream.html">createStream</a> to return to the caller.
 This stream will be used to communicate back to the caller when the
 image is decoded and ready to display, or when an error occurs.</li>
-<li>Obtain the key for the image using <a href="painting/ImageProvider/obtainKey.html">obtainKey</a>.
-Calling this method can throw exceptions into the zone asynchronously
-or into the call stack synchronously. To handle that, an error handler
-is created that catches both synchronous and asynchronous errors, to
-make sure errors can be routed to the correct consumers.
-The error handler is passed on to <a href="painting/ImageProvider/resolveStreamForKey.html">resolveStreamForKey</a> and the
-<a href="painting/ImageCache-class.html">ImageCache</a>.</li>
-<li>If the key is successfully obtained, schedule resolution of the image
-using that key. This is handled by <a href="painting/ImageProvider/resolveStreamForKey.html">resolveStreamForKey</a>. That method
-may fizzle if it determines the image is no longer necessary, use the
-provided <a href="painting/ImageErrorListener.html">ImageErrorListener</a> to report an error, set the completer
-from the cache if possible, or call <a href="painting/ImageProvider/loadImage.html">loadImage</a> to fetch the encoded image
-bytes and schedule decoding.</li>
+<li>使用 <a href="painting/ImageProvider/obtainKey.html">obtainKey</a> 获取图像的键。此方法可能异步向 zone 抛出异常，也可能同步将异常抛入调用栈。为处理这些情况，会创建一个错误处理器来捕获同步和异步错误，确保错误能传递给正确的使用方。该错误处理器会传给 <a href="painting/ImageProvider/resolveStreamForKey.html">resolveStreamForKey</a> 和 <a href="painting/ImageCache-class.html">ImageCache</a>。</li>
+<li>成功获取键后，会使用该键安排图像解析，这由 <a href="painting/ImageProvider/resolveStreamForKey.html">resolveStreamForKey</a> 处理。如果该方法判断图像已不再需要，可能会直接结束；也可能使用提供的 <a href="painting/ImageErrorListener.html">ImageErrorListener</a> 报告错误，在可能时从缓存设置 completer，或调用 <a href="painting/ImageProvider/loadImage.html">loadImage</a> 获取编码后的图像字节并安排解码。</li>
 <li>The <a href="painting/ImageProvider/loadImage.html">loadImage</a> method is responsible for both fetching the encoded bytes
 and decoding them using the provided <a href="painting/ImageDecoderCallback.html">ImageDecoderCallback</a>. It is called
 in a context that uses the <a href="painting/ImageErrorListener.html">ImageErrorListener</a> to report errors back.</li>
