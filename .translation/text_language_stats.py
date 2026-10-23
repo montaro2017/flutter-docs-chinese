@@ -3,6 +3,7 @@ import argparse
 from collections import Counter
 from html.parser import HTMLParser
 import json
+import os
 from pathlib import Path
 
 from case_paths import output_relative, read_source
@@ -81,6 +82,8 @@ def main():
     ap.add_argument('--scope', choices=['body', 'prose', 'page'], default='prose', help='body=description; prose=description + dd summaries; page=all text')
     ap.add_argument('--page', action='append', default=[], help='API page or library prefix, e.g. flutter/widgets/ (repeatable)')
     ap.add_argument('--include-code', action='store_true')
+    ap.add_argument('--workers', type=int, default=min(4, os.cpu_count() or 1),
+                    help='coverage: parallel page workers (default: up to 4)')
     ap.add_argument('--text-dir', type=Path, help='export UTF-8 plain text preserving page paths')
     ap.add_argument('--json', type=Path, help='write totals and per-page counts')
     args = ap.parse_args()
@@ -93,6 +96,8 @@ def main():
     if not pages:
         ap.error('No reachable API pages match --page')
     if args.method == 'coverage':
+        if args.workers < 1:
+            ap.error('--workers must be at least 1')
         if args.source != 'site' or args.scope == 'page' or args.include_code or args.text_dir:
             ap.error('coverage requires --source site, --scope body/prose, and no --include-code/--text-dir')
         from translation_coverage import run

@@ -5,6 +5,9 @@
 ```powershell
 python -X utf8 .translation/text_language_stats.py --method coverage
 
+# 控制并行度；设为 1 可串行运行
+python -X utf8 .translation/text_language_stats.py --method coverage --workers 4
+
 # 仅统计某个库，自定义输出位置
 python -X utf8 .translation/text_language_stats.py --method coverage --page widgets/ --json .translation/language-stats/widgets.json --tree .translation/language-stats/widgets.html --details .translation/language-stats/widgets-details.jsonl
 ```

@@ -1,5 +1,7 @@
 """Source-word-weighted coverage, verified against the generated site."""
 from collections import Counter
+from concurrent.futures import ProcessPoolExecutor
+from contextlib import nullcontext
 from html.parser import HTMLParser
 import json
 import re
@@ -13,6 +15,9 @@ WORDS = re.compile(r"[A-Za-z]+(?:['’-][A-Za-z]+)*")
 URL = re.compile(r'https?://[^\s<>]+|www\.[^\s<>]+')
 IDENTIFIER = re.compile(r'\b(?:[a-z]+[A-Z][A-Za-z0-9]*|[A-Z][a-z]+[A-Z][A-Za-z0-9]*|[A-Za-z]\w*[_.$]\w[\w.$]*|[A-Z][A-Z0-9_]+)\b')
 UNIT_TAGS = {'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'dd', 'td', 'th', 'dt'}
+_WORKER_MAPPINGS = None
+_WORKER_EXTRAS = None
+_WORKER_FRAGMENTS = None
 
 
 class Units(HTMLParser):
@@ -236,28 +241,48 @@ document.getElementById('collapse').onclick=()=>document.querySelectorAll('detai
     path.write_text(document, encoding='utf-8')
 
 
+def _init_worker():
+    """Load large translation maps once per worker, not once per page."""
+    global _WORKER_MAPPINGS, _WORKER_EXTRAS, _WORKER_FRAGMENTS
+    _WORKER_MAPPINGS, _WORKER_EXTRAS, _WORKER_FRAGMENTS = [
+        json.loads((DATA / name).read_text(encoding='utf-8')) for name in
+        ('translations.json', 'translations-extra.json', 'translations-fragments.json')]
+
+
+def _process_page(task):
+    page, scope = task
+    source = read_source(page)
+    target = (ROOT / 'flutter.docs.cn' / 'flutter' / output_relative(page)).read_text(encoding='utf-8')
+    stats, details = analyze(units(source, scope), units(target, scope),
+                             evidence(source, page, _WORKER_MAPPINGS, _WORKER_EXTRAS,
+                                      _WORKER_FRAGMENTS))
+    return page, stats, details
+
+
 def run(args, pages):
-    mappings, extras, fragments = [json.loads((DATA / name).read_text(encoding='utf-8')) for name in
-                                  ('translations.json', 'translations-extra.json', 'translations-fragments.json')]
     totals = Counter()
     rows = []
     libraries = {}
     detail_path = args.details or DATA / 'language-stats' / 'coverage-details.jsonl'
     detail_path.parent.mkdir(parents=True, exist_ok=True)
+    if args.workers == 1:
+        _init_worker()
     with detail_path.open('w', encoding='utf-8') as detail_file:
-        for number, page in enumerate(pages, 1):
-            source = read_source(page)
-            target = (ROOT / 'flutter.docs.cn' / 'flutter' / output_relative(page)).read_text(encoding='utf-8')
-            stats, details = analyze(units(source, args.scope), units(target, args.scope),
-                                     evidence(source, page, mappings, extras, fragments))
-            totals.update(stats)
-            library = page.split('/')[0]
-            libraries.setdefault(library, Counter()).update(stats)
-            rows.append(dict(page='flutter/' + page, **summary(stats)))
-            for detail in details:
-                detail_file.write(json.dumps(dict(page='flutter/' + page, **detail), ensure_ascii=False) + '\n')
-            if number % 5000 == 0:
-                print(f'Compared {number}/{len(pages)} pages', file=sys.stderr, flush=True)
+        executor = (ProcessPoolExecutor(max_workers=args.workers, initializer=_init_worker)
+                    if args.workers > 1 else nullcontext())
+        with executor as pool:
+            tasks = ((page, args.scope) for page in pages)
+            results = (pool.map(_process_page, tasks, chunksize=16) if pool else
+                       map(_process_page, tasks))
+            for number, (page, stats, details) in enumerate(results, 1):
+                totals.update(stats)
+                library = page.split('/')[0]
+                libraries.setdefault(library, Counter()).update(stats)
+                rows.append(dict(page='flutter/' + page, **summary(stats)))
+                for detail in details:
+                    detail_file.write(json.dumps(dict(page='flutter/' + page, **detail), ensure_ascii=False) + '\n')
+                if number % 5000 == 0:
+                    print(f'Compared {number}/{len(pages)} pages', file=sys.stderr, flush=True)
     report = dict(method='source_word_weighted_mapping', scope=args.scope, page_count=len(pages),
                   totals=summary(totals), libraries={k: summary(v) for k, v in sorted(libraries.items())},
                   details=str(detail_path), pages=rows,
