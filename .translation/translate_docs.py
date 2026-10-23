@@ -62,6 +62,7 @@ else:
     pages = sorted(
         {page.removeprefix('flutter/') for page in translations}
         | {page.removeprefix('flutter/') for page in extras_all}
+        | {page.removeprefix('flutter/') for page in fragments_all}
     )
     target_page = args.page.removeprefix('flutter/')
     for page in pages:
