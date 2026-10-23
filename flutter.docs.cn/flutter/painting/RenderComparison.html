@@ -139,8 +139,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  <p>The two objects are identical (meaning deeply equal, not necessarily
-<a href="dart-core/identical.html">dart:core.identical</a>).</p>
+  <p>两个对象深度相等，但不一定是同一个对象（即不一定满足 <a href="dart-core/identical.html">dart:core.identical</a> 的对象身份判断）。</p>
   
 
 </dd>
@@ -152,9 +151,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  <p>The two objects are identical for the purpose of layout, but may be different
-in other ways.</p>
-<p>For example, maybe some event handlers changed.</p>
+  <p>对于布局而言，两个对象相同，但其他方面可能不同。</p>
+<p>例如，某些事件处理器可能发生了变化。</p>
   
 
 </dd>
@@ -166,10 +164,9 @@ in other ways.</p>
 
 </dt>
 <dd>
-  <p>The two objects are different but only in ways that affect paint, not layout.</p>
-<p>For example, only the color is changed.</p>
-<p><a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a> would be necessary to handle this kind of
-change in a render object.</p>
+  <p>两个对象存在差异，但差异只影响绘制，不影响布局。</p>
+<p>例如，变化的只有颜色。</p>
+<p>在 RenderObject 中处理此类变化需要调用 <a href="rendering/RenderObject/markNeedsPaint.html">RenderObject.markNeedsPaint</a>。</p>
   
 
 </dd>
@@ -181,11 +178,10 @@ change in a render object.</p>
 
 </dt>
 <dd>
-  <p>The two objects are different in ways that affect layout (and therefore paint).</p>
-<p>For example, the size is changed.</p>
-<p>This is the most drastic level of change possible.</p>
-<p><a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a> would be necessary to handle this kind of
-change in a render object.</p>
+  <p>两个对象存在会影响布局（进而影响绘制）的差异。</p>
+<p>例如，尺寸发生了变化。</p>
+<p>这是可能发生的最严重级别的变化。</p>
+<p>处理 RenderObject 中的此类变化需要调用 <a href="rendering/RenderObject/markNeedsLayout.html">RenderObject.markNeedsLayout</a>。</p>
   
 
 </dd>
