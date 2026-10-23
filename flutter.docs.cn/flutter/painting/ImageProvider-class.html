@@ -103,14 +103,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 id="lifecycle-of-resolving-an-image">图像解析的生命周期</h2>
 <p>调用 <a href="painting/ImageProvider-class.html">resolve</a> 方法后，<a href="painting/ImageProvider/resolve.html">ImageProvider</a> 会按以下生命周期解析图像：</p>
 <ol>
-<li>Create an <a href="painting/ImageStream-class.html">ImageStream</a> using <a href="painting/ImageProvider/createStream.html">createStream</a> to return to the caller.
-This stream will be used to communicate back to the caller when the
-image is decoded and ready to display, or when an error occurs.</li>
+<li>使用 <a href="painting/ImageProvider/createStream.html">createStream</a> 创建一个 <a href="painting/ImageStream-class.html">ImageStream</a> 并返回给调用方。图像解码完成、可以显示时，或发生错误时，此流会将相应信息传回调用方。</li>
 <li>使用 <a href="painting/ImageProvider/obtainKey.html">obtainKey</a> 获取图像的键。此方法可能异步向 zone 抛出异常，也可能同步将异常抛入调用栈。为处理这些情况，会创建一个错误处理器来捕获同步和异步错误，确保错误能传递给正确的使用方。该错误处理器会传给 <a href="painting/ImageProvider/resolveStreamForKey.html">resolveStreamForKey</a> 和 <a href="painting/ImageCache-class.html">ImageCache</a>。</li>
 <li>成功获取键后，会使用该键安排图像解析，这由 <a href="painting/ImageProvider/resolveStreamForKey.html">resolveStreamForKey</a> 处理。如果该方法判断图像已不再需要，可能会直接结束；也可能使用提供的 <a href="painting/ImageErrorListener.html">ImageErrorListener</a> 报告错误，在可能时从缓存设置 completer，或调用 <a href="painting/ImageProvider/loadImage.html">loadImage</a> 获取编码后的图像字节并安排解码。</li>
-<li>The <a href="painting/ImageProvider/loadImage.html">loadImage</a> method is responsible for both fetching the encoded bytes
-and decoding them using the provided <a href="painting/ImageDecoderCallback.html">ImageDecoderCallback</a>. It is called
-in a context that uses the <a href="painting/ImageErrorListener.html">ImageErrorListener</a> to report errors back.</li>
+<li><a href="painting/ImageProvider/loadImage.html">loadImage</a> 负责获取编码后的字节并使用提供的 <a href="painting/ImageDecoderCallback.html">ImageDecoderCallback</a> 对其解码。调用该方法时，会在一个可通过 <a href="painting/ImageErrorListener.html">ImageErrorListener</a> 向外报告错误的上下文中执行。</li>
 </ol>
 <p>子类通常只需实现 <a href="painting/ImageProvider/loadImage.html">loadImage</a> 和 <a href="painting/ImageProvider/obtainKey.html">obtainKey</a> 方法。若需更精细地控制 <a href="painting/ImageStream-class.html">ImageStream</a> 类型，子类必须重写 <a href="painting/ImageProvider/createStream.html">createStream</a>。若需更精细地控制解析过程（例如延迟调用 <a href="painting/ImageProvider/loadImage.html">loadImage</a>），则必须重写 <a href="painting/ImageProvider/resolveStreamForKey.html">resolveStreamForKey</a>。</p>
 <p><a href="painting/ImageProvider/resolve.html">resolve</a> 方法标记为 <a href="meta/nonVirtual-constant.html">nonVirtual</a>，以便正确组合多个 <a href="painting/ImageProvider-class.html">ImageProvider</a>，并让基类为后续方法正确设置错误处理。</p>
