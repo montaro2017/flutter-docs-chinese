@@ -105,13 +105,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>返回一个新流，其事件由给定 <code>stream</code> 的事件计算得出。</p>
 <p><a href="dart-async/StreamTransformer-class.html">StreamTransformer</a> 接口完全通用，因此无法规定其子类的具体行为。每个 <a href="dart-async/StreamTransformer-class.html">StreamTransformer</a> 都应清楚说明它如何转换流（写在类的文档中，或写在用于访问该转换器的变量文档中），并说明与以下典型行为的任何差异：</p>
 <ul>
-<li>When the returned stream is listened to, it starts listening to the
-input <code>stream</code>.</li>
-<li>Subscriptions of the returned stream forward (in a reasonable time)
-a <a href="dart-async/StreamSubscription/pause.html">StreamSubscription.pause</a> call to the subscription of the input
-<code>stream</code>.</li>
-<li>Similarly, canceling a subscription of the returned stream eventually
-(in reasonable time) cancels the subscription of the input <code>stream</code>.</li>
+<li>监听返回的流时，它会开始监听输入的 <code>stream</code>。</li>
+<li>返回流的订阅会在合理时间内将 <a href="dart-async/StreamSubscription/pause.html">StreamSubscription.pause</a> 调用转发给输入的 <code>stream</code> 订阅。</li>
+<li>同样，取消返回流的订阅后，也会在合理时间内取消输入流的 <code>stream</code> 订阅。</li>
 </ul>
 <p>“合理的时间”取决于转换器和流。某些转换器（例如超时转换器）可能会让这些操作等待一段时间；其他转换器则可能完全不延迟，或只延迟一个微任务。</p>
 <p>转换器可以自由选择以任何方式处理错误。实现可以选择传播错误、将错误转换为其他事件，或完全忽略错误；如果忽略错误，则应明确记录这一点。</p>
