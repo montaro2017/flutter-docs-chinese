@@ -100,18 +100,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  解析相对于当前工作目录的文件系统对象路径。
-解析路径中的所有符号链接，并解析所有 <code>..</code> 和 <code>.</code> 路径段。
-<a href="dart-io/Link/resolveSymbolicLinksSync.html">resolveSymbolicLinksSync</a> 使用操作系统原生文件系统 API 解析路径：在 Linux 和 OS X 上使用 <code>realpath</code> 函数，在 Windows 上使用 <code>GetFinalPathNameByHandle</code> 函数。如果路径未指向现有文件系统对象，<code>resolveSymbolicLinksSync</code> 会抛出 <code>FileSystemException</code>。
-在 Windows 上，会先解析 <code>..</code> 路径段，再解析符号链接；在其他平台上，会先将符号链接<em>解析为其目标</em>，然后再应用后续的 <code>..</code>。
-为确保所有平台上的行为一致，请在调用 <code>resolveSymbolicLinksSync</code> 之前解析 <code>..</code> 路径段。一种实现方式是使用 <a href="dart-core/Uri-class.html">Uri</a> 类：
+  <p>解析相对于当前工作目录的文件系统对象路径。</p>
+<p>解析路径中的所有符号链接，并解析所有 <code>..</code> 和 <code>.</code> 路径段。</p>
+<p><a href="dart-io/Link/resolveSymbolicLinksSync.html">resolveSymbolicLinksSync</a> 使用操作系统原生文件系统 API 解析路径：在 Linux 和 OS X 上使用 <code>realpath</code> 函数，在 Windows 上使用 <code>GetFinalPathNameByHandle</code> 函数。如果路径未指向现有文件系统对象，<code>resolveSymbolicLinksSync</code> 会抛出 <code>FileSystemException</code>。</p>
+<p>在 Windows 上，会先解析 <code>..</code> 路径段，再解析符号链接；在其他平台上，会先将符号链接<em>解析为其目标</em>，然后再应用后续的 <code>..</code>。</p>
+<p>为确保所有平台上的行为一致，请在调用 <code>resolveSymbolicLinksSync</code> 之前解析 <code>..</code> 路径段。一种实现方式是使用 <a href="dart-core/Uri-class.html">Uri</a> 类：</p>
 <pre class="language-dart"><code class="language-dart">var path = Uri.parse('.').resolveUri(Uri.file(input)).toFilePath();
 if (path == '') path = '.';
 var resolved = File(path).resolveSymbolicLinksSync();
 print(resolved);
 </code></pre>
-因为 <code>Uri.resolve</code> 会移除 <code>..</code> 路径段，所以这样会得到 Windows 平台上的行为。
-在 Windows 上，符号链接会创建为文件链接或目录链接。尝试解析此类符号链接时，链接类型必须与其指向的文件系统对象类型一致，否则会抛出 <a href="dart-io/PathAccessException-class.html">PathAccessException</a>。
+<p>因为 <code>Uri.resolve</code> 会移除 <code>..</code> 路径段，所以这样会得到 Windows 平台上的行为。</p>
+<p>在 Windows 上，符号链接会创建为文件链接或目录链接。尝试解析此类符号链接时，链接类型必须与其指向的文件系统对象类型一致，否则会抛出 <a href="dart-io/PathAccessException-class.html">PathAccessException</a>。</p>
 </section>
 
 

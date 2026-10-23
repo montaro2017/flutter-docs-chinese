@@ -102,8 +102,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  根据环境变量中指定的代理配置，解析 HTTP 连接所用代理服务器的函数。
-此函数会读取以下环境变量：
+  <p>根据环境变量中指定的代理配置，解析 HTTP 连接所用代理服务器的函数。</p>
+<p>此函数会读取以下环境变量：</p>
 <pre class="language-dart"><code>http_proxy
 https_proxy
 no_proxy
@@ -111,21 +111,21 @@ HTTP_PROXY
 HTTPS_PROXY
 NO_PROXY
 </code></pre>
-<code>http_proxy</code> 和 <code>HTTP_PROXY</code> 指定 http:// URL 使用的代理服务器，格式为 <code>hostname:port</code>。如果未指定端口，则默认使用 1080。如果两者都已设置，则优先使用小写变量。
-<code>https_proxy</code> 和 <code>HTTPS_PROXY</code> 指定 https:// URL 使用的代理服务器，格式为 <code>hostname:port</code>。如果未指定端口，则默认使用 1080。如果两者都已设置，则优先使用小写变量。
-<code>no_proxy</code> 和 <code>NO_PROXY</code> 指定一个以逗号分隔的主机名后缀列表，这些主机名不使用代理。例如，值“localhost,127.0.0.1”会使发往“localhost”和“127.0.0.1”的请求都不使用代理服务器。如果两者都已设置，则优先使用小写变量。
-若要启用此代理解析方式，请将此函数赋给 <a href="dart-io/HttpClient-class.html">HttpClient</a> 的 <a href="dart-io/HttpClient/findProxy.html">findProxy</a> 属性。
+<p><code>http_proxy</code> 和 <code>HTTP_PROXY</code> 指定 http:// URL 使用的代理服务器，格式为 <code>hostname:port</code>。如果未指定端口，则默认使用 1080。如果两者都已设置，则优先使用小写变量。</p>
+<p><code>https_proxy</code> 和 <code>HTTPS_PROXY</code> 指定 https:// URL 使用的代理服务器，格式为 <code>hostname:port</code>。如果未指定端口，则默认使用 1080。如果两者都已设置，则优先使用小写变量。</p>
+<p><code>no_proxy</code> 和 <code>NO_PROXY</code> 指定一个以逗号分隔的主机名后缀列表，这些主机名不使用代理。例如，值“localhost,127.0.0.1”会使发往“localhost”和“127.0.0.1”的请求都不使用代理服务器。如果两者都已设置，则优先使用小写变量。</p>
+<p>若要启用此代理解析方式，请将此函数赋给 <a href="dart-io/HttpClient-class.html">HttpClient</a> 的 <a href="dart-io/HttpClient/findProxy.html">findProxy</a> 属性。</p>
 <pre class="language-dart"><code>HttpClient client = HttpClient();
 client.findProxy = HttpClient.findProxyFromEnvironment;
 </code></pre>
-如果不想使用系统环境变量，可以通过包装此函数来传入另一组环境变量。
+<p>如果不想使用系统环境变量，可以通过包装此函数来传入另一组环境变量。</p>
 <pre class="language-dart"><code>HttpClient client = HttpClient();
 client.findProxy = (url) {
   return HttpClient.findProxyFromEnvironment(
       url, environment: {"http_proxy": ..., "no_proxy": ...});
 }
 </code></pre>
-如果代理需要身份验证，也可以配置用户名和密码。请使用 <code>username:password@hostname:port</code> 格式来包含用户名和密码。或者，对于需要身份验证的代理，也可以使用 <a href="dart-io/HttpClient/addProxyCredentials.html">addProxyCredentials</a> API 设置凭据。
+<p>如果代理需要身份验证，也可以配置用户名和密码。请使用 <code>username:password@hostname:port</code> 格式来包含用户名和密码。或者，对于需要身份验证的代理，也可以使用 <a href="dart-io/HttpClient/addProxyCredentials.html">addProxyCredentials</a> API 设置凭据。</p>
 </section>
 
 

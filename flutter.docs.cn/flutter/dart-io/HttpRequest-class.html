@@ -94,10 +94,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  包含 HTTP 请求内容及相关信息的服务器端对象。
-<code>HttpRequest</code> 对象由 <a href="dart-io/HttpServer-class.html">HttpServer</a> 生成。该服务器在指定主机和端口上监听 HTTP 请求。每收到一个请求，作为 <a href="dart-async/Stream-class.html">Stream</a> 的 HttpServer 就会生成一个 <code>HttpRequest</code> 对象并将其加入该流。
-<code>HttpRequest</code> 对象会以字节列表流的形式提供请求正文内容。该对象还包含请求方法、URI 和标头等信息。
-以下代码展示了一个监听 HTTP 请求的 HttpServer。服务器收到请求后，会使用 HttpRequest 对象的 <code>method</code> 属性分派请求。
+  <p>包含 HTTP 请求内容及相关信息的服务器端对象。</p>
+<p><code>HttpRequest</code> 对象由 <a href="dart-io/HttpServer-class.html">HttpServer</a> 生成。该服务器在指定主机和端口上监听 HTTP 请求。每收到一个请求，作为 <a href="dart-async/Stream-class.html">Stream</a> 的 HttpServer 就会生成一个 <code>HttpRequest</code> 对象并将其加入该流。</p>
+<p><code>HttpRequest</code> 对象会以字节列表流的形式提供请求正文内容。该对象还包含请求方法、URI 和标头等信息。</p>
+<p>以下代码展示了一个监听 HTTP 请求的 HttpServer。服务器收到请求后，会使用 HttpRequest 对象的 <code>method</code> 属性分派请求。</p>
 <pre class="language-dart"><code>final HOST = InternetAddress.loopbackIPv4;
 final PORT = 80;
 
@@ -114,7 +114,7 @@ HttpServer.bind(HOST, PORT).then((_server) {
   onError: handleError);    // listen() failed.
 }).catchError(handleError);
 </code></pre>
-HttpRequest 对象通过 response 属性提供对关联 <a href="dart-io/HttpResponse-class.html">HttpResponse</a> 对象的访问。服务器将响应写入 HttpResponse 对象的正文。下面是一个用于响应请求的函数示例：
+<p>HttpRequest 对象通过 response 属性提供对关联 <a href="dart-io/HttpResponse-class.html">HttpResponse</a> 对象的访问。服务器将响应写入 HttpResponse 对象的正文。下面是一个用于响应请求的函数示例：</p>
 <pre class="language-dart"><code>void handleGetRequest(HttpRequest req) {
   HttpResponse res = req.response;
   res.write('Received request ${req.method}: ${req.uri.path}');

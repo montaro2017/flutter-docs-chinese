@@ -94,30 +94,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  HTTP 响应。它会在收到 HTTP 请求后，将标头和数据从服务器返回给客户端。
-每个 HttpRequest 对象都通过 <code>response</code> 属性提供对关联 <a href="dart-io/HttpResponse-class.html">HttpResponse</a> 对象的访问。服务器通过向 HttpResponse 对象写入内容，将响应发送给客户端。
+  <p>HTTP 响应。它会在收到 HTTP 请求后，将标头和数据从服务器返回给客户端。</p>
+<p>每个 HttpRequest 对象都通过 <code>response</code> 属性提供对关联 <a href="dart-io/HttpResponse-class.html">HttpResponse</a> 对象的访问。服务器通过向 HttpResponse 对象写入内容，将响应发送给客户端。</p>
 <h2 id="writing-the-response">写入响应</h2>
-此类实现了 <a href="dart-io/IOSink-class.html">IOSink</a>。设置好标头后，可以使用 IOSink 的方法（例如 <code>writeln()</code>）写入 HTTP 响应正文。使用 <code>close()</code> 方法关闭响应并将其发送给客户端。
+<p>此类实现了 <a href="dart-io/IOSink-class.html">IOSink</a>。设置好标头后，可以使用 IOSink 的方法（例如 <code>writeln()</code>）写入 HTTP 响应正文。使用 <code>close()</code> 方法关闭响应并将其发送给客户端。</p>
 <pre class="language-dart"><code>server.listen((HttpRequest request) {
   request.response.write('Hello, world!');
   request.response.close();
 });
 </code></pre>
-首次调用任一 IOSink 方法时，响应标头会被发送。标头发送后再调用任何会更改标头的方法，都会抛出异常。
-如果未设置“Content-Type”标头，则默认使用“text/plain; charset=utf-8”，并且写入 IOSink 的字符串数据会使用 UTF-8 编码。
+<p>首次调用任一 IOSink 方法时，响应标头会被发送。标头发送后再调用任何会更改标头的方法，都会抛出异常。</p>
+<p>如果未设置“Content-Type”标头，则默认使用“text/plain; charset=utf-8”，并且写入 IOSink 的字符串数据会使用 UTF-8 编码。</p>
 <h2 id="setting-the-headers">设置标头</h2>
-HttpResponse 对象提供了多个属性，用于设置 HTTP 响应标头。通过 IOSink 写入字符串数据时，所用编码由“Content-Type”标头的“charset”参数决定。
+<p>HttpResponse 对象提供了多个属性，用于设置 HTTP 响应标头。通过 IOSink 写入字符串数据时，所用编码由“Content-Type”标头的“charset”参数决定。</p>
 <pre class="language-dart"><code>HttpResponse response = ...
 response.headers.contentType
     = ContentType("application", "json", charset: "utf-8");
 response.write(...);  // Strings written will be UTF-8 encoded.
 </code></pre>
-如果未提供 charset，则默认使用 ISO-8859-1（Latin 1）。
+<p>如果未提供 charset，则默认使用 ISO-8859-1（Latin 1）。</p>
 <pre class="language-dart"><code>HttpResponse response = ...
 response.headers.add(HttpHeaders.contentTypeHeader, "text/plain");
 response.write(...);  // Strings written will be ISO-8859-1 encoded.
 </code></pre>
-如果提供的 charset 无法识别，“Content-Type”标头仍会包含该 charset，但字符串数据会使用 ISO-8859-1（Latin 1）编码。
+<p>如果提供的 charset 无法识别，“Content-Type”标头仍会包含该 charset，但字符串数据会使用 ISO-8859-1（Latin 1）编码。</p>
 </section>
 
 

@@ -94,16 +94,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  用于与 HTTP 服务器通信的 HTTP 客户端。
+  <p>用于与 HTTP 服务器通信的 HTTP 客户端。</p>
 <blockquote>
-<strong>注意：</strong>应避免直接使用 <code>HttpClient</code> 发送 HTTP 请求。你可以通过 <code>HttpClient</code>，借助 <a href="https://pub.dev/documentation/http/latest/io_client/IOClient-class.html"><code>IOClient</code></a> 适配器，间接使用 <a href="https://pub.dev/packages/http"><code>package:http</code></a>。
-使用更高层次的库（例如 <a href="https://pub.dev/packages/http"><code>package:http</code></a>）可以让你以最少的代码改动切换实现。例如，<code>package:http</code> 的 <a href="https://pub.dev/documentation/http/latest/http/Client-class.html"><code>Client</code></a> 提供了适用于浏览器的实现，以及在 Android 和 iOS 上使用平台原生 HTTP 客户端的实现。与 <code>HttpClient</code> 不同，这些原生实现可以使用代理、VPN 等系统功能。
+<p><strong>注意：</strong>应避免直接使用 <code>HttpClient</code> 发送 HTTP 请求。你可以通过 <code>HttpClient</code>，借助 <a href="https://pub.dev/documentation/http/latest/io_client/IOClient-class.html"><code>IOClient</code></a> 适配器，间接使用 <a href="https://pub.dev/packages/http"><code>package:http</code></a>。</p>
+<p>使用更高层次的库（例如 <a href="https://pub.dev/packages/http"><code>package:http</code></a>）可以让你以最少的代码改动切换实现。例如，<code>package:http</code> 的 <a href="https://pub.dev/documentation/http/latest/http/Client-class.html"><code>Client</code></a> 提供了适用于浏览器的实现，以及在 Android 和 iOS 上使用平台原生 HTTP 客户端的实现。与 <code>HttpClient</code> 不同，这些原生实现可以使用代理、VPN 等系统功能。</p>
 </blockquote>
-向 HTTP 服务器发送请求并接收响应。在向同一服务器发送多个请求时，会维护会话 Cookie 及其他 Cookie 等状态。
-HttpClient 提供多种方法，用于向 HTTP 服务器发送 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 并接收 <a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a>。例如，GET 和 POST 请求分别可以使用 <a href="dart-io/HttpClient/get.html">get</a>、<a href="dart-io/HttpClient/getUrl.html">getUrl</a>、<a href="dart-io/HttpClient/post.html">post</a> 和 <a href="dart-io/HttpClient/postUrl.html">postUrl</a> 方法。
+<p>向 HTTP 服务器发送请求并接收响应。在向同一服务器发送多个请求时，会维护会话 Cookie 及其他 Cookie 等状态。</p>
+<p>HttpClient 提供多种方法，用于向 HTTP 服务器发送 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 并接收 <a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a>。例如，GET 和 POST 请求分别可以使用 <a href="dart-io/HttpClient/get.html">get</a>、<a href="dart-io/HttpClient/getUrl.html">getUrl</a>、<a href="dart-io/HttpClient/post.html">post</a> 和 <a href="dart-io/HttpClient/postUrl.html">postUrl</a> 方法。</p>
 <h2 id="making-a-simple-get-request-an-example">简单 GET 请求示例</h2>
-<code>getUrl</code> 请求分为两个步骤，由两个 <a href="dart-async/Future-class.html">Future</a> 触发。第一个 Future 完成并返回 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 时，底层网络连接已建立，但尚未发送任何数据。你可以在第一个 Future 的回调函数中设置请求的 HTTP 标头和正文。首次向请求对象写入数据或调用 <a href="dart-io/HttpClient/close.html">close</a> 时，请求会发送到服务器。
-从服务器收到 HTTP 响应后，由 close 返回的第二个 Future 会以 <a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a> 对象完成。此对象可用于访问响应的标头和正文。正文以 <code>HttpClientResponse</code> 实现的流形式提供。如果响应包含正文，就必须读取它，否则会导致资源泄漏。如果不需要正文，可以考虑使用 <a href="dart-async/Stream/drain.html">HttpClientResponse.drain</a>。
+<p><code>getUrl</code> 请求分为两个步骤，由两个 <a href="dart-async/Future-class.html">Future</a> 触发。第一个 Future 完成并返回 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 时，底层网络连接已建立，但尚未发送任何数据。你可以在第一个 Future 的回调函数中设置请求的 HTTP 标头和正文。首次向请求对象写入数据或调用 <a href="dart-io/HttpClient/close.html">close</a> 时，请求会发送到服务器。</p>
+<p>从服务器收到 HTTP 响应后，由 close 返回的第二个 Future 会以 <a href="foundation/HttpClientResponse-class.html">HttpClientResponse</a> 对象完成。此对象可用于访问响应的标头和正文。正文以 <code>HttpClientResponse</code> 实现的流形式提供。如果响应包含正文，就必须读取它，否则会导致资源泄漏。如果不需要正文，可以考虑使用 <a href="dart-async/Stream/drain.html">HttpClientResponse.drain</a>。</p>
 <pre data-metadata="import:convert" class="language-dart"><code class="language-dart">var client = HttpClient();
 try {
   HttpClientRequest request = await client.get('localhost', 80, '/file.txt');
@@ -117,21 +117,21 @@ try {
   client.close();
 }
 </code></pre>
-用于 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 的 Future 由 <a href="dart-io/HttpClient/getUrl.html">getUrl</a> 和 <a href="dart-io/HttpClient/open.html">open</a> 等方法创建。
+<p>用于 <a href="dart-io/HttpClientRequest-class.html">HttpClientRequest</a> 的 Future 由 <a href="dart-io/HttpClient/getUrl.html">getUrl</a> 和 <a href="dart-io/HttpClient/open.html">open</a> 等方法创建。</p>
 <h2 id="https-connections">HTTPS 连接</h2>
-<code>HttpClient</code> 可以通过 TLS（SSL）安全网络协议连接服务器并发送 HTTPS 请求。如果服务器证书由 Mozilla 编译的默认可信 CA（证书颁发机构）列表中的根 CA 签名，则使用 https: scheme 调用 <a href="dart-io/HttpClient/getUrl.html">getUrl</a> 即可自动建立连接。
-若要添加自定义可信证书颁发机构，或向要求客户端证书的服务器发送客户端证书，请将 <a href="dart-io/SecurityContext-class.html">SecurityContext</a> 对象作为可选的 <code>context</code> 参数传递给 <code>HttpClient</code> 构造函数。所需的安全选项可以在 <a href="dart-io/SecurityContext-class.html">SecurityContext</a> 对象上设置。
+<p><code>HttpClient</code> 可以通过 TLS（SSL）安全网络协议连接服务器并发送 HTTPS 请求。如果服务器证书由 Mozilla 编译的默认可信 CA（证书颁发机构）列表中的根 CA 签名，则使用 https: scheme 调用 <a href="dart-io/HttpClient/getUrl.html">getUrl</a> 即可自动建立连接。</p>
+<p>若要添加自定义可信证书颁发机构，或向要求客户端证书的服务器发送客户端证书，请将 <a href="dart-io/SecurityContext-class.html">SecurityContext</a> 对象作为可选的 <code>context</code> 参数传递给 <code>HttpClient</code> 构造函数。所需的安全选项可以在 <a href="dart-io/SecurityContext-class.html">SecurityContext</a> 对象上设置。</p>
 <h2 id="headers">标头</h2>
-所有 <code>HttpClient</code> 请求默认都会设置以下标头：
+<p>所有 <code>HttpClient</code> 请求默认都会设置以下标头：</p>
 <pre class="language-dart"><code>Accept-Encoding: gzip
 </code></pre>
-这样一来，如果可能，HTTP 服务器就可以对正文使用 gzip 压缩。如果不需要此行为，请将 <code>Accept-Encoding</code> 标头设为其他值。若要关闭响应的 gzip 压缩，请清除此标头：
+<p>这样一来，如果可能，HTTP 服务器就可以对正文使用 gzip 压缩。如果不需要此行为，请将 <code>Accept-Encoding</code> 标头设为其他值。若要关闭响应的 gzip 压缩，请清除此标头：</p>
 <pre class="language-dart"><code> request.headers.removeAll(HttpHeaders.acceptEncodingHeader)
 </code></pre>
 <h2 id="closing-the-httpclient">关闭 <code>HttpClient</code></h2>
-<code>HttpClient</code> 支持持久连接，并会缓存网络连接，以便在可能时将其用于多个请求。因此，请求完成后，网络连接仍可能保持打开一段时间。使用 <a href="dart-io/HttpClient/close.html">HttpClient.close</a> 可以关闭 <code>HttpClient</code> 对象并断开空闲网络连接。
+<p><code>HttpClient</code> 支持持久连接，并会缓存网络连接，以便在可能时将其用于多个请求。因此，请求完成后，网络连接仍可能保持打开一段时间。使用 <a href="dart-io/HttpClient/close.html">HttpClient.close</a> 可以关闭 <code>HttpClient</code> 对象并断开空闲网络连接。</p>
 <h2 id="turning-proxies-on-and-off">启用和禁用代理</h2>
-默认情况下，<code>HttpClient</code> 使用环境中提供的代理配置，详见 <a href="dart-io/HttpClient/findProxyFromEnvironment.html">findProxyFromEnvironment</a>。若要禁用代理，请将 <a href="dart-io/HttpClient/findProxy.html">findProxy</a> 属性设为 <code>null</code>。
+<p>默认情况下，<code>HttpClient</code> 使用环境中提供的代理配置，详见 <a href="dart-io/HttpClient/findProxyFromEnvironment.html">findProxyFromEnvironment</a>。若要禁用代理，请将 <a href="dart-io/HttpClient/findProxy.html">findProxy</a> 属性设为 <code>null</code>。</p>
 <pre class="language-dart"><code>HttpClient client = HttpClient();
 client.findProxy = null;
 </code></pre>
