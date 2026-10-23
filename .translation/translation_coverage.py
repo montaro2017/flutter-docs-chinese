@@ -10,6 +10,10 @@ import sys
 from case_paths import output_relative, read_source
 from text_language_stats import DATA, ROOT, VOID, counts
 from shared_translation import translate_shared
+try:
+    from lxml import html as lxml_html
+except ImportError:
+    lxml_html = None
 
 WORDS = re.compile(r"[A-Za-z]+(?:['’-][A-Za-z]+)*")
 URL = re.compile(r'https?://[^\s<>]+|www\.[^\s<>]+')
@@ -85,12 +89,71 @@ def remove_names(markup):
     return re.sub(r'<a\b[^>]*>(.*?)</a>', link, markup, flags=re.S | re.I)
 
 
-def units(markup, scope='prose', fragment=False):
+def units_stdlib(markup, scope='prose', fragment=False):
     parser = Units(scope, fragment)
     parser.feed(remove_names(markup))
     parser.close()
     parser.flush()
     return parser.units
+
+
+def units_lxml(markup, scope='prose', fragment=False):
+    """C-backed HTML parsing with the same unit boundaries as Units."""
+    parser = lxml_html.HTMLParser(encoding='utf-8', recover=True, no_network=True)
+    clean_markup = remove_names(markup)
+    if fragment:
+        root = lxml_html.fragment_fromstring(clean_markup, create_parent='div', parser=parser)
+    else:
+        root = lxml_html.document_fromstring(clean_markup, parser=parser)
+    result = []
+    parts = []
+    kind = 'direct'
+
+    def flush():
+        nonlocal parts, kind
+        text = ' '.join(''.join(parts).split())
+        if text:
+            result.append((kind, text))
+        parts = []
+
+    def visit(element, parent_selected=False, parent_skip=False, parent_atomic=False):
+        nonlocal kind
+        tag = element.tag.lower() if isinstance(element.tag, str) else ''
+        attrs = element.attrib if tag else {}
+        selected = (parent_selected or scope == 'page' or
+                    tag == 'section' and {'desc', 'markdown'} <= set(attrs.get('class', '').split()) or
+                    scope == 'prose' and tag == 'dd')
+        skip = parent_skip or tag in {'code', 'pre', 'script', 'style', 'template', 'noscript'}
+        atomic = parent_atomic
+        if selected and not skip and tag in UNIT_TAGS and not atomic:
+            flush()
+            kind = tag
+            atomic = True
+        if tag in {'br', 'hr'}:
+            parts.append(' ')
+        if tag == 'a' and attrs.get('href'):
+            parts.append(' ')
+        if element.text and ((selected and not skip) or (element.getparent() is None and fragment)):
+            parts.append(element.text)
+        for child in element:
+            visit(child, selected, skip, atomic)
+            if child.tail and selected and not skip:
+                parts.append(child.tail)
+        if tag in UNIT_TAGS or tag in {'div', 'section', 'a', 'code', 'pre'}:
+            parts.append(' ')
+        if atomic and not parent_atomic:
+            flush()
+            kind = 'direct'
+
+    visit(root, fragment, False, False)
+    flush()
+    return result
+
+
+def units(markup, scope='prose', fragment=False):
+    if lxml_html is not None:
+        return units_lxml(markup, scope, fragment)
+    return units_stdlib(markup, scope, fragment)
 
 
 def plain(markup):
@@ -143,8 +206,14 @@ def analyze(source_units, target_units, pairs):
     if not aligned:
         total['alignment_mismatch_pages'] = 1
     for index, (kind, source) in enumerate(source_units):
-        words = word_matches(source)
-        if not words:
+        # Mask ignored text in place so word spans retain source offsets. This
+        # avoids cleaning and tokenizing every source unit twice.
+        masked = list(source)
+        for pattern in (URL, IDENTIFIER):
+            for match in pattern.finditer(source):
+                masked[match.start():match.end()] = ' ' * len(match[0])
+        word_spans = list(WORDS.finditer(''.join(masked)))
+        if not word_spans:
             continue
         target = target_units[index][1] if aligned else None
         spans = []
@@ -156,16 +225,28 @@ def analyze(source_units, target_units, pairs):
                     while (pos := source.find(old, start)) >= 0:
                         spans.append((pos, pos + len(old)))
                         start = pos + len(old)
-        # Keep original offsets when removing URLs/identifiers for weight counts.
-        masked = list(source)
-        for pattern in (URL, IDENTIFIER):
-            for match in pattern.finditer(source):
-                masked[match.start():match.end()] = ' ' * len(match[0])
-        word_spans = list(WORDS.finditer(''.join(masked)))
-        covered = sum(any(a <= word.start() and word.end() <= b for a, b in spans) for word in word_spans)
-        status = ('mapped' if covered == len(words) else 'partial' if covered or
+        # Merge mapped ranges and sweep them alongside source words instead of
+        # testing every word against every mapping range.
+        spans.sort()
+        merged_spans = []
+        for start, end in spans:
+            if merged_spans and start <= merged_spans[-1][1]:
+                if end > merged_spans[-1][1]:
+                    merged_spans[-1] = (merged_spans[-1][0], end)
+            else:
+                merged_spans.append((start, end))
+        covered = 0
+        span_index = 0
+        for word in word_spans:
+            while span_index < len(merged_spans) and merged_spans[span_index][1] <= word.start():
+                span_index += 1
+            if (span_index < len(merged_spans) and
+                    merged_spans[span_index][0] <= word.start() and
+                    word.end() <= merged_spans[span_index][1]):
+                covered += 1
+        status = ('mapped' if covered == len(word_spans) else 'partial' if covered or
                   target is not None and target != source and counts(target)['chinese_chars'] else 'uncovered')
-        total.update(units=1, source_words=len(words), mapped_words=covered)
+        total.update(units=1, source_words=len(word_spans), mapped_words=covered)
         total[status + '_units'] += 1
         candidates = []
         if target is not None:
@@ -175,7 +256,7 @@ def analyze(source_units, target_units, pairs):
                     candidates.append(sentence.strip())
         total['residual_candidates'] += len(candidates)
         if status != 'mapped' or candidates:
-            details.append(dict(unit=index, kind=kind, status=status, source_words=len(words),
+            details.append(dict(unit=index, kind=kind, status=status, source_words=len(word_spans),
                                 mapped_words=covered, source=source, target=target,
                                 residual_candidates=candidates))
     return total, details
