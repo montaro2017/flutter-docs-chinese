@@ -128,10 +128,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="dart-ui/DisplayFeature-class.html">DisplayFeature</a> 可以将屏幕划分为多个子屏幕。系统会选择距离 <code>anchorPoint</code> 最近的子屏幕来渲染内容。</p>
 <p>如果未提供 <code>anchorPoint</code>，则会使用 <a href="widgets/Directionality-class.html">Directionality</a>：</p>
 <ul>
-<li>for <a href="dart-ui/TextDirection.html">TextDirection.ltr</a>, <code>anchorPoint</code> is <code>Offset.zero</code>, which will
-cause the content to appear in the top-left sub-screen.</li>
-<li>for <a href="dart-ui/TextDirection.html">TextDirection.rtl</a>, <code>anchorPoint</code> is <code>Offset(double.maxFinite, 0)</code>,
-which will cause the content to appear in the top-right sub-screen.</li>
+<li>对于 <a href="dart-ui/TextDirection.html">TextDirection.ltr</a>，当 <code>anchorPoint</code> 为 <code>Offset.zero</code> 时，内容会显示在左上角的子屏幕中。</li>
+<li>对于 <a href="dart-ui/TextDirection.html">TextDirection.rtl</a>，当 <code>anchorPoint</code> 为 <code>Offset(double.maxFinite, 0)</code> 时，内容会显示在右上角的子屏幕中。</li>
 </ul>
 <p>如果未提供 <code>anchorPoint</code>，且树中没有 <a href="widgets/Directionality-class.html">Directionality</a> 祖先控件，则在调试模式下构建此控件时会触发断言。</p>
 <p>如果应用包含多个 <a href="widgets/Navigator-class.html">Navigator</a> 对象，可能需要调用 <code>Navigator.of(context, rootNavigator: true).pop(result)</code> 来关闭对话框，而不是只调用 <code>Navigator.pop(context, result)</code>。</p>
@@ -186,27 +184,19 @@ which will cause the content to appear in the top-right sub-screen.</li>
 此示例演示如何创建可恢复状态的 Material 对话框。具体做法是：设置 <a href="material/MaterialApp/restorationScopeId.html">MaterialApp.restorationScopeId</a> 启用状态恢复，并在点击按钮时使用 <a href="widgets/Navigator/restorablePush.html">Navigator.restorablePush</a> 推送 <a href="material/DialogRoute-class.html">DialogRoute</a>。</p>
 <p>在 Android 上测试状态恢复：</p>
 <ol>
-<li>Turn on "Don't keep activities", which destroys the Android activity
-as soon as the user leaves it. This option should become available
-when Developer Options are turned on for the device.</li>
-<li>Run the code sample on an Android device.</li>
-<li>Create some in-memory state in the app on the phone,
-e.g. by navigating to a different screen.</li>
-<li>Background the Flutter app, then return to it. It will restart
-and restore its state.</li>
+<li>启用“不保留活动”选项；用户离开后，该选项会立即销毁 Android Activity。设备启用“开发者选项”后，此选项才会出现。</li>
+<li>在 Android 设备上运行代码示例。</li>
+<li>例如，在手机应用中创建一些内存状态，比如导航到其他屏幕。</li>
+<li>将 Flutter 应用移至后台后再返回。应用会重新启动并恢复其状态。</li>
 </ol>
 <p>在 iOS 上测试状态恢复：</p>
 <ol>
-<li>Open <code>ios/Runner.xcworkspace/</code> in Xcode.</li>
-<li>(iOS 14+ only): Switch to build in profile or release mode, as
-launching an app from the home screen is not supported in debug
-mode.</li>
-<li>Press the Play button in Xcode to build and run the app.</li>
-<li>Create some in-memory state in the app on the phone,
-e.g. by navigating to a different screen.</li>
-<li>Background the app on the phone, e.g. by going back to the home screen.</li>
-<li>Press the Stop button in Xcode to terminate the app while running in
-the background.</li>
+<li>在 Xcode 中打开 <code>ios/Runner.xcworkspace/</code>。</li>
+<li>仅限 iOS 14 及更高版本：切换到 profile 或 release 构建模式，因为无法在 debug 模式下从主屏幕启动应用。</li>
+<li>在 Xcode 中按下“运行”按钮以构建并运行应用。</li>
+<li>例如，在手机应用中创建一些内存状态，比如导航到其他屏幕。</li>
+<li>将手机上的应用移至后台，例如返回主屏幕。</li>
+<li>当应用在后台运行时，按下 Xcode 中的“停止”按钮将其终止。</li>
 <li>Open the app again on the phone (not via Xcode). It will restart
 and restore its state.
 </div>
@@ -226,14 +216,12 @@ and restore its state.
 </ol>
 <p>另请参阅：</p>
 <ul>
-<li><a href="material/AlertDialog-class.html">AlertDialog</a>, for dialogs that have a row of buttons below a body.</li>
-<li><a href="material/SimpleDialog-class.html">SimpleDialog</a>, which handles the scrolling of the contents and does
-not show buttons below its body.</li>
-<li><a href="material/Dialog-class.html">Dialog</a>, on which <a href="material/SimpleDialog-class.html">SimpleDialog</a> 和 <a href="material/AlertDialog-class.html">AlertDialog</a> are based.</li>
-<li><a href="cupertino/showCupertinoDialog.html">showCupertinoDialog</a>, which displays an iOS-style dialog.</li>
-<li><a href="widgets/showGeneralDialog.html">showGeneralDialog</a>, which allows for customization of the dialog popup.</li>
-<li><a href="widgets/DisplayFeatureSubScreen-class.html">DisplayFeatureSubScreen</a>, which documents the specifics of how
-<a href="dart-ui/DisplayFeature-class.html">DisplayFeature</a>s can split the screen into sub-screens.</li>
+<li><a href="material/AlertDialog-class.html">AlertDialog</a> 适用于正文下方带有一排按钮的对话框。</li>
+<li><a href="material/SimpleDialog-class.html">SimpleDialog</a> 负责处理内容滚动，正文下方不显示按钮。</li>
+<li><a href="material/Dialog-class.html">Dialog</a> 是 <a href="material/SimpleDialog-class.html">SimpleDialog</a> 和 <a href="material/AlertDialog-class.html">AlertDialog</a> 的基础。</li>
+<li><a href="cupertino/showCupertinoDialog.html">showCupertinoDialog</a> 用于显示 iOS 风格的对话框。</li>
+<li><a href="widgets/showGeneralDialog.html">showGeneralDialog</a> 允许自定义对话框弹出层。</li>
+<li><a href="widgets/DisplayFeatureSubScreen-class.html">DisplayFeatureSubScreen</a> 说明了 <a href="dart-ui/DisplayFeature-class.html">DisplayFeature</a> 如何将屏幕划分为多个子屏幕。</li>
 <li><a href="https://material.io/design/components/dialogs.html">material.io/design/components/dialogs.html</a></li>
 <li><a href="https://m3.material.io/components/dialogs">m3.material.io/components/dialogs</a></li>
 </ul>
