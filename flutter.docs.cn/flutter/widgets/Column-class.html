@@ -200,49 +200,22 @@ overflow was detected.</p>
 <p><em>本节说明框架如何布局 <a href="widgets/Column-class.html">Column</a>。</em> <em>箱式布局模型简介请参阅 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>。</em></p>
 <p><a href="widgets/Column-class.html">Column</a> 的布局分为六个步骤：</p>
 <ol>
-<li>Layout each child with a null or zero flex factor (e.g., those that are
-not <a href="widgets/Expanded-class.html">Expanded</a>) with unbounded vertical constraints and the incoming
-horizontal constraints. If the <a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a> is
-<a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment.stretch</a>, instead use tight horizontal constraints
-that match the incoming max width.</li>
-<li>Divide the remaining vertical space among the children with non-zero
-flex factors (e.g., those that are <a href="widgets/Expanded-class.html">Expanded</a>) according to their flex
-factor. For example, a child with a flex factor of 2.0 will receive twice
-the amount of vertical space as a child with a flex factor of 1.0.</li>
-<li>Layout each of the remaining children with the same horizontal
-constraints as in step 1, but instead of using unbounded vertical
-constraints, use vertical constraints based on the amount of space
-allocated in step 2. Children with <a href="widgets/Flexible/fit.html">Flexible.fit</a> properties that are
-<a href="rendering/FlexFit.html">FlexFit.tight</a> are given tight constraints (i.e., forced to fill the
-allocated space), and children with <a href="widgets/Flexible/fit.html">Flexible.fit</a> properties that are
-<a href="rendering/FlexFit.html">FlexFit.loose</a> are given loose constraints (i.e., not forced to fill the
-allocated space).</li>
-<li>The width of the <a href="widgets/Column-class.html">Column</a> is the maximum width of the children (which
-will always satisfy the incoming horizontal constraints).</li>
-<li>The height of the <a href="widgets/Column-class.html">Column</a> is determined by the <a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> property.
-If the <a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> property is <a href="rendering/MainAxisSize.html">MainAxisSize.max</a>, then the height of
-the <a href="widgets/Column-class.html">Column</a> is the max height of the incoming constraints. If the
-<a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> property is <a href="rendering/MainAxisSize.html">MainAxisSize.min</a>, then the height of the
-<a href="widgets/Column-class.html">Column</a> is the sum of heights of the children (subject to the incoming
-constraints).</li>
-<li>Determine the position for each child according to the
-<a href="widgets/Flex/mainAxisAlignment.html">mainAxisAlignment</a> and the <a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a>. For example, if the
-<a href="widgets/Flex/mainAxisAlignment.html">mainAxisAlignment</a> is <a href="rendering/MainAxisAlignment.html">MainAxisAlignment.spaceBetween</a>, any vertical
-space that has not been allocated to children is divided evenly and
-placed between the children.</li>
+<li>使用不受限制的垂直约束和传入的水平约束对子项进行布局，例如没有 flex 因子或 flex 因子为零的子项（即非 <a href="widgets/Expanded-class.html">Expanded</a> 子项）。如果 <a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a> 为 <a href="rendering/CrossAxisAlignment.html">CrossAxisAlignment.stretch</a>，则改用与传入最大宽度相匹配的紧水平约束。</li>
+<li>根据各自的 flex 因子，将剩余垂直空间分配给 flex 因子非零的子项（例如 <a href="widgets/Expanded-class.html">Expanded</a>）。例如，flex 因子为 2.0 的子项会获得 flex 因子为 1.0 的子项两倍的垂直空间。</li>
+<li>按照第 1 步中相同的水平约束对子项进行布局；不同之处在于，不使用不受限制的垂直约束，而是根据第 2 步分配的空间设置垂直约束。<a href="widgets/Flexible/fit.html">Flexible.fit</a> 属性为 <a href="rendering/FlexFit.html">FlexFit.tight</a> 的子项会受到紧约束（即必须填满分配的空间）；属性为 <a href="widgets/Flexible/fit.html">Flexible.fit</a> 的子项若为 <a href="rendering/FlexFit.html">FlexFit.loose</a>，则会受到宽松约束（无需填满分配的空间）。</li>
+<li><a href="widgets/Column-class.html">Column</a> 的宽度取其子项的最大宽度（该宽度始终满足传入的水平约束）。</li>
+<li><a href="widgets/Column-class.html">Column</a> 的高度由 <a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> 属性决定。如果 <a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> 为 <a href="rendering/MainAxisSize.html">MainAxisSize.max</a>，则 <a href="widgets/Column-class.html">Column</a> 的高度等于传入约束所允许的最大高度。如果 <a href="widgets/Flex/mainAxisSize.html">mainAxisSize</a> 为 <a href="rendering/MainAxisSize.html">MainAxisSize.min</a>，则 <a href="widgets/Column-class.html">Column</a> 的高度等于所有子项高度之和（同时受传入约束限制）。</li>
+<li>根据 <a href="widgets/Flex/mainAxisAlignment.html">mainAxisAlignment</a> 和 <a href="widgets/Flex/crossAxisAlignment.html">crossAxisAlignment</a> 确定每个子项的位置。例如，如果 <a href="widgets/Flex/mainAxisAlignment.html">mainAxisAlignment</a> 为 <a href="rendering/MainAxisAlignment.html">MainAxisAlignment.spaceBetween</a>，尚未分配给子项的垂直空间会被平均分配到各子项之间。</li>
 </ol>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/Row-class.html">Row</a>, for a horizontal equivalent.</li>
-<li><a href="widgets/Flex-class.html">Flex</a>, if you don't know in advance if you want a horizontal or vertical
-arrangement.</li>
-<li><a href="widgets/Expanded-class.html">Expanded</a>, to indicate children that should take all the remaining room.</li>
-<li><a href="widgets/Flexible-class.html">Flexible</a>, to indicate children that should share the remaining room but
-that may size smaller (leaving some remaining room unused).</li>
-<li><a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a>, whose documentation discusses some ways to
-use a <a href="widgets/Column-class.html">Column</a> inside a scrolling container.</li>
-<li><a href="widgets/Spacer-class.html">Spacer</a>, a widget that takes up space proportional to its flex value.</li>
-<li>The <a href="https://flutter.dev/widgets/layout/">catalog of layout widgets</a>.</li>
+<li><a href="widgets/Row-class.html">Row</a> 是水平方向的对应组件。</li>
+<li>如果事先无法确定要采用水平排列还是垂直排列，请使用 <a href="widgets/Flex-class.html">Flex</a>。</li>
+<li>使用 <a href="widgets/Expanded-class.html">Expanded</a> 表示子项应占据所有剩余空间。</li>
+<li>使用 <a href="widgets/Flexible-class.html">Flexible</a> 表示子项应共享剩余空间，但可以缩小尺寸，从而留下一部分未使用空间。</li>
+<li>如果需要让 <a href="widgets/Column-class.html">Column</a> 可滚动，请使用 <a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a>。</li>
+<li><a href="widgets/Spacer-class.html">Spacer</a> 是一个用于在子项之间按比例留出空间的组件。</li>
+<li>另请参阅：<a href="https://flutter.dev/widgets/layout/">布局组件目录</a>。</li>
 </ul>
 </section>
 

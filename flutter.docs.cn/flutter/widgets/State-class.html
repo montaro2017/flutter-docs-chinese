@@ -99,77 +99,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>当框架膨胀 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 并将其插入树中时，会调用 <a href="widgets/StatefulWidget/createState.html">StatefulWidget.createState</a> 来创建 <a href="widgets/State-class.html">State</a> 对象。由于同一个 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 实例可以被多次膨胀（例如同时在树中的多个位置使用），一个 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 实例可能关联多个 <a href="widgets/State-class.html">State</a> 对象。同样，如果 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 从树中移除后又重新插入，框架会再次调用 <a href="widgets/StatefulWidget/createState.html">StatefulWidget.createState</a> 创建新的 <a href="widgets/State-class.html">State</a> 对象，从而简化 <a href="widgets/State-class.html">State</a> 对象的生命周期管理。</p>
 <p><a href="widgets/State-class.html">State</a> 对象具有以下生命周期：</p>
 <ul>
-<li>The framework creates a <a href="widgets/State-class.html">State</a> object by calling
-<a href="widgets/StatefulWidget/createState.html">StatefulWidget.createState</a>.</li>
-<li>The newly created <a href="widgets/State-class.html">State</a> object is associated with a <a href="widgets/BuildContext-class.html">BuildContext</a>.
-This association is permanent: the <a href="widgets/State-class.html">State</a> object will never change its
-<a href="widgets/BuildContext-class.html">BuildContext</a>. However, the <a href="widgets/BuildContext-class.html">BuildContext</a> itself can be moved around
-the tree along with its subtree. At this point, the <a href="widgets/State-class.html">State</a> object is
-considered <a href="widgets/State/mounted.html">mounted</a>.</li>
-<li>The framework calls <a href="widgets/State/initState.html">initState</a>. Subclasses of <a href="widgets/State-class.html">State</a> should override
-<a href="widgets/State/initState.html">initState</a> to perform one-time initialization that depends on the
-<a href="widgets/BuildContext-class.html">BuildContext</a> or the widget, which are available as the <a href="widgets/State/context.html">context</a> 和
-<a href="widgets/State/widget.html">widget</a> properties, respectively, when the <a href="widgets/State/initState.html">initState</a> method is
-called.</li>
-<li>The framework calls <a href="widgets/State/didChangeDependencies.html">didChangeDependencies</a>. Subclasses of <a href="widgets/State-class.html">State</a> should
-override <a href="widgets/State/didChangeDependencies.html">didChangeDependencies</a> to perform initialization involving
-<a href="widgets/InheritedWidget-class.html">InheritedWidget</a>s. If <a href="widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a> is
-called, the <a href="widgets/State/didChangeDependencies.html">didChangeDependencies</a> method will be called again if the
-inherited widgets subsequently change or if the widget moves in the tree.</li>
-<li>At this point, the <a href="widgets/State-class.html">State</a> object is fully initialized and the framework
-might call its <a href="widgets/State/build.html">build</a> method any number of times to obtain a
-description of the user interface for this subtree. <a href="widgets/State-class.html">State</a> objects can
-spontaneously request to rebuild their subtree by calling their
-<a href="widgets/State/setState.html">setState</a> method, which indicates that some of their internal state
-has changed in a way that might impact the user interface in this
-subtree.</li>
-<li>During this time, a parent widget might rebuild and request that this
-location in the tree update to display a new widget with the same
-<a href="dart-core/Object/runtimeType.html">runtimeType</a> 和 <a href="widgets/Widget/key.html">Widget.key</a>. When this happens, the framework will
-update the <a href="widgets/State/widget.html">widget</a> property to refer to the new widget and then call the
-<a href="widgets/State/didUpdateWidget.html">didUpdateWidget</a> method with the previous widget as an argument. <a href="widgets/State-class.html">State</a>
-objects should override <a href="widgets/State/didUpdateWidget.html">didUpdateWidget</a> to respond to changes in their
-associated widget (e.g., to start implicit animations). The framework
-always calls <a href="widgets/State/build.html">build</a> after calling <a href="widgets/State/didUpdateWidget.html">didUpdateWidget</a>, which means any
-calls to <a href="widgets/State/setState.html">setState</a> in <a href="widgets/State/didUpdateWidget.html">didUpdateWidget</a> are redundant. (See also the
-discussion at <a href="widgets/Element/rebuild.html">Element.rebuild</a>.)</li>
-<li>During development, if a hot reload occurs (whether initiated from the
-command line <code>flutter</code> tool by pressing <code>r</code>, or from an IDE), the
-<a href="widgets/State/reassemble.html">reassemble</a> method is called. This provides an opportunity to
-reinitialize any data that was prepared in the <a href="widgets/State/initState.html">initState</a> method.</li>
-<li>If the subtree containing the <a href="widgets/State-class.html">State</a> object is removed from the tree
-(e.g., because the parent built a widget with a different <a href="dart-core/Object/runtimeType.html">runtimeType</a>
-or <a href="widgets/Widget/key.html">Widget.key</a>), the framework calls the <a href="widgets/State/deactivate.html">deactivate</a> method. Subclasses
-should override this method to clean up any links between this object
-and other elements in the tree (e.g. if you have provided an ancestor
-with a pointer to a descendant's <a href="rendering/RenderObject-class.html">RenderObject</a>).</li>
-<li>At this point, the framework might reinsert this subtree into another
-part of the tree. If that happens, the framework will ensure that it
-calls <a href="widgets/State/build.html">build</a> to give the <a href="widgets/State-class.html">State</a> object a chance to adapt to its new
-location in the tree. If the framework does reinsert this subtree, it
-will do so before the end of the animation frame in which the subtree was
-removed from the tree. For this reason, <a href="widgets/State-class.html">State</a> objects can defer
-releasing most resources until the framework calls their <a href="widgets/State/dispose.html">dispose</a>
-method.</li>
-<li>If the framework does not reinsert this subtree by the end of the current
-animation frame, the framework will call <a href="widgets/State/dispose.html">dispose</a>, which indicates that
-this <a href="widgets/State-class.html">State</a> object will never build again. Subclasses should override
-this method to release any resources retained by this object (e.g.,
-stop any active animations).</li>
-<li>After the framework calls <a href="widgets/State/dispose.html">dispose</a>, the <a href="widgets/State-class.html">State</a> object is considered
-unmounted and the <a href="widgets/State/mounted.html">mounted</a> property is false. It is an error to call
-<a href="widgets/State/setState.html">setState</a> at this point. This stage of the lifecycle is terminal: there
-is no way to remount a <a href="widgets/State-class.html">State</a> object that has been disposed.</li>
+<li>框架会调用 <a href="widgets/StatefulWidget/createState.html">StatefulWidget.createState</a> 来创建一个 <a href="widgets/State-class.html">State</a> 对象。</li>
+<li>新创建的 <a href="widgets/State-class.html">State</a> 对象会与 <a href="widgets/BuildContext-class.html">BuildContext</a> 关联。这种关联是永久的：<a href="widgets/State-class.html">State</a> 对象不会更换其 <a href="widgets/BuildContext-class.html">BuildContext</a>。不过，<a href="widgets/BuildContext-class.html">BuildContext</a> 本身可以连同其子树在树中移动。此时，该 <a href="widgets/State-class.html">State</a> 被视为已 <a href="widgets/State/mounted.html">mounted</a>。</li>
+<li>框架会调用 <a href="widgets/State/initState.html">initState</a>。<a href="widgets/State-class.html">State</a> 的子类应重写 <a href="widgets/State/initState.html">initState</a>，执行依赖于 <a href="widgets/BuildContext-class.html">BuildContext</a> 或 widget 的一次性初始化。在调用 <a href="widgets/State/initState.html">initState</a> 时，可以通过 <a href="widgets/State/context.html">context</a> 和 <a href="widgets/State/widget.html">widget</a> 属性访问它们。</li>
+<li>框架会调用 <a href="widgets/State/didChangeDependencies.html">didChangeDependencies</a>。<a href="widgets/State-class.html">State</a> 的子类应重写 <a href="widgets/State/didChangeDependencies.html">didChangeDependencies</a>，以执行涉及 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 的初始化。如果调用了 <a href="widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>，那么当继承的 widget 后续发生变化或该 widget 在树中移动时，会再次调用 <a href="widgets/State/didChangeDependencies.html">didChangeDependencies</a>。</li>
+<li>此时，<a href="widgets/State-class.html">State</a> 对象已完全初始化。框架可能会多次调用其 <a href="widgets/State/build.html">build</a> 方法，以获取此子树用户界面的描述。<a href="widgets/State-class.html">State</a> 对象可以调用其 <a href="widgets/State/setState.html">setState</a> 方法，请求重新构建子树；这表示其内部状态发生了变化，并可能影响此子树中的用户界面。</li>
+<li>此时，父 widget 可能会重新构建，并要求更新树中的此位置，以显示具有相同 <a href="dart-core/Object/runtimeType.html">runtimeType</a> 和 <a href="widgets/Widget/key.html">Widget.key</a> 的新 widget。发生这种情况时，框架会将 <a href="widgets/State/widget.html">widget</a> 属性更新为指向新 widget，然后调用 <a href="widgets/State/didUpdateWidget.html">didUpdateWidget</a> 方法，并将之前的 widget 作为参数传入。<a href="widgets/State-class.html">State</a> 对象应重写 <a href="widgets/State/didUpdateWidget.html">didUpdateWidget</a>，以响应其关联 widget 的变化（例如启动隐式动画）。框架始终会在调用 <a href="widgets/State/didUpdateWidget.html">didUpdateWidget</a> 后调用 <a href="widgets/State/build.html">build</a>，因此在 <a href="widgets/State/didUpdateWidget.html">didUpdateWidget</a> 中调用 <a href="widgets/State/setState.html">setState</a> 是多余的。（另请参阅 <a href="widgets/Element/rebuild.html">Element.rebuild</a> 中的讨论。）</li>
+<li>在开发过程中，如果发生热重载（通过命令行中的 <code>flutter</code> 工具按下 <code>r</code>，或从 IDE 发起），系统会调用 <a href="widgets/State/reassemble.html">reassemble</a> 方法。此时可以重新初始化在 <a href="widgets/State/initState.html">initState</a> 方法中准备的数据。</li>
+<li>如果包含 <a href="widgets/State-class.html">State</a> 对象的子树从树中移除（例如，父级构建了具有不同 <a href="dart-core/Object/runtimeType.html">runtimeType</a> 或 <a href="widgets/Widget/key.html">Widget.key</a> 的 widget），框架会调用 <a href="widgets/State/deactivate.html">deactivate</a> 方法。子类应重写此方法，清理此对象与树中其他元素之间的所有链接（例如，你曾向某个祖先元素提供了指向后代 <a href="rendering/RenderObject-class.html">RenderObject</a> 的指针）。</li>
+<li>此时，框架可能会将此子树重新插入树中的其他位置。如果发生这种情况，框架会确保调用 <a href="widgets/State/build.html">build</a>，让 <a href="widgets/State-class.html">State</a> 对象有机会适应新的位置。重新插入会在该子树被移除时所在动画帧结束前完成。因此，<a href="widgets/State-class.html">State</a> 对象可以延迟释放大多数资源，直到框架调用 <a href="widgets/State/dispose.html">dispose</a> 方法。</li>
+<li>如果框架未能在当前动画帧结束前重新插入此子树，就会调用 <a href="widgets/State/dispose.html">dispose</a>，表示该 <a href="widgets/State-class.html">State</a> 对象将不再构建。子类应重写此方法，以释放该对象保留的资源（例如停止正在运行的动画）。</li>
+<li>框架调用 <a href="widgets/State/dispose.html">dispose</a> 后，<a href="widgets/State-class.html">State</a> 对象会被视为已卸载，<a href="widgets/State/mounted.html">mounted</a> 属性为 false。此时调用 <a href="widgets/State/setState.html">setState</a> 会导致错误。生命周期到此结束：已释放的 <a href="widgets/State-class.html">State</a> 对象无法重新挂载。</li>
 </ul>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a>, where the current configuration of a <a href="widgets/State-class.html">State</a> is hosted,
-and whose documentation has sample code for <a href="widgets/State-class.html">State</a>.</li>
-<li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a>, for widgets that always build the same way given a
-particular configuration and ambient state.</li>
-<li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a>, for widgets that introduce ambient state that can
-be read by descendant widgets.</li>
-<li><a href="widgets/Widget-class.html">Widget</a>, for an overview of widgets in general.</li>
+<li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 用于承载 <a href="widgets/State-class.html">State</a> 的当前配置，其文档中还提供了 <a href="widgets/State-class.html">State</a> 的示例代码。</li>
+<li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a> 适用于在给定特定配置和环境状态时始终以相同方式构建的 widget。</li>
+<li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 用于引入环境状态，后代 widget 可以读取该状态。</li>
+<li><a href="widgets/Widget-class.html">Widget</a> 概述了 widget 的一般概念。</li>
 </ul>
 </section>
 
