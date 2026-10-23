@@ -102,17 +102,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  开始监视 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 的更改。
-此实现使用依赖于平台的事件 API 接收文件系统通知，因此具体行为因平台而异。
+  <p>开始监视 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 的更改。</p>
+<p>此实现使用依赖于平台的事件 API 接收文件系统通知，因此具体行为因平台而异。</p>
 <ul>
 <li>
-<code>Windows</code>：使用 <code>ReadDirectoryChangesW</code>。此实现仅支持监视目录，并支持递归监视。
+<p><code>Windows</code>：使用 <code>ReadDirectoryChangesW</code>。此实现仅支持监视目录，并支持递归监视。</p>
 </li>
 <li>
-<code>Linux</code>：使用 <code>inotify</code>。此实现支持监视文件和目录，但不支持递归监视。注意：直接监视文件时，删除事件可能不会按预期触发。
+<p><code>Linux</code>：使用 <code>inotify</code>。此实现支持监视文件和目录，但不支持递归监视。注意：直接监视文件时，删除事件可能不会按预期触发。</p>
 </li>
 <li>
-<code>OS X</code>：使用 <a href="https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/FSEvents_ProgGuide/TechnologyOverview/TechnologyOverview.html">File System Events API</a>。此实现支持监视文件和目录，也支持递归监视。此 API 有若干限制：
+<p><code>OS X</code>：使用 <a href="https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/FSEvents_ProgGuide/TechnologyOverview/TechnologyOverview.html">File System Events API</a>。此实现支持监视文件和目录，也支持递归监视。此 API 有若干限制：</p>
 <ul>
 <li>在调用 <a href="dart-io/FileSystemEntity/watch.html">watch</a> 方法之前不久发生的更改，仍可能出现在 <a href="dart-async/Stream-class.html">Stream</a> 中。</li>
 <li>短时间内发生的更改可能会乱序到达。</li>
@@ -120,15 +120,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 </li>
 </ul>
-只有在开始监听返回的 <a href="dart-async/Stream-class.html">Stream</a> 后，系统才会开始监听事件；调用 <a href="dart-io/FileSystemEntity/watch.html">watch</a> 时不会立即开始。
-返回值是一个无限的广播 <a href="dart-async/Stream-class.html">Stream</a>，只有发生以下情况之一时才会停止：
+<p>只有在开始监听返回的 <a href="dart-async/Stream-class.html">Stream</a> 后，系统才会开始监听事件；调用 <a href="dart-io/FileSystemEntity/watch.html">watch</a> 时不会立即开始。</p>
+<p>返回值是一个无限的广播 <a href="dart-async/Stream-class.html">Stream</a>，只有发生以下情况之一时才会停止：</p>
 <ul>
 <li><a href="dart-async/Stream-class.html">Stream</a> 被取消，例如调用 <a href="dart-async/StreamSubscription-class.html">StreamSubscription</a> 上的 <code>cancel</code>。</li>
 <li>正在监视的 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 被删除。</li>
 <li>系统监视器意外退出。例如，在 <code>Windows</code> 上，接收 <code>ReadDirectoryChangesW</code> 事件的缓冲区溢出时就会发生这种情况。</li>
 </ul>
-使用 <code>events</code> 指定要监听的事件。可以将 <a href="dart-io/FileSystemEvent-class.html">FileSystemEvent</a> 中的常量按位或组合，以同时监听多种事件。默认值为 <a href="dart-io/FileSystemEvent/all-constant.html">FileSystemEvent.all</a>。
-移动事件可能会分别报告为删除事件和创建事件。
+<p>使用 <code>events</code> 指定要监听的事件。可以将 <a href="dart-io/FileSystemEvent-class.html">FileSystemEvent</a> 中的常量按位或组合，以同时监听多种事件。默认值为 <a href="dart-io/FileSystemEvent/all-constant.html">FileSystemEvent.all</a>。</p>
+<p>移动事件可能会分别报告为删除事件和创建事件。</p>
 </section>
 
 

@@ -102,14 +102,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  同步在文件系统中创建符号链接。
-创建的链接会指向 <code>target</code> 指定的路径，无论该路径是否存在。
-如果链接路径已存在，则会抛出异常。
-如果 <code>recursive</code> 为 <code>false</code>（默认值），则仅当链接路径中的所有目录都存在时才创建链接。如果 <code>recursive</code> 为 <code>true</code>，则会先创建所有不存在的父路径。除非 <code>target</code> 路径中的目录也位于 <a href="dart-io/FileSystemEntity/path.html">path</a> 中，否则不会影响这些目录。
-在 Windows 平台上，此调用会创建真正的符号链接，而不是目录联接。Windows 将文件链接和目录链接视为不同且不可互换的链接类型。每个链接要么是文件链接，要么是目录链接，其类型在创建时确定；在大多数用途下，该链接随后也会被视为文件或目录。操作这两种链接时使用不同的 Win32 API。例如，删除文件链接要使用 <code>DeleteFile</code> 函数，而删除目录链接必须使用 <code>RemoveDirectory</code>。
-如果 <code>target</code> 存在，Windows 上创建的符号链接类型会与 <code>target</code> 的类型一致；否则会创建文件链接。即使之后将 <code>target</code> 替换为其他类型的对象，链接的类型也不会改变，此时 <a href="dart-io/Link/resolveSymbolicLinks.html">resolveSymbolicLinks</a> 将无法解析该链接。
-要在 Windows 上创建符号链接，Dart 必须以管理员身份运行，或者系统必须启用开发者模式；否则调用时会抛出 <a href="dart-io/FileSystemException-class.html">FileSystemException</a>，其 errno 为 <code>ERROR_PRIVILEGE_NOT_HELD</code>。
-在其他平台上，会使用 POSIX <code>symlink()</code> 调用创建包含 <code>target</code> 字符串的符号链接。如果 <code>target</code> 是相对路径，则相对于链接所在目录解释。
+  <p>同步在文件系统中创建符号链接。</p>
+<p>创建的链接会指向 <code>target</code> 指定的路径，无论该路径是否存在。</p>
+<p>如果链接路径已存在，则会抛出异常。</p>
+<p>如果 <code>recursive</code> 为 <code>false</code>（默认值），则仅当链接路径中的所有目录都存在时才创建链接。如果 <code>recursive</code> 为 <code>true</code>，则会先创建所有不存在的父路径。除非 <code>target</code> 路径中的目录也位于 <a href="dart-io/FileSystemEntity/path.html">path</a> 中，否则不会影响这些目录。</p>
+<p>在 Windows 平台上，此调用会创建真正的符号链接，而不是目录联接。Windows 将文件链接和目录链接视为不同且不可互换的链接类型。每个链接要么是文件链接，要么是目录链接，其类型在创建时确定；在大多数用途下，该链接随后也会被视为文件或目录。操作这两种链接时使用不同的 Win32 API。例如，删除文件链接要使用 <code>DeleteFile</code> 函数，而删除目录链接必须使用 <code>RemoveDirectory</code>。</p>
+<p>如果 <code>target</code> 存在，Windows 上创建的符号链接类型会与 <code>target</code> 的类型一致；否则会创建文件链接。即使之后将 <code>target</code> 替换为其他类型的对象，链接的类型也不会改变，此时 <a href="dart-io/Link/resolveSymbolicLinks.html">resolveSymbolicLinks</a> 将无法解析该链接。</p>
+<p>要在 Windows 上创建符号链接，Dart 必须以管理员身份运行，或者系统必须启用开发者模式；否则调用时会抛出 <a href="dart-io/FileSystemException-class.html">FileSystemException</a>，其 errno 为 <code>ERROR_PRIVILEGE_NOT_HELD</code>。</p>
+<p>在其他平台上，会使用 POSIX <code>symlink()</code> 调用创建包含 <code>target</code> 字符串的符号链接。如果 <code>target</code> 是相对路径，则相对于链接所在目录解释。</p>
 </section>
 
 
