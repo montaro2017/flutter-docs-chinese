@@ -113,12 +113,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>参数的含义如下：</p>
 <ul>
 <li><code>context</code>：构建路由时使用的上下文。</li>
-<li><code>animation</code>: The animation for this route's transition. When entering,
-the animation runs forward from 0.0 to 1.0. When exiting, this animation
-runs backwards from 1.0 to 0.0.</li>
-<li><code>secondaryAnimation</code>: The animation for the route being pushed on top of
-this route. This animation lets this route coordinate with the entrance
-and exit transition of routes pushed on top of this route.</li>
+<li><code>animation</code>：此路由转场使用的动画。进入时，动画从 0.0 正向运行到 1.0；退出时，则从 1.0 反向运行到 0.0。</li>
+<li><code>secondaryAnimation</code>：表示压入当前路由上方的路由所使用的动画。当前路由可借此与上方路由的进入和退出转场协调。</li>
 </ul>
 <p>此方法只会在路由首次构建时调用，此后很少再调用。特别是，除非使用 <a href="widgets/ModalRoute/of.html">ModalRoute.of</a>，否则路由状态发生变化时不会自动再次调用此方法。如果需要在路由状态每次变化时都调用构建器，请考虑使用 <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a>。如果组件需要根据路由状态变化来调整行为，请使用 <a href="widgets/ModalRoute/of.html">ModalRoute.of</a> 获取路由引用；这样每次路由状态变化时都会重新构建该组件。</p>
 <p>通常应使用 <a href="widgets/RawDialogRoute/buildPage.html">buildPage</a> 构建页面内容，并使用 <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a> 构建页面进入或离开视图时会变化的组件。对于始终不变的内容，避免使用 <a href="widgets/RawDialogRoute/buildTransitions.html">buildTransitions</a>；在 <a href="widgets/RawDialogRoute/buildPage.html">buildPage</a> 中一次性构建这类内容会更高效。</p>

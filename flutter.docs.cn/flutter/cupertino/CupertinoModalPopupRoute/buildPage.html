@@ -113,12 +113,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>参数含义如下：</p>
 <ul>
 <li><code>context</code>：构建路由时使用的上下文。</li>
-<li><code>animation</code>: The animation for this route's transition. When entering,
-the animation runs forward from 0.0 to 1.0. When exiting, this animation
-runs backwards from 1.0 to 0.0.</li>
-<li><code>secondaryAnimation</code>: The animation for the route being pushed on top of
-this route. This animation lets this route coordinate with the entrance
-and exit transition of routes pushed on top of this route.</li>
+<li><code>animation</code>：此路由转场使用的动画。进入时，动画从 0.0 正向运行到 1.0；退出时，则从 1.0 反向运行到 0.0。</li>
+<li><code>secondaryAnimation</code>：表示压入当前路由上方的路由所使用的动画。当前路由可借此与上方路由的进入和退出转场协调。</li>
 </ul>
 <p>此方法只会在路由首次构建时调用，此后很少再调用。尤其是，除非此方法使用了 <a href="widgets/ModalRoute/of.html">ModalRoute.of</a>，否则路由状态变化时不会自动再次调用。若需要在路由状态每次变化时都调用构建器，请考虑使用 <a href="cupertino/CupertinoModalPopupRoute/buildTransitions.html">buildTransitions</a>。对于需要随路由状态变化而改变行为的 widget，可以使用 <a href="widgets/ModalRoute/of.html">ModalRoute.of</a> 获取路由引用；这样每当路由状态变化时，该 widget 都会重新构建。</p>
 <p>通常应使用 <a href="cupertino/CupertinoModalPopupRoute/buildPage.html">buildPage</a> 构建页面内容，并使用 <a href="cupertino/CupertinoModalPopupRoute/buildTransitions.html">buildTransitions</a> 构建随页面进入或离开视图而变化的 widget。不要将 <a href="cupertino/CupertinoModalPopupRoute/buildTransitions.html">buildTransitions</a> 用于不会变化的内容；通过 <a href="cupertino/CupertinoModalPopupRoute/buildPage.html">buildPage</a> 一次性构建这类内容效率更高。</p>
