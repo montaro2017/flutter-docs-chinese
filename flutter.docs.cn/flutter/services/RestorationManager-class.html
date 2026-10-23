@@ -105,51 +105,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 id="state-restoration-on-ios">在 iOS 上恢复状态</h2>
 <p>要在 iOS 上启用状态恢复，必须为 <a href="/ios-embedder/interface_flutter_view_controller.html">FlutterViewController</a> 分配恢复标识符。使用标准嵌入器（通过 <code>flutter create</code> 生成）时，可以按以下步骤进行：</p>
 <ol>
-<li>In the app's directory, open <code>ios/Runner.xcodeproj</code> with Xcode.</li>
-<li>Select <code>Main.storyboard</code> under <code>Runner/Runner</code> in the Project Navigator
-on the left.</li>
-<li>Select the <code>Flutter View Controller</code> under
-<code>Flutter View Controller Scene</code> in the view hierarchy.</li>
-<li>Navigate to the Identity Inspector in the panel on the right.</li>
-<li>Enter a unique restoration ID in the provided field.</li>
-<li>Save the project.</li>
+<li>在应用目录中，使用 Xcode 打开 <code>ios/Runner.xcodeproj</code>。</li>
+<li>在左侧的项目导航器中，选择 <code>Main.storyboard</code>（位于 <code>Runner/Runner</code> 下）。</li>
+<li>在视图层级中选择 <code>Flutter View Controller</code>（位于 <code>Flutter View Controller Scene</code> 下）。</li>
+<li>在右侧面板中打开“标识检查器”。</li>
+<li>在指定字段中输入唯一的恢复 ID。</li>
+<li>保存项目。</li>
 </ol>
 <h2 id="development-with-hot-restart-and-hot-reload">热重启和热重载期间的开发</h2>
 <p>通过热重载和热重启应用的更改不会保存在设备上。应用被完全终止并重新启动（例如被操作系统终止）后，这些更改就会丢失。因此，在开发过程中，如果应用经过热重启或热重载，状态恢复可能无法正确工作。测试状态恢复时，务必在每次更改后完整重新编译应用（例如重新执行 <code>flutter run</code>）。</p>
 <h2 id="testing-state-restoration">测试状态恢复</h2>
 <p>在 Android 上测试状态恢复：</p>
 <ol>
-<li>Turn on "Don't keep activities", which destroys the Android activity
-as soon as the user leaves it. This option should become available
-when Developer Options are turned on for the device.</li>
-<li>Run the code sample on an Android device.</li>
-<li>Create some in-memory state in the app on the phone,
-e.g. by navigating to a different screen.</li>
-<li>Background the Flutter app, then return to it. It will restart
-and restore its state.</li>
+<li>启用“不保留活动”选项；用户离开后，该选项会立即销毁 Android Activity。设备启用“开发者选项”后，此选项才会出现。</li>
+<li>在 Android 设备上运行代码示例。</li>
+<li>例如，在手机应用中创建一些内存状态，比如导航到其他屏幕。</li>
+<li>将 Flutter 应用移至后台后再返回。应用会重新启动并恢复其状态。</li>
 </ol>
 <p>在 iOS 上测试状态恢复：</p>
 <ol>
-<li>Open <code>ios/Runner.xcworkspace/</code> in Xcode.</li>
-<li>(iOS 14+ only): Switch to build in profile or release mode, as
-launching an app from the home screen is not supported in debug
-mode.</li>
-<li>Press the Play button in Xcode to build and run the app.</li>
-<li>Create some in-memory state in the app on the phone,
-e.g. by navigating to a different screen.</li>
-<li>Background the app on the phone, e.g. by going back to the home screen.</li>
-<li>Press the Stop button in Xcode to terminate the app while running in
-the background.</li>
-<li>Open the app again on the phone (not via Xcode). It will restart
-and restore its state.</li>
+<li>在 Xcode 中打开 <code>ios/Runner.xcworkspace/</code>。</li>
+<li>仅限 iOS 14 及更高版本：切换到 profile 或 release 构建模式，因为无法在 debug 模式下从主屏幕启动应用。</li>
+<li>在 Xcode 中按下“运行”按钮以构建并运行应用。</li>
+<li>例如，在手机应用中创建一些内存状态，比如导航到其他屏幕。</li>
+<li>将手机上的应用移至后台，例如返回主屏幕。</li>
+<li>当应用在后台运行时，按下 Xcode 中的“停止”按钮将其终止。</li>
+<li>在手机上重新打开应用（不要通过 Xcode 启动）。应用会重新启动并恢复其状态。</li>
 </ol>
 <p>另请参阅：</p>
 <ul>
-<li><a href="services/ServicesBinding/restorationManager.html">ServicesBinding.restorationManager</a>, which holds the singleton instance
-of the <a href="services/RestorationManager-class.html">RestorationManager</a> for the currently running application.</li>
-<li><a href="services/RestorationBucket-class.html">RestorationBucket</a>, which make up the restoration data hierarchy.</li>
-<li><a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a>, which uses <a href="services/RestorationBucket-class.html">RestorationBucket</a>s behind the scenes
-to make <a href="widgets/State-class.html">State</a> objects of <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>s restorable.</li>
+<li><a href="services/ServicesBinding/restorationManager.html">ServicesBinding.restorationManager</a> 持有当前运行应用的 <a href="services/RestorationManager-class.html">RestorationManager</a> 单例实例。</li>
+<li><a href="services/RestorationBucket-class.html">RestorationBucket</a> 构成恢复数据层级结构。</li>
+<li><a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 会在幕后使用 <a href="services/RestorationBucket-class.html">RestorationBucket</a>，使 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 的 <a href="widgets/State-class.html">State</a> 对象能够恢复。</li>
 </ul>
 </section>
 

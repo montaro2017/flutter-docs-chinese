@@ -108,13 +108,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h3 id="setting-up-ios-autofill">设置 iOS 自动填充：</h3>
 <p>若要获得最佳用户体验，并确保应用在 iOS 上完整支持密码自动填充，请按以下步骤操作：</p>
 <ul>
-<li>Set up your iOS app's
-<a href="https://developer.apple.com/documentation/safariservices/supporting_associated_domains_in_your_app">associated domains</a>.</li>
-<li>Some autofill hints only work with specific <a href="material/TextField/keyboardType.html">keyboardType</a>s. For example,
-<a href="services/AutofillHints/name-constant.html">AutofillHints.name</a> requires <a href="services/TextInputType/name-constant.html">TextInputType.name</a> 和 <a href="services/AutofillHints/email-constant.html">AutofillHints.email</a>
-works only with <a href="services/TextInputType/emailAddress-constant.html">TextInputType.emailAddress</a>. Make sure the input field has a
-compatible <a href="material/TextField/keyboardType.html">keyboardType</a>. Empirically, <a href="services/TextInputType/name-constant.html">TextInputType.name</a> works well
-with many autofill hints that are predefined on iOS.</li>
+<li>配置 iOS 应用的 <a href="https://developer.apple.com/documentation/safariservices/supporting_associated_domains_in_your_app">associated domains</a>。</li>
+<li>部分自动填充提示仅适用于特定的 <a href="material/TextField/keyboardType.html">keyboardType</a>。例如，<a href="services/AutofillHints/name-constant.html">AutofillHints.name</a> 需要使用 <a href="services/TextInputType/name-constant.html">TextInputType.name</a>；而 <a href="services/AutofillHints/email-constant.html">AutofillHints.email</a> 仅适用于 <a href="services/TextInputType/emailAddress-constant.html">TextInputType.emailAddress</a>。请确保输入字段使用兼容的 <a href="material/TextField/keyboardType.html">keyboardType</a>。根据经验，<a href="services/TextInputType/name-constant.html">TextInputType.name</a> 可与许多 iOS 预定义的自动填充提示配合使用。</li>
 </ul>
 <h3 id="troubleshooting-autofill">自动填充故障排除</h3>
 <p>自动填充服务提供商会高度依赖 <a href="material/TextField/autofillHints.html">autofillHints</a>。请确认 <a href="material/TextField/autofillHints.html">autofillHints</a> 中的条目受当前使用的自动填充服务支持（通常可在移动设备的系统设置中找到该服务名称）。</p>
@@ -135,15 +130,7 @@ with many autofill hints that are predefined on iOS.</li>
 <h4 id="i-called-textinputfinishautofillcontext-but-the-autofill-save">我调用了 <code>TextInput.finishAutofillContext</code>，但自动填充保存</h4>
 <p>提示没有显示</p>
 <ul>
-<li>iOS: iOS may not show a prompt or any other visual indication when it
-saves user password. Go to Settings -&gt; Password and check if your new
-password is saved. Neither saving password nor auto-generating strong
-password works without properly setting up associated domains in your
-app. To set up associated domains, follow the instructions in
-<a href="https://developer.apple.com/documentation/safariservices/supporting_associated_domains_in_your_app">developer.apple.com/documentation/safariservices/supporting_associated_domains_in_your_app</a>.
-For the best results, hint strings need to be understood by the platform's
-autofill service. The common values of hint strings can be found in
-<a href="services/AutofillHints-class.html">AutofillHints</a>, as well as their availability on different platforms.</li>
+<li>iOS：保存用户密码时，iOS 可能不会显示提示或其他视觉反馈。前往“设置”→“密码”，检查新密码是否已保存。如果未在应用中正确设置关联域名，保存密码和自动生成强密码都无法正常工作。请按照 <a href="https://developer.apple.com/documentation/safariservices/supporting_associated_domains_in_your_app">developer.apple.com/documentation/safariservices/supporting_associated_domains_in_your_app</a> 中的说明设置关联域名。为获得最佳效果，平台的自动填充服务必须能够识别提示字符串。常见提示字符串及其在不同平台上的可用性见 <a href="services/AutofillHints-class.html">AutofillHints</a>。</li>
 </ul>
 <p>如果可自动填充的输入框需要使用会因平台而异的自定义提示，最简单的方法是根据 <a href="foundation/defaultTargetPlatform.html">defaultTargetPlatform</a> 的值返回不同的提示字符串。</p>
 <p>列表中的每条提示（若未被忽略）都会转换为自动填充服务可识别的平台提示类型：</p>
