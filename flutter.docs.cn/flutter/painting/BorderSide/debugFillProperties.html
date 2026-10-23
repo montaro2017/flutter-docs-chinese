@@ -124,9 +124,13 @@ aspect-ratio: 560 / 315;">
 <ul>
 <li>任意时刻都可以指定 <code>defaultValue</code>，用于表示属性的默认值不重要。例如，当属性为 null 并不表示错误时，可将默认值指定为 null。</li>
 <li>除非通过 <code>defaultValue</code> 参数或使用 <a href="foundation/ObjectFlagProperty-class.html">ObjectFlagProperty</a> 类将属性有条件地显示为标志能够实现所需效果，否则应避免指定 <code>level</code> 参数。</li>
-<li>仅在未设置 <code>showName</code> 和 <code>showSeparator</code> 时字符串输出会显得不自然的情况下指定它们。<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;Object&gt;('child(3, 4)', null, ifNull: 'is null', showSeparator: false).toString()
-</code></pre> 展示了使用 <code>showSeparator</code> 可得到输出 <code>child(3, 4) is null</code>，比 <code>child(3, 4): is null</code> 更为简洁。<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;IconData&gt;('icon', icon, ifNull: '&lt;empty&gt;', showName: false).toString()
-</code></pre> 展示了如何使用 <code>showName</code> 省略属性名称，因为在此上下文中属性名不会提供有用信息。</li>
+<li>仅在少数情况下指定 <code>showName</code> 和 <code>showSeparator</code>，例如不设置它们会使字符串输出显得不自然时。
+<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;Object&gt;('child(3, 4)', null, ifNull: 'is null', showSeparator: false).toString()
+</code></pre>
+示例展示了使用 <code>showSeparator</code> 可输出 <code>child(3, 4) is null</code>，比 <code>child(3, 4): is null</code> 更简洁自然。
+<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;IconData&gt;('icon', icon, ifNull: '&lt;empty&gt;', showName: false).toString()
+</code></pre>
+示例展示了使用 <code>showName</code> 省略属性名，因为在此上下文中，属性名不会提供有用信息。</li>
 </ul>
 <p><code>ifNull</code>、<code>ifEmpty</code>、<code>unit</code> 和 <code>tooltip</code> 可以让属性说明更清楚。下面代码示例展示了这些参数的良好用法。</p>
 <h2 id="diagnosticsproperty-subclasses-for-primitive-types">适用于基本类型的 DiagnosticsProperty 子类</h2>
