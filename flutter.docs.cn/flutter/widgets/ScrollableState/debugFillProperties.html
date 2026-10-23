@@ -123,54 +123,28 @@ aspect-ratio: 560 / 315;">
 <p>描述每个属性时，应使用现有且最具体的 <a href="foundation/DiagnosticsProperty-class.html">DiagnosticsProperty</a> 子类，而不是 <a href="foundation/DiagnosticsProperty-class.html">DiagnosticsProperty</a> 基类。<a href="foundation/DiagnosticsProperty-class.html">DiagnosticsProperty</a> 子类数量不多，分别覆盖常见用途。请考虑哪些属性值对调试用户有帮助，因为调试大型树时信息过多会增加负担。<a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 子类中的常用命名参数有助于筛选属性的显示时机和方式。</p>
 <p><code>defaultValue</code>、<code>showName</code>、<code>showSeparator</code> 和 <code>level</code> 可以让诊断信息的字符串表示保持简洁，并在属性用处不大时将其隐藏。</p>
 <ul>
-<li>Use <code>defaultValue</code> any time the default value of a property is
-uninteresting. For example, specify a default value of null any time
-a property being null does not indicate an error.</li>
-<li>Avoid specifying the <code>level</code> parameter unless the result you want
-cannot be achieved by using the <code>defaultValue</code> parameter or using
-the <a href="foundation/ObjectFlagProperty-class.html">ObjectFlagProperty</a> class to conditionally display the property
-as a flag.</li>
-<li>Specify <code>showName</code> 和 <code>showSeparator</code> in rare cases where the string
-output would look clumsy if they were not set.
-<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;Object&gt;('child(3, 4)', null, ifNull: 'is null', showSeparator: false).toString()
-</code></pre>
-Shows using <code>showSeparator</code> to get output <code>child(3, 4) is null</code> which
-is more polished than <code>child(3, 4): is null</code>.
-<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;IconData&gt;('icon', icon, ifNull: '&lt;empty&gt;', showName: false).toString()
-</code></pre>
-Shows using <code>showName</code> to omit the property name as in this context the
-property name does not add useful information.</li>
+<li>任意时刻都可以指定 <code>defaultValue</code>，用于表示属性的默认值不重要。例如，当属性为 null 并不表示错误时，可将默认值指定为 null。</li>
+<li>除非通过 <code>defaultValue</code> 参数或使用 <a href="foundation/ObjectFlagProperty-class.html">ObjectFlagProperty</a> 类将属性有条件地显示为标志能够实现所需效果，否则应避免指定 <code>level</code> 参数。</li>
+<li>仅在未设置 <code>showName</code> 和 <code>showSeparator</code> 时字符串输出会显得不自然的情况下指定它们。<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;Object&gt;('child(3, 4)', null, ifNull: 'is null', showSeparator: false).toString()
+</code></pre> 展示了使用 <code>showSeparator</code> 可得到输出 <code>child(3, 4) is null</code>，比 <code>child(3, 4): is null</code> 更为简洁。<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;IconData&gt;('icon', icon, ifNull: '&lt;empty&gt;', showName: false).toString()
+</code></pre> 展示了如何使用 <code>showName</code> 省略属性名称，因为在此上下文中属性名不会提供有用信息。</li>
 </ul>
 <p><code>ifNull</code>、<code>ifEmpty</code>、<code>unit</code> 和 <code>tooltip</code> 可以让属性说明更清楚。下面代码示例展示了这些参数的良好用法。</p>
 <h2 id="diagnosticsproperty-subclasses-for-primitive-types">适用于基本类型的 DiagnosticsProperty 子类</h2>
 <ul>
-<li><a href="foundation/StringProperty-class.html">StringProperty</a>, which supports automatically enclosing a <a href="dart-core/String-class.html">String</a>
-value in quotes.</li>
-<li><a href="foundation/DoubleProperty-class.html">DoubleProperty</a>, which supports specifying a unit of measurement for
-a <a href="dart-core/double-class.html">double</a> value.</li>
-<li><a href="foundation/PercentProperty-class.html">PercentProperty</a>, which clamps a <a href="dart-core/double-class.html">double</a> to between 0 and 1 and
-formats it as a percentage.</li>
-<li><a href="foundation/IntProperty-class.html">IntProperty</a>, which supports specifying a unit of measurement for an
-<a href="dart-core/int-class.html">int</a> value.</li>
-<li><a href="foundation/FlagProperty-class.html">FlagProperty</a>, which formats a <a href="dart-core/bool-class.html">bool</a> value as one or more flags.
-Depending on the use case it is better to format a bool as
-<code>DiagnosticsProperty&lt;bool&gt;</code> instead of using <a href="foundation/FlagProperty-class.html">FlagProperty</a> as the
-output is more verbose but unambiguous.</li>
+<li><a href="foundation/StringProperty-class.html">StringProperty</a> 会自动为 <a href="dart-core/String-class.html">String</a> 类型的值添加引号。</li>
+<li><a href="foundation/DoubleProperty-class.html">DoubleProperty</a> 支持为 <a href="dart-core/double-class.html">double</a> 值指定测量单位。</li>
+<li><a href="foundation/PercentProperty-class.html">PercentProperty</a> 会将 <a href="dart-core/double-class.html">double</a> 值限制在 0 到 1 之间，并将其格式化为百分比。</li>
+<li><a href="foundation/IntProperty-class.html">IntProperty</a> 支持为 <a href="dart-core/int-class.html">int</a> 值指定测量单位。</li>
+<li><a href="foundation/FlagProperty-class.html">FlagProperty</a> 会将 <a href="dart-core/bool-class.html">bool</a> 值格式化为一个或多个标志。根据使用场景，最好将 bool 格式化为 <code>DiagnosticsProperty&lt;bool&gt;</code>，而不是使用 <a href="foundation/FlagProperty-class.html">FlagProperty</a>；后者的输出更冗长，但含义明确。</li>
 </ul>
 <h2 id="other-important-diagnosticsproperty-variants">其他重要的 <a href="foundation/DiagnosticsProperty-class.html">DiagnosticsProperty</a> 类型</h2>
 <ul>
-<li><a href="foundation/EnumProperty-class.html">EnumProperty</a>, which provides terse descriptions of enum values
-working around limitations of the <code>toString</code> implementation for Dart
-enum types.</li>
-<li><a href="foundation/IterableProperty-class.html">IterableProperty</a>, which handles iterable values with display
-customizable depending on the <a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a> used.</li>
-<li><a href="foundation/ObjectFlagProperty-class.html">ObjectFlagProperty</a>, which provides terse descriptions of whether a
-property value is present or not. For example, whether an <code>onClick</code>
-callback is specified or an animation is in progress.</li>
-<li><a href="painting/ColorProperty-class.html">ColorProperty</a>, which must be used if the property value is
-a <a href="dart-ui/Color-class.html">Color</a> or one of its subclasses.</li>
-<li><a href="widgets/IconDataProperty-class.html">IconDataProperty</a>, which must be used if the property value
-is of type <a href="widgets/IconData-class.html">IconData</a>.</li>
+<li><a href="foundation/EnumProperty-class.html">EnumProperty</a> 为枚举值提供简洁描述，绕过 Dart 枚举类型 <code>toString</code> 实现的限制。</li>
+<li><a href="foundation/IterableProperty-class.html">IterableProperty</a> 会处理可迭代值，其显示方式可根据所用的 <a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a> 自定义。</li>
+<li><a href="foundation/ObjectFlagProperty-class.html">ObjectFlagProperty</a> 会简洁地描述属性值是否存在。例如，是否指定了 <code>onClick</code> 回调，或动画是否正在进行。</li>
+<li>若属性值为 <a href="dart-ui/Color-class.html">Color</a> 或其子类，必须使用 <a href="painting/ColorProperty-class.html">ColorProperty</a>。</li>
+<li>若属性值的类型为 <a href="widgets/IconData-class.html">IconData</a>，必须使用 <a href="widgets/IconDataProperty-class.html">IconDataProperty</a>。</li>
 </ul>
 <p>如果这些子类都不适用，可以直接使用 <a href="foundation/DiagnosticsProperty-class.html">DiagnosticsProperty</a> 构造函数；少数情况下，也可以像 <a href="foundation/DiagnosticsProperty-class.html">TransformProperty</a> 那样创建自己的 <a href="painting/TransformProperty-class.html">DiagnosticsProperty</a> 子类，以处理表示变换的 <a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a>。通常，只要属性值实现了良好的 <code>toString</code> 方法，直接使用 <a href="foundation/DiagnosticsProperty-class.html">DiagnosticsProperty</a> 就可以正常工作。</p>
 <p>
