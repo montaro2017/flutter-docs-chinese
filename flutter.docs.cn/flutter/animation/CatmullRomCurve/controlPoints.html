@@ -105,14 +105,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="dart-ui/Offset-class.html">controlPoints</a> 中每个 <a href="animation/CatmullRomCurve/controlPoints.html">Offset</a> 的 <code>dx</code> 值，表示曲线应当经过该控制点 <code>dy</code> 值时所对应的动画值。</p>
 <p><a href="animation/CatmullRomCurve/controlPoints.html">controlPoints</a> 列表必须满足以下条件：</p>
 <ul>
-<li>The list must contain at least two points.</li>
-<li>The X value of each point must be greater than 0.0 and less then 1.0.</li>
-<li>The X values of each point must be greater than the
-previous point's X value (i.e. monotonically increasing). The Y values
-are not constrained.</li>
-<li>The resulting spline must be single-valued in X. That is, for each X
-value, there must be exactly one Y value. This means that the control
-points must not generated a spline that loops or overlaps itself.</li>
+<li>列表中至少要包含两个点。</li>
+<li>每个点的 X 值必须大于 0.0 且小于 1.0。</li>
+<li>每个点的 X 值必须大于前一个点的 X 值（即严格递增）；Y 值不受限制。</li>
+<li>生成的样条在 X 方向上必须是单值的，也就是说，每个 X 值必须恰好对应一个 Y 值。因此，控制点不能生成自我回环或重叠的样条。</li>
 </ul>
 <p>静态函数 <a href="animation/CatmullRomCurve/validateControlPoints.html">validateControlPoints</a> 可用于检查这些条件是否得到满足，若满足则返回 true。在调试模式下，它还可以选择性地以文本形式返回一组原因。在调试模式下，构造函数会断言这些条件成立，并在断言失败时打印相应的原因。</p>
 <p>使用 <a href="animation/Curve/transform.html">transform</a> 对该曲线求值时，数值会从一个控制点平滑插值到下一个控制点，依次经过 (0.0, 0.0)、给定的各个控制点以及 (1.0, 1.0)。</p>
