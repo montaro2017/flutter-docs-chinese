@@ -82,8 +82,8 @@ def main():
     ap.add_argument('--scope', choices=['body', 'prose', 'page'], default='prose', help='body=description; prose=description + dd summaries; page=all text')
     ap.add_argument('--page', action='append', default=[], help='API page or library prefix, e.g. flutter/widgets/ (repeatable)')
     ap.add_argument('--include-code', action='store_true')
-    ap.add_argument('--workers', type=int, default=min(4, os.cpu_count() or 1),
-                    help='coverage: parallel page workers (default: up to 4)')
+    ap.add_argument('--workers', type=int, default=min(8, os.cpu_count() or 1),
+                    help='coverage: parallel page workers (default: up to 8)')
     ap.add_argument('--text-dir', type=Path, help='export UTF-8 plain text preserving page paths')
     ap.add_argument('--json', type=Path, help='write totals and per-page counts')
     args = ap.parse_args()
