@@ -97,15 +97,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="painting/ImageStream-class.html">ImageStream</a> 对象使用 ImageInfo 表示获取到的图像实际数据。</p>
 <p><a href="painting/ImageInfo-class.html">ImageInfo</a>（以及 <a href="dart-ui/Image-class.html">ui.Image</a>）的释放约定不同于传统约定。传统约定通常要求对象释放由自身创建的成员；而此处的释放约定如下：</p>
 <ul>
-<li><a href="painting/ImageInfo-class.html">ImageInfo</a> disposes <a href="painting/ImageInfo/image.html">image</a>, even if it is received as a constructor argument.</li>
+<li><a href="painting/ImageInfo-class.html">ImageInfo</a> 会释放 <a href="painting/ImageInfo/image.html">image</a>，即使它是作为构造参数传入的。</li>
 <li><a href="painting/ImageInfo-class.html">ImageInfo</a> 应由持有它的对象释放，而不是由创建它的对象释放。</li>
-<li>It is expected that only one object owns reference to <a href="painting/ImageInfo-class.html">ImageInfo</a> object.</li>
+<li>预期同一时刻只有一个对象持有 <a href="painting/ImageInfo-class.html">ImageInfo</a> 的引用。</li>
 </ul>
 <p>安全提示：</p>
 <ul>
 <li>要在对象间共享 <a href="painting/ImageInfo-class.html">ImageInfo</a> 或 <a href="dart-ui/Image-class.html">ui.Image</a>，请使用 <a href="painting/ImageInfo/clone.html">clone</a> 方法。此方法不会复制整个底层图像，只会引用图像及其信息。</li>
-<li>After passing a <a href="dart-ui/Image-class.html">ui.Image</a> or <a href="painting/ImageInfo-class.html">ImageInfo</a> reference to another object,
-release the reference.</li>
+<li>将 <a href="dart-ui/Image-class.html">ui.Image</a> 或 <a href="painting/ImageInfo-class.html">ImageInfo</a> 的引用传给其他对象后，应释放该引用。</li>
 </ul>
 </section>
 
