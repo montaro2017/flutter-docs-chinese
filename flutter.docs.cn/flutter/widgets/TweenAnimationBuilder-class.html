@@ -107,11 +107,8 @@ aspect-ratio: 560 / 315;">
 </iframe>
 <p>动画属性的类型（例如 <a href="dart-ui/Color-class.html">Color</a>、<a href="dart-ui/Rect-class.html">Rect</a>、<a href="dart-core/double-class.html">double</a> 等）由所提供的 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 类型决定（例如 <a href="animation/ColorTween-class.html">ColorTween</a>、<a href="animation/RectTween-class.html">RectTween</a>、<a href="animation/Tween-class.html">Tween&lt;double&gt;</a> 等）。</p>
 <p><a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 也定义动画的目标值：widget 首次构建时，会从 <a href="animation/Tween/begin.html">Tween.begin</a> 动画过渡到 <a href="animation/Tween/end.html">Tween.end</a>。随时都可以通过提供具有新 <a href="animation/Tween/end.html">Tween.end</a> 值的新 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 来触发新动画。新动画会从当前动画值开始（如果旧动画已完成，该值可能是旧 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 的 <a href="animation/Tween/end.html">Tween.end</a>），并过渡到新 <a href="widgets/TweenAnimationBuilder/tween.html">tween</a> 的 <a href="animation/Tween/end.html">Tween.end</a>。</p>
-<p>The animation is further customized by providing a <a href="widgets/ImplicitlyAnimatedWidget/curve.html">curve</a> 和 <a href="widgets/ImplicitlyAnimatedWidget/duration.html">duration</a>.</p>
-<p>The current value of the animation along with the <a href="widgets/TweenAnimationBuilder/child.html">child</a> is passed to
-the <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> callback, which is expected to build a <a href="widgets/Widget-class.html">Widget</a> based on the
-current animation value. The <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> is called throughout the animation
-for every animation value until <a href="animation/Tween/end.html">Tween.end</a> 。</p>
+<p>还可通过指定 <a href="widgets/ImplicitlyAnimatedWidget/curve.html">curve</a> 和 <a href="widgets/ImplicitlyAnimatedWidget/duration.html">duration</a> 来进一步自定义动画。</p>
+<p>动画的当前值和 <a href="widgets/TweenAnimationBuilder/child.html">child</a> 会传递给 <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> 回调。该回调应根据当前动画值构建一个 <a href="widgets/Widget-class.html">Widget</a>。在动画运行期间，每个动画值都会触发该 <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> 回调，直到到达 <a href="animation/Tween/end.html">Tween.end</a>。</p>
 <p>每当动画完成时，都会调用所提供的 <a href="widgets/ImplicitlyAnimatedWidget/onEnd.html">onEnd</a> 回调。注册 <a href="widgets/ImplicitlyAnimatedWidget/onEnd.html">此回调</a>可在当前动画结束时触发操作，例如启动另一段动画。</p>
 <h2 id="performance-optimizations">性能优化</h2>
 <p>如果 <a href="widgets/TweenAnimationBuilder/builder.html">builder</a> 函数包含不依赖动画的子树，那么只构建一次该子树，比每次动画帧都重新构建更高效。</p>
@@ -323,7 +320,7 @@ for every animation value until <a href="animation/Tween/end.html">Tween.end</a>
 
 </dt>
 <dd class="inherited">
-  创建一个 创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a>，用于管理此 widget 在树中的位置。
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a>，用于管理此 widget 在树中的位置。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>

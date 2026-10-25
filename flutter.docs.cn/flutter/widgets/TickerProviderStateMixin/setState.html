@@ -124,10 +124,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   await File('$dirName/counter.txt').writeAsString('$_counter');
 }
 </code></pre>
-<p>Sometimes, the changed state is in some other object not owned by the
-widget <a href="widgets/State-class.html">State</a>, but the widget nonetheless needs to be updated to react to
-the new state. This is especially common with <a href="foundation/Listenable-class.html">Listenable</a>s, such as
-<a href="animation/AnimationController-class.html">AnimationController</a>。</p>
+<p>有时，变化发生在 widget 的 <a href="widgets/State-class.html">State</a> 并不持有的其他对象中，但 widget 仍需要更新以响应这一变化。这在 <a href="foundation/Listenable-class.html">Listenable</a> 对象中尤为常见，例如 <a href="animation/AnimationController-class.html">AnimationController</a>。</p>
 <p>在这种情况下，最好在传给 <a href="widgets/State/setState.html">setState</a> 的回调中添加注释，说明状态发生了什么变化：</p>
 <pre class="language-dart"><code class="language-dart">void _update() {
   setState(() { /* The animation changed. */ });
@@ -148,7 +145,8 @@ animation.addListener(_update);
 <p>因此，只有在检测到状态变化后，<a href="widgets/State/build.html">build</a> 方法会产生实质不同结果时，才应调用此方法。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a>，其 API 文档中包含与此处相关的性能注意事项。</li>
+<li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a>, the API documentation for which has a section on
+performance considerations that are relevant here.</li>
 </ul>
 </section>
 
