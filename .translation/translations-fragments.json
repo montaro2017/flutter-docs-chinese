@@ -600952,6 +600952,10 @@
     {
       "source": "Given a map with keys of colors and values of how often the color appears,\nrank the colors based on suitability for being used for a UI theme.",
       "translation": "给定一个映射，其中键为颜色，值为该颜色出现的频率；根据颜色用于 UI 主题的适合程度对颜色进行排序。"
+    },
+    {
+      "source": "<p>The list returned is of length &lt;= <code>desired</code>. The recommended color is the\nfirst item, the least suitable is the last. There will always be at least\none color returned. If all the input colors were not suitable for a theme,\na default fallback color will be provided, Google Blue. The default\nnumber of colors returned is 4, simply because thats the # of colors\ndisplay in Android 12's wallpaper picker.</p>",
+      "translation": "<p>返回列表的长度不超过 <code>desired</code>。列表中的第一种颜色最适合推荐，最后一种最不适合。始终至少会返回一种颜色。如果所有输入颜色都不适合主题，则会使用默认备用颜色 Google Blue。默认返回 4 种颜色，这是因为 Android 12 壁纸选择器会显示 4 种颜色。</p>"
     }
   ],
   "package-test_api_scaffolding/Tags/Tags.html": [
@@ -601082,6 +601086,10 @@
     {
       "source": "\n  Returns the input <code>text</code> with spaces instead of HTML tags or HTML escapes,\nwhich is helpful for text directionality estimation.\nNote: This function should not be used in other contexts.\nIt does not deal well with many things: comments, script,\nelements, style elements, dir attribute,<code>&gt;</code> in quoted attribute values,\netc. But it does handle well enough the most common use cases.\nSince the worst that can happen as a result of these shortcomings is that\nthe wrong directionality will be estimated, we have not invested in\nimproving this.\n  \n\n",
       "translation": "\n  返回 <code>text</code>，将 HTML 标签或 HTML 转义序列替换为空格，便于估算文本方向。注意：不要在其他场景使用此函数。它对很多内容处理不当，包括注释、脚本、元素、style 元素、dir 属性、带引号的属性值中的 <code>&gt;</code> 等。不过，它对最常见用例的处理足够可靠。由于这些缺点最坏只会导致方向估算错误，因此我们没有投入精力改进它。\n  \n\n"
+    },
+    {
+      "source": "<dd>\n  Enforce the <code>html</code> snippet in LTR directionality regardless of overall\ncontext. If the html piece was enclosed by a tag, the direction will be\napplied to existing tag, otherwise a span tag will be added as wrapper.\nFor this reason, if html snippet start with with tag, this tag must\nenclose the whole piece. If the tag already has a direction specified,\nthis new one will override existing one in behavior (tested on FF and IE).\n  \n\n</dd>",
+      "translation": "<dd>无论整体上下文如何，都强制将 <code>html</code> 片段按从左到右（LTR）的方向排版。如果 HTML 片段包含在某个标签中，方向设置会应用于该现有标签；否则会添加一个 span 作为包装。因此，如果 HTML 片段以标签开头，该标签必须包住整个片段。如果标签已经指定了方向，新设置会覆盖原有方向（已在 Firefox 和 Internet Explorer 中测试）。</dd>"
     }
   ],
   "dart-async/runZoned.html": [
@@ -601128,6 +601136,24 @@
     {
       "source": "<dd>\n  The area of the screen being pressed, scaled to a value between 0 and 1.\nThe value of size can be used to determine fat touch events. This value\nis only set on Android, and is a device specific approximation within\nthe range of detectable values. So, for example, the value of 0.1 could\nmean a touch with the tip of the finger, 0.2 a touch with full finger,\nand 0.3 the full palm.\n  <div class=\"features\"><span class=\"feature\">final</span></div>\n\n</dd>",
       "translation": "<dd>被按压的屏幕区域大小，缩放到 0 到 1 之间。可以用 size 值判断是否为大面积触摸。该值仅在 Android 上设置，并且只是设备对可检测范围的估算。例如，0.1 可能表示指尖触摸，0.2 可能表示整根手指触摸，0.3 可能表示整个手掌触摸。<div class=\"features\"><span class=\"feature\">final</span></div></dd>"
+    }
+  ],
+  "material/MenuAcceleratorChildBuilder.html": [
+    {
+      "source": "<li>The <code>index</code> is the index of the accelerator character within the\n<code>label.characters</code> that applies to this accelerator. If it is -1, then the\naccelerator should not be highlighted. Otherwise, the given character\nshould be highlighted somehow in the rendered label (typically with an\nunderscore). Importantly, <code>index</code> is not an index into the <a href=\"dart-core/String-class.html\">String</a>\n<code>label</code>, it is an index into the <a href=\"package-characters_characters/Characters-class.html\">Characters</a> iterable returned by\n<code>label.characters</code>, so that it is in terms of user-visible characters\n(a.k.a. grapheme clusters), not Unicode code points.</li>",
+      "translation": "<li><code>index</code> 表示此加速键对应的字符在 <code>label.characters</code> 中的位置。如果值为 -1，则不应突出显示加速键；否则，应在渲染后的标签中以某种方式突出该字符（通常加下划线）。注意，<code>index</code> 不是 <a href=\"dart-core/String-class.html\">String</a> 中的位置，而是 <code>label</code> 的 <a href=\"package-characters_characters/Characters-class.html\">Characters</a> 可迭代对象（由 <code>label.characters</code> 返回）中的位置，因此索引单位是用户可见字符（即字素簇），而不是 Unicode 码点。</li>"
+    }
+  ],
+  "package-web_web/Event-extension-type.html": [
+    {
+      "source": "<dd>\n  The <strong><code>stopPropagation()</code></strong> method of the <a href=\"package-web_web/Event-extension-type.html\">Event</a>\ninterface prevents further propagation of the current event in the\ncapturing and\nbubbling phases. It does not, however, prevent any default behaviors from\noccurring; for\ninstance, clicks on links are still processed. If you want to stop those\nbehaviors, see\nthe <a href=\"package-web_web/Event/preventDefault.html\">Event.preventDefault</a> method. It also does not\nprevent propagation to other event-handlers of the current element. If you\nwant to stop those,\nsee <a href=\"package-web_web/Event/stopImmediatePropagation.html\">Event.stopImmediatePropagation</a>.\n  \n\n</dd>",
+      "translation": "<dd><strong><code>stopPropagation()</code></strong> 方法属于 <a href=\"package-web_web/Event-extension-type.html\">Event</a> 接口，可阻止当前事件在捕获阶段和冒泡阶段继续传播。但它不会阻止事件的默认行为；例如，点击链接仍会打开链接。若要阻止默认行为，请参阅 <a href=\"package-web_web/Event/preventDefault.html\">Event.preventDefault</a>。它也不会阻止当前元素上的其他事件处理器被调用；若要阻止这些处理器，请参阅 <a href=\"package-web_web/Event/stopImmediatePropagation.html\">Event.stopImmediatePropagation</a>。</dd>"
+    }
+  ],
+  "package-web_web/Window-extension-type.html": [
+    {
+      "source": "<dd>\n  The <strong><code>window.requestIdleCallback()</code></strong> method queues a function\nto be called during a browser's idle periods. This enables developers to\nperform\nbackground and low priority work on the main event loop, without impacting\nlatency-critical events such as animation and input response. Functions\nare generally\ncalled in first-in-first-out order; however, callbacks which have a\n<code>timeout</code>\nspecified may be called out-of-order if necessary in order to run them\nbefore the\ntimeout elapses.\n  \n\n</dd>",
+      "translation": "<dd><strong><code>window.requestIdleCallback()</code></strong> 方法会将函数排入队列，在浏览器空闲时调用。开发者可借此在主事件循环中执行后台或低优先级任务，而不影响动画、输入等对延迟敏感的事件。通常按先进先出的顺序调用这些函数；不过，如果回调指定了 <code>timeout</code>，为了确保它在超时前运行，浏览器必要时可以打破此顺序。</dd>"
     }
   ]
 }
