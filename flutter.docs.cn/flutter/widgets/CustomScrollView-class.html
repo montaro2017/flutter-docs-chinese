@@ -217,9 +217,7 @@ bar, a grid, and an infinite list.
 <p>最后一个值可以由框架精确计算，但前两个值必须由调用方提供。大多数高级滚动组件会自动提供这些信息。例如，<a href="widgets/ListView-class.html">ListView</a> 会为每个子 widget 自动设置语义索引，并将语义子项数设为列表长度。</p>
 <p>要确定当前可见的索引，滚动视图需要将每个可滚动项目生成的语义信息与语义索引关联起来。可以通过使用 <a href="widgets/IndexedSemantics-class.html">IndexedSemantics</a> 包装子 widget 来实现。</p>
 <p>该语义索引不一定与可滚动组件中 widget 的索引相同，因为有些 widget 不会提供语义信息。以 <a href="widgets/ListView/ListView.separated.html">ListView.separated</a> 为例：每隔一个 widget 就是一个不包含语义信息的分隔线。因此，只有序号为奇数的 widget 才有语义索引（索引值为 index ~/ 2）。此外，本例中的子项总数是 widget 数量的一半。（<a href="widgets/ListView/ListView.separated.html">ListView.separated</a> 构造函数会自动处理这些情况；这里仅作示例。）</p>
-<p>The total number of visible children can be provided by the constructor
-parameter <code>semanticChildCount</code>. This should always be the same as the
-number of widgets wrapped in <a href="widgets/IndexedSemantics-class.html">IndexedSemantics</a>.</p>
+<p>可通过构造函数参数 <code>semanticChildCount</code> 提供可见子项的总数。该数量应始终与使用 <a href="widgets/IndexedSemantics-class.html">IndexedSemantics</a> 包装的 widget 数量一致。</p>
 <h2 id="persisting-the-scroll-position-during-a-session">在会话期间保留滚动位置</h2>
 <p>滚动视图会尝试使用 <a href="widgets/PageStorage-class.html">PageStorage</a> 保存滚动位置。若要禁用此行为，可在 <a href="widgets/ScrollView/controller.html">controller</a> 上将 <a href="widgets/ScrollController/keepScrollOffset.html">ScrollController.keepScrollOffset</a> 设为 false。若启用此功能，建议将 <a href="widgets/Widget/key.html">key</a> 设置为 <a href="widgets/PageStorageKey-class.html">PageStorageKey</a>，以便区分不同的滚动视图。</p>
 <p>另请参阅：</p>
