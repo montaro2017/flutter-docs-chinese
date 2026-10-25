@@ -103,9 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>如果可能，将类似 JSON 的 JavaScript 值转换为对应的 Dart 值。</p>
 <p><a href="dart-js_interop/NullableObjectUtilExtension/jsify.html">NullableObjectUtilExtension.jsify</a> 的作用基本相反：<a href="dart-js_interop/JSAnyUtilityExtension/dartify.html">dartify</a> 接收类似 JSON 的 JavaScript 值，并递归地将其转换为 Dart 对象，过程如下：</p>
 <ul>
-<li>If the value is a string, number, boolean, <code>null</code>, <code>undefined</code>,
-<code>DataView</code> or a typed array, does the equivalent <code>toDart</code> operation if
-it exists and returns the result.</li>
+<li>如果值为字符串、数字、布尔值、<code>null</code>、<code>undefined</code>、<code>DataView</code> 或类型化数组，则在存在对应操作时执行等效的 <code>toDart</code> 操作并返回结果。</li>
 <li>如果值是简单的 JS 对象（其原型为 <code>null</code> 或 JS <code>Object</code>），则创建并返回一个 <code>[Map]&lt;Object?, Object?&gt;</code>。其键是递归转换后的键（通过 <code>Object.keys</code> 获取），值则是该 JS 对象中对应键的值。</li>
 <li>If the value is a JS <code>Array</code>, each item in it is recursively converted
 and added to a new <code>[List]&lt;Object?&gt;</code>, which is then returned.</li>
