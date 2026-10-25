@@ -114,11 +114,7 @@ similar methods. This pathway will be removed at a future date.</li>
 <li>If a "flutter/keydata" message is received first, then this platform is
 considered a modern platform. The hardware key events are stored, and
 dispatched only when a raw key message is received.</li>
-<li>If a "flutter/keyevent" message is received first, then this platform is
-considered a legacy platform. The raw key event is transformed into a
-hardware key event at best effort. No messages from "flutter/keydata" are
-expected. This behavior has been deprecated, and will be removed at a
-future date.</li>
+<li>如果首先收到“flutter/keyevent”消息，则此平台会被视为旧版平台。原始按键事件会尽力转换为硬件按键事件。此时不应收到“flutter/keydata”消息。此行为已弃用，未来将会移除。</li>
 </ul>
 <p>因此，要正确实现支持 <code>FlutterEngineSendKeyEvent</code> 的平台，必须确保应用启动时先调用 <code>FlutterEngineSendKeyEvent</code>，再发送“flutter/keyevent”消息；并且每个物理按键事件结束时都必须发送一条“flutter/keyevent”消息。</p>
 </section>
