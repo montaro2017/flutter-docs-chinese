@@ -124,8 +124,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="dart-ui/DisplayFeature-class.html">DisplayFeature</a> 可能会将屏幕分割成多个子屏幕。系统会在距离 <code>anchorPoint</code> 最近的子屏幕中呈现内容。</p>
 <p>如果未提供 <code>anchorPoint</code>，则使用 <a href="widgets/Directionality-class.html">Directionality</a>：</p>
 <ul>
-<li>当方向为 <a href="dart-ui/TextDirection.html">TextDirection.ltr</a> 时，<code>anchorPoint</code> 设为 <code>Offset.zero</code>，内容会显示在左上方子屏幕。</li>
-<li>当方向为 <a href="dart-ui/TextDirection.html">TextDirection.rtl</a> 时，<code>anchorPoint</code> 设为 <code>Offset(double.maxFinite, 0)</code>，内容会显示在右上方子屏幕。</li>
+<li>for <a href="dart-ui/TextDirection.html">TextDirection.ltr</a>, <code>anchorPoint</code> is <code>Offset.zero</code>, which will
+cause the content to appear in the top-left sub-screen.</li>
+<li>for <a href="dart-ui/TextDirection.html">TextDirection.rtl</a>, <code>anchorPoint</code> is <code>Offset(double.maxFinite, 0)</code>,
+which will cause the content to appear in the top-right sub-screen.</li>
 </ul>
 <p>如果未提供 <code>anchorPoint</code>，且组件树中没有 <a href="widgets/Directionality-class.html">Directionality</a> 祖先组件，则调试模式下会在构建时触发断言。</p>
 <p>返回一个 <code>Future</code>，在弹出窗口关闭时解析为传递给 <a href="widgets/Navigator/pop.html">Navigator.pop</a> 的值。</p>
@@ -136,10 +138,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a name="cupertino.showCupertinoModalPopup.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-This sample demonstrates how to create a restorable Cupertino modal route.
-This is accomplished by enabling state restoration by specifying
-<a href="cupertino/CupertinoApp/restorationScopeId.html">CupertinoApp.restorationScopeId</a> and using <a href="widgets/Navigator/restorablePush.html">Navigator.restorablePush</a> to
-push <a href="cupertino/CupertinoModalPopupRoute-class.html">CupertinoModalPopupRoute</a> when the <a href="cupertino/CupertinoButton-class.html">CupertinoButton</a> is tapped.</p>
+此示例展示如何创建可恢复的 Cupertino 模态路由。通过指定 <a href="cupertino/CupertinoApp/restorationScopeId.html">CupertinoApp.restorationScopeId</a> 启用状态恢复，并在点击 <a href="widgets/Navigator/restorablePush.html">Navigator.restorablePush</a> 时使用 <a href="cupertino/CupertinoModalPopupRoute-class.html">CupertinoModalPopupRoute</a> 推入 <a href="cupertino/CupertinoButton-class.html">CupertinoButton</a>。
 <p>在 Android 上测试状态恢复：</p>
 <ol>
 <li>启用“不保留活动”选项。用户离开应用后，该选项会立即销毁 Android Activity。设备开启开发者选项后即可使用此选项。</li>
@@ -173,7 +172,8 @@ push <a href="cupertino/CupertinoModalPopupRoute-class.html">CupertinoModalPopup
 </ol>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/DisplayFeatureSubScreen-class.html">DisplayFeatureSubScreen</a>，详细说明 <a href="dart-ui/DisplayFeature-class.html">DisplayFeature</a> 如何将屏幕划分为多个子屏幕。</li>
+<li><a href="widgets/DisplayFeatureSubScreen-class.html">DisplayFeatureSubScreen</a>, which documents the specifics of how
+<a href="dart-ui/DisplayFeature-class.html">DisplayFeature</a>s can split the screen into sub-screens.</li>
 <li><a href="cupertino/CupertinoActionSheet-class.html">CupertinoActionSheet</a>, which is the widget usually returned by the
 <code>builder</code> argument to <a href="cupertino/showCupertinoModalPopup.html">showCupertinoModalPopup</a>.</li>
 <li><a href="https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/">developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/</a></li>
