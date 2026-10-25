@@ -118,9 +118,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>此方法接收一个 <a href="dart-ui/Rect-class.html">Rect</a> 对象列表，每个对象定义 <code>atlas</code> 图像中要独立绘制的一个部分。每个 <a href="dart-ui/Rect-class.html">Rect</a> 都与 <code>transforms</code> 列表中的一个 <a href="dart-ui/RSTransform-class.html">RSTransform</a> 条目关联，该条目定义图像部分的绘制位置、旋转角度和统一缩放比例。每个 <a href="dart-ui/Rect-class.html">Rect</a> 还可以关联一个可选的 <a href="dart-ui/Color-class.html">Color</a>；绘制前会先使用 <code>blendMode</code> 将其与对应图像部分合成，再将结果混合到画布上。整个操作可以分解为以下步骤：</p>
 <ul>
 <li>图像的每个矩形区域由 <code>rects</code> 参数中的一个条目指定；如果提供了颜色，则使用 <code>colors</code> 列表中的对应条目和 <code>blendMode</code> 参数将二者混合。在此操作步骤中，图像区域视为源，关联的颜色视为目标。</li>
-<li>Blend the result from the first step onto the canvas using the translation,
-rotation, and scale properties expressed in the associated entry in the
-<code>transforms</code> list using the properties of the <a href="dart-ui/Paint-class.html">Paint</a> object.</li>
+<li>使用第一步的结果以及列表对应项中 <code>transforms</code> 所表示的平移、旋转和缩放属性，并结合 <a href="dart-ui/Paint-class.html">Paint</a> 对象的属性，将结果混合绘制到画布上。</li>
 </ul>
 <p>If the first stage of the operation which blends each part of the image with
 a color is needed, then both the <code>colors</code> 和 <code>blendMode</code> arguments must
