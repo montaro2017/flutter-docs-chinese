@@ -152,15 +152,7 @@ both one and more-than-one iteration of the quantifier's
 regular expression.
 (For <code>(a*|b)*</code>, the string <code>"aa"</code> can match both
  <code>(a*|b){1}</code> 和 <code>(a*|b){2}</code>.)</li>
-<li>Most uses of Dart regular expressions <em>search</em> for a match,
-for example using <a href="dart-core/RegExp/firstMatch.html">firstMatch</a>.
-If you do not <em>anchor</em> the pattern
-to the start of a line or input using <code>^</code>,
-this search acts as if the regexp began with an implicit <code>[^]*</code>.
-Starting your actual regular expression with <code>.*</code>
-then results in potential quadratic behavior for the search.
-Use anchors or <a href="dart-core/Pattern/matchAsPrefix.html">matchAsPrefix</a> where appropriate,
-or avoid starting the regexp with a quantified pattern.</li>
+<li>Dart 正则表达式的大多数用法都是<em>搜索</em>匹配项，例如使用 <a href="dart-core/RegExp/firstMatch.html">firstMatch</a>。如果没有将模式<em>锚定</em>到行首或输入开头（使用 <code>^</code>），搜索的效果就如同正则表达式前面隐式添加了 <code>[^]*</code>。此时再以 <code>.*</code> 开始实际正则表达式，可能导致搜索出现二次复杂度。请在适当时使用锚点或 <a href="dart-core/Pattern/matchAsPrefix.html">matchAsPrefix</a>，或者避免以带量词的模式开头。</li>
 <li><em>For experts only:</em> Neither Dart nor ECMAScript have general
 <a href="https://github.com/tc39/proposal-regexp-atomic-operators">“atomic grouping”</a>.
 Other regular expression dialects use this to limit backtracking.
