@@ -6,7 +6,7 @@
 python -X utf8 .translation/text_language_stats.py --method coverage
 
 # 控制并行度；设为 1 可串行运行
-python -X utf8 .translation/text_language_stats.py --method coverage --workers 8
+python -X utf8 .translation/text_language_stats.py --method coverage --workers 12
 
 # 仅统计某个库，自定义输出位置
 python -X utf8 .translation/text_language_stats.py --method coverage --page widgets/ --json .translation/language-stats/widgets.json --tree .translation/language-stats/widgets.html --details .translation/language-stats/widgets-details.jsonl
@@ -14,7 +14,7 @@ python -X utf8 .translation/text_language_stats.py --method coverage --page widg
 
 默认生成 `.translation/language-stats/coverage.html`（离线可展开的树形报告）、`coverage.json`（含同一棵树和逐页数据）、`coverage-details.jsonl`（待核查文本）。树按库、子目录、页面逐层组织；每层展示汇总覆盖率、映射词数/原文词数、三类单元数量和英文残留候选数。点击节点按需展开，不需要网络或安装依赖。
 
-覆盖率模式默认最多使用 8 个进程；可通过 `--workers` 调整。对当前 12 逻辑核环境的 `widgets/` 页面基准，8 个进程约 15.3 秒，4 个约 23.8 秒；12 个约 13.9 秒。设为 1 可串行运行。换成 Go/Dart 需要复刻 HTML 结构对齐、映射证据校验和报告生成；目前提高并行度已取得明显提速，因此先保留 Python 实现与现有统计口径。
+覆盖率模式默认最多使用 12 个进程；可通过 `--workers` 调整。对当前 12 逻辑核环境的 `widgets/` 页面基准，8 个进程约 15.3 秒，4 个约 23.8 秒；12 个约 13.9 秒，因此默认值采用 12。设为 1 可串行运行。程序用 lxml 的 C 扩展解析 HTML，并并行核对映射证据；迁移到 Go/Dart 需要复刻 HTML 结构对齐、映射校验和报告生成，可能改变统计口径。当前先用已有基准支持的并行度设置加速，同时保留成熟的 Python 实现。
 
 比较原始文档与中文站的相同结构单元。单元包含正文段落、标题、列表项、表格单元、直接正文及成员摘要，嵌套结构只计一次；支持 `--scope body` 排除正文外的成员摘要。页面范围同样来自可达页面清单，首页不计入。
 
