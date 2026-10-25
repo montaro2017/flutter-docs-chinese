@@ -105,14 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>每次调用 <a href="widgets/FocusNode-class.html">State.build</a> 都创建新的 <a href="widgets/State/build.html">FocusNode</a>，会导致 widget 每次构建时焦点都丢失；这通常不是期望行为（若希望丢失焦点，请调用 <a href="widgets/FocusNode/unfocus.html">unfocus</a>）。</p>
 <p>通常，宿主 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 同时也是焦点节点的拥有者；此时它也会在 <a href="widgets/FocusNode/dispose.html">State.dispose</a> 中调用 <a href="widgets/State/dispose.html">dispose</a>（这种情况下可以省略 <a href="widgets/FocusAttachment/detach.html">FocusAttachment.detach</a>，因为 dispose 会自动分离节点）。如果焦点节点由其他对象拥有，则该对象必须在节点不再使用时调用 <a href="widgets/FocusNode/dispose.html">dispose</a>。</p>
 <h2 id="key-event-propagation">按键事件传播</h2>
-<p>The <a href="widgets/FocusManager-class.html">FocusManager</a> receives key events from <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> and will pass
-them to the focused nodes. It starts with the node with the primary focus,
-and will call the <a href="widgets/FocusNode/onKeyEvent.html">onKeyEvent</a> callback for that node. If the callback
-returns <a href="widgets/KeyEventResult.html">KeyEventResult.ignored</a>, indicating that it did not handle the
-event, the <a href="widgets/FocusManager-class.html">FocusManager</a> will move to the parent of that node and call its
-<a href="widgets/FocusNode/onKeyEvent.html">onKeyEvent</a>. If that <a href="widgets/FocusNode/onKeyEvent.html">onKeyEvent</a> returns <a href="widgets/KeyEventResult.html">KeyEventResult.handled</a>, then it
-will stop propagating the event. If it reaches the root <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>,
-<a href="widgets/FocusManager/rootScope.html">FocusManager.rootScope</a>, the event is discarded.</p>
+<p><a href="widgets/FocusManager-class.html">FocusManager</a> 从 <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 接收按键事件，并将其传递给获得焦点的节点。它从主焦点节点开始，调用该节点的 <a href="widgets/FocusNode/onKeyEvent.html">onKeyEvent</a> 回调。如果回调返回 <a href="widgets/KeyEventResult.html">KeyEventResult.ignored</a>，表示未处理该事件，<a href="widgets/FocusManager-class.html">FocusManager</a> 就会转到该节点的父节点并调用父节点的 <a href="widgets/FocusNode/onKeyEvent.html">onKeyEvent</a>。如果该 <a href="widgets/FocusNode/onKeyEvent.html">onKeyEvent</a> 回调返回 <a href="widgets/KeyEventResult.html">KeyEventResult.handled</a>，事件传播便会停止。如果事件一路传到根 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>（<a href="widgets/FocusManager/rootScope.html">FocusManager.rootScope</a>），就会被丢弃。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/Focus-class.html">Focus</a>：管理 <a href="widgets/FocusNode-class.html">FocusNode</a>，并向其后代 widget 提供焦点信息和操作。</li>
