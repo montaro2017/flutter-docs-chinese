@@ -111,9 +111,7 @@ similar methods. This pathway will be removed at a future date.</li>
 </ul>
 <p><a class="deprecated" href="services/KeyEventManager-class.html">KeyEventManager</a> 用于解决键盘实现的跨平台兼容问题，因为旧平台可能尚未实现新的按键数据 API，只会在每条按键消息中发送原始按键数据。应用启动时，<a class="deprecated" href="services/KeyEventManager-class.html">KeyEventManager</a> 会检测平台通道消息的先后顺序（先收到“flutter/keyevent”还是“flutter/keydata”），以判断平台支持情况。</p>
 <ul>
-<li>If a "flutter/keydata" message is received first, then this platform is
-considered a modern platform. The hardware key events are stored, and
-dispatched only when a raw key message is received.</li>
+<li>如果首先收到 “flutter/keydata” 消息，则将此平台视为现代平台。硬件按键事件会先存储起来，只有收到原始按键消息后才会分发。</li>
 <li>如果首先收到“flutter/keyevent”消息，则此平台会被视为旧版平台。原始按键事件会尽力转换为硬件按键事件。此时不应收到“flutter/keydata”消息。此行为已弃用，未来将会移除。</li>
 </ul>
 <p>因此，要正确实现支持 <code>FlutterEngineSendKeyEvent</code> 的平台，必须确保应用启动时先调用 <code>FlutterEngineSendKeyEvent</code>，再发送“flutter/keyevent”消息；并且每个物理按键事件结束时都必须发送一条“flutter/keyevent”消息。</p>
