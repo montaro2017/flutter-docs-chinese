@@ -96,13 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>编译期间会记录可达代码中对已标注声明的使用情况，并将这些信息提供给编译后的处理步骤（例如链接钩子）。不可达代码中的使用情况不会记录。</p>
 <ul>
 <li>如果将此注解放在静态解析的函数或成员（例如顶层函数、静态方法、非重定向工厂构造函数、getter、setter、运算符、扩展方法或扩展类型方法）上，所有可达代码中对该成员的调用或 tear-off 都会被记录，并尽可能记录编译时可求值为常量表达式的调用参数。生成式构造函数和重定向工厂构造函数不能直接添加此注解。</li>
-<li>If placed on a class, any constant instance of the class (including
-instances created via <code>const</code> redirecting factory constructors), any
-non-const generative constructor invocation, and any generative
-constructor tear-off in reachable code will be recorded. Calls to
-non-const factory constructors are not recorded directly by annotating the
-class; rather, any generative constructor invocation within the factory
-body will be recorded.</li>
+<li>如果此注解用于类，则会记录可达代码中该类的任何常量实例（包括通过 <code>const</code> 重定向工厂构造函数创建的实例）、任何非 const 的生成式构造函数调用，以及任何生成式构造函数 tear-off。仅在类上添加注解不会直接记录对非 const 工厂构造函数的调用；相反，会记录工厂函数体内的生成式构造函数调用。</li>
 </ul>
 <p>仅记录可执行代码中的使用情况。元数据（注解）中的使用情况会被忽略。</p>
 <p><a href="meta/RecordUse-class.html">RecordUse</a> 注解只能用于 package 的 <code>lib/</code> 目录中的声明。</p>

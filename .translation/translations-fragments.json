@@ -23,6 +23,10 @@
     {
       "source": "Register a closure to be called when the object changes.",
       "translation": "注册一个在对象发生变化时调用的闭包。"
+    },
+    {
+      "source": "<dd>\n  Called whenever a new instance of the snapshot widget delegate class is\nprovided to the <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> object, or any time that a new\n<a href=\"widgets/SnapshotPainter-class.html\">SnapshotPainter</a> object is created with a new instance of the\ndelegate class (which amounts to the same thing, because the latter is\nimplemented in terms of the former).\n  \n\n</dd>",
+      "translation": "<dd>每当向 <a href=\"widgets/SnapshotWidget-class.html\">SnapshotWidget</a> 对象提供新的快照 widget 委托实例时，或使用新的委托实例创建 <a href=\"widgets/SnapshotPainter-class.html\">SnapshotPainter</a> 对象时（两者效果相同，因为后者是通过前者实现的），都会调用此方法。</dd>"
     }
   ],
   "flutter/widgets/SnapshotPainter/paintSnapshot.html": [
@@ -108892,6 +108896,10 @@
     {
       "source": "An estimate of the bounds within which this render object will paint.",
       "translation": "对此 render object 将绘制范围的估算。"
+    },
+    {
+      "source": "<dd>\n  If a subclass has a \"size\" (the state controlled by <code>parentUsesSize</code>,\nwhatever it is in the subclass, e.g. the actual <code>size</code> property of\n<a href=\"rendering/RenderBox-class.html\">RenderBox</a>), and the subclass verifies that in debug mode this \"size\"\nproperty isn't used when <a href=\"rendering/RenderObject/debugCanParentUseSize.html\">debugCanParentUseSize</a> isn't set, then that\nsubclass should override <a href=\"rendering/RenderObject/debugResetSize.html\">debugResetSize</a> to reapply the current values of\n<a href=\"rendering/RenderObject/debugCanParentUseSize.html\">debugCanParentUseSize</a> to that state.\n  \n\n</dd>",
+      "translation": "<dd>如果某个子类具有“size”（其状态由 <code>parentUsesSize</code> 控制，无论它在该子类中具体是什么，例如实际的 <code>size</code> 属性，如 <a href=\"rendering/RenderBox-class.html\">RenderBox</a> 中的属性），并且该子类会在调试模式下验证：当未设置 <a href=\"rendering/RenderObject/debugCanParentUseSize.html\">debugCanParentUseSize</a> 时不会使用此“size”属性，那么该子类应重写 <a href=\"rendering/RenderObject/debugResetSize.html\">debugResetSize</a>，以便将 <a href=\"rendering/RenderObject/debugCanParentUseSize.html\">debugCanParentUseSize</a> 的当前值重新应用到该状态。</dd>"
     }
   ],
   "flutter/rendering/RenderObjectWithChildMixin-mixin.html": [
@@ -148874,6 +148882,10 @@
     {
       "source": "The equality operator.",
       "translation": "相等运算符。"
+    },
+    {
+      "source": "<dd>\n  Re-fetches <code>assetKey</code> through the asset manager and reparses it into\nthe cached <code>ShaderLibrary</code> for that key, marking each shader dirty so\nthe next pipeline build evicts and re-registers it. The primary caller\nis the <code>ext.ui.gpu.reinitializeShaderLibrary</code> service extension driving\nhot reload from <code>flutter_tools</code>; tests may also call this directly.\nNo-ops if no library has been loaded for <code>assetKey</code>.\n  \n\n</dd>",
+      "translation": "<dd>通过资源管理器重新获取 <code>assetKey</code> 并重新解析到该键对应的缓存 <code>ShaderLibrary</code> 中，同时将每个着色器标记为脏状态，使下一次管线构建时将其逐出并重新注册。主要调用方是驱动热重载的 <code>ext.ui.gpu.reinitializeShaderLibrary</code> 服务扩展，它由 <code>flutter_tools</code> 调用；测试也可以直接调用此方法。如果尚未为 <code>assetKey</code> 加载任何库，则不执行操作。</dd>"
     }
   ],
   "flutter/flutter_gpu/StencilConfig-class.html": [
@@ -601478,6 +601490,24 @@
     {
       "source": "<dd>\n  Registers a service extension method with the given name (full\nname \"ext.flutter.name\"), which takes a single argument\n\"enabled\" which can have the value \"true\" or the value \"false\"\nor can be omitted to read the current value. (Any value other\nthan \"true\" is considered equivalent to \"false\". Other arguments\nare ignored.)\n  \n\n</dd>",
       "translation": "<dd>注册一个指定名称（完整名称为“ext.flutter.name”）的服务扩展方法。该方法接受一个名为“enabled”的参数，其值可以是“true”或“false”；也可以省略该参数以读取当前值。任何非“true”的值都视为“false”。其他参数会被忽略。\n  \n\n</dd>"
+    }
+  ],
+  "flutter/meta/RecordUse-class.html": [
+    {
+      "source": "<li>If placed on a class, any constant instance of the class (including\ninstances created via <code>const</code> redirecting factory constructors), any\nnon-const generative constructor invocation, and any generative\nconstructor tear-off in reachable code will be recorded. Calls to\nnon-const factory constructors are not recorded directly by annotating the\nclass; rather, any generative constructor invocation within the factory\nbody will be recorded.</li>",
+      "translation": "<li>如果此注解用于类，则会记录可达代码中该类的任何常量实例（包括通过 <code>const</code> 重定向工厂构造函数创建的实例）、任何非 const 的生成式构造函数调用，以及任何生成式构造函数 tear-off。仅在类上添加注解不会直接记录对非 const 工厂构造函数的调用；相反，会记录工厂函数体内的生成式构造函数调用。</li>"
+    }
+  ],
+  "flutter/flutter_test/TestRecordingCanvas/drawAtlas.html": [
+    {
+      "source": "<li>Blend each rectangular portion of the image specified by an entry in the\n<code>rects</code> argument with its associated entry in the <code>colors</code> list using the\n<code>blendMode</code> argument (if a color is specified). In this part of the operation,\nthe image part will be considered the source of the operation and the associated\ncolor will be considered the destination.</li>",
+      "translation": "<li>图像的每个矩形区域由 <code>rects</code> 参数中的一个条目指定；如果提供了颜色，则使用 <code>colors</code> 列表中的对应条目和 <code>blendMode</code> 参数将二者混合。在此操作步骤中，图像区域视为源，关联的颜色视为目标。</li>"
+    }
+  ],
+  "flutter/services/SystemChannels/localization-constant.html": [
+    {
+      "source": "<li><code>Localization.getStringResource</code>: Obtains the native string resource\nfor a specific locale. The argument is a <a href=\"dart-core/Map-class.html\">Map</a> with two keys, <code>key</code>\ngiving a <a href=\"dart-core/String-class.html\">String</a> which the resource is defined with, and an optional\n<code>locale</code> which is a <a href=\"dart-core/String-class.html\">String</a> containing the BCP47 locale identifier of\nthe locale requested. See <a href=\"dart-ui/Locale/toLanguageTag.html\">Locale.toLanguageTag</a>. When <code>locale</code> is not\nspecified, the current system locale is used instead.</li>",
+      "translation": "<li><code>Localization.getStringResource</code>：获取指定区域设置的原生字符串资源。参数是一个包含两个键的 <a href=\"dart-core/Map-class.html\">Map</a>：<code>key</code> 是定义该资源所用的 <a href=\"dart-core/String-class.html\">String</a>；可选的 <code>locale</code> 是包含所请求区域设置 BCP47 标识符的 <a href=\"dart-core/String-class.html\">String</a>。请参阅 <a href=\"dart-ui/Locale/toLanguageTag.html\">Locale.toLanguageTag</a>。未指定 <code>locale</code> 时，将使用当前系统区域设置。</li>"
     }
   ]
 }
