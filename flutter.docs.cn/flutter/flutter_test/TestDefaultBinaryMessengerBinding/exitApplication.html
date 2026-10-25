@@ -104,11 +104,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>通过调用原生应用 API，以干净地退出应用。</p>
-<p>This differs from calling <code>dart:io</code>'s <a href="dart-io/exit.html">exit</a> function in that it gives the
-engine a chance to clean up resources so that it doesn't crash on exit, so
-calling this is always preferred over calling <a href="dart-io/exit.html">exit</a>. It also optionally
-gives handlers of <a href="services/ServicesBinding/handleRequestAppExit.html">handleRequestAppExit</a> a chance to cancel the
-application exit.</p>
+<p>这与调用 <code>dart:io</code> 的 <a href="dart-io/exit.html">exit</a> 函数不同：此方法会让引擎有机会清理资源，避免退出时崩溃，因此通常应优先调用此方法，而不是调用 <a href="dart-io/exit.html">exit</a>。此外，它还可以选择让 <a href="services/ServicesBinding/handleRequestAppExit.html">handleRequestAppExit</a> 的处理器取消应用退出。</p>
 <p><code>exitType</code> 表示要执行的退出类型。对于 <a href="dart-ui/AppExitType.html">ui.AppExitType.cancelable</a> 退出，系统会通过调用 <a href="services/ServicesBinding/handleRequestAppExit.html">handleRequestAppExit</a> 询问应用，应用可以选择取消退出请求。如果 <code>exitType</code> 为 <a href="dart-ui/AppExitType.html">ui.AppExitType.required</a>，则应用会立即退出，不会询问应用。</p>
 <p>对于 <a href="dart-ui/AppExitType.html">ui.AppExitType.cancelable</a> 退出，返回值是应用对是否取消退出所作响应。实际情况下，该响应不会是 <a href="dart-ui/AppExitResponse.html">ui.AppExitResponse.exit</a>，因为收到结果时应用已经退出。</p>
 <p>如果平台支持退出代码，可选参数 <code>exitCode</code> 会用作应用退出代码。其他平台可能会忽略此参数。默认值为零。</p>
