@@ -102,9 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 of the slivers laid out so far.</li>
 <li>要确定下一个 sliver 子项的布局约束，先计算 offset 变量从 0.0 到当前位置所占用的绘制范围，并从 <a href="rendering/SliverConstraints/remainingPaintExtent.html">SliverConstraints.remainingPaintExtent</a> 中减去该值，得到子项可用的 <a href="rendering/SliverConstraints/remainingPaintExtent.html">SliverConstraints.remainingPaintExtent</a>。对于 <a href="rendering/SliverConstraints/scrollOffset.html">SliverConstraints.scrollOffset</a>，从传入约束的值中减去 offset 变量；如果结果为负数，则使用 0.0。</li>
 <li>完成所有 sliver 布局后，这个 offset 变量就表示 sliver 组的 <a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a>。由于特定 sliver 可能尝试在 sliver 组的滚动范围之外绘制（参见 <a href="widgets/SliverPersistentHeader-class.html">SliverPersistentHeader</a>），我们必须再进行一轮，将 <a href="rendering/SliverPhysicalParentData/paintOffset.html">SliverPhysicalParentData.paintOffset</a> 设置为合适的值，确保它位于 sliver 组的范围内。</li>
-<li>Finally, set the <a href="rendering/RenderSliver/geometry.html">RenderSliverMainAxisGroup.geometry</a> with the total
-<a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a>, <a href="rendering/SliverGeometry/paintExtent.html">SliverGeometry.paintExtent</a> calculated from
-the constraints and <a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a>, and <a href="rendering/SliverGeometry/maxPaintExtent.html">SliverGeometry.maxPaintExtent</a>.</li>
+<li>最后，根据约束计算出的总 <a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a>、<a href="rendering/SliverGeometry/paintExtent.html">SliverGeometry.paintExtent</a>、<a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a> 和 <a href="rendering/SliverGeometry/maxPaintExtent.html">SliverGeometry.maxPaintExtent</a>，设置 <a href="rendering/RenderSliver/geometry.html">RenderSliverMainAxisGroup.geometry</a>。</li>
 </ol>
 <p>
 <a name="widgets.SliverMainAxisGroup.1"></a>
