@@ -144,11 +144,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>Focus the nearest focusable enclosing scope of this node, but do not
 descend to locate the leaf <a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a> the way
 <a href="widgets/UnfocusDisposition.html">previouslyFocusedChild</a> does.</p>
-<p>Focusing the scope in this way clears the <a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a>
-history for the enclosing scope when it receives focus. Because of this,
-calling a traversal method like <a href="widgets/FocusNode/nextFocus.html">FocusNode.nextFocus</a> after unfocusing
-will cause the <a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a> to pick the node it thinks should be
-first in the scope.</p>
+<p>以这种方式聚焦作用域时，该作用域获得焦点后，会清除外层作用域的 <a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a> 历史记录。因此，取消焦点后调用 <a href="widgets/FocusNode/nextFocus.html">FocusNode.nextFocus</a> 等遍历方法时，<a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a> 会选择它认为应当位于作用域首位的节点。</p>
 <p>This is the default disposition for <a href="widgets/FocusNode/unfocus.html">FocusNode.unfocus</a>.</p>
   
 
@@ -165,14 +161,8 @@ first in the scope.</p>
 scope of this node.</p>
 <p>If there is no previously focused child, then this is equivalent to
 using the <a href="widgets/UnfocusDisposition.html">scope</a> disposition.</p>
-<p>Unfocusing with this disposition will cause <a href="widgets/FocusNode/unfocus.html">FocusNode.unfocus</a> to walk up
-the tree to the nearest focusable enclosing scope, then start to walk down
-the tree, looking for a focused child at its
-<a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a>.</p>
-<p>If the <a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a> is a scope, then look for its
-<a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a>, and so on, finding the leaf
-<a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a> that is not a scope, or, failing that, a
-leaf scope that has no focused child.</p>
+<p>使用此 disposition 取消焦点时，<a href="widgets/FocusNode/unfocus.html">FocusNode.unfocus</a> 会沿树向上查找到最近的可聚焦祖先作用域，然后再向下查找其 <a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a> 中记录的已聚焦子节点。</p>
+<p>如果 <a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a> 本身是一个作用域，就继续查找其 <a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a>，如此递归，直到找到一个本身不是作用域的叶节点 <a href="widgets/FocusScopeNode/focusedChild.html">FocusScopeNode.focusedChild</a>；如果找不到，则使用没有已聚焦子节点的叶作用域。</p>
   
 
 </dd>

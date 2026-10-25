@@ -147,14 +147,9 @@ by this enumeration.</p>
 </dt>
 <dd>
   <p>Keeps the focus among the items of the focus scope.</p>
-<p>Transfer focus to the edge node in the opposite direction of <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>
-as the edge node continues to move, thus forming a closed loop of focusable items.</p>
-<p>For moving transfers, requesting the next focus after the last focusable item will
-transfer focus to the first item, and requesting focus before the first item will
-transfer focus to the last item.</p>
-<p>For directional transfers, continuing to request right focus at the rightmost node
-will transfer focus to the leftmost node. Continuing to request left focus at the
-leftmost node will transfer focus to the rightmost node.</p>
+<p>当边缘节点继续移动时，将焦点转移到 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 的相反方向一侧的边缘节点，从而形成一个可聚焦项目的闭环。</p>
+<p>对于移动转移，在最后一个可聚焦项目之后请求下一个焦点会将焦点转移到第一个项目；在第一个项目之前请求焦点则会将焦点转移到最后一个项目。</p>
+<p>对于方向转移，在最右侧节点持续请求向右焦点会将焦点转移到最左侧节点；在最左侧节点持续请求向左焦点会将焦点转移到最右侧节点。</p>
   
 
 </dd>
@@ -167,16 +162,7 @@ leftmost node will transfer focus to the rightmost node.</p>
 </dt>
 <dd>
   <p>Allows the focus to leave the <a href="dart-ui/FlutterView-class.html">FlutterView</a>.</p>
-<p>Requesting next focus after the last focusable item or previous to the
-first item will unfocus any focused nodes. If the focus traversal action
-was initiated by the embedder (e.g. the Flutter Engine) the embedder
-receives a result indicating that the focus is no longer within the
-current <a href="dart-ui/FlutterView-class.html">FlutterView</a>. For example, <a href="widgets/NextFocusAction-class.html">NextFocusAction</a> invoked via keyboard
-(typically the TAB key) would receive <a href="widgets/KeyEventResult.html">KeyEventResult.skipRemainingHandlers</a>
-allowing the embedder handle the shortcut. On the web, typically the
-control is transferred to the browser, allowing the user to reach the
-address bar, escape an <code>iframe</code>, or focus on HTML elements other than
-those managed by Flutter.</p>
+<p>在最后一个可聚焦项目之后请求下一个焦点，或在第一个项目之前请求上一个焦点，会取消所有已聚焦节点的焦点。如果焦点遍历操作由嵌入方（例如 Flutter Engine）发起，嵌入方会收到结果，表示焦点已离开当前 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。例如，通过键盘（通常是 TAB 键）调用的 <a href="widgets/NextFocusAction-class.html">NextFocusAction</a> 会收到 <a href="widgets/KeyEventResult.html">KeyEventResult.skipRemainingHandlers</a>，从而允许嵌入方处理该快捷键。在 Web 上，控制权通常会交给浏览器，使用户能够访问地址栏、退出 <code>iframe</code>，或聚焦 Flutter 管理范围之外的 HTML 元素。</p>
   
 
 </dd>
@@ -189,9 +175,7 @@ those managed by Flutter.</p>
 </dt>
 <dd>
   <p>Allows focus to traverse up to parent scope.</p>
-<p>When reaching the edge of the current scope, requesting the next focus
-will look up to the parent scope of the current scope and focus the focus
-node next to the current scope.</p>
+<p>到达当前作用域边缘时请求下一个焦点，会向上查找当前作用域的父作用域，并将焦点移至当前作用域旁边的焦点节点。</p>
 <p>If there is no parent scope above the current scope, fallback to
 <a href="widgets/TraversalEdgeBehavior.html">closedLoop</a> behavior.</p>
   
