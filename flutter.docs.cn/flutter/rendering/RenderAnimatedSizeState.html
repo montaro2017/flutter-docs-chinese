@@ -143,9 +143,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  <p>The initial state, when we do not yet know what the starting and target
-sizes are to animate.</p>
-<p>The next state is <a href="rendering/RenderAnimatedSizeState.html">stable</a>.</p>
+  <p>初始状态，此时尚不知道要进行动画处理的起始尺寸和目标尺寸。</p>
+<p>下一个状态为 <a href="rendering/RenderAnimatedSizeState.html">stable</a>。</p>
   
 
 </dd>
@@ -157,10 +156,8 @@ sizes are to animate.</p>
 
 </dt>
 <dd>
-  <p>At this state the child's size is assumed to be stable and we are either
-animating, or waiting for the child's size to change.</p>
-<p>If the child's size changes, the state will become <a href="rendering/RenderAnimatedSizeState.html">changed</a>. Otherwise,
-it remains <a href="rendering/RenderAnimatedSizeState.html">stable</a>.</p>
+  <p>在此状态下，子级尺寸被视为稳定；渲染对象此时可能正在执行动画，也可能正在等待子级尺寸发生变化。</p>
+<p>如果子级尺寸发生变化，状态将变为 <a href="rendering/RenderAnimatedSizeState.html">changed</a>；否则仍为 <a href="rendering/RenderAnimatedSizeState.html">stable</a>。</p>
   
 
 </dd>
@@ -172,17 +169,14 @@ it remains <a href="rendering/RenderAnimatedSizeState.html">stable</a>.</p>
 
 </dt>
 <dd>
-  <p>At this state we know that the child has changed once after being assumed
-<a href="rendering/RenderAnimatedSizeState.html">stable</a>.</p>
-<p>The next state will be one of:</p>
+  <p>在此状态下，已确认子级在被视为 <a href="rendering/RenderAnimatedSizeState.html">stable</a> 后至少发生过一次变化。</p>
+<p>下一个状态将是以下状态之一：</p>
 <ul>
 <li>
-<p><a href="rendering/RenderAnimatedSizeState.html">stable</a> if the child's size stabilized immediately. This is a signal
-for the render object to begin animating the size towards the child's new
-size.</p>
+<p>如果子级尺寸立即稳定，则为 <a href="rendering/RenderAnimatedSizeState.html">stable</a>。这会提示渲染对象开始将尺寸动画调整到子级的新尺寸。</p>
 </li>
 <li>
-<p><a href="rendering/RenderAnimatedSizeState.html">unstable</a> if the child's size continues to change.</p>
+<p>如果子级尺寸持续变化，则为 <a href="rendering/RenderAnimatedSizeState.html">unstable</a>。</p>
 </li>
 </ul>
   
@@ -196,13 +190,9 @@ size.</p>
 
 </dt>
 <dd>
-  <p>At this state the child's size is assumed to be unstable (changing each
-frame).</p>
-<p>Instead of chasing the child's size in this state, the render object
-tightly tracks the child's size until it stabilizes.</p>
-<p>The render object remains in this state until a frame where the child's
-size remains the same as the previous frame. At that time, the next state
-is <a href="rendering/RenderAnimatedSizeState.html">stable</a>.</p>
+  <p>在此状态下，子级尺寸被视为不稳定（每帧都在变化）。</p>
+<p>在此状态下，渲染对象不会追逐子级尺寸，而是紧密跟随子级尺寸，直到其稳定。</p>
+<p>渲染对象会保持此状态，直到某一帧中子级尺寸与上一帧相同。此时，下一个状态为 <a href="rendering/RenderAnimatedSizeState.html">stable</a>。</p>
   
 
 </dd>
