@@ -126,15 +126,9 @@ var result = runZoned(
 secret = ""; // Erase the evidence.
 await result; // Wait for asynchronous computation to complete.
 </code></pre>
-<p>The new zone intercepts <code>print</code> and stores a value under the private
-symbol <code>#_secret</code>. The secret is available from the new <a href="dart-async/Zone-class.html">Zone</a> object,
-which is the <a href="dart-async/Zone/current.html">Zone.current</a> for the body,
-and is also the first, <code>self</code>, parameter to the <code>print</code> handler function.</p>
+<p>新区域会拦截 <code>print</code>，并在私有符号 <code>#_secret</code> 下存储一个值。可以通过新的 <a href="dart-async/Zone-class.html">Zone</a> 对象获取此值；该对象是函数体中的 <a href="dart-async/Zone/current.html">Zone.current</a>，同时也是传给 <code>print</code> 处理函数的第一个参数 <code>self</code>。</p>
 <p>如果设置了 <a href="dart-async/ZoneSpecification/handleUncaughtError.html">ZoneSpecification.handleUncaughtError</a>，或传入了已弃用的 <code>onError</code> 回调，则创建的 zone 将是一个 <em>错误 zone</em>。处于不同 <a href="dart-async/Zone/errorZone.html">Zone.errorZone</a> 的 zone 之间，Future 中的异步错误不会跨越 zone 边界。因此，如果某个 <a href="dart-async/Future-class.html">Future</a> 在创建的 zone 中以错误状态完成，那么在属于其他错误 zone 的 zone 中使用它时，看起来可能永远不会完成。在错误无法访问的 zone 中多次尝试使用该 Future，会导致错误在其原始错误 zone 中<em>再次</em>报告。</p>
-<p>See <a href="dart-async/runZonedGuarded.html">runZonedGuarded</a> in place of using the deprected <code>onError</code> argument.
-If <code>onError</code> is provided this function also tries to catch and handle
-synchronous errors from <code>body</code>, but may throw an error anyway returning
-<code>null</code> if the generic argument <code>R</code> is not nullable.</p>
+<p>可使用 <a href="dart-async/runZonedGuarded.html">runZonedGuarded</a> 替代已弃用的 <code>onError</code> 参数。如果提供了 <code>onError</code>，此函数还会尝试捕获并处理 <code>body</code> 中的同步错误；但如果泛型参数 <code>R</code> 不可空，返回 <code>null</code> 时仍可能抛出错误。</p>
 </section>
 
 
