@@ -108,14 +108,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p><a href="package-web_web/SourceBuffer-extension-type.html">SourceBuffer</a> 接口的 <strong><code>mode</code></strong> 属性用于控制媒体片段能否以任意顺序追加到 <code>SourceBuffer</code>，还是必须严格按顺序追加。</p>
 <p>可用值有以下两种：</p>
 <ul>
-<li><code>segments</code>: The media segment timestamps determine the order in which
-the
-segments are played. The segments can be appended to the <code>SourceBuffer</code> in
-any order.</li>
-<li><code>sequence</code>: The order in which the segments are appended to the
-<code>SourceBuffer</code> determines the order in which they are played. Segment
-timestamps are generated automatically for the segments that observe this
-order.</li>
+<li><code>segments</code>：媒体片段的时间戳决定片段的播放顺序。片段可以按任意顺序追加到 <code>SourceBuffer</code>。</li>
+<li><code>sequence</code>：片段追加到 <code>SourceBuffer</code> 的顺序决定其播放顺序。对于遵循此顺序的片段，时间戳会自动生成。</li>
 </ul>
 <p>创建 <code>SourceBuffer</code> 时，会通过 <code>MediaSource.addSourceBuffer()</code> 设置初始模式。如果媒体片段已有时间戳，值会设为 <code>segments</code>；如果没有，则设为 <code>sequence</code>。</p>
 <p>如果初始值为 <code>sequence</code>，尝试将 <code>mode</code> 属性改为 <code>segments</code> 会抛出异常。在 <code>sequence</code> 模式下必须保持现有片段顺序。不过，可以将值从 <code>segments</code> 改为 <code>sequence</code>；这会固定播放顺序，并生成与之对应的新时间戳。</p>
