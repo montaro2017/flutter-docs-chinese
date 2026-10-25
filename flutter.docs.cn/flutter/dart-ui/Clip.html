@@ -204,21 +204,10 @@ edge artifacts.</li>
 
 </dt>
 <dd>
-  <p>Clip with anti-aliasing and <code>saveLayer</code> immediately following the clip.</p>
-<p>This mode not only clips with anti-aliasing, but also allocates an offscreen
-buffer. All subsequent paints are carried out on that buffer before finally
-being clipped and composited back.</p>
-<p>This is very slow. It has no bleeding edge artifacts, unlike <a href="dart-ui/Clip.html">antiAlias</a>,
-but it changes the semantics as it introduces an offscreen buffer.
-For example, see this
-<a href="https://fiddle.skia.org/c/83ed46ceadaf90f36a4df3b98cbe1c35">Skia Fiddle without <code>saveLayer</code></a>
-and this
-<a href="https://fiddle.skia.org/c/704acfa049a7e99fbe685232c45d1582">Skia Fiddle with <code>saveLayer</code></a>.</p>
-<p>Use this mode only if necessary. For example, if you have an
-image overlaid on a very different background color. In these
-cases, consider if you can avoid overlaying multiple colors in one
-location (e.g. by having the background color only present where the image is
-absent). If possible, prefer <a href="dart-ui/Clip.html">antiAlias</a> as it is much faster.</p>
+  <p>裁剪时应用抗锯齿，并紧接着创建 <code>saveLayer</code>。</p>
+<p>此模式不仅会进行抗锯齿裁剪，还会分配一个屏幕外缓冲区。之后所有绘制都会在该缓冲区中完成，最后再进行裁剪并合成回去。</p>
+<p>此模式速度很慢。与 <a href="dart-ui/Clip.html">antiAlias</a> 不同，它不会产生边缘渗色伪影，但会因引入屏幕外缓冲区而改变语义。例如，请参阅这个<a href="https://fiddle.skia.org/c/83ed46ceadaf90f36a4df3b98cbe1c35">不使用 <code>saveLayer</code> 的 Skia Fiddle</a>，以及这个<a href="https://fiddle.skia.org/c/704acfa049a7e99fbe685232c45d1582">使用 <code>saveLayer</code> 的 Skia Fiddle</a>。</p>
+<p>仅在必要时使用此模式。例如，图像叠加在颜色差异很大的背景上时。遇到这种情况，可以考虑避免在同一位置叠加多种颜色（例如，只在图像缺失处显示背景色）。如果可行，优先使用 <a href="dart-ui/Clip.html">antiAlias</a>，因为它快得多。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="dart-ui/Clip.html">antiAlias</a>, which is much faster, and has similar clipping results.</li>
