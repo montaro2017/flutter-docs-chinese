@@ -104,14 +104,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>当 Flutter 应用嵌入 iOS 平台视图（例如 <code>WKWebView</code>）时，Flutter 框架和原生 iOS 视图都会收到触摸事件。为防止两个系统同时响应同一次触摸（例如一次滚动手势同时滚动 Flutter <code>ListView</code> 和原生 <code>UIScrollView</code>），当 Flutter 判断应由框架处理手势时，需要一种机制来“阻止”原生视图的手势识别器。</p>
 <p>Flutter 使用两种机制实现这一点：</p>
 <ol>
-<li><strong>Synchronous Blocking (Hit Testing):</strong> During the initial touch (<code>UIResponder.touchesBegan</code>),
-Flutter performs a synchronous hit test. If the touch lands on a Flutter widget that is
-visually on top of the platform view, Flutter immediately blocks the native view from
-receiving the touch.</li>
-<li><strong>Asynchronous Blocking (Gesture Arena):</strong> If the touch lands directly on the platform view,
-both Flutter and the native view begin tracking the gesture. Flutter's gesture arena resolves
-which system wins. If Flutter wins (e.g., the user is scrolling a Flutter <code>ListView</code> that
-contains the platform view), Flutter asynchronously cancels the native view's gesture recognizers.</li>
+<li><strong>同步阻止（命中测试）：</strong>在初始触摸（<code>UIResponder.touchesBegan</code>）期间，Flutter 会同步执行命中测试。如果触摸落在视觉上覆盖平台视图的 Flutter widget 上，Flutter 会立即阻止原生视图接收该触摸。</li>
+<li><strong>异步阻止（手势竞技场）：</strong>如果触摸直接落在平台视图上，Flutter 和原生视图都会开始跟踪该手势。Flutter 的手势竞技场会判定哪一方获胜。如果 Flutter 获胜（例如，用户正在滚动一个包含该平台视图的 Flutter <code>ListView</code>），Flutter 会异步取消原生视图的手势识别器。</li>
 </ol>
 <p>默认策略（<a href="services/UiKitViewGestureBlockingPolicy.html">fallbackToPluginDefault</a>，通常会解析为 <a href="services/UiKitViewGestureBlockingPolicy.html">eager</a>）适用于大多数情况。不过，某些 Apple 或第三方原生视图存在缺陷：Flutter 异步阻止手势时若频繁取消手势，其内部识别器可能会卡在过时状态。遇到此类情况时，可以改用 <a href="services/UiKitViewGestureBlockingPolicy.html">doNotBlockGesture</a> 或 <a href="services/UiKitViewGestureBlockingPolicy.html">waitUntilTouchesEnded</a> 来绕过原生视图的问题。</p>
 <p>更多详情请参阅：<a href="https://flutter.dev/go/ios-platform-view-touch-gesture-blocking">https://flutter.dev/go/ios-platform-view-touch-gesture-blocking</a>。</p>

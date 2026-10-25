@@ -112,21 +112,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>创建新的可取消操作；当前操作正常完成、以错误完成或被取消时，该操作也会完成。</p>
 <p>当前操作正常完成时，其值会传递给 <code>onValue</code>，并附带用于控制返回操作的 <a href="package-async_async/CancelableCompleter-class.html">CancelableCompleter</a>。</p>
-<p>If this operation completes as an error, and no <code>onError</code> callback is
-provided, the returned operation is completed with the same error and
-stack trace.
-If this operation completes as an error, and an <code>onError</code> callback is
-provided, the error and stack trace are passed to <code>onError</code> with a
-<a href="package-async_async/CancelableCompleter-class.html">CancelableCompleter</a> controlling the returned operation.</p>
-<p>If this operation is canceled, and no <code>onCancel</code> callback is provided,
-the returned operation is canceled.
-If this operation is canceled, and an <code>onCancel</code> callback is provided,
-the <code>onCancel</code> callback is called with a <a href="package-async_async/CancelableCompleter-class.html">CancelableCompleter</a> controlling
-the returned operation.</p>
-<p>At most one of <code>onValue</code>, <code>onError</code>, or <code>onCancel</code> will be called.
-If any of <code>onValue</code>, <code>onError</code>, or <code>onCancel</code> throw a synchronous error,
-or return a <code>Future</code> that completes as an error, the error will be
-forwarded through the returned operation.</p>
+<p>如果此操作以错误完成，且未提供 <code>onError</code> 回调，返回的操作也会以相同的错误和堆栈跟踪完成。
+如果提供了 <code>onError</code> 回调，则会将错误和堆栈跟踪传递给 <code>onError</code>，并由控制返回操作的 <a href="package-async_async/CancelableCompleter-class.html">CancelableCompleter</a> 处理。</p>
+<p>如果此操作被取消，且未提供 <code>onCancel</code> 回调，返回的操作也会被取消。
+如果提供了 <code>onCancel</code> 回调，则会调用 <code>onCancel</code> 回调，并使用控制返回操作的 <a href="package-async_async/CancelableCompleter-class.html">CancelableCompleter</a> 调用该回调。</p>
+<p><code>onValue</code>、<code>onError</code> 和 <code>onCancel</code> 至多只会调用其中一个。
+如果 <code>onValue</code>、<code>onError</code> 或 <code>onCancel</code> 同步抛出错误，或返回一个以错误完成的 <code>Future</code>，该错误会通过返回的操作传递。</p>
 <p>如果返回的操作在当前操作完成或取消之前被取消，就不会调用 <code>onValue</code>、<code>onError</code> 和 <code>onCancel</code> 回调。如果 <code>propagateCancel</code> 为 <code>true</code>（默认值），当前操作也会被取消。如果当前操作有多个监听器，可传入 <code>false</code>，这样取消 <code>onValue</code>、<code>onError</code> 和 <code>onCancel</code> 回调时便不会影响其他监听器。</p>
 </section>
 
