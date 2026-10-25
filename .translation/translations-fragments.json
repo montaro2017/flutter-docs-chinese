@@ -601318,6 +601318,10 @@
     {
       "source": "<dd>\n  The <strong><code>Range.createContextualFragment()</code></strong> method returns a\n<a href=\"package-web_web/DocumentFragment-extension-type.html\">DocumentFragment</a> by invoking the HTML fragment parsing algorithm or the\nXML fragment parsing algorithm with the start of the range (the <em>parent</em>\nof the\nselected node) as the context node. The HTML fragment parsing algorithm is\nused if the\nrange belongs to a <code>Document</code> whose HTMLness bit is set. In the HTML case,\nif\nthe context node would be <code>html</code>, for historical reasons the fragment\nparsing\nalgorithm is invoked with <code>body</code> as the context instead.\n  \n\n</dd>",
       "translation": "<dd><strong><code>Range.createContextualFragment()</code></strong> 方法会以范围起始处（所选节点的 <em>父节点</em>）为上下文节点，调用 HTML 或 XML 片段解析算法，并返回一个 <a href=\"package-web_web/DocumentFragment-extension-type.html\">DocumentFragment</a>。如果该范围所属 <code>Document</code> 的 HTMLness 标志已设置，就使用 HTML 片段解析算法。对于 HTML 文档，如果上下文节点是 <code>html</code>，出于历史兼容原因，片段解析算法会改用 <code>body</code> 作为上下文。</dd>"
+    },
+    {
+      "source": "<dd>\n  The <strong><code>Range.setEnd()</code></strong> method sets the end position of a <a href=\"package-web_web/Range-extension-type.html\">Range</a> to be\nlocated at the given offset into the specified node x.Setting\nthe end point above (higher in the document) than the start point will\nresult in a\ncollapsed range with the start and end points both set to the specified\nend position.\n  \n\n</dd>",
+      "translation": "<dd><strong><code>Range.setEnd()</code></strong> 方法会将 <a href=\"package-web_web/Range-extension-type.html\">Range</a> 的结束位置设为指定节点中给定的偏移量。如果结束点位于起点之前（即文档中的位置更靠前），范围会折叠，起点和终点都会设为该结束位置。</dd>"
     }
   ],
   "package-web_web/AudioContext-extension-type.html": [
@@ -601396,12 +601400,34 @@
     {
       "source": "<dd>\n  The <strong><code>exponentialRampToValueAtTime()</code></strong> method of the <a href=\"package-web_web/AudioParam-extension-type.html\">AudioParam</a>\nInterface schedules a gradual exponential change in the value of the\n<a href=\"package-web_web/AudioParam-extension-type.html\">AudioParam</a>.\nThe change starts at the time specified for the <em>previous</em> event, follows\nan exponential ramp to the new value given in the <code>value</code> parameter, and\nreaches the new value at the time given in the\n<code>endTime</code> parameter.\n  \n\n</dd>",
       "translation": "<dd><strong><code>exponentialRampToValueAtTime()</code></strong> 方法属于 <a href=\"package-web_web/AudioParam-extension-type.html\">AudioParam</a> 接口，用于安排该 <a href=\"package-web_web/AudioParam-extension-type.html\">AudioParam</a> 的值逐渐发生指数变化。变化从上一个事件指定的时间开始，按指数曲线渐变到 <code>value</code> 参数给出的新值，并在 <code>endTime</code> 指定的时间到达该值。</dd>"
+    },
+    {
+      "source": "<dd>\n  The <code>linearRampToValueAtTime()</code> method of the <a href=\"package-web_web/AudioParam-extension-type.html\">AudioParam</a>\nInterface schedules a gradual linear change in the value of the\n<code>AudioParam</code>. The change starts at the time specified for the\n<em>previous</em> event, follows a linear ramp to the new value given in the\n<code>value</code> parameter, and reaches the new value at the time given in the\n<code>endTime</code> parameter.\n  \n\n</dd>",
+      "translation": "<dd><code>linearRampToValueAtTime()</code> 方法属于 <a href=\"package-web_web/AudioParam-extension-type.html\">AudioParam</a> 接口，用于安排 <code>AudioParam</code> 的值逐渐线性变化。变化从上一个 <em>事件</em>指定的时间开始，沿线性曲线渐变到 <code>value</code> 参数给出的新值，并在 <code>endTime</code> 指定的时间到达该值。</dd>"
     }
   ],
   "package-web_web/LockManager-extension-type.html": [
     {
       "source": "<dd>\n  The <strong><code>request()</code></strong> method of the <a href=\"package-web_web/LockManager-extension-type.html\">LockManager</a> interface requests a\n<a href=\"package-web_web/Lock-extension-type.html\">Lock</a> object with parameters specifying its name and characteristics.\nThe requested <code>Lock</code> is passed to a callback, while the function itself\nreturns a <code>Promise</code> that resolves (or rejects) with the result of the\ncallback after the lock is released, or rejects if the request is aborted.\n  \n\n</dd>",
       "translation": "<dd><strong><code>request()</code></strong> 方法属于 <a href=\"package-web_web/LockManager-extension-type.html\">LockManager</a> 接口，会根据指定的名称和特性申请一个 <a href=\"package-web_web/Lock-extension-type.html\">Lock</a> 对象。该 <code>Lock</code> 会传给回调函数；方法本身返回一个 <code>Promise</code>，在锁释放后以回调结果完成（或失败）。如果请求被中止，Promise 会以错误结束。</dd>"
+    }
+  ],
+  "services/SystemChannels/restoration-constant.html": [
+    {
+      "source": "<li><code>get</code>: Retrieves the current restoration information (e.g. provided by\nthe operating system) from the engine. The method returns a map\ncontaining an <code>enabled</code> boolean to indicate whether collecting\nrestoration data is supported by the embedder. If <code>enabled</code> is true,\nthe map may also contain restoration data stored under the <code>data</code> key\nfrom which the state of the framework may be restored. The restoration\ndata is encoded as <a href=\"dart-typed_data/Uint8List-class.html\">Uint8List</a>.</li>",
+      "translation": "<li><code>get</code>：从引擎获取当前的状态恢复信息（例如操作系统提供的信息）。方法返回一个映射，其中的 <code>enabled</code> 布尔值表示 embedder 是否支持收集状态恢复数据。如果 <code>enabled</code> 为 true，映射中还可能包含存放在 <code>data</code> 键下的恢复数据，框架可据此还原状态。恢复数据编码为 <a href=\"dart-typed_data/Uint8List-class.html\">Uint8List</a>。</li>"
+    }
+  ],
+  "package-web_web/HTMLElement/style.html": [
+    {
+      "source": "<li>If the property is made of one word, it remains as it is: <code>height</code>\nstays as is (in lowercase). As <code>float</code> is a reserved keyword in\nJavaScript, this property name was historically converted to <code>cssFloat</code>.\nAll modern browsers now support the direct use of <code>float</code> in JavaScript\nto access the <code>float</code> CSS property, but <code>cssFloat</code> is used in older\nbrowsers and is still supported as an alias in modern browsers.</li>",
+      "translation": "<li>如果属性名由一个单词组成，则保持原样：<code>height</code> 会保留为小写。由于 <code>float</code> 曾是 JavaScript 保留关键字，该属性名历史上会转换为 <code>cssFloat</code>。现在所有现代浏览器都支持在 JavaScript 中直接使用 <code>float</code> 访问 CSS 的 <code>float</code> 属性；<code>cssFloat</code> 仍受旧版浏览器支持，在现代浏览器中也作为别名保留。</li>"
+    }
+  ],
+  "package-intl_intl/BidiFormatter/wrapWithUnicode.html": [
+    {
+      "source": "<p>Format <code>text</code> of a known (if specified) or estimated <code>direction</code> for use\nin <em>plain-text</em> output of the context directionality, so an\nopposite-directionality text is neither garbled nor garbles what follows\nit. Unlike wrapWithSpan, this makes use of unicode BiDi formatting\ncharacters instead of spans for wrapping. The returned string would be\nRLE+text+PDF for RTL text, or LRE+text+PDF for LTR text.</p>",
+      "translation": "<p>将 <code>text</code> 按已知（若提供）或估算出的 <code>direction</code> 格式化，使其适用于相应方向的纯文本上下文，避免方向相反的文本显示混乱，或影响后续内容。与 wrapWithSpan 不同，此方法使用 Unicode 双向文本格式控制字符包装文本，而不是使用 span。RTL 文本返回的字符串形式为 RLE+text+PDF，LTR 文本则为 LRE+text+PDF。</p>"
     }
   ]
 }
