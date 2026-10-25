@@ -109,12 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>Binding 初始化时调用，用于注册服务扩展。</p>
 <p>需要公开服务扩展的 Binding 应重写此方法，并通过调用 <a href="foundation/BindingBase/registerSignalServiceExtension.html">registerSignalServiceExtension</a>、<a href="foundation/BindingBase/registerBoolServiceExtension.html">registerBoolServiceExtension</a>、<a href="foundation/BindingBase/registerNumericServiceExtension.html">registerNumericServiceExtension</a> 和 <a href="foundation/BindingBase/registerServiceExtension.html">registerServiceExtension</a>（复杂度依次增加）来注册扩展。</p>
 <p>此方法的实现必须调用超类实现。</p>
-<p>A registered service extension can only be activated if the vm-service
-is included in the build, which only happens in debug and profile mode.
-Although a service extension cannot be used in release mode its code may
-still be included in the Dart snapshot and blow up binary size if it is
-not wrapped in a guard that allows the tree shaker to remove it (see
-sample code below).</p>
+<p>只有构建中包含 vm-service 时，已注册的服务扩展才能启用；这只会发生在调试模式和 profile 模式下。虽然服务扩展无法在发布模式下使用，但如果没有用可供树摇器移除代码的条件保护起来，其代码仍可能包含在 Dart 快照中，增大二进制文件（见下方示例代码）。</p>
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.1"></a>
 <div class="snippet snippet-container anchor-container">
