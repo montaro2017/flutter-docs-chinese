@@ -111,10 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>当前操作正常完成时，其值会传递给 <code>onValue</code>，返回的操作以回调结果完成。</p>
 <p>当前操作以错误完成且未提供 <code>onError</code> 回调时，返回的操作会以相同错误和堆栈跟踪完成。<br>如果提供了 <code>onError</code> 回调，返回的操作会以回调结果完成。</p>
 <p>当前操作被取消且未提供 <code>onCancel</code> 回调时，返回的操作也会被取消。<br>如果提供了 <code>onCancel</code> 回调，返回的操作会以回调结果完成。</p>
-<p>At most one of <code>onValue</code>, <code>onError</code>, or <code>onCancel</code> will be called.
-If any of <code>onValue</code>, <code>onError</code>, or <code>onCancel</code> throw a synchronous error,
-or return a <code>Future</code> that completes as an error, the error will be
-forwarded through the returned operation.</p>
+<p><code>onValue</code>、<code>onError</code> 和 <code>onCancel</code> 中最多只有一个会被调用。如果 <code>onValue</code>、<code>onError</code> 或 <code>onCancel</code> 同步抛出错误，或返回一个以错误完成的 <code>Future</code>，该错误会通过返回的操作继续传递。</p>
 <p>如果返回的操作在当前操作完成或取消之前被取消，就不会调用 <code>onValue</code>、<code>onError</code> 和 <code>onCancel</code> 回调。如果 <code>propagateCancel</code> 为 <code>true</code>（默认值），当前操作也会被取消。如果当前操作有多个监听器，可传入 <code>false</code>，这样取消 <code>onValue</code>、<code>onError</code> 和 <code>onCancel</code> 回调时便不会影响其他监听器。</p>
 </section>
 
