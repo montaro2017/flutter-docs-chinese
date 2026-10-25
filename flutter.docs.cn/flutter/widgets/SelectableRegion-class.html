@@ -109,11 +109,7 @@ gestures to select words on touch devices.</p>
 <p><a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 下的每个 <a href="rendering/Selectable-mixin.html">Selectable</a> 都可以被选中。它们会组成一个选区树来处理选择操作。</p>
 <p><a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 是 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 的封装。它会监听用户手势，并将相应的 <a href="rendering/SelectionEvent-class.html">SelectionEvent</a> 发送给它创建的 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>。</p>
 <p><a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 是一个单独的 <a href="rendering/Selectable-mixin.html">Selectable</a>，代表其子树中的子级 <a href="rendering/Selectable-mixin.html">Selectable</a> 处理 <a href="rendering/SelectionEvent-class.html">SelectionEvent</a>。它会使用自己的 <a href="widgets/SelectionContainer/delegate.html">SelectionContainer.delegate</a> 创建 <a href="widgets/SelectionRegistrarScope-class.html">SelectionRegistrarScope</a>，以收集子级 <a href="rendering/Selectable-mixin.html">Selectable</a>；并将从父级 <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> 收到的 <a href="rendering/SelectionEvent-class.html">SelectionEvent</a> 发送给相应的子级 <a href="rendering/Selectable-mixin.html">Selectable</a>。这样，它会向父级 <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> 抽象出一个接口，使父级看起来像是在与单个 <a href="rendering/Selectable-mixin.html">Selectable</a> 交互。</p>
-<p>The <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> created by <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> is the root node of a
-selection tree. Each non-leaf node in the tree is a <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>,
-and the leaf node is a leaf widget whose render object implements
-<a href="rendering/Selectable-mixin.html">Selectable</a>. They are connected through <a href="widgets/SelectionRegistrarScope-class.html">SelectionRegistrarScope</a>s created
-by <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>。</p>
+<p>由 <a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 创建的 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 是选区树的根节点。树中每个非叶节点都是一个 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>；叶节点则是其渲染对象实现了 <a href="rendering/Selectable-mixin.html">Selectable</a> 的叶级 widget。它们通过 <a href="widgets/SelectionRegistrarScope-class.html">SelectionRegistrarScope</a> 相连；这些 scope 由 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 创建。</p>
 <p><a href="widgets/SelectionContainer-class.html">SelectionContainer</a> 和叶级 <a href="rendering/Selectable-mixin.html">Selectable</a> 若要参与选区，都需要向从 <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> 获取的 <a href="rendering/SelectionRegistrar-class.html">SelectionRegistrar</a> 注册。与 <a href="widgets/SelectionContainer/maybeOf.html">SelectionContainer.maybeOf</a> 一起使用的 <a href="widgets/BuildContext-class.html">BuildContext</a> 必须位于 widget 树中提供该注册器的 <a href="widgets/SelectionContainer-class.html">SelectionContainer</a>、<a href="widgets/SelectableRegion-class.html">SelectableRegion</a> 或 <a href="material/SelectionArea-class.html">SelectionArea</a> 下方。</p>
 <p>选区树示例如下：</p>
 <p>
@@ -433,7 +429,7 @@ devices.
 
 </dt>
 <dd class="inherited">
-  创建一个 创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a>，用于管理此 widget 在树中的位置。
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a>，用于管理此 widget 在树中的位置。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>

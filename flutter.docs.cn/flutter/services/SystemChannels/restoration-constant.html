@@ -105,14 +105,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>此通道定义了以下出站方法（通过 <a href="services/OptionalMethodChannel/invokeMethod.html">OptionalMethodChannel.invokeMethod</a> 调用）：</p>
 <ul>
 <li><code>get</code>：从引擎获取当前的状态恢复信息（例如操作系统提供的信息）。方法返回一个映射，其中的 <code>enabled</code> 布尔值表示 embedder 是否支持收集状态恢复数据。如果 <code>enabled</code> 为 true，映射中还可能包含存放在 <code>data</code> 键下的恢复数据，框架可据此还原状态。恢复数据编码为 <a href="dart-typed_data/Uint8List-class.html">Uint8List</a>。</li>
-<li><code>put</code>: Sends the current restoration data to the engine. Takes the
-restoration data encoded as <a href="dart-typed_data/Uint8List-class.html">Uint8List</a> as argument.</li>
+<li><code>put</code>：将当前状态恢复数据发送给引擎。参数是以 <a href="dart-typed_data/Uint8List-class.html">Uint8List</a> 编码的恢复数据。</li>
 </ul>
 <p>此通道定义了以下入站方法（通过 <a href="services/MethodChannel/setMethodCallHandler.html">MethodChannel.setMethodCallHandler</a> 注册）。</p>
 <ul>
-<li><code>push</code>: Called by the engine to send newly provided restoration
-information to the framework. The argument given to this method has
-the same format as the object that the <code>get</code> method returns.</li>
+<li><code>push</code>：引擎向框架发送新提供的状态恢复信息时调用。传入此方法的参数格式与 <code>get</code> 方法返回的对象相同。</li>
 </ul>
 <p>另请参阅：</p>
 <ul>
