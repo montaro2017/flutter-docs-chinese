@@ -98,16 +98,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><em>本节介绍框架如何使 <a href="rendering/RenderSliverCrossAxisGroup-class.html">RenderSliverCrossAxisGroup</a> 布置其子项。</em></p>
 <p><a href="rendering/RenderSliverCrossAxisGroup-class.html">RenderSliverCrossAxisGroup</a> 的布局分为四个步骤：</p>
 <ol>
-<li>Layout each child with a null or zero flex factor with cross axis constraint
-being whatever cross axis space is remaining after laying out any previous
-sliver. Slivers with null or zero flex factor should determine their own
-<a href="rendering/SliverGeometry/crossAxisExtent.html">SliverGeometry.crossAxisExtent</a>. For example, the <a href="widgets/SliverConstrainedCrossAxis-class.html">SliverConstrainedCrossAxis</a>
-widget uses either <a href="widgets/SliverConstrainedCrossAxis/maxExtent.html">SliverConstrainedCrossAxis.maxExtent</a> or
-<a href="rendering/SliverConstraints/crossAxisExtent.html">SliverConstraints.crossAxisExtent</a>, deciding between whichever is smaller.</li>
-<li>Divide up the remaining cross axis space among the children with non-zero flex
-factors according to their flex factor. For example, a child with a flex
-factor of 2.0 will receive twice the amount of cross axis space as a child
-with a flex factor 1.0.</li>
+<li>为每个 flex 因子为 null 或 0 的子项布局时，使用前面 sliver 布局后剩余的横轴空间作为约束。flex 因子为 null 或 0 的 sliver 应自行确定 <a href="rendering/SliverGeometry/crossAxisExtent.html">SliverGeometry.crossAxisExtent</a>。例如，<a href="widgets/SliverConstrainedCrossAxis-class.html">SliverConstrainedCrossAxis</a> widget 会在 <a href="widgets/SliverConstrainedCrossAxis/maxExtent.html">SliverConstrainedCrossAxis.maxExtent</a> 与 <a href="rendering/SliverConstraints/crossAxisExtent.html">SliverConstraints.crossAxisExtent</a> 中选择较小值。</li>
+<li>按照非零 flex 因子，将剩余横轴空间分配给各个子项。例如，flex 因子为 2.0 的子项会获得 flex 因子为 1.0 的子项两倍的横轴空间。</li>
 <li>Layout each of the remaining children with the cross axis constraint
 allocated in the previous step.</li>
 <li>Set the geometry to that of whichever child has the longest
@@ -118,10 +110,7 @@ to <a href="rendering/SliverConstraints/crossAxisExtent.html">SliverConstraints.
 <a name="widgets.SliverCrossAxisGroup.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-In this sample the <a href="widgets/SliverCrossAxisGroup-class.html">SliverCrossAxisGroup</a> sizes its three <a href="widgets/MultiChildRenderObjectWidget/children.html">children</a> so that
-the first normal <a href="widgets/SliverList-class.html">SliverList</a> has a flex factor of 1, the second <a href="widgets/SliverConstrainedCrossAxis-class.html">SliverConstrainedCrossAxis</a>
-has a flex factor of 0 and a maximum cross axis extent of 200.0, and the third
-<a href="widgets/SliverCrossAxisExpanded-class.html">SliverCrossAxisExpanded</a> has a flex factor of 2.
+此示例中，<a href="widgets/SliverCrossAxisGroup-class.html">SliverCrossAxisGroup</a> 会设置其三个 <a href="widgets/MultiChildRenderObjectWidget/children.html">children</a> 的大小：第一个普通 <a href="widgets/SliverList-class.html">SliverList</a> 的 flex 因子为 1，第二个 <a href="widgets/SliverConstrainedCrossAxis-class.html">SliverConstrainedCrossAxis</a> 的 flex 因子为 0，最大横轴范围为 200.0，第三个 <a href="widgets/SliverCrossAxisExpanded-class.html">SliverCrossAxisExpanded</a> 的 flex 因子为 2。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.SliverCrossAxisGroup.1');" onclick="fixHref(this, 'widgets.SliverCrossAxisGroup.1'); copyStringToClipboard(this.href);"
