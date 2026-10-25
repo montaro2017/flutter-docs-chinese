@@ -153,12 +153,8 @@ contains the platform view), Flutter asynchronously cancels the native view's ge
 
 </dt>
 <dd>
-  <p>Flutter blocks all the UIGestureRecognizers on the platform view as soon as it
-decides they should be blocked.</p>
-<p>This policy employs a dual blocking strategy: synchronous blocking via hitTest results and
-asynchronous blocking managed through the framework’s gesture arena.
-With this policy, only the <code>touchesBegan</code> method for all the UIGestureRecognizers is guaranteed
-to be called.</p>
+  <p>Flutter 一旦确定应阻止平台视图上的所有 UIGestureRecognizers，就会立即执行阻止。</p>
+<p>此策略采用双重阻止机制：通过 hitTest 结果进行同步阻止，并通过框架的手势竞技场进行异步阻止。使用此策略时，可以保证所有 UIGestureRecognizers 的 <code>touchesBegan</code> 方法都会被调用。</p>
   
 
 </dd>
@@ -170,11 +166,8 @@ to be called.</p>
 
 </dt>
 <dd>
-  <p>Flutter blocks all the UIGestureRecognizers on the platform view only after touchesEnded was invoked.</p>
-<p>This results in the platform view's UIGestureRecognizers seeing the entire touch sequence,
-but never recognizing the gesture (and never invoking actions).
-Using this policy may cause the platform view to incorrectly receive touch events
-that should have been blocked.</p>
+  <p>Flutter 仅在调用 touchesEnded 后，才会阻止平台视图上的所有 UIGestureRecognizers。</p>
+<p>这样一来，平台视图上的 UIGestureRecognizers 会看到完整的触摸序列，但永远不会识别该手势（也不会触发操作）。使用此策略可能导致平台视图错误地接收到本应被阻止的触摸事件。</p>
   
 
 </dd>
@@ -186,13 +179,8 @@ that should have been blocked.</p>
 
 </dt>
 <dd>
-  <p>Causes iOS engine to block all the UIGestureRecognizers on the platform view if it deems
-the hittest shouldn't be handled by the Flutter framework.</p>
-<p>Unlike <a href="services/UiKitViewGestureBlockingPolicy.html">eager</a>, this policy does not rely on Flutter's gesture arena. This is a workaround
-to address a few bugs related to platform view's gesture recognizers being stuck in a stale state.
-See: <a href="https://github.com/flutter/flutter/issues/175099">https://github.com/flutter/flutter/issues/175099</a>.
-Using this policy may cause the platform view to incorrectly recognize a gesture that should
-have been blocked.</p>
+  <p>如果 iOS 引擎认为 Flutter 框架不应处理命中测试，就会阻止平台视图上的所有 UIGestureRecognizers。</p>
+<p>与 <a href="services/UiKitViewGestureBlockingPolicy.html">eager</a> 不同，此策略不依赖 Flutter 的手势竞技场。此策略用于解决平台视图的手势识别器卡在过期状态中的一些问题。详见：<a href="https://github.com/flutter/flutter/issues/175099">https://github.com/flutter/flutter/issues/175099</a>。使用此策略可能导致平台视图错误地识别本应被阻止的手势。</p>
   
 
 </dd>
@@ -204,7 +192,7 @@ have been blocked.</p>
 
 </dt>
 <dd>
-  <p>Fallback to use the policy set by the <code>registerViewFactory</code> engine API in FlutterPlugin.h.</p>
+  <p>回退到 FlutterPlugin.h 中 Flutter 引擎 API <code>registerViewFactory</code> 设置的策略。</p>
   
 
 </dd>
