@@ -150,20 +150,7 @@ regular expression.
 (For <code>(a*|b)*</code>, the string <code>"aa"</code> can match both
  <code>(a*|b){1}</code> 和 <code>(a*|b){2}</code>.)</li>
 <li>Dart 正则表达式的大多数用法都是<em>搜索</em>匹配项，例如使用 <a href="dart-core/RegExp/firstMatch.html">firstMatch</a>。如果没有将模式<em>锚定</em>到行首或输入开头（使用 <code>^</code>），搜索的效果就如同正则表达式前面隐式添加了 <code>[^]*</code>。此时再以 <code>.*</code> 开始实际正则表达式，可能导致搜索出现二次复杂度。请在适当时使用锚点或 <a href="dart-core/Pattern/matchAsPrefix.html">matchAsPrefix</a>，或者避免以带量词的模式开头。</li>
-<li><em>For experts only:</em> Neither Dart nor ECMAScript have general
-<a href="https://github.com/tc39/proposal-regexp-atomic-operators">“atomic grouping”</a>.
-Other regular expression dialects use this to limit backtracking.
-If an atomic capture group succeeds once,
-the regexp cannot backtrack into the same match later.
-As lookarounds also serve as atomic groups,
-something similar can be achieved using a <em>lookahead</em>:
-<code>var re = RegExp(r"^(?=((a*|b)*))\1d");</code>
-The preceding example does the same inefficient matching of <code>(a*|b)*</code>.
-Once the regexp has matched as far as possible,
-it completes the positive lookahead.
-Then it skips what the lookahead matched using a back-reference.
-After that, it can no longer backtrack
-and try other combinations of <code>a</code>。</li>
+<li><em>仅供专家参考：</em>Dart 和 ECMAScript 都没有通用的<a href="https://github.com/tc39/proposal-regexp-atomic-operators">“原子分组”</a>。其他正则表达式方言会用它来限制回溯。如果原子捕获组成功匹配一次，正则表达式之后就无法再回溯到同一匹配中。由于前瞻断言也具有原子组的特性，因此可以使用 <em>前瞻断言</em> 实现类似效果：<code>var re = RegExp(r"^(?=((a*|b)*))\1d");</code>前面的示例对 <code>(a*|b)*</code> 执行了同样低效的匹配。正则表达式尽可能完成匹配后，会完成正向前瞻。随后，它通过反向引用跳过前瞻匹配的内容。之后就无法再回溯并尝试 <code>a</code> 的其他组合。</li>
 </ul>
 <p>尽量减少正则表达式匹配同一字符串的方式数量。这样可以减少正则表达式找不到匹配项时可能执行的回溯次数。网上有许多关于<a href="https://www.google.com/search?q=performance+of+regular+expressions">提升正则表达式性能</a>的指南，也可以从中获取思路。</p>
 </section>
