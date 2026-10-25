@@ -105,13 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>计算此渲染对象的布局。</p>
 <p>父对象通过此方法要求子对象更新布局信息。这是父对象的主要入口。父对象会传入一个约束对象，告知子对象允许采用哪些布局；子对象必须遵守给定约束。</p>
-<p>If the parent reads information computed during the child's layout, the
-parent must pass true for <code>parentUsesSize</code>. In that case, the parent will
-be marked as needing layout whenever the child is marked as needing layout
-because the parent's layout information depends on the child's layout
-information. If the parent uses the default value (false) for
-<code>parentUsesSize</code>, the child can change its layout information (subject to
-the given constraints) without informing the parent.</p>
+<p>如果父对象读取子对象布局期间计算的信息，就必须将 <code>parentUsesSize</code> 设为 true。此时，每当子对象因布局变化而需要重新布局时，父对象也会被标记为需要布局，因为父对象的布局信息依赖子对象的布局信息。如果父对象采用默认值（<code>parentUsesSize</code> 为 false），则子对象可以在给定约束下更改布局信息，而无需通知父对象。</p>
 <p>子类不应直接重写 <a href="rendering/RenderObject/layout.html">layout</a>，而应重写 <a href="rendering/RenderObject/performResize.html">performResize</a> 和/或 <a href="rendering/RenderObject/performLayout.html">performLayout</a>。<a href="rendering/RenderObject/layout.html">layout</a> 方法会将实际工作委托给 <a href="rendering/RenderObject/performResize.html">performResize</a> 和 <a href="rendering/RenderObject/performLayout.html">performLayout</a>。</p>
 <p>父对象的 <a href="rendering/RenderObject/performLayout.html">performLayout</a> 方法应无条件调用所有子项的 <a href="rendering/RenderObject/layout.html">layout</a>。此处实现的 <a href="rendering/RenderObject/layout.html">layout</a> 方法负责在子项无需更新布局信息时提前返回。</p>
 </section>
