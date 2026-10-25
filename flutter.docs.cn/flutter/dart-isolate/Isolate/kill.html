@@ -105,13 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>请求该 isolate 终止自身。<code>priority</code> 参数用于指定何时执行此操作。</p>
 <p>如果提供 <code>priority</code>，其值必须为 <a href="dart-isolate/Isolate/immediate-constant.html">immediate</a> 或 <a href="dart-isolate/Isolate/beforeNextEvent-constant.html">beforeNextEvent</a>（默认值）。关闭操作会根据优先级在不同时间执行：</p>
 <ul>
-<li><code>immediate</code>: The isolate shuts down as soon as possible.
-  Control messages are handled in order, so all previously sent control
-  events from this isolate will all have been processed.
-  The shutdown should happen no later than if sent with
-  <code>beforeNextEvent</code>.
-  It may happen earlier if the system has a way to shut down cleanly
-  at an earlier time, even during the execution of another event.</li>
+<li><code>immediate</code>：尽快关闭 isolate。控制消息仍按顺序处理，因此该 isolate 之前发送的控制事件都会先处理完。关闭时间不会晚于使用 <code>beforeNextEvent</code> 时的关闭时间。如果系统能够提前安全关闭，也可能更早完成，甚至可能发生在另一个事件执行期间。</li>
 <li><code>beforeNextEvent</code>: The shutdown is scheduled for the next time
   control returns to the event loop of the receiving isolate,
   after the current event, and any already scheduled control events,
