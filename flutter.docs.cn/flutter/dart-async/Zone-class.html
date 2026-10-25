@@ -100,12 +100,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="dart-async/Zone-class.html">Zone</a> 类不能被继承，但用户可以通过派生现有 Zone（通常是 <a href="dart-async/Zone/current.html">Zone.current</a>）并提供 <a href="dart-async/ZoneSpecification-class.html">ZoneSpecification</a> 来创建自定义 Zone。这类似于创建一个继承基类 <code>Zone</code> 并重写若干方法的新类，但实际上并不会创建新类。重写方法以函数形式提供，并显式接收相当于其自身类、父类和 <code>this</code> 对象的参数。</p>
 <p>异步回调始终在安排它们时所在的 Zone 上下文中运行。此机制通过以下两个步骤实现：</p>
 <ol>
-<li>the callback is first registered using one of <a href="dart-async/Zone/registerCallback.html">registerCallback</a>,
-  <a href="dart-async/Zone/registerUnaryCallback.html">registerUnaryCallback</a>, or <a href="dart-async/Zone/registerBinaryCallback.html">registerBinaryCallback</a>. This allows the zone
-  to record that a callback exists and potentially modify it (by returning a
-  different callback). The code doing the registration (e.g., <code>Future.then</code>)
-  also remembers the current zone so that it can later run the callback in
-  that zone.</li>
+<li>回调最初通过 <a href="dart-async/Zone/registerCallback.html">registerCallback</a>、<a href="dart-async/Zone/registerUnaryCallback.html">registerUnaryCallback</a> 或 <a href="dart-async/Zone/registerBinaryCallback.html">registerBinaryCallback</a> 之一进行注册。这样，zone 就能记录该回调的存在，并可对其进行修改（例如返回另一个回调）。执行注册的代码（例如 <code>Future.then</code>）也会记住当前 zone，以便之后能在该 zone 中运行回调。</li>
 <li>At a later point the registered callback is run in the remembered zone,
 using one of <a href="dart-async/Zone/run.html">run</a>, <a href="dart-async/Zone/runUnary.html">runUnary</a> or <a href="dart-async/Zone/runBinary.html">runBinary</a>.</li>
 </ol>
