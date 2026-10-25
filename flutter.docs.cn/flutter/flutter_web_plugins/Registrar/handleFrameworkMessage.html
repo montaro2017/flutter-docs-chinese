@@ -107,9 +107,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>Web 插件的消息处理程序。</p>
 <p>处理来自框架的消息时会调用此方法。</p>
 <p>如果已为给定的 <code>channel</code> 注册处理程序，就会调用该处理程序，并将其返回值传递给 <code>callback</code>（若非 null），随后此方法返回的 Future 会完成。</p>
-<p>If no handler has been registered for that channel, then the
-callback (if any) is invoked with null, then the method's future
-is completed.</p>
+<p>如果该通道未注册处理程序，则会（如果有）使用 null 调用回调，随后完成此方法返回的 future。</p>
 <p>消息不会缓冲（与发送到框架端的平台消息不同，后者由 <a href="dart-ui/ChannelBuffers-class.html">ChannelBuffers</a> 管理）。</p>
 <p>如果应用使用了 Web 插件，编译时 <code>flutter</code> 工具自动生成的代码会将此方法注册为消息处理程序。相关代码如下：</p>
 <pre class="language-dart"><code class="language-dart">ui_web.setPluginHandler(handleFrameworkMessage);
