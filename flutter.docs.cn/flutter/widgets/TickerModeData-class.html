@@ -97,14 +97,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="widgets/TickerMode/valuesOf.html">TickerMode.valuesOf</a> 和 <a href="widgets/TickerMode/getValuesNotifier.html">TickerMode.getValuesNotifier</a> 会生成此类的实例。实例反映 widget 树中特定位置在考虑祖先 <a href="widgets/TickerMode-class.html">TickerMode</a> widget 后生效的值。</p>
 <p>各字段的含义：</p>
 <ul>
-<li><a href="widgets/TickerModeData/enabled.html">enabled</a>: A ticker is considered enabled only if all ancestor
-<a href="widgets/TickerMode/enabled.html">TickerMode.enabled</a> values and the local <a href="widgets/TickerMode/enabled.html">TickerMode.enabled</a> are true
-(logical AND). When false, tickers are muted (time still elapses but
-callbacks are not invoked).</li>
-<li><a href="widgets/TickerModeData/forceFrames.html">forceFrames</a>: When true, tickers in the subtree request frames using
-<a href="scheduler/SchedulerBinding/scheduleForcedFrame.html">SchedulerBinding.scheduleForcedFrame</a> while active. This value is
-combined across ancestors using logical OR, so any ancestor requesting
-forced frames enables it for the subtree.</li>
+<li><a href="widgets/TickerModeData/enabled.html">enabled</a>：只有当所有祖先的 <a href="widgets/TickerMode/enabled.html">TickerMode.enabled</a> 值以及本地 <a href="widgets/TickerMode/enabled.html">TickerMode.enabled</a> 都为 true（逻辑与）时，ticker 才会被视为启用。为 false 时，ticker 会被静音（时间仍然流逝，但不会调用回调）。</li>
+<li><a href="widgets/TickerModeData/forceFrames.html">forceFrames</a>：为 true 时，此子树中的 ticker 在活动期间会通过 <a href="scheduler/SchedulerBinding/scheduleForcedFrame.html">SchedulerBinding.scheduleForcedFrame</a> 请求帧。该值会在祖先之间使用逻辑或进行合并，因此任一祖先请求强制帧都会为此子树启用该功能。</li>
 </ul>
 <p>大多数 widget 无需读取这些值；<a href="widgets/SingleTickerProviderStateMixin-mixin.html">SingleTickerProviderStateMixin</a> 和 <a href="widgets/TickerProviderStateMixin-mixin.html">TickerProviderStateMixin</a> 等 mixin 会自动将这些值应用到它们提供的 <a href="scheduler/Ticker-class.html">Ticker</a>。当需要明确观察或响应 ticker 策略时，才使用此类。</p>
 </section>
