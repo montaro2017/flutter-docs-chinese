@@ -104,22 +104,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>用于安装和管理延迟组件的 <a href="services/MethodChannel-class.html">MethodChannel</a>。</p>
 <p>此通道定义了以下出站方法（通过 <a href="services/OptionalMethodChannel/invokeMethod.html">OptionalMethodChannel.invokeMethod</a> 调用）：</p>
 <ul>
-<li><code>installDeferredComponent</code>: Requests that a deferred component identified by
-the provided loadingUnitId or componentName be downloaded and installed.
-Providing a loadingUnitId with null componentName will install a component that
-includes the desired loading unit. If a componentName is provided, then the
-deferred component with the componentName will be installed. This method
-returns a future that will not be completed until the feature is fully installed
-and ready to use. When an error occurs, the future will complete an error.
-Calling <code>loadLibrary()</code> on a deferred imported library is equivalent to calling
-this method with a loadingUnitId and null componentName.</li>
-<li><code>uninstallDeferredComponent</code>:  Requests that a deferred component identified by
-the provided loadingUnitId or componentName be uninstalled. Since
-uninstallation typically requires significant disk i/o, this method only
-signals the intent to uninstall. Actual uninstallation (eg, removal of
-assets and files) may occur at a later time. However, once uninstallation
-is requested, the deferred component should not be used anymore until
-<code>installDeferredComponent</code> or <code>loadLibrary</code> is called again.</li>
+<li><code>installDeferredComponent</code>：请求下载并安装由 loadingUnitId 或 componentName 标识的延迟组件。若提供 loadingUnitId 且 componentName 为 null，则会安装包含所需加载单元的组件。若提供 componentName，则会安装对应名称的延迟组件。此方法返回一个 Future，待功能完全安装并可用后才会完成。发生错误时，该 Future 会以错误完成。在延迟导入的库上调用 <code>loadLibrary()</code>，等同于使用 loadingUnitId 和 null componentName 调用此方法。</li>
+<li><code>uninstallDeferredComponent</code>：请求卸载由 loadingUnitId 或 componentName 标识的延迟组件。由于卸载通常需要大量磁盘 I/O，此方法只会发出卸载意图。实际卸载（例如移除资源和文件）可能稍后进行。不过，一旦请求卸载，在再次调用 <code>installDeferredComponent</code> 或 <code>loadLibrary</code> 前，就不应再使用该延迟组件。</li>
 </ul>
 </section>
 

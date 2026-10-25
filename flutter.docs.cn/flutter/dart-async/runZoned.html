@@ -130,16 +130,7 @@ await result; // Wait for asynchronous computation to complete.
 symbol <code>#_secret</code>. The secret is available from the new <a href="dart-async/Zone-class.html">Zone</a> object,
 which is the <a href="dart-async/Zone/current.html">Zone.current</a> for the body,
 and is also the first, <code>self</code>, parameter to the <code>print</code> handler function.</p>
-<p>If the <a href="dart-async/ZoneSpecification/handleUncaughtError.html">ZoneSpecification.handleUncaughtError</a> is set, or the deprecated
-<code>onError</code> callback is passed, the created zone will be an <em>error zone</em>.
-Asynchronous errors in futures never cross zone boundaries between zones
-with a different <a href="dart-async/Zone/errorZone.html">Zone.errorZone</a>.
-A consequence of that behavior can be that a <a href="dart-async/Future-class.html">Future</a> which completes as an
-error in the created zone will seem to never complete when used from a zone
-that belongs to a different error zone.
-Multiple attempts to use the future in a zone where the error is
-inaccessible will cause the error to be reported <em>again</em> in it's original
-error zone.</p>
+<p>如果设置了 <a href="dart-async/ZoneSpecification/handleUncaughtError.html">ZoneSpecification.handleUncaughtError</a>，或传入了已弃用的 <code>onError</code> 回调，则创建的 zone 将是一个 <em>错误 zone</em>。处于不同 <a href="dart-async/Zone/errorZone.html">Zone.errorZone</a> 的 zone 之间，Future 中的异步错误不会跨越 zone 边界。因此，如果某个 <a href="dart-async/Future-class.html">Future</a> 在创建的 zone 中以错误状态完成，那么在属于其他错误 zone 的 zone 中使用它时，看起来可能永远不会完成。在错误无法访问的 zone 中多次尝试使用该 Future，会导致错误在其原始错误 zone 中<em>再次</em>报告。</p>
 <p>See <a href="dart-async/runZonedGuarded.html">runZonedGuarded</a> in place of using the deprected <code>onError</code> argument.
 If <code>onError</code> is provided this function also tries to catch and handle
 synchronous errors from <code>body</code>, but may throw an error anyway returning
