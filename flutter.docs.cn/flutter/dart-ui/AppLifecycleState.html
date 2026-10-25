@@ -158,15 +158,10 @@ documentation.</li>
 
 </dt>
 <dd>
-  <p>The application is still hosted by a Flutter engine but is detached from
-any host views.</p>
-<p>The application defaults to this state before it initializes, and can be
-in this state (applicable on Android, iOS, and web) after all views have been
-detached.</p>
-<p>When the application is in this state, the engine is running without a
-view.</p>
-<p>This state is only entered on iOS, Android, and web, although on all platforms
-it is the default state before the application begins running.</p>
+  <p>应用仍由 Flutter 引擎承载，但已与所有宿主视图分离。</p>
+<p>应用初始化前默认处于此状态；所有视图分离后（适用于 Android、iOS 和 Web），应用也可能进入此状态。</p>
+<p>应用处于此状态时，引擎正在运行，但没有视图。</p>
+<p>此状态只会在 iOS、Android 和 Web 上进入，不过在所有平台上，它都是应用开始运行前的默认状态。</p>
   
 
 </dd>
@@ -178,22 +173,9 @@ it is the default state before the application begins running.</p>
 
 </dt>
 <dd>
-  <p>On all platforms, this state indicates that the application is in the
-default running mode for a running application that has input focus and is
-visible.</p>
-<p>On Android, this state corresponds to the Flutter host view having focus
-(<a href="https://developer.android.com/reference/android/app/Activity#onWindowFocusChanged(boolean)"><code>Activity.onWindowFocusChanged</code></a>
-was called with true) while in Android's "resumed" state. It is possible
-for the Flutter app to be in the <a href="dart-ui/AppLifecycleState.html">inactive</a> state while still being in
-Android's
-<a href="https://developer.android.com/guide/components/activities/activity-lifecycle">"onResume"</a>
-state if the app has lost focus
-(<a href="https://developer.android.com/reference/android/app/Activity#onWindowFocusChanged(boolean)"><code>Activity.onWindowFocusChanged</code></a>
-was called with false), but hasn't had
-<a href="https://developer.android.com/reference/android/app/Activity#onPause()"><code>Activity.onPause</code></a>
-called on it.</p>
-<p>On iOS and macOS, this corresponds to the app running in the foreground
-active state.</p>
+  <p>在所有平台上，此状态表示应用处于默认运行模式，拥有输入焦点且可见。</p>
+<p>在 Android 上，此状态表示 Flutter 宿主视图已获得焦点（调用了 <a href="https://developer.android.com/reference/android/app/Activity#onWindowFocusChanged(boolean)"><code>Activity.onWindowFocusChanged</code></a>，参数为 true），且 Android 处于“resumed”状态。如果应用失去焦点（调用了 <a href="https://developer.android.com/reference/android/app/Activity#onWindowFocusChanged(boolean)"><code>Activity.onWindowFocusChanged</code></a>，参数为 false），但尚未调用 <a href="https://developer.android.com/reference/android/app/Activity#onPause()"><code>Activity.onPause</code></a>，Flutter 应用仍可能处于 <a href="dart-ui/AppLifecycleState.html">inactive</a> 状态，而 Android 仍处于 <a href="https://developer.android.com/guide/components/activities/activity-lifecycle">“onResume”</a> 状态。</p>
+<p>在 iOS 和 macOS 上，此状态表示应用正在前台运行且处于活动状态。</p>
   
 
 </dd>
@@ -205,28 +187,11 @@ active state.</p>
 
 </dt>
 <dd>
-  <p>At least one view of the application is visible, but none have input
-focus. The application is otherwise running normally.</p>
-<p>On non-web desktop platforms, this corresponds to an application that is
-not in the foreground, but still has visible windows.</p>
-<p>On the web, this corresponds to an application that is running in a
-window or tab that does not have input focus.</p>
-<p>On iOS and macOS, this state corresponds to the Flutter host view running in the
-foreground inactive state. Apps transition to this state when in a phone
-call, when responding to a TouchID request, when entering the app switcher
-or the control center, or when the UIViewController hosting the Flutter
-app is transitioning.</p>
-<p>On Android, this corresponds to the Flutter host view running in Android's
-paused state (i.e.
-<a href="https://developer.android.com/reference/android/app/Activity#onPause()"><code>Activity.onPause</code></a>
-has been called), or in Android's "resumed" state (i.e.
-<a href="https://developer.android.com/reference/android/app/Activity#onResume()"><code>Activity.onResume</code></a>
-has been called) but does not have window focus. Examples of when apps
-transition to this state include when the app is partially obscured or
-another activity is focused, a app running in a split screen that isn't
-the current app, an app interrupted by a phone call, a picture-in-picture
-app, a system dialog, another view. It will also be inactive when the
-notification window shade is down, or the application switcher is visible.</p>
+  <p>应用至少有一个视图可见，但没有视图拥有输入焦点。除此之外，应用仍正常运行。</p>
+<p>在非 Web 桌面平台上，此状态表示应用不在前台，但仍有可见窗口。</p>
+<p>在 Web 上，此状态表示应用运行在一个没有输入焦点的窗口或标签页中。</p>
+<p>在 iOS 和 macOS 上，此状态表示 Flutter 宿主视图在前台运行，但处于非活动状态。接听电话、响应 TouchID 请求、打开应用切换器或控制中心，以及承载 Flutter 应用的 UIViewController 正在转换时，应用都会进入此状态。</p>
+<p>在 Android 上，此状态对应 Flutter 宿主视图处于 Android 的 paused 状态（即已调用 <a href="https://developer.android.com/reference/android/app/Activity#onPause()"><code>Activity.onPause</code></a>），或处于 Android 的“resumed”状态（即已调用 <a href="https://developer.android.com/reference/android/app/Activity#onResume()"><code>Activity.onResume</code></a>），但窗口没有焦点。应用部分被遮挡、其他 Activity 获得焦点、应用在分屏中运行但并非当前活动应用、应用被电话中断、应用处于画中画模式、显示系统对话框或其他视图时，都可能进入此状态。通知栏下拉面板或应用切换器显示时，应用也会处于非活动状态。</p>
 <p>On Android and iOS, apps in this state should assume that they may be
 <a href="dart-ui/AppLifecycleState.html">hidden</a> 和 <a href="dart-ui/AppLifecycleState.html">paused</a> at any time.</p>
   
@@ -240,16 +205,8 @@ notification window shade is down, or the application switcher is visible.</p>
 
 </dt>
 <dd>
-  <p>All views of an application are hidden, either because the application is
-about to be paused (on iOS and Android), or because it has been minimized
-or placed on a desktop that is no longer visible (on non-web desktop), or
-is running in a window or tab that is no longer visible (on the web).</p>
-<p>On iOS and Android, in order to keep the state machine the same on all
-platforms, a transition to this state is synthesized before the <a href="dart-ui/AppLifecycleState.html">paused</a>
-state is entered when coming from <a href="dart-ui/AppLifecycleState.html">inactive</a>, and before the <a href="dart-ui/AppLifecycleState.html">inactive</a>
-state is entered when coming from <a href="dart-ui/AppLifecycleState.html">paused</a>. This allows cross-platform
-implementations that want to know when an app is conceptually "hidden" to
-only write one handler.</p>
+  <p>应用的所有视图都已隐藏：在 iOS 和 Android 上，应用即将暂停；在非 Web 桌面平台上，应用已最小化或移至不可见的桌面；在 Web 上，应用所在的窗口或标签页已不可见。</p>
+<p>在 iOS 和 Android 上，为了让所有平台使用相同的状态机，从 <a href="dart-ui/AppLifecycleState.html">inactive</a> 状态进入 <a href="dart-ui/AppLifecycleState.html">paused</a> 状态前，会先合成一次进入此状态的转换；从 <a href="dart-ui/AppLifecycleState.html">paused</a> 状态进入 <a href="dart-ui/AppLifecycleState.html">inactive</a> 状态前也会如此。这样，希望获知应用在概念上处于“隐藏”状态的跨平台实现只需编写一个处理函数。</p>
   
 
 </dd>
@@ -261,12 +218,11 @@ only write one handler.</p>
 
 </dt>
 <dd>
-  <p>The application is not currently visible to the user, and not responding
-to user input.</p>
+  <p>应用当前对用户不可见，也不会响应用户输入。</p>
 <p>When the application is in this state, the engine will not call the
 <a href="dart-ui/PlatformDispatcher/onBeginFrame.html">PlatformDispatcher.onBeginFrame</a> 和 <a href="dart-ui/PlatformDispatcher/onDrawFrame.html">PlatformDispatcher.onDrawFrame</a>
 callbacks.</p>
-<p>This state is only entered on iOS and Android.</p>
+<p>此状态只会在 iOS 和 Android 上进入。</p>
   
 
 </dd>
