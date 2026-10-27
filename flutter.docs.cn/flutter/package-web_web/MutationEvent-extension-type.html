@@ -97,13 +97,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <blockquote>
 <p><strong>注意：</strong>使用<em>变更事件</em>会带来问题：</p>
 <ul>
-<li>Their design is
-<a href="https://lists.w3.org/Archives/Public/public-webapps/2011JulSep/0779.html">flawed</a>.</li>
+<li>其设计存在<a href="https://lists.w3.org/Archives/Public/public-webapps/2011JulSep/0779.html">缺陷</a>。</li>
 <li>向文档添加 DOM 修改监听器会<a href="https://groups.google.com/d/topic/mozilla.dev.platform/L0Lx11u5Bvs?pli=1">显著降低后续 DOM 修改的性能</a>（速度会慢 1.5 到 7 倍！）。此外，移除监听器也无法消除这种影响。</li>
-<li>They have poor cross-browser compatibility: Safari doesn't support
-<code>DOMAttrModified</code> (see <a href="https://webkit.org/b/8191">WebKit bug 8191</a>) and
-Firefox doesn't support <em>mutation name events</em> (like
-<code>DOMElementNameChanged</code> 和 <code>DOMAttributeNameChanged</code>).</li>
+<li>这些事件的跨浏览器兼容性较差：Safari 不支持 <code>DOMAttrModified</code>（参见 <a href="https://webkit.org/b/8191">WebKit bug 8191</a>）；Firefox 也不支持“<em>名称变更事件</em>”（例如 <code>DOMElementNameChanged</code> 和 <code>DOMAttributeNameChanged</code>）。</li>
 </ul>
 <p>变更事件已弃用，现已由<a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">变更观察器</a>取代。<strong>建议改用变更观察器。</strong></p>
 </blockquote>
@@ -155,13 +151,8 @@ Firefox doesn't support <em>mutation name events</em> (like
 
 </dt>
 <dd>
-  The <strong><code>attrChange</code></strong> read-only property of the <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> interface
-returns a number indicating what kind of change triggered the
-<code>DOMAttrModified</code> event. The three possible values are <code>MODIFICATION</code>
-(<code>1</code>), <code>ADDITION</code> (<code>2</code>) or <code>REMOVAL</code> (<code>3</code>). It has no meaning for other
-events and is then set to <code>0</code>.
-  <div class="features"><span class="feature">无 setter</span></div>
-
+  <strong><code>attrChange</code></strong> 是 <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> 接口的只读属性，用于指示 <code>DOMAttrModified</code> 事件触发的更改类型。可能值为 <code>MODIFICATION</code>（<code>1</code>）、<code>ADDITION</code>（<code>2</code>）或 <code>REMOVAL</code>（<code>3</code>）。对于其他事件，该属性无意义，并设为 <code>0</code>。
+  <div class="features"><span class="feature">无设置器</span></div>
 </dd>
 
         <dt id="attrName" class="property">
@@ -171,12 +162,8 @@ events and is then set to <code>0</code>.
 
 </dt>
 <dd>
-  The <strong><code>attrName</code></strong> read-only property of the <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> interface
-returns a string with the name of the node affected by the
-<code>DOMAttrModified</code> event. It has no meaning for other events and is then
-set to the empty string (<code>""</code>).
-  <div class="features"><span class="feature">无 setter</span></div>
-
+  <strong><code>attrName</code></strong> 是 <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> 接口的只读属性，返回受 <code>DOMAttrModified</code> 事件影响的节点名称；其他事件中无意义，并设为空字符串（<code>""</code>）。
+  <div class="features"><span class="feature">无设置器</span></div>
 </dd>
 
         <dt id="bubbles" class="property inherited">
@@ -186,10 +173,11 @@ set to the empty string (<code>""</code>).
 
 </dt>
 <dd class="inherited">
-  The <strong><code>bubbles</code></strong> read-only property of the <a href="package-web_web/Event-extension-type.html">Event</a> interface indicates
-whether the event bubbles up through the DOM tree or not.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>bubbles</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，用于指示事件是否会沿 DOM 树向上冒泡。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="cancelable" class="property inherited">
@@ -199,11 +187,11 @@ whether the event bubbles up through the DOM tree or not.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>cancelable</code></strong> read-only property of the <a href="package-web_web/Event-extension-type.html">Event</a> interface indicates
-whether the event
-can be canceled, and therefore prevented as if the event never happened.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>cancelable</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，用于指示事件是否可以取消，从而使其如同从未发生过一样被阻止。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="cancelBubble" class="property inherited">
@@ -213,15 +201,8 @@ can be canceled, and therefore prevented as if the event never happened.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>cancelBubble</code></strong> property of the <a href="package-web_web/Event-extension-type.html">Event</a>
-interface is deprecated. Use <a href="package-web_web/Event/stopPropagation.html">Event.stopPropagation</a> instead.
-Setting its value to <code>true</code> before returning from an event handler
-prevents propagation
-of the event. In later implementations, setting this to <code>false</code> does
-nothing.
-See <a href="#browser_compatibility">Browser compatibility</a> for details.
-  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
-
+  <strong><code>cancelBubble</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口已弃用的属性，请改用 <a href="package-web_web/Event/stopPropagation.html">Event.stopPropagation</a>。在事件处理程序返回前将其设为 <code>true</code> 可阻止事件传播；较新的实现中设为 <code>false</code> 不起作用。详情请参阅 <a href="#browser_compatibility">Browser compatibility</a>。
+  <div class="features"><span class="feature">读写访问器对</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="composed" class="property inherited">
@@ -231,12 +212,11 @@ See <a href="#browser_compatibility">Browser compatibility</a> for details.
 
 </dt>
 <dd class="inherited">
-  The read-only <strong><code>composed</code></strong> property of the
-<a href="package-web_web/Event-extension-type.html">Event</a> interface returns a boolean value which indicates whether
-or not the event will propagate across the shadow DOM boundary into the
-standard DOM.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>composed</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，返回一个布尔值，指示事件是否会跨越 Shadow DOM 边界传播到标准 DOM。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="currentTarget" class="property inherited">
@@ -246,10 +226,11 @@ standard DOM.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>currentTarget</code></strong> read-only property of the <a href="package-web_web/Event-extension-type.html">Event</a> interface
-identifies the element to which the event handler has been attached.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>currentTarget</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，用于标识附加了事件处理程序的元素。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="defaultPrevented" class="property inherited">
@@ -259,11 +240,11 @@ identifies the element to which the event handler has been attached.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>defaultPrevented</code></strong> read-only property of the <a href="package-web_web/Event-extension-type.html">Event</a> interface
-returns a boolean value indicating whether or not the call to
-<a href="package-web_web/Event/preventDefault.html">Event.preventDefault</a> canceled the event.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>defaultPrevented</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，返回一个布尔值，指示调用 <a href="package-web_web/Event/preventDefault.html">Event.preventDefault</a> 是否取消了该事件。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="eventPhase" class="property inherited">
@@ -273,11 +254,11 @@ returns a boolean value indicating whether or not the call to
 
 </dt>
 <dd class="inherited">
-  The <strong><code>eventPhase</code></strong> read-only property of the
-<a href="package-web_web/Event-extension-type.html">Event</a> interface indicates which phase of the event flow is currently
-being evaluated.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>eventPhase</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，指示当前正在处理事件流的哪个阶段。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="hashCode" class="property inherited">
@@ -288,7 +269,7 @@ being evaluated.
 </dt>
 <dd class="inherited">
   此对象的哈希码。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -303,7 +284,7 @@ being evaluated.
         <span>适用于 <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?，由扩展 <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> 提供</span>
       </p>
   
-  <div class="features"><span class="feature">无 setter</span></div>
+  <div class="features"><span class="feature">无设置器</span></div>
 
 </dd>
 
@@ -318,7 +299,7 @@ being evaluated.
         <span>适用于 <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?，由扩展 <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> 提供</span>
       </p>
   此值是否对应 JavaScript 的 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
+  <div class="features"><span class="feature">无设置器</span></div>
 
 </dd>
 
@@ -329,16 +310,11 @@ being evaluated.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>isTrusted</code></strong> read-only property of the
-<a href="package-web_web/Event-extension-type.html">Event</a> interface is a boolean value that is <code>true</code>
-when the event was generated by the user agent (including via user actions
-and programmatic methods such as <a href="package-web_web/HTMLElement/focus.html">HTMLElement.focus</a>),
-and <code>false</code> when the event was dispatched via
-<a href="package-web_web/EventTarget/dispatchEvent.html">EventTarget.dispatchEvent</a>.
-The only exception is the <code>click</code> event, which initializes the <code>isTrusted</code>
-property to <code>false</code> in user agents.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>isTrusted</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性。该属性为 <code>true</code> 表示事件由用户代理生成，包括用户操作以及 <a href="package-web_web/HTMLElement/focus.html">HTMLElement.focus</a> 等程序化方法；该属性为 <code>false</code> 时，事件通过 <a href="package-web_web/EventTarget/dispatchEvent.html">EventTarget.dispatchEvent</a> 分发。唯一例外是 <code>click</code> 事件，用户代理会将 <code>isTrusted</code> 属性初始化为 <code>false</code>。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="isTruthy" class="property">
@@ -367,7 +343,7 @@ property to <code>false</code> in user agents.
         <span>适用于 <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?，由扩展 <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> 提供</span>
       </p>
   此值是否对应 JavaScript 的 <code>undefined</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
+  <div class="features"><span class="feature">无设置器</span></div>
 
 </dd>
 
@@ -382,7 +358,7 @@ property to <code>false</code> in user agents.
         <span>适用于 <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?，由扩展 <a href="dart-js_interop/NullableUndefineableJSAnyExtension.html">NullableUndefineableJSAnyExtension</a> 提供</span>
       </p>
   
-  <div class="features"><span class="feature">无 setter</span></div>
+  <div class="features"><span class="feature">无设置器</span></div>
 
 </dd>
 
@@ -393,13 +369,8 @@ property to <code>false</code> in user agents.
 
 </dt>
 <dd>
-  The <strong><code>newValue</code></strong> read-only property of the <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> interface
-returns a string. In <code>DOMAttrModified</code> events, it represents the new value
-of the <a href="package-web_web/Attr-extension-type.html">Attr</a> node. In <code>DOMCharacterDataModified</code> events, it contains the
-new value of the <a href="package-web_web/CharacterData-extension-type.html">CharacterData</a> node. In all other cases, returns the
-empty string (<code>""</code>).
-  <div class="features"><span class="feature">无 setter</span></div>
-
+  <strong><code>newValue</code></strong> 是 <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> 接口的只读属性。在 <code>DOMAttrModified</code> 事件中，它表示 <a href="package-web_web/Attr-extension-type.html">Attr</a> 节点的新值；在 <code>DOMCharacterDataModified</code> 事件中，它包含 <a href="package-web_web/CharacterData-extension-type.html">CharacterData</a> 节点的新值。其他情况下返回空字符串（<code>""</code>）。
+  <div class="features"><span class="feature">无设置器</span></div>
 </dd>
 
         <dt id="not" class="property">
@@ -424,13 +395,8 @@ empty string (<code>""</code>).
 
 </dt>
 <dd>
-  The <strong><code>prevValue</code></strong> read-only property of the <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> interface
-returns a string. In <code>DOMAttrModified</code> events, it represents the previous
-value of the <a href="package-web_web/Attr-extension-type.html">Attr</a> node. In <code>DOMCharacterDataModified</code> events, it
-contains the previous value of the <a href="package-web_web/CharacterData-extension-type.html">CharacterData</a> node. In all other
-cases, returns the empty string (<code>""</code>).
-  <div class="features"><span class="feature">无 setter</span></div>
-
+  <strong><code>prevValue</code></strong> 是 <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> 接口的只读属性。在 <code>DOMAttrModified</code> 事件中，它表示 <a href="package-web_web/Attr-extension-type.html">Attr</a> 节点的先前值；在 <code>DOMCharacterDataModified</code> 事件中，它包含 <a href="package-web_web/CharacterData-extension-type.html">CharacterData</a> 节点的先前值。其他情况下返回空字符串（<code>""</code>）。
+  <div class="features"><span class="feature">无设置器</span></div>
 </dd>
 
         <dt id="relatedNode" class="property">
@@ -440,11 +406,8 @@ cases, returns the empty string (<code>""</code>).
 
 </dt>
 <dd>
-  The <strong><code>relatedNode</code></strong> read-only property of the <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> interface
-returns a string indicating the node related to the event, like the
-changed node inside the subtree for <code>DOMSubtreeModified</code>.
-  <div class="features"><span class="feature">无 setter</span></div>
-
+  <strong><code>relatedNode</code></strong> 是 <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> 接口的只读属性，返回与事件相关的节点，例如 <code>DOMSubtreeModified</code> 子树中发生更改的节点。
+  <div class="features"><span class="feature">无设置器</span></div>
 </dd>
 
         <dt id="returnValue" class="property inherited">
@@ -454,11 +417,11 @@ changed node inside the subtree for <code>DOMSubtreeModified</code>.
 
 </dt>
 <dd class="inherited">
-  The <a href="package-web_web/Event-extension-type.html">Event</a> 属性
-<strong><code>returnValue</code></strong> indicates whether the default action for
-this event has been prevented or not.
-  <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
+  <a href="package-web_web/Event-extension-type.html">Event</a> 接口的 <strong><code>returnValue</code></strong> 属性表示此事件的默认操作是否已被阻止。
 
+
+
+  <div class="features"><span class="feature">读写访问器对</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="runtimeType" class="property inherited">
@@ -469,7 +432,7 @@ this event has been prevented or not.
 </dt>
 <dd class="inherited">
   此对象运行时类型的表示。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -480,10 +443,11 @@ this event has been prevented or not.
 
 </dt>
 <dd class="inherited">
-  The deprecated <strong><code>Event.srcElement</code></strong> is an alias for the <a href="package-web_web/Event/target.html">Event.target</a>
-property. Use <a href="package-web_web/Event/target.html">Event.target</a> instead.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  已弃用的 <strong><code>Event.srcElement</code></strong> 是 <a href="package-web_web/Event/target.html">Event.target</a> 属性的别名。请改用 <a href="package-web_web/Event/target.html">Event.target</a>。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="target" class="property inherited">
@@ -493,12 +457,11 @@ property. Use <a href="package-web_web/Event/target.html">Event.target</a> inste
 
 </dt>
 <dd class="inherited">
-  The read-only <strong><code>target</code></strong> property of the
-<a href="package-web_web/Event-extension-type.html">Event</a> interface is a reference to the object onto which the event was
-dispatched. It is different from <a href="package-web_web/Event/currentTarget.html">Event.currentTarget</a> when the event
-handler is called during the bubbling or capturing phase of the event.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>target</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，引用事件被分发到的对象。在事件处理程序的冒泡阶段或捕获阶段调用时，它与 <a href="package-web_web/Event/currentTarget.html">Event.currentTarget</a> 不同。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="timeStamp" class="property inherited">
@@ -508,10 +471,11 @@ handler is called during the bubbling or capturing phase of the event.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>timeStamp</code></strong> read-only property of the <a href="package-web_web/Event-extension-type.html">Event</a> interface returns
-the time (in milliseconds) at which the event was created.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>timeStamp</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，返回事件创建时的时间（以毫秒为单位）。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="type" class="property inherited">
@@ -521,14 +485,11 @@ the time (in milliseconds) at which the event was created.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>type</code></strong> read-only property of the <a href="package-web_web/Event-extension-type.html">Event</a>
-interface returns a string containing the event's type. It is set when the
-event is
-constructed and is the name commonly used to refer to the specific event,
-such as
-<code>click</code>, <code>load</code>, or <code>error</code>.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <strong><code>type</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的只读属性，返回包含事件类型的字符串。该值在构造事件时设置，是指代特定事件的常用名称，例如 <code>click</code>、<code>load</code> 或 <code>error</code>。
 
+
+
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 </dd>
 
     </dl>
@@ -612,14 +573,11 @@ such as
 
 </dt>
 <dd class="inherited">
-  The <strong><code>composedPath()</code></strong> method of the <a href="package-web_web/Event-extension-type.html">Event</a>
-interface returns the event's path which is an array of the objects on
-which listeners
-will be invoked. This does not include nodes in shadow trees if the shadow
-root was
-created with its <a href="package-web_web/ShadowRoot/mode.html">ShadowRoot.mode</a> closed.
-  <div class="features"><span class="feature">继承</span></div>
+  <strong><code>composedPath()</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的方法，返回事件路径，即将触发监听器的对象数组。如果 影子根节点 的 <a href="package-web_web/ShadowRoot/mode.html">ShadowRoot.mode</a> 为 closed，则此路径不包含 影子树 中的节点。
 
+
+
+  <div class="features"><span class="feature">继承</span></div>
 </dd>
 
         <dt id="dartify" class="callable">
@@ -790,10 +748,11 @@ created with its <a href="package-web_web/ShadowRoot/mode.html">ShadowRoot.mode<
 
 </dt>
 <dd class="inherited">
-  The <strong><code>Event.initEvent()</code></strong> method is used to initialize the
-value of an <code>event</code> created using <a href="package-web_web/Document/createEvent.html">Document.createEvent</a>.
-  <div class="features"><span class="feature">继承</span></div>
+  <strong><code>Event.initEvent()</code></strong> 方法用于初始化 <code>event</code> 的值；该事件是通过 <a href="package-web_web/Document/createEvent.html">Document.createEvent</a> 创建的。
 
+
+
+  <div class="features"><span class="feature">继承</span></div>
 </dd>
 
         <dt id="initMutationEvent" class="callable">
@@ -804,13 +763,8 @@ value of an <code>event</code> created using <a href="package-web_web/Document/c
 
 </dt>
 <dd>
-  The <strong><code>initMutationEvent()</code></strong> method of the <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> interface
-initializes the
-value of a mutation event once it's been created (normally using the
-<a href="package-web_web/Document/createEvent.html">Document.createEvent</a> method).
-  
-
-</dd>
+  <strong><code>initMutationEvent()</code></strong> 是 <a href="package-web_web/MutationEvent-extension-type.html">MutationEvent</a> 接口的方法，用于初始化 MutationEvent 的值。通常先使用 <a href="package-web_web/Document/createEvent.html">Document.createEvent</a> 方法创建该事件。
+  </dd>
 
         <dt id="instanceof" class="callable">
   <span class="name"><a href="dart-js_interop/JSAnyUtilityExtension/instanceof.html">instanceof</a></span><span class="signature">(<wbr><span class="parameter" id="instanceof-param-constructor"><span class="type-annotation"><a href="dart-js_interop/JSFunction-extension-type.html">JSFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Function-class.html">Function</a></span>&gt;</span></span> <span class="parameter-name">构造函数</span></span>)
@@ -961,11 +915,11 @@ value of a mutation event once it's been created (normally using the
 
 </dt>
 <dd class="inherited">
-  The <strong><code>preventDefault()</code></strong> method of the <a href="package-web_web/Event-extension-type.html">Event</a> interface tells the  that
-if the event does not get explicitly handled, its default action should
-not be taken as it normally would be.
-  <div class="features"><span class="feature">继承</span></div>
+  <strong><code>preventDefault()</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的方法，用于告知浏览器：如果事件未被显式处理，则不应执行其通常的默认操作。
 
+
+
+  <div class="features"><span class="feature">继承</span></div>
 </dd>
 
         <dt id="setProperty" class="callable">
@@ -992,11 +946,11 @@ not be taken as it normally would be.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>stopImmediatePropagation()</code></strong> method of the
-<a href="package-web_web/Event-extension-type.html">Event</a> interface prevents other listeners of the same event from being
-called.
-  <div class="features"><span class="feature">继承</span></div>
+  <strong><code>stopImmediatePropagation()</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的方法，用于阻止调用同一事件的其他监听器。
 
+
+
+  <div class="features"><span class="feature">继承</span></div>
 </dd>
 
         <dt id="stopPropagation" class="callable inherited">
@@ -1007,19 +961,11 @@ called.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>stopPropagation()</code></strong> method of the <a href="package-web_web/Event-extension-type.html">Event</a>
-interface prevents further propagation of the current event in the
-capturing and
-bubbling phases. It does not, however, prevent any default behaviors from
-occurring; for
-instance, clicks on links are still processed. If you want to stop those
-behaviors, see
-the <a href="package-web_web/Event/preventDefault.html">Event.preventDefault</a> method. It also does not
-prevent propagation to other event-handlers of the current element. If you
-want to stop those,
-see <a href="package-web_web/Event/stopImmediatePropagation.html">Event.stopImmediatePropagation</a>.
-  <div class="features"><span class="feature">继承</span></div>
+  <strong><code>stopPropagation()</code></strong> 是 <a href="package-web_web/Event-extension-type.html">Event</a> 接口的方法，用于阻止当前事件在捕获阶段和冒泡阶段继续传播。但这不会阻止任何默认行为，例如仍会处理链接点击。若要阻止这些行为，请参阅 <a href="package-web_web/Event/preventDefault.html">Event.preventDefault</a> 方法。它也不会阻止事件继续传播给当前元素的其他事件处理程序。若要阻止这些处理程序，请参阅 <a href="package-web_web/Event/stopImmediatePropagation.html">Event.stopImmediatePropagation</a>。
 
+
+
+  <div class="features"><span class="feature">继承</span></div>
 </dd>
 
         <dt id="strictEquals" class="callable">
