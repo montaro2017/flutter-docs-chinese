@@ -96,7 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>实现层叠布局算法。</p>
 <p>在 Stack 布局中，子项会按照它们在子项列表中的顺序层叠放置。首先布局非定位子项（即 top、right、bottom、left 均为 null 的子项），并将它们初始放在 Stack 左上角。随后调整 Stack 的尺寸，使其包住所有非定位子项。如果没有非定位子项，Stack 会尽可能扩展。</p>
 <p>未定位子节点的最终位置由 alignment 参数决定。每个未定位子节点的 left 坐标等于层叠区域宽度与子节点宽度之差，乘以 (alignment.x + 1.0) / 2.0。top 坐标则根据层叠区域高度、子节点高度和 <code>alignment.y</code> 以类似方式计算。</p>
-<p>因此，当 alignment 的 x 和 y 属性为 -1.0 时，非定位子项会留在左上角（起始顶部）；当这两个属性为 0.0 时，非定位子项会在 Stack 中居中。</p>
+<p>因此，当 alignment 的 x 和 y 属性为 -1.0 时，非定位子项会留在左上角（顶部起始位置）；当这两个属性为 0.0 时，非定位子项会在 Stack 中居中。</p>
 <p>接下来布局定位子项。如果子项的 top 和 bottom 均非 null，则为它指定固定高度，即 Stack 高度减去 top 与 bottom 的和。同样，如果子项的 right 和 left 均非 null，则根据 Stack 宽度为它指定固定宽度。否则，在尺寸未固定的方向上向子项提供无界约束。</p>
 <p>子项布局完成后，Stack 会根据其 <a href="rendering/StackParentData-class.html">StackParentData</a> 中的 top、right、bottom 和 left 属性来定位子项。例如，若 bottom 值为 10.0，子项的底边会距 Stack 底边 10.0 像素。如果子项超出 Stack 边界，Stack 会将子项的绘制裁剪到自身边界内。</p>
 <p>另请参阅：</p>
