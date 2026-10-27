@@ -97,22 +97,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>通过在感兴趣的区域周围向渲染树添加 <a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a> 渲染对象来定义各区域，它们会向此 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 注册。每个轻点区域都可以通过设置 <a href="widgets/RenderTapRegion/groupId.html">RenderTapRegion.groupId</a> 加入某个组；具有相同 groupId 的所有区域会作为一个整体运行。</p>
 <p>检测到在已注册区域或区域组外部轻点按下或抬起时，会分别调用 <a href="widgets/TapRegion/onTapOutside.html">TapRegion.onTapOutside</a> 或 <a href="widgets/TapRegion/onTapUpOutside.html">TapRegion.onTapUpOutside</a> 回调。如果轻点位于组中一个成员之外、但另一个成员之内，则不会发出通知。</p>
 <p>检测到在已注册区域或区域组内部轻点按下或抬起时，会分别调用 <a href="widgets/TapRegion/onTapInside.html">TapRegion.onTapInside</a> 或 <a href="widgets/TapRegion/onTapUpInside.html">TapRegion.onTapUpInside</a> 回调。如果轻点位于组中一个成员内部，则会通知所有成员。</p>
-<p>The <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> should be defined at the highest level needed
-to encompass the entire area where taps should be monitored. This is
-typically around the entire app. If the entire app isn't covered, then taps
-outside of the <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> will be ignored and no
-<a href="widgets/RenderTapRegion/onTapOutside.html">RenderTapRegion.onTapOutside</a> or <a href="widgets/RenderTapRegion/onTapUpOutside.html">RenderTapRegion.onTapUpOutside</a> calls
-will be made for those events. The <a href="widgets/WidgetsApp-class.html">WidgetsApp</a>, <a href="material/MaterialApp-class.html">MaterialApp</a> 和
-<a href="cupertino/CupertinoApp-class.html">CupertinoApp</a> automatically include a <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> around the
-entire app.</p>
+<p>应在需要监视点击的整个区域的最高层级定义 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a>。通常应将其放在整个应用的范围内。如果它未覆盖整个应用，发生在 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 外部的点击会被忽略，也不会针对这些事件调用 <a href="widgets/RenderTapRegion/onTapOutside.html">RenderTapRegion.onTapOutside</a> 或 <a href="widgets/RenderTapRegion/onTapUpOutside.html">RenderTapRegion.onTapUpOutside</a>。<a href="widgets/WidgetsApp-class.html">WidgetsApp</a>、<a href="material/MaterialApp-class.html">MaterialApp</a> 和 <a href="cupertino/CupertinoApp-class.html">CupertinoApp</a> 会自动在整个应用外围包含一个 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a>。</p>
 <p><a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 不参与<a href="https://flutter.dev/to/gesture-disambiguation">手势判定</a>系统，因此，如果多个 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 同时处于活动状态，它们都会触发通知；<a href="widgets/GestureDetector-class.html">GestureDetector</a> 或其他指针事件处理器识别到的其他手势也会照常触发。</p>
 <p><a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a> 只会向最近的祖先 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 注册。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a>, a widget that inserts a <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> into
-the render tree.</li>
-<li><a href="widgets/TapRegionRegistry/of.html">TapRegionRegistry.of</a>, which can find the nearest ancestor
-<a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a>, which is a <a href="widgets/TapRegionRegistry-class.html">TapRegionRegistry</a>.</li>
+<li><a href="widgets/TapRegionSurface-class.html">TapRegionSurface</a>，一个会将 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a> 插入渲染树的 widget。</li>
+<li><a href="widgets/TapRegionRegistry/of.html">TapRegionRegistry.of</a>，可查找最近的祖先 <a href="widgets/RenderTapRegionSurface-class.html">RenderTapRegionSurface</a>；它是一个 <a href="widgets/TapRegionRegistry-class.html">TapRegionRegistry</a>。</li>
 </ul>
 </section>
 
@@ -198,8 +189,7 @@ the render tree.</li>
 
 </dt>
 <dd class="inherited">
-  How to behave during hit testing when deciding how the hit test propagates
-to children and whether to consider targets behind this one.
+  命中测试时的行为：决定命中测试如何传递给子项，以及是否考虑此对象后方的目标。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -211,7 +201,7 @@ to children and whether to consider targets behind this one.
 
 </dt>
 <dd class="inherited">
-  The render object's unique child.
+  此 render object 唯一的子项。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -223,7 +213,7 @@ to children and whether to consider targets behind this one.
 
 </dt>
 <dd class="inherited">
-  The box constraints most recently received from the parent.
+  最近从父级接收到的盒约束。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -427,7 +417,7 @@ to children and whether to consider targets behind this one.
 
 </dt>
 <dd class="inherited">
-  Whether this render object has undergone layout and has a <a href="rendering/RenderBox/size.html">size</a>.
+  此 render object 是否已完成布局并具有 <a href="rendering/RenderBox/size.html">size</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -487,7 +477,7 @@ to children and whether to consider targets behind this one.
 
 </dt>
 <dd class="inherited">
-  Returns a rectangle that contains all the pixels painted by this box.
+  返回一个矩形，其中包含此盒绘制的所有像素。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -547,7 +537,7 @@ to children and whether to consider targets behind this one.
 
 </dt>
 <dd class="inherited">
-  The size of this render box computed during layout.
+  此 render box 在布局期间计算出的大小。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -594,8 +584,7 @@ to children and whether to consider targets behind this one.
 
 </dt>
 <dd class="inherited">
-  Multiply the transform from the parent's coordinate system to this box's
-coordinate system into the given transform.
+  将从父级坐标系到此盒坐标系的变换乘入给定的变换。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -608,7 +597,7 @@ coordinate system into the given transform.
 
 </dt>
 <dd class="inherited">
-  Assemble the <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> for this <a href="rendering/RenderObject-class.html">RenderObject</a>.
+  为此 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 组装 <a href="rendering/RenderObject-class.html">RenderObject</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -647,9 +636,7 @@ coordinate system into the given transform.
 
 </dt>
 <dd class="inherited">
-  Returns the distance from the y-coordinate of the position of the box to
-the y-coordinate of the first given baseline in the box's contents, if
-any, or null otherwise.
+  返回盒子位置的 y 坐标到其内容中指定的第一个基线 y 坐标之间的距离；如果不存在基线，则返回 null。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -740,8 +727,7 @@ any, or null otherwise.
 
 </dt>
 <dd class="inherited">
-  Calculate the size the <a href="rendering/RenderProxyBox-class.html">RenderProxyBox</a> would have under the given
-<a href="rendering/BoxConstraints-class.html">BoxConstraints</a> for the case where it does not have a child.
+  计算 <a href="rendering/RenderProxyBox-class.html">RenderProxyBox</a> 在没有子项时、给定 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 下的大小。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -754,7 +740,7 @@ any, or null otherwise.
 
 </dt>
 <dd class="inherited">
-  Claims ownership of the given <a href="dart-ui/Size-class.html">Size</a>.
+  取得给定 <a href="dart-ui/Size-class.html">Size</a> 的所有权。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -767,11 +753,7 @@ any, or null otherwise.
 
 </dt>
 <dd class="inherited">
-  验证此对象是否满足其约束条件。 Override this function
-in a subclass to verify that your state matches the constraints object.
-This function is only called when asserts are enabled (i.e. in debug mode)
-and only when needsLayout is false. If the constraints are not met, it
-should assert or throw an exception.
+  验证此对象是否满足其约束条件。 在子类中重写此函数，以验证当前状态是否符合 constraints 对象。仅在启用断言（即 debug 模式）且 needsLayout 为 false 时调用此函数。如果不满足约束条件，应触发断言或抛出异常。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -784,8 +766,7 @@ should assert or throw an exception.
 
 </dt>
 <dd class="inherited">
-  Called from <a href="rendering/RenderBox/computeDryLayout.html">computeDryLayout</a> or <a href="rendering/RenderBox/computeDryBaseline.html">computeDryBaseline</a> within an assert if
-the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does not support calculating a dry layout.
+  如果某个子类不支持计算干布局，则会在断言中从 <a href="rendering/RenderBox/computeDryLayout.html">computeDryLayout</a> 或 <a href="rendering/RenderBox/computeDryBaseline.html">computeDryBaseline</a> 调用此方法；此处所指的是 <a href="rendering/RenderBox-class.html">RenderBox</a> 子类。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -824,7 +805,7 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
 
 </dt>
 <dd class="inherited">
-  Implements the <a href="rendering/debugPaintPointersEnabled.html">debugPaintPointersEnabled</a> debugging feature.
+  实现 <a href="rendering/debugPaintPointersEnabled.html">debugPaintPointersEnabled</a> 调试功能。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -850,7 +831,7 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
 
 </dt>
 <dd class="inherited">
-  In debug mode, paints a line for each baseline.
+  在 debug 模式下，为每条基线绘制一条线。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -863,8 +844,7 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
 
 </dt>
 <dd class="inherited">
-  In debug mode, paints a rectangle if this render box has counted more
-pointer downs than pointer up events.
+  在 debug 模式下，如果此 render box 记录到的指针按下事件多于指针抬起事件，则绘制一个矩形。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -877,7 +857,7 @@ pointer downs than pointer up events.
 
 </dt>
 <dd class="inherited">
-  In debug mode, paints a border around this render box.
+  在 debug 模式下，在此 render box 周围绘制边框。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1021,7 +1001,7 @@ a child of this render object.
 
 </dt>
 <dd class="inherited">
-  Calls <a href="rendering/RenderBox/computeDistanceToActualBaseline.html">computeDistanceToActualBaseline</a> and caches the result.
+  调用 <a href="rendering/RenderBox/computeDistanceToActualBaseline.html">computeDistanceToActualBaseline</a> 并缓存结果。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1034,8 +1014,7 @@ a child of this render object.
 
 </dt>
 <dd class="inherited">
-  Returns the distance from the y-coordinate of the position of the box to
-the y-coordinate of the first given baseline in the box's contents.
+  返回盒子位置的 y 坐标到其内容中指定的第一个基线 y 坐标之间的距离。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1048,9 +1027,7 @@ the y-coordinate of the first given baseline in the box's contents.
 
 </dt>
 <dd class="inherited">
-  Returns the distance from the top of the box to the first baseline of the
-box's contents for the given <code>constraints</code>, or <code>null</code> if this <a href="rendering/RenderBox-class.html">RenderBox</a>
-does not have any baselines.
+  在给定 <code>constraints</code> 下，返回盒子顶部到其内容中第一个基线的距离；如果返回 <code>null</code>，则表示此 <a href="rendering/RenderBox-class.html">RenderBox</a> 没有基线。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1063,8 +1040,7 @@ does not have any baselines.
 
 </dt>
 <dd class="inherited">
-  Returns the <a href="dart-ui/Size-class.html">Size</a> that this <a href="rendering/RenderBox-class.html">RenderBox</a> would like to be given the
-provided <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>.
+  返回此 <a href="dart-ui/Size-class.html">Size</a>（即此 <a href="rendering/RenderBox-class.html">RenderBox</a> 在给定 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 下期望采用的大小）。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1077,9 +1053,7 @@ provided <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>.
 
 </dt>
 <dd class="inherited">
-  Returns the smallest height beyond which increasing the height never
-decreases the preferred width. The preferred width is the value that
-would be returned by <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a> for that height.
+  返回一个最小高度；超过该高度后，继续增加高度不会再使首选宽度减小。首选宽度是该高度下 <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a> 的返回值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1092,9 +1066,7 @@ would be returned by <a href="rendering/RenderBox/getMinIntrinsicWidth.html">get
 
 </dt>
 <dd class="inherited">
-  Returns the smallest width beyond which increasing the width never
-decreases the preferred height. The preferred height is the value that
-would be returned by <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a> for that width.
+  返回一个最小宽度；超过该宽度后，继续增加宽度不会再使首选高度减小。首选高度是该宽度下 <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a> 的返回值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1107,8 +1079,7 @@ would be returned by <a href="rendering/RenderBox/getMinIntrinsicHeight.html">ge
 
 </dt>
 <dd class="inherited">
-  Returns the minimum height that this box could be without failing to
-correctly paint its contents within itself, without clipping.
+  返回此盒在不裁剪的情况下能够正确绘制其内容所需的最小高度。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1121,8 +1092,7 @@ correctly paint its contents within itself, without clipping.
 
 </dt>
 <dd class="inherited">
-  Returns the minimum width that this box could be without failing to
-correctly paint its contents within itself, without clipping.
+  返回此盒在不裁剪的情况下能够正确绘制其内容所需的最小宽度。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1148,8 +1118,7 @@ correctly paint its contents within itself, without clipping.
 
 </dt>
 <dd class="inherited">
-  Convert the given point from the global coordinate system in logical pixels
-to the local coordinate system for this box.
+  将给定点从以逻辑像素表示的全局坐标系转换到此盒的局部坐标系。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1240,8 +1209,7 @@ to the local coordinate system for this box.
 
 </dt>
 <dd class="inherited">
-  Convert the given point from the local coordinate system for this box to
-the global coordinate system in logical pixels.
+  将给定点从此盒的局部坐标系转换到以逻辑像素表示的全局坐标系。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1449,7 +1417,7 @@ the global coordinate system in logical pixels.
 
 </dt>
 <dd>
-  Register the given <a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a> with the registry.
+  向注册表注册给定的 <a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a>。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -1580,8 +1548,7 @@ the global coordinate system in logical pixels.
 </dt>
 <dd class="inherited">
   返回以此节点为根的树结构描述。
-If the prefix argument is provided, then every line in the output
-will be prefixed by that string.
+如果提供了 prefix 参数，输出中的每一行都会以该字符串作为前缀。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1621,7 +1588,7 @@ will be prefixed by that string.
 
 </dt>
 <dd>
-  Unregister the given <a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a> with the registry.
+  从注册表中注销给定的 <a href="widgets/RenderTapRegion-class.html">RenderTapRegion</a>。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
