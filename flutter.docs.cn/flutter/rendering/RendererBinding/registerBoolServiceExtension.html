@@ -112,12 +112,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>使用给定名称注册一个服务扩展方法（完整名称为“ext.flutter.name”）。该方法接受一个名为“enabled”的参数，其值可以是“true”或“false”；省略该参数时则读取当前值。（除“true”以外的任何值都视为等同于“false”。其他参数会被忽略。）</p>
 <p>响应服务扩展方法调用时，会调用 <code>getter</code> 回调以获取值。</p>
 <p>服务扩展方法收到新值时，会使用该值调用 <code>setter</code> 回调。</p>
-<p>只有构建中包含 vm-service 时，注册的服务扩展才能被激活；vm-service 仅在 debug 和 profile 模式下包含。服务扩展虽然不能在 release 模式下使用，但其代码仍可能包含在 Dart 快照中，导致二进制体积增大。因此应使用能让 tree shaker 移除该代码的保护条件包裹它（见下面的示例代码）。</p>
+<p>只有构建中包含 VM 服务时，注册的服务扩展才能激活；VM 服务仅会包含在调试和性能分析模式中。服务扩展无法在发布模式下使用，但其代码仍可能进入 Dart 快照，增大二进制体积。因此应使用 tree shaker 可识别的保护条件包裹这段代码，使其能够移除该代码（见下方示例）。</p>
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-下面的代码会注册一个仅包含在 debug 构建中的服务扩展。
+下面的代码会注册一个仅包含在调试构建中的服务扩展。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'foundation.BindingBase.registerServiceExtension.1');" onclick="fixHref(this, 'foundation.BindingBase.registerServiceExtension.1'); copyStringToClipboard(this.href);"
@@ -142,7 +142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a name="foundation.BindingBase.registerServiceExtension.2"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-使用以下代码片段注册的服务扩展可在 debug 和 profile 模式下使用。
+使用以下代码片段注册的服务扩展可在调试和性能分析模式下使用。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'foundation.BindingBase.registerServiceExtension.2');" onclick="fixHref(this, 'foundation.BindingBase.registerServiceExtension.2'); copyStringToClipboard(this.href);"
@@ -163,7 +163,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </div>
 </p>
-<p>这两种保护条件都能确保 Dart 的 tree shaker 可以在 release 构建中移除服务扩展代码。</p>
+<p>这两种保护条件都能确保 Dart 的 tree shaker 可以在发布构建中移除服务扩展代码。</p>
 </section>
 
 
