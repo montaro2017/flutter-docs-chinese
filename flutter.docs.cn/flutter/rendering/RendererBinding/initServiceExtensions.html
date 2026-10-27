@@ -109,13 +109,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>binding 初始化时调用，用于注册服务扩展。</p>
 <p>需要公开服务扩展的 binding 应重写此方法，并通过调用 <a href="rendering/RendererBinding/registerSignalServiceExtension.html">registerSignalServiceExtension</a>、<a href="rendering/RendererBinding/registerBoolServiceExtension.html">registerBoolServiceExtension</a>、<a href="rendering/RendererBinding/registerNumericServiceExtension.html">registerNumericServiceExtension</a> 和 <a href="rendering/RendererBinding/registerServiceExtension.html">registerServiceExtension</a> 来注册扩展（复杂度依次递增）。</p>
 <p>此方法的实现必须调用父类实现。</p>
-<p>只有构建中包含 vm-service 时，注册的服务扩展才能启用；vm-service 仅包含在调试模式和性能分析模式的构建中。虽然发布模式下无法使用服务扩展，其代码仍可能进入 Dart 快照并增大二进制文件；若要避免这种情况，必须将代码放在能让 tree shaker 移除它的保护条件中（见下方示例代码）。</p>
+<p>只有构建中包含 VM 服务时，注册的服务扩展才能启用；VM 服务仅包含在调试模式和性能分析模式的构建中。虽然发布模式下无法使用服务扩展，其代码仍可能进入 Dart 快照并增大二进制文件；若要避免这种情况，必须将代码放在能让 tree shaker 移除它的保护条件中（见下方示例代码）。</p>
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-The following code registers a service extension that is only included in
-debug builds.
+以下代码会注册一个仅包含在调试构建中的服务扩展。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'foundation.BindingBase.registerServiceExtension.1');" onclick="fixHref(this, 'foundation.BindingBase.registerServiceExtension.1'); copyStringToClipboard(this.href);"
@@ -140,8 +139,7 @@ debug builds.
 <a name="foundation.BindingBase.registerServiceExtension.2"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-A service extension registered with the following code snippet is
-available in debug and profile mode.
+使用以下代码片段注册的服务扩展可在调试和性能分析模式下使用。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'foundation.BindingBase.registerServiceExtension.2');" onclick="fixHref(this, 'foundation.BindingBase.registerServiceExtension.2'); copyStringToClipboard(this.href);"
