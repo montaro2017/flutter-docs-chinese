@@ -95,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>供 GUI 工具与 <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> 交互时使用的服务。</p>
 <p>GUI 工具通常会调用此对象，例如通过 <a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter IntelliJ Plugin</a>。此类使用自己的对象 ID，并自行管理对象生命周期，而不依赖 <a href="https://github.com/dart-lang/sdk/blob/main/runtime/vm/service/service.md">Dart VM Service</a> 协议指定的 <a href="https://github.com/dart-lang/sdk/blob/main/runtime/vm/service/service.md#getobject">对象 ID</a>，因为 VM Service 协议中的 ID 可能会不可预测地过期。对象引用按组跟踪，因此客户端工具可以通过一次操作解除对某组中所有对象的引用，从而更容易避免内存泄漏。</p>
-<p>此类的所有方法都适合调试工具通过 VM service protocol 调用，用于计算如下形式的 Dart 表达式：<code>WidgetInspectorService.instance.methodName(arg1, arg2, ...)</code>。如果修改此类的任何实例方法，都需要确认修改后 <a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter IntelliJ Plugin</a> 的 widget inspector 功能仍然正常。</p>
+<p>此类的所有方法都适合调试工具通过 VM Service 协议调用，用于计算如下形式的 Dart 表达式：<code>WidgetInspectorService.instance.methodName(arg1, arg2, ...)</code>。如果修改此类的任何实例方法，都需要确认修改后 <a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter IntelliJ Plugin</a> 的组件检查器功能仍然正常。</p>
 <p>所有返回 String 值的方法都会返回 JSON。</p>
 </section>
 
@@ -126,8 +126,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Enables select mode for the Inspector.
-  <div class="features"><span class="feature">no getter</span></div>
+
+  为 Inspector 启用选择模式。
+  <div class="features"><span class="feature">无 getter</span></div>
+
 
 </dd>
 
@@ -150,10 +152,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Ground truth tracking what object(s) are currently selected used by both
-GUI tools such as the Flutter IntelliJ Plugin and the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a>
-displayed on the device.
+
+  跟踪当前选中的对象。这是 GUI 工具（例如 Flutter IntelliJ Plugin）和设备上显示的 <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> 共用的真实状态。
   <div class="features"><span class="feature">final</span></div>
+
 
 </dd>
 
@@ -164,9 +166,10 @@ displayed on the device.
 
 </dt>
 <dd>
-  Callback typically registered by the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> to receive
-notifications when <a href="widgets/WidgetInspectorService/selection.html">selection</a> changes.
+
+  通常由 <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> 注册的回调，用于在 <a href="widgets/WidgetInspectorService/selection.html">selection</a> 发生变化时接收通知。
   <div class="features"><span class="feature">getter/setter 对</span></div>
+
 
 </dd>
 
@@ -187,9 +190,10 @@ notifications when <a href="widgets/WidgetInspectorService/selection.html">selec
 
 </dt>
 <dd>
-  Add a list of directories that should be considered part of the local
-project.
-  
+
+  添加应视为本地项目一部分的目录列表。
+
+
 
 </dd>
 
@@ -201,9 +205,10 @@ project.
 
 </dt>
 <dd>
-  Returns the DevTools inspector uri for the given vm service connection and
-inspector reference.
-  
+
+  返回给定 VM service 连接和 Inspector 引用对应的 DevTools inspector URI。
+
+
 
 </dd>
 
@@ -215,8 +220,10 @@ inspector reference.
 
 </dt>
 <dd>
-  Clear all InspectorService object references.
-  
+
+  清除所有 InspectorService 对象引用。
+
+
 
 </dd>
 
@@ -228,8 +235,10 @@ inspector reference.
 
 </dt>
 <dd>
-  Free all references to objects in a group.
-  
+
+  释放某个组中所有对象的引用。
+
+
 
 </dd>
 
@@ -241,9 +250,10 @@ inspector reference.
 
 </dt>
 <dd>
-  Remove the object with the specified <code>id</code> from the specified object
-group.
-  
+
+  从指定对象组中移除具有指定 <code>id</code> 的对象。
+
+
 
 </dd>
 
@@ -264,9 +274,10 @@ group.
 
 </dt>
 <dd>
-  Returns a JSON representation of the children of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>
-object that <code>diagnosticsNodeId</code> references.
-  
+
+  返回 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 对象所引用节点的子节点的 JSON 表示，其中的引用由 <code>diagnosticsNodeId</code> 指定。
+
+
 
 </dd>
 
@@ -278,10 +289,10 @@ object that <code>diagnosticsNodeId</code> references.
 
 </dt>
 <dd>
-  Returns a JSON representation of the children of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>
-object that <code>diagnosticableId</code> references providing information needed
-for the details subtree view.
-  
+
+  返回 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 对象所引用节点的子节点的 JSON 表示，其中包含详情子树视图所需的信息。引用由 <code>diagnosticableId</code> 指定。
+
+
 
 </dd>
 
@@ -293,10 +304,10 @@ for the details subtree view.
 
 </dt>
 <dd>
-  Returns a JSON representation of the children of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>
-object that <code>diagnosticsNodeId</code> references only including children that
-were created directly by user code.
-  
+
+  返回 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 对象所引用节点的子节点的 JSON 表示，其中仅包含由用户代码直接创建的子节点。引用由 <code>diagnosticsNodeId</code> 指定。
+
+
 
 </dd>
 
@@ -308,10 +319,10 @@ were created directly by user code.
 
 </dt>
 <dd>
-  Returns a JSON representation of the subtree rooted at the
-<a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> object that <code>diagnosticsNodeId</code> references providing
-information needed for the details subtree view.
-  
+
+  返回以 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 对象所引用节点为根的子树的 JSON 表示，其中包含详情子树视图所需的信息。引用由 <code>diagnosticableId</code> 指定。
+
+
 
 </dd>
 
@@ -323,9 +334,10 @@ information needed for the details subtree view.
 
 </dt>
 <dd>
-  Returns JSON representing the chain of <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> instances from
-root of the tree to the <a href="widgets/Element-class.html">Element</a> or <a href="rendering/RenderObject-class.html">RenderObject</a> matching <code>id</code>.
-  
+
+  返回 JSON，表示从树根到与 <code>id</code> 匹配的 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 实例链，并以 <a href="widgets/Element-class.html">Element</a> 或 <a href="rendering/RenderObject-class.html">RenderObject</a> 结尾。
+
+
 
 </dd>
 
@@ -337,9 +349,10 @@ root of the tree to the <a href="widgets/Element-class.html">Element</a> or <a h
 
 </dt>
 <dd>
-  Returns a JSON representation of the properties of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>
-object that <code>diagnosticsNodeId</code> references.
-  
+
+  返回 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 对象所引用节点属性的 JSON 表示，引用由 <code>diagnosticsNodeId</code> 指定。
+
+
 
 </dd>
 
@@ -351,9 +364,10 @@ object that <code>diagnosticsNodeId</code> references.
 
 </dt>
 <dd>
-  Returns a JSON representation of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> for the root
-<a href="widgets/Element-class.html">Element</a>.
-  
+
+  返回 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 的 JSON 表示，该节点对应根 <a href="widgets/Element-class.html">Element</a>。
+
+
 
 </dd>
 
@@ -365,9 +379,10 @@ object that <code>diagnosticsNodeId</code> references.
 
 </dt>
 <dd>
-  Returns a JSON representation of the <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> for the root
-<a href="widgets/Element-class.html">Element</a> showing only nodes that should be included in a summary tree.
-  
+
+  返回 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> 的 JSON 表示，该节点对应根 <a href="widgets/Element-class.html">Element</a>，其中仅包含应显示在摘要树中的节点。
+
+
 
 </dd>
 
@@ -379,11 +394,10 @@ object that <code>diagnosticsNodeId</code> references.
 
 </dt>
 <dd>
-  Returns a <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> representing the currently selected <a href="widgets/Element-class.html">Element</a>
-if the selected <a href="widgets/Element-class.html">Element</a> should be shown in the summary tree otherwise
-returns the first ancestor of the selected <a href="widgets/Element-class.html">Element</a> shown in the summary
-tree.
-  
+
+  返回一个 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>，表示当前选中的 <a href="widgets/Element-class.html">Element</a>。如果选中的 <a href="widgets/Element-class.html">Element</a> 应显示在摘要树中，则返回它；否则返回摘要树中显示的第一个祖先 <a href="widgets/Element-class.html">Element</a>。
+
+
 
 </dd>
 
@@ -395,8 +409,10 @@ tree.
 
 </dt>
 <dd>
-  Returns a <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> representing the currently selected <a href="widgets/Element-class.html">Element</a>.
-  
+
+  返回一个 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>，用于表示当前选中的 <a href="widgets/Element-class.html">Element</a>。
+
+
 
 </dd>
 
@@ -408,8 +424,10 @@ tree.
 
 </dt>
 <dd>
-  Called to register service extensions.
-  
+
+  调用此方法以注册服务扩展。
+
+
 
 </dd>
 
@@ -421,9 +439,10 @@ tree.
 
 </dt>
 <dd>
-  All events dispatched by a <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a> use this method
-instead of calling <a href="dart-developer/inspect.html">developer.inspect</a>.
-  
+
+  由 <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a> 分发的所有事件都通过此方法处理，而不是直接调用 <a href="dart-developer/inspect.html">developer.inspect</a>。
+
+
 
 </dd>
 
@@ -435,8 +454,10 @@ instead of calling <a href="dart-developer/inspect.html">developer.inspect</a>.
 
 </dt>
 <dd>
-  Whether structured errors are enabled.
-  
+
+  返回是否启用了结构化错误。
+
+
 
 </dd>
 
@@ -448,8 +469,10 @@ instead of calling <a href="dart-developer/inspect.html">developer.inspect</a>.
 
 </dt>
 <dd>
-  Returns whether <a href="widgets/Widget-class.html">Widget</a> creation locations are available.
-  
+
+  返回是否可以获取 <a href="widgets/Widget-class.html">Widget</a> 的创建位置。
+
+
 
 </dd>
 
@@ -461,9 +484,10 @@ instead of calling <a href="dart-developer/inspect.html">developer.inspect</a>.
 
 </dt>
 <dd>
-  Returns whether the application has rendered its first frame and it is
-appropriate to display the Widget tree in the inspector.
-  
+
+  返回应用是否已完成首帧渲染，以及此时是否适合在 Inspector 中显示 Widget 树。
+
+
 
 </dd>
 
@@ -488,9 +512,10 @@ appropriate to display the Widget tree in the inspector.
 
 </dt>
 <dd>
-  This method is called by <a href="widgets/WidgetsBinding/performReassemble.html">WidgetsBinding.performReassemble</a> to flush caches
-of obsolete values after a hot reload.
-  
+
+  热重载后，<a href="widgets/WidgetsBinding/performReassemble.html">WidgetsBinding.performReassemble</a> 会调用此方法，以清除过期值的缓存。
+
+
 
 </dd>
 
@@ -502,9 +527,10 @@ of obsolete values after a hot reload.
 
 </dt>
 <dd>
-  All events dispatched by a <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a> use this method
-instead of calling <a href="dart-developer/postEvent.html">developer.postEvent</a> directly.
-  
+
+  由 <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a> 分发的所有事件都通过此方法处理，而不是直接调用 <a href="dart-developer/postEvent.html">developer.postEvent</a>。
+
+
 
 </dd>
 
@@ -516,9 +542,10 @@ instead of calling <a href="dart-developer/postEvent.html">developer.postEvent</
 
 </dt>
 <dd>
-  Returns the list of directories that should be considered part of the
-local project.
-  
+
+  返回应视为本地项目一部分的目录列表。
+
+
 
 </dd>
 
@@ -530,9 +557,10 @@ local project.
 
 </dt>
 <dd>
-  Registers a service extension method with the given name (full
-name "ext.flutter.inspector.name").
-  
+
+  使用给定名称注册服务扩展方法（完整名称为 "ext.flutter.inspector.name"）。
+
+
 
 </dd>
 
@@ -544,9 +572,10 @@ name "ext.flutter.inspector.name").
 
 </dt>
 <dd>
-  Remove a list of directories that should no longer be considered part
-of the local project.
-  
+
+  移除不应再视为本地项目一部分的目录列表。
+
+
 
 </dd>
 
@@ -558,8 +587,10 @@ of the local project.
 
 </dt>
 <dd>
-  Reset all InspectorService state.
-  
+
+  重置 InspectorService 的所有状态。
+
+
 
 </dd>
 
@@ -571,9 +602,10 @@ of the local project.
 
 </dt>
 <dd>
-  Resets the list of directories, that should be considered part of the
-local project, to the value passed in <a href="widgets/WidgetInspectorService/pubRootDirectories.html">pubRootDirectories</a>.
-  
+
+  将应视为本地项目一部分的目录列表重置为传入 <a href="widgets/WidgetInspectorService/pubRootDirectories.html">pubRootDirectories</a> 的值。
+
+
 
 </dd>
 
@@ -585,9 +617,10 @@ local project, to the value passed in <a href="widgets/WidgetInspectorService/pu
 
 </dt>
 <dd>
-  Captures an image of the current state of an <code>object</code> that is a
-<a href="rendering/RenderObject-class.html">RenderObject</a> or <a href="widgets/Element-class.html">Element</a>.
-  
+
+  截取当前 <code>object</code> 状态的图像；该对象可以是 <a href="rendering/RenderObject-class.html">RenderObject</a> 或 <a href="widgets/Element-class.html">Element</a>。
+
+
 
 </dd>
 
@@ -599,9 +632,10 @@ local project, to the value passed in <a href="widgets/WidgetInspectorService/pu
 
 </dt>
 <dd>
-  Set the list of directories that should be considered part of the local
-project.
-  
+
+  设置应视为本地项目一部分的目录列表。
+
+
 
 </dd>
 
@@ -613,9 +647,10 @@ project.
 
 </dt>
 <dd>
-  Set the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> selection to the specified <code>object</code> if it is
-a valid object to set as the inspector selection.
-  
+
+  如果指定的 <code>object</code> 是可设为 Inspector 选中项的有效对象，则将其设为 <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> 的选中项。
+
+
 
 </dd>
 
@@ -627,9 +662,10 @@ a valid object to set as the inspector selection.
 
 </dt>
 <dd>
-  Set the <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> selection to the object matching the specified
-id if the object is valid object to set as the inspector selection.
-  
+
+  如果与指定 id 匹配的对象是可设为 Inspector 选中项的有效对象，则将其设为 <a href="widgets/WidgetInspector-class.html">WidgetInspector</a> 的选中项。
+
+
 
 </dd>
 
@@ -641,9 +677,10 @@ id if the object is valid object to set as the inspector selection.
 
 </dt>
 <dd>
-  Returns a unique id for <code>object</code> that will remain live at least until
-<a href="widgets/WidgetInspectorService/disposeGroup.html">disposeGroup</a> is called on <code>groupName</code>.
-  
+
+  返回 <code>object</code> 的唯一 ID。该 ID 至少会保持有效，直到对 <a href="widgets/WidgetInspectorService/disposeGroup.html">disposeGroup</a> 调用传入的 <code>groupName</code>。
+
+
 
 </dd>
 
@@ -655,8 +692,10 @@ id if the object is valid object to set as the inspector selection.
 
 </dt>
 <dd>
-  Returns the Dart object associated with a reference id.
-  
+
+  返回与引用 ID 关联的 Dart 对象。
+
+
 
 </dd>
 
@@ -668,9 +707,10 @@ id if the object is valid object to set as the inspector selection.
 
 </dt>
 <dd>
-  Returns the object to introspect to determine the source location of an
-object's class.
-  
+
+  返回要检查的对象，以确定该对象所属类的源代码位置。
+
+
 
 </dd>
 
@@ -712,7 +752,7 @@ object's class.
   </section>
     
   <section class="summary offset-anchor" id="static-properties">
-    <h2>Static Properties</h2>
+    <h2>静态属性</h2>
     <dl class="properties">
         <dt id="instance" class="property">
   <span class="name"><a href="widgets/WidgetInspectorService/instance.html">instance</a></span>
@@ -721,8 +761,10 @@ object's class.
 
 </dt>
 <dd>
-  The current <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a>.
+
+  当前的 <a href="widgets/WidgetInspectorService-mixin.html">WidgetInspectorService</a>。
   <div class="features"><span class="feature">getter/setter 对</span></div>
+
 
 </dd>
 
@@ -730,7 +772,7 @@ object's class.
   </section>
     
   <section class="summary offset-anchor" id="static-methods">
-    <h2>Static Methods</h2>
+    <h2>静态方法</h2>
     <dl class="callables">
         <dt id="objectToDiagnosticsNode" class="callable">
   <span class="name"><a href="widgets/WidgetInspectorService/objectToDiagnosticsNode.html">objectToDiagnosticsNode</a></span><span class="signature">(<wbr><span class="parameter" id="objectToDiagnosticsNode-param-object"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">object</span></span>)
@@ -740,8 +782,10 @@ object's class.
 
 </dt>
 <dd>
-  If possible, returns <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> for the object.
-  
+
+  如果可能，返回该对象对应的 <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a>。
+
+
 
 </dd>
 

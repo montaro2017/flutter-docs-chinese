@@ -105,11 +105,11 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<p>列表项包含一至三行文字，两侧可选配图标或复选框等其他组件。列表项的图标（或其他组件）由 <a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> 参数指定。第一行文字不可省略，通过 <a href="material/ListTile/title.html">title</a> 指定。可选的 <a href="material/ListTile/subtitle.html">subtitle</a> 会占用额外一行文字的空间；如果 <a href="material/ListTile/isThreeLine.html">isThreeLine</a> 为 true，则占用两行。若 <a href="material/ListTile/dense.html">dense</a> 为 true，列表项整体高度以及包裹 <a href="widgets/DefaultTextStyle-class.html">title</a> 和 <a href="material/ListTile/title.html">subtitle</a> 的 <a href="material/ListTile/subtitle.html">DefaultTextStyle</a> 字号都会缩小。</p>
+<p>列表项包含一至三行文字，两侧可选配图标或复选框等其他组件。列表项的图标（或其他组件）由 <a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> 参数指定。第一行文字不可省略，通过 <a href="material/ListTile/title.html">title</a> 指定。可选的 <a href="material/ListTile/subtitle.html">subtitle</a> 会占用额外一行文字的空间；如果 <a href="material/ListTile/isThreeLine.html">isThreeLine</a> 为 true，则占用两行。若 <a href="material/ListTile/dense.html">dense</a> 为 true，列表项整体高度以及 <a href="widgets/DefaultTextStyle-class.html">DefaultTextStyle</a> 所包裹的 <a href="material/ListTile/title.html">title</a> 和 <a href="material/ListTile/subtitle.html">subtitle</a> 字号都会缩小。</p>
 <p>调用方需要确保 <a href="material/ListTile/title.html">title</a> 不换行；并确保 <a href="material/ListTile/subtitle.html">subtitle</a> 不换行（当 <a href="material/ListTile/isThreeLine.html">isThreeLine</a> 为 false 时），或最多换为两行（为 true 时）。</p>
 <p><a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> 组件的高度会根据 <a href="https://material.io/design/components/lists.html">Material spec</a> 进行限制。为满足无障碍需求，单行列表项有例外。请参阅下方示例，了解如何同时满足 Material 规范和无障碍要求。</p>
 <p><a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> 组件的横向尺寸可以任意扩展，因此请确保对它们进行适当约束。</p>
-<p>列表项通常用于 <a href="widgets/ListView-class.html">ListView</a>，也可以排列在 <a href="widgets/Column-class.html">Drawer</a> 或 <a href="material/Drawer-class.html">Card</a> 中的 <a href="material/Card-class.html">Column</a> 里。</p>
+<p>列表项通常用于 <a href="widgets/ListView-class.html">ListView</a>，也可以将它们排列在 <a href="widgets/Column-class.html">Column</a> 中，再放入 <a href="material/Drawer-class.html">Drawer</a> 或 <a href="material/Card-class.html">Card</a>。</p>
 <p>此组件需要在组件树中有一个 <a href="material/Material-class.html">Material</a> 祖先，才能绘制自身；通常由应用的 <a href="material/Scaffold-class.html">Scaffold</a> 提供。<a href="material/ListTile/tileColor.html">tileColor</a>、<a href="material/ListTile/selectedTileColor.html">selectedTileColor</a>、<a href="material/ListTile/focusColor.html">focusColor</a> 和 <a href="material/ListTile/hoverColor.html">hoverColor</a> 不是由 <a href="material/ListTile-class.html">ListTile</a> 自身绘制，而是由 <a href="material/Material-class.html">Material</a> 祖先绘制。可将 <a href="material/Material-class.html">Material</a> 包在 <a href="material/ListTile-class.html">ListTile</a> 外部，例如：</p>
 <p>
 <a name="material.ListTile.1"></a>
@@ -137,14 +137,14 @@ aspect-ratio: 560 / 315;">
   </div>
 </div>
 </p>
-<h2 id="performance-considerations-when-wrapping-listtile-with-material">使用 <a href="material/ListTile-class.html">Material</a> 包裹 <a href="material/Material-class.html">ListTile</a> 时的性能注意事项</h2>
-<p>逐个使用 <a href="material/ListTile-class.html">Material</a> 包裹大量 <a href="material/Material-class.html">ListTile</a> 会产生较高开销。建议只包裹确有需要的 <a href="material/ListTile-class.html">ListTile</a>，或尽可能为它们共用一个 <a href="material/Material-class.html">Material</a> 祖先。</p>
-<p>要为 <a href="material/ListTile-class.html">tileColor</a>、<a href="material/Material-class.html">selectedTileColor</a>、<a href="material/ListTile/tileColor.html">focusColor</a> 和 <a href="material/ListTile/selectedTileColor.html">hoverColor</a> 设置动画，必须使用 <a href="material/ListTile/focusColor.html">Material</a> 包裹 <a href="material/ListTile/hoverColor.html">ListTile</a>。这些颜色由 Material 祖先绘制，而不是由列表项自身绘制。</p>
+<h2 id="performance-considerations-when-wrapping-listtile-with-material"><a href="material/ListTile-class.html">ListTile</a> 使用 <a href="material/Material-class.html">Material</a> 包裹时的性能注意事项</h2>
+<p>对大量 <a href="material/ListTile-class.html">ListTile</a> 分别应用 <a href="material/Material-class.html">Material</a> 包裹会产生较高开销。建议只包裹确有需要的 <a href="material/ListTile-class.html">ListTile</a>，或尽可能为它们共用一个 <a href="material/Material-class.html">Material</a> 祖先。</p>
+<p><a href="material/ListTile-class.html">ListTile</a> 必须使用 <a href="material/Material-class.html">Material</a> 包裹，才能为 <a href="material/ListTile/tileColor.html">tileColor</a>、<a href="material/ListTile/selectedTileColor.html">selectedTileColor</a>、<a href="material/ListTile/focusColor.html">focusColor</a> 和 <a href="material/ListTile/hoverColor.html">hoverColor</a> 设置动画。这些颜色由 Material 祖先绘制，而不是由列表项自身绘制。</p>
 <p>
 <a name="material.ListTile.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
     <div class="snippet-description">
-此示例展示了如何将 <a href="material/ListTile-class.html">ListTile</a> 包裹在 <a href="material/Material-class.html">Material</a> Widget 中，以便为颜色变化添加动画。
+此示例展示了如何将 <a href="material/ListTile-class.html">ListTile</a> 包裹在 <a href="material/Material-class.html">Material</a> 组件中，以便为颜色变化添加动画。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'material.ListTile.2');" onclick="fixHref(this, 'material.ListTile.2'); copyStringToClipboard(this.href);"
@@ -165,7 +165,7 @@ aspect-ratio: 560 / 315;">
 <a name="material.ListTile.3"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet3">
     <div class="snippet-description">
-此示例使用 <a href="widgets/ListView-class.html">ListView</a> 展示 <a href="material/ListTile-class.html">Card</a> 中 <a href="material/Card-class.html">ListTile</a> 的不同配置。</p>
+此示例使用 <a href="widgets/ListView-class.html">ListView</a> 展示 <a href="material/ListTile-class.html">ListTile</a> 在 <a href="material/Card-class.html">Card</a> 中的不同配置。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/material/list_tile.png" alt="ListTile 的不同样式">
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
@@ -187,7 +187,7 @@ aspect-ratio: 560 / 315;">
 <a name="material.ListTile.4"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet4">
     <div class="snippet-description">
-此示例展示如何使用 <a href="material/ListTile-class.html">ThemeData.useMaterial3</a> 标志创建 <a href="material/ThemeData/useMaterial3.html">ListTile</a>，相关说明请参阅：<a href="https://m3.material.io/components/lists/overview">https://m3.material.io/components/lists/overview</a>。
+此示例展示创建 <a href="material/ListTile-class.html">ListTile</a> 时使用 <a href="material/ThemeData/useMaterial3.html">ThemeData.useMaterial3</a> 标志的方式，相关说明请参阅：<a href="https://m3.material.io/components/lists/overview">https://m3.material.io/components/lists/overview</a>。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'material.ListTile.4');" onclick="fixHref(this, 'material.ListTile.4'); copyStringToClipboard(this.href);"
@@ -229,7 +229,7 @@ aspect-ratio: 560 / 315;">
 <a name="material.ListTile.6"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet6">
     <div class="snippet-description">
-此示例展示如何使用 <a href="material/ListTile/titleAlignment.html">ListTile.titleAlignment</a>，设置 <a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> Widget 相对于 <a href="material/ListTile/title.html">title</a> 和 <a href="material/ListTile/subtitle.html">subtitle</a> 的对齐方式。
+此示例展示如何使用 <a href="material/ListTile/titleAlignment.html">ListTile.titleAlignment</a>，设置 <a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> 组件相对于 <a href="material/ListTile/title.html">title</a> 和 <a href="material/ListTile/subtitle.html">subtitle</a> 的对齐方式。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'material.ListTile.6');" onclick="fixHref(this, 'material.ListTile.6'); copyStringToClipboard(this.href);"
@@ -250,7 +250,7 @@ aspect-ratio: 560 / 315;">
 <a name="material.ListTile.7"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-若要在 <a href="material/ListTile-class.html">Row</a> 中使用 <a href="widgets/Row-class.html">ListTile</a>，需要将其包裹在 <a href="widgets/Expanded-class.html">Expanded</a> Widget 中。<a href="material/ListTile-class.html">ListTile</a> 需要固定的宽度约束，而 <a href="widgets/Row-class.html">Row</a> 不会约束其子项。
+要将 <a href="material/ListTile-class.html">ListTile</a> 放入 <a href="widgets/Row-class.html">Row</a> 中使用，需将其包裹在 <a href="widgets/Expanded-class.html">Expanded</a> 组件中。<a href="material/ListTile-class.html">ListTile</a> 需要固定的宽度约束，而 <a href="widgets/Row-class.html">Row</a> 不会约束其子项。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'material.ListTile.7');" onclick="fixHref(this, 'material.ListTile.7'); copyStringToClipboard(this.href);"
@@ -313,7 +313,7 @@ Tile 也可以有更复杂的布局。下面的 tile 可以点按，但当 <code
 <a name="material.ListTile.9"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-下面是一个单行、非 <a href="material/ListTile/dense.html">dense</a> ListTile 示例，其可点按的 leading Widget 符合无障碍要求和 Material 规范。若要将其调整为单行 <a href="material/ListTile/dense.html">dense</a> ListTile，请将垂直内边距设为 8.0。
+下面是一个单行、非 <a href="material/ListTile/dense.html">dense</a> ListTile 示例，其可点按的 leading 组件符合无障碍要求和 Material 规范。若要将其调整为单行 <a href="material/ListTile/dense.html">dense</a> ListTile，请将垂直内边距设为 8.0。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'material.ListTile.9');" onclick="fixHref(this, 'material.ListTile.9'); copyStringToClipboard(this.href);"
@@ -349,7 +349,7 @@ Tile 也可以有更复杂的布局。下面的 tile 可以点按，但当 <code
 <a name="material.ListTile.10"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet10">
     <div class="snippet-description">
-下面的示例使用 <a href="widgets/Expanded-class.html">Expanded</a> 和 <a href="widgets/Container-class.html">Container</a> Widget 创建了一个类似 YouTube 视频列表项的自定义列表项。
+下面的示例使用 <a href="widgets/Expanded-class.html">Expanded</a> 和 <a href="widgets/Container-class.html">Container</a> 组件创建了一个类似 YouTube 视频列表项的自定义列表项。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'material.ListTile.10');" onclick="fixHref(this, 'material.ListTile.10'); copyStringToClipboard(this.href);"
@@ -370,7 +370,7 @@ Tile 也可以有更复杂的布局。下面的 tile 可以点按，但当 <code
 <a name="material.ListTile.11"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet11">
     <div class="snippet-description">
-下面的示例展示了一个标题和副标题均为多行的文章列表项。它使用 <a href="widgets/Row-class.html">Row</a>、<a href="widgets/Column-class.html">Column</a>、<a href="widgets/Expanded-class.html">Expanded</a> 和 <a href="widgets/AspectRatio-class.html">AspectRatio</a> Widget 来组织布局。
+下面的示例展示了一个标题和副标题均为多行的文章列表项。它使用 <a href="widgets/Row-class.html">Row</a>、<a href="widgets/Column-class.html">Column</a>、<a href="widgets/Expanded-class.html">Expanded</a> 和 <a href="widgets/AspectRatio-class.html">AspectRatio</a> 组件来组织布局。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'material.ListTile.11');" onclick="fixHref(this, 'material.ListTile.11'); copyStringToClipboard(this.href);"
@@ -389,20 +389,16 @@ Tile 也可以有更复杂的布局。下面的 tile 可以点按，但当 <code
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="material/ListTileTheme-class.html">ListTileTheme</a>, which defines visual properties for <a href="material/ListTile-class.html">ListTile</a>。</li>
-<li><a href="widgets/ListView-class.html">ListView</a>, which can display an arbitrary number of <a href="material/ListTile-class.html">ListTile</a>s
-in a scrolling list.</li>
-<li><a href="material/CircleAvatar-class.html">CircleAvatar</a>, which shows an icon representing a person and is often
-used as the <a href="material/ListTile/leading.html">leading</a> element of a ListTile.</li>
-<li><a href="material/Card-class.html">Card</a>, which can be used with <a href="widgets/Column-class.html">Column</a> to show a few <a href="material/ListTile-class.html">ListTile</a>。</li>
-<li><a href="material/Divider-class.html">Divider</a>, which can be used to separate <a href="material/ListTile-class.html">ListTile</a>。</li>
-<li><a href="material/ListTile/divideTiles.html">ListTile.divideTiles</a>, a utility for inserting <a href="material/Divider-class.html">Divider</a>s in between <a href="material/ListTile-class.html">ListTile</a>。</li>
-<li><a href="material/CheckboxListTile-class.html">CheckboxListTile</a>, <a href="material/RadioListTile-class.html">RadioListTile</a>, and <a href="material/SwitchListTile-class.html">SwitchListTile</a>, widgets
-that combine <a href="material/ListTile-class.html">ListTile</a> with other controls.</li>
-<li>Material 3 <a href="material/ListTile-class.html">ListTile</a> specifications are referenced from <a href="https://m3.material.io/components/lists/specs">m3.material.io/components/lists/specs</a>
-and Material 2 <a href="material/ListTile-class.html">ListTile</a> specifications are referenced from <a href="https://material.io/design/components/lists.html">material.io/design/components/lists.html</a></li>
-<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/lists/basic-list">Use lists</a></li>
-<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/gestures/dismissible">Implement swipe to dismiss</a></li>
+<li><a href="material/ListTileTheme-class.html">ListTileTheme</a>，用于定义 <a href="material/ListTile-class.html">ListTile</a> 的视觉属性。</li>
+<li><a href="widgets/ListView-class.html">ListView</a>，可在滚动列表中显示任意数量的 <a href="material/ListTile-class.html">ListTile</a>。</li>
+<li><a href="material/CircleAvatar-class.html">CircleAvatar</a>，显示代表人物的图标，常用作 ListTile 的 <a href="material/ListTile/leading.html">leading</a> 元素。</li>
+<li><a href="material/Card-class.html">Card</a>，可与 <a href="widgets/Column-class.html">Column</a> 配合显示少量 <a href="material/ListTile-class.html">ListTile</a>。</li>
+<li><a href="material/Divider-class.html">Divider</a>，可用于分隔 <a href="material/ListTile-class.html">ListTile</a>。</li>
+<li><a href="material/ListTile/divideTiles.html">ListTile.divideTiles</a>，用于插入 <a href="material/Divider-class.html">Divider</a> 来分隔 <a href="material/ListTile-class.html">ListTile</a> 的工具方法。</li>
+<li><a href="material/CheckboxListTile-class.html">CheckboxListTile</a>、<a href="material/RadioListTile-class.html">RadioListTile</a> 和 <a href="material/SwitchListTile-class.html">SwitchListTile</a>，这些组件将 <a href="material/ListTile-class.html">ListTile</a> 与其他控件组合在一起。</li>
+<li>Material 3 <a href="material/ListTile-class.html">ListTile</a> 规范参见 <a href="https://m3.material.io/components/lists/specs">m3.material.io/components/lists/specs</a>；Material 2 <a href="material/ListTile-class.html">ListTile</a> 规范参见 <a href="https://material.io/design/components/lists.html">material.io/design/components/lists.html</a>。</li>
+<li>Cookbook：<a href="https://docs.flutter.dev/cookbook/lists/basic-list">使用列表</a></li>
+<li>Cookbook：<a href="https://docs.flutter.dev/cookbook/gestures/dismissible">实现滑动关闭</a></li>
 </ul>
 </section>
 
@@ -440,7 +436,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
           <span class="name"><a href="material/ListTile/ListTile.html">ListTile</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-leading"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">leading</span>, </span><span class="parameter" id="-param-title"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="-param-subtitle"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">subtitle</span>, </span><span class="parameter" id="-param-trailing"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">trailing</span>, </span><span class="parameter" id="-param-isThreeLine"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">isThreeLine</span>, </span><span class="parameter" id="-param-dense"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">dense</span>, </span><span class="parameter" id="-param-visualDensity"><span class="type-annotation"><a href="material/VisualDensity-class.html">VisualDensity</a>?</span> <span class="parameter-name">visualDensity</span>, </span><span class="parameter" id="-param-shape"><span class="type-annotation"><a href="painting/ShapeBorder-class.html">ShapeBorder</a>?</span> <span class="parameter-name">shape</span>, </span><span class="parameter" id="-param-style"><span class="type-annotation"><a href="material/ListTileStyle.html">ListTileStyle</a>?</span> <span class="parameter-name">style</span>, </span><span class="parameter" id="-param-selectedColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">selectedColor</span>, </span><span class="parameter" id="-param-iconColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">iconColor</span>, </span><span class="parameter" id="-param-textColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">textColor</span>, </span><span class="parameter" id="-param-titleTextStyle"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">titleTextStyle</span>, </span><span class="parameter" id="-param-subtitleTextStyle"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">subtitleTextStyle</span>, </span><span class="parameter" id="-param-leadingAndTrailingTextStyle"><span class="type-annotation"><a href="painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">leadingAndTrailingTextStyle</span>, </span><span class="parameter" id="-param-contentPadding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">contentPadding</span>, </span><span class="parameter" id="-param-enabled"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enabled</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-onTap"><span class="type-annotation"><a href="gestures/GestureTapCallback.html">GestureTapCallback</a>?</span> <span class="parameter-name">onTap</span>, </span><span class="parameter" id="-param-onLongPress"><span class="type-annotation"><a href="gestures/GestureLongPressCallback.html">GestureLongPressCallback</a>?</span> <span class="parameter-name">onLongPress</span>, </span><span class="parameter" id="-param-onFocusChange"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span>?</span> <span class="parameter-name">onFocusChange</span>, </span><span class="parameter" id="-param-mouseCursor"><span class="type-annotation"><a href="services/MouseCursor-class.html">MouseCursor</a>?</span> <span class="parameter-name">mouseCursor</span>, </span><span class="parameter" id="-param-selected"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">selected</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-focusColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">focusColor</span>, </span><span class="parameter" id="-param-hoverColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">hoverColor</span>, </span><span class="parameter" id="-param-splashColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">splashColor</span>, </span><span class="parameter" id="-param-focusNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">focusNode</span>, </span><span class="parameter" id="-param-autofocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">autofocus</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-tileColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">tileColor</span>, </span><span class="parameter" id="-param-selectedTileColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">selectedTileColor</span>, </span><span class="parameter" id="-param-enableFeedback"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">enableFeedback</span>, </span><span class="parameter" id="-param-horizontalTitleGap"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">horizontalTitleGap</span>, </span><span class="parameter" id="-param-minVerticalPadding"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minVerticalPadding</span>, </span><span class="parameter" id="-param-minLeadingWidth"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minLeadingWidth</span>, </span><span class="parameter" id="-param-minTileHeight"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minTileHeight</span>, </span><span class="parameter" id="-param-titleAlignment"><span class="type-annotation"><a href="material/ListTileTitleAlignment.html">ListTileTitleAlignment</a>?</span> <span class="parameter-name">titleAlignment</span>, </span><span class="parameter" id="-param-internalAddSemanticForOnTap"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">internalAddSemanticForOnTap</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-statesController"><span class="type-annotation"><a class="deprecated" href="material/MaterialStatesController.html">MaterialStatesController</a>?</span> <span class="parameter-name">statesController</span></span>})</span>
         </dt>
         <dd>
-          Creates a list tile.
+          创建一个列表项。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -458,7 +454,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  如果此 widget 所属作用域中当前没有其他节点获得焦点，则为 true 表示此 widget 将成为初始焦点。
+  如果此组件所属作用域中当前没有其他节点获得焦点，则为 true 表示此组件将成为初始焦点。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -470,7 +466,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  The tile's internal padding.
+  列表项的内部内边距。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -494,7 +490,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  Whether this list tile is interactive.
+  此列表项是否可交互。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -518,7 +514,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  The color for the tile's <a href="material/Material-class.html">Material</a> when it has the input focus.
+  此列表项获得输入焦点时，其 <a href="material/Material-class.html">Material</a> 使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -530,7 +526,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  可选的焦点节点，供此 widget 使用。
+  可选的焦点节点，供此组件使用。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -554,7 +550,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  The horizontal gap between the titles and the leading/trailing widgets.
+  标题与 leading/trailing 组件之间的水平间距。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -566,7 +562,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  The color for the tile's <a href="material/Material-class.html">Material</a> when a pointer is hovering over it.
+  指针悬停在此列表项上时，其 <a href="material/Material-class.html">Material</a> 使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -578,7 +574,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  Defines the default color for <a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> icons.
+  定义 <a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> 图标的默认颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -590,8 +586,7 @@ and Material 2 <a href="material/ListTile-class.html">ListTile</a> specification
 
 </dt>
 <dd>
-  Whether to add button:true to the semantics if onTap is provided.
-This is a temporary flag to help changing the behavior of ListTile onTap semantics.
+  如果提供了 onTap，是否在语义信息中添加 button:true。此临时标志用于帮助更改 ListTile 的 onTap 语义行为。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -603,7 +598,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  Whether this list tile is intended to display three lines of text.
+  此列表项是否用于显示三行文字。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -615,7 +610,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd class="inherited">
-  控制一个 widget 如何在树中替换另一个 widget。
+  控制一个组件如何在树中替换另一个组件。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -627,7 +622,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  A widget to display before the title.
+  显示在标题前的组件。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -639,7 +634,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  The text style for ListTile's <a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a>.
+  ListTile 的 <a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> 文字样式。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -651,7 +646,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  The minimum width allocated for the <a href="material/ListTile/leading.html">ListTile.leading</a> widget.
+  为 <a href="material/ListTile/leading.html">ListTile.leading</a> 组件分配的最小宽度。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -663,7 +658,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  为 <a href="material/ListTile-class.html">ListTile</a> widget 分配的最小高度。
+  为 <a href="material/ListTile-class.html">ListTile</a> 组件分配的最小高度。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -675,7 +670,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  The minimum padding on the top and bottom of the title and subtitle widgets.
+  title 和 subtitle 组件上下的最小内边距。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -687,7 +682,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  鼠标指针进入或悬停在此 widget 上时显示的光标。
+  鼠标指针进入此组件或悬停其上时显示的光标。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -711,7 +706,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  Called when the user long-presses on this list tile.
+  用户长按此列表项时调用。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -723,7 +718,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  Called when the user taps this list tile.
+  用户点按此列表项时调用。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -747,7 +742,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  If this tile is also <a href="material/ListTile/enabled.html">enabled</a> then icons and text are rendered with the same color.
+  如果此列表项同时处于<a href="material/ListTile/enabled.html">启用</a>状态，则图标和文字会以相同颜色呈现。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -759,7 +754,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  Defines the color used for icons and text when the list tile is selected.
+  定义列表项选中时图标和文字使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -771,7 +766,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  Defines the background color of <code>ListTile</code> when <a href="material/ListTile/selected.html">selected</a> is true.
+  当 <code>ListTile</code> 处于 <a href="material/ListTile/selected.html">selected</a> 状态时使用的背景颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -783,7 +778,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  Defines the tile's <a href="material/InkResponse/customBorder.html">InkWell.customBorder</a> 和 <a href="material/Ink/decoration.html">Ink.decoration</a> shape.
+  定义列表项的 <a href="material/InkResponse/customBorder.html">InkWell.customBorder</a> 和 <a href="material/Ink/decoration.html">Ink.decoration</a> 形状。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -795,7 +790,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  The color of splash for the tile's <a href="material/Material-class.html">Material</a>.
+  列表项 <a href="material/Material-class.html">Material</a> 的水波纹颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -807,9 +802,7 @@ This is a temporary flag to help changing the behavior of ListTile onTap semanti
 
 </dt>
 <dd>
-  Represents the interactive "state" of this widget in terms of
-a set of <a href="widgets/WidgetState.html">WidgetState</a>s, like <a href="widgets/WidgetState.html">WidgetState.pressed</a> 和
-<a href="widgets/WidgetState.html">WidgetState.focused</a>.
+  根据一组 <a href="widgets/WidgetState.html">WidgetState</a>（如 <a href="widgets/WidgetState.html">WidgetState.pressed</a> 和 <a href="widgets/WidgetState.html">WidgetState.focused</a>）表示此组件的交互“状态”。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -821,7 +814,7 @@ a set of <a href="widgets/WidgetState.html">WidgetState</a>s, like <a href="widg
 
 </dt>
 <dd>
-  Defines the font used for the <a href="material/ListTile/title.html">title</a>.
+  定义 <a href="material/ListTile/title.html">title</a> 使用的字体。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -845,7 +838,7 @@ a set of <a href="widgets/WidgetState.html">WidgetState</a>s, like <a href="widg
 
 </dt>
 <dd>
-  The text style for ListTile's <a href="material/ListTile/subtitle.html">subtitle</a>.
+  ListTile 的 <a href="material/ListTile/subtitle.html">subtitle</a> 文字样式。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -857,7 +850,7 @@ a set of <a href="widgets/WidgetState.html">WidgetState</a>s, like <a href="widg
 
 </dt>
 <dd>
-  Defines the text color for the <a href="material/ListTile/title.html">title</a>, <a href="material/ListTile/subtitle.html">subtitle</a>, <a href="material/ListTile/leading.html">leading</a>, and <a href="material/ListTile/trailing.html">trailing</a>.
+  定义 <a href="material/ListTile/title.html">title</a>、<a href="material/ListTile/subtitle.html">subtitle</a>、<a href="material/ListTile/leading.html">leading</a> 和 <a href="material/ListTile/trailing.html">trailing</a> 的文字颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -869,7 +862,7 @@ a set of <a href="widgets/WidgetState.html">WidgetState</a>s, like <a href="widg
 
 </dt>
 <dd>
-  Defines the background color of <code>ListTile</code> when <a href="material/ListTile/selected.html">selected</a> is false.
+  当 <code>ListTile</code> 未处于 <a href="material/ListTile/selected.html">selected</a> 状态时使用的背景颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -881,7 +874,7 @@ a set of <a href="widgets/WidgetState.html">WidgetState</a>s, like <a href="widg
 
 </dt>
 <dd>
-  The primary content of the list tile.
+  列表项的主要内容。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -893,9 +886,7 @@ a set of <a href="widgets/WidgetState.html">WidgetState</a>s, like <a href="widg
 
 </dt>
 <dd>
-  Defines how <a href="material/ListTile/leading.html">ListTile.leading</a> 和 <a href="material/ListTile/trailing.html">ListTile.trailing</a> are
-vertically aligned relative to the <a href="material/ListTile-class.html">ListTile</a>'s titles
-(<a href="material/ListTile/title.html">ListTile.title</a> 和 <a href="material/ListTile/subtitle.html">ListTile.subtitle</a>).
+  定义 <a href="material/ListTile/leading.html">ListTile.leading</a> 和 <a href="material/ListTile/trailing.html">ListTile.trailing</a> 相对于 <a href="material/ListTile-class.html">ListTile</a> 标题（<a href="material/ListTile/title.html">ListTile.title</a> 和 <a href="material/ListTile/subtitle.html">ListTile.subtitle</a>）的垂直对齐方式。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -907,7 +898,7 @@ vertically aligned relative to the <a href="material/ListTile-class.html">ListTi
 
 </dt>
 <dd>
-  The text style for ListTile's <a href="material/ListTile/title.html">title</a>.
+  ListTile 的 <a href="material/ListTile/title.html">title</a> 文字样式。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -919,7 +910,7 @@ vertically aligned relative to the <a href="material/ListTile-class.html">ListTi
 
 </dt>
 <dd>
-  A widget to display after the title.
+  显示在标题后的组件。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -931,7 +922,7 @@ vertically aligned relative to the <a href="material/ListTile-class.html">ListTi
 
 </dt>
 <dd>
-  Defines how compact the list tile's layout will be.
+  定义列表项布局的紧凑程度。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -953,7 +944,7 @@ vertically aligned relative to the <a href="material/ListTile-class.html">ListTi
 
 </dt>
 <dd>
-  描述此 widget 所代表的用户界面部分。
+  描述此组件所代表的用户界面部分。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -966,7 +957,7 @@ vertically aligned relative to the <a href="material/ListTile-class.html">ListTi
 
 </dt>
 <dd class="inherited">
-  创建一个 创建一个 <a href="widgets/StatelessElement-class.html">StatelessElement</a>，用于管理此 widget 在树中的位置。
+  创建一个 <a href="widgets/StatelessElement-class.html">StatelessElement</a>，用于管理此组件在树中的位置。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1070,7 +1061,7 @@ vertically aligned relative to the <a href="material/ListTile-class.html">ListTi
 
 </dt>
 <dd class="inherited">
-  对此 widget 的简短文字描述。
+  对此组件的简短文字描述。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1111,8 +1102,7 @@ vertically aligned relative to the <a href="material/ListTile-class.html">ListTi
 
 </dt>
 <dd>
-  Add a one pixel border in between each tile. If color isn't specified the
-<a href="material/ThemeData/dividerColor.html">ThemeData.dividerColor</a> of the context's <a href="material/Theme-class.html">Theme</a> is used.
+  在每个列表项之间添加一像素边框。如果未指定颜色，则使用当前上下文的 <a href="material/ThemeData/dividerColor.html">ThemeData.dividerColor</a>（取自 <a href="material/Theme-class.html">Theme</a>）。
   
 
 </dd>

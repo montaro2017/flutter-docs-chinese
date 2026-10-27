@@ -96,18 +96,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>决定滚动视图中可见的内容部分。</p>
 <p><a href="widgets/ScrollPosition/pixels.html">pixels</a> 值决定滚动视图使用的滚动偏移量，从而选择要显示的内容部分。用户滚动视口时，此值会变化，显示的内容也随之改变。</p>
-<p>The <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> applies <a href="widgets/ScrollPosition/physics.html">physics</a> to scrolling, and stores the
-<a href="widgets/ScrollPosition/minScrollExtent.html">minScrollExtent</a> 和 <a href="widgets/ScrollPosition/maxScrollExtent.html">maxScrollExtent</a>.</p>
+<p><a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 将 <a href="widgets/ScrollPosition/physics.html">physics</a> 应用于滚动，并保存
+<a href="widgets/ScrollPosition/minScrollExtent.html">minScrollExtent</a> 和 <a href="widgets/ScrollPosition/maxScrollExtent.html">maxScrollExtent</a>。</p>
 <p>滚动由当前的 <a href="widgets/ScrollPosition/activity.html">activity</a> 控制，并通过 <a href="widgets/ScrollPosition/beginActivity.html">beginActivity</a> 设置。<a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 本身不会启动任何活动。具体子类（例如 <a href="widgets/ScrollPositionWithSingleContext-class.html">ScrollPositionWithSingleContext</a>）通常会响应用户输入或 <a href="widgets/ScrollController-class.html">ScrollController</a> 的指令启动活动。</p>
 <p>此对象是一个 <a href="foundation/Listenable-class.html">Listenable</a>；当 <a href="widgets/ScrollPosition/pixels.html">pixels</a> 变化时，它会通知监听器。</p>
 <h3 id="accessing-scrolling-information">获取滚动信息</h3>
-<p>获取滚动和可滚动 widget 的信息有多种方式，但它们提供的信息各不相同，涉及滚动活动、位置以及 <a href="widgets/Viewport-class.html">Viewport</a> 的尺寸。</p>
+<p>获取滚动和可滚动组件的信息有多种方式，但它们提供的信息各不相同，涉及滚动活动、位置以及 <a href="widgets/Viewport-class.html">Viewport</a> 的尺寸。</p>
 <p><a href="widgets/ScrollController-class.html">ScrollController</a> 是一个 <a href="foundation/Listenable-class.html">Listenable</a>。每当任何已附加的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 通知其监听器时（例如发生滚动时），它也会通知自己的监听器。这与使用 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 监听 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 类型的通知非常相似；区别在于，通知监听器还会提供滚动活动的信息。通知监听器还可以监听特定的 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 子类，例如 <a href="widgets/UserScrollNotification-class.html">UserScrollNotification</a>。</p>
 <p>
 <a name="widgets.ScrollPosition.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-此示例比较使用 <a href="widgets/ScrollController-class.html">ScrollController</a> 与使用 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 监听 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 来监听滚动活动的区别。切换 <a href="material/Radio-class.html">Radio</a> 按钮即可在两者之间切换。使用 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 可以获得滚动活动的详细信息以及 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 的度量数据，但无法直接访问 scroll position 对象本身。使用 <a href="widgets/ScrollController-class.html">ScrollController</a> 监听时，则可以直接访问 position 对象。这两种通知都只会由滚动触发。
+此示例比较使用 <a href="widgets/ScrollController-class.html">ScrollController</a> 与使用 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 监听 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 来监听滚动活动的区别。切换 <a href="material/Radio-class.html">Radio</a> 按钮即可在两者之间切换。使用 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 可以获得滚动活动的详细信息以及 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 的度量数据，但无法直接访问滚动位置对象本身。使用 <a href="widgets/ScrollController-class.html">ScrollController</a> 监听时，则可以直接访问 position 对象。这两种通知都只会由滚动触发。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.ScrollPosition.1');" onclick="fixHref(this, 'widgets.ScrollPosition.1'); copyStringToClipboard(this.href);"
@@ -124,21 +124,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </iframe>
 </div>
 </p>
-<p><a href="widgets/ScrollController-class.html">ScrollController</a> does not notify its listeners when the list of
-<a href="widgets/ScrollPosition-class.html">ScrollPosition</a>s attached to the scroll controller changes. To listen to
-the attaching and detaching of scroll positions to the controller, use the
-<a href="widgets/ScrollController/onAttach.html">ScrollController.onAttach</a> 和 <a href="widgets/ScrollController/onDetach.html">ScrollController.onDetach</a> methods. This is
-also useful for adding a listener to the
-<a href="widgets/ScrollPosition/isScrollingNotifier.html">ScrollPosition.isScrollingNotifier</a> when the position is created during the
-build method of the <a href="widgets/Scrollable-class.html">Scrollable</a>.</p>
+<p><a href="widgets/ScrollController-class.html">ScrollController</a> 不会在连接到滚动控制器的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 列表变化时通知其监听器。若要监听滚动位置与控制器的连接和分离，请使用 <a href="widgets/ScrollController/onAttach.html">ScrollController.onAttach</a> 和 <a href="widgets/ScrollController/onDetach.html">ScrollController.onDetach</a> 方法。在 <a href="widgets/Scrollable-class.html">Scrollable</a> 的 build 方法中创建位置时，也可以借此为 <a href="widgets/ScrollPosition/isScrollingNotifier.html">ScrollPosition.isScrollingNotifier</a> 添加监听器。</p>
 <p>滚动位置刚附加时，<a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a>（例如 <a href="widgets/ScrollMetrics/maxScrollExtent.html">ScrollMetrics.maxScrollExtent</a>）尚不可用。只有当 <a href="widgets/Scrollable-class.html">Scrollable</a> 完成内容布局，并计算出内容的完整范围等信息后，这些值才会确定。可以通过 <a href="widgets/ScrollPosition/hasContentDimensions.html">ScrollPosition.hasContentDimensions</a> 判断这些度量是否已可用，也可以使用下文将介绍的 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a>。</p>
 <p>
 <a name="widgets.ScrollPosition.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
     <div class="snippet-description">
-This sample shows how to apply a listener to the
-<a href="widgets/ScrollPosition/isScrollingNotifier.html">ScrollPosition.isScrollingNotifier</a> using <a href="widgets/ScrollController/onAttach.html">ScrollController.onAttach</a>.
-This is used to change the <a href="material/AppBar-class.html">AppBar</a>'s color when scrolling is occurring.
+此示例展示如何为 <a href="widgets/ScrollPosition/isScrollingNotifier.html">ScrollPosition.isScrollingNotifier</a> 添加监听器，使用 <a href="widgets/ScrollController/onAttach.html">ScrollController.onAttach</a>。滚动时，<a href="material/AppBar-class.html">AppBar</a> 的颜色会随之变化。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.ScrollPosition.2');" onclick="fixHref(this, 'widgets.ScrollPosition.2'); copyStringToClipboard(this.href);"
@@ -156,7 +148,7 @@ This is used to change the <a href="material/AppBar-class.html">AppBar</a>'s col
 </div>
 </p>
 <h4 id="from-a-different-context">从不同的上下文访问</h4>
-<p>如果需要从滚动 widget 内部的上下文获取滚动信息，请使用 <a href="widgets/Scrollable/of.html">Scrollable.of</a> 获取 <a href="widgets/ScrollableState-class.html">ScrollableState</a> 及其 <a href="widgets/ScrollableState/position.html">ScrollableState.position</a>。它与附加到 <a href="widgets/ScrollController-class.html">ScrollController</a> 的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 是同一个对象。</p>
+<p>如果需要从滚动组件内部的上下文获取滚动信息，请使用 <a href="widgets/Scrollable/of.html">Scrollable.of</a> 获取 <a href="widgets/ScrollableState-class.html">ScrollableState</a> 及其 <a href="widgets/ScrollableState/position.html">ScrollableState.position</a>。它与附加到 <a href="widgets/ScrollController-class.html">ScrollController</a> 的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 是同一个对象。</p>
 <p>如果需要从非滚动 widget 祖先的上下文获取滚动信息，请使用 <a href="widgets/ScrollNotificationObserver-class.html">ScrollNotificationObserver</a>。<a href="material/AppBar-class.html">AppBar</a> 就使用它来实现内容滚动到其下方时的效果。由于 <a href="material/Scaffold/appBar.html">Scaffold.appBar</a> 和 <a href="material/Scaffold/body.html">Scaffold.body</a> 属于不同子树，滚动通知不会冒泡到 app bar。可以使用 <a href="widgets/ScrollNotificationObserverState/addListener.html">ScrollNotificationObserverState.addListener</a>，监听当前上下文之外发生的滚动通知。</p>
 <h4 id="dimension-changes">尺寸变化</h4>
 <p>最后，监听 <a href="widgets/ScrollController-class.html">ScrollController</a> 或 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 时，<em>不会</em>在给定滚动位置的 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> 发生变化时收到通知；例如窗口大小变化会改变 <a href="widgets/Viewport-class.html">Viewport</a> 的尺寸以及前面提到的可滚动范围。若要监听滚动度量的变化，请使用类型为 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a> 的 <a href="widgets/NotificationListener-class.html">NotificationListener</a>。此类通知与 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 不同：它不表示滚动活动，而是表示可滚动区域的尺寸变化，例如窗口大小变化。</p>
@@ -164,9 +156,7 @@ This is used to change the <a href="material/AppBar-class.html">AppBar</a>'s col
 <a name="widgets.ScrollPosition.3"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet3">
     <div class="snippet-description">
-This sample shows how a <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a> is dispatched when
-the <code>windowSize</code> is changed. Press the floating action button to increase
-the scrollable window's size.
+此示例展示在 <code>windowSize</code> 改变时如何分发 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a>。按下悬浮操作按钮可增大可滚动窗口的尺寸。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.ScrollPosition.3');" onclick="fixHref(this, 'widgets.ScrollPosition.3'); copyStringToClipboard(this.href);"
@@ -188,14 +178,10 @@ the scrollable window's size.
 <p>每当 <a href="rendering/ViewportOffset/userScrollDirection.html">userScrollDirection</a> 的值发生变化时，子类还需要调用 <a href="widgets/ScrollPosition/didUpdateScrollDirection.html">didUpdateScrollDirection</a>。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/Scrollable-class.html">Scrollable</a>, which uses a <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> to determine which portion of
-its content to display.</li>
-<li><a href="widgets/ScrollController-class.html">ScrollController</a>, which can be used with <a href="widgets/ListView-class.html">ListView</a>, <a href="widgets/GridView-class.html">GridView</a> and
-other scrollable widgets to control a <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>.</li>
-<li><a href="widgets/ScrollPositionWithSingleContext-class.html">ScrollPositionWithSingleContext</a>, which is the most commonly used
-concrete subclass of <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>.</li>
-<li><a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 和 <a href="widgets/NotificationListener-class.html">NotificationListener</a>, which can be used to watch
-the scroll position without using a <a href="widgets/ScrollController-class.html">ScrollController</a>.</li>
+<li><a href="widgets/Scrollable-class.html">Scrollable</a> 使用 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 确定要显示其内容的哪一部分。</li>
+<li><a href="widgets/ScrollController-class.html">ScrollController</a> 可与 <a href="widgets/ListView-class.html">ListView</a>、<a href="widgets/GridView-class.html">GridView</a> 及其他可滚动组件配合使用，以控制 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>。</li>
+<li><a href="widgets/ScrollPositionWithSingleContext-class.html">ScrollPositionWithSingleContext</a> 是 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 最常用的具体子类。</li>
+<li><a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 和 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 可用于在不使用 <a href="widgets/ScrollController-class.html">ScrollController</a> 的情况下监听滚动位置。</li>
 </ul>
 </section>
 
@@ -242,8 +228,7 @@ the scroll position without using a <a href="widgets/ScrollController-class.html
           <span class="name"><a href="widgets/ScrollPosition/ScrollPosition.html">ScrollPosition</a></span><span class="signature">({<span class="parameter" id="-param-physics"><span>required</span> <span class="type-annotation"><a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a></span> <span class="parameter-name">physics</span>, </span><span class="parameter" id="-param-context"><span>required</span> <span class="type-annotation"><a href="widgets/ScrollContext-class.html">ScrollContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="-param-keepScrollOffset"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepScrollOffset</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-oldPosition"><span class="type-annotation"><a href="widgets/ScrollPosition-class.html">ScrollPosition</a>?</span> <span class="parameter-name">oldPosition</span>, </span><span class="parameter" id="-param-debugLabel"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugLabel</span></span>})</span>
         </dt>
         <dd>
-          Creates an object that determines which portion of the content is visible
-in a scroll view.
+          创建一个对象，用于确定滚动视图中可见的内容部分。
         </dd>
     </dl>
   </section>
@@ -260,7 +245,7 @@ in a scroll view.
 
 </dt>
 <dd>
-  The currently operative <a href="widgets/ScrollActivity-class.html">ScrollActivity</a>.
+  当前正在执行的 <a href="widgets/ScrollActivity-class.html">ScrollActivity</a>。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -272,8 +257,7 @@ in a scroll view.
 
 </dt>
 <dd>
-  Whether a viewport is allowed to change <a href="widgets/ScrollPosition/pixels.html">pixels</a> implicitly to respond to
-a call to <a href="rendering/RenderObject/showOnScreen.html">RenderObject.showOnScreen</a>.
+  视口是否可以隐式更改 <a href="widgets/ScrollPosition/pixels.html">pixels</a>，以响应对 <a href="rendering/RenderObject/showOnScreen.html">RenderObject.showOnScreen</a> 的调用。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -285,8 +269,7 @@ a call to <a href="rendering/RenderObject/showOnScreen.html">RenderObject.showOn
 
 </dt>
 <dd class="inherited">
-  Whether the <a href="widgets/ScrollMetrics/pixels.html">pixels</a> value is exactly at the <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> or the
-<a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a>.
+  <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 值是否恰好位于 <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> 或 <a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -322,7 +305,7 @@ a call to <a href="rendering/RenderObject/showOnScreen.html">RenderObject.showOn
 
 </dt>
 <dd>
-  Where the scrolling is taking place.
+  滚动发生的位置。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -334,7 +317,7 @@ a call to <a href="rendering/RenderObject/showOnScreen.html">RenderObject.showOn
 
 </dt>
 <dd>
-  A label that is used in the <a href="rendering/ViewportOffset/toString.html">toString</a> output.
+  用于 <a href="rendering/ViewportOffset/toString.html">toString</a> 输出的标签。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -346,8 +329,7 @@ a call to <a href="rendering/RenderObject/showOnScreen.html">RenderObject.showOn
 
 </dt>
 <dd>
-  The <a href="dart-ui/FlutterView/devicePixelRatio.html">FlutterView.devicePixelRatio</a> of the view that the <a href="widgets/Scrollable-class.html">Scrollable</a>
-associated with this metrics object is drawn into.
+  与此度量对象关联的 <a href="widgets/Scrollable-class.html">Scrollable</a> 绘制到的视图的 <a href="dart-ui/FlutterView/devicePixelRatio.html">FlutterView.devicePixelRatio</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -360,7 +342,7 @@ associated with this metrics object is drawn into.
 </dt>
 <dd class="inherited">
   可滚动区域中视口“下方”内容的逻辑长度。
-This is the content below the content described by <a href="widgets/ScrollMetrics/extentInside.html">extentInside</a>.
+这指的是 <a href="widgets/ScrollMetrics/extentInside.html">extentInside</a> 所描述内容下方的内容。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -373,7 +355,7 @@ This is the content below the content described by <a href="widgets/ScrollMetric
 </dt>
 <dd class="inherited">
   可滚动区域中视口“上方”内容的逻辑长度。
-This is the content above the content described by <a href="widgets/ScrollMetrics/extentInside.html">extentInside</a>.
+这指的是 <a href="widgets/ScrollMetrics/extentInside.html">extentInside</a> 所描述内容上方的内容。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -385,9 +367,7 @@ This is the content above the content described by <a href="widgets/ScrollMetric
 
 </dt>
 <dd class="inherited">
-  The quantity of content conceptually "inside" the viewport in the
-scrollable (including empty space if the total amount of content is less
-than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimension</a>).
+  可滚动区域中概念上位于视口“内部”的内容量（如果内容总量小于 <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimension</a>，也包括空白区域）。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -471,8 +451,7 @@ than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimensio
 
 </dt>
 <dd>
-  Whether <a href="widgets/ScrollPosition/viewportDimension.html">viewportDimension</a>, <a href="widgets/ScrollPosition/minScrollExtent.html">minScrollExtent</a>, <a href="widgets/ScrollPosition/maxScrollExtent.html">maxScrollExtent</a>,
-<a href="widgets/ScrollMetrics/outOfRange.html">outOfRange</a>, and <a href="widgets/ScrollMetrics/atEdge.html">atEdge</a> are available.
+  <a href="widgets/ScrollPosition/viewportDimension.html">viewportDimension</a>、<a href="widgets/ScrollPosition/minScrollExtent.html">minScrollExtent</a>、<a href="widgets/ScrollPosition/maxScrollExtent.html">maxScrollExtent</a>、<a href="widgets/ScrollMetrics/outOfRange.html">outOfRange</a> 和 <a href="widgets/ScrollMetrics/atEdge.html">atEdge</a> 是否可用。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -484,8 +463,7 @@ than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimensio
 
 </dt>
 <dd>
-  This notifier's value is true if a scroll is underway and false if the scroll
-position is idle.
+  正在滚动时此通知器的值为 true，滚动位置空闲时则为 false。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -497,8 +475,7 @@ position is idle.
 
 </dt>
 <dd>
-  Save the current scroll offset with <a href="widgets/PageStorage-class.html">PageStorage</a> and restore it if
-this scroll position's scrollable is recreated.
+  使用 <a href="widgets/PageStorage-class.html">PageStorage</a> 保存当前滚动偏移量，并在此滚动位置对应的 Scrollable 重建时恢复该偏移量。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -510,7 +487,7 @@ this scroll position's scrollable is recreated.
 
 </dt>
 <dd>
-  The maximum in-range value for <a href="widgets/ScrollPosition/pixels.html">pixels</a>.
+  <a href="widgets/ScrollPosition/pixels.html">pixels</a> 的有效最大值。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -522,7 +499,7 @@ this scroll position's scrollable is recreated.
 
 </dt>
 <dd>
-  The minimum in-range value for <a href="widgets/ScrollPosition/pixels.html">pixels</a>.
+  <a href="widgets/ScrollPosition/pixels.html">pixels</a> 的有效最小值。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -534,8 +511,7 @@ this scroll position's scrollable is recreated.
 
 </dt>
 <dd class="inherited">
-  Whether the <a href="widgets/ScrollMetrics/pixels.html">pixels</a> value is outside the <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> 和
-<a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a>.
+  <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 值是否超出 <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> 和 <a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a> 的范围。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -547,7 +523,7 @@ this scroll position's scrollable is recreated.
 
 </dt>
 <dd>
-  How the scroll position should respond to user input.
+  滚动位置应如何响应用户输入。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -559,7 +535,7 @@ this scroll position's scrollable is recreated.
 
 </dt>
 <dd>
-  The number of pixels to offset the children in the opposite of the axis direction.
+  子组件沿轴方向反向偏移的像素数。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -583,7 +559,7 @@ this scroll position's scrollable is recreated.
 
 </dt>
 <dd>
-  Whether scrollables should absorb pointer events at this position.
+  可滚动组件在此位置是否应吸收指针事件。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -595,8 +571,7 @@ this scroll position's scrollable is recreated.
 
 </dt>
 <dd class="inherited">
-  The direction in which the user is trying to change <a href="rendering/ViewportOffset/pixels.html">pixels</a>, relative to
-the viewport's <a href="rendering/RenderViewportBase/axisDirection.html">RenderViewportBase.axisDirection</a>.
+  相对于视口的 <a href="rendering/RenderViewportBase/axisDirection.html">RenderViewportBase.axisDirection</a>，用户尝试改变 <a href="rendering/ViewportOffset/pixels.html">pixels</a> 的方向。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -608,7 +583,7 @@ the viewport's <a href="rendering/RenderViewportBase/axisDirection.html">RenderV
 
 </dt>
 <dd>
-  The extent of the viewport along the <a href="widgets/ScrollMetrics/axisDirection.html">axisDirection</a>.
+  视口沿 <a href="widgets/ScrollMetrics/axisDirection.html">axisDirection</a> 方向的范围。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -630,7 +605,7 @@ the viewport's <a href="rendering/RenderViewportBase/axisDirection.html">RenderV
 
 </dt>
 <dd>
-  Take any current applicable state from the given <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>.
+  从给定的 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 获取当前适用的状态。
   
 
 </dd>
@@ -669,7 +644,7 @@ the viewport's <a href="rendering/RenderViewportBase/axisDirection.html">RenderV
 
 </dt>
 <dd>
-  Returns the overscroll by applying the boundary conditions.
+  应用边界条件后返回超出滚动范围的量。
   
 
 </dd>
@@ -682,7 +657,7 @@ the viewport's <a href="rendering/RenderViewportBase/axisDirection.html">RenderV
 
 </dt>
 <dd>
-  Called when the viewport's content extents are established.
+  视口内容范围确定后调用。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -695,8 +670,7 @@ the viewport's <a href="rendering/RenderViewportBase/axisDirection.html">RenderV
 
 </dt>
 <dd>
-  Notifies the activity that the dimensions of the underlying viewport or
-contents have changed.
+  通知当前活动，底层视口或内容的尺寸已发生变化。
   
 
 </dd>
@@ -709,7 +683,7 @@ contents have changed.
 
 </dt>
 <dd>
-  Called when the viewport's extents are established.
+  视口范围确定后调用。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -722,8 +696,7 @@ contents have changed.
 
 </dt>
 <dd>
-  Change the current <a href="widgets/ScrollPosition/activity.html">activity</a>, disposing of the old one and
-sending scroll notifications as necessary.
+  更改当前的 <a href="widgets/ScrollPosition/activity.html">activity</a>，释放旧活动，并在必要时发送滚动通知。
   
 
 </dd>
@@ -736,7 +709,7 @@ sending scroll notifications as necessary.
 
 </dt>
 <dd class="inherited">
-  创建一个 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> that has the same properties as this object.
+  创建一个具有与此对象相同属性的 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -749,7 +722,7 @@ sending scroll notifications as necessary.
 
 </dt>
 <dd>
-  Apply a layout-time correction to the scroll offset.
+  在布局阶段校正滚动偏移量。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -762,7 +735,7 @@ sending scroll notifications as necessary.
 
 </dt>
 <dd>
-  Verifies that the new content and viewport dimensions are acceptable.
+  验证新的内容尺寸和视口尺寸是否可接受。
   
 
 </dd>
@@ -775,8 +748,7 @@ sending scroll notifications as necessary.
 
 </dt>
 <dd>
-  Change the value of <a href="widgets/ScrollPosition/pixels.html">pixels</a> to the new value, without notifying any
-customers.
+  将 <a href="widgets/ScrollPosition/pixels.html">pixels</a> 改为新值，但不通知任何监听方。
   
 
 </dd>
@@ -802,7 +774,7 @@ customers.
 
 </dt>
 <dd>
-  Called by <a href="widgets/ScrollPosition/beginActivity.html">beginActivity</a> to report when an activity has ended.
+  由 <a href="widgets/ScrollPosition/beginActivity.html">beginActivity</a> 调用，以报告活动结束。
   
 
 </dd>
@@ -815,9 +787,7 @@ customers.
 
 </dt>
 <dd>
-  Called by <a href="widgets/ScrollPosition/setPixels.html">setPixels</a> to report overscroll when an attempt is made to
-change the <a href="widgets/ScrollPosition/pixels.html">pixels</a> position. Overscroll is the amount of change that was
-not applied to the <a href="widgets/ScrollPosition/pixels.html">pixels</a> value.
+  当尝试改变 <a href="widgets/ScrollPosition/pixels.html">pixels</a> 位置导致超出滚动范围时，由 <a href="widgets/ScrollPosition/setPixels.html">setPixels</a> 调用以报告超出的量。超出滚动范围的量是未应用到 <a href="widgets/ScrollPosition/pixels.html">pixels</a> 值上的变化量。
   
 
 </dd>
@@ -830,7 +800,7 @@ not applied to the <a href="widgets/ScrollPosition/pixels.html">pixels</a> value
 
 </dt>
 <dd>
-  Called by <a href="widgets/ScrollPosition/beginActivity.html">beginActivity</a> to report when an activity has started.
+  由 <a href="widgets/ScrollPosition/beginActivity.html">beginActivity</a> 调用，以报告活动开始。
   
 
 </dd>
@@ -843,7 +813,7 @@ not applied to the <a href="widgets/ScrollPosition/pixels.html">pixels</a> value
 
 </dt>
 <dd>
-  Dispatches a notification that the <a href="rendering/ViewportOffset/userScrollDirection.html">userScrollDirection</a> has changed.
+  分发通知，说明 <a href="rendering/ViewportOffset/userScrollDirection.html">userScrollDirection</a> 已发生变化。
   
 
 </dd>
@@ -856,7 +826,7 @@ not applied to the <a href="widgets/ScrollPosition/pixels.html">pixels</a> value
 
 </dt>
 <dd>
-  Dispatches a notification that the <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> have changed.
+  分发通知，说明 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> 已发生变化。
   
 
 </dd>
@@ -869,7 +839,7 @@ not applied to the <a href="widgets/ScrollPosition/pixels.html">pixels</a> value
 
 </dt>
 <dd>
-  Called by <a href="widgets/ScrollPosition/setPixels.html">setPixels</a> to report a change to the <a href="widgets/ScrollPosition/pixels.html">pixels</a> position.
+  由 <a href="widgets/ScrollPosition/setPixels.html">setPixels</a> 调用，以报告 <a href="widgets/ScrollPosition/pixels.html">pixels</a> 位置的变化。
   
 
 </dd>
@@ -895,7 +865,7 @@ not applied to the <a href="widgets/ScrollPosition/pixels.html">pixels</a> value
 
 </dt>
 <dd>
-  Start a drag activity corresponding to the given <a href="gestures/DragStartDetails-class.html">DragStartDetails</a>.
+  启动与给定 <a href="gestures/DragStartDetails-class.html">DragStartDetails</a> 对应的拖动活动。
   
 
 </dd>
@@ -908,8 +878,7 @@ not applied to the <a href="widgets/ScrollPosition/pixels.html">pixels</a> value
 
 </dt>
 <dd>
-  Animates the position such that the given object is as visible as possible
-by just scrolling this position.
+  通过滚动此位置，为指定对象执行动画，使其尽可能完整地显示。
   
 
 </dd>
@@ -922,8 +891,7 @@ by just scrolling this position.
 
 </dt>
 <dd>
-  Change the value of <a href="widgets/ScrollPosition/pixels.html">pixels</a> to the new value, and notify any customers,
-but without honoring normal conventions for changing the scroll offset.
+  将 <a href="widgets/ScrollPosition/pixels.html">pixels</a> 改为新值并通知监听方，但不遵循更改滚动偏移量时的常规约定。
   
 
 </dd>
@@ -936,7 +904,7 @@ but without honoring normal conventions for changing the scroll offset.
 
 </dt>
 <dd>
-  Stop the current activity and start a <a href="widgets/HoldScrollActivity-class.html">HoldScrollActivity</a>.
+  停止当前活动并启动 <a href="widgets/HoldScrollActivity-class.html">HoldScrollActivity</a>。
   
 
 </dd>
@@ -962,7 +930,7 @@ but without honoring normal conventions for changing the scroll offset.
 
 </dt>
 <dd>
-  Deprecated. Use <a href="widgets/ScrollPosition/jumpTo.html">jumpTo</a> or a custom <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> instead.
+  已弃用。请改用 <a href="widgets/ScrollPosition/jumpTo.html">jumpTo</a> 或自定义 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>。
   
 
 </dd>
@@ -975,8 +943,7 @@ but without honoring normal conventions for changing the scroll offset.
 
 </dt>
 <dd>
-  Calls <a href="widgets/ScrollPosition/jumpTo.html">jumpTo</a> if duration is null or <a href="dart-core/Duration/zero-constant.html">Duration.zero</a>, otherwise
-<a href="widgets/ScrollPosition/animateTo.html">animateTo</a> is called.
+  如果 duration 为 null 或 <a href="dart-core/Duration/zero-constant.html">Duration.zero</a>，则调用 <a href="widgets/ScrollPosition/jumpTo.html">jumpTo</a>；否则调用 <a href="widgets/ScrollPosition/animateTo.html">animateTo</a>。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -1050,7 +1017,7 @@ but without honoring normal conventions for changing the scroll offset.
 
 </dt>
 <dd>
-  Called by <a href="widgets/ScrollPosition/context.html">context</a> to restore the scroll offset to the provided value.
+  由 <a href="widgets/ScrollPosition/context.html">context</a> 调用，将滚动偏移量恢复为指定值。
   
 
 </dd>
@@ -1063,8 +1030,7 @@ but without honoring normal conventions for changing the scroll offset.
 
 </dt>
 <dd>
-  Called whenever the <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> is created, to restore the scroll
-offset if possible.
+  每当创建 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a> 时调用，并在可能的情况下恢复滚动偏移量。
   
 
 </dd>
@@ -1077,8 +1043,7 @@ offset if possible.
 
 </dt>
 <dd>
-  Called whenever scrolling ends, to persist the current scroll offset for
-state restoration purposes.
+  每当滚动结束时调用，以保存当前滚动偏移量，供状态恢复使用。
   
 
 </dd>
@@ -1091,8 +1056,7 @@ state restoration purposes.
 
 </dt>
 <dd>
-  Called whenever scrolling ends, to store the current scroll offset in a
-storage mechanism with a lifetime that matches the app's lifetime.
+  每当滚动结束时调用，以将当前滚动偏移量存入生命周期与应用相同的存储机制。
   
 
 </dd>
@@ -1105,7 +1069,7 @@ storage mechanism with a lifetime that matches the app's lifetime.
 
 </dt>
 <dd>
-  Update the scroll position (<a href="widgets/ScrollPosition/pixels.html">pixels</a>) to a given pixel value.
+  将滚动位置（<a href="widgets/ScrollPosition/pixels.html">pixels</a>）更新为指定的像素值。
   
 
 </dd>

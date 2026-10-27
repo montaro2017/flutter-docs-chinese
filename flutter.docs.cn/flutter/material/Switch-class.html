@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>开关本身不维护任何状态。开关状态改变时，widget 会调用 <a href="material/Switch/onChanged.html">onChanged</a> 回调。大多数使用开关的 widget 会监听 <a href="material/Switch/onChanged.html">onChanged</a> 回调，并使用新的 <a href="material/Switch/value.html">value</a> 重新构建开关，以更新其视觉外观。</p>
 <p>如果 <a href="material/Switch/onChanged.html">onChanged</a> 回调为 null，开关会被禁用（不会响应输入）。默认情况下，禁用开关的滑块和轨道会以灰色系渲染。可以通过 <a href="material/Switch/inactiveThumbColor.html">inactiveThumbColor</a> 和 <a href="material/Switch/inactiveTrackColor.html">inactiveTrackColor</a> 自定义禁用开关的默认外观。</p>
 <p>其祖先组件中必须有一个 <a href="material/Material-class.html">Material</a> 组件。</p>
-<p>Material Design 3 支持在 <a href="material/Switch-class.html">Switch</a> 滑块上添加图标。将 <a href="material/ThemeData/useMaterial3.html">ThemeData.useMaterial3</a> 设为 true 后，可以使用 <a href="material/Switch/thumbIcon.html">Switch.thumbIcon</a>，根据 <a href="widgets/WidgetState.html">Switch</a> 的不同 <a href="material/Switch-class.html">WidgetState</a> 添加可选图标。</p>
+<p>Material Design 3 支持在 <a href="material/Switch-class.html">Switch</a> 滑块上添加图标。将 <a href="material/ThemeData/useMaterial3.html">ThemeData.useMaterial3</a> 设为 true 后，可以使用 <a href="material/Switch/thumbIcon.html">Switch.thumbIcon</a>，根据 <a href="widgets/WidgetState.html">WidgetState</a> 的不同状态，为 <a href="material/Switch-class.html">Switch</a> 添加可选图标。</p>
 <p>
 <a name="material.Switch.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
@@ -118,7 +118,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>
 <a name="material.Switch.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
-    <div class="snippet-description">此示例展示如何使用 <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> 开关属性自定义 <a href="material/Switch-class.html">Switch</a>。</div>
+    <div class="snippet-description">此示例展示如何使用 <a href="material/Switch-class.html">Switch</a> 和 <a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a> 自定义开关属性。</div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'material.Switch.2');" onclick="fixHref(this, 'material.Switch.2'); copyStringToClipboard(this.href);"
         href="#">
@@ -134,7 +134,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>
 <a name="material.Switch.3"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet3">
-    <div class="snippet-description">此示例展示如何使用 <a href="material/Switch/thumbIcon.html">Switch.thumbIcon</a> 属性，在 <a href="material/Switch-class.html">Switch</a> 滑块上添加图标。</div>
+    <div class="snippet-description">此示例展示如何使用 <a href="material/Switch-class.html">Switch</a> 的 <a href="material/Switch/thumbIcon.html">Switch.thumbIcon</a> 属性，在滑块上添加图标。</div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'material.Switch.3');" onclick="fixHref(this, 'material.Switch.3'); copyStringToClipboard(this.href);"
         href="#">
@@ -165,13 +165,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="material/SwitchListTile-class.html">SwitchListTile</a>, which combines this widget with a <a href="material/ListTile-class.html">ListTile</a> so that
-you can give the switch a label.</li>
-<li><a href="material/Checkbox-class.html">Checkbox</a>, another widget with similar semantics.</li>
-<li><a href="material/Radio-class.html">Radio</a>, for selecting among a set of explicit values.</li>
+<li><a href="material/SwitchListTile-class.html">SwitchListTile</a>，它将此组件与 <a href="material/ListTile-class.html">ListTile</a> 组合，让你可以为开关添加标签。</li>
+<li><a href="material/Checkbox-class.html">Checkbox</a>，这是另一个语义相似的组件。</li>
+<li><a href="material/Radio-class.html">Radio</a>，用于从一组明确的值中进行选择。</li>
 <li><a href="material/Slider-class.html">Slider</a>，用于在一定范围内选择数值。</li>
-<li><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a>, an interface for objects that "resolve" to
-different values depending on a widget's material state.</li>
+<li><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a>，这是一个接口，其对象会根据 widget 的 Material 状态解析为不同的值。</li>
 <li><a href="https://material.io/design/components/selection-controls.html#switches">material.io/design/components/selection-controls.html#switches</a></li>
 </ul>
 </section>
@@ -210,18 +208,18 @@ different values depending on a widget's material state.</li>
           <span class="name"><a href="material/Switch/Switch.html">Switch</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-value"><span>required</span> <span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span>, </span><span class="parameter" id="-param-onChanged"><span>required</span> <span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span>?</span> <span class="parameter-name">onChanged</span>, </span><span class="parameter" id="-param-activeColor"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use activeThumbColor instead. &#39; &#39;This feature was deprecated after v3.31.0-2.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">activeColor</span>, </span><span class="parameter" id="-param-activeThumbColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">activeThumbColor</span>, </span><span class="parameter" id="-param-activeTrackColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">activeTrackColor</span>, </span><span class="parameter" id="-param-inactiveThumbColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">inactiveThumbColor</span>, </span><span class="parameter" id="-param-inactiveTrackColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">inactiveTrackColor</span>, </span><span class="parameter" id="-param-activeThumbImage"><span class="type-annotation"><a href="painting/ImageProvider-class.html">ImageProvider</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>&gt;</span>?</span> <span class="parameter-name">activeThumbImage</span>, </span><span class="parameter" id="-param-onActiveThumbImageError"><span class="type-annotation"><a href="painting/ImageErrorListener.html">ImageErrorListener</a>?</span> <span class="parameter-name">onActiveThumbImageError</span>, </span><span class="parameter" id="-param-inactiveThumbImage"><span class="type-annotation"><a href="painting/ImageProvider-class.html">ImageProvider</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>&gt;</span>?</span> <span class="parameter-name">inactiveThumbImage</span>, </span><span class="parameter" id="-param-onInactiveThumbImageError"><span class="type-annotation"><a href="painting/ImageErrorListener.html">ImageErrorListener</a>?</span> <span class="parameter-name">onInactiveThumbImageError</span>, </span><span class="parameter" id="-param-thumbColor"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a>?</span>&gt;</span>?</span> <span class="parameter-name">thumbColor</span>, </span><span class="parameter" id="-param-trackColor"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a>?</span>&gt;</span>?</span> <span class="parameter-name">trackColor</span>, </span><span class="parameter" id="-param-trackOutlineColor"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a>?</span>&gt;</span>?</span> <span class="parameter-name">trackOutlineColor</span>, </span><span class="parameter" id="-param-trackOutlineWidth"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a>?</span>&gt;</span>?</span> <span class="parameter-name">trackOutlineWidth</span>, </span><span class="parameter" id="-param-thumbIcon"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Icon-class.html">Icon</a>?</span>&gt;</span>?</span> <span class="parameter-name">thumbIcon</span>, </span><span class="parameter" id="-param-materialTapTargetSize"><span class="type-annotation"><a href="material/MaterialTapTargetSize.html">MaterialTapTargetSize</a>?</span> <span class="parameter-name">materialTapTargetSize</span>, </span><span class="parameter" id="-param-dragStartBehavior"><span class="type-annotation"><a href="gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">dragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span><span class="parameter" id="-param-mouseCursor"><span class="type-annotation"><a href="services/MouseCursor-class.html">MouseCursor</a>?</span> <span class="parameter-name">mouseCursor</span>, </span><span class="parameter" id="-param-focusColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">focusColor</span>, </span><span class="parameter" id="-param-hoverColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">hoverColor</span>, </span><span class="parameter" id="-param-overlayColor"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a>?</span>&gt;</span>?</span> <span class="parameter-name">overlayColor</span>, </span><span class="parameter" id="-param-splashRadius"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">splashRadius</span>, </span><span class="parameter" id="-param-focusNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">focusNode</span>, </span><span class="parameter" id="-param-onFocusChange"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span>?</span> <span class="parameter-name">onFocusChange</span>, </span><span class="parameter" id="-param-autofocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">autofocus</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-padding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">padding</span></span>})</span>
         </dt>
         <dd>
-          Creates a Material Design switch.
-            <div class="constructor-modifier features">const</div>
-        </dd>
+  创建一个 Material Design 开关。
+  <div class="constructor-modifier features">const</div>
+
+</dd>
         <dt id="Switch.adaptive" class="callable">
           <span class="name"><a href="material/Switch/Switch.adaptive.html">Switch.adaptive</a></span><span class="signature">({<span class="parameter" id="adaptive-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="adaptive-param-value"><span>required</span> <span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span>, </span><span class="parameter" id="adaptive-param-onChanged"><span>required</span> <span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span>?</span> <span class="parameter-name">onChanged</span>, </span><span class="parameter" id="adaptive-param-activeColor"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use activeThumbColor or activeTrackColor instead. &#39; &#39;This feature was deprecated after v3.31.0-2.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">activeColor</span>, </span><span class="parameter" id="adaptive-param-activeThumbColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">activeThumbColor</span>, </span><span class="parameter" id="adaptive-param-activeTrackColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">activeTrackColor</span>, </span><span class="parameter" id="adaptive-param-inactiveThumbColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">inactiveThumbColor</span>, </span><span class="parameter" id="adaptive-param-inactiveTrackColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">inactiveTrackColor</span>, </span><span class="parameter" id="adaptive-param-activeThumbImage"><span class="type-annotation"><a href="painting/ImageProvider-class.html">ImageProvider</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>&gt;</span>?</span> <span class="parameter-name">activeThumbImage</span>, </span><span class="parameter" id="adaptive-param-onActiveThumbImageError"><span class="type-annotation"><a href="painting/ImageErrorListener.html">ImageErrorListener</a>?</span> <span class="parameter-name">onActiveThumbImageError</span>, </span><span class="parameter" id="adaptive-param-inactiveThumbImage"><span class="type-annotation"><a href="painting/ImageProvider-class.html">ImageProvider</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>&gt;</span>?</span> <span class="parameter-name">inactiveThumbImage</span>, </span><span class="parameter" id="adaptive-param-onInactiveThumbImageError"><span class="type-annotation"><a href="painting/ImageErrorListener.html">ImageErrorListener</a>?</span> <span class="parameter-name">onInactiveThumbImageError</span>, </span><span class="parameter" id="adaptive-param-materialTapTargetSize"><span class="type-annotation"><a href="material/MaterialTapTargetSize.html">MaterialTapTargetSize</a>?</span> <span class="parameter-name">materialTapTargetSize</span>, </span><span class="parameter" id="adaptive-param-thumbColor"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a>?</span>&gt;</span>?</span> <span class="parameter-name">thumbColor</span>, </span><span class="parameter" id="adaptive-param-trackColor"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a>?</span>&gt;</span>?</span> <span class="parameter-name">trackColor</span>, </span><span class="parameter" id="adaptive-param-trackOutlineColor"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a>?</span>&gt;</span>?</span> <span class="parameter-name">trackOutlineColor</span>, </span><span class="parameter" id="adaptive-param-trackOutlineWidth"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a>?</span>&gt;</span>?</span> <span class="parameter-name">trackOutlineWidth</span>, </span><span class="parameter" id="adaptive-param-thumbIcon"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Icon-class.html">Icon</a>?</span>&gt;</span>?</span> <span class="parameter-name">thumbIcon</span>, </span><span class="parameter" id="adaptive-param-dragStartBehavior"><span class="type-annotation"><a href="gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">dragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span><span class="parameter" id="adaptive-param-mouseCursor"><span class="type-annotation"><a href="services/MouseCursor-class.html">MouseCursor</a>?</span> <span class="parameter-name">mouseCursor</span>, </span><span class="parameter" id="adaptive-param-focusColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">focusColor</span>, </span><span class="parameter" id="adaptive-param-hoverColor"><span class="type-annotation"><a href="dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">hoverColor</span>, </span><span class="parameter" id="adaptive-param-overlayColor"><span class="type-annotation"><a href="widgets/WidgetStateProperty-class.html">WidgetStateProperty</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/Color-class.html">Color</a>?</span>&gt;</span>?</span> <span class="parameter-name">overlayColor</span>, </span><span class="parameter" id="adaptive-param-splashRadius"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">splashRadius</span>, </span><span class="parameter" id="adaptive-param-focusNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">focusNode</span>, </span><span class="parameter" id="adaptive-param-onFocusChange"><span class="type-annotation"><a href="foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span>?</span> <span class="parameter-name">onFocusChange</span>, </span><span class="parameter" id="adaptive-param-autofocus"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">autofocus</span> = <span class="default-value">false</span>, </span><span class="parameter" id="adaptive-param-padding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="adaptive-param-applyCupertinoTheme"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">applyCupertinoTheme</span></span>})</span>
         </dt>
         <dd>
-          Creates an adaptive <a href="material/Switch-class.html">Switch</a> based on whether the target platform is iOS
-or macOS, following Material design's
-<a href="https://material.io/design/platform-guidance/cross-platform-adaptation.html">Cross-platform guidelines</a>.
-            <div class="constructor-modifier features">const</div>
-        </dd>
+  根据目标平台是否为 iOS 或 macOS 创建自适应的 <a href="material/Switch-class.html">Switch</a>，并遵循 Material Design 的<a href="https://material.io/design/platform-guidance/cross-platform-adaptation.html">跨平台适配指南</a>。
+  <div class="constructor-modifier features">const</div>
+
+</dd>
     </dl>
   </section>
     
@@ -237,7 +235,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color to use when this switch is on.
+  开关开启时使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -249,7 +247,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color to use when this switch is on.
+  开关开启时滑块使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -261,7 +259,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  An image to use on the thumb of this switch when the switch is on.
+  开关开启时滑块上使用的图像。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -273,7 +271,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color to use on the track when this switch is on.
+  开关开启时轨道使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -285,7 +283,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  Whether to apply the ambient <a href="cupertino/CupertinoThemeData-class.html">CupertinoThemeData</a>.
+  是否应用当前环境中的 <a href="cupertino/CupertinoThemeData-class.html">CupertinoThemeData</a>。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -321,7 +319,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color for the button's <a href="material/Material-class.html">Material</a> when it has the input focus.
+  按钮获得输入焦点时，其 <a href="material/Material-class.html">Material</a> 使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -357,7 +355,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color for the button's <a href="material/Material-class.html">Material</a> when a pointer is hovering over it.
+  指针悬停在按钮上时，其 <a href="material/Material-class.html">Material</a> 使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -369,7 +367,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color to use on the thumb when this switch is off.
+  开关关闭时滑块使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -381,7 +379,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  An image to use on the thumb of this switch when the switch is off.
+  开关关闭时滑块上使用的图像。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -393,7 +391,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color to use on the track when this switch is off.
+  开关关闭时轨道使用的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -441,8 +439,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  An optional error callback for errors emitted when loading
-<a href="material/Switch/activeThumbImage.html">activeThumbImage</a>.
+  加载 <a href="material/Switch/activeThumbImage.html">activeThumbImage</a> 时发生错误时调用的可选回调。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -454,7 +451,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  Called when the user toggles the switch on or off.
+  用户切换开关状态时调用。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -478,8 +475,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  An optional error callback for errors emitted when loading
-<a href="material/Switch/inactiveThumbImage.html">inactiveThumbImage</a>.
+  加载 <a href="material/Switch/inactiveThumbImage.html">inactiveThumbImage</a> 时发生错误时调用的可选回调。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -491,7 +487,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color for the switch's <a href="material/Material-class.html">Material</a>.
+  <a href="material/Switch-class.html">Switch</a> 的 <a href="material/Material-class.html">Material</a> 覆盖层颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -503,7 +499,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The amount of space to surround the child inside the bounds of the <a href="material/Switch-class.html">Switch</a>.
+  在 <a href="material/Switch-class.html">Switch</a> 边界内围绕子项的留白量。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -539,7 +535,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color of this <a href="material/Switch-class.html">Switch</a>'s thumb.
+  <a href="material/Switch-class.html">Switch</a> 滑块的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -551,7 +547,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The icon to use on the thumb of this switch
+  此开关滑块上使用的图标。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -563,7 +559,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The color of this <a href="material/Switch-class.html">Switch</a>'s track.
+  <a href="material/Switch-class.html">Switch</a> 轨道的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -575,7 +571,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The outline color of this <a href="material/Switch-class.html">Switch</a>'s track.
+  <a href="material/Switch-class.html">Switch</a> 轨道轮廓的颜色。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -587,7 +583,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  The outline width of this <a href="material/Switch-class.html">Switch</a>'s track.
+  <a href="material/Switch-class.html">Switch</a> 轨道轮廓的宽度。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -599,7 +595,7 @@ or macOS, following Material design's
 
 </dt>
 <dd>
-  Whether this switch is on or off.
+  此开关处于开启还是关闭状态。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -634,7 +630,7 @@ or macOS, following Material design's
 
 </dt>
 <dd class="inherited">
-  创建一个 创建一个 <a href="widgets/StatelessElement-class.html">StatelessElement</a>，用于管理此 widget 在树中的位置。
+  创建一个 <a href="widgets/StatelessElement-class.html">StatelessElement</a>，用于管理此 widget 在树中的位置。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>

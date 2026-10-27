@@ -109,8 +109,7 @@ aspect-ratio: 560 / 315;">
 <p>如果 <a href="widgets/ListView/itemExtent.html">itemExtent</a> 不为 null，则会强制子组件在滚动方向上具有给定的范围。</p>
 <p>如果 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> 不为 null，则会强制子组件在滚动方向上与给定组件具有相同的范围。</p>
 <p>指定 <a href="widgets/ListView/itemExtent.html">itemExtent</a> 或 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a>，比让子组件自行确定范围更高效，因为滚动机制可以利用已知的子组件范围减少工作量，例如滚动位置发生较大变化时。</p>
-<p>You can't specify both <a href="widgets/ListView/itemExtent.html">itemExtent</a> 和 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a>, only one or none of
-them.</p>
+<p>不能同时指定 <a href="widgets/ListView/itemExtent.html">itemExtent</a> 和 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a>；只能指定其中一个，或都不指定。</p>
 <p>构建 <a href="widgets/ListView-class.html">ListView</a> 有四种方式：</p>
 <ol>
 <li>
@@ -133,7 +132,7 @@ them.</p>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
 此示例使用 <a href="widgets/ListView-class.html">ListView</a> 的默认构造函数，它接收显式的子组件 <a href="dart-core/List-class.html">List&lt;Widget&gt;</a> 列表。此 <a href="widgets/ListView-class.html">ListView</a> 的子组件由包含 <a href="widgets/Text-class.html">Text</a> 的 <a href="widgets/Container-class.html">Container</a> 组成。</p>
-<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view.png" alt="A ListView of 3 amber colored containers with sample text.">
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view.png" alt="包含 3 个琥珀色容器和示例文本的 ListView。">
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.ListView.1');" onclick="fixHref(this, 'widgets.ListView.1'); copyStringToClipboard(this.href);"
@@ -173,7 +172,7 @@ them.</p>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
 此示例与前一个示例相对应，使用 <a href="widgets/ListView/ListView.builder.html">ListView.builder</a> 构造函数创建相同的列表。通过 <a href="widgets/IndexedWidgetBuilder.html">IndexedWidgetBuilder</a>，子组件会按需构建，数量也可以是无限的。</p>
-<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view_builder.png" alt="A ListView of 3 amber colored containers with sample text.">
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view_builder.png" alt="包含 3 个琥珀色容器和示例文本的 ListView。">
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.ListView.2');" onclick="fixHref(this, 'widgets.ListView.2'); copyStringToClipboard(this.href);"
@@ -209,8 +208,7 @@ Widget build(BuildContext context) {
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
 此示例延续前面的做法，使用 <a href="widgets/ListView/ListView.separated.html">ListView.separated</a> 创建类似的列表，并使用 <a href="material/Divider-class.html">Divider</a> 作为分隔组件。</p>
-<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view_separated.png" alt="A ListView of 3 amber colored containers with sample text and a Divider
-between each of them.">
+<p><img src="https://flutter.github.io/assets-for-api-docs/assets/widgets/list_view_separated.png" alt="包含 3 个琥珀色容器和示例文本的 ListView，每个容器之间都有 Divider。">
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.ListView.3');" onclick="fixHref(this, 'widgets.ListView.3'); copyStringToClipboard(this.href);"
@@ -261,9 +259,7 @@ Widget build(BuildContext context) {
 </li>
 <li>
 <p>对于需要保留的列表子项子树，可将 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 设为其根组件。<a href="widgets/KeepAlive-class.html">KeepAlive</a> 组件会将子树顶部渲染对象的子项标记为需要保活。当关联的顶部渲染对象滚出视口时，列表会将该子项的渲染对象（以及与之关联的元素和状态）保存在缓存列表中，而不是销毁它们。滚回视口时，将按原样重新绘制该渲染对象（前提是此期间未将其标记为需要重新布局或绘制）。</p>
-<p>This only works if <code>addAutomaticKeepAlives</code> 和 <code>addRepaintBoundaries</code>
-are false since those parameters cause the <a href="widgets/ListView-class.html">ListView</a> to wrap each child
-widget subtree with other widgets.</p>
+<p>只有当 <code>addAutomaticKeepAlives</code> 和 <code>addRepaintBoundaries</code> 均为 false 时，此方法才有效，因为这两个参数会使 <a href="widgets/ListView-class.html">ListView</a> 使用其他组件包装每个子组件子树。</p>
 </li>
 <li>
 <p>使用 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 组件（当 <code>addAutomaticKeepAlives</code> 为 true 时默认插入）。<a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 允许后代组件控制是否实际保留子树。此行为与 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 不同，后者会无条件保留子树。</p>
@@ -277,28 +273,19 @@ widget subtree with other widgets.</p>
 <p><a href="widgets/ListView-class.html">ListView</a> 的 <a href="widgets/Widget/key.html">key</a>、<a href="widgets/ScrollView/scrollDirection.html">scrollDirection</a>、<a href="widgets/ScrollView/reverse.html">reverse</a>、<a href="widgets/ScrollView/controller.html">controller</a>、<a href="widgets/ScrollView/primary.html">primary</a>、<a href="widgets/ScrollView/physics.html">physics</a> 和 <a href="widgets/ScrollView/shrinkWrap.html">shrinkWrap</a> 属性，分别直接对应 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 中同名的属性。</p>
 <p><a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> 属性应为一个列表，其中包含以下任一内容：</p>
 <ul>
-<li>a <a href="widgets/SliverList-class.html">SliverList</a> if both <a href="widgets/ListView/itemExtent.html">itemExtent</a> 和 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> were null;</li>
-<li>a <a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a> if <a href="widgets/ListView/itemExtent.html">itemExtent</a> was not null; or</li>
-<li>a <a href="widgets/SliverPrototypeExtentList-class.html">SliverPrototypeExtentList</a> if <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> was not null.</li>
+<li>当 <a href="widgets/ListView/itemExtent.html">itemExtent</a> 和 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> 均为 null 时，使用 <a href="widgets/SliverList-class.html">SliverList</a>；</li>
+<li>当 <a href="widgets/ListView/itemExtent.html">itemExtent</a> 不为 null 时，使用 <a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a>；或</li>
+<li>当 <a href="widgets/ListView/prototypeItem.html">prototypeItem</a> 不为 null 时，使用 <a href="widgets/SliverPrototypeExtentList-class.html">SliverPrototypeExtentList</a>。</li>
 </ul>
-<p>The <a href="widgets/ListView/childrenDelegate.html">childrenDelegate</a> property on <a href="widgets/ListView-class.html">ListView</a> corresponds to the
-<a href="widgets/SliverMultiBoxAdaptorWidget/delegate.html">SliverList.delegate</a> （或 <a href="widgets/SliverMultiBoxAdaptorWidget/delegate.html">SliverFixedExtentList.delegate</a>) property. The
-<a href="widgets/ListView-class.html">ListView</a> constructor's <code>children</code> argument corresponds to the
-<a href="widgets/ListView/childrenDelegate.html">childrenDelegate</a> being a <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a> with that same
-argument. The <a href="widgets/ListView/ListView.builder.html">ListView.builder</a> constructor's <code>itemBuilder</code> 和
-<code>itemCount</code> arguments correspond to the <a href="widgets/ListView/childrenDelegate.html">childrenDelegate</a> being a
-<a href="widgets/SliverChildBuilderDelegate-class.html">SliverChildBuilderDelegate</a> with the equivalent arguments.</p>
+<p><a href="widgets/ListView-class.html">ListView</a> 的 <a href="widgets/ListView/childrenDelegate.html">childrenDelegate</a> 属性对应 <a href="widgets/SliverMultiBoxAdaptorWidget/delegate.html">SliverList.delegate</a>（或 <a href="widgets/SliverMultiBoxAdaptorWidget/delegate.html">SliverFixedExtentList.delegate</a>）属性。<a href="widgets/ListView-class.html">ListView</a> 构造函数的 <code>children</code> 参数，相当于 <a href="widgets/ListView/childrenDelegate.html">childrenDelegate</a> 使用相同参数构造的 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a>。<a href="widgets/ListView/ListView.builder.html">ListView.builder</a> 构造函数的 <code>itemBuilder</code> 和 <code>itemCount</code> 参数，则对应 <a href="widgets/ListView/childrenDelegate.html">childrenDelegate</a> 使用相同参数构造的 <a href="widgets/SliverChildBuilderDelegate-class.html">SliverChildBuilderDelegate</a>。</p>
 <p><a href="widgets/BoxScrollView/padding.html">padding</a> 属性相当于在 <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> 中放入 <a href="widgets/SliverPadding-class.html">SliverPadding</a>，并将 <a href="widgets/SliverList-class.html">SliverList</a> 作为 <a href="widgets/SliverPadding-class.html">SliverPadding</a> 的子组件，而不是直接放在列表中。</p>
-<p><a href="widgets/CustomScrollView-class.html">CustomScrollView</a>s don't automatically avoid obstructions from <a href="widgets/MediaQuery-class.html">MediaQuery</a>
-like <a href="widgets/ListView-class.html">ListView</a>s do. To reproduce the behavior, wrap the slivers in
-<a href="widgets/SliverSafeArea-class.html">SliverSafeArea</a>。</p>
+<p><a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 不会像 <a href="widgets/ListView-class.html">ListView</a> 那样自动避开 <a href="widgets/MediaQuery-class.html">MediaQuery</a> 指示的遮挡。若要实现相同效果，请将 sliver 包装在 <a href="widgets/SliverSafeArea-class.html">SliverSafeArea</a> 中。</p>
 <p>将代码改为使用 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 后，还可以将其他 sliver（例如 <a href="widgets/SliverGrid-class.html">SliverGrid</a> 或 <a href="material/SliverAppBar-class.html">SliverAppBar</a>）放入 <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> 列表。</p>
 <p>
 <a name="widgets.ListView.4"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-Here are two brief snippets showing a <a href="widgets/ListView-class.html">ListView</a> and its equivalent using
-<a href="widgets/CustomScrollView-class.html">CustomScrollView</a>:
+下面两个简短示例分别展示 <a href="widgets/ListView-class.html">ListView</a> 及其使用 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 实现的等效写法：
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.ListView.4');" onclick="fixHref(this, 'widgets.ListView.4'); copyStringToClipboard(this.href);"
@@ -362,7 +349,7 @@ Here are two brief snippets showing a <a href="widgets/ListView-class.html">List
 <a name="widgets.ListView.6"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-Example of simple empty list interface:
+简单空列表界面的示例：
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.ListView.6');" onclick="fixHref(this, 'widgets.ListView.6'); copyStringToClipboard(this.href);"
@@ -398,8 +385,7 @@ Example of simple empty list interface:
 <a name="widgets.ListView.7"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet7">
     <div class="snippet-description">
-This example shows a custom implementation of <a href="material/ListTile-class.html">ListTile</a> selection in a <a href="widgets/ListView-class.html">ListView</a> or <a href="widgets/GridView-class.html">GridView</a>.
-Long press any <a href="material/ListTile-class.html">ListTile</a> to enable selection mode.
+此示例展示了在 <a href="widgets/ListView-class.html">ListView</a> 或 <a href="widgets/GridView-class.html">GridView</a> 中自定义实现 <a href="material/ListTile-class.html">ListTile</a> 选择功能的方式。长按任意 <a href="material/ListTile-class.html">ListTile</a> 即可启用选择模式。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.ListView.7');" onclick="fixHref(this, 'widgets.ListView.7'); copyStringToClipboard(this.href);"
@@ -421,23 +407,18 @@ Long press any <a href="material/ListTile-class.html">ListTile</a> to enable sel
 <p>滚动视图会尝试使用 <a href="widgets/PageStorage-class.html">PageStorage</a> 保存滚动位置。若要停用此功能，可将 <a href="widgets/ScrollView/controller.html">controller</a> 的 <a href="widgets/ScrollController/keepScrollOffset.html">ScrollController.keepScrollOffset</a> 设为 false。如果启用了此功能，建议将 <a href="widgets/PageStorageKey-class.html">PageStorageKey</a> 用作此组件的 <a href="widgets/Widget/key.html">key</a>，以便区分不同的滚动视图。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a>, which is a scrollable widget that has a single
-child.</li>
-<li><a href="widgets/PageView-class.html">PageView</a>, which is a scrolling list of child widgets that are each the
-size of the viewport.</li>
-<li><a href="widgets/GridView-class.html">GridView</a>, which is a scrollable, 2D array of widgets.</li>
-<li><a href="widgets/CustomScrollView-class.html">CustomScrollView</a>, which is a scrollable widget that creates custom
-scroll effects using slivers.</li>
-<li><a href="widgets/ListBody-class.html">ListBody</a>, which arranges its children in a similar manner, but without
-scrolling.</li>
-<li><a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 和 <a href="widgets/NotificationListener-class.html">NotificationListener</a>, which can be used to watch
-the scroll position without using a <a href="widgets/ScrollController-class.html">ScrollController</a>.</li>
-<li>The <a href="https://docs.flutter.dev/ui/widgets/layout">布局组件目录</a>.</li>
-<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/lists/basic-list">Use lists</a></li>
-<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/lists/long-lists">Work with long lists</a></li>
-<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/lists/horizontal-list">Create a horizontal list</a></li>
-<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/lists/mixed-list">Create lists with different types of items</a></li>
-<li>Cookbook: <a href="https://docs.flutter.dev/cookbook/gestures/dismissible">Implement swipe to dismiss</a></li>
+<li><a href="widgets/SingleChildScrollView-class.html">SingleChildScrollView</a>：可滚动且只有一个子组件的组件。</li>
+<li><a href="widgets/PageView-class.html">PageView</a>：可滚动的子组件列表，每个子组件的大小都与视口相同。</li>
+<li><a href="widgets/GridView-class.html">GridView</a>：可滚动的二维组件数组。</li>
+<li><a href="widgets/CustomScrollView-class.html">CustomScrollView</a>：使用 sliver 创建自定义滚动效果的可滚动组件。</li>
+<li><a href="widgets/ListBody-class.html">ListBody</a>：以类似方式排列子组件，但不提供滚动。</li>
+<li><a href="widgets/ScrollNotification-class.html">ScrollNotification</a> 和 <a href="widgets/NotificationListener-class.html">NotificationListener</a>：可在不使用 <a href="widgets/ScrollController-class.html">ScrollController</a> 的情况下监听滚动位置。</li>
+<li><a href="https://docs.flutter.dev/ui/widgets/layout">布局组件目录</a>。</li>
+<li>Cookbook：<a href="https://docs.flutter.dev/cookbook/lists/basic-list">使用列表</a></li>
+<li>Cookbook：<a href="https://docs.flutter.dev/cookbook/lists/long-lists">处理长列表</a></li>
+<li>Cookbook：<a href="https://docs.flutter.dev/cookbook/lists/horizontal-list">创建水平列表</a></li>
+<li>Cookbook：<a href="https://docs.flutter.dev/cookbook/lists/mixed-list">创建包含不同类型项目的列表</a></li>
+<li>Cookbook：<a href="https://docs.flutter.dev/cookbook/gestures/dismissible">实现滑动关闭</a></li>
 </ul>
 </section>
 
@@ -477,27 +458,26 @@ the scroll position without using a <a href="widgets/ScrollController-class.html
           <span class="name"><a href="widgets/ListView/ListView.html">ListView</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-scrollDirection"><span class="type-annotation"><a href="painting/Axis.html">Axis</a></span> <span class="parameter-name">scrollDirection</span> = <span class="default-value">Axis.vertical</span>, </span><span class="parameter" id="-param-reverse"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-controller"><span class="type-annotation"><a href="widgets/ScrollController-class.html">ScrollController</a>?</span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="-param-primary"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">primary</span>, </span><span class="parameter" id="-param-physics"><span class="type-annotation"><a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a>?</span> <span class="parameter-name">physics</span>, </span><span class="parameter" id="-param-shrinkWrap"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">shrinkWrap</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-padding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="-param-itemExtent"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">itemExtent</span>, </span><span class="parameter" id="-param-itemExtentBuilder"><span class="type-annotation"><a href="rendering/ItemExtentBuilder.html">ItemExtentBuilder</a>?</span> <span class="parameter-name">itemExtentBuilder</span>, </span><span class="parameter" id="-param-prototypeItem"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prototypeItem</span>, </span><span class="parameter" id="-param-addAutomaticKeepAlives"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addAutomaticKeepAlives</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-addRepaintBoundaries"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addRepaintBoundaries</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-addSemanticIndexes"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addSemanticIndexes</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-cacheExtent"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use scrollCacheExtent instead. &#39; &#39;This feature was deprecated after v3.41.0-0.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cacheExtent</span>, </span><span class="parameter" id="-param-scrollCacheExtent"><span class="type-annotation"><a href="rendering/ScrollCacheExtent-class.html">ScrollCacheExtent</a>?</span> <span class="parameter-name">scrollCacheExtent</span>, </span><span class="parameter" id="-param-children"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span></span> <span class="parameter-name">children</span> = <span class="default-value">const &lt;Widget&gt;[]</span>, </span><span class="parameter" id="-param-semanticChildCount"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">semanticChildCount</span>, </span><span class="parameter" id="-param-dragStartBehavior"><span class="type-annotation"><a href="gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">dragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span><span class="parameter" id="-param-keyboardDismissBehavior"><span class="type-annotation"><a href="widgets/ScrollViewKeyboardDismissBehavior.html">ScrollViewKeyboardDismissBehavior</a>?</span> <span class="parameter-name">keyboardDismissBehavior</span>, </span><span class="parameter" id="-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span>, </span><span class="parameter" id="-param-hitTestBehavior"><span class="type-annotation"><a href="rendering/HitTestBehavior.html">HitTestBehavior</a></span> <span class="parameter-name">hitTestBehavior</span> = <span class="default-value">HitTestBehavior.opaque</span></span>})</span>
         </dt>
         <dd>
-          Creates a scrollable, linear array of widgets from an explicit <a href="dart-core/List-class.html">List</a>.
+          根据显式提供的 <a href="dart-core/List-class.html">List</a> 创建可滚动的线性组件列表。
         </dd>
         <dt id="ListView.builder" class="callable">
           <span class="name"><a href="widgets/ListView/ListView.builder.html">ListView.builder</a></span><span class="signature">({<span class="parameter" id="builder-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="builder-param-scrollDirection"><span class="type-annotation"><a href="painting/Axis.html">Axis</a></span> <span class="parameter-name">scrollDirection</span> = <span class="default-value">Axis.vertical</span>, </span><span class="parameter" id="builder-param-reverse"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span> = <span class="default-value">false</span>, </span><span class="parameter" id="builder-param-controller"><span class="type-annotation"><a href="widgets/ScrollController-class.html">ScrollController</a>?</span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="builder-param-primary"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">primary</span>, </span><span class="parameter" id="builder-param-physics"><span class="type-annotation"><a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a>?</span> <span class="parameter-name">physics</span>, </span><span class="parameter" id="builder-param-shrinkWrap"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">shrinkWrap</span> = <span class="default-value">false</span>, </span><span class="parameter" id="builder-param-padding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="builder-param-itemExtent"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">itemExtent</span>, </span><span class="parameter" id="builder-param-itemExtentBuilder"><span class="type-annotation"><a href="rendering/ItemExtentBuilder.html">ItemExtentBuilder</a>?</span> <span class="parameter-name">itemExtentBuilder</span>, </span><span class="parameter" id="builder-param-prototypeItem"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prototypeItem</span>, </span><span class="parameter" id="builder-param-itemBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/NullableIndexedWidgetBuilder.html">NullableIndexedWidgetBuilder</a></span> <span class="parameter-name">itemBuilder</span>, </span><span class="parameter" id="builder-param-findChildIndexCallback"><span class="type-annotation"><a href="widgets/ChildIndexGetter.html">ChildIndexGetter</a>?</span> <span class="parameter-name">findChildIndexCallback</span>, </span><span class="parameter" id="builder-param-itemCount"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">itemCount</span>, </span><span class="parameter" id="builder-param-addAutomaticKeepAlives"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addAutomaticKeepAlives</span> = <span class="default-value">true</span>, </span><span class="parameter" id="builder-param-addRepaintBoundaries"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addRepaintBoundaries</span> = <span class="default-value">true</span>, </span><span class="parameter" id="builder-param-addSemanticIndexes"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addSemanticIndexes</span> = <span class="default-value">true</span>, </span><span class="parameter" id="builder-param-cacheExtent"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use scrollCacheExtent instead. &#39; &#39;This feature was deprecated after v3.41.0-0.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cacheExtent</span>, </span><span class="parameter" id="builder-param-scrollCacheExtent"><span class="type-annotation"><a href="rendering/ScrollCacheExtent-class.html">ScrollCacheExtent</a>?</span> <span class="parameter-name">scrollCacheExtent</span>, </span><span class="parameter" id="builder-param-semanticChildCount"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">semanticChildCount</span>, </span><span class="parameter" id="builder-param-dragStartBehavior"><span class="type-annotation"><a href="gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">dragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span><span class="parameter" id="builder-param-keyboardDismissBehavior"><span class="type-annotation"><a href="widgets/ScrollViewKeyboardDismissBehavior.html">ScrollViewKeyboardDismissBehavior</a>?</span> <span class="parameter-name">keyboardDismissBehavior</span>, </span><span class="parameter" id="builder-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="builder-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span>, </span><span class="parameter" id="builder-param-hitTestBehavior"><span class="type-annotation"><a href="rendering/HitTestBehavior.html">HitTestBehavior</a></span> <span class="parameter-name">hitTestBehavior</span> = <span class="default-value">HitTestBehavior.opaque</span></span>})</span>
         </dt>
         <dd>
-          Creates a scrollable, linear array of widgets that are created on demand.
+          创建一个可滚动的线性组件列表，其中的组件会按需创建。
         </dd>
         <dt id="ListView.custom" class="callable">
           <span class="name"><a href="widgets/ListView/ListView.custom.html">ListView.custom</a></span><span class="signature">({<span class="parameter" id="custom-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="custom-param-scrollDirection"><span class="type-annotation"><a href="painting/Axis.html">Axis</a></span> <span class="parameter-name">scrollDirection</span> = <span class="default-value">Axis.vertical</span>, </span><span class="parameter" id="custom-param-reverse"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span> = <span class="default-value">false</span>, </span><span class="parameter" id="custom-param-controller"><span class="type-annotation"><a href="widgets/ScrollController-class.html">ScrollController</a>?</span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="custom-param-primary"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">primary</span>, </span><span class="parameter" id="custom-param-physics"><span class="type-annotation"><a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a>?</span> <span class="parameter-name">physics</span>, </span><span class="parameter" id="custom-param-shrinkWrap"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">shrinkWrap</span> = <span class="default-value">false</span>, </span><span class="parameter" id="custom-param-padding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="custom-param-itemExtent"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">itemExtent</span>, </span><span class="parameter" id="custom-param-prototypeItem"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prototypeItem</span>, </span><span class="parameter" id="custom-param-itemExtentBuilder"><span class="type-annotation"><a href="rendering/ItemExtentBuilder.html">ItemExtentBuilder</a>?</span> <span class="parameter-name">itemExtentBuilder</span>, </span><span class="parameter" id="custom-param-childrenDelegate"><span>required</span> <span class="type-annotation"><a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a></span> <span class="parameter-name">childrenDelegate</span>, </span><span class="parameter" id="custom-param-cacheExtent"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use scrollCacheExtent instead. &#39; &#39;This feature was deprecated after v3.41.0-0.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cacheExtent</span>, </span><span class="parameter" id="custom-param-scrollCacheExtent"><span class="type-annotation"><a href="rendering/ScrollCacheExtent-class.html">ScrollCacheExtent</a>?</span> <span class="parameter-name">scrollCacheExtent</span>, </span><span class="parameter" id="custom-param-semanticChildCount"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">semanticChildCount</span>, </span><span class="parameter" id="custom-param-dragStartBehavior"><span class="type-annotation"><a href="gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">dragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span><span class="parameter" id="custom-param-keyboardDismissBehavior"><span class="type-annotation"><a href="widgets/ScrollViewKeyboardDismissBehavior.html">ScrollViewKeyboardDismissBehavior</a>?</span> <span class="parameter-name">keyboardDismissBehavior</span>, </span><span class="parameter" id="custom-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="custom-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span>, </span><span class="parameter" id="custom-param-hitTestBehavior"><span class="type-annotation"><a href="rendering/HitTestBehavior.html">HitTestBehavior</a></span> <span class="parameter-name">hitTestBehavior</span> = <span class="default-value">HitTestBehavior.opaque</span></span>})</span>
         </dt>
         <dd>
-          Creates a scrollable, linear array of widgets with a custom child model.
+          创建一个使用自定义子项模型的可滚动线性组件列表。
             <div class="constructor-modifier features">const</div>
         </dd>
         <dt id="ListView.separated" class="callable">
           <span class="name"><a href="widgets/ListView/ListView.separated.html">ListView.separated</a></span><span class="signature">({<span class="parameter" id="separated-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="separated-param-scrollDirection"><span class="type-annotation"><a href="painting/Axis.html">Axis</a></span> <span class="parameter-name">scrollDirection</span> = <span class="default-value">Axis.vertical</span>, </span><span class="parameter" id="separated-param-reverse"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">reverse</span> = <span class="default-value">false</span>, </span><span class="parameter" id="separated-param-controller"><span class="type-annotation"><a href="widgets/ScrollController-class.html">ScrollController</a>?</span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="separated-param-primary"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">primary</span>, </span><span class="parameter" id="separated-param-physics"><span class="type-annotation"><a href="widgets/ScrollPhysics-class.html">ScrollPhysics</a>?</span> <span class="parameter-name">physics</span>, </span><span class="parameter" id="separated-param-shrinkWrap"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">shrinkWrap</span> = <span class="default-value">false</span>, </span><span class="parameter" id="separated-param-padding"><span class="type-annotation"><a href="painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">padding</span>, </span><span class="parameter" id="separated-param-itemBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/NullableIndexedWidgetBuilder.html">NullableIndexedWidgetBuilder</a></span> <span class="parameter-name">itemBuilder</span>, </span><span class="parameter" id="separated-param-findChildIndexCallback"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use findItemIndexCallback instead. &#39; &#39;findChildIndexCallback returns child indices (which include separators), &#39; &#39;while findItemIndexCallback returns item indices (which do not). &#39; &#39;If you were multiplying results by 2 to account for separators, &#39; &#39;you can remove that workaround when migrating to findItemIndexCallback. &#39; &#39;This feature was deprecated after v3.37.0-1.0.pre.&#39;)</span> <span class="type-annotation"><a href="widgets/ChildIndexGetter.html">ChildIndexGetter</a>?</span> <span class="parameter-name">findChildIndexCallback</span>, </span><span class="parameter" id="separated-param-findItemIndexCallback"><span class="type-annotation"><a href="widgets/ChildIndexGetter.html">ChildIndexGetter</a>?</span> <span class="parameter-name">findItemIndexCallback</span>, </span><span class="parameter" id="separated-param-separatorBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/IndexedWidgetBuilder.html">IndexedWidgetBuilder</a></span> <span class="parameter-name">separatorBuilder</span>, </span><span class="parameter" id="separated-param-itemCount"><span>required</span> <span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">itemCount</span>, </span><span class="parameter" id="separated-param-addAutomaticKeepAlives"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addAutomaticKeepAlives</span> = <span class="default-value">true</span>, </span><span class="parameter" id="separated-param-addRepaintBoundaries"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addRepaintBoundaries</span> = <span class="default-value">true</span>, </span><span class="parameter" id="separated-param-addSemanticIndexes"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addSemanticIndexes</span> = <span class="default-value">true</span>, </span><span class="parameter" id="separated-param-cacheExtent"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use scrollCacheExtent instead. &#39; &#39;This feature was deprecated after v3.41.0-0.0.pre.&#39;)</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cacheExtent</span>, </span><span class="parameter" id="separated-param-scrollCacheExtent"><span class="type-annotation"><a href="rendering/ScrollCacheExtent-class.html">ScrollCacheExtent</a>?</span> <span class="parameter-name">scrollCacheExtent</span>, </span><span class="parameter" id="separated-param-dragStartBehavior"><span class="type-annotation"><a href="gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">dragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span><span class="parameter" id="separated-param-keyboardDismissBehavior"><span class="type-annotation"><a href="widgets/ScrollViewKeyboardDismissBehavior.html">ScrollViewKeyboardDismissBehavior</a>?</span> <span class="parameter-name">keyboardDismissBehavior</span>, </span><span class="parameter" id="separated-param-restorationId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationId</span>, </span><span class="parameter" id="separated-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span>, </span><span class="parameter" id="separated-param-hitTestBehavior"><span class="type-annotation"><a href="rendering/HitTestBehavior.html">HitTestBehavior</a></span> <span class="parameter-name">hitTestBehavior</span> = <span class="default-value">HitTestBehavior.opaque</span></span>})</span>
         </dt>
         <dd>
-          Creates a fixed-length scrollable linear array of list "items" separated
-by list item "separators".
+          创建固定长度的可滚动线性列表，其中的列表项由分隔组件隔开。
         </dd>
     </dl>
   </section>
@@ -526,7 +506,7 @@ by list item "separators".
 
 </dt>
 <dd class="inherited">
-  Deprecated. Use <a href="widgets/ScrollView/scrollCacheExtent.html">scrollCacheExtent</a> instead.
+  已弃用。请改用 <a href="widgets/ScrollView/scrollCacheExtent.html">scrollCacheExtent</a>。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -562,7 +542,7 @@ by list item "separators".
 
 </dt>
 <dd class="inherited">
-  内容是否会被裁剪取决于此选项。
+  单独应用于此组件的裁剪方式。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -586,7 +566,7 @@ by list item "separators".
 
 </dt>
 <dd class="inherited">
-  Determines the way that drag start behavior is handled.
+  确定拖动开始行为的处理方式。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -610,7 +590,7 @@ by list item "separators".
 
 </dt>
 <dd class="inherited">
-  Defines the behavior of gesture detector used in this <a href="widgets/Scrollable-class.html">Scrollable</a>.
+  定义此 <a href="widgets/Scrollable-class.html">Scrollable</a> 中所用手势检测器的行为。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -622,8 +602,7 @@ by list item "separators".
 
 </dt>
 <dd>
-  If non-null, forces the children to have the given extent in the scroll
-direction.
+  如果不为 null，则强制子组件在滚动方向上具有指定范围。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -635,8 +614,7 @@ direction.
 
 </dt>
 <dd>
-  If non-null, forces the children to have the corresponding extent returned
-by the builder.
+  如果不为 null，则强制子组件具有 builder 返回的对应范围。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -660,8 +638,7 @@ by the builder.
 
 </dt>
 <dd class="inherited">
-  The <a href="widgets/ScrollViewKeyboardDismissBehavior.html">ScrollViewKeyboardDismissBehavior</a> defines how this <a href="widgets/ScrollView-class.html">ScrollView</a> will
-dismiss the keyboard automatically.
+  <a href="widgets/ScrollViewKeyboardDismissBehavior.html">ScrollViewKeyboardDismissBehavior</a> 定义此 <a href="widgets/ScrollView-class.html">ScrollView</a> 自动收起键盘的方式。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -710,8 +687,7 @@ dismiss the keyboard automatically.
 
 </dt>
 <dd class="inherited">
-  Whether this is the primary scroll view associated with the parent
-<a href="widgets/PrimaryScrollController-class.html">PrimaryScrollController</a>.
+  此滚动视图是否为与父级 <a href="widgets/PrimaryScrollController-class.html">PrimaryScrollController</a> 关联的主滚动视图。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -723,8 +699,7 @@ dismiss the keyboard automatically.
 
 </dt>
 <dd>
-  If non-null, forces the children to have the same extent as the given
-widget in the scroll direction.
+  如果不为 null，则强制子组件在滚动方向上与给定组件具有相同范围。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -772,7 +747,7 @@ widget in the scroll direction.
 
 </dt>
 <dd class="inherited">
-  A <a href="widgets/ScrollBehavior-class.html">ScrollBehavior</a> that will be applied to this widget individually.
+  单独应用于此组件的 <a href="widgets/ScrollBehavior-class.html">ScrollBehavior</a>。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -855,7 +830,7 @@ widget in the scroll direction.
 
 </dt>
 <dd>
-  Subclasses should override this method to build the layout model.
+  子类应重写此方法以构建布局模型。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -868,7 +843,7 @@ widget in the scroll direction.
 
 </dt>
 <dd class="inherited">
-  构建要放入视口的 widget 列表。
+  构建要放入视口的组件列表。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -881,7 +856,7 @@ widget in the scroll direction.
 
 </dt>
 <dd class="inherited">
-  Build the viewport.
+  构建视口。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -894,7 +869,7 @@ widget in the scroll direction.
 
 </dt>
 <dd class="inherited">
-  创建一个 创建一个 <a href="widgets/StatelessElement-class.html">StatelessElement</a>，用于管理此 widget 在树中的位置。
+  创建一个 <a href="widgets/StatelessElement-class.html">StatelessElement</a>，用于管理此组件在树中的位置。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -933,7 +908,7 @@ widget in the scroll direction.
 
 </dt>
 <dd class="inherited">
-  Returns the <a href="painting/AxisDirection.html">AxisDirection</a> in which the scroll view scrolls.
+  返回此滚动视图的滚动方向 <a href="painting/AxisDirection.html">AxisDirection</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>

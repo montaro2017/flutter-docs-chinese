@@ -10,11 +10,11 @@
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
 
-  
+
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="static-assets/github.css?v1">
   <link rel="stylesheet" href="static-assets/styles.css?v1">
   <link rel="icon" href="static-assets/favicon.png?v1">
@@ -87,28 +87,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="rendering&#47;RenderViewport-class-sidebar.html">
     <div>
   <div id="external-links" class="btn-group"><a title="查看源代码" class="source-link" href="https://github.com/flutter/flutter/blob/main/packages/flutter/lib/src/rendering/viewport.dart#L1556"><span class="material-symbols-outlined">description</span></a></div>
-<h1><span class="kind-class">RenderViewport</span> 类 
- 
+<h1><span class="kind-class">RenderViewport</span> 类
+
 </h1></div>
 
-    
+
 <section class="desc markdown">
   <p>一种内部尺寸大于外部尺寸的渲染对象。</p>
 <p><a href="rendering/RenderViewport-class.html">RenderViewport</a> 是滚动机制中的核心组件。它会根据自身尺寸和给定的 <a href="rendering/RenderViewportBase/offset.html">offset</a> 显示部分子项。随着偏移量变化，视口中可见的子项也会随之改变。</p>
 <p><a href="rendering/RenderViewport-class.html">RenderViewport</a> 在同一共享 <a href="painting/Axis.html">Axis</a> 上承载双向 sliver 列表，并以一个 <a href="rendering/RenderViewport/center.html">center</a> sliver 为锚点；该 sliver 位于零滚动偏移量处。中心 widget 在视口中的显示位置由 <a href="rendering/RenderViewport/anchor.html">anchor</a> 属性决定。</p>
-<p>子项列表中位于 <a href="rendering/RenderViewport/center.html">center</a> 之前的 sliver，会从 <a href="rendering/RenderViewport/center.html">center</a> 开始沿反向的 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 以相反顺序显示。例如，如果 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 为 <a href="painting/AxisDirection.html">AxisDirection.down</a>，那么 <a href="rendering/RenderViewport/center.html">center</a> 之前的第一个 sliver 会放在 <a href="rendering/RenderViewport/center.html">center</a> 上方。子项列表中位于 <a href="rendering/RenderViewport/center.html">center</a> 之后的 sliver，则按 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 顺序排列。例如，在上述情形中，<a href="rendering/RenderViewport/center.html">center</a> 之后的第一个 sliver 会放在 <a href="rendering/RenderViewport/center.html">center</a> 下方。</p>
+<p>子项列表中位于 <a href="rendering/RenderViewport/center.html">center</a> 之前的 sliver，会从反向的 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 中的 <a href="rendering/RenderViewport/center.html">center</a> 开始，按相反顺序显示。例如，如果 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 为 <a href="painting/AxisDirection.html">AxisDirection.down</a>，那么 <a href="rendering/RenderViewport/center.html">center</a> 之前的第一个 sliver 会放在 <a href="rendering/RenderViewport/center.html">center</a> 上方。子项列表中位于 <a href="rendering/RenderViewport/center.html">center</a> 之后的 sliver，则按 <a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a> 的顺序排列。例如，在上述情形中，<a href="rendering/RenderViewport/center.html">center</a> 之后的第一个 sliver 会放在 <a href="rendering/RenderViewport/center.html">center</a> 下方。</p>
 <p>大多数滚动视图默认按 <a href="rendering/GrowthDirection.html">GrowthDirection.forward</a> 排列。更改 <a href="widgets/ScrollView/anchor.html">ScrollView.anchor</a>、<a href="widgets/ScrollView/center.html">ScrollView.center</a> 的默认值，或同时更改两者，可以将滚动视图配置为 <a href="rendering/GrowthDirection.html">GrowthDirection.reverse</a>。</p>
 <p>
 <a name="rendering.GrowthDirection.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-This sample shows a <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>, with <a href="material/Radio-class.html">Radio</a> buttons in the
-<a href="material/AppBar/bottom.html">AppBar.bottom</a> that change the <a href="painting/AxisDirection.html">AxisDirection</a> to illustrate different
-configurations. The <a href="widgets/ScrollView/anchor.html">CustomScrollView.anchor</a> 和 <a href="widgets/ScrollView/center.html">CustomScrollView.center</a>
-properties are also set to have the 0 scroll offset positioned in the middle
-of the viewport, with <a href="rendering/GrowthDirection.html">GrowthDirection.forward</a> 和 <a href="rendering/GrowthDirection.html">GrowthDirection.reverse</a>
-illustrated on either side. The sliver that shares the
-<a href="widgets/ScrollView/center.html">CustomScrollView.center</a> key is positioned at the <a href="widgets/ScrollView/anchor.html">CustomScrollView.anchor</a>.
+此示例展示了一个 <a href="widgets/CustomScrollView-class.html">CustomScrollView</a>，其中的 <a href="material/Radio-class.html">Radio</a> 按钮位于 <a href="material/AppBar/bottom.html">AppBar.bottom</a>，可切换 <a href="painting/AxisDirection.html">AxisDirection</a> 以展示不同配置。示例还设置了 <a href="widgets/ScrollView/anchor.html">CustomScrollView.anchor</a> 和 <a href="widgets/ScrollView/center.html">CustomScrollView.center</a> 属性，使零滚动偏移量位于视口中央，并在两侧分别展示 <a href="rendering/GrowthDirection.html">GrowthDirection.forward</a> 和 <a href="rendering/GrowthDirection.html">GrowthDirection.reverse</a>。与 <a href="widgets/ScrollView/center.html">CustomScrollView.center</a> 键对应的 sliver 位于 <a href="widgets/ScrollView/anchor.html">CustomScrollView.anchor</a> 所指定的位置。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'rendering.GrowthDirection.1');" onclick="fixHref(this, 'rendering.GrowthDirection.1'); copyStringToClipboard(this.href);"
@@ -130,17 +124,15 @@ illustrated on either side. The sliver that shares the
 <ul>
 <li><a href="rendering/RenderSliver-class.html">RenderSliver</a>，该页面还介绍了 Sliver 协议。</li>
 <li><a href="rendering/RenderBox-class.html">RenderBox</a>，该页面还介绍了 Box 协议。</li>
-<li><a href="rendering/RenderSliverToBoxAdapter-class.html">RenderSliverToBoxAdapter</a>, which allows a <a href="rendering/RenderBox-class.html">RenderBox</a> object to be
-placed inside a <a href="rendering/RenderSliver-class.html">RenderSliver</a> (the opposite of this class).</li>
-<li><a href="rendering/RenderShrinkWrappingViewport-class.html">RenderShrinkWrappingViewport</a>, a variant of <a href="rendering/RenderViewport-class.html">RenderViewport</a> that
-shrink-wraps its contents along the main axis.</li>
+<li><a href="rendering/RenderSliverToBoxAdapter-class.html">RenderSliverToBoxAdapter</a> 允许将 <a href="rendering/RenderBox-class.html">RenderBox</a> 对象放入 <a href="rendering/RenderSliver-class.html">RenderSliver</a> 中（与此类相反）。</li>
+<li><a href="rendering/RenderShrinkWrappingViewport-class.html">RenderShrinkWrappingViewport</a> 是 <a href="rendering/RenderViewport-class.html">RenderViewport</a> 的一种变体，会沿主轴紧密包裹其内容。</li>
 </ul>
 </section>
 
 
     <section>
       <dl class="dl-horizontal">
-        
+
   <dt>继承关系</dt>
   <dd>
     <ul class="gt-separated dark clazz-relationships">
@@ -152,22 +144,22 @@ shrink-wraps its contents along the main axis.</li>
     </ul>
   </dd>
 
-        
-        
+
+
 
           <dt>实现类</dt>
           <dd><ul class="comma-separated clazz-relationships">
               <li><a href="widgets/RenderNestedScrollViewViewport-class.html">RenderNestedScrollViewViewport</a></li>
           </ul></dd>
 
-        
-        
+
+
 
 
       </dl>
     </section>
 
-    
+
   <section class="summary offset-anchor" id="constructors">
     <h2>构造函数</h2>
     <dl class="constructor-summary-list">
@@ -175,11 +167,11 @@ shrink-wraps its contents along the main axis.</li>
           <span class="name"><a href="rendering/RenderViewport/RenderViewport.html">RenderViewport</a></span><span class="signature">({<span class="parameter" id="-param-axisDirection"><span class="type-annotation"><a href="painting/AxisDirection.html">AxisDirection</a></span> <span class="parameter-name">axisDirection</span> = <span class="default-value">AxisDirection.down</span>, </span><span class="parameter" id="-param-crossAxisDirection"><span>required</span> <span class="type-annotation"><a href="painting/AxisDirection.html">AxisDirection</a></span> <span class="parameter-name">crossAxisDirection</span>, </span><span class="parameter" id="-param-offset"><span>required</span> <span class="type-annotation"><a href="rendering/ViewportOffset-class.html">ViewportOffset</a></span> <span class="parameter-name">offset</span>, </span><span class="parameter" id="-param-anchor"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">anchor</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="-param-children"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span>&gt;</span>?</span> <span class="parameter-name">children</span>, </span><span class="parameter" id="-param-center"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span> <span class="parameter-name">center</span>, </span><span class="parameter" id="-param-cacheExtent"><span class="type-annotation"><a href="dart-core/double-class.html">double</a>?</span> <span class="parameter-name">cacheExtent</span>, </span><span class="parameter" id="-param-cacheExtentStyle"><span class="type-annotation"><a href="rendering/CacheExtentStyle.html">CacheExtentStyle</a></span> <span class="parameter-name">cacheExtentStyle</span> = <span class="default-value">CacheExtentStyle.pixel</span>, </span><span class="parameter" id="-param-scrollCacheExtent"><span class="type-annotation"><a href="rendering/ScrollCacheExtent-class.html">ScrollCacheExtent</a>?</span> <span class="parameter-name">scrollCacheExtent</span>, </span><span class="parameter" id="-param-paintOrder"><span class="type-annotation"><a href="rendering/SliverPaintOrder.html">SliverPaintOrder</a></span> <span class="parameter-name">paintOrder</span> = <span class="default-value">SliverPaintOrder.firstIsTop</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.hardEdge</span></span>})</span>
         </dt>
         <dd>
-          Creates a viewport for <a href="rendering/RenderSliver-class.html">RenderSliver</a> objects.
-        </dd>
+  为 <a href="rendering/RenderSliver-class.html">RenderSliver</a> 对象创建一个视口。
+  </dd>
     </dl>
   </section>
-    
+
   <section
       class="summary offset-anchor"
       id="instance-properties">
@@ -188,11 +180,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="alwaysNeedsCompositing" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/alwaysNeedsCompositing.html">alwaysNeedsCompositing</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 是否始终需要合成。
+  此 渲染对象 是否始终需要合成。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -200,11 +192,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="anchor" class="property">
   <span class="name"><a href="rendering/RenderViewport/anchor.html">anchor</a></span>
   <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a></span>
-  
+
 
 </dt>
 <dd>
-  The relative position of the zero scroll offset.
+  零滚动偏移量的相对位置。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -212,11 +204,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="attached" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/attached.html">attached</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Whether the render tree this render object belongs to is attached to a <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>.
+  此 渲染对象 所属的渲染树是否已连接到 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -224,11 +216,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="axis" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/axis.html">axis</a></span>
   <span class="signature">&#8594; <a href="painting/Axis.html">Axis</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The axis along which the viewport scrolls.
+  视口滚动所沿的轴。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -236,11 +228,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="axisDirection" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/axisDirection.html">axisDirection</a></span>
   <span class="signature">&#8596; <a href="painting/AxisDirection.html">AxisDirection</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The direction in which the <a href="rendering/SliverConstraints/scrollOffset.html">SliverConstraints.scrollOffset</a> increases.
+  <a href="rendering/SliverConstraints/scrollOffset.html">SliverConstraints.scrollOffset</a> 增大的方向。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -248,11 +240,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="cacheExtent" class="property inherited">
   <span class="name"><a class="deprecated" href="rendering/RenderViewportBase/cacheExtent.html">cacheExtent</a></span>
   <span class="signature">&#8596; <a href="dart-core/double-class.html">double</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Deprecated. Use <a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a> instead.
+  已弃用。请改用 <a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a>。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -260,11 +252,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="cacheExtentStyle" class="property inherited">
   <span class="name"><a class="deprecated" href="rendering/RenderViewportBase/cacheExtentStyle.html">cacheExtentStyle</a></span>
   <span class="signature">&#8596; <a href="rendering/CacheExtentStyle.html">CacheExtentStyle</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Deprecated. Use <a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a> instead.
+  已弃用。请改用 <a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a>。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -272,11 +264,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="center" class="property">
   <span class="name"><a href="rendering/RenderViewport/center.html">center</a></span>
   <span class="signature">&#8596; <a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span>
-  
+
 
 </dt>
 <dd>
-  The first child in the <a href="rendering/GrowthDirection.html">GrowthDirection.forward</a> growth direction.
+  沿 <a href="rendering/GrowthDirection.html">GrowthDirection.forward</a> 增长方向的第一个子项。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -284,7 +276,7 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="childCount" class="property inherited">
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/childCount.html">childCount</a></span>
   <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -296,12 +288,11 @@ shrink-wraps its contents along the main axis.</li>
         <dt id="childrenInHitTestOrder" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/childrenInHitTestOrder.html">childrenInHitTestOrder</a></span>
   <span class="signature">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span>&gt;</span></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Provides an iterable that walks the children of the viewport, in the order
-that hit-testing should use.
+  提供一个可迭代对象，按命中测试所需的顺序遍历视口的子项。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -309,12 +300,11 @@ that hit-testing should use.
         <dt id="childrenInPaintOrder" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/childrenInPaintOrder.html">childrenInPaintOrder</a></span>
   <span class="signature">&#8594; <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span>&gt;</span></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Provides an iterable that walks the children of the viewport, in the order
-that they should be painted.
+  提供一个可迭代对象，按绘制所需的顺序遍历视口的子项。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -322,7 +312,7 @@ that they should be painted.
         <dt id="clipBehavior" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/clipBehavior.html">clipBehavior</a></span>
   <span class="signature">&#8596; <a href="dart-ui/Clip.html">Clip</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -334,7 +324,7 @@ that they should be painted.
         <dt id="constraints" class="property inherited">
   <span class="name"><a href="rendering/RenderBox/constraints.html">constraints</a></span>
   <span class="signature">&#8594; <a href="rendering/BoxConstraints-class.html">BoxConstraints</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -346,11 +336,11 @@ that they should be painted.
         <dt id="crossAxisDirection" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/crossAxisDirection.html">crossAxisDirection</a></span>
   <span class="signature">&#8596; <a href="painting/AxisDirection.html">AxisDirection</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The direction in which child should be laid out in the cross axis.
+  子项在交叉轴上的布局方向。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -358,12 +348,11 @@ that they should be painted.
         <dt id="debugCanParentUseSize" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Whether the parent render object is permitted to use this render object's
-size.
+  父 渲染对象 是否可以使用此 渲染对象 的尺寸。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -371,11 +360,11 @@ size.
         <dt id="debugCreator" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugCreator.html">debugCreator</a></span>
   <span class="signature">&#8596; <a href="dart-core/Object-class.html">Object</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  负责创建此 render object 的对象。
+  负责创建此 渲染对象 的对象。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -383,7 +372,7 @@ size.
         <dt id="debugDisposed" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugDisposed.html">debugDisposed</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -395,7 +384,7 @@ size.
         <dt id="debugDoingThisLayout" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugDoingThisLayout.html">debugDoingThisLayout</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -407,7 +396,7 @@ size.
         <dt id="debugDoingThisLayoutWithCallback" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugDoingThisLayoutWithCallback.html">debugDoingThisLayoutWithCallback</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -419,7 +408,7 @@ size.
         <dt id="debugDoingThisPaint" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugDoingThisPaint.html">debugDoingThisPaint</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -431,7 +420,7 @@ size.
         <dt id="debugDoingThisResize" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugDoingThisResize.html">debugDoingThisResize</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -443,11 +432,11 @@ size.
         <dt id="debugLayer" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugLayer.html">debugLayer</a></span>
   <span class="signature">&#8594; <a href="rendering/ContainerLayer-class.html">ContainerLayer</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  调试模式下，此 render object 用于重绘的合成层。
+  调试模式下，此 渲染对象 用于重绘的合成层。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -455,12 +444,11 @@ size.
         <dt id="debugLayoutParent" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugLayoutParent.html">debugLayoutParent</a></span>
   <span class="signature">&#8594; <a href="rendering/RenderObject-class.html">RenderObject</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The <a href="rendering/RenderObject-class.html">RenderObject</a> that's expected to call <a href="rendering/RenderObject/layout.html">layout</a> on this <a href="rendering/RenderObject-class.html">RenderObject</a>
-in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> implementation.
+  预计某个 <a href="rendering/RenderObject-class.html">RenderObject</a> 会在其 <a href="rendering/RenderObject/layout.html">layout</a> 实现中调用此 <a href="rendering/RenderObject-class.html">RenderObject</a> 的 <a href="rendering/RenderObject/performLayout.html">performLayout</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -468,11 +456,11 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="debugNeedsCompositedLayerUpdate" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugNeedsCompositedLayerUpdate.html">debugNeedsCompositedLayerUpdate</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 的图层信息是否已标记为需更新。
+  此 渲染对象 的图层信息是否已标记为需更新。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -480,11 +468,11 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="debugNeedsLayout" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugNeedsLayout.html">debugNeedsLayout</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 的布局信息是否已标记为需更新。
+  此 渲染对象 的布局信息是否已标记为需更新。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -492,11 +480,11 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="debugNeedsPaint" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugNeedsPaint.html">debugNeedsPaint</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 的绘制信息是否已标记为需更新。
+  此 渲染对象 的绘制信息是否已标记为需更新。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -504,11 +492,11 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="debugNeedsSemanticsUpdate" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugNeedsSemanticsUpdate.html">debugNeedsSemanticsUpdate</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 的语义信息是否已变更并等待更新。
+  此 渲染对象 的语义信息是否已变更并等待更新。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -516,11 +504,11 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="debugSemantics" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/debugSemantics.html">debugSemantics</a></span>
   <span class="signature">&#8594; <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 的语义信息。
+  此 渲染对象 的语义信息。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -528,11 +516,11 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="depth" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/depth.html">depth</a></span>
   <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 在渲染树中的深度。
+  此 渲染对象 在渲染树中的深度。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -540,7 +528,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="firstChild" class="property inherited">
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/firstChild.html">firstChild</a></span>
   <span class="signature">&#8594; <a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -552,7 +540,7 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="hashCode" class="property inherited">
   <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
   <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -564,11 +552,11 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="hasSize" class="property inherited">
   <span class="name"><a href="rendering/RenderBox/hasSize.html">hasSize</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Whether this render object has undergone layout and has a <a href="rendering/RenderBox/size.html">size</a>.
+  此 渲染对象 是否已完成布局并具有 <a href="rendering/RenderBox/size.html">size</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -576,12 +564,11 @@ in its <a href="rendering/RenderObject/performLayout.html">performLayout</a> imp
         <dt id="hasVisualOverflow" class="property">
   <span class="name"><a href="rendering/RenderViewport/hasVisualOverflow.html">hasVisualOverflow</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd>
-  Whether the contents of this viewport would paint outside the bounds of
-the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did not clip.
+  如果 <a href="rendering/RenderViewportBase/paint.html">paint</a> 不进行裁剪，此视口的内容是否会绘制到视口边界之外。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -589,11 +576,11 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="indexOfFirstChild" class="property">
   <span class="name"><a href="rendering/RenderViewport/indexOfFirstChild.html">indexOfFirstChild</a></span>
   <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
-  
+
 
 </dt>
 <dd>
-  The index of the first child of the viewport relative to the center child.
+  视口中第一个子项相对于中心子项的索引。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -601,11 +588,11 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="isRepaintBoundary" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/isRepaintBoundary.html">isRepaintBoundary</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 是否独立于父级重绘。
+  此 渲染对象 是否独立于父级重绘。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -613,7 +600,7 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="lastChild" class="property inherited">
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/lastChild.html">lastChild</a></span>
   <span class="signature">&#8594; <a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -625,11 +612,11 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="layer" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/layer.html">layer</a></span>
   <span class="signature">&#8596; <a href="rendering/ContainerLayer-class.html">ContainerLayer</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 用于重绘的合成层。
+  此 渲染对象 用于重绘的合成层。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -637,7 +624,7 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="needsCompositing" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/needsCompositing.html">needsCompositing</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -649,11 +636,11 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="offset" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/offset.html">offset</a></span>
   <span class="signature">&#8596; <a href="rendering/ViewportOffset-class.html">ViewportOffset</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Which part of the content inside the viewport should be visible.
+  视口内部应显示内容的哪一部分。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -661,11 +648,11 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="owner" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/owner.html">owner</a></span>
   <span class="signature">&#8594; <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The owner for this render object (null if unattached).
+  此 渲染对象 的 owner；未连接时为 null。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -673,7 +660,7 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="paintBounds" class="property inherited">
   <span class="name"><a href="rendering/RenderBox/paintBounds.html">paintBounds</a></span>
   <span class="signature">&#8594; <a href="dart-ui/Rect-class.html">Rect</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -685,12 +672,11 @@ the viewport if <a href="rendering/RenderViewportBase/paint.html">paint</a> did 
         <dt id="paintOrder" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/paintOrder.html">paintOrder</a></span>
   <span class="signature">&#8596; <a href="rendering/SliverPaintOrder.html">SliverPaintOrder</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The order in which to paint the slivers;
-equivalently, the order in which to arrange them in the z-direction.
+  绘制各个 sliver 的顺序；也就是沿 z 轴排列它们的顺序。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -698,11 +684,11 @@ equivalently, the order in which to arrange them in the z-direction.
         <dt id="parent" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/parent.html">parent</a></span>
   <span class="signature">&#8594; <a href="rendering/RenderObject-class.html">RenderObject</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  此 render object 在渲染树中的父级。
+  此 渲染对象 在渲染树中的父级。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -710,11 +696,11 @@ equivalently, the order in which to arrange them in the z-direction.
         <dt id="parentData" class="property inherited">
   <span class="name"><a href="rendering/RenderObject/parentData.html">parentData</a></span>
   <span class="signature">&#8596; <a href="rendering/ParentData-class.html">ParentData</a>?</span>
-  
+
 
 </dt>
 <dd class="inherited">
-  供父级 render object 使用的数据。
+  供父级 渲染对象 使用的数据。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -722,7 +708,7 @@ equivalently, the order in which to arrange them in the z-direction.
         <dt id="runtimeType" class="property inherited">
   <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
   <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -734,12 +720,11 @@ equivalently, the order in which to arrange them in the z-direction.
         <dt id="scrollCacheExtent" class="property inherited">
   <span class="name"><a href="rendering/RenderViewportBase/scrollCacheExtent.html">scrollCacheExtent</a></span>
   <span class="signature">&#8596; <a href="rendering/ScrollCacheExtent-class.html">ScrollCacheExtent</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The viewport has an area before and after the visible area to cache items
-that are about to become visible when the user scrolls.
+  视口在可见区域前后留有缓存区，用于缓存用户滚动时即将进入视野的项目。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -747,12 +732,11 @@ that are about to become visible when the user scrolls.
         <dt id="semanticBounds" class="property inherited">
   <span class="name"><a href="rendering/RenderBox/semanticBounds.html">semanticBounds</a></span>
   <span class="signature">&#8594; <a href="dart-ui/Rect-class.html">Rect</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The bounding box, in the local coordinate system, of this
-object, for accessibility purposes.
+  此对象在本地坐标系中的边界框，用于无障碍功能。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -760,11 +744,11 @@ object, for accessibility purposes.
         <dt id="size" class="property inherited">
   <span class="name"><a href="rendering/RenderBox/size.html">size</a></span>
   <span class="signature">&#8596; <a href="dart-ui/Size-class.html">Size</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
-  布局期间计算出的此 render box 尺寸。
+  布局期间计算出的此 渲染盒 尺寸。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -772,12 +756,11 @@ object, for accessibility purposes.
         <dt id="sizedByParent" class="property">
   <span class="name"><a href="rendering/RenderViewport/sizedByParent.html">sizedByParent</a></span>
   <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
-  
+
 
 </dt>
 <dd>
-  Whether the constraints are the only input to the sizing algorithm (in
-particular, child nodes have no impact).
+  计算尺寸的算法是否只以约束为输入（特别是，子节点不会产生影响）。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -785,7 +768,7 @@ particular, child nodes have no impact).
     </dl>
   </section>
 
-    
+
   <section
       class="summary offset-anchor"
       id="instance-methods">
@@ -795,11 +778,11 @@ particular, child nodes have no impact).
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  将子项追加到此 render object 的子项列表末尾。
+  将子项追加到此 渲染对象 的子项列表末尾。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -808,11 +791,11 @@ particular, child nodes have no impact).
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/addAll.html">addAll</a></span><span class="signature">(<wbr><span class="parameter" id="addAll-param-children"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span>&gt;</span>?</span> <span class="parameter-name">children</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  将所有子项添加到此 render object 的子项列表末尾。
+  将所有子项添加到此 渲染对象 的子项列表末尾。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -821,11 +804,11 @@ particular, child nodes have no impact).
   <span class="name"><a href="rendering/RenderObject/adoptChild.html">adoptChild</a></span><span class="signature">(<wbr><span class="parameter" id="adoptChild-param-child"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  子类判定某个 render object 为子项时调用。
+  子类判定某个 渲染对象 为子项时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -834,12 +817,11 @@ particular, child nodes have no impact).
   <span class="name"><a href="rendering/RenderViewport/applyPaintTransform.html">applyPaintTransform</a></span><span class="signature">(<wbr><span class="parameter" id="applyPaintTransform-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="applyPaintTransform-param-transform"><span class="type-annotation"><a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a></span> <span class="parameter-name">transform</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd>
-  Multiply the transform from the parent's coordinate system to this box's
-coordinate system into the given transform.
+  将从父坐标系到此 box 坐标系的变换乘入给定变换。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -848,11 +830,11 @@ coordinate system into the given transform.
   <span class="name"><a href="rendering/RenderObject/assembleSemanticsNode.html">assembleSemanticsNode</a></span><span class="signature">(<wbr><span class="parameter" id="assembleSemanticsNode-param-node"><span class="type-annotation"><a href="semantics/SemanticsNode-class.html">SemanticsNode</a></span> <span class="parameter-name">node</span>, </span><span class="parameter" id="assembleSemanticsNode-param-config"><span class="type-annotation"><a href="semantics/SemanticsConfiguration-class.html">SemanticsConfiguration</a></span> <span class="parameter-name">config</span>, </span><span class="parameter" id="assembleSemanticsNode-param-children"><span class="type-annotation"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="semantics/SemanticsNode-class.html">SemanticsNode</a></span>&gt;</span></span> <span class="parameter-name">children</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Assemble the <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> for this <a href="rendering/RenderObject-class.html">RenderObject</a>.
+  为此 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 组装 <a href="rendering/RenderObject-class.html">RenderObject</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -861,11 +843,11 @@ coordinate system into the given transform.
   <span class="name"><a href="rendering/RenderViewportBase/attach.html">attach</a></span><span class="signature">(<wbr><span class="parameter" id="attach-param-owner"><span class="type-annotation"><a href="rendering/PipelineOwner-class.html">PipelineOwner</a></span> <span class="parameter-name">owner</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  将此 render object 标记为已附加到指定 owner。
+  将此 渲染对象 标记为已附加到指定 owner。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -874,7 +856,7 @@ coordinate system into the given transform.
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/childAfter.html">childAfter</a></span><span class="signature">(<wbr><span class="parameter" id="childAfter-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; <a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -887,7 +869,7 @@ coordinate system into the given transform.
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/childBefore.html">childBefore</a></span><span class="signature">(<wbr><span class="parameter" id="childBefore-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; <a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -900,11 +882,11 @@ coordinate system into the given transform.
   <span class="name"><a href="rendering/RenderObject/clearSemantics.html">clearSemantics</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  移除此 render object 及其后代的所有语义信息。
+  移除此 渲染对象 及其后代的所有语义信息。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -913,11 +895,11 @@ coordinate system into the given transform.
   <span class="name"><a href="rendering/RenderViewportBase/computeAbsolutePaintOffset.html">computeAbsolutePaintOffset</a></span><span class="signature">(<wbr><span class="parameter" id="computeAbsolutePaintOffset-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="computeAbsolutePaintOffset-param-layoutOffset"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">layoutOffset</span>, </span><span class="parameter" id="computeAbsolutePaintOffset-param-growthDirection"><span class="type-annotation"><a href="rendering/GrowthDirection.html">GrowthDirection</a></span> <span class="parameter-name">growthDirection</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-ui/Offset-class.html">Offset</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  The offset at which the given <code>child</code> should be painted.
+  给定 <code>child</code> 的绘制偏移量。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -926,11 +908,11 @@ coordinate system into the given transform.
   <span class="name"><a href="rendering/RenderViewport/computeChildMainAxisPosition.html">computeChildMainAxisPosition</a></span><span class="signature">(<wbr><span class="parameter" id="computeChildMainAxisPosition-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="computeChildMainAxisPosition-param-parentMainAxisPosition"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">parentMainAxisPosition</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd>
-  Converts the <code>parentMainAxisPosition</code> into the child's coordinate system.
+  将 <code>parentMainAxisPosition</code> 转换到子项的坐标系中。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -939,13 +921,11 @@ coordinate system into the given transform.
   <span class="name"><a href="rendering/RenderBox/computeDistanceToActualBaseline.html">computeDistanceToActualBaseline</a></span><span class="signature">(<wbr><span class="parameter" id="computeDistanceToActualBaseline-param-baseline"><span class="type-annotation"><a href="dart-ui/TextBaseline.html">TextBaseline</a></span> <span class="parameter-name">baseline</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the distance from the y-coordinate of the position of the box to
-the y-coordinate of the first given baseline in the box's contents, if
-any, or null otherwise.
+  如果 box 内容中存在基线，则返回 box 位置的 y 坐标到第一个给定基线的 y 坐标之间的距离；否则返回 null。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -954,11 +934,11 @@ any, or null otherwise.
   <span class="name"><a href="rendering/RenderBox/computeDryBaseline.html">computeDryBaseline</a></span><span class="signature">(<wbr><span class="parameter" id="computeDryBaseline-param-constraints"><span>covariant</span> <span class="type-annotation"><a href="rendering/BoxConstraints-class.html">BoxConstraints</a></span> <span class="parameter-name">constraints</span>, </span><span class="parameter" id="computeDryBaseline-param-baseline"><span class="type-annotation"><a href="dart-ui/TextBaseline.html">TextBaseline</a></span> <span class="parameter-name">baseline</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Computes the value returned by <a href="rendering/RenderBox/getDryBaseline.html">getDryBaseline</a>.
+  计算 <a href="rendering/RenderBox/getDryBaseline.html">getDryBaseline</a> 返回的值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -967,7 +947,7 @@ any, or null otherwise.
   <span class="name"><a href="rendering/RenderViewport/computeDryLayout.html">computeDryLayout</a></span><span class="signature">(<wbr><span class="parameter" id="computeDryLayout-param-constraints"><span>covariant</span> <span class="type-annotation"><a href="rendering/BoxConstraints-class.html">BoxConstraints</a></span> <span class="parameter-name">constraints</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-ui/Size-class.html">Size</a></span>
   </span>
-  
+
 
 </dt>
 <dd>
@@ -980,7 +960,7 @@ any, or null otherwise.
   <span class="name"><a href="rendering/RenderViewportBase/computeMaxIntrinsicHeight.html">computeMaxIntrinsicHeight</a></span><span class="signature">(<wbr><span class="parameter" id="computeMaxIntrinsicHeight-param-width"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">width</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -993,7 +973,7 @@ any, or null otherwise.
   <span class="name"><a href="rendering/RenderViewportBase/computeMaxIntrinsicWidth.html">computeMaxIntrinsicWidth</a></span><span class="signature">(<wbr><span class="parameter" id="computeMaxIntrinsicWidth-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1006,7 +986,7 @@ any, or null otherwise.
   <span class="name"><a href="rendering/RenderViewportBase/computeMinIntrinsicHeight.html">computeMinIntrinsicHeight</a></span><span class="signature">(<wbr><span class="parameter" id="computeMinIntrinsicHeight-param-width"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">width</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1019,7 +999,7 @@ any, or null otherwise.
   <span class="name"><a href="rendering/RenderViewportBase/computeMinIntrinsicWidth.html">computeMinIntrinsicWidth</a></span><span class="signature">(<wbr><span class="parameter" id="computeMinIntrinsicWidth-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1032,11 +1012,11 @@ any, or null otherwise.
   <span class="name"><a href="rendering/RenderBox/debugAdoptSize.html">debugAdoptSize</a></span><span class="signature">(<wbr><span class="parameter" id="debugAdoptSize-param-value"><span class="type-annotation"><a href="dart-ui/Size-class.html">Size</a></span> <span class="parameter-name">value</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-ui/Size-class.html">Size</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Claims ownership of the given <a href="dart-ui/Size-class.html">Size</a>.
+  取得给定 <a href="dart-ui/Size-class.html">Size</a> 的所有权。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1045,15 +1025,11 @@ any, or null otherwise.
   <span class="name"><a href="rendering/RenderBox/debugAssertDoesMeetConstraints.html">debugAssertDoesMeetConstraints</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  验证此对象是否满足其约束条件。 Override this function
-in a subclass to verify that your state matches the constraints object.
-This function is only called when asserts are enabled (i.e. in debug mode)
-and only when needsLayout is false. If the constraints are not met, it
-should assert or throw an exception.
+  验证此对象是否满足其约束。在子类中覆盖此函数，以检查对象状态是否符合约束对象。仅当启用了断言（即调试模式）且 needsLayout 为 false 时才会调用此函数。如果不满足约束，应触发断言或抛出异常。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1062,12 +1038,11 @@ should assert or throw an exception.
   <span class="name"><a href="rendering/RenderBox/debugCannotComputeDryLayout.html">debugCannotComputeDryLayout</a></span><span class="signature">(<wbr>{<span class="parameter" id="debugCannotComputeDryLayout-param-reason"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">reason</span>, </span><span class="parameter" id="debugCannotComputeDryLayout-param-error"><span class="type-annotation"><a href="foundation/FlutterError-class.html">FlutterError</a>?</span> <span class="parameter-name">error</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Called from <a href="rendering/RenderBox/computeDryLayout.html">computeDryLayout</a> or <a href="rendering/RenderBox/computeDryBaseline.html">computeDryBaseline</a> within an assert if
-the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does not support calculating a dry layout.
+  如果给定的 <a href="rendering/RenderBox/computeDryLayout.html">computeDryLayout</a> 或 <a href="rendering/RenderBox/computeDryBaseline.html">computeDryBaseline</a> 断言失败，且该 <a href="rendering/RenderBox-class.html">RenderBox</a> 子类不支持计算 dry layout，则会在断言中调用此方法。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1076,7 +1051,7 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
   <span class="name"><a href="rendering/RenderViewportBase/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1089,7 +1064,7 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
   <span class="name"><a href="rendering/RenderViewport/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd>
@@ -1102,11 +1077,11 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
   <span class="name"><a href="rendering/RenderBox/debugHandleEvent.html">debugHandleEvent</a></span><span class="signature">(<wbr><span class="parameter" id="debugHandleEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span>, </span><span class="parameter" id="debugHandleEvent-param-entry"><span class="type-annotation"><a href="gestures/HitTestEntry-class.html">HitTestEntry</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="gestures/HitTestTarget-class.html">HitTestTarget</a></span>&gt;</span></span> <span class="parameter-name">entry</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Implements the <a href="rendering/debugPaintPointersEnabled.html">debugPaintPointersEnabled</a> debugging feature.
+  实现 <a href="rendering/debugPaintPointersEnabled.html">debugPaintPointersEnabled</a> 调试功能。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1115,7 +1090,7 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
   <span class="name"><a href="rendering/RenderBox/debugPaint.html">debugPaint</a></span><span class="signature">(<wbr><span class="parameter" id="debugPaint-param-context"><span class="type-annotation"><a href="rendering/PaintingContext-class.html">PaintingContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="debugPaint-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1128,7 +1103,7 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
   <span class="name"><a href="rendering/RenderBox/debugPaintBaselines.html">debugPaintBaselines</a></span><span class="signature">(<wbr><span class="parameter" id="debugPaintBaselines-param-context"><span class="type-annotation"><a href="rendering/PaintingContext-class.html">PaintingContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="debugPaintBaselines-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1141,12 +1116,11 @@ the given <a href="rendering/RenderBox-class.html">RenderBox</a> subclass does n
   <span class="name"><a href="rendering/RenderBox/debugPaintPointers.html">debugPaintPointers</a></span><span class="signature">(<wbr><span class="parameter" id="debugPaintPointers-param-context"><span class="type-annotation"><a href="rendering/PaintingContext-class.html">PaintingContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="debugPaintPointers-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  In debug mode, paints a rectangle if this render box has counted more
-pointer downs than pointer up events.
+  在调试模式下，如果此 渲染盒 统计到的指针按下次数多于抬起次数，则绘制一个矩形。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1155,11 +1129,11 @@ pointer downs than pointer up events.
   <span class="name"><a href="rendering/RenderViewportBase/debugPaintSize.html">debugPaintSize</a></span><span class="signature">(<wbr><span class="parameter" id="debugPaintSize-param-context"><span class="type-annotation"><a href="rendering/PaintingContext-class.html">PaintingContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="debugPaintSize-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  调试模式下，在此 render box 周围绘制边框。
+  调试模式下，在此 渲染盒 周围绘制边框。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1168,12 +1142,11 @@ pointer downs than pointer up events.
   <span class="name"><a href="rendering/RenderObject/debugRegisterRepaintBoundaryPaint.html">debugRegisterRepaintBoundaryPaint</a></span><span class="signature">(<wbr>{<span class="parameter" id="debugRegisterRepaintBoundaryPaint-param-includedParent"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includedParent</span> = <span class="default-value">true</span>, </span><span class="parameter" id="debugRegisterRepaintBoundaryPaint-param-includedChild"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includedChild</span> = <span class="default-value">false</span></span>})
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Called, in debug mode, if <a href="rendering/RenderObject/isRepaintBoundary.html">isRepaintBoundary</a> is true, when either the
-this render object or its parent attempt to paint.
+  在调试模式下，当此 渲染对象 或其父对象尝试绘制，且 <a href="rendering/RenderObject/isRepaintBoundary.html">isRepaintBoundary</a> 为 true 时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1182,16 +1155,11 @@ this render object or its parent attempt to paint.
   <span class="name"><a href="rendering/RenderBox/debugResetSize.html">debugResetSize</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  If a subclass has a "size" (the state controlled by <code>parentUsesSize</code>,
-whatever it is in the subclass, e.g. the actual <code>size</code> property of
-<a href="rendering/RenderBox-class.html">RenderBox</a>), and the subclass verifies that in debug mode this "size"
-property isn't used when <a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a> isn't set, then that
-subclass should override <a href="rendering/RenderBox/debugResetSize.html">debugResetSize</a> to reapply the current values of
-<a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a> to that state.
+  如果子类有一个由 <code>parentUsesSize</code> 控制的“size”状态，例如 <code>size</code> 属性（如 <a href="rendering/RenderBox-class.html">RenderBox</a> 的实际属性），并会在调试模式下验证未设置 <a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a> 时不使用该属性，那么该子类应覆盖 <a href="rendering/RenderBox/debugResetSize.html">debugResetSize</a>，将 <a href="rendering/RenderObject/debugCanParentUseSize.html">debugCanParentUseSize</a> 的当前值重新应用到该状态。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1200,13 +1168,11 @@ subclass should override <a href="rendering/RenderBox/debugResetSize.html">debug
   <span class="name"><a href="rendering/RenderViewportBase/debugThrowIfNotCheckingIntrinsics.html">debugThrowIfNotCheckingIntrinsics</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Throws an exception saying that the object does not support returning
-intrinsic dimensions if, in debug mode, we are not in the
-<a href="rendering/RenderObject/debugCheckingIntrinsics.html">RenderObject.debugCheckingIntrinsics</a> mode.
+  如果处于调试模式但不在 <a href="rendering/RenderObject/debugCheckingIntrinsics.html">RenderObject.debugCheckingIntrinsics</a> 模式下，则抛出异常，说明该对象不支持返回内在尺寸。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1215,12 +1181,11 @@ intrinsic dimensions if, in debug mode, we are not in the
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/debugValidateChild.html">debugValidateChild</a></span><span class="signature">(<wbr><span class="parameter" id="debugValidateChild-param-child"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Checks whether the given render object has the correct <a href="dart-core/Object/runtimeType.html">runtimeType</a> to be
-a child of this render object.
+  检查给定渲染对象的 <a href="dart-core/Object/runtimeType.html">runtimeType</a> 是否适合作为此渲染对象的子项。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1229,13 +1194,11 @@ a child of this render object.
   <span class="name"><a href="rendering/RenderViewportBase/describeApproximatePaintClip.html">describeApproximatePaintClip</a></span><span class="signature">(<wbr><span class="parameter" id="describeApproximatePaintClip-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-ui/Rect-class.html">Rect</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns a rect in this object's coordinate system that describes
-the approximate bounding box of the clip rect that would be
-applied to the given child during the paint phase, if any.
+  返回此对象坐标系中的矩形，用于描述绘制阶段可能应用于给定子项的裁剪矩形的大致边界框。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1244,12 +1207,11 @@ applied to the given child during the paint phase, if any.
   <span class="name"><a href="rendering/RenderObject/describeForError.html">describeForError</a></span><span class="signature">(<wbr><span class="parameter" id="describeForError-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, {</span><span class="parameter" id="describeForError-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a></span> <span class="parameter-name">style</span> = <span class="default-value">DiagnosticsTreeStyle.shallow</span></span>})
     <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Adds a debug representation of a <a href="rendering/RenderObject-class.html">RenderObject</a> optimized for including in
-error messages.
+  添加适合包含在错误消息中的 <a href="rendering/RenderObject-class.html">RenderObject</a> 调试表示。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1258,18 +1220,11 @@ error messages.
   <span class="name"><a href="rendering/RenderViewportBase/describeSemanticsClip.html">describeSemanticsClip</a></span><span class="signature">(<wbr><span class="parameter" id="describeSemanticsClip-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-ui/Rect-class.html">Rect</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns a rect in this object's coordinate system that describes
-which <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s produced by the <code>child</code> should be included in the
-semantics tree. <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s from the <code>child</code> that are positioned
-outside of this rect will be dropped. Child <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s that are
-positioned inside this rect, but outside of <a href="rendering/RenderViewportBase/describeApproximatePaintClip.html">describeApproximatePaintClip</a>
-will be included in the tree marked as hidden. Child <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>s
-that are inside of both rect will be included in the tree as regular
-nodes.
+  返回此对象坐标系中的一个矩形，用于描述 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 节点中由 <code>child</code> 生成的哪些节点应纳入语义树。来自 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>、由 <code>child</code> 生成且位于此矩形之外的节点会被丢弃。此矩形内的 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 子节点，如果位于 <a href="rendering/RenderViewportBase/describeApproximatePaintClip.html">describeApproximatePaintClip</a> 描述的区域之外，会作为隐藏节点纳入语义树。位于此矩形内的子项 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 会作为普通节点纳入语义树。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1278,7 +1233,7 @@ nodes.
   <span class="name"><a href="rendering/RenderViewportBase/describeSemanticsConfiguration.html">describeSemanticsConfiguration</a></span><span class="signature">(<wbr><span class="parameter" id="describeSemanticsConfiguration-param-config"><span class="type-annotation"><a href="semantics/SemanticsConfiguration-class.html">SemanticsConfiguration</a></span> <span class="parameter-name">config</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1291,11 +1246,11 @@ nodes.
   <span class="name"><a href="rendering/RenderViewportBase/detach.html">detach</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Mark this render object as detached from its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>.
+  将此 渲染对象 标记为已从其 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 分离。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1304,11 +1259,11 @@ nodes.
   <span class="name"><a href="rendering/RenderViewportBase/dispose.html">dispose</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  释放此 render object 持有的所有资源。
+  释放此 渲染对象 持有的所有资源。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1317,11 +1272,11 @@ nodes.
   <span class="name"><a href="rendering/RenderObject/dropChild.html">dropChild</a></span><span class="signature">(<wbr><span class="parameter" id="dropChild-param-child"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  子类判定某个 render object 不再是子项时调用。
+  子类判定某个 渲染对象 不再是子项时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1330,11 +1285,11 @@ nodes.
   <span class="name"><a href="rendering/RenderBox/getDistanceToActualBaseline.html">getDistanceToActualBaseline</a></span><span class="signature">(<wbr><span class="parameter" id="getDistanceToActualBaseline-param-baseline"><span class="type-annotation"><a href="dart-ui/TextBaseline.html">TextBaseline</a></span> <span class="parameter-name">baseline</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Calls <a href="rendering/RenderBox/computeDistanceToActualBaseline.html">computeDistanceToActualBaseline</a> and caches the result.
+  调用 <a href="rendering/RenderBox/computeDistanceToActualBaseline.html">computeDistanceToActualBaseline</a> 并缓存结果。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1343,12 +1298,11 @@ nodes.
   <span class="name"><a href="rendering/RenderBox/getDistanceToBaseline.html">getDistanceToBaseline</a></span><span class="signature">(<wbr><span class="parameter" id="getDistanceToBaseline-param-baseline"><span class="type-annotation"><a href="dart-ui/TextBaseline.html">TextBaseline</a></span> <span class="parameter-name">baseline</span>, {</span><span class="parameter" id="getDistanceToBaseline-param-onlyReal"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">onlyReal</span> = <span class="default-value">false</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the distance from the y-coordinate of the position of the box to
-the y-coordinate of the first given baseline in the box's contents.
+  返回 box 位置的 y 坐标到 box 内容中第一个给定基线的 y 坐标之间的距离。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1357,13 +1311,11 @@ the y-coordinate of the first given baseline in the box's contents.
   <span class="name"><a href="rendering/RenderBox/getDryBaseline.html">getDryBaseline</a></span><span class="signature">(<wbr><span class="parameter" id="getDryBaseline-param-constraints"><span>covariant</span> <span class="type-annotation"><a href="rendering/BoxConstraints-class.html">BoxConstraints</a></span> <span class="parameter-name">constraints</span>, </span><span class="parameter" id="getDryBaseline-param-baseline"><span class="type-annotation"><a href="dart-ui/TextBaseline.html">TextBaseline</a></span> <span class="parameter-name">baseline</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the distance from the top of the box to the first baseline of the
-box's contents for the given <code>constraints</code>, or <code>null</code> if this <a href="rendering/RenderBox-class.html">RenderBox</a>
-does not have any baselines.
+  在给定 <code>constraints</code> 下，返回 box 内容顶部到第一个基线的距离；如果没有基线，则返回 <code>null</code>（表示该 <a href="rendering/RenderBox-class.html">RenderBox</a> 不包含基线）。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1372,12 +1324,11 @@ does not have any baselines.
   <span class="name"><a href="rendering/RenderBox/getDryLayout.html">getDryLayout</a></span><span class="signature">(<wbr><span class="parameter" id="getDryLayout-param-constraints"><span>covariant</span> <span class="type-annotation"><a href="rendering/BoxConstraints-class.html">BoxConstraints</a></span> <span class="parameter-name">constraints</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-ui/Size-class.html">Size</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the <a href="dart-ui/Size-class.html">Size</a> that this <a href="rendering/RenderBox-class.html">RenderBox</a> would like to be given the
-provided <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>.
+  返回 <a href="dart-ui/Size-class.html">Size</a>：此 <a href="rendering/RenderBox-class.html">RenderBox</a> 在给定 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 下期望的尺寸。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1386,13 +1337,11 @@ provided <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>.
   <span class="name"><a href="rendering/RenderBox/getMaxIntrinsicHeight.html">getMaxIntrinsicHeight</a></span><span class="signature">(<wbr><span class="parameter" id="getMaxIntrinsicHeight-param-width"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">width</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the smallest height beyond which increasing the height never
-decreases the preferred width. The preferred width is the value that
-would be returned by <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a> for that height.
+  返回一个最小高度；超过该高度后继续增加高度不会再缩小首选宽度。首选宽度是该高度下 <a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a> 的返回值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1401,13 +1350,11 @@ would be returned by <a href="rendering/RenderBox/getMinIntrinsicWidth.html">get
   <span class="name"><a href="rendering/RenderBox/getMaxIntrinsicWidth.html">getMaxIntrinsicWidth</a></span><span class="signature">(<wbr><span class="parameter" id="getMaxIntrinsicWidth-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the smallest width beyond which increasing the width never
-decreases the preferred height. The preferred height is the value that
-would be returned by <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a> for that width.
+  返回一个最小宽度；超过该宽度后继续增加宽度不会再缩小首选高度。首选高度是该宽度下 <a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a> 的返回值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1416,12 +1363,11 @@ would be returned by <a href="rendering/RenderBox/getMinIntrinsicHeight.html">ge
   <span class="name"><a href="rendering/RenderBox/getMinIntrinsicHeight.html">getMinIntrinsicHeight</a></span><span class="signature">(<wbr><span class="parameter" id="getMinIntrinsicHeight-param-width"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">width</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the minimum height that this box could be without failing to
-correctly paint its contents within itself, without clipping.
+  返回此 box 在不裁剪内容且能正确绘制自身内容的前提下可具有的最小高度。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1430,12 +1376,11 @@ correctly paint its contents within itself, without clipping.
   <span class="name"><a href="rendering/RenderBox/getMinIntrinsicWidth.html">getMinIntrinsicWidth</a></span><span class="signature">(<wbr><span class="parameter" id="getMinIntrinsicWidth-param-height"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the minimum width that this box could be without failing to
-correctly paint its contents within itself, without clipping.
+  返回此 box 在不裁剪内容且能正确绘制自身内容的前提下可具有的最小宽度。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1444,12 +1389,11 @@ correctly paint its contents within itself, without clipping.
   <span class="name"><a href="rendering/RenderViewportBase/getOffsetToReveal.html">getOffsetToReveal</a></span><span class="signature">(<wbr><span class="parameter" id="getOffsetToReveal-param-target"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">target</span>, </span><span class="parameter" id="getOffsetToReveal-param-alignment"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">alignment</span>, {</span><span class="parameter" id="getOffsetToReveal-param-rect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a>?</span> <span class="parameter-name">rect</span>, </span><span class="parameter" id="getOffsetToReveal-param-axis"><span class="type-annotation"><a href="painting/Axis.html">Axis</a>?</span> <span class="parameter-name">axis</span></span>})
     <span class="returntype parameter">&#8594; <a href="rendering/RevealedOffset-class.html">RevealedOffset</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Returns the offset that would be needed to reveal the <code>target</code>
-<a href="rendering/RenderObject-class.html">RenderObject</a>.
+  返回显示目标 <code>target</code> <a href="rendering/RenderObject-class.html">RenderObject</a> 所需的偏移量。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1458,11 +1402,11 @@ correctly paint its contents within itself, without clipping.
   <span class="name"><a href="rendering/RenderObject/getTransformTo.html">getTransformTo</a></span><span class="signature">(<wbr><span class="parameter" id="getTransformTo-param-target"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a>?</span> <span class="parameter-name">target</span></span>)
     <span class="returntype parameter">&#8594; <a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  将从此 <a href="rendering/RenderObject-class.html">RenderObject</a> 到目标 <a href="rendering/RenderObject-class.html">RenderObject</a> 的绘制变换应用到 <code>target</code>。
+  将此 <a href="rendering/RenderObject-class.html">RenderObject</a> 的绘制变换应用到目标 <code>target</code> <a href="rendering/RenderObject-class.html">RenderObject</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1471,12 +1415,11 @@ correctly paint its contents within itself, without clipping.
   <span class="name"><a href="rendering/RenderBox/globalToLocal.html">globalToLocal</a></span><span class="signature">(<wbr><span class="parameter" id="globalToLocal-param-point"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">point</span>, {</span><span class="parameter" id="globalToLocal-param-ancestor"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a>?</span> <span class="parameter-name">ancestor</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-ui/Offset-class.html">Offset</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Convert the given point from the global coordinate system in logical pixels
-to the local coordinate system for this box.
+  将给定点从逻辑像素的全局坐标系转换到此 box 的本地坐标系。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1485,11 +1428,11 @@ to the local coordinate system for this box.
   <span class="name"><a href="rendering/RenderObject/handleEvent.html">handleEvent</a></span><span class="signature">(<wbr><span class="parameter" id="handleEvent-param-event"><span class="type-annotation"><a href="gestures/PointerEvent-class.html">PointerEvent</a></span> <span class="parameter-name">event</span>, </span><span class="parameter" id="handleEvent-param-entry"><span>covariant</span> <span class="type-annotation"><a href="gestures/HitTestEntry-class.html">HitTestEntry</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="gestures/HitTestTarget-class.html">HitTestTarget</a></span>&gt;</span></span> <span class="parameter-name">entry</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  重写此方法以处理命中此 render object 的指针事件。
+  重写此方法以处理命中此 渲染对象 的指针事件。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1498,11 +1441,11 @@ to the local coordinate system for this box.
   <span class="name"><a href="rendering/RenderBox/hitTest.html">hitTest</a></span><span class="signature">(<wbr><span class="parameter" id="hitTest-param-result"><span class="type-annotation"><a href="rendering/BoxHitTestResult-class.html">BoxHitTestResult</a></span> <span class="parameter-name">result</span>, {</span><span class="parameter" id="hitTest-param-position"><span>required</span> <span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  确定给定位置处的 render object 集合。
+  确定给定位置处的 渲染对象 集合。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1511,12 +1454,11 @@ to the local coordinate system for this box.
   <span class="name"><a href="rendering/RenderViewportBase/hitTestChildren.html">hitTestChildren</a></span><span class="signature">(<wbr><span class="parameter" id="hitTestChildren-param-result"><span class="type-annotation"><a href="rendering/BoxHitTestResult-class.html">BoxHitTestResult</a></span> <span class="parameter-name">result</span>, {</span><span class="parameter" id="hitTestChildren-param-position"><span>required</span> <span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Override this method to check whether any children are located at the
-given position.
+  覆盖此方法，以检查给定位置是否有子项。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1525,12 +1467,11 @@ given position.
   <span class="name"><a href="rendering/RenderBox/hitTestSelf.html">hitTestSelf</a></span><span class="signature">(<wbr><span class="parameter" id="hitTestSelf-param-position"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">position</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Override this method if this render object can be hit even if its
-children were not hit.
+  如果即使子项未命中，此 渲染对象 仍可被命中，则覆盖此方法。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1539,11 +1480,11 @@ children were not hit.
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/insert.html">insert</a></span><span class="signature">(<wbr><span class="parameter" id="insert-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span>, {</span><span class="parameter" id="insert-param-after"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span> <span class="parameter-name">after</span></span>})
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  将子项插入此 render object 的子项列表中，位置在指定子项之后。
+  将子项插入此 渲染对象 的子项列表中，位置在指定子项之后。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1552,15 +1493,11 @@ children were not hit.
   <span class="name"><a href="rendering/RenderObject/invokeLayoutCallback.html">invokeLayoutCallback</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="rendering/Constraints-class.html">Constraints</a></span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="invokeLayoutCallback-param-callback"><span class="type-annotation"><a href="rendering/LayoutCallback.html">LayoutCallback</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">callback</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Allows mutations to be made to this object's child list (and any
-descendants) as well as to any other dirty nodes in the render tree owned
-by the same <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> as this object. The <code>callback</code> argument is
-invoked synchronously, and the mutations are allowed only during that
-callback's execution.
+  允许修改此对象的子项列表（及其所有后代），也允许修改此对象所属的同一 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 所拥有的渲染树中的其他脏节点。<code>callback</code> 参数会同步调用，并且只允许在该回调执行期间进行修改。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1569,11 +1506,11 @@ callback's execution.
   <span class="name"><a href="rendering/RenderViewport/labelForChild.html">labelForChild</a></span><span class="signature">(<wbr><span class="parameter" id="labelForChild-param-index"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">index</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
   </span>
-  
+
 
 </dt>
 <dd>
-  A short string to identify the child with the given index.
+  用于标识给定索引处子项的简短字符串。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -1582,11 +1519,11 @@ callback's execution.
   <span class="name"><a href="rendering/RenderObject/layout.html">layout</a></span><span class="signature">(<wbr><span class="parameter" id="layout-param-constraints"><span class="type-annotation"><a href="rendering/Constraints-class.html">Constraints</a></span> <span class="parameter-name">constraints</span>, {</span><span class="parameter" id="layout-param-parentUsesSize"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">parentUsesSize</span> = <span class="default-value">false</span></span>})
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  计算此 render object 的布局。
+  计算此 渲染对象 的布局。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1595,11 +1532,11 @@ callback's execution.
   <span class="name"><a href="rendering/RenderViewportBase/layoutChildSequence.html">layoutChildSequence</a></span><span class="signature">(<wbr>{<span class="parameter" id="layoutChildSequence-param-child"><span>required</span> <span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span> <span class="parameter-name">child</span>, </span><span class="parameter" id="layoutChildSequence-param-scrollOffset"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">scrollOffset</span>, </span><span class="parameter" id="layoutChildSequence-param-overlap"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">overlap</span>, </span><span class="parameter" id="layoutChildSequence-param-layoutOffset"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">layoutOffset</span>, </span><span class="parameter" id="layoutChildSequence-param-remainingPaintExtent"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">remainingPaintExtent</span>, </span><span class="parameter" id="layoutChildSequence-param-mainAxisExtent"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">mainAxisExtent</span>, </span><span class="parameter" id="layoutChildSequence-param-crossAxisExtent"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">crossAxisExtent</span>, </span><span class="parameter" id="layoutChildSequence-param-growthDirection"><span>required</span> <span class="type-annotation"><a href="rendering/GrowthDirection.html">GrowthDirection</a></span> <span class="parameter-name">growthDirection</span>, </span><span class="parameter" id="layoutChildSequence-param-advance"><span>required</span> <span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span> <span class="parameter-name">advance</span>(<span class="parameter" id="param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span></span>), </span><span class="parameter" id="layoutChildSequence-param-remainingCacheExtent"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">remainingCacheExtent</span>, </span><span class="parameter" id="layoutChildSequence-param-cacheOrigin"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">cacheOrigin</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Determines the size and position of some of the children of the viewport.
+  确定视口中部分子项的尺寸和位置。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1608,12 +1545,11 @@ callback's execution.
   <span class="name"><a href="rendering/RenderBox/localToGlobal.html">localToGlobal</a></span><span class="signature">(<wbr><span class="parameter" id="localToGlobal-param-point"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">point</span>, {</span><span class="parameter" id="localToGlobal-param-ancestor"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a>?</span> <span class="parameter-name">ancestor</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-ui/Offset-class.html">Offset</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Convert the given point from the local coordinate system for this box to
-the global coordinate system in logical pixels.
+  将给定点从此 box 的本地坐标系转换到逻辑像素的全局坐标系。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1622,12 +1558,11 @@ the global coordinate system in logical pixels.
   <span class="name"><a href="rendering/RenderObject/markNeedsCompositedLayerUpdate.html">markNeedsCompositedLayerUpdate</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Mark this render object as having changed a property on its composited
-layer.
+  将此 渲染对象 标记为其合成层上的属性已更改。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1636,11 +1571,11 @@ layer.
   <span class="name"><a href="rendering/RenderObject/markNeedsCompositingBitsUpdate.html">markNeedsCompositingBitsUpdate</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  将此 render object 的合成状态标记为需更新。
+  将此 渲染对象 的合成状态标记为需更新。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1649,13 +1584,11 @@ layer.
   <span class="name"><a href="rendering/RenderBox/markNeedsLayout.html">markNeedsLayout</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Mark this render object's layout information as dirty, and either register
-this object with its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>, or defer to the parent, depending on
-whether this object is a relayout boundary or not respectively.
+  将此 渲染对象 的布局信息标记为脏；如果它是 relayout boundary，则向其 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 注册，否则将处理交给父对象。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1664,13 +1597,11 @@ whether this object is a relayout boundary or not respectively.
   <span class="name"><a href="rendering/RenderObject/markNeedsLayoutForSizedByParentChange.html">markNeedsLayoutForSizedByParentChange</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Mark this render object's layout information as dirty (like
-<a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>), and additionally also handle any necessary work to
-handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedByParent</a> has changed value.
+  将此 渲染对象 的布局信息标记为脏（类似 <a href="rendering/RenderObject/markNeedsLayout.html">markNeedsLayout</a>），并处理 <a href="rendering/RenderObject/sizedByParent.html">sizedByParent</a> 值发生变化时所需的额外工作。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1679,11 +1610,11 @@ handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedB
   <span class="name"><a href="rendering/RenderObject/markNeedsPaint.html">markNeedsPaint</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  将此 render object 标记为外观已更改。
+  将此 渲染对象 标记为外观已更改。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1692,7 +1623,7 @@ handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedB
   <span class="name"><a href="rendering/RenderObject/markNeedsSemanticsUpdate.html">markNeedsSemanticsUpdate</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1705,12 +1636,11 @@ handle the case where <a href="rendering/RenderObject/sizedByParent.html">sizedB
   <span class="name"><a href="rendering/RenderObject/markParentNeedsLayout.html">markParentNeedsLayout</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Mark this render object's layout information as dirty, and then defer to
-the parent.
+  将此 渲染对象 的布局信息标记为脏，然后将处理交给父对象。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1719,12 +1649,11 @@ the parent.
   <span class="name"><a href="rendering/RenderViewport/maxScrollObstructionExtentBefore.html">maxScrollObstructionExtentBefore</a></span><span class="signature">(<wbr><span class="parameter" id="maxScrollObstructionExtentBefore-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd>
-  Returns the total scroll obstruction extent of all slivers in the viewport
-before <code>child</code>.
+  返回视口中位于 <code>child</code> 之前的所有 sliver 所造成的总滚动阻挡范围。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -1733,11 +1662,11 @@ before <code>child</code>.
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/move.html">move</a></span><span class="signature">(<wbr><span class="parameter" id="move-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span>, {</span><span class="parameter" id="move-param-after"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a>?</span> <span class="parameter-name">after</span></span>})
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Move the given <code>child</code> in the child list to be after another child.
+  将给定的 <code>child</code> 移到子项列表中另一个子项之后。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1746,7 +1675,7 @@ before <code>child</code>.
   <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1759,11 +1688,11 @@ before <code>child</code>.
   <span class="name"><a href="rendering/RenderViewportBase/paint.html">paint</a></span><span class="signature">(<wbr><span class="parameter" id="paint-param-context"><span class="type-annotation"><a href="rendering/PaintingContext-class.html">PaintingContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="paint-param-offset"><span class="type-annotation"><a href="dart-ui/Offset-class.html">Offset</a></span> <span class="parameter-name">offset</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  在给定偏移处将此 render object 绘制到指定上下文中。
+  在给定偏移处将此 渲染对象 绘制到指定上下文中。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1772,11 +1701,11 @@ before <code>child</code>.
   <span class="name"><a href="rendering/RenderViewport/paintOffsetOf.html">paintOffsetOf</a></span><span class="signature">(<wbr><span class="parameter" id="paintOffsetOf-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-ui/Offset-class.html">Offset</a></span>
   </span>
-  
+
 
 </dt>
 <dd>
-  The offset at which the given <code>child</code> should be painted.
+  给定 <code>child</code> 的绘制偏移量。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -1785,11 +1714,11 @@ before <code>child</code>.
   <span class="name"><a href="rendering/RenderObject/paintsChild.html">paintsChild</a></span><span class="signature">(<wbr><span class="parameter" id="paintsChild-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Whether the given child would be painted if <a href="rendering/RenderObject/paint.html">paint</a> were called.
+  如果调用 <a href="rendering/RenderObject/paint.html">paint</a>，给定子项是否会被绘制。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1798,11 +1727,11 @@ before <code>child</code>.
   <span class="name"><a href="rendering/RenderViewport/performLayout.html">performLayout</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd>
-  执行计算此 render object 布局的工作。
+  执行计算此 渲染对象 布局的工作。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -1811,11 +1740,11 @@ before <code>child</code>.
   <span class="name"><a href="rendering/RenderBox/performResize.html">performResize</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  仅根据约束更新 render object 的尺寸。
+  仅根据约束更新 渲染对象 的尺寸。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1824,14 +1753,11 @@ before <code>child</code>.
   <span class="name"><a href="rendering/RenderObject/reassemble.html">reassemble</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Cause the entire subtree rooted at the given <a href="rendering/RenderObject-class.html">RenderObject</a> to be marked
-dirty for layout, paint, etc, so that the effects of a hot reload can be
-seen, or so that the effect of changing a global debug flag (such as
-<a href="rendering/debugPaintSizeEnabled.html">debugPaintSizeEnabled</a>) can be applied.
+  将以给定 <a href="rendering/RenderObject-class.html">RenderObject</a> 为根的整个子树标记为布局、绘制等状态为脏，以便显示热重载的效果，或应用更改全局调试标志（例如 <a href="rendering/debugPaintSizeEnabled.html">debugPaintSizeEnabled</a>）的效果。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1840,11 +1766,11 @@ seen, or so that the effect of changing a global debug flag (such as
   <span class="name"><a href="rendering/RenderObject/redepthChild.html">redepthChild</a></span><span class="signature">(<wbr><span class="parameter" id="redepthChild-param-child"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  将给定 <code>child</code> 的 <a href="rendering/RenderObject/depth.html">depth</a> 调整为大于此节点自身的 <a href="rendering/RenderObject/depth.html">depth</a>。
+  调整给定 <a href="rendering/RenderObject/depth.html">depth</a> 的 <code>child</code>，使其深度大于此节点自身的 <a href="rendering/RenderObject/depth.html">depth</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1853,7 +1779,7 @@ seen, or so that the effect of changing a global debug flag (such as
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/redepthChildren.html">redepthChildren</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1866,7 +1792,7 @@ seen, or so that the effect of changing a global debug flag (such as
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/remove.html">remove</a></span><span class="signature">(<wbr><span class="parameter" id="remove-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1879,11 +1805,11 @@ seen, or so that the effect of changing a global debug flag (such as
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/removeAll.html">removeAll</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  从此 render object 的子项列表中移除其所有子项。
+  从此 渲染对象 的子项列表中移除其所有子项。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1892,13 +1818,11 @@ seen, or so that the effect of changing a global debug flag (such as
   <span class="name"><a href="rendering/RenderObject/replaceRootLayer.html">replaceRootLayer</a></span><span class="signature">(<wbr><span class="parameter" id="replaceRootLayer-param-rootLayer"><span class="type-annotation"><a href="rendering/OffsetLayer-class.html">OffsetLayer</a></span> <span class="parameter-name">rootLayer</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Replace the layer. This is only valid for the root of a render
-object subtree (whatever object <a href="rendering/RenderObject/scheduleInitialPaint.html">scheduleInitialPaint</a> was
-called on).
+  替换该层。此操作仅对 渲染对象 子树的根有效（即调用 <a href="rendering/RenderObject/scheduleInitialPaint.html">scheduleInitialPaint</a> 的对象）。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1907,7 +1831,7 @@ called on).
   <span class="name"><a href="rendering/RenderObject/scheduleInitialLayout.html">scheduleInitialLayout</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1920,7 +1844,7 @@ called on).
   <span class="name"><a href="rendering/RenderObject/scheduleInitialPaint.html">scheduleInitialPaint</a></span><span class="signature">(<wbr><span class="parameter" id="scheduleInitialPaint-param-rootLayer"><span class="type-annotation"><a href="rendering/ContainerLayer-class.html">ContainerLayer</a></span> <span class="parameter-name">rootLayer</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -1933,12 +1857,11 @@ called on).
   <span class="name"><a href="rendering/RenderObject/scheduleInitialSemantics.html">scheduleInitialSemantics</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Bootstrap the semantics reporting mechanism by marking this node
-as needing a semantics update.
+  将此节点标记为需要语义更新，以启动语义报告机制。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1947,12 +1870,11 @@ as needing a semantics update.
   <span class="name"><a href="rendering/RenderViewport/scrollOffsetOf.html">scrollOffsetOf</a></span><span class="signature">(<wbr><span class="parameter" id="scrollOffsetOf-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="scrollOffsetOf-param-scrollOffsetWithinChild"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">scrollOffsetWithinChild</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/double-class.html">double</a></span>
   </span>
-  
+
 
 </dt>
 <dd>
-  Returns the scroll offset within the viewport for the given
-<code>scrollOffsetWithinChild</code> within the given <code>child</code>.
+  返回给定 <code>scrollOffsetWithinChild</code> 在给定 <code>child</code> 内所对应的视口滚动偏移量。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -1961,11 +1883,11 @@ as needing a semantics update.
   <span class="name"><a href="rendering/RenderObject/sendSemanticsEvent.html">sendSemanticsEvent</a></span><span class="signature">(<wbr><span class="parameter" id="sendSemanticsEvent-param-semanticsEvent"><span class="type-annotation"><a href="semantics/SemanticsEvent-class.html">SemanticsEvent</a></span> <span class="parameter-name">semanticsEvent</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Sends a <a href="semantics/SemanticsEvent-class.html">SemanticsEvent</a> associated with this render object's <a href="semantics/SemanticsNode-class.html">SemanticsNode</a>.
+  发送 <a href="semantics/SemanticsEvent-class.html">SemanticsEvent</a>，该事件与此 渲染对象 的 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 相关联。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1974,7 +1896,7 @@ as needing a semantics update.
   <span class="name"><a href="rendering/RenderViewport/setupParentData.html">setupParentData</a></span><span class="signature">(<wbr><span class="parameter" id="setupParentData-param-child"><span>covariant</span> <span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a></span> <span class="parameter-name">child</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd>
@@ -1987,12 +1909,11 @@ as needing a semantics update.
   <span class="name"><a href="rendering/RenderViewportBase/showOnScreen.html">showOnScreen</a></span><span class="signature">(<wbr>{<span class="parameter" id="showOnScreen-param-descendant"><span class="type-annotation"><a href="rendering/RenderObject-class.html">RenderObject</a>?</span> <span class="parameter-name">descendant</span>, </span><span class="parameter" id="showOnScreen-param-rect"><span class="type-annotation"><a href="dart-ui/Rect-class.html">Rect</a>?</span> <span class="parameter-name">rect</span>, </span><span class="parameter" id="showOnScreen-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span> = <span class="default-value">Duration.zero</span>, </span><span class="parameter" id="showOnScreen-param-curve"><span class="type-annotation"><a href="animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.ease</span></span>})
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  Attempt to make (a portion of) this or a descendant <a href="rendering/RenderObject-class.html">RenderObject</a> visible
-on screen.
+  尝试使此 <a href="rendering/RenderObject-class.html">RenderObject</a> 或其后代的一部分显示在屏幕上。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -2001,7 +1922,7 @@ on screen.
   <span class="name"><a href="foundation/DiagnosticableTreeMixin/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
     <span class="returntype parameter">&#8594; <a href="foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -2014,7 +1935,7 @@ on screen.
   <span class="name"><a href="rendering/RenderObject/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -2027,13 +1948,11 @@ on screen.
   <span class="name"><a href="rendering/RenderObject/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  返回以此节点为根的树结构描述。
-If the prefix argument is provided, then every line in the output
-will be prefixed by that string.
+  将此节点作为调试树的一部分。提供 prefix 参数时，输出中的每一行都会以该字符串为前缀。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -2042,11 +1961,11 @@ will be prefixed by that string.
   <span class="name"><a href="rendering/RenderObject/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
     <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  返回 render object 的单行详细描述。
+  返回 渲染对象 的单行详细描述。
 此描述通常较长。
   <div class="features"><span class="feature">继承</span></div>
 
@@ -2056,7 +1975,7 @@ will be prefixed by that string.
   <span class="name"><a href="rendering/RenderObject/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -2069,12 +1988,11 @@ will be prefixed by that string.
   <span class="name"><a href="rendering/RenderViewport/updateChildLayoutOffset.html">updateChildLayoutOffset</a></span><span class="signature">(<wbr><span class="parameter" id="updateChildLayoutOffset-param-child"><span class="type-annotation"><a href="rendering/RenderSliver-class.html">RenderSliver</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="updateChildLayoutOffset-param-layoutOffset"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">layoutOffset</span>, </span><span class="parameter" id="updateChildLayoutOffset-param-growthDirection"><span class="type-annotation"><a href="rendering/GrowthDirection.html">GrowthDirection</a></span> <span class="parameter-name">growthDirection</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd>
-  Called during <a href="rendering/RenderViewportBase/layoutChildSequence.html">layoutChildSequence</a> to store the layout offset for the
-given child.
+  在 <a href="rendering/RenderViewportBase/layoutChildSequence.html">layoutChildSequence</a> 期间调用，以保存给定子项的布局偏移量。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -2083,11 +2001,11 @@ given child.
   <span class="name"><a href="rendering/RenderObject/updateCompositedLayer.html">updateCompositedLayer</a></span><span class="signature">(<wbr>{<span class="parameter" id="updateCompositedLayer-param-oldLayer"><span>required</span> <span>covariant</span> <span class="type-annotation"><a href="rendering/OffsetLayer-class.html">OffsetLayer</a>?</span> <span class="parameter-name">oldLayer</span></span>})
     <span class="returntype parameter">&#8594; <a href="rendering/OffsetLayer-class.html">OffsetLayer</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  更新此 render object 拥有的合成层。
+  更新此 渲染对象 拥有的合成层。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -2096,11 +2014,11 @@ given child.
   <span class="name"><a href="rendering/RenderViewport/updateOutOfBandData.html">updateOutOfBandData</a></span><span class="signature">(<wbr><span class="parameter" id="updateOutOfBandData-param-growthDirection"><span class="type-annotation"><a href="rendering/GrowthDirection.html">GrowthDirection</a></span> <span class="parameter-name">growthDirection</span>, </span><span class="parameter" id="updateOutOfBandData-param-childLayoutGeometry"><span class="type-annotation"><a href="rendering/SliverGeometry-class.html">SliverGeometry</a></span> <span class="parameter-name">childLayoutGeometry</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd>
-  Called during <a href="rendering/RenderViewportBase/layoutChildSequence.html">layoutChildSequence</a> for each child.
+  在 <a href="rendering/RenderViewportBase/layoutChildSequence.html">layoutChildSequence</a> 期间为每个子项调用。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -2109,11 +2027,11 @@ given child.
   <span class="name"><a href="rendering/ContainerRenderObjectMixin/visitChildren.html">visitChildren</a></span><span class="signature">(<wbr><span class="parameter" id="visitChildren-param-visitor"><span class="type-annotation"><a href="rendering/RenderObjectVisitor.html">RenderObjectVisitor</a></span> <span class="parameter-name">visitor</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
-  对该 render object 的每个直接子项调用 visitor。
+  对该 渲染对象 的每个直接子项调用 visitor。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -2122,7 +2040,7 @@ given child.
   <span class="name"><a href="rendering/RenderViewportBase/visitChildrenForSemantics.html">visitChildrenForSemantics</a></span><span class="signature">(<wbr><span class="parameter" id="visitChildrenForSemantics-param-visitor"><span class="type-annotation"><a href="rendering/RenderObjectVisitor.html">RenderObjectVisitor</a></span> <span class="parameter-name">visitor</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -2133,7 +2051,7 @@ given child.
 
     </dl>
   </section>
-    
+
   <section
       class="summary offset-anchor inherited"
       id="operators">
@@ -2143,7 +2061,7 @@ given child.
   <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -2154,9 +2072,9 @@ given child.
 
     </dl>
   </section>
-    
-    
-    
+
+
+
 
   <section class="summary offset-anchor" id="constants">
     <h2>常量</h2>
@@ -2164,32 +2082,22 @@ given child.
         <dt id="excludeFromScrolling" class="constant">
     <span class="name "><a href="rendering/RenderViewport/excludeFromScrolling-constant.html">excludeFromScrolling</a></span>
   <span class="signature">&#8594; const <a href="semantics/SemanticsTag-class.html">SemanticsTag</a></span>
-  
+
 
 </dt>
 <dd>
-  When a top-level <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> below a <a href="rendering/RenderAbstractViewport-class.html">RenderAbstractViewport</a> is
-tagged with <a href="rendering/RenderViewport/excludeFromScrolling-constant.html">excludeFromScrolling</a> it will not be part of the scrolling
-area for semantic purposes.
-  
-
-</dd>
+  当 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 的顶层节点位于 <a href="rendering/RenderAbstractViewport-class.html">RenderAbstractViewport</a> 下方，且带有 <a href="rendering/RenderViewport/excludeFromScrolling-constant.html">excludeFromScrolling</a> 标记时，为语义处理目的，该节点不会属于滚动区域。
+  </dd>
 
         <dt id="useTwoPaneSemantics" class="constant">
     <span class="name "><a href="rendering/RenderViewport/useTwoPaneSemantics-constant.html">useTwoPaneSemantics</a></span>
   <span class="signature">&#8594; const <a href="semantics/SemanticsTag-class.html">SemanticsTag</a></span>
-  
+
 
 </dt>
 <dd>
-  If a <a href="rendering/RenderAbstractViewport-class.html">RenderAbstractViewport</a> overrides
-<a href="rendering/RenderObject/describeSemanticsConfiguration.html">RenderObject.describeSemanticsConfiguration</a> to add the <a href="semantics/SemanticsTag-class.html">SemanticsTag</a>
-<a href="rendering/RenderViewport/useTwoPaneSemantics-constant.html">useTwoPaneSemantics</a> to its <a href="semantics/SemanticsConfiguration-class.html">SemanticsConfiguration</a>, two semantics nodes
-will be used to represent the viewport with its associated scrolling
-actions in the semantics tree.
-  
-
-</dd>
+  如果 <a href="rendering/RenderAbstractViewport-class.html">RenderAbstractViewport</a> 覆盖 <a href="rendering/RenderObject/describeSemanticsConfiguration.html">RenderObject.describeSemanticsConfiguration</a>，并将 <a href="semantics/SemanticsTag-class.html">SemanticsTag</a> <a href="rendering/RenderViewport/useTwoPaneSemantics-constant.html">useTwoPaneSemantics</a> 添加到其 <a href="semantics/SemanticsConfiguration-class.html">SemanticsConfiguration</a>，则语义树会用两个语义节点表示该视口及其相关滚动操作。
+  </dd>
 
     </dl>
   </section>

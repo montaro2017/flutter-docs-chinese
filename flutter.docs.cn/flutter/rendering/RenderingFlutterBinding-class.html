@@ -93,17 +93,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>供直接使用 Rendering 框架的应用使用的具体 binding。它负责将框架与 Flutter 引擎连接起来。</p>
-<p>直接使用 rendering 框架时，必须使用此 binding，或使用实现相同接口的 binding。以下 mixin 用于实现此 binding：</p>
+  <p>供直接使用渲染框架的应用使用的具体绑定实现。这是将框架与 Flutter 引擎连接起来的桥梁。</p>
+<p>直接使用渲染框架时，必须使用此绑定，或使用实现相同接口的绑定。以下混入用于实现此绑定：</p>
 <ul>
-<li><a href="gestures/GestureBinding-mixin.html">GestureBinding</a>, which implements the basics of hit testing.</li>
-<li><a href="scheduler/SchedulerBinding-mixin.html">SchedulerBinding</a>, which introduces the concepts of frames.</li>
-<li><a href="services/ServicesBinding-mixin.html">ServicesBinding</a>, which provides access to the plugin subsystem.</li>
-<li><a href="semantics/SemanticsBinding-mixin.html">SemanticsBinding</a>, which supports accessibility.</li>
-<li><a href="painting/PaintingBinding-mixin.html">PaintingBinding</a>, which enables decoding images.</li>
-<li><a href="rendering/RendererBinding-mixin.html">RendererBinding</a>, which handles the render tree.</li>
+<li><a href="gestures/GestureBinding-mixin.html">GestureBinding</a>，实现命中测试的基本功能。</li>
+<li><a href="scheduler/SchedulerBinding-mixin.html">SchedulerBinding</a>，引入帧的概念。</li>
+<li><a href="services/ServicesBinding-mixin.html">ServicesBinding</a>，提供对插件子系统的访问。</li>
+<li><a href="semantics/SemanticsBinding-mixin.html">SemanticsBinding</a>，支持无障碍功能。</li>
+<li><a href="painting/PaintingBinding-mixin.html">PaintingBinding</a>，支持解码图像。</li>
+<li><a href="rendering/RendererBinding-mixin.html">RendererBinding</a>，负责处理渲染树。</li>
 </ul>
-<p>只有直接编写 rendering 层代码时才需要使用此 binding。如果编写的是更高层的库，例如 Flutter Widgets 库，则应使用该层的 binding（参见 <a href="widgets/WidgetsFlutterBinding-class.html">WidgetsFlutterBinding</a>）。</p>
+<p>只有直接编写渲染层代码时才需要使用此绑定。若编写更高层的库，例如 Flutter Widgets 库，则应使用该层的绑定（参见 <a href="widgets/WidgetsFlutterBinding-class.html">WidgetsFlutterBinding</a>）。</p>
 <p><a href="rendering/RenderingFlutterBinding-class.html">RenderingFlutterBinding</a> 可以管理多个渲染树。每棵渲染树都以一个 <a href="rendering/RenderView-class.html">RenderView</a> 为根；必须通过 <a href="rendering/RendererBinding/addRenderView.html">addRenderView</a> 将其添加到 binding，才能在生成帧、命中测试等过程中纳入考虑。此外，渲染树必须由一个 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 管理，并且该 PipelineOwner 必须属于以 <a href="rendering/RendererBinding/rootPipelineOwner.html">rootPipelineOwner</a> 为根的 PipelineOwner 树。</p>
 <p>按照上述方式将 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 和 <a href="rendering/RenderView-class.html">RenderView</a> 添加到此 binding，是更高层抽象的职责。此 binding 本身不直接拥有任何 <a href="rendering/RenderView-class.html">RenderView</a>。</p>
 </section>
@@ -168,7 +168,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  The currently active set of <a href="dart-ui/AccessibilityFeatures-class.html">ui.AccessibilityFeatures</a>.
+  当前启用的 <a href="dart-ui/AccessibilityFeatures-class.html">ui.AccessibilityFeatures</a> 集合。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -180,7 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  Listenable that notifies when the accessibility focus on the system have changed.
+  用于在系统的无障碍焦点发生变化时发出通知的 Listenable。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -192,9 +192,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  The low level buffering and dispatch mechanism for messages sent by
-plugins on the engine side to their corresponding plugin code on
-the framework side.
+  用于低层缓冲和分发消息的机制：消息由引擎端插件发送到框架端对应的插件代码。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -206,7 +204,7 @@ the framework side.
 
 </dt>
 <dd class="inherited">
-  The time stamp for the frame currently being processed.
+  当前正在处理帧的时间戳。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -218,9 +216,7 @@ the framework side.
 
 </dt>
 <dd class="inherited">
-  The raw time stamp as provided by the engine to
-<a href="dart-ui/PlatformDispatcher/onBeginFrame.html">dart:ui.PlatformDispatcher.onBeginFrame</a> for the frame currently being
-processed.
+  引擎为当前正在处理的帧提供的原始时间戳，来自 <a href="dart-ui/PlatformDispatcher/onBeginFrame.html">dart:ui.PlatformDispatcher.onBeginFrame</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -232,7 +228,7 @@ processed.
 
 </dt>
 <dd class="inherited">
-  The number of clients registered to listen for semantics.
+  已注册监听语义信息的客户端数量。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -244,7 +240,7 @@ processed.
 
 </dt>
 <dd class="inherited">
-  Overrides the sampling clock for debugging and testing.
+  替换采样时钟，用于调试和测试。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -256,7 +252,7 @@ processed.
 
 </dt>
 <dd class="inherited">
-  The default instance of <a href="services/BinaryMessenger-class.html">BinaryMessenger</a>.
+  默认的 <a href="services/BinaryMessenger-class.html">BinaryMessenger</a> 实例。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -268,7 +264,7 @@ processed.
 
 </dt>
 <dd class="inherited">
-  The platform is requesting that animations be disabled or simplified.
+  平台是否请求禁用动画或简化动画。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -280,7 +276,7 @@ processed.
 
 </dt>
 <dd class="inherited">
-  Returns a Future that completes after the frame completes.
+  返回一个在当前帧结束后完成的 Future。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -292,7 +288,7 @@ processed.
 
 </dt>
 <dd class="inherited">
-  Whether frames are currently being scheduled when <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> is called.
+  调用 <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> 时，当前是否正在安排帧。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -304,8 +300,7 @@ processed.
 
 </dt>
 <dd class="inherited">
-  The gesture arenas used for disambiguating the meaning of sequences of
-pointer events.
+  用于判定一系列指针事件含义的手势竞技场。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -329,7 +324,7 @@ pointer events.
 
 </dt>
 <dd class="inherited">
-  Whether this scheduler has requested that <a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a> be called soon.
+  此调度器是否已请求尽快调用 <a href="scheduler/SchedulerBinding/handleBeginFrame.html">handleBeginFrame</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -341,7 +336,7 @@ pointer events.
 
 </dt>
 <dd class="inherited">
-  The singleton that implements the Flutter framework's image cache.
+  实现 Flutter 框架图像缓存的单例。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -353,8 +348,7 @@ pointer events.
 
 </dt>
 <dd class="inherited">
-  The global singleton instance of <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a>, which can be used to
-query keyboard states.
+  用于查询键盘状态的 <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 全局单例。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -366,8 +360,7 @@ query keyboard states.
 
 </dt>
 <dd class="inherited">
-  The global singleton instance of <a class="deprecated" href="services/KeyEventManager-class.html">KeyEventManager</a>, which is used
-internally to dispatch key messages.
+  用于在内部分发按键消息的 <a class="deprecated" href="services/KeyEventManager-class.html">KeyEventManager</a> 全局单例。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -379,8 +372,7 @@ internally to dispatch key messages.
 
 </dt>
 <dd class="inherited">
-  Whether the application is visible, and if so, whether it is currently
-interactive.
+  应用是否可见；如果可见，当前是否可交互。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -392,7 +384,7 @@ interactive.
 
 </dt>
 <dd class="inherited">
-  Whether <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> is currently locking events.
+  当前是否正由 <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> 锁定事件。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -404,8 +396,7 @@ interactive.
 
 </dt>
 <dd class="inherited">
-  The object that manages state about currently connected mice, for hover
-notification.
+  管理当前已连接鼠标状态并提供悬停通知的对象。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -417,7 +408,7 @@ notification.
 
 </dt>
 <dd class="inherited">
-  Deprecated. Will be removed in a future version of Flutter.
+  已弃用，将在 Flutter 的未来版本中移除。
   <div class="features"><span class="feature">late</span><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -429,7 +420,7 @@ notification.
 
 </dt>
 <dd class="inherited">
-  The <a href="dart-ui/PlatformDispatcher-class.html">ui.PlatformDispatcher</a> to which this binding is bound.
+  本绑定所关联的 <a href="dart-ui/PlatformDispatcher-class.html">ui.PlatformDispatcher</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -441,7 +432,7 @@ notification.
 
 </dt>
 <dd class="inherited">
-  A router that routes all pointer events received from the engine.
+  用于路由引擎接收的所有指针事件的路由器。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -453,8 +444,7 @@ notification.
 
 </dt>
 <dd class="inherited">
-  The resolver used for determining which widget handles a
-<a href="gestures/PointerSignalEvent-class.html">PointerSignalEvent</a>.
+  用于确定哪个组件处理 <a href="gestures/PointerSignalEvent-class.html">PointerSignalEvent</a> 的解析器。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -466,7 +456,7 @@ notification.
 
 </dt>
 <dd class="inherited">
-  Deprecated. Will be removed in a future version of Flutter.
+  已弃用，将在 Flutter 的未来版本中移除。
   <div class="features"><span class="feature">late</span><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -478,7 +468,7 @@ notification.
 
 </dt>
 <dd class="inherited">
-  The <a href="rendering/RenderView-class.html">RenderView</a>s managed by this binding.
+  此绑定管理的 <a href="rendering/RenderView-class.html">RenderView</a> 对象。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -490,8 +480,7 @@ notification.
 
 </dt>
 <dd class="inherited">
-  Enable pointer event resampling for touch devices by setting
-this to true.
+  设为 true 可为触摸设备启用指针事件重采样。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -503,8 +492,7 @@ this to true.
 
 </dt>
 <dd class="inherited">
-  The <a href="services/RestorationManager-class.html">RestorationManager</a> synchronizes the restoration data between
-engine and framework.
+  在引擎与框架之间同步状态恢复数据的 <a href="services/RestorationManager-class.html">RestorationManager</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -516,7 +504,7 @@ engine and framework.
 
 </dt>
 <dd class="inherited">
-  The <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> that is the root of the PipelineOwner tree.
+  管线所有者树根部的 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -540,8 +528,7 @@ engine and framework.
 
 </dt>
 <dd class="inherited">
-  Provides access to the current <a href="dart-core/DateTime-class.html">DateTime</a> 和 <code>StopWatch</code> objects for
-sampling.
+  提供用于采样的当前 <a href="dart-core/DateTime-class.html">DateTime</a> 和 <code>StopWatch</code> 对象。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -553,10 +540,7 @@ sampling.
 
 </dt>
 <dd class="inherited">
-  Offset relative to current frame time that should be used for
-resampling. The <a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a> is expected to be negative.
-Non-negative <a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a> is allowed but will effectively
-disable resampling.
+  重采样时使用的相对于当前帧的偏移量。<a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a> 应为负数。非负的 <a href="gestures/GestureBinding/samplingOffset.html">samplingOffset</a> 也被允许，但这实际上会禁用重采样。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -568,7 +552,7 @@ disable resampling.
 
 </dt>
 <dd class="inherited">
-  The phase that the scheduler is currently operating under.
+  调度器当前所处的阶段。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -580,7 +564,7 @@ disable resampling.
 
 </dt>
 <dd class="inherited">
-  The strategy to use when deciding whether to run a task or not.
+  用于决定是否运行任务的策略。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -592,7 +576,7 @@ disable resampling.
 
 </dt>
 <dd class="inherited">
-  Whether semantics information must be collected.
+  是否必须收集语义信息。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -604,7 +588,7 @@ disable resampling.
 
 </dt>
 <dd class="inherited">
-  Whether frames produced by <a href="rendering/RendererBinding/drawFrame.html">drawFrame</a> are sent to the engine.
+  是否将 <a href="rendering/RendererBinding/drawFrame.html">drawFrame</a> 生成的帧发送到引擎。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -616,8 +600,7 @@ disable resampling.
 
 </dt>
 <dd class="inherited">
-  Listenable that notifies when the available fonts on the system have
-changed.
+  系统可用字体发生变化时发出通知的 Listenable。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -629,7 +612,7 @@ changed.
 
 </dt>
 <dd class="inherited">
-  The current number of transient frame callbacks scheduled.
+  当前已安排的临时帧回调数量。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -641,7 +624,7 @@ changed.
 
 </dt>
 <dd class="inherited">
-  Deprecated; will be removed in a future version of Flutter.
+  已弃用。将在 Flutter 的未来版本中移除。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -663,7 +646,7 @@ changed.
 
 </dt>
 <dd class="inherited">
-  Adds a persistent frame callback.
+  添加一个持久帧回调。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -676,7 +659,7 @@ changed.
 
 </dt>
 <dd class="inherited">
-  Schedule a callback for the end of this frame.
+  安排在当前帧结束时执行回调。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -689,7 +672,7 @@ changed.
 
 </dt>
 <dd class="inherited">
-  Adds a <a href="rendering/RenderView-class.html">RenderView</a> to this binding.
+  向此绑定添加一个 <a href="rendering/RenderView-class.html">RenderView</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -702,7 +685,7 @@ changed.
 
 </dt>
 <dd class="inherited">
-  Adds a listener that is called for every <a href="dart-ui/SemanticsActionEvent-class.html">ui.SemanticsActionEvent</a> received.
+  添加一个监听器；每当收到 <a href="dart-ui/SemanticsActionEvent-class.html">ui.SemanticsActionEvent</a> 时，就会调用该监听器。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -715,7 +698,7 @@ changed.
 
 </dt>
 <dd class="inherited">
-  Adds a <code>listener</code> to be called when <a href="semantics/SemanticsBinding/semanticsEnabled.html">semanticsEnabled</a> changes.
+  添加 <code>listener</code>，以便在 <a href="semantics/SemanticsBinding/semanticsEnabled.html">semanticsEnabled</a> 发生变化时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -728,8 +711,7 @@ changed.
 
 </dt>
 <dd class="inherited">
-  Add a <a href="dart-ui/TimingsCallback.html">TimingsCallback</a> that receives <a href="dart-ui/FrameTiming-class.html">FrameTiming</a> sent from
-the engine.
+  添加一个 <a href="dart-ui/TimingsCallback.html">TimingsCallback</a>，用于接收引擎发送的 <a href="dart-ui/FrameTiming-class.html">FrameTiming</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -742,8 +724,7 @@ the engine.
 
 </dt>
 <dd class="inherited">
-  Called after <a href="rendering/RendererBinding/deferFirstFrame.html">deferFirstFrame</a> to tell the framework that it is ok to
-send the first frame to the engine now.
+  在调用 <a href="rendering/RendererBinding/deferFirstFrame.html">deferFirstFrame</a> 后调用此方法，通知框架现在可以向引擎发送首帧。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -756,7 +737,7 @@ send the first frame to the engine now.
 
 </dt>
 <dd class="inherited">
-  Cancels the transient frame callback with the given <code>id</code>.
+  取消标识为 <code>id</code> 的临时帧回调。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -769,7 +750,7 @@ send the first frame to the engine now.
 
 </dt>
 <dd class="inherited">
-  Dispatch a <a href="gestures/PointerCancelEvent-class.html">PointerCancelEvent</a> for the given pointer soon.
+  尽快为给定指针分发一个 <a href="gestures/PointerCancelEvent-class.html">PointerCancelEvent</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -782,8 +763,7 @@ send the first frame to the engine now.
 
 </dt>
 <dd class="inherited">
-  Creates a default <a href="services/BinaryMessenger-class.html">BinaryMessenger</a> instance that can be used for sending
-platform messages.
+  创建默认的 <a href="services/BinaryMessenger-class.html">BinaryMessenger</a> 实例，用于发送平台消息。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -796,7 +776,7 @@ platform messages.
 
 </dt>
 <dd class="inherited">
-  Create a <a href="dart-ui/Canvas-class.html">Canvas</a> from a <a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a>.
+  创建一个 <a href="dart-ui/Canvas-class.html">Canvas</a>，并使用 <a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a> 记录绘制操作。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -809,7 +789,7 @@ platform messages.
 
 </dt>
 <dd class="inherited">
-  Creates the <a href="painting/ImageCache-class.html">ImageCache</a> singleton (accessible via <a href="painting/PaintingBinding/imageCache.html">imageCache</a>).
+  创建 <a href="painting/ImageCache-class.html">ImageCache</a> 单例，可通过 <a href="painting/PaintingBinding/imageCache.html">imageCache</a> 访问。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -822,7 +802,7 @@ platform messages.
 
 </dt>
 <dd class="inherited">
-  Create a <a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a>.
+  创建 <a href="dart-ui/PictureRecorder-class.html">PictureRecorder</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -835,8 +815,7 @@ platform messages.
 
 </dt>
 <dd class="inherited">
-  Creates the <a href="services/RestorationManager-class.html">RestorationManager</a> instance available via
-<a href="services/ServicesBinding/restorationManager.html">restorationManager</a>.
+  创建 <a href="services/RestorationManager-class.html">RestorationManager</a> 实例，可通过 <a href="services/ServicesBinding/restorationManager.html">restorationManager</a> 获取。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -849,8 +828,7 @@ platform messages.
 
 </dt>
 <dd class="inherited">
-  Creates the <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> that serves as the root of the pipeline owner
-tree (<a href="rendering/RendererBinding/rootPipelineOwner.html">rootPipelineOwner</a>).
+  创建作为管线所有者树根节点的 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>（<a href="rendering/RendererBinding/rootPipelineOwner.html">rootPipelineOwner</a>）。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -863,7 +841,7 @@ tree (<a href="rendering/RendererBinding/rootPipelineOwner.html">rootPipelineOwn
 
 </dt>
 <dd class="inherited">
-  Create a <a href="dart-ui/SceneBuilder-class.html">SceneBuilder</a>.
+  创建 <a href="dart-ui/SceneBuilder-class.html">SceneBuilder</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -876,7 +854,7 @@ tree (<a href="rendering/RendererBinding/rootPipelineOwner.html">rootPipelineOwn
 
 </dt>
 <dd class="inherited">
-  Creates an empty semantics update builder.
+  创建一个空的语义更新构建器。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -889,8 +867,7 @@ tree (<a href="rendering/RendererBinding/rootPipelineOwner.html">rootPipelineOwn
 
 </dt>
 <dd class="inherited">
-  Returns a <a href="rendering/ViewConfiguration-class.html">ViewConfiguration</a> configured for the provided <a href="rendering/RenderView-class.html">RenderView</a>
-based on the current environment.
+  根据当前环境，创建 <a href="rendering/ViewConfiguration-class.html">ViewConfiguration</a>，为指定的 <a href="rendering/RenderView-class.html">RenderView</a> 提供配置。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -903,7 +880,7 @@ based on the current environment.
 
 </dt>
 <dd class="inherited">
-  Asserts that there are no pending performance mode requests in debug mode.
+  断言调试模式下没有待处理的性能模式请求。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -916,7 +893,7 @@ based on the current environment.
 
 </dt>
 <dd class="inherited">
-  Asserts that there is no artificial time dilation in debug mode.
+  断言没有人为设置的时间膨胀。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -929,8 +906,7 @@ based on the current environment.
 
 </dt>
 <dd class="inherited">
-  Asserts that there are no registered transient callbacks; if
-there are, prints their locations and throws an exception.
+  断言没有已注册的临时回调；如果存在，则打印其位置并抛出异常。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -943,8 +919,7 @@ there are, prints their locations and throws an exception.
 
 </dt>
 <dd class="inherited">
-  Checks that the current <a href="dart-async/Zone-class.html">Zone</a> is the same as that which was used
-to initialize the binding.
+  检查当前 <a href="dart-async/Zone-class.html">Zone</a> 是否与用于初始化此绑定的区域相同。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -957,8 +932,7 @@ to initialize the binding.
 
 </dt>
 <dd class="inherited">
-  Returns the current <a href="dart-ui/DartPerformanceMode.html">DartPerformanceMode</a> requested or <code>null</code> if no requests have
-been made.
+  返回当前请求的 <a href="dart-ui/DartPerformanceMode.html">DartPerformanceMode</a>；如果没有请求，则返回 <code>null</code>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -971,8 +945,7 @@ been made.
 
 </dt>
 <dd class="inherited">
-  Tell the framework to not send the first frames to the engine until there
-is a corresponding call to <a href="rendering/RendererBinding/allowFirstFrame.html">allowFirstFrame</a>.
+  通知框架暂不向引擎发送首帧，直到对应地调用 <a href="rendering/RendererBinding/allowFirstFrame.html">allowFirstFrame</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -985,7 +958,7 @@ is a corresponding call to <a href="rendering/RendererBinding/allowFirstFrame.ht
 
 </dt>
 <dd class="inherited">
-  Dispatch an event to <a href="rendering/RendererBinding/pointerRouter.html">pointerRouter</a> and the path of a hit test result.
+  将事件分发到 <a href="rendering/RendererBinding/pointerRouter.html">pointerRouter</a> 和命中测试结果中的路径。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -998,7 +971,7 @@ is a corresponding call to <a href="rendering/RendererBinding/allowFirstFrame.ht
 
 </dt>
 <dd class="inherited">
-  Pump the rendering pipeline to generate a frame.
+  推进渲染流水线以生成一帧。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1011,8 +984,7 @@ is a corresponding call to <a href="rendering/RendererBinding/allowFirstFrame.ht
 
 </dt>
 <dd class="inherited">
-  Ensures callbacks for <a href="dart-ui/PlatformDispatcher/onBeginFrame.html">PlatformDispatcher.onBeginFrame</a> 和
-<a href="dart-ui/PlatformDispatcher/onDrawFrame.html">PlatformDispatcher.onDrawFrame</a> are registered.
+  确保已注册 <a href="dart-ui/PlatformDispatcher/onBeginFrame.html">PlatformDispatcher.onBeginFrame</a> 和 <a href="dart-ui/PlatformDispatcher/onDrawFrame.html">PlatformDispatcher.onDrawFrame</a> 回调。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1025,8 +997,7 @@ is a corresponding call to <a href="rendering/RendererBinding/allowFirstFrame.ht
 
 </dt>
 <dd class="inherited">
-  Creates a new <a href="flutter_test/SemanticsHandle-class.html">SemanticsHandle</a> and requests the collection of semantics
-information.
+  创建一个新的 <a href="flutter_test/SemanticsHandle-class.html">SemanticsHandle</a>，并请求收集语义信息。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1039,8 +1010,7 @@ information.
 
 </dt>
 <dd class="inherited">
-  Schedules a new frame using <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> if this object is not
-currently producing a frame.
+  如果此对象当前没有正在生成帧，则使用 <a href="scheduler/SchedulerBinding/scheduleFrame.html">scheduleFrame</a> 安排新帧。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1053,7 +1023,7 @@ currently producing a frame.
 
 </dt>
 <dd class="inherited">
-  Called in response to the <code>ext.flutter.evict</code> service extension.
+  响应 <code>ext.flutter.evict</code> 服务扩展而调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1066,8 +1036,7 @@ currently producing a frame.
 
 </dt>
 <dd class="inherited">
-  Exits the application by calling the native application API method for
-exiting an application cleanly.
+  调用用于正常退出应用的原生应用 API 方法，以退出应用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1080,8 +1049,7 @@ exiting an application cleanly.
 
 </dt>
 <dd class="inherited">
-  Returns the global rect for the semantics node with the given <code>nodeId</code> in
-the view with the given <code>viewId</code>.
+  返回指定视图中语义节点的全局矩形区域：节点标识为 <code>nodeId</code>，视图标识为 <code>viewId</code>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1094,7 +1062,7 @@ the view with the given <code>viewId</code>.
 
 </dt>
 <dd class="inherited">
-  Called when the platform accessibility features change.
+  平台的无障碍功能发生变化时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1107,7 +1075,7 @@ the view with the given <code>viewId</code>.
 
 </dt>
 <dd class="inherited">
-  Called when the application lifecycle state changes.
+  应用生命周期状态发生变化时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1120,7 +1088,7 @@ the view with the given <code>viewId</code>.
 
 </dt>
 <dd class="inherited">
-  Called by the engine to prepare the framework to produce a new frame.
+  由引擎调用，为框架生成新帧做准备。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1133,7 +1101,7 @@ the view with the given <code>viewId</code>.
 
 </dt>
 <dd class="inherited">
-  Called by the engine to produce a new frame.
+  由引擎调用，以生成新帧。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1146,7 +1114,7 @@ the view with the given <code>viewId</code>.
 
 </dt>
 <dd class="inherited">
-  Override this method to receive events.
+  重写此方法以接收事件。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1159,7 +1127,7 @@ the view with the given <code>viewId</code>.
 
 </dt>
 <dd class="inherited">
-  Execute the highest-priority task, if it is of a high enough priority.
+  如果最高优先级任务的优先级足够高，则执行该任务。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1172,8 +1140,7 @@ the view with the given <code>viewId</code>.
 
 </dt>
 <dd class="inherited">
-  Called when the operating system notifies the application of a memory
-pressure situation.
+  操作系统通知应用内存压力情况时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1186,7 +1153,7 @@ pressure situation.
 
 </dt>
 <dd class="inherited">
-  Called when the system metrics change.
+  系统度量信息发生变化时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1199,7 +1166,7 @@ pressure situation.
 
 </dt>
 <dd class="inherited">
-  Called when the platform brightness changes.
+  平台亮度变化时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1212,7 +1179,7 @@ pressure situation.
 
 </dt>
 <dd class="inherited">
-  Dispatch an event to the targets found by a hit test on its position.
+  对命中测试根据事件位置找到的目标分发事件。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1225,8 +1192,7 @@ pressure situation.
 
 </dt>
 <dd class="inherited">
-  Handles any requests for application exit that may be received on the
-<a href="services/SystemChannels/platform-constant.html">SystemChannels.platform</a> method channel.
+  处理通过 <a href="services/SystemChannels/platform-constant.html">SystemChannels.platform</a> 方法通道收到的应用退出请求。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1239,8 +1205,7 @@ pressure situation.
 
 </dt>
 <dd class="inherited">
-  Handler called for messages received on the <a href="services/SystemChannels/system-constant.html">SystemChannels.system</a>
-message channel.
+  处理通过 <a href="services/SystemChannels/system-constant.html">SystemChannels.system</a> 消息通道收到的消息。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1253,7 +1218,7 @@ message channel.
 
 </dt>
 <dd class="inherited">
-  Called when the platform text scale factor changes.
+  平台文本缩放比例发生变化时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1266,8 +1231,7 @@ message channel.
 
 </dt>
 <dd class="inherited">
-  Called whenever the <a href="dart-ui/PlatformDispatcher-class.html">PlatformDispatcher</a> receives a notification that the
-focus state on a view has changed.
+  <a href="dart-ui/PlatformDispatcher-class.html">PlatformDispatcher</a> 收到视图焦点状态变化通知时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1280,7 +1244,7 @@ focus state on a view has changed.
 
 </dt>
 <dd class="inherited">
-  Deprecated. Use <a href="rendering/RendererBinding/hitTestInView.html">hitTestInView</a> instead.
+  已弃用。请改用 <a href="rendering/RendererBinding/hitTestInView.html">hitTestInView</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1293,8 +1257,7 @@ focus state on a view has changed.
 
 </dt>
 <dd class="inherited">
-  Determine which <a href="gestures/HitTestTarget-class.html">HitTestTarget</a> objects are located at a given position in
-the specified view.
+  确定指定视图中给定位置上的 <a href="gestures/HitTestTarget-class.html">HitTestTarget</a> 对象。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1307,9 +1270,7 @@ the specified view.
 
 </dt>
 <dd class="inherited">
-  Alert the engine that the binding is registered. This instructs the engine to
-register its top level window handler on Windows. This signals that the app
-is able to process "System.requestAppExit" signals from the engine.
+  通知引擎绑定已注册。引擎随后会在 Windows 上注册顶层窗口处理器，表示应用可以处理引擎发来的“System.requestAppExit”信号。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1322,7 +1283,7 @@ is able to process "System.requestAppExit" signals from the engine.
 
 </dt>
 <dd class="inherited">
-  The initialization method.
+  初始化方法。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1335,7 +1296,7 @@ is able to process "System.requestAppExit" signals from the engine.
 
 </dt>
 <dd class="inherited">
-  Adds relevant licenses to the <a href="foundation/LicenseRegistry-class.html">LicenseRegistry</a>.
+  向 <a href="foundation/LicenseRegistry-class.html">LicenseRegistry</a> 添加相关许可证。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1348,8 +1309,7 @@ is able to process "System.requestAppExit" signals from the engine.
 
 </dt>
 <dd class="inherited">
-  创建一个 <a href="rendering/MouseTracker-class.html">MouseTracker</a> which manages state about currently connected
-mice, for hover notification.
+  创建一个 <a href="rendering/MouseTracker-class.html">MouseTracker</a>，用于管理当前已连接鼠标的状态并提供悬停通知。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1362,8 +1322,7 @@ mice, for hover notification.
 
 </dt>
 <dd class="inherited">
-  Called when the binding is initialized, to register service
-extensions.
+  绑定初始化时调用，用于注册服务扩展。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1376,7 +1335,7 @@ extensions.
 
 </dt>
 <dd class="inherited">
-  Calls through to <a href="dart-ui/instantiateImageCodecFromBuffer.html">dart:ui.instantiateImageCodecFromBuffer</a> from <a href="painting/ImageCache-class.html">ImageCache</a>.
+  将调用转发至 <a href="dart-ui/instantiateImageCodecFromBuffer.html">dart:ui.instantiateImageCodecFromBuffer</a>，并通过 <a href="painting/ImageCache-class.html">ImageCache</a> 使用该方法。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1389,7 +1348,7 @@ extensions.
 
 </dt>
 <dd class="inherited">
-  Calls through to <a href="dart-ui/instantiateImageCodecWithSize.html">dart:ui.instantiateImageCodecWithSize</a> from <a href="painting/ImageCache-class.html">ImageCache</a>.
+  将调用转发至 <a href="dart-ui/instantiateImageCodecWithSize.html">dart:ui.instantiateImageCodecWithSize</a>，并通过 <a href="painting/ImageCache-class.html">ImageCache</a> 使用该方法。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1402,8 +1361,7 @@ extensions.
 
 </dt>
 <dd class="inherited">
-  Locks the dispatching of asynchronous events and callbacks until the
-callback's future completes.
+  锁定异步事件和回调的分发，直到回调返回的 Future 完成。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1429,8 +1387,7 @@ callback's future completes.
 
 </dt>
 <dd class="inherited">
-  This method is called by <a href="foundation/BindingBase/reassembleApplication.html">reassembleApplication</a> to actually cause the
-application to reassemble, e.g. after a hot reload.
+  调用 <a href="foundation/BindingBase/reassembleApplication.html">reassembleApplication</a> 时，会实际触发应用重新组装，例如在热重载之后。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1443,8 +1400,7 @@ application to reassemble, e.g. after a hot reload.
 
 </dt>
 <dd class="inherited">
-  Called whenever the platform requests an action to be performed on a
-<a href="semantics/SemanticsNode-class.html">SemanticsNode</a>.
+  平台请求对 <a href="semantics/SemanticsNode-class.html">SemanticsNode</a> 执行操作时调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1457,9 +1413,7 @@ application to reassemble, e.g. after a hot reload.
 
 </dt>
 <dd class="inherited">
-  All events dispatched by a <a href="foundation/BindingBase-class.html">BindingBase</a> use this method instead of
-calling <a href="dart-developer/postEvent.html">developer.postEvent</a> directly so that tests for <a href="foundation/BindingBase-class.html">BindingBase</a>
-can track which events were dispatched by overriding this method.
+  由 <a href="foundation/BindingBase-class.html">BindingBase</a> 分发的所有事件都使用此方法，而不是直接调用 <a href="dart-developer/postEvent.html">developer.postEvent</a>。这样，测试 <a href="foundation/BindingBase-class.html">BindingBase</a> 时可以通过重写此方法跟踪分发的事件。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1472,8 +1426,7 @@ can track which events were dispatched by overriding this method.
 
 </dt>
 <dd class="inherited">
-  Initializes the <a href="scheduler/SchedulerBinding/lifecycleState.html">lifecycleState</a> with the
-<a href="dart-ui/PlatformDispatcher/initialLifecycleState.html">dart:ui.PlatformDispatcher.initialLifecycleState</a>.
+  将 <a href="scheduler/SchedulerBinding/lifecycleState.html">lifecycleState</a> 初始化为 <a href="dart-ui/PlatformDispatcher/initialLifecycleState.html">dart:ui.PlatformDispatcher.initialLifecycleState</a> 的值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1486,7 +1439,7 @@ can track which events were dispatched by overriding this method.
 
 </dt>
 <dd class="inherited">
-  Cause the entire application to redraw, e.g. after a hot reload.
+  使整个应用重新绘制，例如在热重载后。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1498,14 +1451,10 @@ can track which events were dispatched by overriding this method.
   
 
 </dt>
-<dd class="inherited">
-  Registers a service extension method with the given name (full
-name "ext.flutter.name"), which takes a single argument
-"enabled" which can have the value "true" or the value "false"
-or can be omitted to read the current value. (Any value other
-than "true" is considered equivalent to "false". Other arguments
-are ignored.)
-  <div class="features"><span class="feature">继承</span></div>
+<dd class="inherited">注册一个指定名称（完整名称为“ext.flutter.name”）的服务扩展方法。该方法接受一个名为“enabled”的参数，其值可以是“true”或“false”；也可以省略该参数以读取当前值。任何非“true”的值都视为“false”。其他参数会被忽略。
+
+
+<div class="features"><span class="feature">继承</span></div>
 
 </dd>
 
@@ -1517,11 +1466,7 @@ are ignored.)
 
 </dt>
 <dd class="inherited">
-  Registers a service extension method with the given name (full
-name "ext.flutter.name"), which takes a single argument with the
-same name as the method which, if present, must have a value
-that can be parsed by <a href="dart-core/double/parse.html">double.parse</a>, and can be omitted to read
-the current value. (Other arguments are ignored.)
+  注册名为给定名称（完整名称为“ext.flutter.name”）的服务扩展方法。该方法接收一个与方法同名的参数；如果提供该参数，其值必须能由 <a href="dart-core/double/parse.html">double.parse</a> 解析。省略该参数时读取当前值。（其他参数会被忽略。）
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1534,8 +1479,7 @@ the current value. (Other arguments are ignored.)
 
 </dt>
 <dd class="inherited">
-  Registers a service extension method with the given name (full name
-"ext.flutter.name").
+  注册名为给定名称（完整名称为“ext.flutter.name”）的服务扩展方法。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1548,9 +1492,7 @@ the current value. (Other arguments are ignored.)
 
 </dt>
 <dd class="inherited">
-  Registers a service extension method with the given name (full
-name "ext.flutter.name"), which takes no arguments and returns
-no value.
+  注册名为给定名称（完整名称为“ext.flutter.name”）的服务扩展方法。该方法不接收参数，也不返回值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1563,10 +1505,7 @@ no value.
 
 </dt>
 <dd class="inherited">
-  Registers a service extension method with the given name (full name
-"ext.flutter.name"), which optionally takes a single argument with the
-name "value". If the argument is omitted, the value is to be read,
-otherwise it is to be set. Returns the current value.
+  注册名为给定名称（完整名称为“ext.flutter.name”）的服务扩展方法。该方法可选地接收一个名为“value”的参数。省略该参数时读取当前值，否则设置该值。返回当前值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1579,8 +1518,7 @@ otherwise it is to be set. Returns the current value.
 
 </dt>
 <dd class="inherited">
-  Removes a <a href="rendering/RenderView-class.html">RenderView</a> previously added with <a href="rendering/RendererBinding/addRenderView.html">addRenderView</a> from the
-binding.
+  从此绑定中移除 <a href="rendering/RenderView-class.html">RenderView</a>；该对象先前通过 <a href="rendering/RendererBinding/addRenderView.html">addRenderView</a> 添加。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1593,7 +1531,7 @@ binding.
 
 </dt>
 <dd class="inherited">
-  Removes a listener previously added with <a href="semantics/SemanticsBinding/addSemanticsActionListener.html">addSemanticsActionListener</a>.
+  移除先前通过 <a href="semantics/SemanticsBinding/addSemanticsActionListener.html">addSemanticsActionListener</a> 添加的监听器。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1606,7 +1544,7 @@ binding.
 
 </dt>
 <dd class="inherited">
-  Removes a <code>listener</code> added by <a href="semantics/SemanticsBinding/addSemanticsEnabledListener.html">addSemanticsEnabledListener</a>.
+  移除先前添加的 <code>listener</code>，该监听器是通过 <a href="semantics/SemanticsBinding/addSemanticsEnabledListener.html">addSemanticsEnabledListener</a> 添加的。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1619,7 +1557,7 @@ binding.
 
 </dt>
 <dd class="inherited">
-  Removes a callback that was earlier added by <a href="scheduler/SchedulerBinding/addTimingsCallback.html">addTimingsCallback</a>.
+  移除先前通过 <a href="scheduler/SchedulerBinding/addTimingsCallback.html">addTimingsCallback</a> 添加的回调。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1645,8 +1583,7 @@ binding.
 
 </dt>
 <dd class="inherited">
-  Prepares the scheduler for a non-monotonic change to how time stamps are
-calculated.
+  为时间戳计算方式的非单调变化做好调度器准备。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1659,7 +1596,7 @@ calculated.
 
 </dt>
 <dd class="inherited">
-  Call this to pretend that no frames have been sent to the engine yet.
+  调用此方法，将状态重置为尚未向引擎发送任何帧。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1672,7 +1609,7 @@ calculated.
 
 </dt>
 <dd class="inherited">
-  Reset states of <a href="gestures/GestureBinding-mixin.html">GestureBinding</a>.
+  重置 <a href="gestures/GestureBinding-mixin.html">GestureBinding</a> 的状态。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1685,8 +1622,7 @@ calculated.
 
 </dt>
 <dd class="inherited">
-  Allows the test framework to reset the lifecycle state and framesEnabled
-back to their initial values.
+  允许测试框架将生命周期状态和 framesEnabled 重置为初始值。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1699,8 +1635,7 @@ back to their initial values.
 
 </dt>
 <dd class="inherited">
-  Schedules a new frame by calling
-<a href="dart-ui/PlatformDispatcher/scheduleFrame.html">dart:ui.PlatformDispatcher.scheduleFrame</a>.
+  通过调用 <a href="dart-ui/PlatformDispatcher/scheduleFrame.html">dart:ui.PlatformDispatcher.scheduleFrame</a> 安排新帧。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1713,8 +1648,7 @@ back to their initial values.
 
 </dt>
 <dd class="inherited">
-  If necessary, schedules a new frame by calling
-<a href="dart-ui/PlatformDispatcher/scheduleFrame.html">dart:ui.PlatformDispatcher.scheduleFrame</a>.
+  如有必要，通过调用 <a href="dart-ui/PlatformDispatcher/scheduleFrame.html">dart:ui.PlatformDispatcher.scheduleFrame</a> 安排新帧。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1727,7 +1661,7 @@ back to their initial values.
 
 </dt>
 <dd class="inherited">
-  Schedules the given transient frame callback.
+  安排指定的临时帧回调。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1740,7 +1674,7 @@ back to their initial values.
 
 </dt>
 <dd class="inherited">
-  Schedules the given <code>task</code> with the given <code>priority</code>.
+  调度给定的 <code>task</code>，并使用给定的 <code>priority</code>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1753,8 +1687,7 @@ back to their initial values.
 
 </dt>
 <dd class="inherited">
-  Schedule a frame to run as soon as possible, rather than waiting for
-the engine to request a frame in response to a system "Vsync" signal.
+  尽快安排一帧，而不等待引擎响应系统 “Vsync” 信号来请求帧。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1767,8 +1700,7 @@ the engine to request a frame in response to a system "Vsync" signal.
 
 </dt>
 <dd class="inherited">
-  Sets the callback for the <code>SystemChrome.systemUIChange</code> method call
-received on the <a href="services/SystemChannels/platform-constant.html">SystemChannels.platform</a> channel.
+  设置收到 <code>SystemChrome.systemUIChange</code> 方法调用时使用的回调；该调用通过 <a href="services/SystemChannels/platform-constant.html">SystemChannels.platform</a> 通道传入。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1794,7 +1726,7 @@ received on the <a href="services/SystemChannels/platform-constant.html">SystemC
 
 </dt>
 <dd class="inherited">
-  Called by <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> when events get unlocked.
+  事件解除锁定时，由 <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> 调用。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -1835,10 +1767,7 @@ received on the <a href="services/SystemChannels/platform-constant.html">SystemC
 
 </dt>
 <dd>
-  Returns an instance of the binding that implements
-<a href="rendering/RendererBinding-mixin.html">RendererBinding</a>. If no binding has yet been initialized, the
-<a href="rendering/RenderingFlutterBinding-class.html">RenderingFlutterBinding</a> class is used to create and initialize
-one.
+  返回实现 <a href="rendering/RendererBinding-mixin.html">RendererBinding</a> 的绑定实例。如果尚未初始化任何绑定，则 <a href="rendering/RenderingFlutterBinding-class.html">RenderingFlutterBinding</a> 类会用于创建并初始化一个实例。
   
 
 </dd>

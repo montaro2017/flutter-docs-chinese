@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-below-sidebar="dart-core&#47;Iterable-class-sidebar.html">
     <div>
 <h1><span class="kind-class">Iterable&lt;<wbr><span class="type-parameter">E</span>&gt;</span> 类 
-    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">抽象</a>
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">abstract</a>
     <a href="https://dart.dev/language/mixins" class="feature feature-mixin" title="This class can be used as a class and a mixin.">mixin</a>
  
 </h1></div>
@@ -95,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>可以按顺序访问的一组值或“元素”。</p>
-<p>通过 <a href="dart-core/Iterator-class.html">iterator</a> getter 获取 <a href="dart-core/Iterable/iterator.html">Iterator</a>，即可访问 iterable 的元素，并使用它逐个遍历值。调用 <a href="dart-core/Iterator/moveNext.html">Iterator.moveNext</a> 可让迭代器前进；如果调用返回 <code>true</code>，迭代器就已前进到下一个元素，该元素可通过 <a href="dart-core/Iterator/current.html">Iterator.current</a> 获取。如果返回 <code>false</code>，则没有更多元素。只有最近一次 <a href="dart-core/Iterator/current.html">Iterator.moveNext</a> 调用返回 <code>true</code> 时，才能使用 <a href="dart-core/Iterator/moveNext.html">Iterator.current</a> 的值。首次对迭代器调用 <a href="dart-core/Iterator/moveNext.html">Iterator.moveNext</a> 之前，或调用返回 false 或抛出错误之后，读取 <a href="dart-core/Iterator/current.html">Iterator.current</a> 可能会抛出异常，也可能返回任意值。</p>
+<p>通过获取一个 <a href="dart-core/Iterator-class.html">Iterator</a>，再使用 <a href="dart-core/Iterable/iterator.html">iterator</a> getter 访问可迭代对象的元素，并借此逐步遍历这些值。调用 <a href="dart-core/Iterator/moveNext.html">Iterator.moveNext</a> 可让迭代器前进；若调用返回 <code>true</code>，迭代器便已移动到下一个元素，该元素可通过 <a href="dart-core/Iterator/current.html">Iterator.current</a> 获取。若调用返回 <code>false</code>，则没有更多元素。只有在最近一次读取 <a href="dart-core/Iterator/current.html">Iterator.current</a> 时，<a href="dart-core/Iterator/moveNext.html">Iterator.moveNext</a> 返回 <code>true</code>，才能使用当前值。首次调用迭代器的 <a href="dart-core/Iterator/moveNext.html">Iterator.moveNext</a> 之前，或调用返回 false 或抛出错误之后，读取 <a href="dart-core/Iterator/current.html">Iterator.current</a> 可能抛出异常或返回任意值。</p>
 <p>可以从同一个 <code>Iterable</code> 创建多个迭代器。每次读取 <code>iterator</code> 都会返回一个新迭代器，不同迭代器可以独立前进，并分别访问所有 iterable 元素。同一 iterable 的迭代器<em>应当</em>按相同顺序提供相同值（除非在迭代期间修改了底层集合；某些集合允许这样做）。</p>
 <p>也可以使用 for-in 循环遍历 <code>Iterable</code> 中的元素；该结构在幕后使用 <code>iterator</code> getter。例如，可以遍历 <a href="dart-core/Map-class.html">Map</a> 的所有键，因为 <code>Map</code> 的键是 iterable。</p>
 <pre class="language-dart"><code class="language-dart">var kidsBooks = {'Matilda': 'Roald Dahl',
@@ -107,9 +107,9 @@ for (var book in kidsBooks.keys) {
 </code></pre>
 <p><a href="dart-core/List-class.html">List</a> 和 <a href="dart-core/Set-class.html">Set</a> 类都是 <code>Iterable</code>，<code>dart:collection</code> 库中的大多数类也一样。</p>
 <p>某些 <a href="dart-core/Iterable-class.html">Iterable</a> 集合可以修改。向 <code>List</code> 或 <code>Set</code> 添加元素会改变其中包含的元素；向 <code>Map</code> 添加新键会改变 <a href="dart-core/Map/keys.html">Map.keys</a> 的元素。在修改后创建的迭代器会提供新元素，但可能会也可能不会保留现有元素的顺序（例如，添加单个元素就可能彻底改变 <a href="dart-collection/HashSet-class.html">HashSet</a> 的顺序）。</p>
-<p>通常<em>不允许</em>在迭代期间修改集合。这样做会破坏迭代，通常会在下次调用 <a href="dart-core/ConcurrentModificationError-class.html">Iterator.moveNext</a> 时抛出 <a href="dart-core/Iterator/moveNext.html">ConcurrentModificationError</a>。集合修改不应影响 <a href="dart-core/Iterator/current.html">Iterator.current</a> getter 的当前值，因为 <code>current</code> 值由上一次调用 <a href="dart-core/Iterator/moveNext.html">Iterator.moveNext</a> 时确定。</p>
+<p>在集合被迭代<em>时</em>修改它通常是<em>不</em>允许的。这样会破坏迭代，通常会抛出 <a href="dart-core/ConcurrentModificationError-class.html">ConcurrentModificationError</a>，该错误会在下次调用 <a href="dart-core/Iterator/moveNext.html">Iterator.moveNext</a> 时触发。集合发生变化不应影响 <a href="dart-core/Iterator/current.html">Iterator.current</a> getter 的当前值；<code>current</code> 值是在上一次调用 <a href="dart-core/Iterator/moveNext.html">Iterator.moveNext</a> 时确定的。</p>
 <p>某些 iterable 会在每次迭代时动态计算元素，例如 <a href="dart-core/Iterable/Iterable.generate.html">Iterable.generate</a> 返回的 iterable，或 <code>sync*</code> 生成器函数返回的 iterable。如果计算不依赖可能变化的其他对象，那么每次迭代生成的序列都应相同。</p>
-<p>除了 <code>iterator</code> 本身之外，<code>Iterable</code> 的成员都通过查看 iterable 的元素来工作。它们可以通过遍历 <a href="dart-core/Iterable/iterator.html">iterator</a> 实现，但有些类可能有更高效的方式来查找结果（例如 <a href="dart-core/Iterable/last.html">last</a> 或 <a href="dart-core/Iterable/length.html">length</a> 在 <a href="dart-core/List-class.html">List</a> 上的实现，或 <a href="dart-core/Iterable/contains.html">contains</a> 在 <a href="dart-core/Set-class.html">Set</a> 上的实现）。</p>
+<p><code>Iterable</code> 的成员（除 <code>iterator</code> getter 外）通常通过查看可迭代对象的元素来工作。可以遍历 <a href="dart-core/Iterable/iterator.html">iterator</a> 来实现这些成员，但有些类能更高效地查找结果（例如 <a href="dart-core/Iterable/last.html">last</a> 或 <a href="dart-core/Iterable/length.html">length</a> 在 <a href="dart-core/List-class.html">List</a> 上的实现，或 <a href="dart-core/Iterable/contains.html">contains</a> 在 <a href="dart-core/Set-class.html">Set</a> 上的实现）。</p>
 <p>返回另一个 <code>Iterable</code> 的方法（例如 <a href="dart-core/Iterable/map.html">map</a> 和 <a href="dart-core/Iterable/where.html">where</a>）都是<em>惰性</em>的：每次遍历返回的 iterable 时，它们才会按需遍历原 iterable，在此之前不会遍历。</p>
 <p>由于 iterable 可能会被遍历多次，不建议在迭代器中产生可观察到的副作用。对于 <a href="dart-core/Iterable/map.html">map</a> 和 <a href="dart-core/Iterable/where.html">where</a> 等方法，返回的 iterable 会在每次迭代时执行参数函数，因此这些函数也不应有副作用。</p>
 <p><code>Iterable</code> 声明提供了默认实现，可通过继承或混入它来实现 <code>Iterable</code> 接口。除 <a href="dart-core/Iterable/iterator.html">iterator</a> getter 外，它会使用由 <a href="dart-core/Iterator-class.html">Iterator</a> 通过 <a href="dart-core/Iterable/iterator.html">iterator</a> getter 提供的迭代器实现所有成员。只要可行，<code>Iterable</code> 接口的实现就应为 <code>Iterable</code> 成员提供更高效的实现。</p>
@@ -190,7 +190,7 @@ for (var book in kidsBooks.keys) {
           <span class="name"><a href="dart-core/Iterable/Iterable.empty.html">Iterable.empty</a></span><span class="signature">()</span>
         </dt>
         <dd>
-          Creates an empty iterable.
+          创建一个空的可迭代对象。
             <div class="constructor-modifier features">const</div>
             <div class="constructor-modifier features">factory</div>
         </dd>
@@ -198,14 +198,14 @@ for (var book in kidsBooks.keys) {
           <span class="name"><a href="dart-core/Iterable/Iterable.generate.html">Iterable.generate</a></span><span class="signature">(<span class="parameter" id="generate-param-count"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span>, [</span><span class="parameter" id="generate-param-generator"><span class="type-annotation">E</span> <span class="parameter-name">generator</span>(<span class="parameter" id="generator-param-index"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">index</span></span>)?</span>])</span>
         </dt>
         <dd>
-          创建一个 <code>Iterable</code> which generates its elements dynamically.
+          创建一个 <code>Iterable</code>，动态生成其中的元素。
             <div class="constructor-modifier features">factory</div>
         </dd>
         <dt id="Iterable.withIterator" class="callable">
           <span class="name"><a href="dart-core/Iterable/Iterable.withIterator.html">Iterable.withIterator</a></span><span class="signature">(<span class="parameter" id="withIterator-param-iteratorFactory"><span class="type-annotation"><a href="dart-core/Iterator-class.html">Iterator</a><span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span></span> <span class="parameter-name">iteratorFactory</span>()</span>)</span>
         </dt>
         <dd>
-          创建一个 <a href="dart-core/Iterable-class.html">Iterable</a> from the <a href="dart-core/Iterator-class.html">Iterator</a> factory.
+          创建一个 <a href="dart-core/Iterable-class.html">Iterable</a>，由 <a href="dart-core/Iterator-class.html">Iterator</a> 工厂构造。
             <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>
@@ -222,13 +222,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIntegerExtension.html">IterableIntegerExtension</a> 提供</span>
       </p>
-  The arithmetic mean of the elements of a non-empty iterable.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  非空可迭代对象中各元素的算术平均值。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="average" class="property">
@@ -237,13 +240,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/num-class.html">num</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableNumberExtension.html">IterableNumberExtension</a> 提供</span>
       </p>
-  The arithmetic mean of the elements of a non-empty iterable.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  非空可迭代对象中各元素的算术平均值。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="first" class="property">
@@ -253,7 +259,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  The first element.
+  第一个元素。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -264,13 +270,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The first element, or <code>null</code> if the iterable is empty.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  第一个元素；如果可迭代对象为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="firstOrNull" class="property">
@@ -279,13 +288,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="dart-collection/IterableExtensions.html">IterableExtensions</a> 提供</span>
       </p>
-  The first element of this iterator, or <code>null</code> if the iterable is empty.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此迭代器的第一个元素；如果可迭代对象为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="flattened" class="property">
@@ -294,13 +306,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIterableExtension.html">IterableIterableExtension</a> 提供</span>
       </p>
-  The sequential elements of each iterable in this iterable.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中各可迭代对象的元素按顺序依次排列。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="flattenedToList" class="property">
@@ -309,13 +324,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIterableExtension.html">IterableIterableExtension</a> 提供</span>
       </p>
-  The sequential elements of each iterable in this iterable.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中各可迭代对象的元素按顺序依次排列。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="flattenedToSet" class="property">
@@ -324,13 +342,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIterableExtension.html">IterableIterableExtension</a> 提供</span>
       </p>
-  The unique sequential elements of each iterable in this iterable.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中各可迭代对象的唯一元素，按顺序依次排列。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="hashCode" class="property inherited">
@@ -340,9 +361,12 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd class="inherited">
-  此对象的哈希码。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
+  此对象的哈希码。
+
+
+
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="indexed" class="property">
@@ -351,13 +375,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="dart-collection/IterableExtensions.html">IterableExtensions</a> 提供</span>
       </p>
-  Pairs of elements of the indices and elements of this iterable.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中由索引和元素组成的键值对。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="isEmpty" class="property">
@@ -367,7 +394,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  Whether this collection has no elements.
+  此集合是否为空。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -379,7 +406,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  Whether this collection has at least one element.
+  此集合是否至少包含一个元素。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -391,7 +418,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  A new <code>Iterator</code> that allows iterating the elements of this <code>Iterable</code>.
+  提供一个新的 <code>Iterator</code>，用于遍历此 <code>Iterable</code> 中的元素。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -403,7 +430,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  The last element.
+  最后一个元素。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -414,13 +441,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The last element, or <code>null</code> if the iterable is empty.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  最后一个元素；如果可迭代对象为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="lastOrNull" class="property">
@@ -429,13 +459,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="dart-collection/IterableExtensions.html">IterableExtensions</a> 提供</span>
       </p>
-  The last element of this iterable, or <code>null</code> if the iterable is empty.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象的最后一个元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="length" class="property">
@@ -445,7 +478,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  The number of elements in this <a href="dart-core/Iterable-class.html">Iterable</a>.
+  此 <a href="dart-core/Iterable-class.html">Iterable</a> 中的元素数量。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -456,13 +489,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/num-class.html">num</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableNumberExtension.html">IterableNumberExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最大元素。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最大元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="max" class="property">
@@ -471,13 +507,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableComparableExtension.html">IterableComparableExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最大元素。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最大元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="max" class="property">
@@ -486,13 +525,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableDoubleExtension.html">IterableDoubleExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最大元素。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最大元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="max" class="property">
@@ -501,13 +543,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIntegerExtension.html">IterableIntegerExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最大元素。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最大元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="maxOrNull" class="property">
@@ -516,13 +561,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIntegerExtension.html">IterableIntegerExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最大元素；如果它为空，则返回 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最大元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="maxOrNull" class="property">
@@ -531,13 +579,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableDoubleExtension.html">IterableDoubleExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最大元素；如果它为空，则返回 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最大元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="maxOrNull" class="property">
@@ -546,13 +597,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableComparableExtension.html">IterableComparableExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最大元素；如果它为空，则返回 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最大元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="maxOrNull" class="property">
@@ -561,13 +615,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/num-class.html">num</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableNumberExtension.html">IterableNumberExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最大元素；如果它为空，则返回 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最大元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="min" class="property">
@@ -576,13 +633,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableDoubleExtension.html">IterableDoubleExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最小元素。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最小元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="min" class="property">
@@ -591,13 +651,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableComparableExtension.html">IterableComparableExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最小元素。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最小元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="min" class="property">
@@ -606,13 +669,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIntegerExtension.html">IterableIntegerExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最小元素。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最小元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="min" class="property">
@@ -621,13 +687,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/num-class.html">num</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableNumberExtension.html">IterableNumberExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最小元素。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最小元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="minOrNull" class="property">
@@ -636,13 +705,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableComparableExtension.html">IterableComparableExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最小元素；如果它为空，则返回 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最小元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="minOrNull" class="property">
@@ -651,13 +723,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIntegerExtension.html">IterableIntegerExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最小元素；如果它为空，则返回 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最小元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="minOrNull" class="property">
@@ -666,13 +741,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableDoubleExtension.html">IterableDoubleExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最小元素；如果它为空，则返回 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最小元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="minOrNull" class="property">
@@ -681,13 +759,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/num-class.html">num</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableNumberExtension.html">IterableNumberExtension</a> 提供</span>
       </p>
-  此可迭代对象中的最小元素；如果它为空，则返回 <code>null</code>。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中的最小元素；如果为空则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="nonNulls" class="property">
@@ -696,13 +777,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span>，由扩展 <a href="dart-collection/NullableIterableExtensions.html">NullableIterableExtensions</a> 提供</span>
       </p>
-  The non-<code>null</code> elements of this iterable.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象中所有非 <code>null</code> 元素。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="runtimeType" class="property inherited">
@@ -712,9 +796,12 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd class="inherited">
-  此对象运行时类型的表示。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
+  此对象运行时类型的表示。
+
+
+
+  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="single" class="property">
@@ -724,7 +811,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  Checks that this iterable has only one element, and returns that element.
+  检查此可迭代对象是否仅包含一个元素，并返回该元素。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -735,13 +822,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="dart-collection/IterableExtensions.html">IterableExtensions</a> 提供</span>
       </p>
-  The single element of this iterator, or <code>null</code>.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此迭代器的唯一元素；如果没有则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="singleOrNull" class="property">
@@ -750,13 +840,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The single element of the iterable, or <code>null</code>.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  此可迭代对象的唯一元素；如果没有则返回 <code>null</code>。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="sum" class="property">
@@ -765,13 +858,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/double-class.html">double</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableDoubleExtension.html">IterableDoubleExtension</a> 提供</span>
       </p>
-  所有元素的总和。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  所有元素的总和。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="sum" class="property">
@@ -780,13 +876,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/num-class.html">num</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableNumberExtension.html">IterableNumberExtension</a> 提供</span>
       </p>
-  所有元素的总和。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  所有元素的总和。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="sum" class="property">
@@ -795,13 +894,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableIntegerExtension.html">IterableIntegerExtension</a> 提供</span>
       </p>
-  所有元素的总和。
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  所有元素的总和。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="toJSIterable" class="property">
@@ -810,13 +912,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="dart-js_interop/IterableToJSIterable.html">IterableToJSIterable</a> 提供</span>
       </p>
-  A <a href="dart-js_interop/JSIterable-extension-type.html">JSIterable</a> wrapper that proxies to the Dart iterable API.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  代理 Dart 可迭代对象 API 的 <a href="dart-js_interop/JSIterable-extension-type.html">JSIterable</a> 包装器。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
         <dt id="wait" class="property">
@@ -825,13 +930,16 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span>，由扩展 <a href="dart-async/FutureIterable.html">FutureIterable</a> 提供</span>
       </p>
-  Waits for futures in parallel.
-  <div class="features"><span class="feature">无 setter</span></div>
 
+
+
+  并行等待这些 Future 完成。
+
+
+  <div class="features"><span class="feature">无 setter</span></div>
 </dd>
 
     </dl>
@@ -851,7 +959,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  Checks whether any element of this iterable satisfies <code>test</code>.
+  检查此可迭代对象是否存在满足 <code>test</code> 的元素。
   
 
 </dd>
@@ -863,12 +971,15 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="dart-core/EnumByName.html">EnumByName</a> 提供</span>
       </p>
-  Creates a map from the names of enum values to the values.
-  
+
+
+
+  根据枚举值名称创建从名称到值的映射。
+
+
 
 </dd>
 
@@ -879,12 +990,15 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="dart-core/EnumByName.html">EnumByName</a> 提供</span>
       </p>
-  Finds the enum value in this list with name <code>name</code>.
-  
+
+
+
+  在此列表中查找名称为 <code>name</code> 的枚举值。
+
+
 
 </dd>
 
@@ -922,7 +1036,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  Returns the <code>index</code>th element.
+  返回第 <code>index</code> 个元素。
   
 
 </dd>
@@ -934,12 +1048,11 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="dart-collection/IterableExtensions.html">IterableExtensions</a> 提供</span>
       </p>
-  The element at position <code>index</code> of this iterable, or <code>null</code>.
-  
+
+  此可迭代对象中位于位置 <code>index</code> 的元素；如果不存在则返回 <code>null</code>。
 
 </dd>
 
@@ -950,12 +1063,15 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The <code>index</code>th element, or <code>null</code> if there is no such element.
-  
+
+
+
+  第 <code>index</code> 个元素；如果不存在则返回 <code>null</code>。
+
+
 
 </dd>
 
@@ -967,7 +1083,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  Checks whether every element of this iterable satisfies <code>test</code>.
+  检查此可迭代对象的每个元素是否都满足 <code>test</code>。
   
 
 </dd>
@@ -980,7 +1096,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  Expands each element of this <a href="dart-core/Iterable-class.html">Iterable</a> into zero or more elements.
+  将此 <a href="dart-core/Iterable-class.html">Iterable</a> 中的每个元素展开为零个或多个元素。
   
 
 </dd>
@@ -992,12 +1108,15 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Expands each element and index to a number of elements in a new iterable.
-  
+
+
+
+  将每个元素和索引展开为新可迭代对象中的多个元素。
+
+
 
 </dd>
 
@@ -1009,7 +1128,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  The first element that satisfies the given predicate <code>test</code>.
+  第一个满足给定谓词 <code>test</code> 的元素。
   
 
 </dd>
@@ -1021,12 +1140,15 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The first element whose value and index satisfies <code>test</code>.
-  
+
+
+
+  值和索引满足 <code>test</code> 的第一个元素。
+
+
 
 </dd>
 
@@ -1037,12 +1159,15 @@ for (var book in kidsBooks.keys) {
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The first element satisfying <code>test</code>, or <code>null</code> if there are none.
-  
+
+
+
+  满足 <code>test</code> 的第一个元素；如果没有则返回 <code>null</code>。
+
+
 
 </dd>
 
@@ -1054,8 +1179,7 @@ for (var book in kidsBooks.keys) {
 
 </dt>
 <dd>
-  Reduces a collection to a single value by iteratively combining each
-element of the collection with an existing value
+  通过将集合中的每个元素依次与现有值组合，将集合归约为单个值。
   
 
 </dd>
@@ -1067,12 +1191,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Combine the elements with a value and the current index.
-  
+
+
+
+  将元素与一个值及当前索引组合。
+
+
 
 </dd>
 
@@ -1084,7 +1211,7 @@ element of the collection with an existing value
 
 </dt>
 <dd>
-  Creates the lazy concatenation of this iterable and <code>other</code>.
+  创建此可迭代对象与 <code>other</code> 的惰性拼接结果。
   
 
 </dd>
@@ -1109,12 +1236,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Takes an action for each element.
-  
+
+
+
+  对每个元素执行指定操作。
+
+
 
 </dd>
 
@@ -1125,12 +1255,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Takes an action for each element and index as long as desired.
-  
+
+
+
+  只要操作继续返回 true，就对每个元素及其索引执行该操作。
+
+
 
 </dd>
 
@@ -1141,12 +1274,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Takes an action for each element as long as desired.
-  
+
+
+
+  只要操作继续返回 true，就对每个元素执行该操作。
+
+
 
 </dd>
 
@@ -1157,12 +1293,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Groups elements by <code>keyOf</code> then folds the elements in each group.
-  
+
+
+
+  按 <code>keyOf</code> 对元素分组，然后折叠每组中的元素。
+
+
 
 </dd>
 
@@ -1173,12 +1312,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Groups elements into lists by <code>keyOf</code>.
-  
+
+
+
+  按 <code>keyOf</code> 将元素分组成列表。
+
+
 
 </dd>
 
@@ -1189,12 +1331,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Groups elements into sets by <code>keyOf</code>.
-  
+
+
+
+  按 <code>keyOf</code> 将元素分组成集合。
+
+
 
 </dd>
 
@@ -1205,12 +1350,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Whether the elements are sorted by the <code>compare</code> ordering.
-  
+
+
+
+  元素是否按 <code>compare</code> 指定的顺序排列。
+
+
 
 </dd>
 
@@ -1221,12 +1369,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableComparableExtension.html">IterableComparableExtension</a> 提供</span>
       </p>
-  Whether the elements are sorted by the <code>compare</code> ordering.
-  
+
+
+
+  元素是否按 <code>compare</code> 指定的顺序排列。
+
+
 
 </dd>
 
@@ -1237,12 +1388,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Whether the elements are sorted by their <code>keyOf</code> property.
-  
+
+
+
+  元素是否按其 <code>keyOf</code> 属性排序。
+
+
 
 </dd>
 
@@ -1257,7 +1411,7 @@ element of the collection with an existing value
       <p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Whether the elements are <code>compare</code>-sorted by their <code>keyOf</code> property.
+  元素是否按 <code>compare</code> 顺序根据其 <code>keyOf</code> 属性排序。
   
 
 </dd>
@@ -1270,7 +1424,7 @@ element of the collection with an existing value
 
 </dt>
 <dd>
-  Converts each element to a <a href="dart-core/String-class.html">String</a> and concatenates the strings.
+  将每个元素转换为 <a href="dart-core/String-class.html">String</a>，并拼接这些字符串。
   
 
 </dd>
@@ -1286,7 +1440,7 @@ element of the collection with an existing value
       <p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Associates the elements in <code>this</code> by the value returned by <code>key</code>.
+  将 <code>this</code> 中的元素按 <code>key</code> 返回的值关联起来。
   
 
 </dd>
@@ -1299,7 +1453,7 @@ element of the collection with an existing value
 
 </dt>
 <dd>
-  The last element that satisfies the given predicate <code>test</code>.
+  最后一个满足给定谓词 <code>test</code> 的元素。
   
 
 </dd>
@@ -1311,12 +1465,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The last element whose index and value satisfies <code>test</code>.
-  
+
+
+
+  索引和值满足 <code>test</code> 的最后一个元素。
+
+
 
 </dd>
 
@@ -1327,12 +1484,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The last element satisfying <code>test</code>, or <code>null</code> if there are none.
-  
+
+
+
+  满足 <code>test</code> 的最后一个元素；如果没有则返回 <code>null</code>。
+
+
 
 </dd>
 
@@ -1344,7 +1504,7 @@ element of the collection with an existing value
 
 </dt>
 <dd>
-  The current elements of this iterable modified by <code>toElement</code>.
+  将此可迭代对象的当前元素应用 <code>toElement</code> 修改后得到的结果。
   
 
 </dd>
@@ -1356,12 +1516,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Maps each element and its index to a new value.
-  
+
+
+
+  将每个元素及其索引映射为一个新值。
+
+
 
 </dd>
 
@@ -1372,12 +1535,15 @@ element of the collection with an existing value
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Whether no element satisfies <code>test</code>.
-  
+
+
+
+  是否没有元素满足 <code>test</code>。
+
+
 
 </dd>
 
@@ -1389,9 +1555,12 @@ element of the collection with an existing value
 
 </dt>
 <dd class="inherited">
-  访问不存在的方法或属性时调用。
-  <div class="features"><span class="feature">继承</span></div>
 
+  访问不存在的方法或属性时调用。
+
+
+
+  <div class="features"><span class="feature">继承</span></div>
 </dd>
 
         <dt id="reduce" class="callable">
@@ -1402,8 +1571,7 @@ element of the collection with an existing value
 
 </dt>
 <dd>
-  Reduces a collection to a single value by iteratively combining elements
-of the collection using the provided function.
+  使用给定函数依次组合集合中的元素，将集合归约为单个值。
   
 
 </dd>
@@ -1415,12 +1583,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Combine the elements with each other and the current index.
-  
+
+
+
+  将元素与彼此及当前索引组合。
+
+
 
 </dd>
 
@@ -1431,12 +1602,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Selects <code>count</code> elements at random from this iterable.
-  
+
+
+
+  从此可迭代对象中随机选取 <code>count</code> 个元素。
+
+
 
 </dd>
 
@@ -1447,12 +1621,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Creates a shuffled list of the elements of the iterable.
-  
+
+
+
+  创建一个由此可迭代对象元素组成的随机排列列表。
+
+
 
 </dd>
 
@@ -1464,7 +1641,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  The single element that satisfies <code>test</code>.
+  唯一满足 <code>test</code> 的元素。
   
 
 </dd>
@@ -1476,12 +1653,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The single element satisfying <code>test</code>.
-  
+
+
+
+  满足 <code>test</code> 的唯一元素。
+
+
 
 </dd>
 
@@ -1492,12 +1672,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The single element satisfying <code>test</code>.
-  
+
+
+
+  满足 <code>test</code> 的唯一元素。
+
+
 
 </dd>
 
@@ -1509,7 +1692,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  创建一个 <a href="dart-core/Iterable-class.html">Iterable</a> that provides all but the first <code>count</code> elements.
+  创建一个 <a href="dart-core/Iterable-class.html">Iterable</a>，包含除前 <code>count</code> 个元素外的所有元素。
   
 
 </dd>
@@ -1522,7 +1705,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  创建一个 <code>Iterable</code> that skips leading elements while <code>test</code> is satisfied.
+  创建一个 <code>Iterable</code>，跳过开头所有满足 <code>test</code> 的元素。
   
 
 </dd>
@@ -1534,12 +1717,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Contiguous slices of <code>this</code> with the given <code>length</code>.
-  
+
+
+
+  将 <code>this</code> 按给定的 <code>length</code> 连续切分为多个片段。
+
+
 
 </dd>
 
@@ -1550,12 +1736,16 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
+
+
+
   创建包含此可迭代对象所有元素的排序列表。
-  
+
+
+
 
 </dd>
 
@@ -1566,12 +1756,16 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableComparableExtension.html">IterableComparableExtension</a> 提供</span>
       </p>
+
+
+
   创建包含此可迭代对象所有元素的排序列表。
-  
+
+
+
 
 </dd>
 
@@ -1582,12 +1776,16 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
+
+
+
   创建包含此可迭代对象所有元素的排序列表。
-  
+
+
+
 
 </dd>
 
@@ -1598,12 +1796,16 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
+
+
+
   创建包含此可迭代对象所有元素的排序列表。
-  
+
+
+
 
 </dd>
 
@@ -1614,12 +1816,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Splits the elements into chunks after some elements.
-  
+
+
+
+  在指定元素之后将元素拆分为多个块。
+
+
 
 </dd>
 
@@ -1630,12 +1835,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Splits the elements into chunks after some elements and indices.
-  
+
+
+
+  在指定元素和索引之后将元素拆分为多个块。
+
+
 
 </dd>
 
@@ -1646,12 +1854,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Splits the elements into chunks before some elements.
-  
+
+
+
+  在指定元素之前将元素拆分为多个块。
+
+
 
 </dd>
 
@@ -1662,12 +1873,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Splits the elements into chunks before some elements and indices.
-  
+
+
+
+  在指定元素和索引之前将元素拆分为多个块。
+
+
 
 </dd>
 
@@ -1678,12 +1892,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Splits the elements into chunks between some elements.
-  
+
+
+
+  在指定元素之间将元素拆分为多个块。
+
+
 
 </dd>
 
@@ -1694,12 +1911,15 @@ of the collection using the provided function.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  Splits the elements into chunks between some elements and indices.
-  
+
+
+
+  在指定元素和索引之间将元素拆分为多个块。
+
+
 
 </dd>
 
@@ -1711,7 +1931,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  Creates a lazy iterable of the <code>count</code> first elements of this iterable.
+  创建一个惰性可迭代对象，包含此对象最前面的 <code>count</code> 个元素。
   
 
 </dd>
@@ -1724,7 +1944,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  Creates a lazy iterable of the leading elements satisfying <code>test</code>.
+  创建一个惰性可迭代对象，包含开头所有满足 <code>test</code> 的元素。
   
 
 </dd>
@@ -1737,7 +1957,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  创建一个 <a href="dart-core/List-class.html">List</a> containing the elements of this <a href="dart-core/Iterable-class.html">Iterable</a>.
+  创建一个 <a href="dart-core/List-class.html">List</a>，包含此 <a href="dart-core/Iterable-class.html">Iterable</a> 中的元素。
   
 
 </dd>
@@ -1750,7 +1970,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  创建一个 <a href="dart-core/Set-class.html">Set</a> containing the same elements as this iterable.
+  创建一个 <a href="dart-core/Set-class.html">Set</a>，包含此可迭代对象中的相同元素。
   
 
 </dd>
@@ -1763,7 +1983,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  Returns a string representation of (some of) the elements of <code>this</code>.
+  返回 <code>this</code> 中（部分）元素的字符串表示。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -1776,8 +1996,7 @@ of the collection using the provided function.
 
 </dt>
 <dd>
-  Creates a new lazy <a href="dart-core/Iterable-class.html">Iterable</a> with all elements that satisfy the
-predicate <code>test</code>.
+  创建一个新的惰性 <a href="dart-core/Iterable-class.html">Iterable</a>，包含所有满足谓词 <code>test</code> 的元素。
   
 
 </dd>
@@ -1789,12 +2008,15 @@ predicate <code>test</code>.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The elements whose value and index satisfies <code>test</code>.
-  
+
+
+
+  值和索引满足 <code>test</code> 的元素。
+
+
 
 </dd>
 
@@ -1805,12 +2027,15 @@ predicate <code>test</code>.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The elements that do not satisfy <code>test</code>.
-  
+
+
+
+  不满足 <code>test</code> 的元素。
+
+
 
 </dd>
 
@@ -1821,12 +2046,15 @@ predicate <code>test</code>.
   
 
 </dt>
-<dd>
-      <p class="from-extension">
+<dd><p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableExtension.html">IterableExtension</a> 提供</span>
       </p>
-  The elements whose value and index do not satisfy <code>test</code>.
-  
+
+
+
+  值和索引不满足 <code>test</code> 的元素。
+
+
 
 </dd>
 
@@ -1841,7 +2069,7 @@ predicate <code>test</code>.
       <p class="from-extension">
         <span>适用于 <a href="dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span>，由扩展 <a href="package-collection_collection/IterableNullableExtension.html">IterableNullableExtension</a> 提供</span>
       </p>
-  The non-<code>null</code> elements of this <code>Iterable</code>.
+  非 <code>null</code> 元素（来自此 <code>Iterable</code>）。
   
 
 </dd>
@@ -1854,7 +2082,7 @@ predicate <code>test</code>.
 
 </dt>
 <dd>
-  Creates a new lazy <a href="dart-core/Iterable-class.html">Iterable</a> with all elements that have type <code>T</code>.
+  创建一个新的惰性 <a href="dart-core/Iterable-class.html">Iterable</a>，包含所有类型为 <code>T</code> 的元素。
   
 
 </dd>
@@ -1875,9 +2103,12 @@ predicate <code>test</code>.
 
 </dt>
 <dd class="inherited">
-  相等运算符。
-  <div class="features"><span class="feature">继承</span></div>
 
+  相等运算符。
+
+
+
+  <div class="features"><span class="feature">继承</span></div>
 </dd>
 
     </dl>
@@ -1895,7 +2126,7 @@ predicate <code>test</code>.
 
 </dt>
 <dd>
-  Adapts <code>source</code> to be an <code>Iterable&lt;T&gt;</code>.
+  将 <code>source</code> 转换为 <code>Iterable&lt;T&gt;</code>。
   
 
 </dd>
@@ -1908,7 +2139,7 @@ predicate <code>test</code>.
 
 </dt>
 <dd>
-  Converts an <code>Iterable</code> to a string.
+  将 <code>Iterable</code> 转换为字符串。
   
 
 </dd>
@@ -1921,7 +2152,7 @@ predicate <code>test</code>.
 
 </dt>
 <dd>
-  Convert an <code>Iterable</code> to a string like <a href="dart-core/Iterable/toString.html">Iterable.toString</a>.
+  将 <code>Iterable</code> 转换为类似 <a href="dart-core/Iterable/toString.html">Iterable.toString</a> 的字符串。
   
 
 </dd>

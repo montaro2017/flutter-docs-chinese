@@ -95,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>文件系统中目录（或<em>文件夹</em>）的引用。</p>
-<p><a href="dart-io/Directory-class.html">Directory</a> 是一个包含 <a href="dart-io/Directory/path.html">path</a> 的对象，可以对该路径执行操作。目录路径可以是 <a href="dart-io/Directory/absolute.html">绝对路径</a>，也可以是相对路径。Directory 是 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a>，因此可以访问其 <a href="dart-io/FileSystemEntity/parent.html">父目录</a>。</p>
+<p><a href="dart-io/Directory-class.html">Directory</a> 是一个包含 <a href="dart-io/Directory/path.html">path</a> 的对象，可以对该路径执行操作。目录路径可以是 <a href="dart-io/Directory/absolute.html">绝对路径</a>，也可以是相对路径。它可以访问其 <a href="dart-io/FileSystemEntity/parent.html">父目录</a>，因为它是 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a>。</p>
 <p><a href="dart-io/Directory-class.html">Directory</a> 还提供对系统临时文件目录 <a href="dart-io/Directory/systemTemp.html">systemTemp</a> 的静态访问，以及访问和更改 <a href="dart-io/Directory/current.html">当前目录</a> 的功能。</p>
 <p>创建新的 <a href="dart-io/Directory-class.html">Directory</a>，以访问指定路径对应的目录：</p>
 <pre class="language-dart"><code class="language-dart">var myDir = Directory('myDir');
@@ -112,7 +112,7 @@ void main() async {
 }
 </code></pre>
 <h2 id="list-the-entries-of-a-directory">列出目录条目</h2>
-<p>使用 <a href="dart-io/Directory/list.html">list</a> 或 <a href="dart-io/Directory/listSync.html">listSync</a> 方法获取目录中包含的文件和目录。将 <code>recursive</code> 设为 true 可递归列出所有子目录；将 <code>followLinks</code> 设为 true 可跟随符号链接。list 方法会返回由 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 对象组成的 <a href="dart-async/Stream-class.html">Stream</a>。可以监听该流，在每个对象被找到时访问它：</p>
+<p>使用 <a href="dart-io/Directory/list.html">list</a> 或 <a href="dart-io/Directory/listSync.html">listSync</a> 方法获取目录中包含的文件和目录。将 <code>recursive</code> 设为 true 可递归列出所有子目录；将 <code>followLinks</code> 设为 true 可跟随符号链接。list 方法会返回一个 <a href="dart-async/Stream-class.html">Stream</a>，其中包含 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 对象。可以监听该流，在每个对象被找到时访问它：</p>
 <pre class="language-dart"><code class="language-dart">import 'dart:io';
 
 void main() async {
@@ -128,7 +128,7 @@ void main() async {
 }
 </code></pre>
 <h2 id="the-use-of-asynchronous-methods">使用异步方法</h2>
-<p>I/O 操作在等待完成期间可能会阻塞程序一段时间。为避免这种情况，所有涉及 I/O 的方法都提供异步版本，并返回一个 <a href="dart-async/Future-class.html">Future</a>。I/O 操作完成时，该 future 会完成。操作进行期间，Dart 程序不会被阻塞，可以执行其他操作。</p>
+<p>I/O 操作在等待完成时可能会暂时阻塞程序。为避免阻塞，所有涉及 I/O 的方法都提供异步版本，并返回一个 <a href="dart-async/Future-class.html">Future</a>。Future 会在 I/O 操作完成时完成。在此期间，Dart 程序不会被阻塞，可以执行其他操作。</p>
 <p>例如，<a href="dart-io/FileSystemEntity/exists.html">exists</a> 方法用于确定目录是否存在，它通过 <a href="dart-async/Future-class.html">Future</a> 异步返回布尔值。</p>
 <pre class="language-dart"><code class="language-dart">import 'dart:io';
 
@@ -184,9 +184,9 @@ void main() async {
           <span class="name"><a href="dart-io/Directory/Directory.html">Directory</a></span><span class="signature">(<span class="parameter" id="-param-path"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span>)</span>
         </dt>
         <dd>
-          创建一个 <a href="dart-io/Directory-class.html">Directory</a> object.
-            <div class="constructor-modifier features">factory</div>
-        </dd>
+  创建一个 <a href="dart-io/Directory-class.html">Directory</a> 对象。
+  <div class="constructor-modifier features">factory</div>
+</dd>
         <dt id="Directory.fromRawPath" class="callable">
           <span class="name"><a href="dart-io/Directory/Directory.fromRawPath.html">Directory.fromRawPath</a></span><span class="signature">(<span class="parameter" id="fromRawPath-param-path"><span class="type-annotation"><a href="dart-typed_data/Uint8List-class.html">Uint8List</a></span> <span class="parameter-name">path</span></span>)</span>
         </dt>
@@ -198,9 +198,9 @@ void main() async {
           <span class="name"><a href="dart-io/Directory/Directory.fromUri.html">Directory.fromUri</a></span><span class="signature">(<span class="parameter" id="fromUri-param-uri"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">uri</span></span>)</span>
         </dt>
         <dd>
-          Create a <a href="dart-io/Directory-class.html">Directory</a> from a URI.
-            <div class="constructor-modifier features">factory</div>
-        </dd>
+  根据 URI 创建一个 <a href="dart-io/Directory-class.html">Directory</a>。
+  <div class="constructor-modifier features">factory</div>
+</dd>
     </dl>
   </section>
     
@@ -216,9 +216,8 @@ void main() async {
 
 </dt>
 <dd>
-  A <a href="dart-io/Directory-class.html">Directory</a> whose path is the absolute path of this <a href="dart-io/Directory-class.html">Directory</a>.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
-
+  一个 <a href="dart-io/Directory-class.html">Directory</a>，其路径是此 <a href="dart-io/Directory-class.html">Directory</a> 的绝对路径。
+  <div class="features"><span class="feature">不可设置</span><span class="feature">重写</span></div>
 </dd>
 
         <dt id="hashCode" class="property inherited">
@@ -229,7 +228,7 @@ void main() async {
 </dt>
 <dd class="inherited">
   此对象的哈希码。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">不可设置</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -240,9 +239,8 @@ void main() async {
 
 </dt>
 <dd class="inherited">
-  Whether this object's path is absolute.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
-
+  此对象的路径是否为绝对路径。
+  <div class="features"><span class="feature">不可设置</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="parent" class="property inherited">
@@ -252,9 +250,8 @@ void main() async {
 
 </dt>
 <dd class="inherited">
-  The parent directory of this entity.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
-
+  此文件系统实体的父目录。
+  <div class="features"><span class="feature">不可设置</span><span class="feature">继承</span></div>
 </dd>
 
         <dt id="path" class="property">
@@ -264,9 +261,8 @@ void main() async {
 
 </dt>
 <dd>
-  Gets the path of this directory.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
-
+  获取此目录的路径。
+  <div class="features"><span class="feature">不可设置</span><span class="feature">重写</span></div>
 </dd>
 
         <dt id="runtimeType" class="property inherited">
@@ -277,7 +273,7 @@ void main() async {
 </dt>
 <dd class="inherited">
   此对象运行时类型的表示。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">不可设置</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -288,9 +284,8 @@ void main() async {
 
 </dt>
 <dd>
-  A <a href="dart-core/Uri-class.html">Uri</a> representing the directory's location.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
-
+  表示此目录位置的 <a href="dart-core/Uri-class.html">Uri</a>。
+  <div class="features"><span class="feature">不可设置</span><span class="feature">重写</span></div>
 </dd>
 
     </dl>
@@ -310,9 +305,8 @@ void main() async {
 
 </dt>
 <dd>
-  Creates the directory if it doesn't exist.
+  如果目录不存在，则创建该目录。
   
-
 </dd>
 
         <dt id="createSync" class="callable">
@@ -323,9 +317,8 @@ void main() async {
 
 </dt>
 <dd>
-  Synchronously creates the directory if it doesn't exist.
+  如果目录不存在，则同步创建该目录。
   
-
 </dd>
 
         <dt id="createTemp" class="callable">
@@ -336,9 +329,8 @@ void main() async {
 
 </dt>
 <dd>
-  Creates a temporary directory in this directory.
+  在此目录中创建临时目录。
   
-
 </dd>
 
         <dt id="createTempSync" class="callable">
@@ -349,9 +341,8 @@ void main() async {
 
 </dt>
 <dd>
-  Synchronously creates a temporary directory in this directory.
+  在此目录中同步创建临时目录。
   
-
 </dd>
 
         <dt id="delete" class="callable">
@@ -388,9 +379,8 @@ void main() async {
 
 </dt>
 <dd class="inherited">
-  Checks whether the file system entity with this path exists.
+  检查此路径对应的文件系统实体是否存在。
   <div class="features"><span class="feature">继承</span></div>
-
 </dd>
 
         <dt id="existsSync" class="callable inherited">
@@ -401,10 +391,8 @@ void main() async {
 
 </dt>
 <dd class="inherited">
-  Synchronously checks whether the file system entity with this path
-exists.
+  同步检查此路径对应的文件系统实体是否存在。
   <div class="features"><span class="feature">继承</span></div>
-
 </dd>
 
         <dt id="list" class="callable">
@@ -415,9 +403,8 @@ exists.
 
 </dt>
 <dd>
-  Lists the sub-directories and files of this <a href="dart-io/Directory-class.html">Directory</a>.
+  列出此 <a href="dart-io/Directory-class.html">Directory</a> 的子目录和文件。
   
-
 </dd>
 
         <dt id="listSync" class="callable">
@@ -428,10 +415,8 @@ exists.
 
 </dt>
 <dd>
-  Lists the sub-directories and files of this <a href="dart-io/Directory-class.html">Directory</a>.
-Optionally recurses into sub-directories.
+  列出此 <a href="dart-io/Directory-class.html">Directory</a> 的子目录和文件，并可选择递归列出子目录。
   
-
 </dd>
 
         <dt id="noSuchMethod" class="callable inherited">
@@ -468,9 +453,8 @@ Optionally recurses into sub-directories.
 
 </dt>
 <dd>
-  Synchronously renames this directory.
+  同步重命名此目录。
   <div class="features"><span class="feature">重写</span></div>
-
 </dd>
 
         <dt id="resolveSymbolicLinks" class="callable">
@@ -481,10 +465,8 @@ Optionally recurses into sub-directories.
 
 </dt>
 <dd>
-  Resolves the path of a file system object relative to the
-current working directory.
+  解析相对于当前工作目录的文件系统对象路径。
   <div class="features"><span class="feature">重写</span></div>
-
 </dd>
 
         <dt id="resolveSymbolicLinksSync" class="callable">
@@ -495,10 +477,8 @@ current working directory.
 
 </dt>
 <dd>
-  Resolves the path of a file system object relative to the
-current working directory.
+  同步解析相对于当前工作目录的文件系统对象路径。
   <div class="features"><span class="feature">重写</span></div>
-
 </dd>
 
         <dt id="stat" class="callable inherited">
@@ -509,9 +489,8 @@ current working directory.
 
 </dt>
 <dd class="inherited">
-  Calls the operating system's <code>stat()</code> function on <a href="dart-io/FileSystemEntity/path.html">path</a>.
+  对 <a href="dart-io/FileSystemEntity/path.html">path</a> 调用操作系统的 <code>stat()</code> 函数。
   <div class="features"><span class="feature">继承</span></div>
-
 </dd>
 
         <dt id="statSync" class="callable inherited">
@@ -522,9 +501,8 @@ current working directory.
 
 </dt>
 <dd class="inherited">
-  Synchronously calls the operating system's <code>stat()</code> function on <a href="dart-io/FileSystemEntity/path.html">path</a>.
+  对 <a href="dart-io/FileSystemEntity/path.html">path</a> 同步调用操作系统的 <code>stat()</code> 函数。
   <div class="features"><span class="feature">继承</span></div>
-
 </dd>
 
         <dt id="toString" class="callable">
@@ -535,9 +513,8 @@ current working directory.
 
 </dt>
 <dd>
-  Returns a human readable representation of this <a href="dart-io/Directory-class.html">Directory</a>.
+  返回此 <a href="dart-io/Directory-class.html">Directory</a> 的易读表示。
   <div class="features"><span class="feature">重写</span></div>
-
 </dd>
 
         <dt id="watch" class="callable inherited">
@@ -548,9 +525,8 @@ current working directory.
 
 </dt>
 <dd class="inherited">
-  Start watching the <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> for changes.
+  开始监视 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 的变化。
   <div class="features"><span class="feature">继承</span></div>
-
 </dd>
 
     </dl>
@@ -587,10 +563,8 @@ current working directory.
 
 </dt>
 <dd>
-  Creates a directory object pointing to the current working
-directory.
-  <div class="features"><span class="feature">getter/setter 对</span></div>
-
+  指向当前工作目录的 Directory 对象。
+  <div class="features"><span class="feature">读写属性</span></div>
 </dd>
 
         <dt id="systemTemp" class="property">
@@ -600,9 +574,8 @@ directory.
 
 </dt>
 <dd>
-  The system temp directory.
-  <div class="features"><span class="feature">无 setter</span></div>
-
+  系统临时目录。
+  <div class="features"><span class="feature">不可设置</span></div>
 </dd>
 
     </dl>
