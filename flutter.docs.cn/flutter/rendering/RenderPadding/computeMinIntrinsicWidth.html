@@ -129,14 +129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>在这种情况下，可能无法（或至少不切实际地）返回有效结果。当启用断言且 <a href="rendering/RenderObject/debugCheckingIntrinsics.html">RenderObject.debugCheckingIntrinsics</a> 为 false 时，固有尺寸函数应抛出异常；否则应返回 0.0。</p>
 <p>可查看 <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> 或 <a href="rendering/RenderViewportBase-class.html">RenderViewportBase</a> 的实现示例，尤其是 <a href="rendering/RenderViewportBase/debugThrowIfNotCheckingIntrinsics.html">RenderViewportBase.debugThrowIfNotCheckingIntrinsics</a>。</p>
 <h3 id="aspect-ratio-driven-boxes">由宽高比决定尺寸的盒子</h3>
-<p>Some boxes always return a fixed size based on the constraints. For these
-boxes, the intrinsic functions should return the appropriate size when the
-incoming <code>height</code> or <code>width</code> argument is finite, treating that as a tight
-constraint in the respective direction and treating the other direction's
-constraints as unbounded. This is because the definitions of
-<a href="rendering/RenderPadding/computeMinIntrinsicWidth.html">computeMinIntrinsicWidth</a> 和 <a href="rendering/RenderPadding/computeMinIntrinsicHeight.html">computeMinIntrinsicHeight</a> are in terms of
-what the dimensions <em>could be</em>, and such boxes can only be one size in
-such cases.</p>
+<p>有些盒子总是根据约束返回固定尺寸。对于这些盒子，如果传入的 <code>height</code> 或 <code>width</code> 参数为有限值，则固有尺寸函数应返回相应尺寸：将对应方向视为紧约束，并将另一方向的约束视为无界。这是因为 <a href="rendering/RenderPadding/computeMinIntrinsicWidth.html">computeMinIntrinsicWidth</a> 和 <a href="rendering/RenderPadding/computeMinIntrinsicHeight.html">computeMinIntrinsicHeight</a> 的定义关注的是尺寸 <em>可能达到的值</em>；在这种情况下，这些盒子只能采用一种尺寸。</p>
 <p>当传入参数不是有限值时，这些盒子应像其他盒子一样，根据内容返回实际的固有尺寸。</p>
 <p>另请参阅：</p>
 <ul>
