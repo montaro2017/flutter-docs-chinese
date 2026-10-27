@@ -104,7 +104,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>检查当前 <a href="dart-async/Zone-class.html">Zone</a> 是否与用于初始化 binding 的 Zone 相同。</p>
 <p>如果当前 zone（<a href="dart-async/Zone/current.html">Zone.current</a>）与初始化 binding 时所在的 zone 不同，此方法会生成包含详细信息的 <a href="foundation/FlutterError-class.html">FlutterError</a> 异常。根据 <a href="foundation/BindingBase/debugZoneErrorsAreFatal.html">BindingBase.debugZoneErrorsAreFatal</a> 的值，此异常会直接抛出，或通过 <a href="foundation/FlutterError/reportError.html">FlutterError.reportError</a> 报告。</p>
-<p>若要隐藏 <a href="foundation/BindingBase/debugCheckZone.html">debugCheckZone</a> 显示的消息，请确保调用 <code>ensureInitialized()</code> 时使用的 zone 与其他上下文中调用框架时使用的 zone 相同（例如通过 <a href="widgets/runApp.html">runApp</a> 调用）。例如，可以保留用于初始化 binding 的 zone 引用，并在调用框架时通过 <a href="dart-async/Zone/run.html">Zone.run</a> 再次使用它。</p>
+<p>若要隐藏 <a href="foundation/BindingBase/debugCheckZone.html">debugCheckZone</a> 显示的消息，请确保调用 <code>ensureInitialized()</code> 时所处的 Zone，与在其他上下文中调用框架时所处的 Zone 相同（例如通过 <a href="widgets/runApp.html">runApp</a> 调用）。例如，可以保留用于初始化绑定对象的 Zone，并在调用框架时通过 <a href="dart-async/Zone/run.html">Zone.run</a> 再次在该 Zone 中执行。</p>
 <h2 id="usage">用法</h2>
 <p>运行 <a href="foundation/BindingBase/initInstances.html">BindingBase.initInstances</a> 后，binding 才会被视为已初始化；若在此之前调用此方法，则会抛出 <a href="dart-core/AssertionError-class.html">AssertionError</a>。</p>
 <p><code>entryPoint</code> 参数是正在检查 zone 是否一致的 API 名称，例如 <code>'runApp'</code>。</p>
@@ -115,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   // ...
 }
 </code></pre>
-<p>如果 binding 预期会在多个 zone 中使用，则应重写此方法，使其始终返回 true 而不抛出异常。（例如，<a href="flutter_test/">flutter_test</a> 使用的 binding 就会这样做，因为它们大量使用 zone，通过人工时钟驱动框架、捕获错误并将错误报告为测试失败。）</p>
+<p>如果绑定对象预期会在多个 Zone 中使用，则应重写此方法，使其始终返回 true 而不抛出异常。（例如，<a href="flutter_test/">flutter_test</a> 使用的绑定对象就会这样做，因为它们大量使用 Zone，通过人工时钟驱动框架、捕获错误并将错误报告为测试失败。）</p>
 </section>
 
 
