@@ -111,7 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>使用给定名称（完整名称为“ext.flutter.name”）注册一个服务扩展方法。</p>
 <p>调用此扩展方法时，会调用给定的回调。回调必须返回一个 <a href="dart-async/Future-class.html">Future</a>，该 Future 最终要么完成并返回一个名称/值映射（其中的值都可使用 <code>json.encode()</code> 转换为 JSON，参见 <a href="dart-convert/JsonEncoder-class.html">JsonEncoder</a>），要么失败。失败时，错误会报告给远程调用方并写入日志。</p>
 <p>返回的映射会被修改。</p>
-<p>只有构建中包含 vm-service 时，注册的服务扩展才能被激活；vm-service 仅在 debug 和 profile 模式下包含。服务扩展虽然不能在 release 模式下使用，但其代码仍可能包含在 Dart 快照中，导致二进制体积增大。因此应使用能让 tree shaker 移除该代码的保护条件包裹它（见下面的示例代码）。</p>
+<p>只有构建中包含 VM 服务时，注册的服务扩展才能激活；VM 服务仅包含在调试和性能分析模式的构建中。服务扩展无法在发布模式下使用，但其代码仍可能进入 Dart 快照并增大二进制体积。因此应使用 tree shaker 可识别的保护条件包裹这段代码，使其能够移除该代码（见下方示例）。</p>
 <p>
 <a name="foundation.BindingBase.registerServiceExtension.1"></a>
 <div class="snippet snippet-container anchor-container">
@@ -162,7 +162,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </div>
 </p>
-<p>这两种保护条件都能确保 Dart 的 tree shaker 可以在 release 构建中移除服务扩展代码。</p>
+<p>这两种保护条件都能确保 Dart 的 tree shaker 在发布构建中移除服务扩展代码。</p>
 </section>
 
 
