@@ -94,9 +94,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>为提供的 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 引导并构建渲染树。</p>
-<p>The content rendered into that view is determined by the provided <a href="widgets/View/child.html">child</a>.
-Descendants within the same <a href="widgets/LookupBoundary-class.html">LookupBoundary</a> can look up the view they are
-rendered into via <a href="widgets/View/of.html">View.of</a> 和 <a href="widgets/View/maybeOf.html">View.maybeOf</a>.</p>
+<p>该 view 中渲染的内容由提供的 <a href="widgets/View/child.html">child</a> 决定。
+同一 <a href="widgets/LookupBoundary-class.html">LookupBoundary</a> 中的后代可以通过 <a href="widgets/View/of.html">View.of</a> 和 <a href="widgets/View/maybeOf.html">View.maybeOf</a> 查找其渲染到的 view。</p>
 <p>提供的 <a href="widgets/View/child.html">child</a> 会被包裹在由给定 <a href="widgets/View/view.html">view</a> 构造的 <a href="widgets/MediaQuery-class.html">MediaQuery</a>、一个 <a href="widgets/FocusScope-class.html">FocusScope</a> 和一个 <a href="widgets/RawView-class.html">RawView</a> widget 中。</p>
 <p>大多数情况下，使用 <a href="widgets/MediaQuery/of.html">MediaQuery.of</a> 或其相关的“...Of”方法来获取 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 提供的信息会更合适。例如，使用 <a href="widgets/MediaQuery/sizeOf.html">MediaQuery.sizeOf</a> 会提供设备的<em>逻辑</em>尺寸（<a href="widgets/MediaQueryData/size.html">MediaQueryData.size</a>），而不是物理尺寸（<a href="dart-ui/FlutterView/physicalSize.html">FlutterView.physicalSize</a>）。类似地，虽然 <a href="dart-ui/FlutterView/padding.html">FlutterView.padding</a> 传达了操作系统提供的信息，但通过 <a href="widgets/MediaQuery/paddingOf.html">MediaQuery.paddingOf</a> 获取的 <a href="widgets/MediaQueryData/padding.html">MediaQueryData.padding</a> 属性会进一步根据 widget 的上下文调整这些信息；例如，<a href="material/Scaffold-class.html">Scaffold</a> widget 会为其各个子项调整相应的值。</p>
 <p>每个 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 在 widget 树中最多只能关联一个 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> widget。同一时刻，同一棵 widget 树中不得存在两个或更多使用相同 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 配置的 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> widget。此限制通过 <a href="widgets/GlobalObjectKey-class.html">GlobalObjectKey</a> 强制实施，该键根据提供给此 widget 的 <a href="widgets/View/view.html">view</a> 推导其标识。</p>
@@ -104,10 +103,9 @@ rendered into via <a href="widgets/View/of.html">View.of</a> 和 <a href="widget
 <p>实际使用中，此 widget 通常位于 widget 树根部，不嵌套在其他 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> widget 中；也可以作为 <a href="widgets/ViewCollection-class.html">ViewCollection</a> widget 的子项，或放在 <a href="widgets/ViewAnchor-class.html">ViewAnchor</a> widget 的 <a href="widgets/ViewAnchor/view.html">ViewAnchor.view</a> 插槽中。它不必是直接子项，因为这些 widget 之间允许存在其他非 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>（例如 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>、<a href="widgets/Builder-class.html">Builder</a>，或只生成非 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 的 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>/<a href="widgets/StatelessWidget-class.html">StatelessWidget</a>），然后再到 <a href="widgets/View-class.html">View</a> widget。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/RawView-class.html">RawView</a>, the workhorse that <a href="widgets/View-class.html">View</a> uses to create the render tree, but
-without the <a href="widgets/MediaQuery-class.html">MediaQuery</a> 和 <a href="widgets/FocusScope-class.html">FocusScope</a> that <a href="widgets/View-class.html">View</a> adds.</li>
-<li><a href="widgets/Element/debugExpectsRenderObjectForSlot.html">Element.debugExpectsRenderObjectForSlot</a>, which defines whether a <a href="widgets/View-class.html">View</a>
-widget is allowed in a given child slot.</li>
+<li><a href="widgets/RawView-class.html">RawView</a> 是 <a href="widgets/View-class.html">View</a> 用于创建渲染树的核心实现，但
+不包含 <a href="widgets/MediaQuery-class.html">MediaQuery</a> 和 <a href="widgets/FocusScope-class.html">FocusScope</a>（这些由 <a href="widgets/View-class.html">View</a> 添加）。</li>
+<li><a href="widgets/Element/debugExpectsRenderObjectForSlot.html">Element.debugExpectsRenderObjectForSlot</a>，用于定义某个子插槽是否允许放置 <a href="widgets/View-class.html">View</a> widget。</li>
 </ul>
 </section>
 
@@ -145,8 +143,8 @@ widget is allowed in a given child slot.</li>
           <span class="name"><a href="widgets/View/View.case-1cd9c4c4.html">View</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-view"><span>required</span> <span class="type-annotation"><a href="dart-ui/FlutterView-class.html">FlutterView</a></span> <span class="parameter-name">view</span>, </span><span class="parameter" id="-param-deprecatedDoNotUseWillBeRemovedWithoutNoticePipelineOwner"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Do not use. &#39; &#39;This parameter only exists to implement the deprecated RendererBinding.pipelineOwner property until it is removed. &#39; &#39;This feature was deprecated after v3.10.0-12.0.pre.&#39;)</span> <span class="type-annotation"><a href="rendering/PipelineOwner-class.html">PipelineOwner</a>?</span> <span class="parameter-name">deprecatedDoNotUseWillBeRemovedWithoutNoticePipelineOwner</span>, </span><span class="parameter" id="-param-deprecatedDoNotUseWillBeRemovedWithoutNoticeRenderView"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Do not use. &#39; &#39;This parameter only exists to implement the deprecated RendererBinding.renderView property until it is removed. &#39; &#39;This feature was deprecated after v3.10.0-12.0.pre.&#39;)</span> <span class="type-annotation"><a href="rendering/RenderView-class.html">RenderView</a>?</span> <span class="parameter-name">deprecatedDoNotUseWillBeRemovedWithoutNoticeRenderView</span>, </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
         </dt>
         <dd>
-          Create a <a href="widgets/View-class.html">View</a> widget to bootstrap a render tree that is rendered into
-the provided <a href="dart-ui/FlutterView-class.html">FlutterView</a>.
+          创建一个 <a href="widgets/View-class.html">View</a> widget，用于引导一棵渲染树，将内容渲染到
+所提供的 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。
         </dd>
     </dl>
   </section>
@@ -163,7 +161,7 @@ the provided <a href="dart-ui/FlutterView-class.html">FlutterView</a>.
 
 </dt>
 <dd>
-  The widget below this widget in the tree, which will be drawn into the
+  此 widget 在树中的下级 widget，会绘制到
 <a href="widgets/View/view.html">view</a>.
   <div class="features"><span class="feature">final</span></div>
 
@@ -212,7 +210,7 @@ the provided <a href="dart-ui/FlutterView-class.html">FlutterView</a>.
 
 </dt>
 <dd>
-  The <a href="dart-ui/FlutterView-class.html">FlutterView</a> into which <a href="widgets/View/child.html">child</a> is drawn.
+  绘制到 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 中的 <a href="widgets/View/child.html">child</a>。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -234,7 +232,7 @@ the provided <a href="dart-ui/FlutterView-class.html">FlutterView</a>.
 
 </dt>
 <dd class="inherited">
-  创建一个 创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a>，用于管理此 widget 在树中的位置。
+  创建一个 <a href="widgets/StatefulElement-class.html">StatefulElement</a>，用于管理此 widget 在树中的位置。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -392,7 +390,7 @@ the provided <a href="dart-ui/FlutterView-class.html">FlutterView</a>.
 
 </dt>
 <dd>
-  Returns the <a href="dart-ui/FlutterView-class.html">FlutterView</a> that the provided <code>context</code> will render into.
+  返回 <a href="dart-ui/FlutterView-class.html">FlutterView</a>，它是所提供 <code>context</code> 将用于渲染的视图。
   
 
 </dd>
@@ -405,7 +403,7 @@ the provided <a href="dart-ui/FlutterView-class.html">FlutterView</a>.
 
 </dt>
 <dd>
-  Returns the <a href="dart-ui/FlutterView-class.html">FlutterView</a> that the provided <code>context</code> will render into.
+  返回 <a href="dart-ui/FlutterView-class.html">FlutterView</a>，它是所提供 <code>context</code> 将用于渲染的视图。
   
 
 </dd>
@@ -418,8 +416,7 @@ the provided <a href="dart-ui/FlutterView-class.html">FlutterView</a>.
 
 </dt>
 <dd>
-  Returns the <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> parent to which a child <a href="widgets/View-class.html">View</a> should attach
-its <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> to.
+  返回父 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a>，子 <a href="widgets/View-class.html">View</a> 应将其 <a href="rendering/PipelineOwner-class.html">PipelineOwner</a> 附加到此父对象。
   
 
 </dd>

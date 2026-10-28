@@ -125,7 +125,7 @@ if (binding is LiveTestWidgetsFlutterBinding) {
           
           
           
-  <dt>Available extensions</dt>
+  <dt>可用扩展</dt>
   <dd><ul class="comma-separated clazz-relationships">
       <li><a href="dart-core/EnumName.html">EnumName</a></li>
   </ul></dd>
@@ -136,7 +136,7 @@ if (binding is LiveTestWidgetsFlutterBinding) {
       </section>
 
       <section class="summary offset-anchor" id="values">
-        <h2>Values</h2>
+        <h2>值</h2>
         <dl class="properties">
             <dt id="onlyPumps" class="constant">
     <span class="name ">onlyPumps</span>
@@ -159,8 +159,7 @@ if (binding is LiveTestWidgetsFlutterBinding) {
 </dt>
 <dd>
   <p>显示通过 pump 推进的帧，并额外安排和运行帧，以淡出指针十字线以及 binding 显示的其他调试信息。</p>
-<p>This will schedule frames when pumped or when there has been some
-activity with <a href="flutter_test/TestPointer-class.html">TestPointer</a>。</p>
+<p>此模式会在 pump 推进帧时，或在 <a href="flutter_test/TestPointer-class.html">TestPointer</a> 发生活动时安排帧。</p>
 <p>这可能会导致推进的帧数超出测试本身的请求，从而造成行为差异。</p>
   
 
@@ -174,8 +173,7 @@ activity with <a href="flutter_test/TestPointer-class.html">TestPointer</a>。</
 </dt>
 <dd>
   <p>显示框架请求的每一帧，即使这些帧并非通过显式调用 pump 推进。</p>
-<p>The major difference between <a href="flutter_test/LiveTestWidgetsFlutterBindingFramePolicy.html">fullyLive</a> 和 <a href="flutter_test/LiveTestWidgetsFlutterBindingFramePolicy.html">benchmarkLive</a> is the latter
-ignores frame requests by <a href="flutter_test/WidgetTester/pump.html">WidgetTester.pump</a>.</p>
+<p>主要区别在于：<a href="flutter_test/LiveTestWidgetsFlutterBindingFramePolicy.html">fullyLive</a> 和 <a href="flutter_test/LiveTestWidgetsFlutterBindingFramePolicy.html">benchmarkLive</a> 中，后者会忽略 <a href="flutter_test/WidgetTester/pump.html">WidgetTester.pump</a> 发出的帧请求。</p>
 <p>这有助于开发者观察动画密集的场景，并且几乎肯定会导致推进的帧数超出测试本身的请求，从而造成行为差异。</p>
   
 
@@ -189,11 +187,7 @@ ignores frame requests by <a href="flutter_test/WidgetTester/pump.html">WidgetTe
 </dt>
 <dd>
   <p>忽略所有安排帧的请求。</p>
-<p>This is intended to be used by benchmarks (hence the name) that drive the
-pipeline directly. It tells the binding to entirely ignore requests for a
-frame to be scheduled, while still allowing frames that are pumped
-directly to run (either by using <a href="flutter_test/WidgetTester/pumpBenchmark.html">WidgetTester.pumpBenchmark</a> or invoking
-<a href="dart-ui/PlatformDispatcher/onBeginFrame.html">PlatformDispatcher.onBeginFrame</a> 和 <a href="dart-ui/PlatformDispatcher/onDrawFrame.html">PlatformDispatcher.onDrawFrame</a>).</p>
+<p>此模式用于运行基准测试（因此得名），并由其直接驱动流水线。它会让 binding 完全忽略安排帧的请求，同时仍允许直接推进的帧运行（可通过 <a href="flutter_test/WidgetTester/pumpBenchmark.html">WidgetTester.pumpBenchmark</a> 或调用 <a href="dart-ui/PlatformDispatcher/onBeginFrame.html">PlatformDispatcher.onBeginFrame</a> 和 <a href="dart-ui/PlatformDispatcher/onDrawFrame.html">PlatformDispatcher.onDrawFrame</a>）。</p>
 <p>这会处理引擎发出的所有帧请求，也会处理人为触发的所有帧请求，但会忽略框架发出的 <a href="scheduler/SchedulerBinding/scheduleFrame.html">SchedulerBinding.scheduleFrame</a> 请求。因此，在此模式下动画不会运行，因为框架通过请求新帧来生成动画。</p>
 <p>在此模式下，<a href="scheduler/SchedulerBinding/hasScheduledFrame.html">SchedulerBinding.hasScheduledFrame</a> 属性永远不会为 true，这可能产生意外影响。例如，<a href="flutter_test/WidgetTester/pumpAndSettle.html">WidgetTester.pumpAndSettle</a> 在此模式下无法工作，因为它依赖 <a href="scheduler/SchedulerBinding/hasScheduledFrame.html">SchedulerBinding.hasScheduledFrame</a> 属性判断应用是否已“稳定”。</p>
   
