@@ -94,15 +94,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>Zone 表示一种环境，可在异步调用之间保持稳定。</p>
+  <p>Zone 表示一种环境，可在异步调用之间保持稳定。
+</p>
 <p>所有代码都在某个 Zone 的上下文中执行，并可通过 <a href="dart-async/Zone/current.html">Zone.current</a> 访问该上下文。初始的 <code>main</code> 函数在默认 Zone（<a href="dart-async/Zone/root-constant.html">Zone.root</a>）中运行。可以使用 <a href="dart-async/runZoned.html">runZoned</a> 或 <a href="dart-async/runZonedGuarded.html">runZonedGuarded</a> 创建新的 Zone 并在其中运行代码，也可以使用 <a href="dart-async/Zone/run.html">Zone.run</a> 在已有 Zone 的上下文中运行代码；该 Zone 可能先前通过 <a href="dart-async/Zone/fork.html">Zone.fork</a> 创建。</p>
 <p>开发者可以创建一个新 Zone，以覆盖现有 Zone 的部分功能。例如，自定义 Zone 可以替换或修改 <code>print</code>、计时器、微任务或未捕获错误的处理方式。</p>
 <p><a href="dart-async/Zone-class.html">Zone</a> 类不能被继承，但用户可以通过派生现有 Zone（通常是 <a href="dart-async/Zone/current.html">Zone.current</a>）并提供 <a href="dart-async/ZoneSpecification-class.html">ZoneSpecification</a> 来创建自定义 Zone。这类似于创建一个继承基类 <code>Zone</code> 并重写若干方法的新类，但实际上并不会创建新类。重写方法以函数形式提供，并显式接收相当于其自身类、父类和 <code>this</code> 对象的参数。</p>
 <p>异步回调始终在安排它们时所在的 Zone 上下文中运行。此机制通过以下两个步骤实现：</p>
 <ol>
 <li>回调最初通过 <a href="dart-async/Zone/registerCallback.html">registerCallback</a>、<a href="dart-async/Zone/registerUnaryCallback.html">registerUnaryCallback</a> 或 <a href="dart-async/Zone/registerBinaryCallback.html">registerBinaryCallback</a> 之一进行注册。这样，zone 就能记录该回调的存在，并可对其进行修改（例如返回另一个回调）。执行注册的代码（例如 <code>Future.then</code>）也会记住当前 zone，以便之后能在该 zone 中运行回调。</li>
-<li>At a later point the registered callback is run in the remembered zone,
-using one of <a href="dart-async/Zone/run.html">run</a>, <a href="dart-async/Zone/runUnary.html">runUnary</a> or <a href="dart-async/Zone/runBinary.html">runBinary</a>.</li>
+<li>之后，已注册的回调会在记住的 Zone 中运行，
+使用 <a href="dart-async/Zone/run.html">run</a>、<a href="dart-async/Zone/runUnary.html">runUnary</a> 或 <a href="dart-async/Zone/runBinary.html">runBinary</a> 之一。</li>
 </ol>
 <p>这些步骤都由平台代码在内部处理，大多数用户无需关注。不过，底层系统提供新的异步操作时，其开发者必须遵循此协议，确保操作兼容 Zone。</p>
 <p>为方便遵守 Zone 契约，Zone 提供了 <a href="dart-async/Zone/bindCallback.html">bindCallback</a>（以及对应的 <a href="dart-async/Zone/bindUnaryCallback.html">bindUnaryCallback</a> 和 <a href="dart-async/Zone/bindBinaryCallback.html">bindBinaryCallback</a>）：这些函数先调用相应的 <code>register</code> 函数，然后包装返回的函数，使其稍后被异步调用时在当前 Zone 中运行。</p>
@@ -145,7 +146,7 @@ using one of <a href="dart-async/Zone/run.html">run</a>, <a href="dart-async/Zon
 
 </dt>
 <dd>
-  The error zone is responsible for dealing with uncaught errors.
+  错误 Zone 负责处理未捕获的错误。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -169,7 +170,7 @@ using one of <a href="dart-async/Zone/run.html">run</a>, <a href="dart-async/Zon
 
 </dt>
 <dd>
-  The parent zone of the this zone.
+  此 Zone 的父 Zone。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -203,8 +204,8 @@ using one of <a href="dart-async/Zone/run.html">run</a>, <a href="dart-async/Zon
 
 </dt>
 <dd>
-  Registers the provided <code>callback</code> and returns a function that will
-execute in this zone.
+  注册所提供的 <code>callback</code>，并返回一个将在此 Zone 中
+执行的函数。
   
 
 </dd>
@@ -217,8 +218,8 @@ execute in this zone.
 
 </dt>
 <dd>
-  Registers the provided <code>callback</code> and returns a function that will
- execute in this zone.
+  注册所提供的 <code>callback</code>，并返回一个将在此 Zone 中
+ 执行的函数。
   
 
 </dd>
@@ -231,8 +232,8 @@ execute in this zone.
 
 </dt>
 <dd>
-  Registers the provided <code>callback</code> and returns a function that will
-execute in this zone.
+  注册所提供的 <code>callback</code>，并返回一个将在此 Zone 中
+执行的函数。
   
 
 </dd>
@@ -245,8 +246,8 @@ execute in this zone.
 
 </dt>
 <dd>
-  Registers the provided <code>callback</code> and returns a function that will
-execute in this zone.
+  注册所提供的 <code>callback</code>，并返回一个将在此 Zone 中
+执行的函数。
   
 
 </dd>
@@ -259,8 +260,8 @@ execute in this zone.
 
 </dt>
 <dd>
-  Registers the provided <code>callback</code> and returns a function that will
-execute in this zone.
+  注册所提供的 <code>callback</code>，并返回一个将在此 Zone 中
+执行的函数。
   
 
 </dd>
@@ -273,8 +274,8 @@ execute in this zone.
 
 </dt>
 <dd>
-  Registers the provided <code>callback</code> and returns a function that will
-execute in this zone.
+  注册所提供的 <code>callback</code>，并返回一个将在此 Zone 中
+执行的函数。
   
 
 </dd>
@@ -287,7 +288,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Creates a periodic <a href="dart-async/Timer-class.html">Timer</a> where the callback is executed in this zone.
+  创建一个周期性 <a href="dart-async/Timer-class.html">Timer</a>，其回调会在此 Zone 中执行。
   
 
 </dd>
@@ -300,7 +301,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  创建一个 <a href="dart-async/Timer-class.html">Timer</a> where the callback is executed in this zone.
+  创建一个 <a href="dart-async/Timer-class.html">Timer</a>，其回调会在此 Zone 中执行。
   
 
 </dd>
@@ -313,7 +314,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Intercepts errors when added programmatically to a <a href="dart-async/Future-class.html">Future</a> or <a href="dart-async/Stream-class.html">Stream</a>.
+  当以编程方式向 <a href="dart-async/Future-class.html">Future</a> 或 <a href="dart-async/Stream-class.html">Stream</a> 添加错误处理时，拦截这些错误。
   
 
 </dd>
@@ -326,7 +327,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Creates a new zone as a child zone of this zone.
+  创建一个新的 Zone，作为此 Zone 的子 Zone。
   
 
 </dd>
@@ -339,7 +340,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Handles uncaught asynchronous errors.
+  处理未捕获的异步错误。
   
 
 </dd>
@@ -352,7 +353,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Whether this zone and <code>otherZone</code> are in the same error zone.
+  此 Zone 与 <code>otherZone</code> 是否属于同一个错误 Zone。
   
 
 </dd>
@@ -378,7 +379,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Prints the given <code>line</code>.
+  打印给定的 <code>line</code>。
   
 
 </dd>
@@ -391,7 +392,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Registers the given callback in this zone.
+  在此 Zone 中注册给定的回调。
   
 
 </dd>
@@ -404,7 +405,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Registers the given callback in this zone.
+  在此 Zone 中注册给定的回调。
   
 
 </dd>
@@ -417,7 +418,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Registers the given callback in this zone.
+  在此 Zone 中注册给定的回调。
   
 
 </dd>
@@ -430,7 +431,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Executes <code>action</code> in this zone.
+  在此 Zone 中执行 <code>action</code>。
   
 
 </dd>
@@ -443,8 +444,7 @@ execute in this zone.
 
 </dt>
 <dd>
-  Executes the given <code>action</code> with <code>argument1</code> 和 <code>argument2</code> in this
-zone.
+  在此 Zone 中执行给定的 <code>action</code>，并传入 <code>argument1</code> 和 <code>argument2</code>。
   
 
 </dd>
@@ -457,8 +457,8 @@ zone.
 
 </dt>
 <dd>
-  Executes the given <code>action</code> with <code>argument1</code> 和 <code>argument2</code> in this
-zone and catches synchronous errors.
+  在此 Zone 中执行给定的 <code>action</code>，传入 <code>argument1</code> 和 <code>argument2</code>，
+并捕获同步错误。
   
 
 </dd>
@@ -471,8 +471,8 @@ zone and catches synchronous errors.
 
 </dt>
 <dd>
-  Executes the given <code>action</code> in this zone and catches synchronous
-errors.
+  在此 Zone 中执行给定的 <code>action</code>，并捕获同步
+错误。
   
 
 </dd>
@@ -485,7 +485,7 @@ errors.
 
 </dt>
 <dd>
-  Executes the given <code>action</code> with <code>argument</code> in this zone.
+  在此 Zone 中执行给定的 <code>action</code>，并传入 <code>argument</code>。
   
 
 </dd>
@@ -498,8 +498,8 @@ errors.
 
 </dt>
 <dd>
-  Executes the given <code>action</code> with <code>argument</code> in this zone and
-catches synchronous errors.
+  在此 Zone 中执行给定的 <code>action</code>，传入 <code>argument</code>，并
+捕获同步错误。
   
 
 </dd>
@@ -512,7 +512,7 @@ catches synchronous errors.
 
 </dt>
 <dd>
-  Runs <code>callback</code> asynchronously in this zone.
+  在此 Zone 中异步运行 <code>callback</code>。
   
 
 </dd>
@@ -559,7 +559,7 @@ catches synchronous errors.
 
 </dt>
 <dd>
-  Retrieves the zone-value associated with <code>key</code>.
+  获取与 <code>key</code> 关联的 Zone 值。
   
 
 </dd>
@@ -577,7 +577,7 @@ catches synchronous errors.
 
 </dt>
 <dd>
-  The zone that is currently active.
+  当前处于活动状态的 Zone。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -597,7 +597,7 @@ catches synchronous errors.
 
 </dt>
 <dd>
-  The root zone.
+  根 Zone。
   
 
 </dd>

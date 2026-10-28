@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>此 mixin 会确保将 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 的当前值序列化为状态恢复数据的一部分。<a href="widgets/State-class.html">State</a> 负责确保属性中保存的数据始终是最新的。使用之前生成的状态恢复数据恢复组件时，<a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 的值会自动恢复为序列化数据时的值。</p>
 <p>使用此 mixin 的 <a href="widgets/State-class.html">State</a> 通常会实例化 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 来初始化成员变量。使用此 mixin 的类必须重写 <a href="widgets/RestorationMixin/restoreState.html">restoreState</a>，并在该方法中调用 <a href="widgets/RestorationMixin/registerForRestoration.html">registerForRestoration</a> 注册预先实例化的 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>。mixin 会在 <a href="widgets/State/initState.html">State.initState</a> 之后首次调用此方法。注册后，属性中保存的值要么恢复为之前的值，要么在没有可用恢复数据时初始化为该属性对应的默认值。<a href="widgets/State-class.html">State</a> 生命周期结束时，必须在 <a href="widgets/State/dispose.html">State.dispose</a> 中释放所有可恢复属性。</p>
 <p>除了在 <a href="widgets/State/initState.html">State.initState</a> 之后调用外，当有新的状态恢复数据提供给 mixin 时，也会再次调用 <a href="widgets/RestorationMixin/restoreState.html">restoreState</a>。此时，<a href="widgets/State-class.html">State</a> 对象必须再次通过 <a href="widgets/RestorationMixin/registerForRestoration.html">registerForRestoration</a> 重新注册所有属性，以便根据新数据将它们恢复为之前的值。依赖可恢复属性当前值的所有初始化逻辑都应放在 <a href="widgets/RestorationMixin/restoreState.html">restoreState</a> 中，以确保 <a href="widgets/State-class.html">State</a> 对象的生命周期内属性恢复为不同值时，这些逻辑会重新执行。</p>
-<p>此 mixin 会在内部将所有已注册属性的状态恢复数据保存在 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 中；它通过 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 获取该 bucket，使用 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> 标识，该 ID 由 <a href="widgets/State-class.html">State</a> 提供。该 ID 在外围 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 中必须唯一。如果 <a href="widgets/State-class.html">State</a> 的 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a>（<a href="widgets/RestorationMixin/restorationId.html">restorationId</a>）为 null，或外围不存在 <a href="widgets/RestorationScope-class.html">RestorationScope</a>，则会为使用此 mixin 的 State 对象禁用状态恢复。在这种情况下，不会恢复该 State 的已注册属性值。</p>
+<p>此 mixin 会在内部将所有已注册属性的状态恢复数据保存在 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 中；它通过 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 获取该 bucket，使用 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> 标识，该 ID 由 <a href="widgets/State-class.html">State</a> 提供。该 ID 在外围 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 中必须唯一。如果 <a href="widgets/State-class.html">State</a> 的 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a>（即 State 的 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a>）为 null，或外围不存在 <a href="widgets/RestorationScope-class.html">RestorationScope</a>，则会为使用此 mixin 的 State 对象禁用状态恢复。在这种情况下，不会恢复该 State 的已注册属性值。</p>
 <p>已注册属性所用的 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 可通过 <a href="widgets/RestorationMixin/bucket.html">bucket</a> getter 获取。通常不需要直接操作 bucket，但 <a href="widgets/State-class.html">State</a> 对象可以将该 bucket（<a href="widgets/RestorationMixin/bucket.html">bucket</a>）提供给后代，以便后代获取子 bucket。为此，可在 <a href="widgets/State/build.html">State.build</a> 中借助 <a href="widgets/UnmanagedRestorationScope-class.html">UnmanagedRestorationScope</a> 将 bucket 注入组件树。</p>
 <p>如果状态恢复已关闭，<a href="widgets/RestorationMixin/bucket.html">bucket</a> getter 会返回 null。如果在组件生命周期内启用或关闭状态恢复（例如 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> 从 null 变为非 null），该 getter 返回的值也会在 null 与非 null 之间相应变化。mixin 会调用自身的 <a href="widgets/RestorationMixin/didToggleBucket.html">didToggleBucket</a> 来通知 <a href="widgets/State-class.html">State</a> 对象发生了此变化。只要 <a href="widgets/State-class.html">State</a> 不直接操作 <a href="widgets/RestorationMixin/bucket.html">bucket</a>，就无需重写此方法。</p>
 <p>每当 <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> 返回值发生变化时，都必须调用 <a href="widgets/RestorationMixin/didUpdateRestorationId.html">didUpdateRestorationId</a>，除非该变化已经触发了 <a href="widgets/RestorationMixin/didUpdateWidget.html">didUpdateWidget</a> 调用。</p>
@@ -107,8 +107,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a name="widgets.RestorationMixin.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-This example demonstrates how to make a simple counter app restorable by
-using the <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> and a <a href="widgets/RestorableInt-class.html">RestorableInt</a>.
+此示例演示如何使用 <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> 和一个 <a href="widgets/RestorableInt-class.html">RestorableInt</a>。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.RestorationMixin.1');" onclick="fixHref(this, 'widgets.RestorationMixin.1'); copyStringToClipboard(this.href);"
@@ -127,12 +126,9 @@ using the <a href="widgets/RestorationMixin-mixin.html">RestorationMixin</a> and
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/RestorableProperty-class.html">RestorableProperty</a>, which is the base class for all restoration
-properties managed by this mixin.</li>
-<li><a href="services/RestorationManager-class.html">RestorationManager</a>, which describes how state restoration in Flutter
-works.</li>
-<li><a href="widgets/RestorationScope-class.html">RestorationScope</a>, which creates a new namespace for restoration IDs
-in the widget tree.</li>
+<li><a href="widgets/RestorableProperty-class.html">RestorableProperty</a>，此 mixin 管理的所有状态恢复属性的基类。</li>
+<li><a href="services/RestorationManager-class.html">RestorationManager</a>，介绍 Flutter 中状态恢复的工作方式。</li>
+<li><a href="widgets/RestorationScope-class.html">RestorationScope</a>，在 widget 树中为状态恢复 ID 创建新命名空间。</li>
 </ul>
 </section>
 
@@ -181,8 +177,7 @@ in the widget tree.</li>
 
 </dt>
 <dd>
-  The <a href="services/RestorationBucket-class.html">RestorationBucket</a> used for the restoration data of the
-<a href="widgets/RestorableProperty-class.html">RestorableProperty</a>s registered to this mixin.
+  此 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 用于保存此 mixin 注册的 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> 状态恢复数据。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -230,8 +225,7 @@ in the widget tree.</li>
 
 </dt>
 <dd>
-  The restoration ID used for the <a href="services/RestorationBucket-class.html">RestorationBucket</a> in which the mixin
-will store the restoration data of all registered properties.
+  mixin 用于标识 <a href="services/RestorationBucket-class.html">RestorationBucket</a> 的状态恢复 ID；该 bucket 用于存储所有已注册属性的状态恢复数据。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -243,8 +237,7 @@ will store the restoration data of all registered properties.
 
 </dt>
 <dd>
-  Whether <a href="widgets/RestorationMixin/restoreState.html">restoreState</a> will be called at the beginning of the next build
-phase.
+  是否会在下一构建阶段开始时调用 <a href="widgets/RestorationMixin/restoreState.html">restoreState</a>。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -268,7 +261,7 @@ phase.
 
 </dt>
 <dd class="inherited">
-  The current configuration.
+  当前配置。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -355,7 +348,7 @@ phase.
 
 </dt>
 <dd>
-  Called when <a href="widgets/RestorationMixin/bucket.html">bucket</a> switches between null and non-null values.
+  <a href="widgets/RestorationMixin/bucket.html">bucket</a> 在 null 与非 null 值之间切换时调用。
   
 
 </dd>
@@ -368,7 +361,7 @@ phase.
 
 </dt>
 <dd>
-  Must be called when the value returned by <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> changes.
+  <a href="widgets/RestorationMixin/restorationId.html">restorationId</a> 的返回值发生变化时必须调用。
   
 
 </dd>
@@ -446,7 +439,7 @@ phase.
 
 </dt>
 <dd>
-  Registers a <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> for state restoration.
+  注册一个用于状态恢复的 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>。
   
 
 </dd>
@@ -459,8 +452,7 @@ phase.
 
 </dt>
 <dd>
-  Called to initialize or restore the <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>s used by the
-<a href="widgets/State-class.html">State</a> object.
+  调用此方法以初始化或恢复 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>，供 <a href="widgets/State-class.html">State</a> 对象使用。
   
 
 </dd>
@@ -525,7 +517,7 @@ phase.
 
 </dt>
 <dd>
-  Unregisters a <a href="widgets/RestorableProperty-class.html">RestorableProperty</a> from state restoration.
+  从状态恢复中注销一个 <a href="widgets/RestorableProperty-class.html">RestorableProperty</a>。
   
 
 </dd>
