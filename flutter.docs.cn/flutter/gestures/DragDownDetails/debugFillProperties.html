@@ -123,7 +123,7 @@ aspect-ratio: 560 / 315;">
 <p><code>defaultValue</code>、<code>showName</code>、<code>showSeparator</code> 和 <code>level</code> 可以让诊断信息的字符串表示保持简洁，并在属性用处不大时将其隐藏。</p>
 <ul>
 <li>任意时刻都可以指定 <code>defaultValue</code>，用于表示属性的默认值不重要。例如，当属性为 null 并不表示错误时，可将默认值指定为 null。</li>
-<li>除非通过 <code>defaultValue</code> 参数或使用 <a href="foundation/ObjectFlagProperty-class.html">ObjectFlagProperty</a> 类将属性有条件地显示为标志能够实现所需效果，否则应避免指定 <code>level</code> 参数。</li>
+<li>不要指定 <code>level</code> 参数，除非所需效果无法通过 <code>defaultValue</code> 参数实现，或无法通过使用 <a href="foundation/ObjectFlagProperty-class.html">ObjectFlagProperty</a> 类有条件地将属性显示为标志来实现。</li>
 <li>仅在未设置 <code>showName</code> 和 <code>showSeparator</code> 时字符串输出会显得不自然的情况下指定它们。<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;Object&gt;('child(3, 4)', null, ifNull: 'is null', showSeparator: false).toString()
 </code></pre> 展示了使用 <code>showSeparator</code> 可得到输出 <code>child(3, 4) is null</code>，比 <code>child(3, 4): is null</code> 更为简洁。<pre class="language-dart"><code class="language-dart">DiagnosticsProperty&lt;IconData&gt;('icon', icon, ifNull: '&lt;empty&gt;', showName: false).toString()
 </code></pre> 展示了如何使用 <code>showName</code> 省略属性名称，因为在此上下文中属性名不会提供有用信息。</li>
@@ -142,8 +142,8 @@ aspect-ratio: 560 / 315;">
 <li><a href="foundation/EnumProperty-class.html">EnumProperty</a> 为枚举值提供简洁描述，绕过 Dart 枚举类型 <code>toString</code> 实现的限制。</li>
 <li><a href="foundation/IterableProperty-class.html">IterableProperty</a> 会处理可迭代值，其显示方式可根据所用的 <a href="foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a> 自定义。</li>
 <li><a href="foundation/ObjectFlagProperty-class.html">ObjectFlagProperty</a> 会简洁地描述属性值是否存在。例如，是否指定了 <code>onClick</code> 回调，或动画是否正在进行。</li>
-<li>若属性值为 <a href="dart-ui/Color-class.html">Color</a> 或其子类，必须使用 <a href="painting/ColorProperty-class.html">ColorProperty</a>。</li>
-<li>若属性值的类型为 <a href="widgets/IconData-class.html">IconData</a>，必须使用 <a href="widgets/IconDataProperty-class.html">IconDataProperty</a>。</li>
+<li><a href="painting/ColorProperty-class.html">ColorProperty</a>：如果属性值是 <a href="dart-ui/Color-class.html">Color</a> 或其子类，必须使用此属性。</li>
+<li><a href="widgets/IconDataProperty-class.html">IconDataProperty</a>：属性值类型为 <a href="widgets/IconData-class.html">IconData</a> 时必须使用此属性。</li>
 </ul>
 <p>如果这些子类都不适用，可以直接使用 <a href="foundation/DiagnosticsProperty-class.html">DiagnosticsProperty</a> 构造函数；少数情况下，也可以像 <a href="foundation/DiagnosticsProperty-class.html">TransformProperty</a> 那样创建自己的 <a href="painting/TransformProperty-class.html">DiagnosticsProperty</a> 子类，以处理表示变换的 <a href="package-vector_math_vector_math_64/Matrix4-class.html">Matrix4</a>。通常，只要属性值实现了良好的 <code>toString</code> 方法，直接使用 <a href="foundation/DiagnosticsProperty-class.html">DiagnosticsProperty</a> 就可以正常工作。</p>
 <p>
