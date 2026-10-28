@@ -96,30 +96,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p><a href="widgets/Overlay-class.html">Overlay</a> 中可用于容纳 widget 的位置。</p>
 <p>使用 <a href="widgets/OverlayState/insert.html">OverlayState.insert</a> 或 <a href="widgets/OverlayState/insertAll.html">OverlayState.insertAll</a> 函数将 Overlay 条目插入 <a href="widgets/Overlay-class.html">Overlay</a>。若要查找包围给定 <a href="widgets/BuildContext-class.html">BuildContext</a> 的最近 Overlay，请使用 <a href="widgets/Overlay/of.html">Overlay.of</a> 函数。</p>
 <p>一个 Overlay 条目同时最多只能属于一个 Overlay。要从所属 Overlay 中移除条目，请对该条目调用 <a href="widgets/OverlayEntry/remove.html">remove</a> 函数。</p>
-<p>Because an <a href="widgets/Overlay-class.html">Overlay</a> uses a <a href="widgets/Stack-class.html">Stack</a> layout, overlay entries can use
-<a href="widgets/Positioned-class.html">Positioned</a> 和 <a href="widgets/AnimatedPositioned-class.html">AnimatedPositioned</a> to position themselves within the
-overlay.</p>
+<p>由于 <a href="widgets/Overlay-class.html">Overlay</a> 采用 <a href="widgets/Stack-class.html">Stack</a> 布局，overlay 条目可以使用
+<a href="widgets/Positioned-class.html">Positioned</a> 和 <a href="widgets/AnimatedPositioned-class.html">AnimatedPositioned</a> 在 overlay
+中定位自身。</p>
 <p>例如，拖动开始后，<a href="widgets/Draggable-class.html">Draggable</a> 会使用 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 显示拖动头像，并让它跟随用户的手指在屏幕上移动。使用 Overlay 显示拖动头像，可使其浮在应用中其他 widget 上方。手指移动时，Draggable 会对该 Overlay 条目调用 <a href="widgets/OverlayEntry/markNeedsBuild.html">markNeedsBuild</a> 以触发重建。构建条目时，会包含一个 <a href="widgets/Positioned-class.html">Positioned</a>，并设置其 top 和 left 属性，将拖动头像定位在手指附近。拖动结束后，<a href="widgets/Draggable-class.html">Draggable</a> 会从 Overlay 中移除该条目，使拖动头像不再显示。</p>
 <p>默认情况下，如果此条目上方有完全<a href="widgets/OverlayEntry/opaque.html">不透明</a>的条目，就不会将此条目加入 widget 树（尤其是不会实例化 overlay 条目中的有状态 widget）。若要确保 overlay 条目即使不可见也仍然构建，请将 <a href="widgets/OverlayEntry/maintainState.html">maintainState</a> 设为 true。这样会增加开销，应谨慎使用。特别是，如果启用了 <a href="widgets/OverlayEntry/maintainState.html">maintainState</a> 的 overlay 条目中的 widget 反复调用 <a href="widgets/State/setState.html">State.setState</a>，会无谓地消耗用户设备的电量。</p>
 <p><a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 是一个 <a href="foundation/Listenable-class.html">Listenable</a>：当 <a href="widgets/OverlayEntry/builder.html">builder</a> 构建的 widget 挂载或卸载时，它会发出通知；具体状态可通过 <a href="widgets/OverlayEntry/mounted.html">mounted</a> 查询。<a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的所有者调用 <a href="widgets/OverlayEntry/remove.html">remove</a>，随后调用 <a href="widgets/OverlayEntry/dispose.html">dispose</a> 后，widget 可能不会立即从 widget 树中移除。因此，当 widget 最终卸载时，<a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的监听器可能会在 <a href="widgets/OverlayEntry/dispose.html">dispose</a> 调用后最后收到一次通知。</p>
 <h3 id="differences-between-overlayportal-and-overlayentry"> <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 与 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的区别</h3>
-<p>The main difference between <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 和 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> is that
-<a href="widgets/OverlayEntry-class.html">OverlayEntry</a> builds its widget subtree as a child of the target <a href="widgets/Overlay-class.html">Overlay</a>,
-while <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> uses <a href="widgets/OverlayPortal/overlayChildBuilder.html">OverlayPortal.overlayChildBuilder</a> to build a
-child widget of itself. This allows <a href="widgets/OverlayPortal-class.html">OverlayPortal</a>'s overlay child to depend
-on the same set of <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>s as <a href="widgets/OverlayPortal-class.html">OverlayPortal</a>, and it's also
-guaranteed that the overlay child will not outlive its <a href="widgets/OverlayPortal-class.html">OverlayPortal</a>.</p>
+<p><a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 与 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 的主要区别在于：
+<a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 会将其 widget 子树构建为目标 <a href="widgets/Overlay-class.html">Overlay</a>，
+而 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 会使用 <a href="widgets/OverlayPortal/overlayChildBuilder.html">OverlayPortal.overlayChildBuilder</a> 来构建自身的子 widget。这样，<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 的 overlay 子 widget 可以依赖与
+<a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 相同的一组
+<a href="widgets/OverlayPortal-class.html">OverlayPortal</a>，并且可以确保 overlay 子 widget 的生命周期不会超过其
+<a href="widgets/OverlayPortal-class.html">OverlayPortal</a>。</p>
 <p>另一方面，<a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 的实现更复杂。例如，在全局键重新挂接期间，它比常规 widget 需要执行更多工作。如果要显示在 <a href="widgets/Overlay-class.html">Overlay</a> 上的内容并不需要成为 <a href="widgets/OverlayPortal-class.html">OverlayPortal</a> 子树的一部分，请考虑改用 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a>。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/OverlayPortal-class.html">OverlayPortal</a>, an alternative API for inserting widgets into an
-<a href="widgets/Overlay-class.html">Overlay</a> using a builder callback.</li>
-<li><a href="widgets/Overlay-class.html">Overlay</a>, a stack of entries that can be managed independently.</li>
-<li><a href="widgets/OverlayState-class.html">OverlayState</a>, the current state of an Overlay.</li>
-<li><a href="widgets/WidgetsApp-class.html">WidgetsApp</a>, a convenience widget that wraps a number of widgets that
-are commonly required for an application.</li>
-<li><a href="material/MaterialApp-class.html">MaterialApp</a>, a convenience widget that wraps a number of widgets that
-are commonly required for Material Design applications.</li>
+<li><a href="widgets/OverlayPortal-class.html">OverlayPortal</a>，一种通过 builder 回调向
+<a href="widgets/Overlay-class.html">Overlay</a> 插入 widget 的替代 API。</li>
+<li><a href="widgets/Overlay-class.html">Overlay</a>，由可独立管理的多个条目组成的堆栈。</li>
+<li><a href="widgets/OverlayState-class.html">OverlayState</a>，Overlay 的当前状态。</li>
+<li><a href="widgets/WidgetsApp-class.html">WidgetsApp</a>，用于封装应用中常用的多个
+widget 的便捷 widget。</li>
+<li><a href="material/MaterialApp-class.html">MaterialApp</a>，用于封装 Material Design 应用中常用的多个
+widget 的便捷 widget。</li>
 </ul>
 </section>
 
@@ -153,7 +153,7 @@ are commonly required for Material Design applications.</li>
           <span class="name"><a href="widgets/OverlayEntry/OverlayEntry.html">OverlayEntry</a></span><span class="signature">({<span class="parameter" id="-param-builder"><span>required</span> <span class="type-annotation"><a href="widgets/WidgetBuilder.html">WidgetBuilder</a></span> <span class="parameter-name">builder</span>, </span><span class="parameter" id="-param-opaque"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">opaque</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-maintainState"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">maintainState</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-canSizeOverlay"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">canSizeOverlay</span> = <span class="default-value">false</span></span>})</span>
         </dt>
         <dd>
-          Creates an overlay entry.
+          创建一个 Overlay 条目。
         </dd>
     </dl>
   </section>
@@ -170,8 +170,8 @@ are commonly required for Material Design applications.</li>
 
 </dt>
 <dd>
-  This entry will include the widget built by this builder in the overlay at
-the entry's position.
+  此条目会在 Overlay 中对应的位置插入由此 builder 构建的
+widget。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -183,8 +183,8 @@ the entry's position.
 
 </dt>
 <dd>
-  Whether the content of this <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> can be used to size the
-<a href="widgets/Overlay-class.html">Overlay</a>.
+  此 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 的内容是否可用于确定
+<a href="widgets/Overlay-class.html">Overlay</a> 的尺寸。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -208,8 +208,8 @@ the entry's position.
 
 </dt>
 <dd>
-  Whether this entry must be included in the tree even if there is a fully
-<a href="widgets/OverlayEntry/opaque.html">opaque</a> entry above it.
+  即使此条目上方有完全
+<a href="widgets/OverlayEntry/opaque.html">opaque</a> 不透明的条目，是否仍须将此条目纳入树中。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -221,7 +221,7 @@ the entry's position.
 
 </dt>
 <dd>
-  Whether the <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> is currently mounted in the widget tree.
+  此 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 当前是否已挂载到 widget 树中。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -233,7 +233,7 @@ the entry's position.
 
 </dt>
 <dd>
-  Whether this entry occludes the entire overlay.
+  此条目是否遮挡整个 overlay。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -280,7 +280,7 @@ the entry's position.
 
 </dt>
 <dd>
-  Discards any resources used by this <a href="widgets/OverlayEntry-class.html">OverlayEntry</a>.
+  释放此 <a href="widgets/OverlayEntry-class.html">OverlayEntry</a> 使用的所有资源。
   
 
 </dd>
@@ -293,7 +293,7 @@ the entry's position.
 
 </dt>
 <dd>
-  Cause this entry to rebuild during the next pipeline flush.
+  使此条目在下一次 pipeline flush 期间重新构建。
   
 
 </dd>
@@ -319,7 +319,7 @@ the entry's position.
 
 </dt>
 <dd>
-  Remove this entry from the overlay.
+  从 overlay 中移除此条目。
   
 
 </dd>
