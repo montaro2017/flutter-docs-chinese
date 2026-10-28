@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>Bindings 为这些底层 API 与更高层的框架 API 提供连接。它们将两者绑定在一起，因此得名。<em>Bindings</em> 一词由此而来。</p>
 <h2 id="implementing-a-binding-mixin">实现 binding mixin</h2>
 <p>库通常会创建新的 binding mixin，以公开 <a href="dart-ui/">dart:ui</a> 中的某项功能。一般很少需要这样做，但替代框架可能会这么做，例如用替代 API 替换 <a href="widgets/">widgets</a> 库，同时仍希望利用 <a href="services/">services</a> 和 <a href="foundation/">foundation</a> 库。</p>
-<p>要创建 binding mixin，请声明一个作用于 <a href="foundation/BindingBase-class.html">BindingBase</a> 类及其他必要 Binding 的 mixin；这些 Binding 是具体 Binding 使用此 mixin 所必需的 <code>on</code> 条件。</p>
+<p>要创建 binding mixin，请声明一个 mixin，并通过 <a href="foundation/BindingBase-class.html">BindingBase</a> 类及其他必要 Binding 的 <code>on</code> 子句，限定实现该 mixin 的具体 binding 类。</p>
 <p>此 mixin 在应用生命周期内只会构造一次；这一点由 <a href="foundation/BindingBase/initInstances.html">initInstances</a> 保证。</p>
 <p>binding mixin 至少必须实现以下功能：</p>
 <ul>
@@ -206,9 +206,7 @@ class FooLibraryBinding extends BindingBase with BarBinding, FooBinding {
         <dt id="BindingBase.new" class="callable">
           <span class="name"><a href="foundation/BindingBase/BindingBase.html">BindingBase</a></span><span class="signature">()</span>
         </dt>
-        <dd>
-          Default abstract constructor for bindings.
-        </dd>
+        <dd>Binding 的默认抽象构造函数。</dd>
     </dl>
   </section>
     
@@ -235,9 +233,7 @@ class FooLibraryBinding extends BindingBase with BarBinding, FooBinding {
   
 
 </dt>
-<dd>
-  Whether <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> is currently locking events.
-  <div class="features"><span class="feature">无 setter</span></div>
+<dd><a href="foundation/BindingBase/lockEvents.html">lockEvents</a> 当前是否正在锁定事件。<div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -247,9 +243,7 @@ class FooLibraryBinding extends BindingBase with BarBinding, FooBinding {
   
 
 </dt>
-<dd>
-  The <a href="dart-ui/PlatformDispatcher-class.html">ui.PlatformDispatcher</a> to which this binding is bound.
-  <div class="features"><span class="feature">无 setter</span></div>
+<dd>此 binding 所绑定的 <a href="dart-ui/PlatformDispatcher-class.html">ui.PlatformDispatcher</a>。<div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -271,9 +265,7 @@ class FooLibraryBinding extends BindingBase with BarBinding, FooBinding {
   
 
 </dt>
-<dd>
-  Deprecated; will be removed in a future version of Flutter.
-  <div class="features"><span class="feature">无 setter</span></div>
+<dd>已弃用；将在 Flutter 的未来版本中移除。<div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
 
@@ -293,12 +285,7 @@ class FooLibraryBinding extends BindingBase with BarBinding, FooBinding {
   
 
 </dt>
-<dd>
-  Checks that the current <a href="dart-async/Zone-class.html">Zone</a> is the same as that which was used
-to initialize the binding.
-  
-
-</dd>
+<dd>检查当前 <a href="dart-async/Zone-class.html">Zone</a> 是否与用于初始化 binding 的 Zone 相同。</dd>
 
         <dt id="initInstances" class="callable">
   <span class="name"><a href="foundation/BindingBase/initInstances.html">initInstances</a></span><span class="signature">(<wbr>)
@@ -307,11 +294,7 @@ to initialize the binding.
   
 
 </dt>
-<dd>
-  The initialization method.
-  
-
-</dd>
+<dd>初始化方法。</dd>
 
         <dt id="initServiceExtensions" class="callable">
   <span class="name"><a href="foundation/BindingBase/initServiceExtensions.html">initServiceExtensions</a></span><span class="signature">(<wbr>)
@@ -320,12 +303,7 @@ to initialize the binding.
   
 
 </dt>
-<dd>
-  Called when the binding is initialized, to register service
-extensions.
-  
-
-</dd>
+<dd>binding 初始化后调用，以注册服务扩展。</dd>
 
         <dt id="lockEvents" class="callable">
   <span class="name"><a href="foundation/BindingBase/lockEvents.html">lockEvents</a></span><span class="signature">(<wbr><span class="parameter" id="lockEvents-param-callback"><span class="type-annotation"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span> <span class="parameter-name">callback</span>()</span>)
@@ -334,12 +312,7 @@ extensions.
   
 
 </dt>
-<dd>
-  Locks the dispatching of asynchronous events and callbacks until the
-callback's future completes.
-  
-
-</dd>
+<dd>锁定异步事件和回调的分发，直到回调返回的 Future 完成。</dd>
 
         <dt id="noSuchMethod" class="callable inherited">
   <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
@@ -361,12 +334,7 @@ callback's future completes.
   
 
 </dt>
-<dd>
-  This method is called by <a href="foundation/BindingBase/reassembleApplication.html">reassembleApplication</a> to actually cause the
-application to reassemble, e.g. after a hot reload.
-  
-
-</dd>
+<dd>此方法由 <a href="foundation/BindingBase/reassembleApplication.html">reassembleApplication</a> 调用，以实际触发应用重新组装，例如热重载之后。</dd>
 
         <dt id="postEvent" class="callable">
   <span class="name"><a href="foundation/BindingBase/postEvent.html">postEvent</a></span><span class="signature">(<wbr><span class="parameter" id="postEvent-param-eventKind"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">eventKind</span>, </span><span class="parameter" id="postEvent-param-eventData"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">eventData</span></span>)
@@ -375,13 +343,7 @@ application to reassemble, e.g. after a hot reload.
   
 
 </dt>
-<dd>
-  All events dispatched by a <a href="foundation/BindingBase-class.html">BindingBase</a> use this method instead of
-calling <a href="dart-developer/postEvent.html">developer.postEvent</a> directly so that tests for <a href="foundation/BindingBase-class.html">BindingBase</a>
-can track which events were dispatched by overriding this method.
-  
-
-</dd>
+<dd>由 <a href="foundation/BindingBase-class.html">BindingBase</a> 分发的所有事件都使用此方法，而不是直接调用 <a href="dart-developer/postEvent.html">developer.postEvent</a>。这样，针对 <a href="foundation/BindingBase-class.html">BindingBase</a> 的测试可以通过重写此方法跟踪分发的事件。</dd>
 
         <dt id="reassembleApplication" class="callable">
   <span class="name"><a href="foundation/BindingBase/reassembleApplication.html">reassembleApplication</a></span><span class="signature">(<wbr>)
@@ -390,11 +352,7 @@ can track which events were dispatched by overriding this method.
   
 
 </dt>
-<dd>
-  Cause the entire application to redraw, e.g. after a hot reload.
-  
-
-</dd>
+<dd>使整个应用重绘，例如热重载之后。</dd>
 
         <dt id="registerBoolServiceExtension" class="callable">
   <span class="name"><a href="foundation/BindingBase/registerBoolServiceExtension.html">registerBoolServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerBoolServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerBoolServiceExtension-param-getter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueGetter.html">AsyncValueGetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span> <span class="parameter-name">getter</span>, </span><span class="parameter" id="registerBoolServiceExtension-param-setter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueSetter.html">AsyncValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/bool-class.html">bool</a></span>&gt;</span></span> <span class="parameter-name">setter</span></span>})
@@ -415,15 +373,7 @@ can track which events were dispatched by overriding this method.
   
 
 </dt>
-<dd>
-  Registers a service extension method with the given name (full
-name "ext.flutter.name"), which takes a single argument with the
-same name as the method which, if present, must have a value
-that can be parsed by <a href="dart-core/double/parse.html">double.parse</a>, and can be omitted to read
-the current value. (Other arguments are ignored.)
-  
-
-</dd>
+<dd>注册一个指定名称的服务扩展方法（完整名称为“ext.flutter.name”）。它接受一个与方法同名的参数；若提供该参数，其值必须能由 <a href="dart-core/double/parse.html">double.parse</a> 解析。省略参数时读取当前值。其他参数会被忽略。</dd>
 
         <dt id="registerServiceExtension" class="callable">
   <span class="name"><a href="foundation/BindingBase/registerServiceExtension.html">registerServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerServiceExtension-param-callback"><span>required</span> <span class="type-annotation"><a href="foundation/ServiceExtensionCallback.html">ServiceExtensionCallback</a></span> <span class="parameter-name">callback</span></span>})
@@ -432,12 +382,7 @@ the current value. (Other arguments are ignored.)
   
 
 </dt>
-<dd>
-  Registers a service extension method with the given name (full name
-"ext.flutter.name").
-  
-
-</dd>
+<dd>注册一个指定名称的服务扩展方法（完整名称为“ext.flutter.name”）。</dd>
 
         <dt id="registerSignalServiceExtension" class="callable">
   <span class="name"><a href="foundation/BindingBase/registerSignalServiceExtension.html">registerSignalServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerSignalServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerSignalServiceExtension-param-callback"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncCallback.html">AsyncCallback</a></span> <span class="parameter-name">callback</span></span>})
@@ -446,13 +391,7 @@ the current value. (Other arguments are ignored.)
   
 
 </dt>
-<dd>
-  Registers a service extension method with the given name (full
-name "ext.flutter.name"), which takes no arguments and returns
-no value.
-  
-
-</dd>
+<dd>注册一个指定名称的服务扩展方法（完整名称为“ext.flutter.name”）；该方法不接受参数，也不返回值。</dd>
 
         <dt id="registerStringServiceExtension" class="callable">
   <span class="name"><a href="foundation/BindingBase/registerStringServiceExtension.html">registerStringServiceExtension</a></span><span class="signature">(<wbr>{<span class="parameter" id="registerStringServiceExtension-param-name"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span>, </span><span class="parameter" id="registerStringServiceExtension-param-getter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueGetter.html">AsyncValueGetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">getter</span>, </span><span class="parameter" id="registerStringServiceExtension-param-setter"><span>required</span> <span class="type-annotation"><a href="foundation/AsyncValueSetter.html">AsyncValueSetter</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">setter</span></span>})
@@ -461,14 +400,7 @@ no value.
   
 
 </dt>
-<dd>
-  Registers a service extension method with the given name (full name
-"ext.flutter.name"), which optionally takes a single argument with the
-name "value". If the argument is omitted, the value is to be read,
-otherwise it is to be set. Returns the current value.
-  
-
-</dd>
+<dd>注册一个指定名称的服务扩展方法（完整名称为“ext.flutter.name”）。该方法可选地接受一个名为“value”的参数。省略参数时读取值，否则设置该值。返回当前值。</dd>
 
         <dt id="toString" class="callable">
   <span class="name"><a href="foundation/BindingBase/toString.html">toString</a></span><span class="signature">(<wbr>)
@@ -490,11 +422,7 @@ otherwise it is to be set. Returns the current value.
   
 
 </dt>
-<dd>
-  Called by <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> when events get unlocked.
-  
-
-</dd>
+<dd>事件解锁后由 <a href="foundation/BindingBase/lockEvents.html">lockEvents</a> 调用。</dd>
 
     </dl>
   </section>
@@ -529,9 +457,7 @@ otherwise it is to be set. Returns the current value.
   
 
 </dt>
-<dd>
-  Whether <a href="foundation/BindingBase/debugCheckZone.html">debugCheckZone</a> should throw (true) or just report the error (false).
-  <div class="features"><span class="feature">getter/setter 对</span></div>
+<dd><a href="foundation/BindingBase/debugCheckZone.html">debugCheckZone</a> 是应抛出异常（true）还是只报告错误（false）。<div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
 
@@ -548,12 +474,7 @@ otherwise it is to be set. Returns the current value.
   
 
 </dt>
-<dd>
-  A method that shows a useful error message if the given binding
-instance is not initialized.
-  
-
-</dd>
+<dd>当给定的 binding 实例尚未初始化时，显示有用错误信息的方法。</dd>
 
         <dt id="debugBindingType" class="callable">
   <span class="name"><a href="foundation/BindingBase/debugBindingType.html">debugBindingType</a></span><span class="signature">(<wbr>)
@@ -562,11 +483,7 @@ instance is not initialized.
   
 
 </dt>
-<dd>
-  In debug builds, the type of the current binding, if any, or else null.
-  
-
-</dd>
+<dd>在调试构建中，如果存在，则返回当前 binding 的类型；否则返回 null。</dd>
 
     </dl>
   </section>

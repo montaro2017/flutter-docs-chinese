@@ -10,11 +10,11 @@
   <!-- required because all the links are pseudo-absolute -->
   <base href="../">
 
-  
+
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="static-assets/github.css?v1">
   <link rel="stylesheet" href="static-assets/styles.css?v1">
   <link rel="icon" href="static-assets/favicon.png?v1">
@@ -90,31 +90,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h1>
         <span class="kind-enum">BlendMode</span>
         enum 
- 
+
 
       </h1>
     </div>
 
-    
+
 <section class="desc markdown">
   <p>在画布上绘制时使用的算法。</p>
 <p>在画布上绘制形状或图像时，可以使用不同算法混合像素。<a href="dart-ui/BlendMode.html">BlendMode</a> 的不同取值分别指定了不同算法。</p>
-<p>每种算法都有两个输入：<em>源</em>是正在绘制的图像，<em>目标</em>是用于合成源图像的图像。目标通常也称为<em>背景</em>。源和目标都包含四个颜色通道：红、绿、蓝和 alpha 通道，通常以 0.0 到 1.0 之间的数值表示。算法的输出也包含这四个通道，其值由源和目标计算得出。</p>
-<p>下文对每个取值的说明都会介绍相应算法的工作方式。每种情况下，配图都展示了将源图像与目标图像混合后的结果。图中，目标由带有水平线和不透明风景照片的图像表示；源由带有垂直线（同一组线条旋转后的效果）和鸟类剪贴画的图像表示。<a href="dart-ui/BlendMode.html">src</a> 模式只显示源图像，<a href="dart-ui/BlendMode.html">dst</a> 模式只显示目标图像。下文使用棋盘格表示透明度。<a href="dart-ui/BlendMode.html">clear</a> 模式会同时丢弃源和目标，因此输出完全透明（以纯棋盘格表示）。</p>
-<p>这些图中的水平条和垂直条依次展示：不透明度不同的红、绿、蓝通道；不透明度相同且变化的三个颜色通道；值均为零且不透明度变化的三个颜色通道；红绿蓝循环渐变的两条色带（第一条完全不透明，第二条部分透明）；最后是一条颜色通道均为零、但不透明度呈循环渐变的色带。</p>
+<p>每种算法都有两个输入：<em>源</em>是正在绘制的图像，<em>目标</em>是用于合成源图像的图像。目标通常也称为<em>背景</em>。源和目标都包含四个颜色通道：红、绿、蓝和 alpha 通道，通常以 0.0 到 1.0 之间的数值表示。算法的输出也包含这四个通道，其值由源和目标计算得出。
+  </p>
+<p>下文对每个取值的说明都会介绍相应算法的工作方式。
+  每种情况下，
+  配图都展示了将源图像与目标图像混合后的结果。
+  图中，
+  目标由带有水平线和不透明风景照片的图像表示；
+  源由带有垂直线（同一组线条旋转后的效果）和鸟类剪贴画的图像表示。
+  <a href="dart-ui/BlendMode.html">src</a> 模式只显示源图像，<a href="dart-ui/BlendMode.html">dst</a> 模式只显示目标图像。下文使用棋盘格表示透明度。<a href="dart-ui/BlendMode.html">clear</a> 模式会同时丢弃源和目标，因此输出完全透明（以纯棋盘格表示）。</p>
+<p>这些图中的水平条和垂直条依次展示：不透明度不同的红、绿、蓝通道；
+  不透明度相同且变化的三个颜色通道；
+  值均为零且不透明度变化的三个颜色通道；
+  红绿蓝循环渐变的两条色带（第一条完全不透明，
+  第二条部分透明）；
+  最后是一条颜色通道均为零、但不透明度呈循环渐变的色带。
+  </p>
 <h2 id="application-to-the-canvas-api">在 <a href="dart-ui/Canvas-class.html">Canvas</a> API 中的应用</h2>
 <p>使用 <a href="dart-ui/Canvas/saveLayer.html">Canvas.saveLayer</a> 和 <a href="dart-ui/Canvas/restore.html">Canvas.restore</a> 时，传给 <a href="dart-ui/Paint-class.html">Canvas.saveLayer</a> 的 <a href="dart-ui/Canvas/saveLayer.html">Paint</a> 的混合模式会在调用 <a href="dart-ui/Canvas/restore.html">Canvas.restore</a> 时应用。每次调用 <a href="dart-ui/Canvas/saveLayer.html">Canvas.saveLayer</a> 都会创建一个新图层，形状和图像会绘制到该图层上；调用 <a href="dart-ui/Canvas/restore.html">Canvas.restore</a> 时，该图层会合成到父图层上，其中源是最近绘制的形状和图像，目标则是父图层。（第一次调用 <a href="dart-ui/Canvas/saveLayer.html">Canvas.saveLayer</a> 时，父图层就是画布本身。）</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a>, which uses <a href="dart-ui/BlendMode.html">BlendMode</a> to define the compositing
-strategy.</li>
+<li><a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a>，它使用 <a href="dart-ui/BlendMode.html">BlendMode</a> 定义合成策略。</li>
 </ul>
 </section>
 
 
       <section>
         <dl class="dl-horizontal">
-          
+
   <dt>继承关系</dt>
   <dd>
     <ul class="gt-separated dark eNum-relationships">
@@ -124,14 +136,14 @@ strategy.</li>
     </ul>
   </dd>
 
+
           
-          
-          
+
   <dt>Available extensions</dt>
   <dd><ul class="comma-separated clazz-relationships">
       <li><a href="dart-core/EnumName.html">EnumName</a></li>
   </ul></dd>
-          
+
 
 
         </dl>
@@ -143,21 +155,21 @@ strategy.</li>
             <dt id="clear" class="constant">
     <span class="name ">clear</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
   <p>同时丢弃源图像和目标图像，不留下任何内容。</p>
 <p>这对应 Porter-Duff 的“clear”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_clear.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="src" class="constant">
     <span class="name ">src</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -165,14 +177,14 @@ strategy.</li>
 <p>从概念上说，先清除目标图像，再绘制源图像。</p>
 <p>这对应 Porter-Duff 的“Copy”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_src.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="dst" class="constant">
     <span class="name ">dst</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -180,14 +192,14 @@ strategy.</li>
 <p>从概念上说，丢弃源图像，目标图像保持不变。</p>
 <p>这对应 Porter-Duff 的“Destination”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_dst.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="srcOver" class="constant">
     <span class="name ">srcOver</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -195,14 +207,14 @@ strategy.</li>
 <p>这是默认值，也是最直观的情况：形状绘制在下方内容之上，透明区域则显示目标图层。</p>
 <p>这对应 Porter-Duff 的“Source over Destination”运算符，也称为画家算法。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_srcOver.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="dstOver" class="constant">
     <span class="name ">dstOver</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -211,14 +223,14 @@ strategy.</li>
 <p>这对应 Porter-Duff 的“Destination over Source”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_dstOver.png" alt=""></p>
 <p>当源图像本应先于目标图像绘制、但无法这样做时，此模式很有用。</p>
-  
+
 
 </dd>
 
             <dt id="srcIn" class="constant">
     <span class="name ">srcIn</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -227,14 +239,14 @@ strategy.</li>
 <p>若要反转遮罩语义（仅在目标图像不存在时显示源图像，而非目标图像存在时显示），可考虑使用 <a href="dart-ui/BlendMode.html">srcOut</a>。</p>
 <p>这对应 Porter-Duff 的“Source in Destination”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_srcIn.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="dstIn" class="constant">
     <span class="name ">dstIn</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -243,14 +255,14 @@ strategy.</li>
 <p>若要反转遮罩语义（仅在目标图像存在时显示源图像，而非目标图像不存在时显示），可考虑使用 <a href="dart-ui/BlendMode.html">dstOut</a>。</p>
 <p>这对应 Porter-Duff 的“Destination in Source”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_dstIn.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="srcOut" class="constant">
     <span class="name ">srcOut</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -259,14 +271,14 @@ strategy.</li>
 <p>若要反转遮罩语义（仅在目标图像存在时显示源图像，而非目标图像不存在时显示），可考虑使用 <a href="dart-ui/BlendMode.html">srcIn</a>。</p>
 <p>这对应 Porter-Duff 的“Source out Destination”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_srcOut.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="dstOut" class="constant">
     <span class="name ">dstOut</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -275,14 +287,14 @@ strategy.</li>
 <p>若要反转遮罩语义（仅在源图像存在时显示目标图像，而非源图像不存在时显示），可考虑使用 <a href="dart-ui/BlendMode.html">dstIn</a>。</p>
 <p>这对应 Porter-Duff 的“Destination out Source”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_dstOut.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="srcATop" class="constant">
     <span class="name ">srcATop</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -291,14 +303,14 @@ strategy.</li>
 <p>这基本等同于 <a href="dart-ui/BlendMode.html">srcOver</a> 运算符，但输出不透明度通道会设为目标图像的不透明度，而不是将两张图像的不透明度组合起来。</p>
 <p>若要使用目标图像位于源图像上方的变体，请参阅 <a href="dart-ui/BlendMode.html">dstATop</a>。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_srcATop.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="dstATop" class="constant">
     <span class="name ">dstATop</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -307,28 +319,28 @@ strategy.</li>
 <p>这基本等同于 <a href="dart-ui/BlendMode.html">dstOver</a> 运算符，但输出不透明度通道会设为源图像的不透明度，而不是将两张图像的不透明度组合起来。</p>
 <p>若要使用源图像位于目标图像上方的变体，请参阅 <a href="dart-ui/BlendMode.html">srcATop</a>。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_dstATop.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="xor" class="constant">
     <span class="name ">xor</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
   <p>对源图像和目标图像应用按位 <code>xor</code> 运算符。两者重叠的位置会变为透明。</p>
 <p>这对应 Porter-Duff 的“Source xor Destination”运算符。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_xor.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="plus" class="constant">
     <span class="name ">plus</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -337,14 +349,14 @@ strategy.</li>
 <p>这对应 Porter-Duff 的“Source plus Destination”运算符。</p>
 <p>这是两张图像交叉淡化时适用的混合模式。设图像为 A 和 B，插值变量为 <em>t</em>（范围从 0.0 到 1.0）。要交叉淡化两张图像，应先将 A 以不透明度 1.0 - <em>t</em> 绘制到新图层，并使用 <a href="dart-ui/BlendMode.html">BlendMode.srcOver</a>；再将 B 绘制到同一图层上方，不透明度设为 <em>t</em>，并使用 <a href="dart-ui/BlendMode.html">BlendMode.plus</a>。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_plus.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="modulate" class="constant">
     <span class="name ">modulate</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -355,20 +367,18 @@ strategy.</li>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_modulate.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">screen</a>, which does a similar computation but inverted.</li>
-<li><a href="dart-ui/BlendMode.html">overlay</a>, which combines <a href="dart-ui/BlendMode.html">modulate</a> 和 <a href="dart-ui/BlendMode.html">screen</a> to favor the
-destination image.</li>
-<li><a href="dart-ui/BlendMode.html">hardLight</a>, which combines <a href="dart-ui/BlendMode.html">modulate</a> 和 <a href="dart-ui/BlendMode.html">screen</a> to favor the
-source image.</li>
+<li><a href="dart-ui/BlendMode.html">screen</a>，其计算方式相似，但会将结果取反。</li>
+<li><a href="dart-ui/BlendMode.html">overlay</a>，它结合 <a href="dart-ui/BlendMode.html">modulate</a> 和 <a href="dart-ui/BlendMode.html">screen</a>，使混合结果偏向目标图像。</li>
+<li><a href="dart-ui/BlendMode.html">hardLight</a>，它结合 <a href="dart-ui/BlendMode.html">modulate</a> 和 <a href="dart-ui/BlendMode.html">screen</a>，使混合结果偏向源图像。</li>
 </ul>
-  
+
 
 </dd>
 
             <dt id="screen" class="constant">
     <span class="name ">screen</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -380,21 +390,18 @@ source image.</li>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_screen.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">modulate</a>, which does a similar computation but without inverting the
-values.</li>
-<li><a href="dart-ui/BlendMode.html">overlay</a>, which combines <a href="dart-ui/BlendMode.html">modulate</a> 和 <a href="dart-ui/BlendMode.html">screen</a> to favor the
-destination image.</li>
-<li><a href="dart-ui/BlendMode.html">hardLight</a>, which combines <a href="dart-ui/BlendMode.html">modulate</a> 和 <a href="dart-ui/BlendMode.html">screen</a> to favor the
-source image.</li>
+<li><a href="dart-ui/BlendMode.html">modulate</a>，其计算方式相似，但不会反转数值。</li>
+<li><a href="dart-ui/BlendMode.html">overlay</a>，它结合 <a href="dart-ui/BlendMode.html">modulate</a> 和 <a href="dart-ui/BlendMode.html">screen</a>，使混合结果偏向目标图像。</li>
+<li><a href="dart-ui/BlendMode.html">hardLight</a>，它结合 <a href="dart-ui/BlendMode.html">modulate</a> 和 <a href="dart-ui/BlendMode.html">screen</a>，使混合结果偏向源图像。</li>
 </ul>
-  
+
 
 </dd>
 
             <dt id="overlay" class="constant">
     <span class="name ">overlay</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -404,75 +411,74 @@ source image.</li>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_overlay.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">modulate</a>, which always multiplies the values.</li>
-<li><a href="dart-ui/BlendMode.html">screen</a>, which always multiplies the inverses of the values.</li>
-<li><a href="dart-ui/BlendMode.html">hardLight</a>, which is similar to <a href="dart-ui/BlendMode.html">overlay</a> but favors the source image
-instead of the destination image.</li>
+<li><a href="dart-ui/BlendMode.html">modulate</a>，它始终将数值相乘。</li>
+<li><a href="dart-ui/BlendMode.html">screen</a>，它始终将数值的反值相乘。</li>
+<li><a href="dart-ui/BlendMode.html">hardLight</a>，它与 <a href="dart-ui/BlendMode.html">overlay</a> 类似，但更偏向源图像而非目标图像。</li>
 </ul>
-  
+
 
 </dd>
 
             <dt id="darken" class="constant">
     <span class="name ">darken</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
   <p>合成源图像和目标图像时，为每个颜色通道选取较小值。</p>
 <p>输出图像的不透明度计算方式与 <a href="dart-ui/BlendMode.html">srcOver</a> 相同。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_darken.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="lighten" class="constant">
     <span class="name ">lighten</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
   <p>合成源图像和目标图像时，为每个颜色通道选取较大值。</p>
 <p>输出图像的不透明度计算方式与 <a href="dart-ui/BlendMode.html">srcOver</a> 相同。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_lighten.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="colorDodge" class="constant">
     <span class="name ">colorDodge</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
   <p>用目标图像除以源图像的反值。</p>
 <p>对分量取反时，完全饱和的通道（不透明白色）会视为 0.0；通常视为 0.0 的值（黑色、透明）则视为 1.0。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_colorDodge.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="colorBurn" class="constant">
     <span class="name ">colorBurn</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
   <p>用源图像除以目标图像的反值，再对结果取反。</p>
 <p>对分量取反时，完全饱和的通道（不透明白色）会视为 0.0；通常视为 0.0 的值（黑色、透明）则视为 1.0。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_colorBurn.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="hardLight" class="constant">
     <span class="name ">hardLight</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -482,19 +488,18 @@ instead of the destination image.</li>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_hardLight.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">modulate</a>, which always multiplies the values.</li>
-<li><a href="dart-ui/BlendMode.html">screen</a>, which always multiplies the inverses of the values.</li>
-<li><a href="dart-ui/BlendMode.html">overlay</a>, which is similar to <a href="dart-ui/BlendMode.html">hardLight</a> but favors the destination
-image instead of the source image.</li>
+<li><a href="dart-ui/BlendMode.html">modulate</a>，它始终将数值相乘。</li>
+<li><a href="dart-ui/BlendMode.html">screen</a>，它始终将数值的反值相乘。</li>
+<li><a href="dart-ui/BlendMode.html">overlay</a>，它与 <a href="dart-ui/BlendMode.html">hardLight</a> 类似，但更偏向目标图像而非源图像。</li>
 </ul>
-  
+
 
 </dd>
 
             <dt id="softLight" class="constant">
     <span class="name ">softLight</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -503,16 +508,16 @@ image instead of the source image.</li>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_softLight.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">color</a>, which is a more subtle tinting effect.</li>
+<li><a href="dart-ui/BlendMode.html">color</a>，它的着色效果更柔和。</li>
 </ul>
-  
+
 
 </dd>
 
             <dt id="difference" class="constant">
     <span class="name ">difference</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -521,14 +526,14 @@ image instead of the source image.</li>
 <p>输出图像的不透明度计算方式与 <a href="dart-ui/BlendMode.html">srcOver</a> 相同。</p>
 <p>效果类似于 <a href="dart-ui/BlendMode.html">exclusion</a>，但更强烈。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_difference.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="exclusion" class="constant">
     <span class="name ">exclusion</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -537,14 +542,14 @@ image instead of the source image.</li>
 <p>输出图像的不透明度计算方式与 <a href="dart-ui/BlendMode.html">srcOver</a> 相同。</p>
 <p>效果类似于 <a href="dart-ui/BlendMode.html">difference</a>，但更柔和。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_exclusion.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="multiply" class="constant">
     <span class="name ">multiply</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -553,14 +558,14 @@ image instead of the source image.</li>
 <p>由于 alpha 通道也会相乘，如果其中一张图像的像素完全透明（不透明度为 0.0），输出中的对应像素也会完全透明。这与 <a href="dart-ui/BlendMode.html">dstIn</a> 类似，但会合并颜色。</p>
 <p>如果要相乘颜色但不相乘 alpha 通道，可考虑使用 <a href="dart-ui/BlendMode.html">modulate</a>。</p>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_multiply.png" alt=""></p>
-  
+
 
 </dd>
 
             <dt id="hue" class="constant">
     <span class="name ">hue</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -570,19 +575,17 @@ image instead of the source image.</li>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_hue.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">color</a>, which is a similar but stronger effect as it also applies the
-saturation of the source image.</li>
-<li><a href="painting/HSVColor-class.html">HSVColor</a>, which allows colors to be expressed using Hue rather than
-the red/green/blue channels of <a href="dart-ui/Color-class.html">Color</a>.</li>
+<li><a href="dart-ui/BlendMode.html">color</a>，它也会应用源图像的饱和度，因此效果类似但更强烈。</li>
+<li><a href="painting/HSVColor-class.html">HSVColor</a>，它允许使用色相而非 <a href="dart-ui/Color-class.html">Color</a> 的红、绿、蓝通道来表示颜色。</li>
 </ul>
-  
+
 
 </dd>
 
             <dt id="saturation" class="constant">
     <span class="name ">saturation</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -591,18 +594,17 @@ the red/green/blue channels of <a href="dart-ui/Color-class.html">Color</a>.</li
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_saturation.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">color</a>, which also applies the hue of the source image.</li>
-<li><a href="dart-ui/BlendMode.html">luminosity</a>, which applies the luminosity of the source image to the
-destination.</li>
+<li><a href="dart-ui/BlendMode.html">color</a>，它还会应用源图像的色相。</li>
+<li><a href="dart-ui/BlendMode.html">luminosity</a>，它会将源图像的亮度应用到目标图像。</li>
 </ul>
-  
+
 
 </dd>
 
             <dt id="color" class="constant">
     <span class="name ">color</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -612,18 +614,18 @@ destination.</li>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_color.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">hue</a>, which is a similar but weaker effect.</li>
-<li><a href="dart-ui/BlendMode.html">softLight</a>, which is a similar tinting effect but also tints white.</li>
-<li><a href="dart-ui/BlendMode.html">saturation</a>, which only applies the saturation of the source image.</li>
+<li><a href="dart-ui/BlendMode.html">hue</a>，它的效果相似但较弱。</li>
+<li><a href="dart-ui/BlendMode.html">softLight</a>，它的着色效果类似，但也会对白色着色。</li>
+<li><a href="dart-ui/BlendMode.html">saturation</a>，它只应用源图像的饱和度。</li>
 </ul>
-  
+
 
 </dd>
 
             <dt id="luminosity" class="constant">
     <span class="name ">luminosity</span>
   <span class="signature">&#8594; const <a href="dart-ui/BlendMode.html">BlendMode</a></span>
-  
+
 
 </dt>
 <dd>
@@ -632,19 +634,17 @@ destination.</li>
 <p><img src="https://flutter.github.io/assets-for-api-docs/assets/dart-ui/blend_mode_luminosity.png" alt=""></p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="dart-ui/BlendMode.html">saturation</a>, which applies the saturation of the source image to the
-destination.</li>
-<li><a href="dart-ui/ImageFilter/ImageFilter.blur.html">ImageFilter.blur</a>, which can be used with <a href="widgets/BackdropFilter-class.html">BackdropFilter</a> for a
-related effect.</li>
+<li><a href="dart-ui/BlendMode.html">saturation</a>，它会将源图像的饱和度应用到目标图像。</li>
+<li><a href="dart-ui/ImageFilter/ImageFilter.blur.html">ImageFilter.blur</a>，它可以与 <a href="widgets/BackdropFilter-class.html">BackdropFilter</a> 配合使用，以实现相关效果。</li>
 </ul>
-  
+
 
 </dd>
 
         </dl>
       </section>
 
-    
+
   <section
       class="summary offset-anchor inherited"
       id="instance-properties">
@@ -653,31 +653,31 @@ related effect.</li>
         <dt id="hashCode" class="property inherited">
   <span class="name"><a href="dart-core/Object/hashCode.html">hashCode</a></span>
   <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
   此对象的哈希码。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 
 </dd>
 
         <dt id="index" class="property inherited">
   <span class="name"><a href="dart-core/Enum/index.html">index</a></span>
   <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
   枚举值的数值标识符。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 
 </dd>
 
         <dt id="name" class="property">
   <span class="name"><a href="dart-core/EnumName/name.html">name</a></span>
   <span class="signature">&#8594; <a href="dart-core/String-class.html">String</a></span>
-  
+
 
 </dt>
 <dd>
@@ -685,26 +685,26 @@ related effect.</li>
         <span>适用于 <a href="dart-core/Enum-class.html">Enum</a>，由扩展 <a href="dart-core/EnumName.html">EnumName</a> 提供</span>
       </p>
   枚举值的名称。
-  <div class="features"><span class="feature">无 setter</span></div>
+  <div class="features"><span class="feature">无设置器</span></div>
 
 </dd>
 
         <dt id="runtimeType" class="property inherited">
   <span class="name"><a href="dart-core/Object/runtimeType.html">runtimeType</a></span>
   <span class="signature">&#8594; <a href="dart-core/Type-class.html">Type</a></span>
-  
+
 
 </dt>
 <dd class="inherited">
   此对象运行时类型的表示。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 
 </dd>
 
     </dl>
   </section>
 
-    
+
   <section
       class="summary offset-anchor inherited"
       id="instance-methods">
@@ -714,7 +714,7 @@ related effect.</li>
   <span class="name"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -727,7 +727,7 @@ related effect.</li>
   <span class="name"><a href="dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="dart-core/String-class.html">String</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -738,7 +738,7 @@ related effect.</li>
 
     </dl>
   </section>
-    
+
   <section
       class="summary offset-anchor inherited"
       id="operators">
@@ -748,7 +748,7 @@ related effect.</li>
   <span class="name"><a href="dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
     <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
   </span>
-  
+
 
 </dt>
 <dd class="inherited">
@@ -759,9 +759,9 @@ related effect.</li>
 
     </dl>
   </section>
+
     
-    
-    
+
 
   <section class="summary offset-anchor" id="constants">
     <h2>常量</h2>
@@ -769,12 +769,12 @@ related effect.</li>
         <dt id="values" class="constant">
     <span class="name "><a href="dart-ui/BlendMode/values-constant.html">values</a></span>
   <span class="signature">&#8594; const <a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/BlendMode.html">BlendMode</a></span>&gt;</span></span>
-  
+
 
 </dt>
 <dd>
   包含此枚举所有值的常量列表，按声明顺序排列。
-  
+
 
 </dd>
 

@@ -111,7 +111,7 @@ aspect-ratio: 560 / 315;">
 </iframe>
 <p><a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 实例本身不可变，其可变状态存储在单独的 <a href="widgets/State-class.html">State</a> 对象中（由 <a href="widgets/StatefulWidget/createState.html">createState</a> 方法创建），或存储在该 <a href="widgets/State-class.html">State</a> 订阅的对象中，例如 <a href="dart-async/Stream-class.html">Stream</a> 或 <a href="foundation/ChangeNotifier-class.html">ChangeNotifier</a> 对象；这些对象的引用保存在 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 自身的 final 字段中。</p>
 <p>每当框架膨胀 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 时，都会调用 <a href="widgets/StatefulWidget/createState.html">createState</a>。因此，如果该 widget 被插入树中的多个位置，同一个 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 可能关联多个 <a href="widgets/State-class.html">State</a> 对象。同样，如果 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 从树中移除后又重新插入，框架会再次调用 <a href="widgets/StatefulWidget/createState.html">createState</a> 创建新的 <a href="widgets/State-class.html">State</a> 对象，从而简化 <a href="widgets/State-class.html">State</a> 对象的生命周期管理。</p>
-<p>如果创建 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 的代码为其 <a href="widgets/Widget/key.html">key</a> 使用了 <a href="widgets/GlobalKey-class.html">GlobalKey</a>，那么该 widget 在树中从一个位置移动到另一个位置时会保留同一个 <a href="widgets/State-class.html">State</a> 对象。由于带有 <a href="widgets/GlobalKey-class.html">GlobalKey</a> 的 widget 在树中最多只能位于一个位置，因此使用 <a href="widgets/GlobalKey-class.html">GlobalKey</a> 的 widget 最多只有一个关联的 element。框架利用这一特性，在移动带有全局 key 的 widget 时，会将与该 widget 关联的（唯一）子树从旧位置移接到新位置，而不是在新位置重新创建子树。与 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 关联的 <a href="widgets/State-class.html">State</a> 对象也会随子树一同移接，因此新位置会复用原有的 <a href="widgets/State-class.html">State</a> 对象。但要符合移接条件，widget 必须在从旧位置移除的同一个动画帧内插入新位置。</p>
+<p>如果创建 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 的代码为其 <a href="widgets/Widget/key.html">key</a> 使用了 <a href="widgets/GlobalKey-class.html">GlobalKey</a>，那么该 widget 在树中从一个位置移动到另一个位置时会保留同一个 <a href="widgets/State-class.html">State</a> 对象。由于带有 <a href="widgets/GlobalKey-class.html">GlobalKey</a> 的 widget 在树中最多只能位于一个位置，因此使用 <a href="widgets/GlobalKey-class.html">GlobalKey</a> 的 widget 最多只有一个关联的 element（元素）。框架利用这一特性，在移动带有全局 key 的 widget 时，会将与该 widget 关联的（唯一）子树从旧位置移接到新位置，而不是在新位置重新创建子树。与 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 关联的 <a href="widgets/State-class.html">State</a> 对象也会随子树一同移接，因此新位置会复用原有的 <a href="widgets/State-class.html">State</a> 对象。但要符合移接条件，widget 必须在从旧位置移除的同一个动画帧内插入新位置。</p>
 <h2 id="performance-considerations">性能注意事项</h2>
 <p><a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 主要分为两类。</p>
 <p>第一类会在 <a href="widgets/State/initState.html">State.initState</a> 中分配资源，并在 <a href="widgets/State/dispose.html">State.dispose</a> 中释放资源，但不依赖 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>，也不调用 <a href="widgets/State/setState.html">State.setState</a>。这类 widget 通常位于应用或页面的根部，并通过 <a href="foundation/ChangeNotifier-class.html">ChangeNotifier</a>、<a href="dart-async/Stream-class.html">Stream</a> 或其他类似对象与子 widget 通信。遵循这种模式的有状态 widget 成本相对较低（消耗的 CPU 和 GPU 周期较少），因为它们只构建一次，之后不会更新。因此，它们可以拥有较复杂、较深的 build 方法。</p>
@@ -158,9 +158,8 @@ aspect-ratio: 560 / 315;">
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
 这是一个名为 <code>YellowBird</code> 的有状态 widget 子类框架。</p>
-<p>In this example, the <a href="widgets/State-class.html">State</a> has no actual state. State is normally
-represented as private member fields. Also, normally widgets have more
-constructor arguments, each of which corresponds to a <code>final</code> property.
+<p>在此示例中，<a href="widgets/State-class.html">State</a> 没有实际状态。状态通常由私有成员字段表示。
+此外，widget 通常还有更多构造函数参数，每个参数都对应一个 <code>final</code> 属性。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.StatefulWidget.1');" onclick="fixHref(this, 'widgets.StatefulWidget.1'); copyStringToClipboard(this.href);"
@@ -240,11 +239,11 @@ class _BirdState extends State&lt;Bird&gt; {
 <p>按照惯例，widget 构造函数只使用命名参数。第一个参数通常是 <a href="widgets/Widget/key.html">key</a>，最后一个参数通常是 <code>child</code>、<code>children</code> 或同等用途的参数。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/State-class.html">State</a>, where the logic behind a <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> is hosted.</li>
-<li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a>, for widgets that always build the same way given a
-particular configuration and ambient state.</li>
-<li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a>, for widgets that introduce ambient state that can
-be read by descendant widgets.</li>
+<li><a href="widgets/State-class.html">State</a>，用于承载 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 背后的逻辑。</li>
+<li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a>，适用于在特定配置和环境状态下始终以相同方式构建的
+widget。</li>
+<li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a>，适用于引入后代 widget 可读取的环境状态的
+widget。</li>
 </ul>
 </section>
 
