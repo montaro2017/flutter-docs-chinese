@@ -93,21 +93,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>一个 mixin 类，提供沿特定方向查找节点的实现。</p>
-<p>其他 <a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a> 实现可以混入此类，从而只需实现新的前进/后退策略。</p>
-<p>导航顺序中出现滞后现象并不理想，因此此实现会在受影响的 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 的策略数据中维护一个栈，记录之前访问过的位置。如果上一次移动方向与当前方向相反，此策略会请求焦点返回先前获得焦点的节点。若改为沿当前方向或其相反方向以外的其他方向移动，则会清空此栈。</p>
-<p>例如，焦点先连续向下移动三次，再连续向上移动三次，那么它在两个方向上经过 widget 的路径会相同。但如果焦点先连续向下移动三次，再向左、向右移动，最后连续向上移动三次，那么向上时经过的路径可能与向下时不同，因为改变移动轴会重置历史记录。</p>
-<p>此类实现了一种算法：它会在 <a href="widgets/FocusScope-class.html">FocusScope</a> 内，沿移动方向考虑一条带状区域；该区域的宽度或高度取决于方向，并以当前获得焦点的 widget 为基准，然后在移动方向上查找该带状区域内最近的 widget。如果带状区域内没有节点，就选择边缘距离该区域最近的 widget。如果两个区域外的 widget 到该区域距离相同，则选择沿移动方向较近的那个。到达 <a href="widgets/FocusScope-class.html">FocusScope</a> 指定方向的边缘时，行为由 <a href="widgets/FocusScopeNode/directionalTraversalEdgeBehavior.html">FocusScopeNode.directionalTraversalEdgeBehavior</a> 决定。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.closedLoop</a>，算法会在带状区域内重新选择反方向上最远的节点。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.parentScope</a>，带状区域会扩展到父级 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>；如果该节点在父级中仍位于边缘，则继续根据父级的 <a href="widgets/FocusScopeNode/directionalTraversalEdgeBehavior.html">FocusScopeNode.directionalTraversalEdgeBehavior</a> 查找。如果当前范围上方没有父级范围，则回退到 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.closedLoop</a> 行为。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.leaveFlutterView</a>，焦点会丢失。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.stop</a>，当前获得焦点的元素保持不变。</p>
+  <p>一个 mixin 类，提供沿特定方向查找节点的实现。
+</p>
+<p>其他 <a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a> 实现可以混入此类，从而只需实现新的前进/后退策略。
+</p>
+<p>导航顺序中出现滞后现象并不理想，因此此实现会在受影响的 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 的策略数据中维护一个栈，记录之前访问过的位置。
+如果上一次移动方向与当前方向相反，此策略会请求焦点返回先前获得焦点的节点。
+若改为沿当前方向或其相反方向以外的其他方向移动，则会清空此栈。
+</p>
+<p>例如，焦点先连续向下移动三次，再连续向上移动三次，那么它在两个方向上经过 widget 的路径会相同。
+但如果焦点先连续向下移动三次，再向左、向右移动，最后连续向上移动三次，那么向上时经过的路径可能与向下时不同，因为改变移动轴会重置历史记录。
+</p>
+<p>此类实现了一种算法：它会在 <a href="widgets/FocusScope-class.html">FocusScope</a> 内，沿移动方向考虑一条带状区域；该区域的宽度或高度取决于方向，并以当前获得焦点的 widget 为基准，然后在移动方向上查找该带状区域内最近的 widget。
+如果带状区域内没有节点，就选择边缘距离该区域最近的 widget。
+如果两个区域外的 widget 到该区域距离相同，则选择沿移动方向较近的那个。到达 <a href="widgets/FocusScope-class.html">FocusScope</a> 指定方向的边缘时，行为由 <a href="widgets/FocusScopeNode/directionalTraversalEdgeBehavior.html">FocusScopeNode.directionalTraversalEdgeBehavior</a> 决定。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.closedLoop</a>，算法会在带状区域内重新选择反方向上最远的节点。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.parentScope</a>，带状区域会扩展到父级 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>；如果该节点在父级中仍位于边缘，则继续根据父级的 <a href="widgets/FocusScopeNode/directionalTraversalEdgeBehavior.html">FocusScopeNode.directionalTraversalEdgeBehavior</a> 查找。如果当前范围上方没有父级范围，则回退到 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.closedLoop</a> 行为。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.leaveFlutterView</a>，焦点会丢失。对于 <a href="widgets/TraversalEdgeBehavior.html">TraversalEdgeBehavior.stop</a>，当前获得焦点的元素保持不变。</p>
 <p>此算法的目标是选出一个 widget，使用户不会觉得焦点沿着错误的轴移动（仅按某一轴上的距离对 widget 排序时就可能出现这种情况），同时又能沿指定方向跳转到下一个逻辑上相邻的 widget，而不会跳过其他 widget。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/FocusNode-class.html">FocusNode</a>，用于了解焦点系统。</li>
 <li><a href="widgets/FocusTraversalGroup-class.html">FocusTraversalGroup</a>, 一种将其分组，并为其应用遍历策略的组件：<a href="widgets/Focus-class.html">Focus</a> 节点（位于该组件下方的 widget 树中）。</li>
-<li><a href="widgets/WidgetOrderTraversalPolicy-class.html">WidgetOrderTraversalPolicy</a>, a policy that relies on the widget creation
-order to describe the order of traversal.</li>
+<li><a href="widgets/WidgetOrderTraversalPolicy-class.html">WidgetOrderTraversalPolicy</a>, 一种依赖 widget 创建顺序来描述遍历顺序的策略。</li>
 <li><a href="widgets/ReadingOrderTraversalPolicy-class.html">ReadingOrderTraversalPolicy</a>，一种按照当前 <a href="widgets/Directionality-class.html">Directionality</a> 的自然“阅读顺序”确定遍历顺序的策略。</li>
-<li><a href="widgets/OrderedTraversalPolicy-class.html">OrderedTraversalPolicy</a>, a policy that describes the order explicitly
-using <a href="widgets/FocusTraversalOrder-class.html">FocusTraversalOrder</a> widgets.</li>
+<li><a href="widgets/OrderedTraversalPolicy-class.html">OrderedTraversalPolicy</a>, 一种显式描述顺序的策略，使用 <a href="widgets/FocusTraversalOrder-class.html">FocusTraversalOrder</a> widgets.</li>
 </ul>
 </section>
 
@@ -196,9 +203,7 @@ using <a href="widgets/FocusTraversalOrder-class.html">FocusTraversalOrder</a> w
 
 </dt>
 <dd>
-  This is called whenever the given <code>node</code> is re-parented into a new scope,
-so that the policy has a chance to update or invalidate any cached data
-that it maintains per scope about the node.
+  每当给定的 <code>node</code> 被重新挂载到新的作用域时都会调用此方法，使策略有机会更新或使其按作用域缓存的该节点数据失效。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -237,9 +242,7 @@ that it maintains per scope about the node.
 
 </dt>
 <dd>
-  Returns the first node in the given <code>direction</code> that should receive focus
-if there is no current focus in the scope to which the <code>currentNode</code>
-belongs.
+  返回给定 <code>direction</code> 中应获得焦点的第一个节点（当 <code>currentNode</code> 所属作用域当前没有焦点时）。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -265,8 +268,7 @@ belongs.
 
 </dt>
 <dd>
-  Focuses the next widget in the given <code>direction</code> in the <a href="widgets/FocusScope-class.html">FocusScope</a> that
-contains the <code>currentNode</code>.
+  使给定 <code>direction</code> 上、包含 <code>currentNode</code> 的 <a href="widgets/FocusScope-class.html">FocusScope</a> 中下一个 widget 获得焦点。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -279,7 +281,7 @@ contains the <code>currentNode</code>.
 
 </dt>
 <dd>
-  Clears the data associated with the given <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> for this object.
+  清除此对象中与给定 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 关联的数据。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -292,8 +294,7 @@ contains the <code>currentNode</code>.
 
 </dt>
 <dd class="inherited">
-  Focuses the next widget in the focus scope that contains the given
-<code>currentNode</code>.
+  使包含给定 <code>currentNode</code> 的焦点作用域中的下一个 widget 获得焦点。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -319,8 +320,7 @@ contains the <code>currentNode</code>.
 
 </dt>
 <dd class="inherited">
-  Focuses the previous widget in the focus scope that contains the given
-<code>currentNode</code>.
+  使包含给定 <code>currentNode</code> 的焦点作用域中的上一个 widget 获得焦点。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -333,7 +333,7 @@ contains the <code>currentNode</code>.
 
 </dt>
 <dd class="inherited">
-  Sorts the given <code>descendants</code> into focus order.
+  将给定的 <code>descendants</code> 按焦点顺序排序。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>

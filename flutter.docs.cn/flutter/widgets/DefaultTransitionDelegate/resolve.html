@@ -109,9 +109,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>当 <a href="widgets/Navigator-class.html">Navigator.pages</a> 更新时，<a href="widgets/Navigator/pages.html">Navigator</a> 会调用此方法，以决定各个 route 如何进入或退出屏幕。</p>
-<p><code>newPageRouteHistory</code> 列表包含所有基于 page 的 route，并按本次更新完成后它们在 <a href="widgets/Navigator-class.html">Navigator</a> 历史堆栈中的顺序排列。如果 <code>newPageRouteHistory</code> 中某个 route 的 <a href="widgets/RouteTransitionRecord/isWaitingForEnteringDecision.html">RouteTransitionRecord.isWaitingForEnteringDecision</a> 为 true，则必须明确决定该 route 如何进入 Navigator。可调用 <a href="widgets/RouteTransitionRecord/markForPush.html">RouteTransitionRecord.markForPush</a> 或 <a href="widgets/RouteTransitionRecord/markForAdd.html">RouteTransitionRecord.markForAdd</a> 作出决定。</p>
-<p><code>locationToExitingPageRoute</code> 包含页面更新后将从 route 历史记录中移除的、基于 page 的 route。此映射记录待移除的基于 page 的 route，以及它们在更新前原始 route 历史记录中的位置。键表示紧邻待移除 route 下方的基于 page 的 route 所在位置，值表示待移除的基于 page 的 route。如果待移除的 route 位于最底部，其位置为 null。如果 <code>locationToExitingPageRoute</code> 中某个 route 的 <a href="widgets/RouteTransitionRecord/isWaitingForExitingDecision.html">RouteTransitionRecord.isWaitingForExitingDecision</a> 为 true，则必须明确决定该 route 如何退出 Navigator。可对待移除的 route 调用 <a href="widgets/RouteTransitionRecord/markForPop.html">RouteTransitionRecord.markForPop</a> 或 <a href="widgets/RouteTransitionRecord/markForComplete.html">RouteTransitionRecord.markForComplete</a> 作出决定。<code>locationToExitingPageRoute</code> 中的 route 也可能不需要作出决定：例如，这些 route 已在之前的页面更新中弹出，但退出动画尚未结束。此时它们仍包含在 <code>locationToExitingPageRoute</code> 中，其 <a href="widgets/RouteTransitionRecord/isWaitingForExitingDecision.html">RouteTransitionRecord.isWaitingForExitingDecision</a> 为 false，因此无需作出决定。</p>
+  <p>当 <a href="widgets/Navigator-class.html">Navigator.pages</a> 更新时，<a href="widgets/Navigator/pages.html">Navigator</a> 会调用此方法，以决定各个 route 如何进入或退出屏幕。
+</p>
+<p><code>newPageRouteHistory</code> 列表包含所有基于 page 的 route，并按本次更新完成后它们在 <a href="widgets/Navigator-class.html">Navigator</a> 历史堆栈中的顺序排列。
+如果 <code>newPageRouteHistory</code> 中某个 route 的 <a href="widgets/RouteTransitionRecord/isWaitingForEnteringDecision.html">RouteTransitionRecord.isWaitingForEnteringDecision</a> 为 true，则必须明确决定该 route 如何进入 Navigator。
+可调用 <a href="widgets/RouteTransitionRecord/markForPush.html">RouteTransitionRecord.markForPush</a> 或 <a href="widgets/RouteTransitionRecord/markForAdd.html">RouteTransitionRecord.markForAdd</a> 作出决定。
+</p>
+<p><code>locationToExitingPageRoute</code> 包含页面更新后将从 route 历史记录中移除的、基于 page 的 route。
+此映射记录待移除的基于 page 的 route，以及它们在更新前原始 route 历史记录中的位置。键表示紧邻待移除 route 下方的基于 page 的 route 所在位置，值表示待移除的基于 page 的 route。如果待移除的 route 位于最底部，其位置为 null。如果 <code>locationToExitingPageRoute</code> 中某个 route 的 <a href="widgets/RouteTransitionRecord/isWaitingForExitingDecision.html">RouteTransitionRecord.isWaitingForExitingDecision</a> 为 true，则必须明确决定该 route 如何退出 Navigator。可对待移除的 route 调用 <a href="widgets/RouteTransitionRecord/markForPop.html">RouteTransitionRecord.markForPop</a> 或 <a href="widgets/RouteTransitionRecord/markForComplete.html">RouteTransitionRecord.markForComplete</a> 作出决定。<code>locationToExitingPageRoute</code> 中的 route 也可能不需要作出决定：例如，这些 route 已在之前的页面更新中弹出，但退出动画尚未结束。此时它们仍包含在 <code>locationToExitingPageRoute</code> 中，其 <a href="widgets/RouteTransitionRecord/isWaitingForExitingDecision.html">RouteTransitionRecord.isWaitingForExitingDecision</a> 为 false，因此无需作出决定。</p>
 <p><code>pageRouteToPagelessRoutes</code> 用于记录基于 page 的 route 及其关联的无 page route。如果某个基于 page 的 route 正在等待退出决策，其关联的无 page route 也需要明确决定如何退出屏幕。</p>
 <p>作出所有决定后，此方法必须合并待移除的 route（无论它们是否需要决策）和 <code>newPageRouteHistory</code>，并返回合并结果。结果中的顺序将用于 <a href="widgets/Navigator-class.html">Navigator</a> 更新 route 历史记录。返回列表必须保留 <code>newPageRouteHistory</code> 中各 route 的原有顺序；待移除的 route 则可以自由插入返回列表，只要它们全部包含在内即可。</p>
 <p>例如，考虑以下情况：</p>
@@ -123,16 +128,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><code>result = [B, A, C ,D ,E]</code> 无效，因为 B 必须排在 A 后面。<code>result = [A, B, C ,E]</code> 无效，因为结果必须包含 D。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/RouteTransitionRecord/markForPush.html">RouteTransitionRecord.markForPush</a>, which makes route enter the screen
-with an animated transition.</li>
-<li><a href="widgets/RouteTransitionRecord/markForAdd.html">RouteTransitionRecord.markForAdd</a>, which makes route enter the screen
-without an animated transition.</li>
-<li><a href="widgets/RouteTransitionRecord/markForPop.html">RouteTransitionRecord.markForPop</a>, which makes route exit the screen
-with an animated transition.</li>
-<li><a href="widgets/RouteTransitionRecord/markForComplete.html">RouteTransitionRecord.markForComplete</a>, which completes the route and
-makes it exit the screen without an animated transition.</li>
-<li><a href="widgets/DefaultTransitionDelegate/resolve.html">DefaultTransitionDelegate.resolve</a>, which implements the default way
-to decide how routes transition in or out of the screen.</li>
+<li><a href="widgets/RouteTransitionRecord/markForPush.html">RouteTransitionRecord.markForPush</a>, 可使 route 通过动画过渡进入屏幕。</li>
+<li><a href="widgets/RouteTransitionRecord/markForAdd.html">RouteTransitionRecord.markForAdd</a>, 可使 route 不经过动画过渡而进入屏幕。</li>
+<li><a href="widgets/RouteTransitionRecord/markForPop.html">RouteTransitionRecord.markForPop</a>, 可使 route 通过动画过渡退出屏幕。</li>
+<li><a href="widgets/RouteTransitionRecord/markForComplete.html">RouteTransitionRecord.markForComplete</a>, 可完成 route，并使其不经过动画过渡而退出屏幕。</li>
+<li><a href="widgets/DefaultTransitionDelegate/resolve.html">DefaultTransitionDelegate.resolve</a>, 用于实现默认方式，以决定 route 如何过渡进入或退出屏幕。</li>
 </ul>
 </section>
 

@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="gestures 库中 SerialTapGestureRecognizer 类的 API 中文文档，适用于 Dart 编程语言。">
+  <meta name="description" content="gestures 库中 SerialTapGestureRecognizer 类的 API 中文文档，适用于 Dart 编程语言。
+">
   <title>SerialTapGestureRecognizer 类 - gestures 库 - Dart API 中文文档</title>
 
   <!-- required because all the links are pseudo-absolute -->
@@ -93,23 +94,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p>识别连续点击（成系列发生的点击）。</p>
-<p>如果一组点击在同一位置（允许一定误差范围内）快速连续发生，则视为<em>同一系列</em>。该系列中的点击次数就是计数。例如，双击是计数为二的特殊点击系列。</p>
+  <p>识别连续点击（成系列发生的点击）。
+</p>
+<p>如果一组点击在同一位置（允许一定误差范围内）快速连续发生，则视为<em>同一系列</em>。
+该系列中的点击次数就是计数。
+例如，双击是计数为二的特殊点击系列。
+</p>
 <h3 id="gesture-arena-behavior">手势竞技场行为</h3>
-<p><a href="gestures/SerialTapGestureRecognizer-class.html">SerialTapGestureRecognizer</a> 会参与所有指针事件的竞争（不论按下哪个按钮）。如果它判定手势不是点击（例如指针接触屏幕时被拖动过远），就会立即认输。每当它识别到一次点击，就会立即宣布获胜。</p>
-<p>每次指针接触屏幕时，此识别器都会将该手势加入竞技场。因此，随着点击系列进行，同一次点击系列中的每次点击都会使此识别器在竞技场中获得一个获胜项。</p>
-<p>如果指针仍接触屏幕时此识别器在竞技场中落败（无论是主动认输，还是另一个识别器宣布获胜），它都会触发 <a href="gestures/SerialTapGestureRecognizer/onSerialTapCancel.html">onSerialTapCancel</a>，且不会触发 <a href="gestures/SerialTapGestureRecognizer/onSerialTapUp.html">onSerialTapUp</a>。</p>
+<p><a href="gestures/SerialTapGestureRecognizer-class.html">SerialTapGestureRecognizer</a> 会参与所有指针事件的竞争（不论按下哪个按钮）。
+如果它判定手势不是点击（例如指针接触屏幕时被拖动过远），就会立即认输。
+每当它识别到一次点击，就会立即宣布获胜。
+</p>
+<p>每次指针接触屏幕时，此识别器都会将该手势加入竞技场。
+因此，随着点击系列进行，同一次点击系列中的每次点击都会使此识别器在竞技场中获得一个获胜项。
+</p>
+<p>如果指针仍接触屏幕时此识别器在竞技场中落败（无论是主动认输，还是另一个识别器宣布获胜），它都会触发 <a href="gestures/SerialTapGestureRecognizer/onSerialTapCancel.html">onSerialTapCancel</a>，且不会触发 <a href="gestures/SerialTapGestureRecognizer/onSerialTapUp.html">onSerialTapUp</a>。
+</p>
 <h3 id="button-behavior">按钮行为</h3>
-<p>一个点击系列中的所有点击必须使用相同的按钮。如果系列进行过程中出现了按钮组合不同的点击，它会“夺走”当前系列并开始新系列，计数也会重置。</p>
+<p>一个点击系列中的所有点击必须使用相同的按钮。
+如果系列进行过程中出现了按钮组合不同的点击，它会“夺走”当前系列并开始新系列，计数也会重置。
+</p>
 <h3 id="interleaving-tap-behavior">交错点击行为</h3>
-<p>只有点击<em>完成</em>后，后续点击才能被视为与它属于“同一系列”。因此，如果点击 A 尚在进行中（已收到按下事件，但尚未收到对应的抬起事件），此时点击 B 开始（另一个指针接触屏幕），点击 A 会触发 <a href="gestures/SerialTapGestureRecognizer/onSerialTapCancel.html">onSerialTapCancel</a>，而点击 B 将开始一个新系列（点击 B 的 <a href="gestures/SerialTapDownDetails/count.html">SerialTapDownDetails.count</a> 为 1）。</p>
+<p>只有点击<em>完成</em>后，后续点击才能被视为与它属于“同一系列”。
+因此，如果点击 A 尚在进行中（已收到按下事件，但尚未收到对应的抬起事件），此时点击 B 开始（另一个指针接触屏幕），点击 A 会触发 <a href="gestures/SerialTapGestureRecognizer/onSerialTapCancel.html">onSerialTapCancel</a>，而点击 B 将开始一个新系列（点击 B 的 <a href="gestures/SerialTapDownDetails/count.html">SerialTapDownDetails.count</a> 为 1）。
+</p>
 <h3 id="relation-to-tapgesturerecognizer-and-doubletapgesturerecognizer">与 <code>TapGestureRecognizer</code> 和 <code>DoubleTapGestureRecognizer</code> 的关系</h3>
-<p>对于识别到的每次点击，<a href="gestures/SerialTapGestureRecognizer-class.html">SerialTapGestureRecognizer</a> 都会触发 <a href="gestures/SerialTapGestureRecognizer/onSerialTapDown.html">onSerialTapDown</a> 和 <a href="gestures/SerialTapGestureRecognizer/onSerialTapUp.html">onSerialTapUp</a>（并传递详细信息中的计数），无论该点击属于单击、双击还是其他类型。因此，当你希望响应一个系列中的每次点击时，它尤其有用。与之不同，<a href="gestures/DoubleTapGestureRecognizer-class.html">DoubleTapGestureRecognizer</a> 只有在用户完成双击时才会触发；如果它与 <code>DoubleTapGestureRecognizer</code> 竞争且用户执行双击，<a href="gestures/TapGestureRecognizer-class.html">TapGestureRecognizer</a> 则不会触发。</p>
+<p>对于识别到的每次点击，<a href="gestures/SerialTapGestureRecognizer-class.html">SerialTapGestureRecognizer</a> 都会触发 <a href="gestures/SerialTapGestureRecognizer/onSerialTapDown.html">onSerialTapDown</a> 和 <a href="gestures/SerialTapGestureRecognizer/onSerialTapUp.html">onSerialTapUp</a>（并传递详细信息中的计数），无论该点击属于单击、双击还是其他类型。
+因此，当你希望响应一个系列中的每次点击时，它尤其有用。与之不同，<a href="gestures/DoubleTapGestureRecognizer-class.html">DoubleTapGestureRecognizer</a> 只有在用户完成双击时才会触发；如果它与 <code>DoubleTapGestureRecognizer</code> 竞争且用户执行双击，<a href="gestures/TapGestureRecognizer-class.html">TapGestureRecognizer</a> 则不会触发。</p>
 <p>例如，假设列表项在首次点击时应被<em>选中</em>，双击时应<em>打开编辑对话框</em>。如果同时使用 <a href="gestures/TapGestureRecognizer-class.html">TapGestureRecognizer</a> 和 <a href="gestures/DoubleTapGestureRecognizer-class.html">DoubleTapGestureRecognizer</a>，会遇到一些问题：</p>
 <ol>
 <li>如果用户单击列表项，在经过足够长的时间以排除双击之前，不会选中该列表项。</li>
-<li>If the user double-taps the list item, it will not select the list
-item at all.</li>
+<li>如果用户双击列表项，则完全不会选中该列表项。</li>
 </ol>
 <p>解决办法是使用 <a href="gestures/SerialTapGestureRecognizer-class.html">SerialTapGestureRecognizer</a>，并根据点击次数决定是选中列表项还是打开编辑对话框。</p>
 <h3 id="when-competing-with-tapgesturerecognizer-and-doubletapgesturerecognizer">与 <code>TapGestureRecognizer</code> 和 <code>DoubleTapGestureRecognizer</code> 竞争时</h3>
@@ -149,7 +164,7 @@ item at all.</li>
           <span class="name"><a href="gestures/SerialTapGestureRecognizer/SerialTapGestureRecognizer.html">SerialTapGestureRecognizer</a></span><span class="signature">({<span class="parameter" id="-param-debugOwner"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">debugOwner</span>, </span><span class="parameter" id="-param-supportedDevices"><span class="type-annotation"><a href="dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-ui/PointerDeviceKind.html">PointerDeviceKind</a></span>&gt;</span>?</span> <span class="parameter-name">supportedDevices</span>, </span><span class="parameter" id="-param-allowedButtonsFilter"><span class="type-annotation"><a href="gestures/AllowedButtonsFilter.html">AllowedButtonsFilter</a></span> <span class="parameter-name">allowedButtonsFilter</span> = <span class="default-value">_defaultButtonAcceptBehavior</span></span>})</span>
         </dt>
         <dd>
-          Creates a serial tap gesture recognizer.
+          创建一个连续点击手势识别器。
         </dd>
     </dl>
   </section>
@@ -166,9 +181,7 @@ item at all.</li>
 
 </dt>
 <dd class="inherited">
-  交互开始时调用。 This limits the dragging behavior
-for custom clicks (such as scroll click). Its parameter comes
-from <a href="gestures/PointerEvent/buttons.html">PointerEvent.buttons</a>.
+  交互开始时调用。 这会限制自定义点击（例如滚动点击）的拖动行为。其参数来自 <a href="gestures/PointerEvent/buttons.html">PointerEvent.buttons</a>.
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -180,8 +193,7 @@ from <a href="gestures/PointerEvent/buttons.html">PointerEvent.buttons</a>.
 
 </dt>
 <dd>
-  Returns a very short pretty description of the gesture that the
-recognizer looks for, like 'tap' or 'horizontal drag'.
+  返回此识别器所查找手势的简短易读描述，例如“点击”或“水平拖动”。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -193,7 +205,7 @@ recognizer looks for, like 'tap' or 'horizontal drag'.
 
 </dt>
 <dd class="inherited">
-  The recognizer's owner.
+  此识别器的所有者。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -205,8 +217,7 @@ recognizer looks for, like 'tap' or 'horizontal drag'.
 
 </dt>
 <dd class="inherited">
-  Optional device specific configuration for device gestures that will
-take precedence over framework defaults.
+  设备手势的可选设备专用配置，其优先级高于框架默认值。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -230,8 +241,7 @@ take precedence over framework defaults.
 
 </dt>
 <dd>
-  Indicates whether this recognizer is currently tracking a pointer that's
-in contact with the screen.
+  指示此识别器当前是否正在跟踪与屏幕接触的指针。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -243,8 +253,7 @@ in contact with the screen.
 
 </dt>
 <dd>
-  A pointer that previously triggered <a href="gestures/SerialTapGestureRecognizer/onSerialTapDown.html">onSerialTapDown</a> will not end up
-triggering the corresponding <a href="gestures/SerialTapGestureRecognizer/onSerialTapUp.html">onSerialTapUp</a>.
+  之前触发过 <a href="gestures/SerialTapGestureRecognizer/onSerialTapDown.html">onSerialTapDown</a> 的指针最终不会触发对应的 <a href="gestures/SerialTapGestureRecognizer/onSerialTapUp.html">onSerialTapUp</a>。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -256,8 +265,7 @@ triggering the corresponding <a href="gestures/SerialTapGestureRecognizer/onSeri
 
 </dt>
 <dd>
-  A pointer has contacted the screen at a particular location, which might
-be the start of a serial tap.
+  指针在特定位置接触屏幕，这可能是连续点击的开始。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -269,8 +277,7 @@ be the start of a serial tap.
 
 </dt>
 <dd>
-  A pointer has stopped contacting the screen at a particular location,
-representing a serial tap.
+  指针在特定位置停止接触屏幕，表示一次连续点击。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -294,10 +301,8 @@ representing a serial tap.
 
 </dt>
 <dd class="inherited">
-  The kind of devices that are allowed to be recognized as provided by
-<code>supportedDevices</code> in the constructor, or the currently deprecated <code>kind</code>.
-这两个值不能同时设置。 If both are null, events from all device kinds will be
-tracked and recognized.
+  构造函数中通过 <code>supportedDevices</code> 提供的允许识别的设备类型，或当前已弃用的 <code>kind</code>。
+这两个值不能同时设置。 如果两者均为 null，则会跟踪并识别所有设备类型的事件。
   <div class="features"><span class="feature">getter/setter 对</span><span class="feature">继承</span></div>
 
 </dd>
@@ -332,8 +337,7 @@ tracked and recognized.
 
 </dt>
 <dd>
-  Registers a new pointer that's been checked to be allowed by this gesture
-recognizer.
+  注册一个已通过此手势识别器允许性检查的新指针。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -346,8 +350,7 @@ recognizer.
 
 </dt>
 <dd class="inherited">
-  Registers a new pointer pan/zoom that's been checked to be allowed by this
-gesture recognizer.
+  注册一个已通过此手势识别器允许性检查的新指针平移/缩放事件。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -360,8 +363,7 @@ gesture recognizer.
 
 </dt>
 <dd class="inherited">
-  Registers a new pointer that might be relevant to this gesture
-detector.
+  注册一个可能与此手势检测器相关的新指针。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -374,8 +376,7 @@ detector.
 
 </dt>
 <dd class="inherited">
-  Registers a new pointer pan/zoom that might be relevant to this gesture
-detector.
+  注册一个可能与此手势检测器相关的新指针平移/缩放事件。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -427,7 +428,7 @@ detector.
 
 </dt>
 <dd class="inherited">
-  For a given pointer ID, returns the buttons associated with it.
+  返回指定指针 ID 关联的按钮。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -440,7 +441,7 @@ detector.
 
 </dt>
 <dd class="inherited">
-  For a given pointer ID, returns the device kind associated with it.
+  返回指定指针 ID 关联的设备类型。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -479,8 +480,7 @@ detector.
 
 </dt>
 <dd class="inherited">
-  Invoke a callback provided by the application, catching and logging any
-exceptions.
+  调用应用提供的回调，并捕获和记录任何异常。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
