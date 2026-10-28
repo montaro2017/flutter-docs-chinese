@@ -95,20 +95,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>基于堆实现的优先级队列。</p>
 <p>元素以堆结构存储，优先级最高的元素可以立即访问；平均而言，修改单个元素所需时间与元素数量的对数成正比。</p>
 <ul>
-<li>The <a href="package-collection_collection/HeapPriorityQueue/add.html">add</a> 和 <a href="package-collection_collection/HeapPriorityQueue/removeFirst.html">removeFirst</a> operations take amortized logarithmic time,
-O(log(n)), but may occasionally take linear time when growing the capacity
-of the heap.</li>
-<li>The <a href="package-collection_collection/HeapPriorityQueue/addAll.html">addAll</a> operation works as doing repeated <a href="package-collection_collection/HeapPriorityQueue/add.html">add</a> operations.</li>
-<li>The <a href="package-collection_collection/HeapPriorityQueue/first.html">first</a> getter takes constant time, O(1).</li>
-<li>The <a href="package-collection_collection/HeapPriorityQueue/clear.html">clear</a> 和 <a href="package-collection_collection/HeapPriorityQueue/removeAll.html">removeAll</a> methods also take constant time, O(1).</li>
-<li>The <a href="package-collection_collection/HeapPriorityQueue/contains.html">contains</a> 和 <a href="package-collection_collection/HeapPriorityQueue/remove.html">remove</a> operations may need to search the entire
-queue for the elements, taking O(n) time.</li>
-<li>The <a href="package-collection_collection/HeapPriorityQueue/toList.html">toList</a> operation effectively sorts the elements, taking O(n*log(n))
-time.</li>
-<li>The <a href="package-collection_collection/HeapPriorityQueue/toUnorderedList.html">toUnorderedList</a> operation copies, but does not sort, the elements,
-and is linear, O(n).</li>
-<li>The <a href="package-collection_collection/HeapPriorityQueue/toSet.html">toSet</a> operation effectively adds each element to the new set, taking
-an expected O(n*log(n)) time.</li>
+<li><a href="package-collection_collection/HeapPriorityQueue/add.html">add</a> 和 <a href="package-collection_collection/HeapPriorityQueue/removeFirst.html">removeFirst</a> 操作的摊还时间复杂度为对数级 O(log(n))，但扩展堆容量时偶尔可能需要线性时间。</li>
+<li><a href="package-collection_collection/HeapPriorityQueue/addAll.html">addAll</a> 操作的实现方式是重复执行 <a href="package-collection_collection/HeapPriorityQueue/add.html">add</a> 操作。</li>
+<li><a href="package-collection_collection/HeapPriorityQueue/first.html">first</a> getter 的时间复杂度为常数级 O(1)。</li>
+<li><a href="package-collection_collection/HeapPriorityQueue/clear.html">clear</a> 和 <a href="package-collection_collection/HeapPriorityQueue/removeAll.html">removeAll</a> 方法的时间复杂度也为常数级 O(1)。</li>
+<li><a href="package-collection_collection/HeapPriorityQueue/contains.html">contains</a> 和 <a href="package-collection_collection/HeapPriorityQueue/remove.html">remove</a> 操作可能需要搜索整个队列来查找元素，时间复杂度为 O(n)。</li>
+<li><a href="package-collection_collection/HeapPriorityQueue/toList.html">toList</a> 操作实际上会对元素排序，时间复杂度为 O(n*log(n))。</li>
+<li><a href="package-collection_collection/HeapPriorityQueue/toUnorderedList.html">toUnorderedList</a> 操作会复制元素但不排序，时间复杂度为线性级 O(n)。</li>
+<li><a href="package-collection_collection/HeapPriorityQueue/toSet.html">toSet</a> 操作实际上会将每个元素添加到新集合中，预期时间复杂度为 O(n*log(n))。</li>
 </ul>
 </section>
 
@@ -142,7 +136,7 @@ an expected O(n*log(n)) time.</li>
           <span class="name"><a href="package-collection_collection/HeapPriorityQueue/HeapPriorityQueue.html">HeapPriorityQueue</a></span><span class="signature">([<span class="parameter" id="-param-comparison"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">comparison</span>(<span class="parameter" id="param-"><span class="type-annotation">E</span>, </span><span class="parameter" id="param-"><span class="type-annotation">E</span></span>)?</span>])</span>
         </dt>
         <dd>
-          Create a new priority queue.
+          创建一个新的优先队列。
         </dd>
     </dl>
   </section>
@@ -159,7 +153,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  The comparison being used to compare the priority of elements.
+  用于比较元素优先级的比较函数。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -171,8 +165,8 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Returns the next element that will be returned by <a href="package-collection_collection/HeapPriorityQueue/removeFirst.html">removeFirst</a>.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+  返回调用 <a href="package-collection_collection/HeapPriorityQueue/removeFirst.html">removeFirst</a> 时将返回的下一个元素。
+  <div class="features"><span class="feature">无设置器</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -184,7 +178,7 @@ an expected O(n*log(n)) time.</li>
 </dt>
 <dd class="inherited">
   此对象的哈希码。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -195,8 +189,8 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Whether the queue is empty.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+  队列是否为空。
+  <div class="features"><span class="feature">无设置器</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -207,8 +201,8 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Whether the queue has any elements.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+  队列是否包含任何元素。
+  <div class="features"><span class="feature">无设置器</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -219,8 +213,8 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Number of elements in the queue.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+  队列中的元素数量。
+  <div class="features"><span class="feature">无设置器</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -232,7 +226,7 @@ an expected O(n*log(n)) time.</li>
 </dt>
 <dd class="inherited">
   此对象运行时类型的表示。
-  <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
+  <div class="features"><span class="feature">无设置器</span><span class="feature">继承</span></div>
 
 </dd>
 
@@ -243,8 +237,8 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Provides efficient access to all the elements currently in the queue.
-  <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
+  高效访问队列中的所有元素。
+  <div class="features"><span class="feature">无设置器</span><span class="feature">重写</span></div>
 
 </dd>
 
@@ -265,7 +259,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Adds element to the queue.
+  将元素添加到队列中。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -278,7 +272,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Adds all <code>elements</code> to the queue.
+  将所有 <code>elements</code> 添加到队列中。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -291,7 +285,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Removes all the elements from this queue.
+  从此队列中移除所有元素。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -304,7 +298,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Checks if <code>object</code> is in the queue.
+  检查队列中是否包含 <code>object</code>。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -330,7 +324,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Removes an element of the queue that compares equal to <code>element</code>.
+  移除队列中与 <code>element</code> 比较结果相等的元素。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -343,7 +337,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Removes all the elements from this queue and returns them.
+  移除此队列中的所有元素并将其返回。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -356,7 +350,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Removes and returns the element with the highest priority.
+  移除并返回优先级最高的元素。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -369,7 +363,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Returns a list of the elements of this queue in priority order.
+  按优先级顺序返回此队列中元素组成的列表。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -382,7 +376,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Return a comparator based set using the comparator of this queue.
+  使用此队列的比较函数，返回基于比较函数的集合。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -395,7 +389,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Returns some representation of the queue.
+  返回此队列的某种表示形式。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -408,7 +402,7 @@ an expected O(n*log(n)) time.</li>
 
 </dt>
 <dd>
-  Returns a list of the elements of this queue in no specific order.
+  返回此队列中元素组成的列表，顺序不作保证。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
