@@ -108,7 +108,7 @@ aspect-ratio: 560 / 315;">
 </iframe>
 <p><a href="widgets/Action-class.html">Actions</a> 通常由用户行为触发。例如，<a href="widgets/Shortcuts-class.html">Shortcuts</a> 组件会将键盘快捷键映射为 <a href="widgets/Intent-class.html">Intent</a>，然后交给 <a href="widgets/ActionDispatcher-class.html">ActionDispatcher</a>，由其将 <a href="widgets/Intent-class.html">Intent</a> 映射到 <a href="widgets/Action-class.html">Action</a> 并调用该操作。</p>
 <p><a href="widgets/ActionDispatcher-class.html">ActionDispatcher</a> 可以在主焦点上调用 <a href="widgets/Action-class.html">Action</a>，也可以不考虑焦点来调用。</p>
-<h3 id="action-overriding">Action Overriding</h3>
+<h3 id="action-overriding">Action 覆盖</h3>
 <p>使用叶组件构建更专用的组件时，有时需要更改该叶组件中定义的 <a href="widgets/Intent-class.html">Intent</a> 的默认处理方式。例如，<a href="material/TextField-class.html">TextField</a> 默认会通过 <a href="widgets/SelectAllTextIntent-class.html">SelectAllTextIntent</a> 选中当前包含的文本；但由 3 个不同 <a href="material/TextField-class.html">TextField</a>（区号、前缀和号码）组成的美国电话号码组件中，<a href="widgets/SelectAllTextIntent-class.html">SelectAllTextIntent</a> 应改为选中这 3 个 <a href="material/TextField-class.html">TextField</a> 中的所有文本。</p>
 <p>可覆盖操作是一种特殊的 <a href="widgets/Action-class.html">Action</a>，通过 <a href="widgets/Action-class.html">Action.overridable</a> 构造函数创建。它可以访问一个默认 <a href="widgets/Action/Action.overridable.html">Action</a> 和一个可空的覆盖 <a href="widgets/Action-class.html">Action</a>。如果存在覆盖操作，它的行为与覆盖的 <a href="widgets/Action-class.html">Action</a> 相同；否则，它会反映 <code>defaultAction</code> 的行为。</p>
 <p><a href="widgets/Action/Action.overridable.html">Action.overridable</a> 构造函数会创建可覆盖的 <a href="widgets/Action-class.html">Action</a>，该操作会通过 <a href="widgets/BuildContext-class.html">BuildContext</a> 在祖先 <a href="widgets/Actions-class.html">Actions</a> 组件中查找合适的覆盖项。使用通用叶组件时，可以用此方式提供默认实现；之后用该叶组件构建更专用的组件时，再覆盖默认实现。以上述 <a href="material/TextField-class.html">TextField</a> 组件为例 <a href="material/TextField-class.html">TextField</a>，它使用可覆盖的 <a href="widgets/Action-class.html">Action</a> 为 <a href="widgets/SelectAllTextIntent-class.html">SelectAllTextIntent</a> 提供合理的默认行为，同时允许应用开发者添加祖先 <a href="widgets/Actions-class.html">Actions</a> 组件，将 <a href="widgets/SelectAllTextIntent-class.html">SelectAllTextIntent</a> 映射到其他 <a href="widgets/Action-class.html">Action</a>，从而更改默认行为。</p>
@@ -117,10 +117,8 @@ aspect-ratio: 560 / 315;">
 <ul>
 <li><a href="widgets/Shortcuts-class.html">Shortcuts</a> 是一种包含按键映射表的 widget，会查找按键组合以调用相应 action。</li>
 <li><a href="widgets/Actions-class.html">Actions</a> 是一种 widget，用于定义从 <a href="widgets/Intent-class.html">Intent</a> 到 <a href="widgets/Action-class.html">Action</a> 的映射，并允许为其后代重新定义 action。</li>
-<li><a href="widgets/ActionDispatcher-class.html">ActionDispatcher</a>, a class that takes an <a href="widgets/Action-class.html">Action</a> and invokes it, passing
-a given <a href="widgets/Intent-class.html">Intent</a>.</li>
-<li><a href="widgets/Action/Action.overridable.html">Action.overridable</a> for an example on how to make an <a href="widgets/Action-class.html">Action</a>
-overridable.</li>
+<li><a href="widgets/ActionDispatcher-class.html">ActionDispatcher</a>，它接收一个 <a href="widgets/Action-class.html">Action</a> 并调用它，同时传入给定的 <a href="widgets/Intent-class.html">Intent</a>。</li>
+<li><a href="widgets/Action/Action.overridable.html">Action.overridable</a>，可查看如何使 <a href="widgets/Action-class.html">Action</a> 可被覆盖的示例。</li>
 </ul>
 </section>
 
@@ -174,9 +172,7 @@ overridable.</li>
           <span class="name"><a href="widgets/Action/Action.overridable.html">Action.overridable</a></span><span class="signature">({<span class="parameter" id="overridable-param-defaultAction"><span>required</span> <span class="type-annotation"><a href="widgets/Action-class.html">Action</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">defaultAction</span>, </span><span class="parameter" id="overridable-param-context"><span>required</span> <span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>})</span>
         </dt>
         <dd>
-          创建一个 <a href="widgets/Action-class.html">Action</a> that allows itself to be overridden by the closest
-ancestor <a href="widgets/Action-class.html">Action</a> in the given <code>context</code> that handles the same <a href="widgets/Intent-class.html">Intent</a>,
-if one exists.
+          创建一个 <a href="widgets/Action-class.html">Action</a>；如果存在最近的祖先 <a href="widgets/Action-class.html">Action</a>，且该祖先在给定的 <code>context</code> 中处理同一 <a href="widgets/Intent-class.html">Intent</a>，则可用它覆盖此操作。
             <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>

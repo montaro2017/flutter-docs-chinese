@@ -95,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>一种延迟到布局阶段才构建内容的组件抽象基类。</p>
-<p>与 <a href="widgets/Builder-class.html">Builder</a> 类似，但它会在布局阶段调用构建函数，并提供配置子组件子树所需的 <code>LayoutInfoType</code>，再传递给 <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a> 函数。</p>
+<p>与 <a href="widgets/Builder-class.html">Builder</a> 类似，但它会在布局阶段调用 <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a> 函数，并提供配置子组件子树所需的 <code>LayoutInfoType</code>。</p>
 <p>当子组件树依赖只有在布局阶段才能获取的信息，且不依赖子组件固有尺寸时，此组件很有用。</p>
 <p><code>LayoutInfoType</code> 通常应为不可变类型。实现会使用 <code>LayoutInfoType</code> 类型的相等性来避免不必要的重建：如果布局期间计算出的新 <code>LayoutInfoType</code> 与前一个（由 <code>LayoutInfoType.==</code> 定义的）<code>LayoutInfoType</code> 相同，除非 <a href="widgets/AbstractLayoutBuilder/builder.html">updateShouldRebuild</a> 返回 true，否则实现会尽量不再次调用 <a href="widgets/AbstractLayoutBuilder/updateShouldRebuild.html">builder</a>。此组件生成的对应 <a href="rendering/RenderObject-class.html">RenderObject</a> 会保留最新的 <code>LayoutInfoType</code> 供此用途，因此某个 <code>LayoutInfoType</code> 对象可能会一直保存在内存中，直到组件从组件树中移除。</p>
 <p>子类必须返回一个混入 <a href="rendering/RenderObject-class.html">RenderAbstractLayoutBuilderMixin</a> 的 <a href="widgets/RenderAbstractLayoutBuilderMixin-mixin.html">RenderObject</a>。</p>
@@ -139,7 +139,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="name"><a href="widgets/AbstractLayoutBuilder/AbstractLayoutBuilder.html">AbstractLayoutBuilder</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span></span>})</span>
         </dt>
         <dd>
-          Creates a widget that defers its building until layout.
+          创建一个延迟到布局阶段才构建的 widget。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -157,7 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Called at layout time to construct the widget tree.
+  在布局阶段调用，用于构建 widget 树。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -228,7 +228,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  根据此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 描述的配置，创建此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 所表示的 <a href="rendering/RenderObject-class.html">RenderObject</a> 类的实例。
+  创建一个 <a href="rendering/RenderObject-class.html">RenderObject</a> 类的实例，该类由 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 表示；创建时使用此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 所描述的配置。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -371,8 +371,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Whether <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a> needs to be called again even if the layout constraints
-are the same.
+  即使布局约束保持不变，是否仍需再次调用 <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a>。
   
 
 </dd>
