@@ -93,7 +93,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p><strong><code>NetworkInformation</code></strong> 接口属于 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API">Network Information API</a>，提供设备用于连接网络的连接信息，并允许脚本在连接类型改变时接收通知。<code>NetworkInformation</code> 接口不能直接实例化，而是通过 <a href="package-web_web/Navigator-extension-type.html">Navigator</a> 接口或 <a href="package-web_web/WorkerNavigator-extension-type.html">WorkerNavigator</a> 接口的 <code>connection</code> 属性访问。</p>
+  <p><strong><code>NetworkInformation</code></strong> 接口属于 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API">Network Information API</a>，提供设备用于连接网络的连接信息，并允许脚本在连接类型改变时接收通知。<code>NetworkInformation</code> 接口不能直接实例化，而是通过 <code>connection</code> 属性经由 <a href="package-web_web/Navigator-extension-type.html">Navigator</a> 接口或 <a href="package-web_web/WorkerNavigator-extension-type.html">WorkerNavigator</a> 接口访问。</p>
 <hr>
 <p>API 文档来源：<a href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation">MDN Web Docs</a>。</p>
 </section>
@@ -142,17 +142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The <strong><code>downlink</code></strong> read-only property of the
-<a href="package-web_web/NetworkInformation-extension-type.html">NetworkInformation</a> interface returns the effective bandwidth estimate in
-megabits per second, rounded to the nearest multiple of 25 kilobits per
-seconds. This
-value is based on recently observed application layer throughput across
-recently active
-connections, excluding connections made to a private address space. In the
-absence of
-recent bandwidth measurement data, the attribute value is determined by
-the properties
-of the underlying connection technology.
+  <strong><code>downlink</code></strong> 是 <a href="package-web_web/NetworkInformation-extension-type.html">NetworkInformation</a> 接口的只读属性，会返回有效带宽估算值，单位为兆比特每秒，并四舍五入到最接近的 25 千比特每秒的倍数。该值根据近期活跃连接中观测到的应用层吞吐量计算，不包括连接到私有地址空间的连接。若没有近期带宽测量数据，则根据底层连接技术的属性确定该值。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -164,12 +154,7 @@ of the underlying connection technology.
 
 </dt>
 <dd>
-  The <strong><code>effectiveType</code></strong> read-only property of the
-<a href="package-web_web/NetworkInformation-extension-type.html">NetworkInformation</a> interface returns the effective type of the
-connection
-meaning one of <code>slow-2g</code>, <code>2g</code>, <code>3g</code>, or <code>4g</code>. This value is determined
-using a
-combination of recently observed, round-trip time and downlink values.
+  <strong><code>effectiveType</code></strong> 是 <a href="package-web_web/NetworkInformation-extension-type.html">NetworkInformation</a> 接口的只读属性，会返回连接的有效类型，即 <code>slow-2g</code>、<code>2g</code>、<code>3g</code> 或 <code>4g</code> 之一。该值根据近期观测到的往返时间和下行链路值综合确定。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -295,14 +280,7 @@ combination of recently observed, round-trip time and downlink values.
 
 </dt>
 <dd>
-  The <strong><code>rtt</code></strong> read-only property of the <a href="package-web_web/NetworkInformation-extension-type.html">NetworkInformation</a> interface
-returns the estimated effective round-trip time of the current connection,
-rounded to the nearest multiple of 25 milliseconds.
-This value is based on recently observed application-layer RTT
-measurements across recently active connections.
-It excludes connections made to a private address space.
-If no recent measurement data is available, the value is based on the
-properties of the underlying connection technology.
+  <strong><code>rtt</code></strong> 是 <a href="package-web_web/NetworkInformation-extension-type.html">NetworkInformation</a> 接口的只读属性，会返回当前连接的有效往返时间估算值，并四舍五入到最接近的 25 毫秒的倍数。该值根据近期活跃连接中观测到的应用层 RTT 测量结果计算，不包括连接到私有地址空间的连接。若没有近期测量数据，则根据底层连接技术的属性确定该值。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -326,9 +304,7 @@ properties of the underlying connection technology.
 
 </dt>
 <dd>
-  The <strong><code>saveData</code></strong> read-only
-property of the <a href="package-web_web/NetworkInformation-extension-type.html">NetworkInformation</a> interface returns <code>true</code> if the user
-has set a reduced data usage option on the user agent.
+  <strong><code>saveData</code></strong> 是 <a href="package-web_web/NetworkInformation-extension-type.html">NetworkInformation</a> 接口的只读属性；如果用户在 user agent 中设置了减少数据用量选项，该属性会返回 <code>true</code>。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -398,7 +374,7 @@ has set a reduced data usage option on the user agent.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  使用最多四个参数调用此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 上的 <code>method</code> 方法。
+  调用 <code>method</code> 方法，并在此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 上最多传入四个参数。
   
 
 </dd>
@@ -446,7 +422,7 @@ has set a reduced data usage option on the user agent.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  删除此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性。
+  删除键为 <code>property</code> 的属性（位于此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中）。
   
 
 </dd>
@@ -523,7 +499,7 @@ has set a reduced data usage option on the user agent.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性值。
+  键 <code>property</code> 在此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中对应的属性值。
   
 
 </dd>
@@ -757,7 +733,7 @@ has set a reduced data usage option on the user agent.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  将 <code>value</code> 写入此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性。
+  将 <code>value</code> 写入键 <code>property</code> 对应的属性中（位于此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 上）。
   
 
 </dd>
@@ -834,7 +810,7 @@ has set a reduced data usage option on the user agent.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?，由扩展 <a href="dart-js_interop/JSAnyUtilityExtension.html">JSAnyUtilityExtension</a> 提供</span>
       </p>
-  对<code><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</code>执行<code>typeof</code>后，结果是否为<code>typeString</code>。
+  <code>typeof</code> 在此 <code><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</code> 上的结果是否为 <code>typeString</code>。
   
 
 </dd>
@@ -887,7 +863,7 @@ has set a reduced data usage option on the user agent.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/getProperty.html">getProperty</a> 的简写辅助方法，用于获取此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性值；参数为 Dart 值。
+  <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/getProperty.html">getProperty</a> 的简写辅助方法，用于获取键 <code>property</code> 在此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中对应的属性值；参数为 Dart 值。
   
 
 </dd>
@@ -903,7 +879,7 @@ has set a reduced data usage option on the user agent.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/setProperty.html">setProperty</a> 的简写辅助方法，用于将 <code>value</code> 写入此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性；参数为 Dart 值。
+  <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/setProperty.html">setProperty</a> 的简写辅助方法，用于将 Dart 值 <code>value</code> 写入键 <code>property</code> 对应的属性中（位于此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 上）。
   
 
 </dd>
