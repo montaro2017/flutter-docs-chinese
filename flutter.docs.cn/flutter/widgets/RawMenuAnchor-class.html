@@ -95,16 +95,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>用于包裹子组件并锚定浮动菜单的组件。</p>
 <p>子组件可以是任意组件，通常是按钮或文本字段；对于上下文菜单，也可以是整个屏幕。</p>
-<p>调用已附加的 <a href="widgets/MenuController-class.html">MenuController</a> 上的 <a href="widgets/MenuController/open.html">MenuController.open</a>，即可显示 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 的菜单浮层。</p>
-<p>打开 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 后，会调用 <a href="widgets/RawMenuAnchor/overlayBuilder.html">overlayBuilder</a>，在 <a href="widgets/Overlay-class.html">Overlay</a> 中构建菜单内容。<a href="widgets/Overlay-class.html">Overlay</a> 使菜单能够浮在其他组件上方。传给 <a href="widgets/RawMenuAnchor/overlayBuilder.html">overlayBuilder</a> 的 <code>info</code> 参数包含锚点的 <a href="dart-ui/Rect-class.html">Rect</a>、浮层的 <a href="dart-ui/Size-class.html">Size</a>、菜单系统各成员使用的 <a href="widgets/TapRegion/groupId.html">TapRegion.groupId</a>，以及传给 <a href="widgets/MenuController/open.html">MenuController.open</a> 的 <code>position</code> 参数。</p>
+<p>要显示 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 的菜单浮层，请对已关联的菜单控制器调用 <a href="widgets/MenuController/open.html">MenuController.open</a>（<a href="widgets/MenuController-class.html">MenuController</a>）。</p>
+<p>打开 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 时，会调用 <a href="widgets/RawMenuAnchor/overlayBuilder.html">overlayBuilder</a>，在 <a href="widgets/Overlay-class.html">Overlay</a> 中构建菜单内容。<a href="widgets/Overlay-class.html">Overlay</a> 使菜单能够浮在其他组件上方。传递给 <code>info</code> 参数的 <a href="widgets/RawMenuAnchor/overlayBuilder.html">overlayBuilder</a> 会提供锚点的 <a href="dart-ui/Rect-class.html">Rect</a>、浮层的 <a href="dart-ui/Size-class.html">Size</a>、菜单系统成员所用的 <a href="widgets/TapRegion/groupId.html">TapRegion.groupId</a>，以及传递给 <code>position</code> 参数的 <a href="widgets/MenuController/open.html">MenuController.open</a>。</p>
 <p>如果调用 <a href="widgets/MenuController/open.html">MenuController.open</a> 时传入 <code>position</code> 参数，该值会传递给 <code>overlayBuilder</code> 函数的 <code>info</code> 参数。</p>
 <p><a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 不负责管理菜单的语义信息和焦点。</p>
 <h3 id="adding-animations-to-menus">为菜单添加动画</h3>
-<p>从它的 API（完全不涉及 <a href="animation/AnimationController-class.html">AnimationController</a>）可以看出，<a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 并不了解动画；它只知道浮层当前是显示还是隐藏。</p>
+<p><a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 并不处理动画，这从它的 API 完全不涉及 <a href="animation/AnimationController-class.html">AnimationController</a> 也可看出。它只知道浮层当前是显示还是隐藏。</p>
 <p>如果其他组件要实现带有打开和关闭转场的菜单，则在整个打开和关闭动画期间，<a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 的浮层都应保持可见。</p>
-<p>因此，应在打开动画的第一帧之前调用传给 <a href="widgets/RawMenuAnchor/onOpenRequested.html">onOpenRequested</a> 的 <code>showOverlay</code> 回调。相应地，只有在关闭动画结束后，才能在 <a href="widgets/RawMenuAnchor/onCloseRequested.html">onCloseRequested</a> 中调用 <code>hideOverlay</code>。</p>
-<p>这也意味着，如果浮层已经可见时调用 <a href="widgets/MenuController/open.html">MenuController.open</a>，<a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 无法判断菜单正在打开、正在关闭还是稳定显示。在这种情况下，父组件需要管理额外信息（例如 <a href="animation/AnimationController-class.html">AnimationController</a> 的状态），以决定如何响应。</p>
-<p>要以编程方式控制 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a>（例如打开、关闭菜单或查询其状态），可以获取关联的 <a href="widgets/MenuController-class.html">MenuController</a>。使用 <code>MenuController.maybeOf(BuildContext context)</code> 可取得给定 <code>BuildContext</code> 最近的 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 祖先所关联的控制器。关于 <a href="widgets/MenuController-class.html">MenuController</a> 的更多用法，请参阅其类文档。</p>
+<p>这意味着，传递给 <code>showOverlay</code> 的回调 <a href="widgets/RawMenuAnchor/onOpenRequested.html">onOpenRequested</a> 应在打开动画的第一帧之前调用。相反，只有在关闭动画完成后，才应调用 <code>hideOverlay</code>（该回调位于 <a href="widgets/RawMenuAnchor/onCloseRequested.html">onCloseRequested</a> 中）。</p>
+<p>这也意味着，如果浮层已显示时调用 <a href="widgets/MenuController/open.html">MenuController.open</a>，<a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 无法判断菜单正在打开、关闭还是稳定显示。父组件需要管理额外信息（例如 <a href="animation/AnimationController-class.html">AnimationController</a> 的状态），以决定如何响应这类情况。</p>
+<p>要以编程方式控制 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a>（例如打开、关闭菜单或查询其状态），可以获取其关联的 <a href="widgets/MenuController-class.html">MenuController</a>。使用 <code>MenuController.maybeOf(BuildContext context)</code> 可获取最近的 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 祖先对应的控制器，该祖先位于给定的 <code>BuildContext</code> 之上。有关 <a href="widgets/MenuController-class.html">MenuController</a> 的更多用法，请参阅其类文档。</p>
 <p>
 <a name="widgets.RawMenuAnchor.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
@@ -204,7 +204,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="name"><a href="widgets/RawMenuAnchor/RawMenuAnchor.html">RawMenuAnchor</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-childFocusNode"><span class="type-annotation"><a href="widgets/FocusNode-class.html">FocusNode</a>?</span> <span class="parameter-name">childFocusNode</span>, </span><span class="parameter" id="-param-consumeOutsideTaps"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">consumeOutsideTaps</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-onOpen"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onOpen</span>, </span><span class="parameter" id="-param-onClose"><span class="type-annotation"><a href="dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onClose</span>, </span><span class="parameter" id="-param-onOpenRequested"><span class="type-annotation"><a href="widgets/RawMenuAnchorOpenRequestedCallback.html">RawMenuAnchorOpenRequestedCallback</a></span> <span class="parameter-name">onOpenRequested</span> = <span class="default-value">_defaultOnOpenRequested</span>, </span><span class="parameter" id="-param-onCloseRequested"><span class="type-annotation"><a href="widgets/RawMenuAnchorCloseRequestedCallback.html">RawMenuAnchorCloseRequestedCallback</a></span> <span class="parameter-name">onCloseRequested</span> = <span class="default-value">_defaultOnCloseRequested</span>, </span><span class="parameter" id="-param-useRootOverlay"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useRootOverlay</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-builder"><span class="type-annotation"><a href="widgets/RawMenuAnchorChildBuilder.html">RawMenuAnchorChildBuilder</a>?</span> <span class="parameter-name">builder</span>, </span><span class="parameter" id="-param-controller"><span>required</span> <span class="type-annotation"><a href="widgets/MenuController-class.html">MenuController</a></span> <span class="parameter-name">controller</span>, </span><span class="parameter" id="-param-overlayBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/RawMenuAnchorOverlayBuilder.html">RawMenuAnchorOverlayBuilder</a></span> <span class="parameter-name">overlayBuilder</span>, </span><span class="parameter" id="-param-child"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span></span>})</span>
         </dt>
         <dd>
-          A <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> that delegates overlay construction to an <code>overlayBuilder</code>.
+          一个 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a>，将浮层的构建委托给 <code>overlayBuilder</code>。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -222,7 +222,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  A builder that builds the widget that this <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> surrounds.
+  用于构建此 <a href="widgets/RawMenuAnchor-class.html">RawMenuAnchor</a> 所包裹组件的构建器。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -234,7 +234,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The optional child to be passed to the <a href="widgets/RawMenuAnchor/builder.html">builder</a>.
+  传递给 <a href="widgets/RawMenuAnchor/builder.html">builder</a> 的可选子组件。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -246,8 +246,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The <a href="widgets/FocusNode-class.html">FocusNode</a> attached to the widget that takes focus when the
-menu is opened or closed.
+  菜单打开或关闭时，接收焦点的组件所关联的 <a href="widgets/FocusNode-class.html">FocusNode</a>。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -259,8 +258,7 @@ menu is opened or closed.
 
 </dt>
 <dd>
-  Whether a tap event that closes the menu will be permitted to continue on
-to the gesture arena.
+  关闭菜单的点击事件是否可以继续传递到手势竞技场。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -272,8 +270,7 @@ to the gesture arena.
 
 </dt>
 <dd>
-  A <a href="widgets/MenuController-class.html">MenuController</a> that allows opening and closing of the menu from other
-widgets.
+  一个 <a href="widgets/MenuController-class.html">MenuController</a>，允许从其他组件打开或关闭菜单。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -309,7 +306,7 @@ widgets.
 
 </dt>
 <dd>
-  Called when the menu overlay is hidden.
+  菜单浮层隐藏时调用。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -321,7 +318,7 @@ widgets.
 
 </dt>
 <dd>
-  Called when a request is made to close the menu.
+  收到关闭菜单的请求时调用。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -333,7 +330,7 @@ widgets.
 
 </dt>
 <dd>
-  Called when the menu overlay is shown.
+  菜单浮层显示时调用。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -345,7 +342,7 @@ widgets.
 
 </dt>
 <dd>
-  Called when a request is made to open the menu.
+  收到打开菜单的请求时调用。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -357,7 +354,7 @@ widgets.
 
 </dt>
 <dd>
-  Called to build and position the menu overlay.
+  用于构建并定位菜单浮层。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -381,7 +378,7 @@ widgets.
 
 </dt>
 <dd>
-  Whether the menu panel should be rendered in the root <a href="widgets/Overlay-class.html">Overlay</a>.
+  是否应将菜单面板绘制在根 <a href="widgets/Overlay-class.html">Overlay</a> 中。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>

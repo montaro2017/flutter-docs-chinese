@@ -98,24 +98,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="widgets/StreamBuilderBase-class.html">StreamBuilderBase</a> 是有状态的，会维护截至当前的交互摘要。摘要的类型以及每次交互后如何更新，由子类定义。</p>
 <p>摘要示例包括：</p>
 <ul>
-<li>the running average of a stream of integers;</li>
-<li>the current direction and speed based on a stream of geolocation data;</li>
-<li>a graph displaying data points from a stream.</li>
+<li>整数流的运行平均值；</li>
+<li>根据地理位置数据流计算出的当前方向和速度；</li>
+<li>显示数据流中数据点的图表。</li>
 </ul>
-<p>In general, the summary is the result of a fold computation over the data
-items and errors received from the stream along with pseudo-events
-representing termination or change of stream. The initial summary is
-specified by sub-classes by overriding <a href="widgets/StreamBuilderBase/initial.html">initial</a>. The summary updates on
-receipt of stream data and errors are specified by overriding <a href="widgets/StreamBuilderBase/afterData.html">afterData</a> 和
-<a href="widgets/StreamBuilderBase/afterError.html">afterError</a>, respectively. If needed, the summary may be updated on stream
-termination by overriding <a href="widgets/StreamBuilderBase/afterDone.html">afterDone</a>. Finally, the summary may be updated
-on change of stream by overriding <a href="widgets/StreamBuilderBase/afterDisconnected.html">afterDisconnected</a> 和 <a href="widgets/StreamBuilderBase/afterConnected.html">afterConnected</a>.</p>
+<p>一般而言，摘要是对从流中接收的数据项和错误进行折叠计算的结果，其中还包括表示流终止或变更的伪事件。子类通过重写 <a href="widgets/StreamBuilderBase/initial.html">initial</a> 指定初始摘要。收到流数据或错误后，分别通过重写 <a href="widgets/StreamBuilderBase/afterData.html">afterData</a> 和 <a href="widgets/StreamBuilderBase/afterError.html">afterError</a> 更新摘要。如有需要，可通过重写 <a href="widgets/StreamBuilderBase/afterDone.html">afterDone</a> 在流终止时更新摘要。最后，流发生变化时，可通过重写 <a href="widgets/StreamBuilderBase/afterDisconnected.html">afterDisconnected</a> 和 <a href="widgets/StreamBuilderBase/afterConnected.html">afterConnected</a> 更新摘要。</p>
 <p><code>T</code> 是 Stream 事件的类型。</p>
 <p><code>S</code> 是交互摘要的类型。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/StreamBuilder-class.html">StreamBuilder</a>, which is specialized for the case where only the most
-recent interaction is needed for widget building.</li>
+<li><a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 专用于构建 widget 时只需使用最近一次交互结果的情况。</li>
 </ul>
 </section>
 
@@ -157,7 +149,7 @@ recent interaction is needed for widget building.</li>
           <span class="name"><a href="widgets/StreamBuilderBase/StreamBuilderBase.html">StreamBuilderBase</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-stream"><span>required</span> <span class="type-annotation"><a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">stream</span></span>})</span>
         </dt>
         <dd>
-          创建一个 <a href="widgets/StreamBuilderBase-class.html">StreamBuilderBase</a> connected to the specified <code>stream</code>.
+          创建一个 <a href="widgets/StreamBuilderBase-class.html">StreamBuilderBase</a>，使其连接到指定的 <code>stream</code>。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -231,8 +223,7 @@ recent interaction is needed for widget building.</li>
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary reflecting that we
-are now connected to a stream.
+  返回更新后的 <code>current</code> 摘要，以反映现已连接到流。
   
 
 </dd>
@@ -245,7 +236,7 @@ are now connected to a stream.
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary following a data event.
+  数据事件发生后，返回更新后的 <code>current</code> 摘要。
   
 
 </dd>
@@ -258,8 +249,7 @@ are now connected to a stream.
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary reflecting that we
-are no longer connected to a stream.
+  返回更新后的 <code>current</code> 摘要，以反映已断开与流的连接。
   
 
 </dd>
@@ -272,8 +262,7 @@ are no longer connected to a stream.
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary following stream
-termination.
+  流终止后，返回更新后的 <code>current</code> 摘要。
   
 
 </dd>
@@ -286,8 +275,7 @@ termination.
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary following an error
-with a stack trace.
+  发生错误并附带堆栈跟踪后，返回更新后的 <code>current</code> 摘要。
   
 
 </dd>
@@ -300,7 +288,7 @@ with a stack trace.
 
 </dt>
 <dd>
-  Returns a Widget based on the <code>currentSummary</code>.
+  根据 <code>currentSummary</code> 返回一个 Widget。
   
 
 </dd>
@@ -365,8 +353,7 @@ with a stack trace.
 
 </dt>
 <dd>
-  Returns the initial summary of stream interaction, typically representing
-the fact that no interaction has happened at all.
+  返回流交互的初始摘要，通常表示尚未发生任何交互。
   
 
 </dd>
