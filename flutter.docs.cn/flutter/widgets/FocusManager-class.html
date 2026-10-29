@@ -97,7 +97,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>焦点树与 widget 树分离，且更加稀疏；它维护 widget 树中可聚焦 widget 之间的层级关系。</p>
 <p>焦点管理器负责跟踪哪个 <a href="widgets/FocusNode-class.html">FocusNode</a> 拥有主要输入焦点（<a href="widgets/FocusManager/primaryFocus.html">primaryFocus</a>），持有作为焦点树根节点的 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>（<a href="widgets/FocusManager/rootScope.html">rootScope</a>），并记录当前的 <a href="widgets/FocusManager/highlightMode.html">highlightMode</a>。它还会将 <a href="services/KeyEvent-class.html">KeyEvent</a> 分发给焦点树中的节点。</p>
 <p>单例 <a href="widgets/FocusManager-class.html">FocusManager</a> 实例由 <a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a> 通过 <a href="widgets/WidgetsBinding/focusManager.html">WidgetsBinding.focusManager</a> 持有，也可以使用静态访问器 <a href="widgets/FocusManager/instance.html">FocusManager.instance</a> 方便地访问。</p>
-<p>要查找给定 <a href="widgets/BuildContext-class.html">BuildContext</a> 对应的 <a href="widgets/FocusNode-class.html">FocusNode</a>，请使用 <a href="widgets/Focus/of.html">Focus.of</a>。要查找给定 <a href="widgets/BuildContext-class.html">BuildContext</a> 对应的 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>，请使用 <a href="widgets/FocusScope/of.html">FocusScope.of</a>。</p>
+<p>要根据 <a href="widgets/FocusNode-class.html">FocusNode</a> 查找给定的 <a href="widgets/BuildContext-class.html">BuildContext</a>，请使用 <a href="widgets/Focus/of.html">Focus.of</a>。要根据 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 查找给定的 <a href="widgets/BuildContext-class.html">BuildContext</a>，请使用 <a href="widgets/FocusScope/of.html">FocusScope.of</a>。</p>
 <p>如果需要在 <a href="widgets/FocusManager/primaryFocus.html">primaryFocus</a> 每次变化时收到通知，请使用 <a href="foundation/ChangeNotifier/addListener.html">addListener</a> 注册监听器。不再需要接收这些事件时（例如对象即将释放），必须使用 <a href="foundation/ChangeNotifier/removeListener.html">removeListener</a> 注销监听器，以避免内存泄漏。有状态 widget 通常会在 <a href="widgets/State/dispose.html">State.dispose</a> 中移除监听器。</p>
 <p><a href="widgets/FocusManager/highlightMode.html">highlightMode</a> 用于描述 UI 组件如何显示焦点高亮。<a href="widgets/FocusManager/highlightMode.html">highlightMode</a> 的变化会通过 <a href="widgets/FocusManager/addHighlightModeListener.html">addHighlightModeListener</a> 单独通知，并通过 <a href="widgets/FocusManager/removeHighlightModeListener.html">removeHighlightModeListener</a> 取消监听。用户在鼠标和触摸操作之间切换时，高亮模式也会随之变化。</p>
 <p>用于管理 widget 树中焦点的 widget 包括：</p>
@@ -145,7 +145,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="name"><a href="widgets/FocusManager/FocusManager.html">FocusManager</a></span><span class="signature">()</span>
         </dt>
         <dd>
-          Creates an object that manages the focus tree.
+          创建用于管理焦点树的对象。
         </dd>
     </dl>
   </section>
@@ -186,7 +186,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Indicates the current interaction mode for focus highlights.
+  指示当前焦点高亮的交互模式。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -198,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Sets the strategy by which <a href="widgets/FocusManager/highlightMode.html">highlightMode</a> is determined.
+  设置用于确定 <a href="widgets/FocusManager/highlightMode.html">highlightMode</a> 的策略。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -210,7 +210,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The node that currently has the primary focus.
+  当前拥有主要焦点的节点。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -222,7 +222,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The root <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> in the focus tree.
+  焦点树中的根 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a>。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -256,8 +256,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Adds a key event handler to a set of handlers that are called before any
-key event handlers in the focus tree are called.
+  将键事件处理程序添加到一组处理程序中；这些处理程序会先于焦点树中的任何键事件处理程序调用。
   
 
 </dd>
@@ -270,8 +269,7 @@ key event handlers in the focus tree are called.
 
 </dt>
 <dd>
-  Register a closure to be called when the <a href="widgets/FocusManager-class.html">FocusManager</a> notifies its listeners
-that the value of <a href="widgets/FocusManager/highlightMode.html">highlightMode</a> has changed.
+  注册一个闭包，以便在 <a href="widgets/FocusManager-class.html">FocusManager</a> 通知监听器 <a href="widgets/FocusManager/highlightMode.html">highlightMode</a> 的值已更改时调用。
   
 
 </dd>
@@ -284,8 +282,7 @@ that the value of <a href="widgets/FocusManager/highlightMode.html">highlightMod
 
 </dt>
 <dd>
-  Adds a key event handler to a set of handlers that are called if none of
-the key event handlers in the focus tree handle the event.
+  将键事件处理程序添加到一组处理程序中；当焦点树中的键事件处理程序都未处理该事件时，会调用这些处理程序。
   
 
 </dd>
@@ -311,8 +308,7 @@ the key event handlers in the focus tree handle the event.
 
 </dt>
 <dd>
-  Applies any pending focus changes and notifies listeners that the focus
-has changed.
+  应用所有待处理的焦点变更，并通知监听器焦点已发生变化。
   
 
 </dd>
@@ -364,9 +360,7 @@ has changed.
 
 </dt>
 <dd>
-  Enables this <a href="widgets/FocusManager-class.html">FocusManager</a> to listen to changes of the application
-lifecycle if it does not already have an application lifecycle listener
-active, and the app isn't running on a native mobile platform.
+  使此 <a href="widgets/FocusManager-class.html">FocusManager</a> 能够监听应用生命周期的变化；如果尚未启用应用生命周期监听器，且应用并非运行在原生移动平台上，便会启用此监听。
   
 
 </dd>
@@ -405,7 +399,7 @@ active, and the app isn't running on a native mobile platform.
 
 </dt>
 <dd>
-  Registers global input event handlers that are needed to manage focus.
+  注册管理焦点所需的全局输入事件处理程序。
   
 
 </dd>
@@ -418,7 +412,7 @@ active, and the app isn't running on a native mobile platform.
 
 </dt>
 <dd>
-  Removes a key handler added by calling <a href="widgets/FocusManager/addEarlyKeyEventHandler.html">addEarlyKeyEventHandler</a>.
+  移除通过调用 <a href="widgets/FocusManager/addEarlyKeyEventHandler.html">addEarlyKeyEventHandler</a> 添加的键事件处理程序。
   
 
 </dd>
@@ -431,8 +425,7 @@ active, and the app isn't running on a native mobile platform.
 
 </dt>
 <dd>
-  Remove a previously registered closure from the list of closures that the
-<a href="widgets/FocusManager-class.html">FocusManager</a> notifies.
+  从 <a href="widgets/FocusManager-class.html">FocusManager</a> 通知的闭包列表中移除先前注册的闭包。
   
 
 </dd>
@@ -445,7 +438,7 @@ active, and the app isn't running on a native mobile platform.
 
 </dt>
 <dd>
-  Removes a key handler added by calling <a href="widgets/FocusManager/addLateKeyEventHandler.html">addLateKeyEventHandler</a>.
+  移除通过调用 <a href="widgets/FocusManager/addLateKeyEventHandler.html">addLateKeyEventHandler</a> 添加的键事件处理程序。
   
 
 </dd>
@@ -553,7 +546,7 @@ active, and the app isn't running on a native mobile platform.
   </section>
     
   <section class="summary offset-anchor" id="static-properties">
-    <h2>Static Properties</h2>
+    <h2>静态属性</h2>
     <dl class="properties">
         <dt id="instance" class="property">
   <span class="name"><a href="widgets/FocusManager/instance.html">instance</a></span>
@@ -562,8 +555,7 @@ active, and the app isn't running on a native mobile platform.
 
 </dt>
 <dd>
-  Provides convenient access to the current <a href="widgets/FocusManager-class.html">FocusManager</a> singleton from
-the <a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a> instance.
+  当前 <a href="widgets/FocusManager-class.html">FocusManager</a> 单例可通过 <a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a> 实例便捷访问。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
