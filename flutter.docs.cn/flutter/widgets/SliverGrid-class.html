@@ -112,8 +112,7 @@ aspect-ratio: 560 / 315;">
 <a name="widgets.SliverGrid.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-This example, which would be inserted into a <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a>
-list, shows twenty boxes in a pretty teal grid:
+此示例将插入 <a href="widgets/CustomScrollView/slivers.html">CustomScrollView.slivers</a> 列表中，展示一个由 20 个方块组成的漂亮青绿色网格：
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.SliverGrid.1');" onclick="fixHref(this, 'widgets.SliverGrid.1'); copyStringToClipboard(this.href);"
@@ -157,10 +156,7 @@ list, shows twenty boxes in a pretty teal grid:
 </li>
 <li>
 <p>将 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 设为需要保留的 sliver 子项 widget 子树的根 widget。<a href="widgets/KeepAlive-class.html">KeepAlive</a> 会将子树顶部的渲染对象子项标记为需要保持活动状态。当关联的顶部渲染对象滚出视野时，sliver 会将子项渲染对象（以及相应的元素和状态）保存在缓存列表中，而不是销毁它们。滚回视野时，渲染对象会按原样重新绘制（如果期间没有被标记为脏）。</p>
-<p>This only works if the <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> subclasses don't wrap the
-child widget subtree with other widgets such as <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 和
-<a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> via <code>addAutomaticKeepAlives</code> 和
-<code>addRepaintBoundaries</code>.</p>
+<p>只有在 <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> 子类没有用 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 和 <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> 等其他 widget 包裹子 widget 子树时，此方法才有效；这些包装由 <code>addAutomaticKeepAlives</code> 和 <code>addRepaintBoundaries</code> 控制。</p>
 </li>
 <li>
 <p>使用 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> widget（默认由 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a> 或 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a> 插入）。<a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 允许后代 widget 控制是否实际保留子树。此行为不同于 <a href="widgets/KeepAlive-class.html">KeepAlive</a>，后者会无条件保留子树。</p>
@@ -172,9 +168,8 @@ child widget subtree with other widgets such as <a href="widgets/AutomaticKeepAl
 <p>如果在单个滚动视图中使用多个委托对象，即使每个委托对象的第一个子项超出当前可视区域，也始终会对其进行布局。这是因为必须至少有一个子项，才能估算整个滚动视图的 <a href="widgets/SliverGrid/estimateMaxScrollOffset.html">estimateMaxScrollOffset</a>；该估算会根据当前已构建的子项来推算其余子项的范围。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/SliverList-class.html">SliverList</a>, which places its children in a linear array.</li>
-<li><a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a>, which places its children in a linear
-array with a fixed extent in the main axis.</li>
+<li><a href="widgets/SliverList-class.html">SliverList</a>，会将子项排成线性数组。</li>
+<li><a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a>，会将子项排成线性数组，并在主轴方向使用固定范围。</li>
 <li><a href="widgets/SliverPrototypeExtentList-class.html">SliverPrototypeExtentList</a>，与<a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a>类似，但使用原型列表项而非像素值来定义每个项目在主轴方向上的范围。</li>
 </ul>
 </section>
@@ -215,29 +210,26 @@ array with a fixed extent in the main axis.</li>
           <span class="name"><a href="widgets/SliverGrid/SliverGrid.html">SliverGrid</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-delegate"><span>required</span> <span class="type-annotation"><a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a></span> <span class="parameter-name">delegate</span>, </span><span class="parameter" id="-param-gridDelegate"><span>required</span> <span class="type-annotation"><a href="rendering/SliverGridDelegate-class.html">SliverGridDelegate</a></span> <span class="parameter-name">gridDelegate</span></span>})</span>
         </dt>
         <dd>
-          Creates a sliver that places multiple box children in a two dimensional
-arrangement.
+          创建一个在二维布局中放置多个盒子子项的 sliver。
             <div class="constructor-modifier features">const</div>
         </dd>
         <dt id="SliverGrid.builder" class="callable">
           <span class="name"><a href="widgets/SliverGrid/SliverGrid.builder.html">SliverGrid.builder</a></span><span class="signature">({<span class="parameter" id="builder-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="builder-param-gridDelegate"><span>required</span> <span class="type-annotation"><a href="rendering/SliverGridDelegate-class.html">SliverGridDelegate</a></span> <span class="parameter-name">gridDelegate</span>, </span><span class="parameter" id="builder-param-itemBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/NullableIndexedWidgetBuilder.html">NullableIndexedWidgetBuilder</a></span> <span class="parameter-name">itemBuilder</span>, </span><span class="parameter" id="builder-param-findChildIndexCallback"><span class="type-annotation"><a href="widgets/ChildIndexGetter.html">ChildIndexGetter</a>?</span> <span class="parameter-name">findChildIndexCallback</span>, </span><span class="parameter" id="builder-param-itemCount"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">itemCount</span>, </span><span class="parameter" id="builder-param-addAutomaticKeepAlives"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addAutomaticKeepAlives</span> = <span class="default-value">true</span>, </span><span class="parameter" id="builder-param-addRepaintBoundaries"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addRepaintBoundaries</span> = <span class="default-value">true</span>, </span><span class="parameter" id="builder-param-addSemanticIndexes"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addSemanticIndexes</span> = <span class="default-value">true</span>, </span><span class="parameter" id="builder-param-semanticIndexOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">semanticIndexOffset</span> = <span class="default-value">0</span></span>})</span>
         </dt>
         <dd>
-          A sliver that creates a 2D array of widgets that are created on demand.
+          一种按需创建 widget 二维数组的 sliver。
         </dd>
         <dt id="SliverGrid.count" class="callable">
           <span class="name"><a href="widgets/SliverGrid/SliverGrid.count.html">SliverGrid.count</a></span><span class="signature">({<span class="parameter" id="count-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="count-param-crossAxisCount"><span>required</span> <span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">crossAxisCount</span>, </span><span class="parameter" id="count-param-mainAxisSpacing"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">mainAxisSpacing</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="count-param-crossAxisSpacing"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">crossAxisSpacing</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="count-param-childAspectRatio"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">childAspectRatio</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="count-param-children"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span></span> <span class="parameter-name">children</span> = <span class="default-value">const &lt;Widget&gt;[]</span></span>})</span>
         </dt>
         <dd>
-          Creates a sliver that places multiple box children in a two dimensional
-arrangement with a fixed number of tiles in the cross axis.
+          创建一个在二维布局中放置多个盒子子项的 sliver，并在交叉轴方向使用固定数量的网格单元。
         </dd>
         <dt id="SliverGrid.extent" class="callable">
           <span class="name"><a href="widgets/SliverGrid/SliverGrid.extent.html">SliverGrid.extent</a></span><span class="signature">({<span class="parameter" id="extent-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="extent-param-maxCrossAxisExtent"><span>required</span> <span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">maxCrossAxisExtent</span>, </span><span class="parameter" id="extent-param-mainAxisSpacing"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">mainAxisSpacing</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="extent-param-crossAxisSpacing"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">crossAxisSpacing</span> = <span class="default-value">0.0</span>, </span><span class="parameter" id="extent-param-childAspectRatio"><span class="type-annotation"><a href="dart-core/double-class.html">double</a></span> <span class="parameter-name">childAspectRatio</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="extent-param-children"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span></span> <span class="parameter-name">children</span> = <span class="default-value">const &lt;Widget&gt;[]</span></span>})</span>
         </dt>
         <dd>
-          Creates a sliver that places multiple box children in a two dimensional
-arrangement with tiles that each have a maximum cross-axis extent.
+          创建一个在二维布局中放置多个盒子子项的 sliver，每个网格单元在交叉轴方向都有最大范围限制。
         </dd>
         <dt id="SliverGrid.list" class="callable">
           <span class="name"><a href="widgets/SliverGrid/SliverGrid.list.html">SliverGrid.list</a></span><span class="signature">({<span class="parameter" id="list-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="list-param-gridDelegate"><span>required</span> <span class="type-annotation"><a href="rendering/SliverGridDelegate-class.html">SliverGridDelegate</a></span> <span class="parameter-name">gridDelegate</span>, </span><span class="parameter" id="list-param-children"><span>required</span> <span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span></span> <span class="parameter-name">children</span>, </span><span class="parameter" id="list-param-addAutomaticKeepAlives"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addAutomaticKeepAlives</span> = <span class="default-value">true</span>, </span><span class="parameter" id="list-param-addRepaintBoundaries"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addRepaintBoundaries</span> = <span class="default-value">true</span>, </span><span class="parameter" id="list-param-addSemanticIndexes"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addSemanticIndexes</span> = <span class="default-value">true</span>, </span><span class="parameter" id="list-param-semanticIndexOffset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">semanticIndexOffset</span> = <span class="default-value">0</span></span>})</span>
@@ -273,7 +265,7 @@ arrangement.
 
 </dt>
 <dd>
-  The delegate that controls the size and position of the children.
+  控制子项尺寸和位置的 delegate。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
