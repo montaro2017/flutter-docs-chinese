@@ -93,8 +93,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API">Web Authentication API</a> 的 <strong><code>AuthenticatorAssertionResponse</code></strong> 接口包含某个 WebAuthn 凭据私钥生成的<a href="https://developer.mozilla.org/en-US/docs/Glossary/Signature/Security">数字签名</a>。依赖方服务器可以验证此签名以验证用户身份，例如在用户登录时进行验证。</p>
-<p>成功调用 <a href="package-web_web/CredentialsContainer/get.html">CredentialsContainer.get</a> 后返回的 <a href="package-web_web/PublicKeyCredential-extension-type.html">PublicKeyCredential</a> 对象，其 <a href="package-web_web/PublicKeyCredential/response.html">PublicKeyCredential.response</a> 属性中会提供 <code>AuthenticatorAssertionResponse</code> 对象实例。</p>
+  <p><strong><code>AuthenticatorAssertionResponse</code></strong> 是 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API">Web Authentication API</a> 的接口，其中包含某个 WebAuthn 凭据私钥生成的<a href="https://developer.mozilla.org/en-US/docs/Glossary/Signature/Security">数字签名</a>。依赖方服务器可以验证此签名以验证用户身份，例如在用户登录时进行验证。</p>
+<p><code>AuthenticatorAssertionResponse</code> 对象实例会出现在成功调用 <a href="package-web_web/PublicKeyCredential/response.html">PublicKeyCredential.response</a> 属性的 <a href="package-web_web/PublicKeyCredential-extension-type.html">PublicKeyCredential</a> 对象中；该对象由 <a href="package-web_web/CredentialsContainer/get.html">CredentialsContainer.get</a> 调用返回。</p>
 <p>此接口继承自 <a href="package-web_web/AuthenticatorResponse-extension-type.html">AuthenticatorResponse</a>。</p>
 <blockquote>
 <p><strong>注意：</strong>此接口仅限顶层上下文使用。在 <code>iframe</code> 元素内使用不会产生任何效果。</p>
@@ -147,11 +147,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The <strong><code>authenticatorData</code></strong> property of the
-<a href="package-web_web/AuthenticatorAssertionResponse-extension-type.html">AuthenticatorAssertionResponse</a> interface returns an <code>ArrayBuffer</code>
-containing information from the authenticator such as the Relying Party ID
-Hash (rpIdHash), a signature counter, test of user presence, user
-verification flags, and any extensions processed by the authenticator.
+  <strong><code>authenticatorData</code></strong> 是 <a href="package-web_web/AuthenticatorAssertionResponse-extension-type.html">AuthenticatorAssertionResponse</a> 接口的属性，返回一个 <code>ArrayBuffer</code>，其中包含验证器提供的信息，例如依赖方 ID 哈希（rpIdHash）、签名计数器、用户在场测试、用户验证标记，以及验证器处理的任何扩展。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -163,15 +159,7 @@ verification flags, and any extensions processed by the authenticator.
 
 </dt>
 <dd class="inherited">
-  The <strong><code>clientDataJSON</code></strong> property of the <a href="package-web_web/AuthenticatorResponse-extension-type.html">AuthenticatorResponse</a> interface
-stores a
-<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">JSON</a>
-string in an
-<code>ArrayBuffer</code>, representing the client data that was passed to
-<a href="package-web_web/CredentialsContainer/create.html">CredentialsContainer.create</a> or <a href="package-web_web/CredentialsContainer/get.html">CredentialsContainer.get</a>. This property
-is only accessed on one of the child objects of <code>AuthenticatorResponse</code>,
-specifically <a href="package-web_web/AuthenticatorAttestationResponse-extension-type.html">AuthenticatorAttestationResponse</a> or
-<a href="package-web_web/AuthenticatorAssertionResponse-extension-type.html">AuthenticatorAssertionResponse</a>.
+  <strong><code>clientDataJSON</code></strong> 属性属于 <a href="package-web_web/AuthenticatorResponse-extension-type.html">AuthenticatorResponse</a> 接口，用于在 <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">JSON</a> 字符串的 <code>ArrayBuffer</code> 中存储客户端数据，这些数据会传给 <a href="package-web_web/CredentialsContainer/create.html">CredentialsContainer.create</a> 或 <a href="package-web_web/CredentialsContainer/get.html">CredentialsContainer.get</a>。此属性只会通过 <code>AuthenticatorResponse</code> 的子对象访问，具体为 <a href="package-web_web/AuthenticatorAttestationResponse-extension-type.html">AuthenticatorAttestationResponse</a> 或 <a href="package-web_web/AuthenticatorAssertionResponse-extension-type.html">AuthenticatorAssertionResponse</a>。
   <div class="features"><span class="feature">无 setter</span><span class="feature">继承</span></div>
 
 </dd>
@@ -297,12 +285,7 @@ specifically <a href="package-web_web/AuthenticatorAttestationResponse-extension
 
 </dt>
 <dd>
-  The <strong><code>signature</code></strong> read-only property of the
-<a href="package-web_web/AuthenticatorAssertionResponse-extension-type.html">AuthenticatorAssertionResponse</a> interface is an <code>ArrayBuffer</code>
-object which is the signature of the authenticator for both
-<a href="package-web_web/AuthenticatorAssertionResponse/authenticatorData.html">AuthenticatorAssertionResponse.authenticatorData</a> and a SHA-256 hash of
-the client data
-(<a href="package-web_web/AuthenticatorResponse/clientDataJSON.html">AuthenticatorResponse.clientDataJSON</a>).
+  <strong><code>signature</code></strong> 是 <a href="package-web_web/AuthenticatorAssertionResponse-extension-type.html">AuthenticatorAssertionResponse</a> 接口的只读属性，返回一个 <code>ArrayBuffer</code> 对象，其中包含验证器对 <a href="package-web_web/AuthenticatorAssertionResponse/authenticatorData.html">AuthenticatorAssertionResponse.authenticatorData</a> 和客户端数据的 SHA-256 哈希签名（客户端数据见 <a href="package-web_web/AuthenticatorResponse/clientDataJSON.html">AuthenticatorResponse.clientDataJSON</a>）。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -314,11 +297,7 @@ the client data
 
 </dt>
 <dd>
-  The <strong><code>userHandle</code></strong> read-only property of the
-<a href="package-web_web/AuthenticatorAssertionResponse-extension-type.html">AuthenticatorAssertionResponse</a> interface is an <code>ArrayBuffer</code> object
-providing an opaque identifier for the given user. Such an identifier can
-be used by the relying party's server to link the user account with its
-corresponding credentials and other data.
+  <strong><code>userHandle</code></strong> 是 <a href="package-web_web/AuthenticatorAssertionResponse-extension-type.html">AuthenticatorAssertionResponse</a> 接口的只读属性，返回一个 <code>ArrayBuffer</code> 对象，其中包含该用户的不透明标识符。依赖方服务器可使用此标识符，将用户帐户与相应的凭据及其他数据关联起来。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -375,7 +354,7 @@ corresponding credentials and other data.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  使用最多四个参数调用此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 上的 <code>method</code> 方法。
+  调用 <code>method</code> 方法，并在此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 上最多传入四个参数。
   
 
 </dd>
@@ -423,7 +402,7 @@ corresponding credentials and other data.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  删除此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性。
+  删除键为 <code>property</code> 的属性（位于此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中）。
   
 
 </dd>
@@ -487,7 +466,7 @@ corresponding credentials and other data.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性值。
+  键 <code>property</code> 在此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中对应的属性值。
   
 
 </dd>
@@ -708,7 +687,7 @@ corresponding credentials and other data.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  将 <code>value</code> 写入此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性。
+  将 <code>value</code> 写入键 <code>property</code> 对应的属性中（位于此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 上）。
   
 
 </dd>
@@ -785,7 +764,7 @@ corresponding credentials and other data.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?，由扩展 <a href="dart-js_interop/JSAnyUtilityExtension.html">JSAnyUtilityExtension</a> 提供</span>
       </p>
-  对<code><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</code>执行<code>typeof</code>后，结果是否为<code>typeString</code>。
+  <code>typeof</code> 在此 <code><a href="dart-js_interop/JSAny-extension-type.html">JSAny</a>?</code> 上的结果是否为 <code>typeString</code>。
   
 
 </dd>
@@ -838,7 +817,7 @@ corresponding credentials and other data.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/getProperty.html">getProperty</a> 的简写辅助方法，用于获取此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性值；参数为 Dart 值。
+  <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/getProperty.html">getProperty</a> 的简写辅助方法，用于获取键 <code>property</code> 在此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中对应的属性值；参数为 Dart 值。
   
 
 </dd>
@@ -854,7 +833,7 @@ corresponding credentials and other data.
       <p class="from-extension">
         <span>适用于 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>，由扩展 <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension.html">JSObjectUnsafeUtilExtension</a> 提供</span>
       </p>
-  <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/setProperty.html">setProperty</a> 的简写辅助方法，用于将 <code>value</code> 写入此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 中键为 <code>property</code> 的属性；参数为 Dart 值。
+  <a href="dart-js_interop_unsafe/JSObjectUnsafeUtilExtension/setProperty.html">setProperty</a> 的简写辅助方法，用于将 Dart 值 <code>value</code> 写入键 <code>property</code> 对应的属性中（位于此 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a> 上）。
   
 
 </dd>
