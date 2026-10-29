@@ -153,17 +153,14 @@ const HtmlElementView(
 <p><a href="widgets/HtmlElementView/viewType.html">viewType</a> 必须与之前传递给 <code>registerViewFactory</code> 的值一致。</p>
 <p>如果 <code>viewFactory</code> 函数接受 <a href="widgets/HtmlElementView/creationParams.html">creationParams</a>，则会将其传入（此参数可选）。</p>
 <p><a href="widgets/HtmlElementView/onPlatformViewCreated.html">onPlatformViewCreated</a> 会在由 <code>viewFactory</code> 创建的平台视图（<code>element</code>）附加到 DOM 之前，接收其 <code>viewId</code>。</p>
-<p>The <code>viewId</code> can be used to retrieve the created <code>element</code> (The same one
-passed to <code>onElementCreated</code> in <a href="widgets/HtmlElementView/HtmlElementView.fromTagName.html">HtmlElementView.fromTagName</a>) with the
-<code>ui_web.platformViewRegistry.</code><a href="https://api.flutter.dev/flutter/dart-ui_web/PlatformViewRegistry/getViewById.html"><code>getViewById</code> 方法</a>.</p>
+<p>可使用 <code>viewId</code> 获取已创建的 <code>element</code>（该元素与传递给 <code>onElementCreated</code> 的是同一个；参见 <a href="widgets/HtmlElementView/HtmlElementView.fromTagName.html">HtmlElementView.fromTagName</a>），方法是调用 <code>ui_web.platformViewRegistry.</code><a href="https://api.flutter.dev/flutter/dart-ui_web/PlatformViewRegistry/getViewById.html"><code>getViewById</code> 方法</a>。</p>
 <p>（有关 <code>onPlatformViewCreated</code> 的更多详情，请参阅下方的<strong>生命周期</strong>部分。）</p>
 <h2 id="lifecycle">生命周期</h2>
 <p><code>HtmlElementView</code> 组件与其他 Flutter 无状态组件类似，但额外提供一个生命周期回调：<code>onPlatformViewCreated</code> 或 <code>onElementCreated</code>（取决于使用的构造函数，参见上方的<strong>用法</strong>部分）。</p>
 <p>这两个回调的区别在于它们接收的参数不同：</p>
 <ul>
 <li>创建的 <code>viewId</code> 会作为参数传给 <code>onPlatformViewCreated</code>；需要调用 <code>ui_web.platformViewRegistry.getViewById</code> 来获取创建的元素（参见 <a href="services/PlatformViewCreatedCallback.html">PlatformViewCreatedCallback</a>）。</li>
-<li><code>onElementCreated</code> will be called with the created <code>element</code> directly,
-skipping its <code>viewId</code> (See <a href="widgets/ElementCreatedCallback.html">ElementCreatedCallback</a>).</li>
+<li><code>onElementCreated</code> 会直接接收已创建的 <code>element</code>，不再接收其 <code>viewId</code>（参见 <a href="widgets/ElementCreatedCallback.html">ElementCreatedCallback</a>）。</li>
 </ul>
 <p>两个回调都会在 HTML <code>element</code> 创建<strong>之后</strong>、附加到 DOM <strong>之前</strong>调用。</p>
 <h3 id="html-lifecycle">HTML 生命周期</h3>
@@ -205,7 +202,7 @@ void onElementCreated(Object element) {
 }
 </code></pre>
 <ul>
-<li>Read more about <a href="https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API"><code>ResizeObserver</code> in the MDN</a>.</li>
+<li>在 MDN 中阅读有关 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API"><code>ResizeObserver</code></a> 的更多信息。</li>
 </ul>
 <h4 id="other-observers">其他观察器</h4>
 <p>上面的示例使用 <code>ResizeObserver</code>，因为它可以直接应用于即将附加的 <code>element</code>。稍加编写更多代码后，也可以使用其他观察器，例如 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver"><code>MutationObserver</code></a>。</p>
@@ -223,10 +220,8 @@ void useHostElement(BuildContext context) {
 </code></pre>
 <p><strong>重要提示：</strong><code>FlutterView.viewId</code> 与传递给 <code>viewFactory</code> 的 <code>viewId</code> 参数标识的是<strong>不同的对象</strong>：</p>
 <ul>
-<li><code>flutterViewId</code> (from <code>View.of(context)</code>) represents the <a href="dart-ui/FlutterView-class.html">FlutterView</a>
-where the web app is currently rendering.</li>
-<li><code>viewId</code> (passed to the <code>viewFactory</code> function) represents a unique ID
-for the <code>HtmlElementView</code> instance that is being attached to the app.</li>
+<li><code>flutterViewId</code>（来自 <code>View.of(context)</code>）表示 Web 应用当前正在其中渲染的 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。</li>
+<li><code>viewId</code>（传递给 <code>viewFactory</code> 函数）是要附加到应用的 <code>HtmlElementView</code> 实例的唯一 ID。</li>
 </ul>
 <p>请参阅 Flutter API 文档中有关 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 的更多信息：</p>
 <ul>
@@ -280,15 +275,15 @@ for the <code>HtmlElementView</code> instance that is being attached to the app.
           <span class="name"><a href="widgets/HtmlElementView/HtmlElementView.html">HtmlElementView</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-viewType"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">viewType</span>, </span><span class="parameter" id="-param-onPlatformViewCreated"><span class="type-annotation"><a href="services/PlatformViewCreatedCallback.html">PlatformViewCreatedCallback</a>?</span> <span class="parameter-name">onPlatformViewCreated</span>, </span><span class="parameter" id="-param-creationParams"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">creationParams</span>, </span><span class="parameter" id="-param-hitTestBehavior"><span class="type-annotation"><a href="rendering/PlatformViewHitTestBehavior.html">PlatformViewHitTestBehavior</a></span> <span class="parameter-name">hitTestBehavior</span> = <span class="default-value">PlatformViewHitTestBehavior.opaque</span></span>})</span>
         </dt>
         <dd>
-          Creates a platform view for Flutter web.
-            <div class="constructor-modifier features">const</div>
+  为 Flutter Web 创建平台视图。
+  <div class="constructor-modifier features">const</div>
         </dd>
         <dt id="HtmlElementView.fromTagName" class="callable">
           <span class="name"><a href="widgets/HtmlElementView/HtmlElementView.fromTagName.html">HtmlElementView.fromTagName</a></span><span class="signature">({<span class="parameter" id="fromTagName-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="fromTagName-param-tagName"><span>required</span> <span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">tagName</span>, </span><span class="parameter" id="fromTagName-param-isVisible"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isVisible</span> = <span class="default-value">true</span>, </span><span class="parameter" id="fromTagName-param-onElementCreated"><span class="type-annotation"><a href="widgets/ElementCreatedCallback.html">ElementCreatedCallback</a>?</span> <span class="parameter-name">onElementCreated</span>, </span><span class="parameter" id="fromTagName-param-hitTestBehavior"><span class="type-annotation"><a href="rendering/PlatformViewHitTestBehavior.html">PlatformViewHitTestBehavior</a></span> <span class="parameter-name">hitTestBehavior</span> = <span class="default-value">PlatformViewHitTestBehavior.opaque</span></span>})</span>
         </dt>
         <dd>
-          Creates a platform view that creates a DOM element specified by <code>tagName</code>.
-            <div class="constructor-modifier features">factory</div>
+  创建一个平台视图，其中的 DOM 元素由 <code>tagName</code> 指定。
+  <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>
   </section>
@@ -305,7 +300,7 @@ for the <code>HtmlElementView</code> instance that is being attached to the app.
 
 </dt>
 <dd>
-  Passed as the 2nd argument (i.e. <code>params</code>) of the registered view factory.
+  作为已注册视图工厂的第二个参数（即 <code>params</code>）传入。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -353,7 +348,7 @@ for the <code>HtmlElementView</code> instance that is being attached to the app.
 
 </dt>
 <dd>
-  Callback to invoke after the platform view has been created.
+  平台视图创建后调用的回调。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -377,7 +372,7 @@ for the <code>HtmlElementView</code> instance that is being attached to the app.
 
 </dt>
 <dd>
-  The unique identifier for the HTML view type to be embedded by this widget.
+  此 widget 要嵌入的 HTML 视图类型的唯一标识符。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
