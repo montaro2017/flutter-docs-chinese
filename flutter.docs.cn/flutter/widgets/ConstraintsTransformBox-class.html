@@ -94,7 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>一种容器组件，可对约束应用任意变换，并使用变换后得到的 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 布局子项；还可选择裁剪溢出内容，或将溢出视为错误。</p>
-<p>此容器会先将 <a href="rendering/BoxConstraints-class.html">constraintsTransform</a> 应用于自身约束，再使用生成的 <a href="widgets/ConstraintsTransformBox/constraintsTransform.html">BoxConstraints</a> 布局子项。随后，容器会尝试在自身约束允许的范围内采用与子项相同的尺寸。如果最终尺寸不同，则根据 <a href="widgets/ConstraintsTransformBox/alignment.html">alignment</a> 对齐子项。如果容器无法扩展到足以容纳整个子项，并且 <a href="widgets/ConstraintsTransformBox/clipBehavior.html">clipBehavior</a> 不是 <a href="dart-ui/Clip.html">Clip.none</a>，就会裁剪子项。</p>
+<p>此容器会将 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> 应用于自身约束，再通过 <a href="widgets/ConstraintsTransformBox/constraintsTransform.html">constraintsTransform</a> 生成用于布局子项的约束。随后，容器会尝试在自身约束允许的范围内采用与子项相同的尺寸。如果最终尺寸不同，则根据 <a href="widgets/ConstraintsTransformBox/alignment.html">alignment</a> 对齐子项。如果容器无法扩展到足以容纳整个子项，并且 <a href="widgets/ConstraintsTransformBox/clipBehavior.html">clipBehavior</a> 不是 <a href="dart-ui/Clip.html">Clip.none</a>，就会裁剪子项。</p>
 <p>在调试模式下，如果 <a href="widgets/ConstraintsTransformBox/clipBehavior.html">clipBehavior</a> 为 <a href="dart-ui/Clip.html">Clip.none</a> 且子项溢出容器，控制台会打印警告，并在溢出位置显示黑黄相间的条纹区域。</p>
 <p>当 <a href="widgets/SingleChildRenderObjectWidget/child.html">child</a> 为 null 时，此组件会缩至最小尺寸，且不会发生溢出。</p>
 <p>此组件可用于确保 <a href="widgets/SingleChildRenderObjectWidget/child.html">child</a> 的部分自然尺寸得到保留，并在开发期间提前发出警告。例如，如果 <a href="widgets/SingleChildRenderObjectWidget/child.html">child</a> 需要最小高度才能完整显示内容，可以将 <a href="widgets/ConstraintsTransformBox/constraintsTransform.html">constraintsTransform</a> 设为 <a href="widgets/ConstraintsTransformBox/maxHeightUnconstrained.html">maxHeightUnconstrained</a>。这样，即使父级 <a href="rendering/RenderObject-class.html">RenderObject</a> 未能提供足够的垂直空间，调试模式下仍会显示警告，同时允许 <a href="widgets/SingleChildRenderObjectWidget/child.html">child</a> 在垂直方向继续增长：</p>
@@ -127,12 +127,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/ConstrainedBox-class.html">ConstrainedBox</a>, which renders a box which imposes constraints
-on its child.</li>
-<li><a href="widgets/OverflowBox-class.html">OverflowBox</a>, a widget that imposes additional constraints on its child,
-and allows the child to overflow itself.</li>
-<li><a href="widgets/UnconstrainedBox-class.html">UnconstrainedBox</a> which allows its children to render themselves
-unconstrained and expands to fit them.</li>
+<li><a href="widgets/ConstrainedBox-class.html">ConstrainedBox</a>，用于构建一个对其子项施加约束的盒子。</li>
+<li><a href="widgets/OverflowBox-class.html">OverflowBox</a> 是一种会对其子项施加额外约束，并允许子项溢出的组件。</li>
+<li><a href="widgets/UnconstrainedBox-class.html">UnconstrainedBox</a> 允许子项不受约束地布局，并会扩展到足以容纳它们。</li>
 </ul>
 </section>
 
@@ -170,7 +167,7 @@ unconstrained and expands to fit them.</li>
         <dt id="ConstraintsTransformBox.new" class="callable">
           <span class="name"><a href="widgets/ConstraintsTransformBox/ConstraintsTransformBox.html">ConstraintsTransformBox</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-child"><span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span>, </span><span class="parameter" id="-param-textDirection"><span class="type-annotation"><a href="dart-ui/TextDirection.html">TextDirection</a>?</span> <span class="parameter-name">textDirection</span>, </span><span class="parameter" id="-param-alignment"><span class="type-annotation"><a href="painting/AlignmentGeometry-class.html">AlignmentGeometry</a></span> <span class="parameter-name">alignment</span> = <span class="default-value">Alignment.center</span>, </span><span class="parameter" id="-param-constraintsTransform"><span>required</span> <span class="type-annotation"><a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a></span> <span class="parameter-name">constraintsTransform</span>, </span><span class="parameter" id="-param-clipBehavior"><span class="type-annotation"><a href="dart-ui/Clip.html">Clip</a></span> <span class="parameter-name">clipBehavior</span> = <span class="default-value">Clip.none</span>, </span><span class="parameter" id="-param-debugTransformType"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">debugTransformType</span> = <span class="default-value">&#39;&#39;</span></span>})</span>
         </dt>
-        <dd>创建一个小组件，使用函数转换传递给子项的约束。如果子项超出父项约束，调试模式下会发出警告。
+        <dd>创建一个组件，使用函数转换传递给子项的约束。如果子项超出父项约束，调试模式下会发出警告。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -188,8 +185,7 @@ unconstrained and expands to fit them.</li>
 
 </dt>
 <dd>
-  The alignment to use when laying out the child, if it has a different size
-than this widget.
+  如果子项尺寸与此组件不同，布局子项时使用的对齐方式。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -225,8 +221,7 @@ than this widget.
 
 </dt>
 <dd>
-  The function used to transform the incoming <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>, to size
-<a href="widgets/SingleChildRenderObjectWidget/child.html">child</a>.
+  用于变换传入的 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>，以确定 <a href="widgets/SingleChildRenderObjectWidget/child.html">child</a> 尺寸的函数。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -274,8 +269,7 @@ than this widget.
 
 </dt>
 <dd>
-  The text direction to use when interpreting the <a href="widgets/ConstraintsTransformBox/alignment.html">alignment</a> if it is an
-<a href="painting/AlignmentDirectional-class.html">AlignmentDirectional</a>.
+  当 <a href="widgets/ConstraintsTransformBox/alignment.html">alignment</a> 为 <a href="painting/AlignmentDirectional-class.html">AlignmentDirectional</a> 时，用于解析该对齐方式的文本方向。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -310,7 +304,7 @@ than this widget.
 
 </dt>
 <dd>
-  根据此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 描述的配置，创建此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 所表示的 <a href="rendering/RenderObject-class.html">RenderObject</a> 类的实例。
+  创建此 <a href="rendering/RenderObject-class.html">RenderObject</a> 类的实例，该类由此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 表示，并使用此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 所描述的配置。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -471,7 +465,7 @@ than this widget.
     
     
   <section class="summary offset-anchor" id="static-methods">
-    <h2>Static Methods</h2>
+    <h2>静态方法</h2>
     <dl class="callables">
         <dt id="heightUnconstrained" class="callable">
   <span class="name"><a href="widgets/ConstraintsTransformBox/heightUnconstrained.html">heightUnconstrained</a></span><span class="signature">(<wbr><span class="parameter" id="heightUnconstrained-param-constraints"><span class="type-annotation"><a href="rendering/BoxConstraints-class.html">BoxConstraints</a></span> <span class="parameter-name">constraints</span></span>)
@@ -481,8 +475,7 @@ than this widget.
 
 </dt>
 <dd>
-  A <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a> that removes the height constraints from the
-input.
+  一种 <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a>，会移除输入约束中的高度限制。
   
 
 </dd>
@@ -495,8 +488,7 @@ input.
 
 </dt>
 <dd>
-  A <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a> that removes the <code>maxHeight</code> constraint from
-the input.
+  一种 <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a>，会移除输入约束中的 <code>maxHeight</code> 限制。
   
 
 </dd>
@@ -509,8 +501,7 @@ the input.
 
 </dt>
 <dd>
-  A <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a> that removes both the <code>maxWidth</code> and the
-<code>maxHeight</code> constraints from the input.
+  一种 <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a>，会同时移除输入约束中的 <code>maxWidth</code> 和 <code>maxHeight</code> 限制。
   
 
 </dd>
@@ -523,8 +514,7 @@ the input.
 
 </dt>
 <dd>
-  A <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a> that removes the <code>maxWidth</code> constraint from
-the input.
+  一种 <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a>，会移除输入约束中的 <code>maxWidth</code> 限制。
   
 
 </dd>
@@ -537,8 +527,7 @@ the input.
 
 </dt>
 <dd>
-  A <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a> that always returns a <a href="rendering/BoxConstraints-class.html">BoxConstraints</a> that
-imposes no constraints on either dimension (i.e. <code>const BoxConstraints()</code>).
+  一种 <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a>，始终返回不对任一维度施加约束的 <a href="rendering/BoxConstraints-class.html">BoxConstraints</a>（即 <code>const BoxConstraints()</code>）。
   
 
 </dd>
@@ -551,8 +540,7 @@ imposes no constraints on either dimension (i.e. <code>const BoxConstraints()</c
 
 </dt>
 <dd>
-  A <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a> that always returns its argument as-is (i.e.,
-it is an identity function).
+  一种 <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a>，始终原样返回传入的参数（即恒等函数）。
   
 
 </dd>
@@ -565,8 +553,7 @@ it is an identity function).
 
 </dt>
 <dd>
-  A <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a> that removes the width constraints from the
-input.
+  一种 <a href="rendering/BoxConstraintsTransform.html">BoxConstraintsTransform</a>，会移除输入约束中的宽度限制。
   
 
 </dd>
