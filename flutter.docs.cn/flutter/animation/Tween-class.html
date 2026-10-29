@@ -100,7 +100,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>
 <a name="animation.Tween.1"></a>
 <div class="snippet snippet-container anchor-container">
-  <div class="snippet-description">假设 <code>_controller</code> 是一个 <a href="animation/AnimationController-class.html">AnimationController</a>，我们想创建一个由该控制器驱动并保存到 <code>_animation</code> 中的 <a href="animation/Animation-class.html">Animation&lt;Offset&gt;</a>。以下是两种可行写法：</div>
+  <div class="snippet-description">假设 <code>_controller</code> 是一个 <a href="animation/AnimationController-class.html">AnimationController</a>，我们想创建一个 <a href="animation/Animation-class.html">Animation&lt;Offset&gt;</a>，由该控制器驱动，并将其保存到 <code>_animation</code> 中。以下是两种可行写法：</div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'animation.Tween.1');" onclick="fixHref(this, 'animation.Tween.1'); copyStringToClipboard(this.href);"
     href="#">
@@ -154,7 +154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><a href="animation/StepTween-class.html">StepTween</a> 使用 <a href="dart-core/double/floor.html">double.floor</a>，确保结果不会大于使用 <code>Tween&lt;double&gt;</code> 时的结果。</li>
 </ul>
 <p><a href="dart-ui/Size-class.html">Size</a> 上的相关运算符同样不满足这一约定，因此 <a href="animation/SizeTween-class.html">SizeTween</a> 使用 <a href="dart-ui/Size/lerp.html">Size.lerp</a>。</p>
-<p>此外，一些<em>确实</em>具有合适的 <code>+</code>、<code>-</code> 和 <code>*</code> 运算符的类型，也仍然拥有以更专门的方式执行插值的 <a href="animation/Tween-class.html">Tween</a> 子类。其中一个例子是上面提到的 <a href="material/MaterialPointArcTween-class.html">MaterialPointArcTween</a>。<a href="rendering/AlignmentTween-class.html">AlignmentTween</a>、<a href="rendering/AlignmentGeometryTween-class.html">AlignmentGeometryTween</a> 和 <a href="rendering/FractionalOffsetTween-class.html">FractionalOffsetTween</a> 则是另一组使用专用 <code>lerp</code> 方法、而不是仅仅依赖运算符的 <a href="animation/Tween-class.html">Tween</a>（尤其是，这使它们能够以更有用的方式处理 null 值）。</p>
+<p>此外，一些<em>确实</em>具有合适的 <code>+</code>、<code>-</code> 和 <code>*</code> 运算符的类型，也仍然拥有以更专门的方式执行插值的 <a href="animation/Tween-class.html">Tween</a> 子类。其中一个例子是上面提到的 <a href="material/MaterialPointArcTween-class.html">MaterialPointArcTween</a>。<a href="rendering/AlignmentTween-class.html">AlignmentTween</a>、<a href="rendering/AlignmentGeometryTween-class.html">AlignmentGeometryTween</a> 和 <a href="rendering/FractionalOffsetTween-class.html">FractionalOffsetTween</a> 则是另一组 <a href="animation/Tween-class.html">Tween</a>，它们使用专用的 <code>lerp</code> 方法而非仅依赖运算符（尤其因此能以更有用的方式处理 null 值）。</p>
 <h2 id="nullability">可空性</h2>
 <p><a href="animation/Tween/begin.html">begin</a> 和 <a href="animation/Tween/end.html">end</a> 字段是可空的；<a href="animation/Tween-class.html">Tween</a> 在创建时不必指定非空值。</p>
 <p>如果 <code>T</code> 是可空的，那么 <a href="animation/Tween/lerp.html">lerp</a> 和 <a href="animation/Tween/transform.html">transform</a> 可能返回 null。这通常出现在 <a href="animation/Tween/begin.html">begin</a> 为 null 且 <code>t</code> 为 0.0，或 <a href="animation/Tween/end.html">end</a> 为 null 且 <code>t</code> 为 1.0，或两者都为 null（无论 <code>t</code> 取何值）的情况下。</p>
