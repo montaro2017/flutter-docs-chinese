@@ -97,12 +97,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>它类似于 <a href="widgets/Builder-class.html">Builder</a>，但框架会在布局时调用 <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数，并提供父组件的约束。当父组件限制子组件尺寸，且不依赖子组件的固有尺寸时，这很有用。<a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> 的最终尺寸会与其子组件相同。</p>
 <p>在以下情况下会调用 <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数：</p>
 <ul>
-<li>The first time the widget is laid out.</li>
-<li>When the parent widget passes different layout constraints.</li>
-<li>When the parent widget updates this widget and <a href="widgets/AbstractLayoutBuilder/updateShouldRebuild.html">updateShouldRebuild</a> returns <code>true</code>.</li>
-<li>When the dependencies that the <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> function subscribes to change.</li>
+<li>首次布局此 widget 时。</li>
+<li>父 widget 传入不同布局约束时。</li>
+<li>父 widget 更新此 widget，且 <a href="widgets/AbstractLayoutBuilder/updateShouldRebuild.html">updateShouldRebuild</a> 返回 <code>true</code> 时。</li>
+<li><a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数所订阅的依赖项发生变化时。</li>
 </ul>
-<p>如果父组件反复传入相同的约束，布局期间将<em>不会</em>调用 <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数。</p>
+<p>如果父组件反复传入相同的约束，<a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数在布局期间将<em>不会</em>被调用。</p>
 <p>如果某个祖先跳过此子树的布局，导致约束过期，<code>builder</code> 会使用上一次已知的约束重新构建。</p>
 <iframe src="https://www.youtube.com/embed/IYDVcriKjsw?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
@@ -139,10 +139,10 @@ aspect-ratio: 560 / 315;">
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/SliverLayoutBuilder-class.html">SliverLayoutBuilder</a>, the sliver counterpart of this widget.</li>
-<li><a href="widgets/Builder-class.html">Builder</a>, which calls a <code>builder</code> function at build time.</li>
-<li><a href="widgets/StatefulBuilder-class.html">StatefulBuilder</a>, which passes its <code>builder</code> function a <code>setState</code> callback.</li>
-<li><a href="widgets/CustomSingleChildLayout-class.html">CustomSingleChildLayout</a>, which positions its child during layout.</li>
+<li><a href="widgets/SliverLayoutBuilder-class.html">SliverLayoutBuilder</a>：此 widget 对应的 sliver 版本。</li>
+<li><a href="widgets/Builder-class.html">Builder</a>：在构建时调用 <code>builder</code> 函数。</li>
+<li><a href="widgets/StatefulBuilder-class.html">StatefulBuilder</a>：向其 <code>builder</code> 函数传递一个 <code>setState</code> 回调。</li>
+<li><a href="widgets/CustomSingleChildLayout-class.html">CustomSingleChildLayout</a>：在布局期间定位其子项。</li>
 <li>The <a href="https://flutter.dev/widgets/layout/">布局组件目录</a>.</li>
 </ul>
 </section>
@@ -183,7 +183,7 @@ aspect-ratio: 560 / 315;">
           <span class="name"><a href="widgets/LayoutBuilder/LayoutBuilder.html">LayoutBuilder</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-builder"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">builder</span>(<span class="parameter" id="param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="param-constraints"><span class="type-annotation"><a href="rendering/BoxConstraints-class.html">BoxConstraints</a></span> <span class="parameter-name">constraints</span></span>)</span>})</span>
         </dt>
         <dd>
-          Creates a widget that defers its building until layout.
+          创建一个延迟到布局阶段才构建的 widget。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -201,7 +201,7 @@ aspect-ratio: 560 / 315;">
 
 </dt>
 <dd class="inherited">
-  Called at layout time to construct the widget tree.
+  在布局阶段调用，以构建 widget 树。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -272,7 +272,7 @@ aspect-ratio: 560 / 315;">
 
 </dt>
 <dd>
-  根据此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 描述的配置，创建此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 所表示的 <a href="rendering/RenderObject-class.html">RenderObject</a> 类的实例。
+  创建 <a href="rendering/RenderObject-class.html">RenderObject</a> 类的一个实例，该实例由此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 表示，并使用此 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 描述的配置。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -415,8 +415,7 @@ aspect-ratio: 560 / 315;">
 
 </dt>
 <dd class="inherited">
-  Whether <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a> needs to be called again even if the layout constraints
-are the same.
+  即使布局约束保持不变，是否仍需再次调用 <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
