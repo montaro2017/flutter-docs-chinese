@@ -123,7 +123,7 @@ aspect-ratio: 560 / 315;">
 <a name="widgets.InheritedWidget.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-The following is a skeleton of an inherited widget called <code>FrogColor</code>:
+下面是一个名为 <code>FrogColor</code> 的继承型 widget 基本框架：
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.InheritedWidget.1');" onclick="fixHref(this, 'widgets.InheritedWidget.1'); copyStringToClipboard(this.href);"
@@ -160,30 +160,18 @@ The following is a skeleton of an inherited widget called <code>FrogColor</code>
   </div>
 </div>
 </p>
-<h2 id="implementing-the-of-and-maybeof-methods">Implementing the <code>of</code> 和 <code>maybeOf</code> methods</h2>
-<p>The convention is to provide two static methods, <code>of</code> 和 <code>maybeOf</code>, on the
-<a href="widgets/InheritedWidget-class.html">InheritedWidget</a> which call
-<a href="widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>. This allows the class to
-define its own fallback logic in case there isn't a widget in scope.</p>
+<h2 id="implementing-the-of-and-maybeof-methods"><code>of</code> 和 <code>maybeOf</code> 方法的实现</h2>
+<p>按照惯例，会在 <code>of</code> 和 <code>maybeOf</code> 两个静态方法中使用 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>，并调用 <a href="widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>。这样，该类就能定义自己的回退逻辑，以应对作用域内不存在该 widget 的情况。</p>
 <p><code>of</code> 方法通常返回非空实例；如果找不到 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>，则会触发断言。<code>maybeOf</code> 方法返回可空实例；如果找不到 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>，则返回 null。<code>of</code> 方法通常在内部调用 <code>maybeOf</code>。</p>
-<p>Sometimes, the <code>of</code> 和 <code>maybeOf</code> methods return some data rather than the
-inherited widget itself; for example, in this case it could have returned a
-<a href="dart-ui/Color-class.html">Color</a> instead of the <code>FrogColor</code> widget.</p>
-<p>Occasionally, the inherited widget is an implementation detail of another
-class, and is therefore private. The <code>of</code> 和 <code>maybeOf</code> methods in that case
-are typically implemented on the public class instead. For example, <a href="material/Theme-class.html">Theme</a>
-is implemented as a <a href="widgets/StatelessWidget-class.html">StatelessWidget</a> that builds a private inherited
-widget; <a href="material/Theme/of.html">Theme.of</a> looks for that private inherited widget using
-<a href="widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a> and then returns the
-<a href="material/ThemeData-class.html">ThemeData</a> inside it.</p>
+<p>有时，<code>of</code> 和 <code>maybeOf</code> 方法返回的是数据，而不是继承型 widget 本身；例如这里可以返回 <a href="dart-ui/Color-class.html">Color</a>，而不是 <code>FrogColor</code> widget。</p>
+<p>有时，继承型 widget 是另一个类的实现细节，因此会设为私有。在这种情况下，通常会在公共类上实现 <code>of</code> 和 <code>maybeOf</code> 方法。例如，<a href="material/Theme-class.html">Theme</a> 实现为一个 <a href="widgets/StatelessWidget-class.html">StatelessWidget</a>，它会构建一个私有继承型 widget；<a href="material/Theme/of.html">Theme.of</a> 使用 <a href="widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a> 查找该私有继承型 widget，然后返回其中的 <a href="material/ThemeData-class.html">ThemeData</a>。</p>
 <h2 id="calling-the-of-or-maybeof-methods">调用 <code>of</code> 或 <code>maybeOf</code> 方法</h2>
 <p>使用 <code>of</code> 或 <code>maybeOf</code> 方法时，<code>context</code> 必须是 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 的后代，也就是说它必须位于组件树中该 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 的“下方”。</p>
 <p>
 <a name="widgets.InheritedWidget.2"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-In this example, the <code>context</code> used is the one from the <a href="widgets/Builder-class.html">Builder</a>, which is
-a child of the <code>FrogColor</code> widget, so this works.
+此示例中使用的 <code>context</code> 来自 <a href="widgets/Builder-class.html">Builder</a>；它是 <code>FrogColor</code> widget 的子级，因此这种用法有效。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.InheritedWidget.2');" onclick="fixHref(this, 'widgets.InheritedWidget.2'); copyStringToClipboard(this.href);"
@@ -223,9 +211,7 @@ class MyPage extends StatelessWidget {
 <a name="widgets.InheritedWidget.3"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-In this example, the <code>context</code> used is the one from the <code>MyOtherPage</code>
-widget, which is a parent of the <code>FrogColor</code> widget, so this does not work,
-and will assert when <code>FrogColor.of</code> is called.
+此示例中使用的 <code>context</code> 来自 <code>MyOtherPage</code> widget；它是 <code>FrogColor</code> widget 的父级，因此这种用法无效，并且调用 <code>FrogColor.of</code> 时会触发断言。
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.InheritedWidget.3');" onclick="fixHref(this, 'widgets.InheritedWidget.3'); copyStringToClipboard(this.href);"
@@ -271,14 +257,11 @@ aspect-ratio: 560 / 315;">
 </iframe>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 和 <a href="widgets/State-class.html">State</a>, for widgets that can build differently
-several times over their lifetime.</li>
-<li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a>, for widgets that always build the same way given a
-particular configuration and ambient state.</li>
-<li><a href="widgets/Widget-class.html">Widget</a>, for an overview of widgets in general.</li>
+<li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 和 <a href="widgets/State-class.html">State</a>，适用于生命周期内可多次构建出不同内容的 widget。</li>
+<li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a>，适用于给定特定配置和环境状态时始终以相同方式构建的 widget。</li>
+<li><a href="widgets/Widget-class.html">Widget</a>，了解 widget 的总体概况。</li>
 <li><a href="widgets/InheritedNotifier-class.html">InheritedNotifier</a> 是一种继承型 widget，其值可以是 <a href="foundation/Listenable-class.html">Listenable</a>；每当该值发出通知时，它都会通知依赖项。</li>
-<li><a href="widgets/InheritedModel-class.html">InheritedModel</a>, an inherited widget that allows clients to subscribe to
-changes for subparts of the value.</li>
+<li><a href="widgets/InheritedModel-class.html">InheritedModel</a> 是一种继承型 widget，允许客户端订阅值中各个部分的变化。</li>
 </ul>
 </section>
 
