@@ -100,14 +100,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 id="on-embedder-implementation">嵌入器实现说明</h2>
 <p>目前 Flutter 中有两套按键事件 API 路径并行运行。</p>
 <ul>
-<li>The "hardware key event" pathway receives messages from the
-"flutter/keydata" message channel (embedder API
-<code>FlutterEngineSendKeyEvent</code>) and dispatches <a href="services/KeyEvent-class.html">KeyEvent</a> to
-<a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> and some methods such as <a href="widgets/Focus/onKeyEvent.html">Focus.onKeyEvent</a>.</li>
-<li>The deprecated "raw key event" pathway receives messages from the
-"flutter/keyevent" message channel (<a href="services/SystemChannels/keyEvent-constant.html">SystemChannels.keyEvent</a>) and
-dispatches <a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a> to <a class="deprecated" href="services/RawKeyboard-class.html">RawKeyboard</a> 和 <a class="deprecated" href="widgets/Focus/onKey.html">Focus.onKey</a> as well as
-similar methods. This pathway will be removed at a future date.</li>
+<li>“硬件按键事件”路径会从“flutter/keydata”消息通道（嵌入器 API <code>FlutterEngineSendKeyEvent</code>）接收消息，并将 <a href="services/KeyEvent-class.html">KeyEvent</a> 分发给 <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 以及 <a href="widgets/Focus/onKeyEvent.html">Focus.onKeyEvent</a> 等方法。</li>
+<li>已弃用的“原始按键事件”路径会从“flutter/keyevent”消息通道（<a href="services/SystemChannels/keyEvent-constant.html">SystemChannels.keyEvent</a>）接收消息，并将 <a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a> 分发给 <a class="deprecated" href="services/RawKeyboard-class.html">RawKeyboard</a>、<a class="deprecated" href="widgets/Focus/onKey.html">Focus.onKey</a> 等类似方法。此路径将在未来移除。</li>
 </ul>
 <p><a class="deprecated" href="services/KeyEventManager-class.html">KeyEventManager</a> 用于解决键盘实现的跨平台兼容问题，因为旧平台可能尚未实现新的按键数据 API，只会在每条按键消息中发送原始按键数据。应用启动时，<a class="deprecated" href="services/KeyEventManager-class.html">KeyEventManager</a> 会检测平台通道消息的先后顺序（先收到“flutter/keyevent”还是“flutter/keydata”），以判断平台支持情况。</p>
 <ul>
@@ -147,7 +141,7 @@ similar methods. This pathway will be removed at a future date.</li>
           <span class="name"><a class="deprecated" href="services/KeyEventManager/KeyEventManager.html">KeyEventManager</a></span><span class="signature">(<span class="parameter" id="-param-_hardwareKeyboard"><span class="type-annotation"><a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a></span> <span class="parameter-name">_hardwareKeyboard</span>, </span><span class="parameter" id="-param-_rawKeyboard"><span class="type-annotation"><a class="deprecated" href="services/RawKeyboard-class.html">RawKeyboard</a></span> <span class="parameter-name">_rawKeyboard</span></span>)</span>
         </dt>
         <dd>
-          Create an instance.
+          创建一个实例。
         </dd>
     </dl>
   </section>
@@ -176,7 +170,7 @@ similar methods. This pathway will be removed at a future date.</li>
 
 </dt>
 <dd>
-  The global entrance which handles all key events sent to Flutter.
+  处理发送到 Flutter 的所有按键事件的全局入口。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
