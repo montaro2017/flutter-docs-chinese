@@ -114,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 id="application-architectural-design">应用架构设计</h2>
 <p>应用可根据自身需求包含零个、一个或多个 <a href="widgets/Router-class.html">Router</a> widget。</p>
 <p>如果应用只有一个“屏幕”，或者 <a href="widgets/Navigator-class.html">Navigator</a> 提供的功能已经足够，就可以不使用 <a href="widgets/Router-class.html">Router</a> widget。这在桌面应用中很常见，因为子“屏幕”通常通过不同窗口表示，而不是切换当前界面。</p>
-<p>架构较复杂的应用可能会以树状结构包含多个 <a href="widgets/Router-class.html">Router</a> widget，由第一个 router 负责完成全部路由解析，并将结果提供给子树中的 router。子树中的 router 不参与路由信息解析，而是直接使用第一个 router 提供的结果构建各自的子 route。</p>
+<p>架构较复杂的应用可能会以树状结构包含多个 <a href="widgets/Router-class.html">Router</a> widget，由最上层的 router 负责解析全部路由信息，并将解析结果提供给子树中的 router。子树中的 router 不参与路由信息解析，而是直接使用最上层 router 提供的结果构建各自的子 route。</p>
 <p>大多数应用只需要一个 <a href="widgets/Router-class.html">Router</a>。</p>
 <h2 id="url-updates-for-web-applications">Web 应用的 URL 更新</h2>
 <p>在 Web 平台上，使浏览器地址栏中的 URL 与应用状态保持同步，可以确保浏览器正确创建历史记录条目，让后退和前进按钮按用户预期工作。</p>
@@ -174,14 +174,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="name"><a href="widgets/Router/Router.html">Router</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-routeInformationProvider"><span class="type-annotation"><a href="widgets/RouteInformationProvider-class.html">RouteInformationProvider</a>?</span> <span class="parameter-name">routeInformationProvider</span>, </span><span class="parameter" id="-param-routeInformationParser"><span class="type-annotation"><a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">routeInformationParser</span>, </span><span class="parameter" id="-param-routerDelegate"><span>required</span> <span class="type-annotation"><a href="widgets/RouterDelegate-class.html">RouterDelegate</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">routerDelegate</span>, </span><span class="parameter" id="-param-backButtonDispatcher"><span class="type-annotation"><a href="widgets/BackButtonDispatcher-class.html">BackButtonDispatcher</a>?</span> <span class="parameter-name">backButtonDispatcher</span>, </span><span class="parameter" id="-param-restorationScopeId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationScopeId</span></span>})</span>
         </dt>
         <dd>
-          Creates a router.
+          创建一个路由器。
             <div class="constructor-modifier features">const</div>
         </dd>
         <dt id="Router.withConfig" class="callable">
           <span class="name"><a href="widgets/Router/Router.withConfig.html">Router.withConfig</a></span><span class="signature">({<span class="parameter" id="withConfig-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="withConfig-param-config"><span>required</span> <span class="type-annotation"><a href="widgets/RouterConfig-class.html">RouterConfig</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">config</span>, </span><span class="parameter" id="withConfig-param-restorationScopeId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationScopeId</span></span>})</span>
         </dt>
         <dd>
-          Creates a router with a <a href="widgets/RouterConfig-class.html">RouterConfig</a>.
+          创建一个使用 <a href="widgets/RouterConfig-class.html">RouterConfig</a> 配置的路由器。
             <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>
@@ -199,7 +199,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The back button dispatcher for the router.
+  此路由器的返回按钮分发器。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -235,7 +235,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Restoration ID to save and restore the state of the <a href="widgets/Router-class.html">Router</a>.
+  用于保存和恢复 <a href="widgets/Router-class.html">Router</a> 状态的恢复 ID。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -247,7 +247,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The route information parser for the router.
+  此路由器的路由信息解析器。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -259,7 +259,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The route information provider for the router.
+  此路由器的路由信息提供方。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -271,7 +271,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The router delegate for the router.
+  此路由器的委托。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -453,7 +453,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     
   <section class="summary offset-anchor" id="static-methods">
-    <h2>Static Methods</h2>
+    <h2>静态方法</h2>
     <dl class="callables">
         <dt id="maybeOf" class="callable">
   <span class="name"><a href="widgets/Router/maybeOf.html">maybeOf</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="maybeOf-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
@@ -463,7 +463,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Retrieves the immediate <a href="widgets/Router-class.html">Router</a> ancestor from the given context.
+  从给定的 context 中获取最近的祖先 <a href="widgets/Router-class.html">Router</a>。
   
 
 </dd>
@@ -476,8 +476,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Forces the <a href="widgets/Router-class.html">Router</a> to run the <code>callback</code> and create a new history
-entry in the browser.
+  强制 <a href="widgets/Router-class.html">Router</a> 执行 <code>callback</code>，并在浏览器中创建一条新的历史记录。
   
 
 </dd>
@@ -490,8 +489,7 @@ entry in the browser.
 
 </dt>
 <dd>
-  Forces the <a href="widgets/Router-class.html">Router</a> to run the <code>callback</code> without creating a new history
-entry in the browser.
+  强制 <a href="widgets/Router-class.html">Router</a> 执行 <code>callback</code>，但不在浏览器中创建新的历史记录。
   
 
 </dd>
@@ -504,7 +502,7 @@ entry in the browser.
 
 </dt>
 <dd>
-  Retrieves the immediate <a href="widgets/Router-class.html">Router</a> ancestor from the given context.
+  从给定的 context 中获取最近的祖先 <a href="widgets/Router-class.html">Router</a>。
   
 
 </dd>
