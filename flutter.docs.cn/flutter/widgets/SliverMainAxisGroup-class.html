@@ -98,8 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><em>本节介绍框架如何使 <a href="rendering/RenderSliverMainAxisGroup-class.html">RenderSliverMainAxisGroup</a> 布置其子项。</em></p>
 <p><a href="rendering/RenderSliverMainAxisGroup-class.html">RenderSliverMainAxisGroup</a> 的布局分为四个步骤：</p>
 <ol>
-<li>Keep track of an offset variable which is the total <a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a>
-of the slivers laid out so far.</li>
+<li>维护一个 offset 变量，其值为目前已完成布局的所有 sliver 的 <a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a> 总和。</li>
 <li>要确定下一个 sliver 子项的布局约束，先计算 offset 变量从 0.0 到当前位置所占用的绘制范围，并从 <a href="rendering/SliverConstraints/remainingPaintExtent.html">SliverConstraints.remainingPaintExtent</a> 中减去该值，得到子项可用的 <a href="rendering/SliverConstraints/remainingPaintExtent.html">SliverConstraints.remainingPaintExtent</a>。对于 <a href="rendering/SliverConstraints/scrollOffset.html">SliverConstraints.scrollOffset</a>，从传入约束的值中减去 offset 变量；如果结果为负数，则使用 0.0。</li>
 <li>完成所有 sliver 布局后，这个 offset 变量就表示 sliver 组的 <a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a>。由于特定 sliver 可能尝试在 sliver 组的滚动范围之外绘制（参见 <a href="widgets/SliverPersistentHeader-class.html">SliverPersistentHeader</a>），我们必须再进行一轮，将 <a href="rendering/SliverPhysicalParentData/paintOffset.html">SliverPhysicalParentData.paintOffset</a> 设置为合适的值，确保它位于 sliver 组的范围内。</li>
 <li>最后，根据约束计算出的总 <a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a>、<a href="rendering/SliverGeometry/paintExtent.html">SliverGeometry.paintExtent</a>、<a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a> 和 <a href="rendering/SliverGeometry/maxPaintExtent.html">SliverGeometry.maxPaintExtent</a>，设置 <a href="rendering/RenderSliver/geometry.html">RenderSliverMainAxisGroup.geometry</a>。</li>
@@ -108,10 +107,7 @@ of the slivers laid out so far.</li>
 <a name="widgets.SliverMainAxisGroup.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-In this sample the <a href="widgets/CustomScrollView-class.html">CustomScrollView</a> renders a <a href="widgets/SliverMainAxisGroup-class.html">SliverMainAxisGroup</a> and a
-<a href="widgets/SliverToBoxAdapter-class.html">SliverToBoxAdapter</a> with some content. The <a href="widgets/SliverMainAxisGroup-class.html">SliverMainAxisGroup</a> renders a
-<a href="material/SliverAppBar-class.html">SliverAppBar</a>, <a href="widgets/SliverList-class.html">SliverList</a>, and <a href="widgets/SliverToBoxAdapter-class.html">SliverToBoxAdapter</a>. Notice that when the
-<a href="widgets/SliverMainAxisGroup-class.html">SliverMainAxisGroup</a> goes out of view, so does the pinned <a href="material/SliverAppBar-class.html">SliverAppBar</a>.
+此示例中，<a href="widgets/CustomScrollView-class.html">CustomScrollView</a> 会构建一个 <a href="widgets/SliverMainAxisGroup-class.html">SliverMainAxisGroup</a> 和一个带有内容的 <a href="widgets/SliverToBoxAdapter-class.html">SliverToBoxAdapter</a>。<a href="widgets/SliverMainAxisGroup-class.html">SliverMainAxisGroup</a> 会构建一个 <a href="material/SliverAppBar-class.html">SliverAppBar</a>、一个 <a href="widgets/SliverList-class.html">SliverList</a> 和一个 <a href="widgets/SliverToBoxAdapter-class.html">SliverToBoxAdapter</a>。请注意，<a href="widgets/SliverMainAxisGroup-class.html">SliverMainAxisGroup</a> 滚出视野时，固定在顶部的 <a href="material/SliverAppBar-class.html">SliverAppBar</a> 也会随之滚出视野。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.SliverMainAxisGroup.1');" onclick="fixHref(this, 'widgets.SliverMainAxisGroup.1'); copyStringToClipboard(this.href);"
@@ -131,8 +127,7 @@ In this sample the <a href="widgets/CustomScrollView-class.html">CustomScrollVie
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/SliverPersistentHeader-class.html">SliverPersistentHeader</a> 是一种 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>，可能需要调整其 <a href="rendering/SliverPhysicalParentData/paintOffset.html">SliverPhysicalParentData.paintOffset</a>，使其符合计算所得的 <a href="rendering/SliverGeometry/scrollExtent.html">SliverGeometry.scrollExtent</a>，并位于 <a href="widgets/SliverMainAxisGroup-class.html">SliverMainAxisGroup</a> 的范围内。</li>
-<li><a href="widgets/SliverCrossAxisGroup-class.html">SliverCrossAxisGroup</a>, which is the <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> for laying out
-multiple slivers along the cross axis.</li>
+<li><a href="widgets/SliverCrossAxisGroup-class.html">SliverCrossAxisGroup</a> 是用于沿交叉轴布局多个 sliver 的 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>。</li>
 </ul>
 </section>
 
@@ -171,8 +166,7 @@ multiple slivers along the cross axis.</li>
           <span class="name"><a href="widgets/SliverMainAxisGroup/SliverMainAxisGroup.html">SliverMainAxisGroup</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-slivers"><span>required</span> <span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span></span> <span class="parameter-name">slivers</span></span>})</span>
         </dt>
         <dd>
-          Creates a sliver that places sliver children in a linear array along
-the main axis.
+          创建一个沿主轴依次以线性数组方式放置多个 sliver 子项的 sliver。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
