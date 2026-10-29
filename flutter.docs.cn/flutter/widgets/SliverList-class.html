@@ -122,10 +122,7 @@ aspect-ratio: 560 / 315;">
 </li>
 <li>
 <p>将 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 设为需要保留的 sliver 子项 widget 子树的根 widget。<a href="widgets/KeepAlive-class.html">KeepAlive</a> 会将子树顶部的渲染对象子项标记为需要保持活动状态。当关联的顶部渲染对象滚出视野时，sliver 会将子项渲染对象（以及相应的元素和状态）保存在缓存列表中，而不是销毁它们。滚回视野时，渲染对象会按原样重新绘制（如果期间没有被标记为脏）。</p>
-<p>This only works if the <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> subclasses don't wrap the
-child widget subtree with other widgets such as <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 和
-<a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> via <code>addAutomaticKeepAlives</code> 和
-<code>addRepaintBoundaries</code>.</p>
+<p>只有当 <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> 子类不会通过 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a>、<a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> 等 widget（使用 <code>addAutomaticKeepAlives</code> 和 <code>addRepaintBoundaries</code> 添加）来包装子 widget 子树时，这种方式才有效。</p>
 </li>
 <li>
 <p>使用 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> widget（默认由 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a> 或 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a> 插入）。<a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 允许后代 widget 控制是否实际保留子树。此行为不同于 <a href="widgets/KeepAlive-class.html">KeepAlive</a>，后者会无条件保留子树。</p>
@@ -139,7 +136,7 @@ child widget subtree with other widgets such as <a href="widgets/AutomaticKeepAl
 <a name="widgets.SliverList.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-This example shows a <a href="widgets/SliverList-class.html">SliverList</a> with a dynamic number of items.
+此示例展示了一个包含数量可变项的 <a href="widgets/SliverList-class.html">SliverList</a>。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.SliverList.1');" onclick="fixHref(this, 'widgets.SliverList.1'); copyStringToClipboard(this.href);"
@@ -158,18 +155,13 @@ This example shows a <a href="widgets/SliverList-class.html">SliverList</a> with
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="https://docs.flutter.dev/ui/layout/scrolling/slivers">docs.flutter.dev/ui/layout/scrolling/slivers</a>, a description
-of what slivers are and how to use them.</li>
-<li><a href="widgets/CustomScrollView-class.html">CustomScrollView</a>, which accepts slivers like <a href="widgets/SliverList-class.html">SliverList</a>
-to create custom scroll effects.</li>
-<li><a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a>, which is more efficient for children with
-the same extent in the main axis.</li>
+<li><a href="https://docs.flutter.dev/ui/layout/scrolling/slivers">docs.flutter.dev/ui/layout/scrolling/slivers</a>，介绍 sliver 的概念及其用法。</li>
+<li><a href="widgets/CustomScrollView-class.html">CustomScrollView</a>，可接受 <a href="widgets/SliverList-class.html">SliverList</a> 等 sliver 来创建自定义滚动效果。</li>
+<li><a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a>，对于主轴方向尺寸相同的子项，效率更高。</li>
 <li><a href="widgets/SliverPrototypeExtentList-class.html">SliverPrototypeExtentList</a>，与<a href="widgets/SliverFixedExtentList-class.html">SliverFixedExtentList</a>类似，但使用原型列表项而非像素值来定义每个项目在主轴方向上的范围。</li>
-<li><a href="widgets/SliverAnimatedList-class.html">SliverAnimatedList</a>, which animates items added to or removed from a
-list.</li>
-<li><a href="widgets/SliverGrid-class.html">SliverGrid</a>, which places multiple children in a two dimensional grid.</li>
-<li><a href="widgets/SliverAnimatedGrid-class.html">SliverAnimatedGrid</a>, a sliver which animates items when they are
-inserted into or removed from a grid.</li>
+<li><a href="widgets/SliverAnimatedList-class.html">SliverAnimatedList</a>，可为列表项的添加和移除添加动画。</li>
+<li><a href="widgets/SliverGrid-class.html">SliverGrid</a>，可将多个子项排列在二维网格中。</li>
+<li><a href="widgets/SliverAnimatedGrid-class.html">SliverAnimatedGrid</a>，可为网格项的插入和移除添加动画。</li>
 </ul>
 </section>
 
@@ -209,7 +201,7 @@ inserted into or removed from a grid.</li>
           <span class="name"><a href="widgets/SliverList/SliverList.html">SliverList</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-delegate"><span>required</span> <span class="type-annotation"><a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a></span> <span class="parameter-name">delegate</span></span>})</span>
         </dt>
         <dd>
-          Creates a sliver that places box children in a linear array.
+          创建一个将盒子子项排列成线性数组的 sliver。
             <div class="constructor-modifier features">const</div>
         </dd>
         <dt id="SliverList.builder" class="callable">
@@ -228,8 +220,7 @@ inserted into or removed from a grid.</li>
           <span class="name"><a href="widgets/SliverList/SliverList.separated.html">SliverList.separated</a></span><span class="signature">({<span class="parameter" id="separated-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="separated-param-itemBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/NullableIndexedWidgetBuilder.html">NullableIndexedWidgetBuilder</a></span> <span class="parameter-name">itemBuilder</span>, </span><span class="parameter" id="separated-param-findChildIndexCallback"><span>@<a href="dart-core/Deprecated/Deprecated.html">Deprecated</a>(&#39;Use findItemIndexCallback instead. &#39; &#39;findChildIndexCallback returns child indices (which include separators), &#39; &#39;while findItemIndexCallback returns item indices (which do not). &#39; &#39;If you were multiplying results by 2 to account for separators, &#39; &#39;you can remove that workaround when migrating to findItemIndexCallback. &#39; &#39;This feature was deprecated after v3.37.0-1.0.pre.&#39;)</span> <span class="type-annotation"><a href="widgets/ChildIndexGetter.html">ChildIndexGetter</a>?</span> <span class="parameter-name">findChildIndexCallback</span>, </span><span class="parameter" id="separated-param-findItemIndexCallback"><span class="type-annotation"><a href="widgets/ChildIndexGetter.html">ChildIndexGetter</a>?</span> <span class="parameter-name">findItemIndexCallback</span>, </span><span class="parameter" id="separated-param-separatorBuilder"><span>required</span> <span class="type-annotation"><a href="widgets/NullableIndexedWidgetBuilder.html">NullableIndexedWidgetBuilder</a></span> <span class="parameter-name">separatorBuilder</span>, </span><span class="parameter" id="separated-param-itemCount"><span class="type-annotation"><a href="dart-core/int-class.html">int</a>?</span> <span class="parameter-name">itemCount</span>, </span><span class="parameter" id="separated-param-addAutomaticKeepAlives"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addAutomaticKeepAlives</span> = <span class="default-value">true</span>, </span><span class="parameter" id="separated-param-addRepaintBoundaries"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addRepaintBoundaries</span> = <span class="default-value">true</span>, </span><span class="parameter" id="separated-param-addSemanticIndexes"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addSemanticIndexes</span> = <span class="default-value">true</span></span>})</span>
         </dt>
         <dd>
-          A sliver that places multiple box children, separated by box widgets, in a
-linear array along the main axis.
+          将多个盒子子项沿主轴方向排列成线性数组，并在子项之间插入盒子 widget 的 sliver。
         </dd>
     </dl>
   </section>
