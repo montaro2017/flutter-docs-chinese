@@ -106,7 +106,7 @@ height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
 <h2 id="managing-the-stream">管理 Stream</h2>
-<p><a href="widgets/StreamBuilderBase/stream.html">stream</a> 必须提前获取，例如在 <a href="widgets/State/initState.html">State.initState</a>、<a href="widgets/State/didUpdateWidget.html">State.didUpdateWidget</a> 或 <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 中获取。构建 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 时，不得在 <a href="widgets/State/build.html">State.build</a> 或 <a href="widgets/StatelessWidget/build.html">StatelessWidget.build</a> 方法中创建 stream。如果 <a href="widgets/StreamBuilderBase/stream.html">stream</a> 与 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 同时创建，那么每次重建 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 的父级时，异步任务都会重新启动。</p>
+<p><a href="widgets/StreamBuilderBase/stream.html">stream</a> 必须提前获取，例如在 <a href="widgets/State/initState.html">State.initState</a>、<a href="widgets/State/didUpdateWidget.html">State.didUpdateWidget</a> 或 <a href="widgets/State/didChangeDependencies.html">State.didChangeDependencies</a> 中获取。在 <a href="widgets/State/build.html">State.build</a> 或 <a href="widgets/StatelessWidget/build.html">StatelessWidget.build</a> 方法中构建 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 时，不得创建 stream。如果 <a href="widgets/StreamBuilderBase/stream.html">stream</a> 与 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 同时创建，那么每次重建 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> 的父级时，异步任务都会重新启动。</p>
 <p>一般来说，应假设每个 <code>build</code> 方法都可能在每一帧调用，并将未调用视为一种优化。</p>
 <h2 id="timing">时序</h2>
 <p>每次交互都会通过 <a href="widgets/State/setState.html">State.setState</a> 安排 widget 重建，但重建与 Stream 的时序彼此独立。<a href="widgets/StreamBuilder/builder.html">builder</a> 由 Flutter 管线酌情调用，因此它会收到一系列快照的子序列；具体取决于 Stream 交互的时序。</p>
@@ -155,10 +155,8 @@ aspect-ratio: 560 / 315;">
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/ValueListenableBuilder-class.html">ValueListenableBuilder</a>, which wraps a <a href="foundation/ValueListenable-class.html">ValueListenable</a> instead of a
-<a href="dart-async/Stream-class.html">Stream</a>.</li>
-<li><a href="widgets/StreamBuilderBase-class.html">StreamBuilderBase</a>, which supports widget building based on a computation
-that spans all interactions made with the stream.</li>
+<li><a href="widgets/ValueListenableBuilder-class.html">ValueListenableBuilder</a> 会包装 <a href="foundation/ValueListenable-class.html">ValueListenable</a>，而不是 <a href="dart-async/Stream-class.html">Stream</a>。</li>
+<li><a href="widgets/StreamBuilderBase-class.html">StreamBuilderBase</a> 支持根据涵盖流中所有交互的计算结果构建 widget。</li>
 </ul>
 </section>
 
@@ -197,9 +195,7 @@ that spans all interactions made with the stream.</li>
           <span class="name"><a href="widgets/StreamBuilder/StreamBuilder.html">StreamBuilder</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-initialData"><span class="type-annotation">T?</span> <span class="parameter-name">initialData</span>, </span><span class="parameter" id="-param-stream"><span>required</span> <span class="type-annotation"><a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">stream</span>, </span><span class="parameter" id="-param-builder"><span>required</span> <span class="type-annotation"><a href="widgets/AsyncWidgetBuilder.html">AsyncWidgetBuilder</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">builder</span></span>})</span>
         </dt>
         <dd>
-          Creates a new <a href="widgets/StreamBuilder-class.html">StreamBuilder</a> that builds itself based on the latest
-snapshot of interaction with the specified <code>stream</code> and whose build
-strategy is given by <code>builder</code>.
+          创建一个新的 <a href="widgets/StreamBuilder-class.html">StreamBuilder</a>，根据与指定 <code>stream</code> 交互的最新快照构建自身，并使用 <code>builder</code> 指定的构建策略。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -217,7 +213,7 @@ strategy is given by <code>builder</code>.
 
 </dt>
 <dd>
-  The build strategy currently used by this builder.
+  此构建器当前使用的构建策略。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -241,7 +237,7 @@ strategy is given by <code>builder</code>.
 
 </dt>
 <dd>
-  The data that will be used to create the initial snapshot.
+  用于创建初始快照的数据。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -277,10 +273,7 @@ strategy is given by <code>builder</code>.
 
 </dt>
 <dd class="inherited">
-  The asynchronous computation to which this builder is currently connected,
-possibly null. When changed, the current summary is updated using
-<a href="widgets/StreamBuilderBase/afterDisconnected.html">afterDisconnected</a>, if the previous stream was not null, followed by
-<a href="widgets/StreamBuilderBase/afterConnected.html">afterConnected</a>, if the new stream is not null.
+  此构建器当前连接的异步计算，可能为 null。计算发生变化时，如果先前的 stream 不为 null，则使用 <a href="widgets/StreamBuilderBase/afterDisconnected.html">afterDisconnected</a> 更新当前摘要；随后，如果新的 stream 不为 null，则使用 <a href="widgets/StreamBuilderBase/afterConnected.html">afterConnected</a> 更新摘要。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -302,8 +295,7 @@ possibly null. When changed, the current summary is updated using
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary reflecting that we
-are now connected to a stream.
+  返回更新后的 <code>current</code> 摘要，以反映现已连接到流。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -316,7 +308,7 @@ are now connected to a stream.
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary following a data event.
+  数据事件发生后，返回更新后的 <code>current</code> 摘要。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -329,8 +321,7 @@ are now connected to a stream.
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary reflecting that we
-are no longer connected to a stream.
+  返回更新后的 <code>current</code> 摘要，以反映已断开与流的连接。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -343,8 +334,7 @@ are no longer connected to a stream.
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary following stream
-termination.
+  流终止后，返回更新后的 <code>current</code> 摘要。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -357,8 +347,7 @@ termination.
 
 </dt>
 <dd>
-  Returns an updated version of the <code>current</code> summary following an error
-with a stack trace.
+  发生错误并附带堆栈跟踪后，返回更新后的 <code>current</code> 摘要。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -371,7 +360,7 @@ with a stack trace.
 
 </dt>
 <dd>
-  Returns a Widget based on the <code>currentSummary</code>.
+  根据 <code>currentSummary</code> 返回一个 Widget。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -436,8 +425,7 @@ with a stack trace.
 
 </dt>
 <dd>
-  Returns the initial summary of stream interaction, typically representing
-the fact that no interaction has happened at all.
+  返回流交互的初始摘要，通常表示尚未发生任何交互。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>

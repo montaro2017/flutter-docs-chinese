@@ -94,19 +94,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>对 <a href="widgets/Scrollable-class.html">Scrollable</a> 内容的描述，可用于表示其视口状态。</p>
-<p>This class defines a current position, <a href="widgets/ScrollMetrics/pixels.html">pixels</a>, and a range of values
-considered "in bounds" for that position. The range has a minimum value at
-<a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> and a maximum value at <a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a> (inclusive). The
-viewport scrolls in the direction and axis described by <a href="widgets/ScrollMetrics/axisDirection.html">axisDirection</a>
-和 <a href="widgets/ScrollMetrics/axis.html">axis</a>.</p>
-<p>如果 <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 超出此范围，<a href="widgets/ScrollMetrics/outOfRange.html">outOfRange</a> getter 会返回 true。如果 <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 等于 <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> 或 <a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a>，<a href="widgets/ScrollMetrics/atEdge.html">atEdge</a> getter 会返回 true。</p>
+<p>此类定义当前位置 <a href="widgets/ScrollMetrics/pixels.html">pixels</a>，以及该位置的有效取值范围。范围下限为 <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a>，上限为 <a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a>（含边界）。视口沿 <a href="widgets/ScrollMetrics/axisDirection.html">axisDirection</a> 所指方向及 <a href="widgets/ScrollMetrics/axis.html">axis</a> 轴滚动。</p>
+<p><a href="widgets/ScrollMetrics/outOfRange.html">outOfRange</a> getter 在 <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 超出定义范围时返回 true。<a href="widgets/ScrollMetrics/atEdge.html">atEdge</a> getter 在 <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 等于 <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> 或 <a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a> 时返回 true。</p>
 <p>视口在给定 <a href="widgets/ScrollMetrics/axis.html">axis</a> 上的尺寸由 <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimension</a> 描述。</p>
 <p>上述值还可以通过 <a href="widgets/ScrollMetrics/extentBefore.html">extentBefore</a>、<a href="widgets/ScrollMetrics/extentInside.html">extentInside</a> 和 <a href="widgets/ScrollMetrics/extentAfter.html">extentAfter</a> 表示，这些值可能更适用于滚动条等场景；例如，请参阅 <a href="material/Scrollbar-class.html">Scrollbar</a>。</p>
 <p>
 <a name="widgets.ScrollMetrics.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
     <div class="snippet-description">
-此示例展示调整 <a href="widgets/Viewport-class.html">Viewport</a> 大小时 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> 发生变化后，如何分发 <a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a>。点击浮动操作按钮可增大可滚动视口。
+此示例展示：<a href="widgets/ScrollMetricsNotification-class.html">ScrollMetricsNotification</a> 会在 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> 因 <a href="widgets/Viewport-class.html">Viewport</a> 尺寸变化而改变时分发。按下浮动操作按钮可增大可滚动视口。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.ScrollMetrics.1');" onclick="fixHref(this, 'widgets.ScrollMetrics.1'); copyStringToClipboard(this.href);"
@@ -125,8 +121,7 @@ viewport scrolls in the direction and axis described by <a href="widgets/ScrollM
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/FixedScrollMetrics-class.html">FixedScrollMetrics</a>, which is an immutable object that implements this
-interface.</li>
+<li><a href="widgets/FixedScrollMetrics-class.html">FixedScrollMetrics</a> 是实现此接口的不可变对象。</li>
 </ul>
 </section>
 
@@ -164,8 +159,7 @@ interface.</li>
 
 </dt>
 <dd>
-  Whether the <a href="widgets/ScrollMetrics/pixels.html">pixels</a> value is exactly at the <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> or the
-<a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a>.
+  是否表示 <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 恰好等于 <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> 或 <a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a>。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -201,8 +195,7 @@ interface.</li>
 
 </dt>
 <dd>
-  The <a href="dart-ui/FlutterView/devicePixelRatio.html">FlutterView.devicePixelRatio</a> of the view that the <a href="widgets/Scrollable-class.html">Scrollable</a>
-associated with this metrics object is drawn into.
+  该视图的 <a href="dart-ui/FlutterView/devicePixelRatio.html">FlutterView.devicePixelRatio</a>；与此 metrics 对象关联的 <a href="widgets/Scrollable-class.html">Scrollable</a> 会绘制到该视图中。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -214,8 +207,7 @@ associated with this metrics object is drawn into.
 
 </dt>
 <dd>
-  可滚动区域中视口“下方”内容的逻辑长度。
-This is the content below the content described by <a href="widgets/ScrollMetrics/extentInside.html">extentInside</a>.
+  滚动区域中视口“下方”的内容量，即 <a href="widgets/ScrollMetrics/extentInside.html">extentInside</a> 所描述内容下方的内容。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -227,8 +219,7 @@ This is the content below the content described by <a href="widgets/ScrollMetric
 
 </dt>
 <dd>
-  可滚动区域中视口“上方”内容的逻辑长度。
-This is the content above the content described by <a href="widgets/ScrollMetrics/extentInside.html">extentInside</a>.
+  滚动区域中视口“上方”的内容量，即 <a href="widgets/ScrollMetrics/extentInside.html">extentInside</a> 所描述内容上方的内容。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -240,9 +231,7 @@ This is the content above the content described by <a href="widgets/ScrollMetric
 
 </dt>
 <dd>
-  The quantity of content conceptually "inside" the viewport in the
-scrollable (including empty space if the total amount of content is less
-than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimension</a>).
+  滚动区域中视口“内部”的内容量（如果内容总量小于 <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimension</a>，也包括空白区域）。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -314,7 +303,7 @@ than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimensio
 
 </dt>
 <dd>
-  The maximum in-range value for <a href="widgets/ScrollMetrics/pixels.html">pixels</a>.
+  <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 的最大有效范围值。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -326,7 +315,7 @@ than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimensio
 
 </dt>
 <dd>
-  The minimum in-range value for <a href="widgets/ScrollMetrics/pixels.html">pixels</a>.
+  <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 的最小有效范围值。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -338,8 +327,7 @@ than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimensio
 
 </dt>
 <dd>
-  Whether the <a href="widgets/ScrollMetrics/pixels.html">pixels</a> value is outside the <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> 和
-<a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a>.
+  当 <a href="widgets/ScrollMetrics/pixels.html">pixels</a> 超出 <a href="widgets/ScrollMetrics/minScrollExtent.html">minScrollExtent</a> 和 <a href="widgets/ScrollMetrics/maxScrollExtent.html">maxScrollExtent</a> 时为 true。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -351,7 +339,7 @@ than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimensio
 
 </dt>
 <dd>
-  The current scroll position, in logical pixels along the <a href="widgets/ScrollMetrics/axisDirection.html">axisDirection</a>.
+  沿 <a href="widgets/ScrollMetrics/axisDirection.html">axisDirection</a> 方向、以逻辑像素表示的当前滚动位置。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -375,7 +363,7 @@ than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimensio
 
 </dt>
 <dd>
-  The extent of the viewport along the <a href="widgets/ScrollMetrics/axisDirection.html">axisDirection</a>.
+  沿 <a href="widgets/ScrollMetrics/axisDirection.html">axisDirection</a> 方向的视口范围。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -397,7 +385,7 @@ than the <a href="widgets/ScrollMetrics/viewportDimension.html">viewportDimensio
 
 </dt>
 <dd>
-  创建一个 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a> that has the same properties as this object.
+  创建一个具有与此对象相同属性的 <a href="widgets/ScrollMetrics-mixin.html">ScrollMetrics</a>。
   
 
 </dd>
