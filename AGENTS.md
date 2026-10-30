@@ -12,7 +12,7 @@
 
 ## 工作约定
 - 静态站点文件统一放在 `flutter.docs.cn/`；工作区根目录保持干净，不在根目录生成站点文件或临时脚本。
-- 每轮开始翻译前，先运行 `dart run .translation/audit-tool/bin/audit_progress.dart scan`，查看输出的 Markdown 报告 `.translation/audit/runs/<运行ID>/report/index.md`，按报告安排任务。
+- 每次运行翻译进度统计前，必须清空 `.translation/audit/runs/` 下所有旧统计结果，包括旧运行目录、报告、失效或不完整的文件，避免占用磁盘空间；确认清理完成后再运行 `dart run .translation/audit-tool/bin/audit_progress.dart scan`。只清理 `runs/` 中的统计产物，保留 `.translation/audit/reviews.jsonl` 中的人工确认记录和 `.translation/audit-tool/results/unreachable-pages.md` 清单。扫描完成后查看新生成的 Markdown 报告 `.translation/audit/runs/<运行ID>/report/index.md`，按报告安排任务。
 - 翻译前同时查看 Git 跟踪的 `.translation/audit-tool/results/unreachable-pages.md`；其中列出的首页不可达页面跳过常规翻译任务。该清单由审计工具的可选参数更新，不要求每轮主动运行；原始文档或首页链接范围变化时再更新。
 - 先处理 `unaligned` 页面：用 `report --run <运行ID> --full` 检查原文和译文结构，修复页面结构或内容单元对应关系；无法确定对应关系时先记录并人工核对，不按位置猜测。修复后重新扫描，确认对齐情况，再进入翻译阶段。
 - 对齐问题处理后，再依据最新统计翻译未翻译页面和单元。`unchanged` 表示对应文本仍与原文相同，可作为待翻译候选；`suspicious` 表示可能有英文残留，先人工判断。文本发生变化本身不代表译文已完成。
