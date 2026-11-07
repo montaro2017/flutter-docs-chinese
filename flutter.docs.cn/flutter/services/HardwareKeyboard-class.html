@@ -103,14 +103,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 保证按键模型经过“规范化”：按键事件流由一系列“按键点击序列”组成。每个序列依次包含一个 <a href="services/KeyDownEvent-class.html">KeyDownEvent</a>、零个或多个 <a href="services/KeyRepeatEvent-class.html">KeyRepeatEvent</a>，以及一个 <a href="services/KeyUpEvent-class.html">KeyUpEvent</a>，且它们具有相同的物理键和逻辑键。</p>
 <p>示例：</p>
 <ul>
-<li>Tap and hold key A, US layout:
+<li>按住 A 键（美式键盘布局）：
 <ul>
 <li>KeyDownEvent(physicalKey: keyA, logicalKey: keyA, character: "a")</li>
 <li>KeyRepeatEvent(physicalKey: keyA, logicalKey: keyA, character: "a")</li>
 <li>KeyUpEvent(physicalKey: keyA, logicalKey: keyA)</li>
 </ul>
 </li>
-<li>Press ShiftLeft, tap key A, then release ShiftLeft, US layout:
+<li>按下 ShiftLeft，轻按 A 键后松开 ShiftLeft（美式键盘布局）：
 <ul>
 <li>KeyDownEvent(physicalKey: shiftLeft, logicalKey: shiftLeft)</li>
 <li>KeyDownEvent(physicalKey: keyA, logicalKey: keyA, character: "A")</li>
@@ -119,13 +119,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>KeyUpEvent(physicalKey: shiftLeft, logicalKey: shiftLeft)</li>
 </ul>
 </li>
-<li>Tap key Q, French layout:
+<li>轻按 Q 键（法式键盘布局）：
 <ul>
 <li>KeyDownEvent(physicalKey: keyA, logicalKey: keyQ, character: "q")</li>
 <li>KeyUpEvent(physicalKey: keyA, logicalKey: keyQ)</li>
 </ul>
 </li>
-<li>Tap CapsLock:
+<li>轻按 CapsLock：
 <ul>
 <li>KeyDownEvent(physicalKey: capsLock, logicalKey: capsLock)</li>
 <li>KeyUpEvent(physicalKey: capsLock, logicalKey: capsLock)</li>
@@ -137,15 +137,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>最终生成的事件流与原生按键事件流并非一一对应。有些原生事件可能被跳过，有些事件则可能是合成的，并不对应任何原生事件。合成事件会通过 <a href="services/KeyEvent/synthesized.html">KeyEvent.synthesized</a> 标记。</p>
 <p>示例：</p>
 <ul>
-<li>Flutter starts with CapsLock on, the first press of keyA:
+<li>Flutter 启动时 CapsLock 已开启，首次按下 keyA：
 <ul>
 <li>KeyDownEvent(physicalKey: capsLock, logicalKey: capsLock, synthesized: true)</li>
 <li>KeyUpEvent(physicalKey: capsLock, logicalKey: capsLock, synthesized: true)</li>
 <li>KeyDownEvent(physicalKey: keyA, logicalKey: keyA, character: "a")</li>
 </ul>
 </li>
-<li>While holding ShiftLeft, lose window focus, release shiftLeft, then focus
-back and press keyA:
+<li>按住 ShiftLeft 时窗口失去焦点；松开 shiftLeft，窗口重新获得焦点后按下 keyA：
 <ul>
 <li>KeyUpEvent(physicalKey: shiftLeft, logicalKey: shiftLeft, synthesized: true)</li>
 <li>KeyDownEvent(physicalKey: keyA, logicalKey: keyA, character: "a")</li>
@@ -155,9 +154,8 @@ back and press keyA:
 <p>Flutter 不区分多个键盘。它会将所有事件都视为来自同一个键盘，尝试解决冲突并生成规范化的按键事件流，因此该事件流可能与实际键盘状态不完全一致。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="services/KeyDownEvent-class.html">KeyDownEvent</a>, <a href="services/KeyRepeatEvent-class.html">KeyRepeatEvent</a>, and <a href="services/KeyUpEvent-class.html">KeyUpEvent</a>, the classes used to
-describe specific key events.</li>
-<li><a href="services/HardwareKeyboard/instance.html">instance</a>, the singleton instance of this class.</li>
+<li><a href="services/KeyDownEvent-class.html">KeyDownEvent</a>、<a href="services/KeyRepeatEvent-class.html">KeyRepeatEvent</a> 和 <a href="services/KeyUpEvent-class.html">KeyUpEvent</a>，用于描述具体按键事件的类。</li>
+<li><a href="services/HardwareKeyboard/instance.html">instance</a>，此类的单例实例。</li>
 </ul>
 </section>
 
