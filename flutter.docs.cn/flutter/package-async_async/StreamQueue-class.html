@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>例如，连续调用两次 <a href="package-async_async/StreamQueue/next.html">next</a> 时，返回的 Future 会分别由流中接下来两个尚未被请求的事件完成。</p>
 <p>没有待处理的请求时，流订阅会暂停。</p>
 <p>某些流（包括广播流）会在暂停期间缓存事件，因此两次请求之间等待过久，可能会导致其他地方的内存占用增长。</p>
-<p>它与 <a href="dart-async/StreamIterator-class.html"><code>StreamIterator</code></a> 类似，但使用起来更方便。使用 StreamIterator 时，需要手动检查新事件是否可用，而且在检查下一个事件之前只能访问当前事件的值。<code>StreamQueue</code> 则允许一次请求多个事件，例如一次请求三个；可以逐个请求、使用 <a href="package-async_async/StreamQueue/take.html">take</a> 或 <a href="package-async_async/StreamQueue/skip.html">skip</a> 成组请求，也可以组合使用。</p>
+<p>它与 <a href="dart-async/StreamIterator-class.html">StreamIterator</a> 类似，但使用起来更方便。使用 <code>StreamIterator</code> 时，需要手动检查新事件是否可用，而且在检查下一个事件之前只能访问当前事件的值。<code>StreamQueue</code> 则允许一次请求多个事件，例如一次请求三个；可以逐个请求、使用 <a href="package-async_async/StreamQueue/take.html">take</a> 或 <a href="package-async_async/StreamQueue/skip.html">skip</a> 成组请求，也可以组合使用。</p>
 <p>你还可以通过 <a href="package-async_async/StreamQueue/rest.html">rest</a> 将流中剩余的事件作为一个新流获取。例如，可以先从流中取出第一个事件，再将剩余部分继续作为流使用。</p>
 <p>示例：</p>
 <pre class="language-dart"><code>var events = StreamQueue&lt;String&gt;(someStreamOfLines);
@@ -117,7 +117,7 @@ if (first.startsWith(MAGIC_MARKER)) {
 }
 // Error handling.
 </code></pre>
-<p>不再需要其他事件时，应调用 <a href="package-async_async/StreamQueue/cancel.html">cancel</a> 关闭 <code>StreamQueue</code>。这样会释放底层流订阅。</p>
+<p>当不再需要更多事件时，应调用 <code>StreamQueue</code> 的 <a href="package-async_async/StreamQueue/cancel.html">cancel</a> 方法将其关闭。这样可以释放底层流订阅。</p>
 </section>
 
 
@@ -130,7 +130,7 @@ if (first.startsWith(MAGIC_MARKER)) {
           <span class="name"><a href="package-async_async/StreamQueue/StreamQueue.html">StreamQueue</a></span><span class="signature">(<span class="parameter" id="-param-source"><span class="type-annotation"><a href="dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">source</span></span>)</span>
         </dt>
         <dd>
-          Create a <code>StreamQueue</code> of the events of <code>source</code>.
+          创建一个 <code>StreamQueue</code>，用于接收 <code>source</code> 中的事件。
             <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>
@@ -148,7 +148,7 @@ if (first.startsWith(MAGIC_MARKER)) {
 
 </dt>
 <dd>
-  The number of events dispatched by this queue.
+  此队列已分发的事件数。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -172,7 +172,7 @@ if (first.startsWith(MAGIC_MARKER)) {
 
 </dt>
 <dd>
-  Whether the stream has any more events.
+  流中是否还有更多事件。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -184,7 +184,7 @@ if (first.startsWith(MAGIC_MARKER)) {
 
 </dt>
 <dd>
-  Requests the next (yet unrequested) event from the stream.
+  请求流中的下一个（尚未请求的）事件。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -196,7 +196,7 @@ if (first.startsWith(MAGIC_MARKER)) {
 
 </dt>
 <dd>
-  Looks at the next (yet unrequested) event from the stream.
+  查看流中的下一个（尚未请求的）事件，但不取出该事件。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -208,7 +208,7 @@ if (first.startsWith(MAGIC_MARKER)) {
 
 </dt>
 <dd>
-  A stream of all the remaning events of the source stream.
+  包含源流中所有剩余事件的流。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -242,7 +242,7 @@ if (first.startsWith(MAGIC_MARKER)) {
 
 </dt>
 <dd>
-  Cancels the underlying event source.
+  取消底层事件源。
   
 
 </dd>
@@ -255,8 +255,7 @@ if (first.startsWith(MAGIC_MARKER)) {
 
 </dt>
 <dd>
-  Passes a copy of this queue to <code>callback</code>, and updates this queue to match
-the copy's position once <code>callback</code> completes.
+  将此队列的副本传递给 <code>callback</code>，并在 <code>callback</code> 完成后将此队列更新到副本所在的位置。
   
 
 </dd>
@@ -269,7 +268,7 @@ the copy's position once <code>callback</code> completes.
 
 </dt>
 <dd>
-  Look at the next <code>count</code> data events without consuming them.
+  查看接下来的 <code>count</code> 个数据事件，但不取出这些事件。
   
 
 </dd>
@@ -295,7 +294,7 @@ the copy's position once <code>callback</code> completes.
 
 </dt>
 <dd>
-  Skips the next <code>count</code> <em>data</em> events.
+  跳过接下来的 <code>count</code> 个<em>数据</em>事件。
   
 
 </dd>
@@ -308,7 +307,7 @@ the copy's position once <code>callback</code> completes.
 
 </dt>
 <dd>
-  Requests a transaction that can conditionally consume events.
+  请求一个可有条件地消费事件的事务。
   
 
 </dd>
@@ -321,7 +320,7 @@ the copy's position once <code>callback</code> completes.
 
 </dt>
 <dd>
-  Requests the next <code>count</code> data events as a list.
+  将接下来的 <code>count</code> 个数据事件作为列表请求。
   
 
 </dd>
@@ -347,8 +346,7 @@ the copy's position once <code>callback</code> completes.
 
 </dt>
 <dd>
-  Passes a copy of this queue to <code>callback</code>, and updates this queue to match
-the copy's position if <code>callback</code> returns <code>true</code>.
+  将此队列的副本传递给 <code>callback</code>；如果 <code>callback</code> 返回 <code>true</code>，则将此队列更新到副本所在的位置。
   
 
 </dd>
