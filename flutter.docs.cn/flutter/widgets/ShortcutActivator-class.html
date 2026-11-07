@@ -98,17 +98,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a> 由 <a href="widgets/Shortcuts-class.html">Shortcuts</a> widget 使用，并映射到 <a href="widgets/Intent-class.html">Intent</a>；Intent 表示此键盘组合应触发的行为。<a href="widgets/Shortcuts-class.html">Shortcuts</a> widget 收到按键事件时，其 <a href="widgets/ShortcutManager-class.html">ShortcutManager</a> 会查找第一个匹配的 <a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a>，并触发对应的 <a href="widgets/Intent-class.html">Intent</a>；该 Intent 可能会触发由一组层级嵌套的 <a href="widgets/Actions-class.html">Actions</a> widget 定义的操作。有关快捷键与操作系统的详细介绍，请参阅 <a href="widgets/Actions-class.html">Actions</a>。</p>
 <p>按以下方式查找匹配的 <a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a>：</p>
 <ul>
-<li>Find the registered <a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a>s whose <a href="widgets/ShortcutActivator/triggers.html">triggers</a> contain the
-incoming event.</li>
-<li>Of the previous list, finds the first activator whose <a href="widgets/ShortcutActivator/accepts.html">accepts</a> returns
-true in the order of insertion.</li>
+<li>检查已注册的 <a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a>；若其 <a href="widgets/ShortcutActivator/triggers.html">triggers</a> 包含传入事件，则匹配。</li>
+<li>在上述列表中，按插入顺序查找 <a href="widgets/ShortcutActivator/accepts.html">accepts</a> 返回 true 的第一个快捷键激活器。</li>
 </ul>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/SingleActivator-class.html">SingleActivator</a>, an implementation that represents a single key combined
-with modifiers (control, shift, alt, meta).</li>
-<li><a href="widgets/CharacterActivator-class.html">CharacterActivator</a>, an implementation that represents key combinations
-that result in the specified character, such as question mark.</li>
+<li><a href="widgets/SingleActivator-class.html">SingleActivator</a> 是一种实现，表示单个按键与修饰键（Control、Shift、Alt、Meta）的组合。</li>
+<li><a href="widgets/CharacterActivator-class.html">CharacterActivator</a> 是一种实现，表示可生成指定字符（例如问号）的按键组合。</li>
 <li><a href="widgets/LogicalKeySet-class.html">LogicalKeySet</a> 要求同时按下一个或多个 <a href="services/LogicalKeyboardKey-class.html">LogicalKeyboardKey</a>。条件允许时，建议使用 <a href="widgets/SingleActivator-class.html">SingleActivator</a>。</li>
 </ul>
 </section>
@@ -208,9 +204,7 @@ that result in the specified character, such as question mark.</li>
 
 </dt>
 <dd>
-  Whether the triggering <code>event</code> and the keyboard <code>state</code> at the time of the
-event meet required conditions, providing that the event is a triggering
-event.
+  仅当 <code>event</code> 是触发事件时，才判断其与事件发生时键盘的 <code>state</code> 是否满足所需条件。
   
 
 </dd>
@@ -223,7 +217,7 @@ event.
 
 </dt>
 <dd>
-  Returns a description of the key set that is short and readable.
+  返回简短且易读的按键集合描述。
   
 
 </dd>
@@ -290,8 +284,7 @@ event.
 
 </dt>
 <dd>
-  Returns true if the event and current <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> state would cause
-this <a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a> to be activated.
+  如果该事件与当前 <a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 状态会触发此 <a href="widgets/ShortcutActivator-class.html">ShortcutActivator</a>，则返回 true。
   
 
 </dd>
