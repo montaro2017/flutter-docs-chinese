@@ -144,11 +144,9 @@ print(re.hasMatch("a" * 512));
 <p>避免使用执行时间呈超线性增长的正则表达式，可以参考以下经验法则：</p>
 <ul>
 <li>正则表达式遇到多种匹配选择时，应尽量让后续字符（或非常有限的向前查看）能够决定采用哪种选择。这样可以减少同时沿多种选择进行大量计算的需要。</li>
-<li>When using quantifiers, ensure that the same string cannot match
-both one and more-than-one iteration of the quantifier's
-regular expression.
-(For <code>(a*|b)*</code>, the string <code>"aa"</code> can match both
- <code>(a*|b){1}</code> 和 <code>(a*|b){2}</code>.)</li>
+<li>使用量词时，请确保同一个字符串不会同时匹配量词正则表达式的一次迭代和多次迭代。
+（对于 <code>(a*|b)*</code>，字符串 <code>"aa"</code> 既可以匹配
+ <code>(a*|b){1}</code>，也可以匹配 <code>(a*|b){2}</code>。）</li>
 <li>Dart 正则表达式的大多数用法都是<em>搜索</em>匹配项，例如使用 <a href="dart-core/RegExp/firstMatch.html">firstMatch</a>。如果没有将模式<em>锚定</em>到行首或输入开头（使用 <code>^</code>），搜索的效果就如同正则表达式前面隐式添加了 <code>[^]*</code>。此时再以 <code>.*</code> 开始实际正则表达式，可能导致搜索出现二次复杂度。请在适当时使用锚点或 <a href="dart-core/Pattern/matchAsPrefix.html">matchAsPrefix</a>，或者避免以带量词的模式开头。</li>
 <li><em>仅供专家参考：</em>Dart 和 ECMAScript 都没有通用的<a href="https://github.com/tc39/proposal-regexp-atomic-operators">“原子分组”</a>。其他正则表达式方言会用它来限制回溯。如果原子捕获组成功匹配一次，正则表达式之后就无法再回溯到同一匹配中。由于前瞻断言也具有原子组的特性，因此可以使用 <em>前瞻断言</em> 实现类似效果：<code>var re = RegExp(r"^(?=((a*|b)*))\1d");</code>前面的示例对 <code>(a*|b)*</code> 执行了同样低效的匹配。正则表达式尽可能完成匹配后，会完成正向前瞻。随后，它通过反向引用跳过前瞻匹配的内容。之后就无法再回溯并尝试 <code>a</code> 的其他组合。</li>
 </ul>
@@ -191,7 +189,7 @@ regular expression.
           <span class="name"><a href="dart-core/RegExp/RegExp.html">RegExp</a></span><span class="signature">(<span class="parameter" id="-param-source"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">source</span>, {</span><span class="parameter" id="-param-multiLine"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">multiLine</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-caseSensitive"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">caseSensitive</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-unicode"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">unicode</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-dotAll"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">dotAll</span> = <span class="default-value">false</span></span>})</span>
         </dt>
         <dd>
-          Constructs a regular expression.
+          构造一个正则表达式。
             <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>
@@ -221,7 +219,7 @@ regular expression.
 
 </dt>
 <dd>
-  Whether this regular expression is case sensitive.
+  此正则表达式是否区分大小写。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -233,7 +231,7 @@ regular expression.
 
 </dt>
 <dd>
-  Whether "." in this regular expression matches line terminators.
+  此正则表达式中的 "." 是否匹配行终止符。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -245,7 +243,7 @@ regular expression.
 
 </dt>
 <dd>
-  Whether this regular expression matches multiple lines.
+  此正则表达式是否匹配多行。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -257,7 +255,7 @@ regular expression.
 
 </dt>
 <dd>
-  Whether this regular expression uses Unicode mode.
+  此正则表达式是否使用 Unicode 模式。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -269,7 +267,7 @@ regular expression.
 
 </dt>
 <dd>
-  The regular expression pattern source of this <code>RegExp</code>.
+  此 <code>RegExp</code> 的正则表达式模式源。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -303,7 +301,7 @@ regular expression.
 
 </dt>
 <dd>
-  Matches this pattern against the string repeatedly.
+  反复将此模式与字符串进行匹配。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -316,7 +314,7 @@ regular expression.
 
 </dt>
 <dd>
-  Finds the first match of the regular expression in the string <code>input</code>.
+  查找正则表达式在字符串 <code>input</code> 中的第一个匹配项。
   
 
 </dd>
@@ -329,7 +327,7 @@ regular expression.
 
 </dt>
 <dd>
-  Checks whether this regular expression has a match in the <code>input</code>.
+  检查此正则表达式是否在 <code>input</code> 中有匹配项。
   
 
 </dd>
@@ -342,7 +340,7 @@ regular expression.
 
 </dt>
 <dd class="inherited">
-  Matches this pattern against the start of <code>string</code>.
+  将此模式与 <code>string</code> 的开头进行匹配。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -368,8 +366,7 @@ regular expression.
 
 </dt>
 <dd>
-  Finds the string of the first match of this regular expression
-in <code>input</code>.
+  查找此正则表达式在 <code>input</code> 中第一个匹配项对应的字符串。
   
 
 </dd>
@@ -413,7 +410,7 @@ in <code>input</code>.
     
     
   <section class="summary offset-anchor" id="static-methods">
-    <h2>Static Methods</h2>
+    <h2>静态方法</h2>
     <dl class="callables">
         <dt id="escape" class="callable">
   <span class="name"><a href="dart-core/RegExp/escape.html">escape</a></span><span class="signature">(<wbr><span class="parameter" id="escape-param-text"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span></span>)
@@ -423,7 +420,7 @@ in <code>input</code>.
 
 </dt>
 <dd>
-  Creates regular expression syntax that matches the input <code>text</code>.
+  创建可匹配输入 <code>text</code> 的正则表达式语法。
   
 
 </dd>
