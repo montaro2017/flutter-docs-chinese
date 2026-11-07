@@ -109,7 +109,7 @@ width: 100%;
 height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
-<p>组件通过静态方法 <a href="widgets/InheritedModel/inheritFrom.html">InheritedModel.inheritFrom</a> 创建对 <a href="widgets/InheritedModel-class.html">InheritedModel</a> 的依赖。该方法的 <code>context</code> 参数决定模型变化时需要重建的子树。通常会从模型专属的静态 <code>maybeOf</code> 或 <code>of</code> 方法中调用 <code>inheritFrom</code>；许多 Flutter 框架中用于查找对象的类都遵循这一惯例。例如：</p>
+<p>组件通过静态方法 <a href="widgets/InheritedModel-class.html">InheritedModel</a> 的 <a href="widgets/InheritedModel/inheritFrom.html">InheritedModel.inheritFrom</a> 创建依赖。该方法的 <code>context</code> 参数决定模型变化时需要重建的子树。通常，模型专属的静态 <code>inheritFrom</code> 方法会由 <code>maybeOf</code> 或 <code>of</code> 方法调用；许多 Flutter 框架中用于查找对象的类都遵循这一惯例。例如：</p>
 <pre class="language-dart"><code class="language-dart">class MyModel extends InheritedModel&lt;String&gt; {
   const MyModel({super.key, required super.child});
 
@@ -126,7 +126,7 @@ aspect-ratio: 560 / 315;">
   }
 }
 </code></pre>
-<p>调用 <code>MyModel.of(context, 'foo')</code> 或 <code>MyModel.maybeOf(context, 'foo')</code> 表示只有当 <code>MyModel</code> 的 <code>foo</code> 方面发生变化时，才应重建 <code>context</code>。如果 <code>aspect</code> 为 null，则模型支持所有方面。</p>
+<p>调用 <code>MyModel.of(context, 'foo')</code> 或 <code>MyModel.maybeOf(context, 'foo')</code> 时，表示只有当 <code>context</code> 中 <code>foo</code> 方面对应的 <code>MyModel</code> 发生变化时，才需要重建。如果 <code>aspect</code> 为 null，则模型支持所有方面。</p>
 <p>
 <a name="widgets.InheritedModel.1"></a>
 <div class="snippet snippet-container anchor-container">
@@ -234,9 +234,7 @@ aspect-ratio: 560 / 315;">
           <span class="name"><a href="widgets/InheritedModel/InheritedModel.html">InheritedModel</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
         </dt>
         <dd>
-          Creates an inherited widget that supports dependencies qualified by
-"aspects", i.e. a descendant widget can indicate that it should
-only be rebuilt if a specific aspect of the model changes.
+          创建一种继承组件，支持按“方面”限定依赖项。例如，后代 widget 可以声明只有当模型的特定方面发生变化时才需要重建。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -351,7 +349,7 @@ only be rebuilt if a specific aspect of the model changes.
 
 </dt>
 <dd>
-  Returns true if this model supports the given <code>aspect</code>.
+  如果此模型支持给定的 <code>aspect</code>，则返回 true。
   
 
 </dd>
@@ -486,7 +484,7 @@ only be rebuilt if a specific aspect of the model changes.
     
     
   <section class="summary offset-anchor" id="static-methods">
-    <h2>Static Methods</h2>
+    <h2>静态方法</h2>
     <dl class="callables">
         <dt id="inheritFrom" class="callable">
   <span class="name"><a href="widgets/InheritedModel/inheritFrom.html">inheritFrom</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="widgets/InheritedModel-class.html">InheritedModel</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/Object-class.html">Object</a></span>&gt;</span></span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="inheritFrom-param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, {</span><span class="parameter" id="inheritFrom-param-aspect"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">aspect</span></span>})
