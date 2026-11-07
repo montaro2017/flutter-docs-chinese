@@ -95,18 +95,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>供 <a href="widgets/Router-class.html">Router</a> widget 使用的委托，用于构建和配置导航 widget。</p>
-<p>此委托是 <a href="widgets/Router-class.html">Router</a> widget 的核心。它会响应引擎发出的推入 route 和弹出 route 意图，并通知 <a href="widgets/Router-class.html">Router</a> 重新构建。它还充当 <a href="widgets/Router-class.html">Router</a> widget 的构建器：每当 <a href="widgets/Router-class.html">Router</a> widget每当该 widget 构建时，都会构建一个导航 widget，通常是 <a href="widgets/Navigator-class.html">Navigator</a>。</p>
-<p>引擎推入新 route 时，<a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> 会解析路由信息，生成 T 类型的配置。router delegate 通过 <a href="widgets/RouterDelegate/setInitialRoutePath.html">setInitialRoutePath</a> 或 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a> 接收配置并据此完成设置；之后在被请求时（<a href="widgets/RouterDelegate/build.html">build</a>）构建最新的导航 widget。</p>
-<p>实现子类时，可以考虑定义一个 <a href="foundation/Listenable-class.html">Listenable</a> 应用状态对象，用于构建导航 widget。router delegate 应相应更新应用状态，并在应用状态变化或收到引擎发出的路由意图（例如 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>、<a href="widgets/RouterDelegate/setInitialRoutePath.html">setInitialRoutePath</a> 或 <a href="widgets/RouterDelegate/popRoute.html">popRoute</a>）时通知自己的监听器。</p>
+<p>此委托是 <a href="widgets/Router-class.html">Router</a> widget 的核心。它会响应引擎发出的推入路由和弹出路由意图，并通知 <a href="widgets/Router-class.html">Router</a> 重新构建。它还充当 <a href="widgets/Router-class.html">Router</a> widget 的构建器：当 <a href="widgets/Router-class.html">Router</a> widget 构建时，会构建导航 widget，通常是 <a href="widgets/Navigator-class.html">Navigator</a>。</p>
+<p>引擎推入新路由时，路由信息会由 <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> 解析，以生成 T 类型的配置。路由委托通过 <a href="widgets/RouterDelegate/setInitialRoutePath.html">setInitialRoutePath</a> 或 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a> 接收该配置，以完成自身配置；在被请求时（<a href="widgets/RouterDelegate/build.html">build</a>）构建最新的导航 widget。</p>
+<p>实现子类时，可以考虑定义一个 <a href="foundation/Listenable-class.html">Listenable</a> 应用状态对象，用于构建导航 widget。路由委托应相应更新应用状态，并在应用状态变化或收到引擎发出的路由意图（例如 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>、<a href="widgets/RouterDelegate/setInitialRoutePath.html">setInitialRoutePath</a> 或 <a href="widgets/RouterDelegate/popRoute.html">popRoute</a>）时通知自己的监听器。</p>
 <p>所有子类都必须实现 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>、<a href="widgets/RouterDelegate/popRoute.html">popRoute</a> 和 <a href="widgets/RouterDelegate/build.html">build</a>。</p>
 <h2 id="state-restoration">状态恢复</h2>
 <p>如果拥有此委托的 <a href="widgets/Router-class.html">Router</a> 已配置状态恢复，就会通过以下机制持久化和恢复此 <a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 的配置：操作系统终止应用前，<a href="widgets/RouterDelegate/currentConfiguration.html">currentConfiguration</a> 的值会被序列化并持久化。应用重启后，该值会被反序列化，并通过调用 <a href="widgets/RouterDelegate/setRestoredRoutePath.html">setRestoredRoutePath</a> 传回 <a href="widgets/RouterDelegate-class.html">RouterDelegate</a>（默认实现只调用 <a href="widgets/RouterDelegate/setNewRoutePath.html">setNewRoutePath</a>）。<a href="widgets/RouterDelegate-class.html">RouterDelegate</a> 负责使用提供的配置信息恢复其内部状态。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a>, which is responsible for parsing the route
-information to a configuration before passing in to router delegate.</li>
-<li><a href="widgets/Router-class.html">Router</a>, which is the widget that wires all the delegates together to
-provide a fully functional routing solution.</li>
+<li><a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> 负责先将路由信息解析为配置，再传递给路由委托。</li>
+<li><a href="widgets/Router-class.html">Router</a> 是将所有委托连接起来、提供完整路由解决方案的 widget。</li>
 </ul>
 </section>
 
@@ -163,8 +161,7 @@ provide a fully functional routing solution.</li>
 
 </dt>
 <dd>
-  Called by the <a href="widgets/Router-class.html">Router</a> when it detects a route information may have
-changed as a result of rebuild.
+  当 <a href="widgets/Router-class.html">Router</a> 检测到重建可能导致路由信息发生变化时调用。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -223,8 +220,7 @@ changed as a result of rebuild.
 
 </dt>
 <dd>
-  Called by the <a href="widgets/Router-class.html">Router</a> to obtain the widget tree that represents the
-current state.
+  由 <a href="widgets/Router-class.html">Router</a> 调用，以获取表示当前状态的 widget 树。
   
 
 </dd>
@@ -250,8 +246,7 @@ current state.
 
 </dt>
 <dd>
-  Called by the <a href="widgets/Router-class.html">Router</a> when the <a href="widgets/Router/backButtonDispatcher.html">Router.backButtonDispatcher</a> reports that
-the operating system is requesting that the current route be popped.
+  当 <a href="widgets/Router-class.html">Router</a> 收到 <a href="widgets/Router/backButtonDispatcher.html">Router.backButtonDispatcher</a> 的报告，表示操作系统请求弹出当前路由时调用。
   
 
 </dd>
@@ -277,8 +272,7 @@ the operating system is requesting that the current route be popped.
 
 </dt>
 <dd>
-  Called by the <a href="widgets/Router-class.html">Router</a> at startup with the structure that the
-<a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> obtained from parsing the initial route.
+  启动时，<a href="widgets/Router-class.html">Router</a> 会将 <a href="widgets/RouteInformationParser-class.html">RouteInformationParser</a> 解析初始路由后得到的结构传入并调用。
   
 
 </dd>
@@ -291,8 +285,7 @@ the operating system is requesting that the current route be popped.
 
 </dt>
 <dd>
-  Called by the <a href="widgets/Router-class.html">Router</a> when the <a href="widgets/Router/routeInformationProvider.html">Router.routeInformationProvider</a> reports that a
-new route has been pushed to the application by the operating system.
+  当 <a href="widgets/Router-class.html">Router</a> 收到 <a href="widgets/Router/routeInformationProvider.html">Router.routeInformationProvider</a> 的报告，表示操作系统已向应用推入新路由时调用。
   
 
 </dd>
@@ -305,7 +298,7 @@ new route has been pushed to the application by the operating system.
 
 </dt>
 <dd>
-  Called by the <a href="widgets/Router-class.html">Router</a> during state restoration.
+  状态恢复期间由 <a href="widgets/Router-class.html">Router</a> 调用。
   
 
 </dd>
