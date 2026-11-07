@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>每当 <a href="widgets/InheritedNotifier/notifier.html">notifier</a> 发出通知，或 <a href="widgets/InheritedNotifier/notifier.html">notifier</a> 对象身份发生变化时，都会通知依赖组件。</p>
 <p>多个通知会合并处理，因此即使 <a href="widgets/InheritedNotifier/notifier.html">notifier</a> 在两帧之间多次触发，依赖组件也只会重建一次。</p>
 <p>此类通常会被子类化；子类提供一个名为 <code>of</code> 的静态方法，并通过该类调用 <a href="widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>。</p>
-<p>也可以重写 <a href="widgets/InheritedNotifier/updateShouldNotify.html">updateShouldNotify</a>，以改变 <a href="widgets/InheritedNotifier/notifier.html">notifier</a> 本身发生变化时的处理逻辑。当 <a href="widgets/InheritedNotifier/notifier.html">notifier</a> 发生变化时，该 <a href="widgets/InheritedNotifier/updateShouldNotify.html">updateShouldNotify</a> 方法接收旧的 <a href="widgets/InheritedNotifier/notifier.html">notifier</a>。如果返回 true，依赖组件会被标记为需要在当前帧重建。</p>
+<p>也可以重写 <a href="widgets/InheritedNotifier/updateShouldNotify.html">updateShouldNotify</a>，以便在 <a href="widgets/InheritedNotifier/notifier.html">notifier</a> 本身发生变化时更改处理逻辑。若 <a href="widgets/InheritedNotifier/updateShouldNotify.html">updateShouldNotify</a> 收到旧的 <a href="widgets/InheritedNotifier/notifier.html">notifier</a>（即 <a href="widgets/InheritedNotifier/notifier.html">notifier</a> 发生变化时被调用），并返回 true，则会将依赖项标记为需要在当前帧重建。</p>
 <p>
 <a name="widgets.InheritedNotifier.1"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet1">
@@ -123,14 +123,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="animation/Animation-class.html">Animation</a>, an implementation of <a href="foundation/Listenable-class.html">Listenable</a> that ticks each frame to
-update a value.</li>
-<li><a href="rendering/ViewportOffset-class.html">ViewportOffset</a> or its subclass <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>, implementations of
-<a href="foundation/Listenable-class.html">Listenable</a> that trigger when a view is scrolled.</li>
-<li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a>, an inherited widget that only notifies dependents
-when its value is different.</li>
-<li><a href="widgets/InheritedModel-class.html">InheritedModel</a>, an inherited widget that allows clients to subscribe
-to changes for subparts of the value.</li>
+<li><a href="animation/Animation-class.html">Animation</a> 是一种 <a href="foundation/Listenable-class.html">Listenable</a> 实现，每帧都会触发以更新值。</li>
+<li><a href="rendering/ViewportOffset-class.html">ViewportOffset</a> 或其子类 <a href="widgets/ScrollPosition-class.html">ScrollPosition</a>，它们都是 <a href="foundation/Listenable-class.html">Listenable</a> 的实现，会在视口滚动时触发。</li>
+<li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a> 是一种仅在自身值发生变化时才通知依赖项的继承组件。</li>
+<li><a href="widgets/InheritedModel-class.html">InheritedModel</a> 是一种继承组件，允许客户端订阅值的子部分变化。</li>
 </ul>
 </section>
 
@@ -173,8 +169,7 @@ to changes for subparts of the value.</li>
           <span class="name"><a href="widgets/InheritedNotifier/InheritedNotifier.html">InheritedNotifier</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-notifier"><span class="type-annotation">T?</span> <span class="parameter-name">notifier</span>, </span><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>})</span>
         </dt>
         <dd>
-          Create an inherited widget that updates its dependents when <code>notifier</code>
-sends notifications.
+          创建一个继承组件；当 <code>notifier</code> 发送通知时，它会更新依赖项。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -228,7 +223,7 @@ sends notifications.
 
 </dt>
 <dd>
-  The <a href="foundation/Listenable-class.html">Listenable</a> object to which to listen.
+  用于接收监听通知的 <a href="foundation/Listenable-class.html">Listenable</a> 对象。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
