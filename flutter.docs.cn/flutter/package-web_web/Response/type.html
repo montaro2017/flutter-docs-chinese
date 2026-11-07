@@ -107,17 +107,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p><a href="package-web_web/Response-extension-type.html">Response</a> 接口的只读 <strong><code>type</code></strong> 属性包含响应类型，可以是以下值之一：</p>
 <ul>
-<li><code>basic</code>: Normal, same origin response, with all headers exposed except
-"Set-Cookie".</li>
-<li><code>cors</code>: Response was received from a valid cross-origin request.
-<a href="https://fetch.spec.whatwg.org/#concept-filtered-response-cors">Certain headers and the body</a>
-may be accessed.</li>
+<li><code>basic</code>：正常的同源响应，除 "Set-Cookie" 外，所有标头均会暴露。</li>
+<li><code>cors</code>：响应来自有效的跨源请求。可以访问<a href="https://fetch.spec.whatwg.org/#concept-filtered-response-cors">某些标头和响应体</a>。</li>
 <li><code>error</code>：网络错误。没有可用信息来说明错误。Response 的状态码为 0，标头为空且不可变。通过 <code>Response.error()</code> 获取的 Response 属于此类型。</li>
-<li><code>opaque</code>: Response for "no-cors" request to cross-origin resource.
-<a href="https://fetch.spec.whatwg.org/#concept-filtered-response-opaque">Severely restricted</a>.</li>
-<li><code>opaqueredirect</code>: The fetch request was made with <code>redirect: "manual"</code>.
-The Response's status is 0, headers are empty, body is null and trailer is
-empty.</li>
+<li><code>opaque</code>：对跨源资源发出的 "no-cors" 请求的响应。访问受到<a href="https://fetch.spec.whatwg.org/#concept-filtered-response-opaque">严格限制</a>。</li>
+<li><code>opaqueredirect</code>：fetch 请求使用 <code>redirect: "manual"</code> 发起。Response 的状态码为 0，标头为空，响应体为 null，尾部标头也为空。</li>
 </ul>
 <blockquote>
 <p><strong>注意：</strong>“error”类型的 Response 实际上不会暴露给脚本：对此类响应执行 <code>fetch</code> 会导致 promise 被拒绝。</p>
