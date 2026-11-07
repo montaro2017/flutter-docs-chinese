@@ -114,21 +114,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>为确定 <code>instanceof</code> 检查中用作右操作数的 JavaScript 构造函数，此函数会使用与扩展类型关联的 JavaScript 名称，该名称要么来自 <code>@<a href="dart-js_interop/JS-class.html">JS</a></code> 注解所提供的参数，要么就是 Dart 声明名称。因此，如果互操作扩展类型 <code>JSClass</code> 包装了未重命名的 <code>JSArray</code>，此方法会检查 <code>instanceOfString('JSClass')</code>，而不是 <code>instanceOfString('Array')</code>。</p>
 <p><code>T</code> 有少数几种情况不遵循此规则：</p>
 <ul>
-<li><code>JSTypedArray</code>: As <code>TypedArray</code> does not exist as a class in JavaScript,
-this does some prototype checking to make <code>isA&lt;JSTypedArray&gt;</code> do the
-right thing.</li>
-<li><code>JSBoxedDartObject</code>: <code>isA&lt;JSBoxedDartObject&gt;</code> will check if the value is
-a result of a previous <a href="dart-js_interop/ObjectToJSBoxedDartObject/toJSBox.html">ObjectToJSBoxedDartObject.toJSBox</a> call.</li>
-<li><code>JSAny</code>: <code>isA&lt;JSAny&gt;</code> will call an intrinsic function to check that the
-value is a JS value.</li>
-<li><code>JSObject</code>: <code>isA&lt;JSObject&gt;</code> will call an intrinsic function to check
-that the value is a JS object (<code>instanceof Object</code> is insufficient for
-some objects).</li>
-<li><code>JSExportedDartFunction</code>: <code>isA&lt;JSExportedDartFunction&lt;U&gt;&gt;</code> will check if
-the value is a result of a previous
-<a href="dart-js_interop/FunctionToJSExportedDartFunction/toJS.html">FunctionToJSExportedDartFunction.toJS</a> or
-<a href="dart-js_interop/FunctionToJSExportedDartFunction/toJSCaptureThis.html">FunctionToJSExportedDartFunction.toJSCaptureThis</a> call and that the
-Dart function the value forwards to is a function of type <code>U</code>.</li>
+<li><code>JSTypedArray</code>：由于 JavaScript 中没有 <code>TypedArray</code> 这个类，这里会进行原型检查，使 <code>isA&lt;JSTypedArray&gt;</code> 得到正确结果。</li>
+<li><code>JSBoxedDartObject</code>：<code>isA&lt;JSBoxedDartObject&gt;</code> 会检查该值是否来自之前调用 <a href="dart-js_interop/ObjectToJSBoxedDartObject/toJSBox.html">ObjectToJSBoxedDartObject.toJSBox</a> 的结果。</li>
+<li><code>JSAny</code>：<code>isA&lt;JSAny&gt;</code> 会调用内置函数检查该值是否为 JS 值。</li>
+<li><code>JSObject</code>：<code>isA&lt;JSObject&gt;</code> 会调用内置函数检查该值是否为 JS 对象（对于某些对象，<code>instanceof Object</code> 并不足以进行判断）。</li>
+<li><code>JSExportedDartFunction</code>：<code>isA&lt;JSExportedDartFunction&lt;U&gt;&gt;</code> 会检查该值是否来自之前调用 <a href="dart-js_interop/FunctionToJSExportedDartFunction/toJS.html">FunctionToJSExportedDartFunction.toJS</a> 或 <a href="dart-js_interop/FunctionToJSExportedDartFunction/toJSCaptureThis.html">FunctionToJSExportedDartFunction.toJSCaptureThis</a>。同时，该值转发到的 Dart 函数必须为 <code>U</code> 类型的函数。</li>
 <li>表示类型为 JS 基本类型的用户互操作类型：为避免无法判断类型检查中是否使用了该用户互操作类型，这会导致错误。此时应改用 JS 基本类型作为 <code>T</code> 的值。</li>
 <li>具有对象字面量构造函数的用户互操作类型：这会导致错误，因为你可能希望改用 <a href="dart-js_interop/JSObject-extension-type.html">JSObject</a>。</li>
 </ul>
