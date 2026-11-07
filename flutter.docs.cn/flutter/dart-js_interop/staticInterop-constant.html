@@ -103,16 +103,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>这些类支持与原生类型（例如 <code>dart:html</code> 中的类型）进行互操作。它们都会隐式擦除为内部拦截器 <code>JavaScriptObject</code>，因此可以自由地与其他 <a href="dart-js_interop/staticInterop-constant.html">staticInterop</a> 类型、<code>dart:html</code> 类型以及来自 <code>dart:js_interop</code> 的 <code>JSObject</code> 相互转换。非 <a href="dart-js_interop/staticInterop-constant.html">staticInterop</a> 的 <code>package:js</code> 类型可以转换为 <a href="dart-js_interop/staticInterop-constant.html">staticInterop</a> 类型；但反向转换可能失败，特别是底层值属于由 <code>@Native</code> 保留的类型（例如 <code>dart:html</code> 类型）时。</p>
 <p><a href="dart-js_interop/staticInterop-constant.html">staticInterop</a> 类有以下限制：</p>
 <ul>
-<li>They must contain a <a href="dart-js_interop/JS-class.html">JS</a> annotation, either from this library or from
-<code>dart:js_interop</code>.</li>
+<li>必须包含 <a href="dart-js_interop/JS-class.html">JS</a> 注解，该注解可来自此库或
+<code>dart:js_interop</code>。</li>
 <li>它们不应包含任何实例成员，无论该成员是继承而来还是自行声明的；应改用静态扩展成员，这些成员可以是 external，也可以不是。</li>
-<li>They can only contain factories and <code>static</code> members. They can be
-combined with <a href="dart-js_interop/anonymous-constant.html">anonymous</a> to make external factories create new
-JavaScript object literals instead.</li>
-<li>They should not implement, extend, or mixin non-<a href="dart-js_interop/staticInterop-constant.html">staticInterop</a> classes
-and vice-versa.</li>
-<li>The annotation should only be applied to non-mixin classes and no other
-declarations.</li>
+<li>只能包含工厂构造函数和 <code>static</code> 成员。它们可以与
+<a href="dart-js_interop/anonymous-constant.html">anonymous</a> 结合使用，使 external 工厂构造函数改为创建新的 JavaScript 对象字面量。</li>
+<li>不得实现、继承或混入非 <a href="dart-js_interop/staticInterop-constant.html">staticInterop</a> 类，反之亦然。</li>
+<li>此注解仅可应用于非 mixin 类，不可用于其他声明。</li>
 </ul>
 </section>
 
