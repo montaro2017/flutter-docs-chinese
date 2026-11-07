@@ -97,9 +97,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>此类已弃用并将被移除。由于移除 <a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a> 及相关 API 后不再需要此类，因此没有计划提供直接替代方案。</p>
 <p>通过实际按下或释放键盘按键产生的原生按键消息，在 Flutter 中会转换为两种不同的事件流：</p>
 <ul>
-<li>The <a href="services/KeyEvent-class.html">KeyEvent</a> stream, represented by <a href="services/KeyMessage/events.html">KeyMessage.events</a> (recommended).</li>
-<li>The <a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a> stream, represented by <a href="services/KeyMessage/rawEvent.html">KeyMessage.rawEvent</a> (legacy, to
-be deprecated).</li>
+<li><a href="services/KeyEvent-class.html">KeyEvent</a> 流由 <a href="services/KeyMessage/events.html">KeyMessage.events</a> 表示（推荐）。</li>
+<li><a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a> 流由 <a href="services/KeyMessage/rawEvent.html">KeyMessage.rawEvent</a> 表示（旧版，计划弃用）。</li>
 </ul>
 <p>单独使用 <a href="services/KeyEvent-class.html">KeyEvent</a> 流或 <a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a> 流，都能完整描述键盘消息，但两者采用不同的事件模型。Flutter 仍在从旧模型迁移到新模型，因此迁移完成前会同时分发这两种事件流。<a class="deprecated" href="services/KeyMessage-class.html">KeyMessage</a> 会将同一条原生按键消息在两种模型中转换出的事件片段组合起来，方便统一传递。</p>
 <p>通常，应用只处理 <a href="services/KeyMessage/events.html">KeyMessage.events</a> 或 <a href="services/KeyMessage/rawEvent.html">KeyMessage.rawEvent</a> 之一，而不会同时处理两者。例如，处理一个 <a class="deprecated" href="services/KeyMessage-class.html">KeyMessage</a> 就意味着处理其 <a href="services/KeyMessage/events.html">KeyMessage.events</a> 中的每个事件。</p>
@@ -154,7 +153,7 @@ void handleMessage(FocusNode node, KeyMessage message) {
           <span class="name"><a class="deprecated" href="services/KeyMessage/KeyMessage.html">KeyMessage</a></span><span class="signature">(<span class="parameter" id="-param-events"><span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="services/KeyEvent-class.html">KeyEvent</a></span>&gt;</span></span> <span class="parameter-name">events</span>, </span><span class="parameter" id="-param-rawEvent"><span class="type-annotation"><a class="deprecated" href="services/RawKeyEvent-class.html">RawKeyEvent</a>?</span> <span class="parameter-name">rawEvent</span></span>)</span>
         </dt>
         <dd>
-          Create a <a class="deprecated" href="services/KeyMessage-class.html">KeyMessage</a> by providing all information.
+          提供所有信息以创建 <a class="deprecated" href="services/KeyMessage-class.html">KeyMessage</a>。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -172,7 +171,7 @@ void handleMessage(FocusNode node, KeyMessage message) {
 
 </dt>
 <dd>
-  The list of <a href="services/KeyEvent-class.html">KeyEvent</a>s converted from the native key message.
+  从原生按键消息转换而来的 <a href="services/KeyEvent-class.html">KeyEvent</a> 列表。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -196,7 +195,7 @@ void handleMessage(FocusNode node, KeyMessage message) {
 
 </dt>
 <dd>
-  The native key message in the form of a raw key event.
+  以原始按键事件形式表示的原生按键消息。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
