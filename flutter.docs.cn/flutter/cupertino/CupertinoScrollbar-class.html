@@ -94,7 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>iOS 风格的滚动条。</p>
-<p>若要为 <a href="widgets/ScrollView-class.html">ScrollView</a> 添加滚动条，请使用 <a href="cupertino/CupertinoScrollbar-class.html">CupertinoScrollbar</a> widget 包裹滚动视图 widget。</p>
+<p>若要为 <a href="widgets/ScrollView-class.html">ScrollView</a> 添加滚动条，请使用 <a href="cupertino/CupertinoScrollbar-class.html">CupertinoScrollbar</a> 组件包裹滚动视图组件。</p>
 <iframe src="https://www.youtube.com/embed/DbkIQSvwnZc?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; 
 autoplay; 
 clipboard-write; 
@@ -107,7 +107,7 @@ height: 100%;
 aspect-ratio: 560 / 315;">
 </iframe>
 <p>滚动条滑块指示 <a href="widgets/ScrollView-class.html">ScrollView</a> 当前实际可见的部分。</p>
-<p>默认情况下，子滚动视图滚动时，滑块会淡入淡出。将 <a href="widgets/RawScrollbar/thumbVisibility.html">thumbVisibility</a> 设为 true 后，滑块会一直显示，不再播放淡入淡出动画。此时必须将与 Scrollable widget 关联的 <a href="widgets/ScrollController-class.html">ScrollController</a> 传给 <a href="widgets/RawScrollbar/controller.html">controller</a>，或者让该 Scrollable widget 使用 <a href="widgets/PrimaryScrollController-class.html">PrimaryScrollController</a>。</p>
+<p>默认情况下，子滚动视图滚动时，滑块会淡入淡出。将 <a href="widgets/RawScrollbar/thumbVisibility.html">thumbVisibility</a> 设为 true 后，滑块会始终可见，不再执行淡入淡出动画。此时必须将与 Scrollable 组件关联的 <a href="widgets/ScrollController-class.html">ScrollController</a> 传给 <a href="widgets/RawScrollbar/controller.html">controller</a>，或者让该 Scrollable 组件使用 <a href="widgets/PrimaryScrollController-class.html">PrimaryScrollController</a>。</p>
 <p>如果滚动条包裹多个 <a href="widgets/ScrollView-class.html">ScrollView</a>，默认只响应最近的 ScrollView，并显示对应的滑块。通过 <a href="widgets/RawScrollbar/notificationPredicate.html">notificationPredicate</a> 可以自定义滚动条监听哪些 <a href="widgets/ScrollNotification-class.html">ScrollNotification</a>。</p>
 <p>如果子 <a href="widgets/ScrollView-class.html">ScrollView</a> 无限长，<a href="widgets/RawScrollbar-class.html">RawScrollbar</a> 将不会绘制。在这种情况下，滚动条无法准确表示可视区域的相对位置，也无法准确计算拖动滑块或点按轨道时应应用的滚动距离。</p>
 <h3 id="interaction">交互</h3>
@@ -136,7 +136,7 @@ aspect-ratio: 560 / 315;">
 </div>
 </p>
 <h3 id="automatic-scrollbars-on-desktop-platforms">桌面平台上的自动滚动条</h3>
-<p>在 <a href="widgets/Scrollable-class.html">TargetPlatformVariant.desktop</a> 平台上，大多数 <a href="flutter_test/TargetPlatformVariant/TargetPlatformVariant.desktop.html">Scrollable</a> widget 默认会添加滚动条。这由应用 <a href="widgets/ScrollBehavior/buildScrollbar.html">ScrollConfiguration</a> 中的 <a href="widgets/ScrollConfiguration-class.html">ScrollBehavior.buildScrollbar</a> 实现。未使用 <a href="widgets/PrimaryScrollController-class.html">PrimaryScrollController</a>，或已传入 <a href="widgets/ScrollController-class.html">ScrollController</a> 的 Scrollable 会获得一个专用于滚动条的 ScrollController。此时，除非将 <a href="widgets/RawScrollbar/interactive.html">interactive</a> 设为 false，否则只能有一个 Scrollable 使用 PrimaryScrollController。若要阻止纵向 <a href="painting/Axis.html">Axis.vertical</a> Scrollable 使用 PrimaryScrollController，请将 <a href="widgets/ScrollView/primary.html">ScrollView.primary</a> 设为 false。以下 Scrollable widget 不会自动应用滚动条：</p>
+<p>大多数 <a href="widgets/Scrollable-class.html">Scrollable</a> 组件在 <a href="flutter_test/TargetPlatformVariant/TargetPlatformVariant.desktop.html">TargetPlatformVariant.desktop</a> 平台上默认会添加滚动条。这是通过应用的 <a href="widgets/ScrollBehavior/buildScrollbar.html">ScrollBehavior.buildScrollbar</a> 实现的，并作为应用 <a href="widgets/ScrollConfiguration-class.html">ScrollConfiguration</a> 的一部分。未使用 <a href="widgets/PrimaryScrollController-class.html">PrimaryScrollController</a> 或已向其提供 <a href="widgets/ScrollController-class.html">ScrollController</a> 的 Scrollable，会获得一个专供 Scrollbar 使用的唯一 ScrollController。在这种情况下，除非将 <a href="widgets/RawScrollbar/interactive.html">interactive</a> 设为 false，否则只能有一个 Scrollable 使用 PrimaryScrollController。若要阻止 <a href="painting/Axis.html">Axis.vertical</a> Scrollable 使用 PrimaryScrollController，请将 <a href="widgets/ScrollView/primary.html">ScrollView.primary</a> 设为 false。以下未自动应用滚动条的 Scrollable 组件包括：</p>
 <ul>
 <li><a href="widgets/EditableText-class.html">EditableText</a></li>
 <li><a href="widgets/ListWheelScrollView-class.html">ListWheelScrollView</a></li>
@@ -216,7 +216,7 @@ aspect-ratio: 560 / 315;">
 <a name="cupertino.CupertinoScrollbar.2"></a>
 <div class="snippet snippet-container anchor-container" id="longSnippet2">
     <div class="snippet-description">
-当 <a href="widgets/RawScrollbar/thumbVisibility.html">thumbVisibility</a> 为 true 时，滚动条滑块会始终可见，不执行淡出动画。这要求为 controller 提供 <a href="widgets/ScrollController-class.html">ScrollController</a>，或者当前可用 <a href="widgets/PrimaryScrollController-class.html">PrimaryScrollController</a>。
+当 <a href="widgets/RawScrollbar/thumbVisibility.html">thumbVisibility</a> 为 true 时，滚动条滑块会始终可见，不执行淡出动画。这要求为 controller 提供 <a href="widgets/ScrollController-class.html">ScrollController</a>，或者此时 <a href="widgets/PrimaryScrollController-class.html">PrimaryScrollController</a> 可用。
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'cupertino.CupertinoScrollbar.2');" onclick="fixHref(this, 'cupertino.CupertinoScrollbar.2'); copyStringToClipboard(this.href);"
