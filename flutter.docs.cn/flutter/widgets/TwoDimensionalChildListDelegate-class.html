@@ -97,16 +97,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>通常，提前构建所有 widget 并不高效。更好的方式是创建一个按需构建 widget 的 delegate，例如使用 <a href="widgets/TwoDimensionalChildBuilderDelegate-class.html">TwoDimensionalChildBuilderDelegate</a>，或直接继承 <a href="widgets/TwoDimensionalChildDelegate-class.html">TwoDimensionalChildDelegate</a>。</p>
 <p>此类适用于以下情况：子项列表早已确定（例如，子项本身都是编译时常量），因此无需在每次创建 delegate 时重新构建；或者数组较小，几乎总是全部可见，按需构建也就没有优势。</p>
 <p>如果 <a href="widgets/TwoDimensionalChildListDelegate/addRepaintBoundaries.html">addRepaintBoundaries</a> 为 true（默认值也是 true），给定 <a href="widgets/TwoDimensionalChildListDelegate/children.html">children</a> 列表中的 widget 会自动包装在 <a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> widget 中。</p>
-<p>The <a href="widgets/TwoDimensionalChildListDelegate/children.html">children</a> are accessed for each <a href="widgets/ChildVicinity/yIndex.html">ChildVicinity.yIndex</a> 和
-<a href="widgets/ChildVicinity/xIndex.html">ChildVicinity.xIndex</a> of the <a href="widgets/TwoDimensionalViewport-class.html">TwoDimensionalViewport</a> as
-<code>children[vicinity.yIndex][vicinity.xIndex]</code>.</p>
+<p>在 <a href="widgets/TwoDimensionalViewport-class.html">TwoDimensionalViewport</a> 中，会根据每个 <a href="widgets/ChildVicinity/yIndex.html">ChildVicinity.yIndex</a> 和 <a href="widgets/ChildVicinity/xIndex.html">ChildVicinity.xIndex</a>，通过 <code>children[vicinity.yIndex][vicinity.xIndex]</code> 访问 <a href="widgets/TwoDimensionalChildListDelegate/children.html">children</a>。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/TwoDimensionalChildBuilderDelegate-class.html">TwoDimensionalChildBuilderDelegate</a>, which is a delegate that uses a
-builder callback to construct the children.</li>
+<li><a href="widgets/TwoDimensionalChildBuilderDelegate-class.html">TwoDimensionalChildBuilderDelegate</a>，使用 builder 回调构建子项的 delegate。</li>
 <li><a href="widgets/SliverChildBuilderDelegate-class.html">SliverChildBuilderDelegate</a> 使用 builder 回调构建一维子项，而不是二维子项。</li>
-<li><a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a>, which is a delegate that has an explicit list
-of children in one dimension instead of two.</li>
+<li><a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a>，显式指定一维子项列表而非二维列表的 delegate。</li>
 </ul>
 </section>
 
@@ -143,7 +139,7 @@ of children in one dimension instead of two.</li>
           <span class="name"><a href="widgets/TwoDimensionalChildListDelegate/TwoDimensionalChildListDelegate.html">TwoDimensionalChildListDelegate</a></span><span class="signature">({<span class="parameter" id="-param-addRepaintBoundaries"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addRepaintBoundaries</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-addAutomaticKeepAlives"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addAutomaticKeepAlives</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-children"><span>required</span> <span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="widgets/Widget-class.html">Widget</a></span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">children</span></span>})</span>
         </dt>
         <dd>
-          Creates a delegate that supplies children for a <a href="widgets/TwoDimensionalScrollView-class.html">TwoDimensionalScrollView</a>.
+          创建一个为 <a href="widgets/TwoDimensionalScrollView-class.html">TwoDimensionalScrollView</a> 提供子项的 delegate。
         </dd>
     </dl>
   </section>
@@ -184,7 +180,7 @@ of children in one dimension instead of two.</li>
 
 </dt>
 <dd>
-  The widgets to display.
+  要显示的 widget 列表。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -255,8 +251,7 @@ of children in one dimension instead of two.</li>
 
 </dt>
 <dd>
-  Returns the child with the given <a href="widgets/ChildVicinity-class.html">ChildVicinity</a>, which is described in
-terms of x and y indices.
+  返回给定 <a href="widgets/ChildVicinity-class.html">ChildVicinity</a> 对应的子项；该对象由 x 和 y 索引描述。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -321,8 +316,7 @@ terms of x and y indices.
 
 </dt>
 <dd>
-  Called whenever a new instance of the child delegate class is
-provided.
+  每当提供子 delegate 类的新实例时调用。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
