@@ -103,13 +103,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>膨胀给定的 widget，并建立 widget 树。</p>
-<p>与 <a href="widgets/runApp.html">runApp</a> 不同，此方法不会指定用于渲染所提供 <code>app</code> widget 的 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。调用方需要在所提供的 <code>app</code> widget 中至少包含一个 <a href="widgets/View-class.html">View</a> widget，由它建立渲染树并指定内容渲染到哪个 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。没有祖先 <a href="widgets/View-class.html">View</a> widget 的 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 会导致异常。如果应用要渲染到默认 view，且不想处理 view 管理，可以改为调用 <a href="widgets/runApp.html">runApp</a>。</p>
+<p>与 <a href="widgets/runApp.html">runApp</a> 不同，此方法不会指定用于渲染所提供 <code>app</code> widget 的 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。调用方需要在所提供的 <code>app</code> widget 中至少包含一个 <a href="widgets/View-class.html">View</a> widget，由它建立渲染树并指定内容渲染到哪个 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。没有祖先 <a href="widgets/View-class.html">View</a> widget 的 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 会导致异常。如果应用要渲染到默认视图，且不想处理视图管理，可以改为调用 <a href="widgets/runApp.html">runApp</a>。</p>
 <p>
 <a name="widgets.runWidget.1"></a>
 <div class="snippet snippet-container anchor-container">
   <div class="snippet-description">
-The sample shows how to utilize <a href="widgets/runWidget.html">runWidget</a> to specify the <a href="dart-ui/FlutterView-class.html">FlutterView</a>
-into which the <code>MyApp</code> widget will be drawn:
+以下示例展示如何使用 <a href="widgets/runWidget.html">runWidget</a> 指定用于绘制 <code>MyApp</code> widget 的 <a href="dart-ui/FlutterView-class.html">FlutterView</a>：
 </div>
   <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
     onmouseenter="fixHref(this, 'widgets.runWidget.1');" onclick="fixHref(this, 'widgets.runWidget.1'); copyStringToClipboard(this.href);"
@@ -139,17 +138,13 @@ into which the <code>MyApp</code> widget will be drawn:
 <p>若要人为地处置整个 widget 树，可以考虑调用 <a href="widgets/runWidget.html">runWidget</a>，并传入不指定任何 <a href="widgets/ViewCollection/views.html">ViewCollection.views</a> 的 <a href="widgets/ViewCollection-class.html">ViewCollection</a>。</p>
 <h2 id="dismissing-flutter-ui-via-platform-native-methods">通过平台原生方法关闭 Flutter 界面</h2>
 <p>应用可能同时包含 Flutter 界面和非 Flutter 界面。如果应用调用非 Flutter 方法移除基于 Flutter 的界面（例如通过平台原生 API 操作平台原生导航栈），框架无法判断开发者是否希望立即释放资源。Widget 树会保持挂载状态，并在界面再次显示时立即恢复渲染。</p>
-<p>若要更早释放资源，请建立 <a href="https://flutter.dev/to/platform-channels">platform channel</a>，并从传给 <a href="widgets/runWidget.html">runWidget</a> 的 <code>app</code> widget 树中移除需要释放其 widget 资源的 <a href="widgets/View-class.html">View</a>。</p>
+<p>若要更早释放资源，请建立<a href="https://flutter.dev/to/platform-channels">平台通道</a>，并从传给 <a href="widgets/runWidget.html">runWidget</a> 的 <code>app</code> widget 树中移除需要释放其 widget 资源的 <a href="widgets/View-class.html">View</a>。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/runApp.html">runApp</a>, which bootstraps a widget tree and renders it into a default
-<a href="dart-ui/FlutterView-class.html">FlutterView</a>.</li>
-<li><a href="widgets/WidgetsBinding/attachRootWidget.html">WidgetsBinding.attachRootWidget</a>, which creates the root widget for the
-widget hierarchy.</li>
-<li><a href="widgets/RenderObjectToWidgetAdapter/attachToRenderTree.html">RenderObjectToWidgetAdapter.attachToRenderTree</a>, which creates the root
-element for the element hierarchy.</li>
-<li><a href="scheduler/SchedulerBinding/handleBeginFrame.html">WidgetsBinding.handleBeginFrame</a>, which pumps the widget pipeline to
-ensure the widget, element, and render trees are all built.</li>
+<li><a href="widgets/runApp.html">runApp</a>，它会初始化 widget 树，并将其渲染到默认的 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 中。</li>
+<li><a href="widgets/WidgetsBinding/attachRootWidget.html">WidgetsBinding.attachRootWidget</a>，它会为 widget 层次结构创建根 widget。</li>
+<li><a href="widgets/RenderObjectToWidgetAdapter/attachToRenderTree.html">RenderObjectToWidgetAdapter.attachToRenderTree</a>，它会为 element 层次结构创建根 element。</li>
+<li><a href="scheduler/SchedulerBinding/handleBeginFrame.html">WidgetsBinding.handleBeginFrame</a>，它会推进 widget 流程，确保 widget、element 和 render 树都已构建。</li>
 </ul>
 </section>
 
