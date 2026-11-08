@@ -93,21 +93,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     
 <section class="desc markdown">
-  <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a> 中的 <strong><code>ServiceWorker</code></strong> 接口提供对 service worker 的引用。多个客户端（例如页面、worker 等）可以关联到同一个 service worker，每个客户端都通过一个唯一的 <code>ServiceWorker</code> 对象与之关联。</p>
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a> 中的 <strong><code>ServiceWorker</code></strong> 接口提供对服务工作线程的引用。多个客户端（例如页面、工作线程等）可以关联到同一个服务工作线程，每个客户端都通过一个唯一的 <code>ServiceWorker</code> 对象与之关联。</p>
 <p>可以通过多个属性访问 <code>ServiceWorker</code> 对象：</p>
 <ul>
 <li><a href="package-web_web/ServiceWorkerRegistration/active.html">ServiceWorkerRegistration.active</a></li>
 <li><a href="package-web_web/ServiceWorkerGlobalScope/serviceWorker.html">ServiceWorkerGlobalScope.serviceWorker</a></li>
-<li><a href="package-web_web/ServiceWorkerContainer/controller.html">ServiceWorkerContainer.controller</a> — when the service worker is in
-<code>activating</code> or <code>activated</code> state</li>
-<li><a href="package-web_web/ServiceWorkerRegistration/installing.html">ServiceWorkerRegistration.installing</a> — when the service worker is in
-<code>installing</code> state</li>
-<li><a href="package-web_web/ServiceWorkerRegistration/waiting.html">ServiceWorkerRegistration.waiting</a> — when the service worker is in
-<code>installed</code> state</li>
+<li><a href="package-web_web/ServiceWorkerContainer/controller.html">ServiceWorkerContainer.controller</a> — 当服务工作线程处于 <code>activating</code> 或 <code>activated</code> 状态时</li>
+<li><a href="package-web_web/ServiceWorkerRegistration/installing.html">ServiceWorkerRegistration.installing</a> — 当服务工作线程处于 <code>installing</code> 状态时</li>
+<li><a href="package-web_web/ServiceWorkerRegistration/waiting.html">ServiceWorkerRegistration.waiting</a> — 当服务工作线程处于 <code>installed</code> 状态时</li>
 </ul>
 <p><code>ServiceWorker</code> 接口会接收一组生命周期事件（<code>install</code> 和 <code>activate</code>）以及包括 <code>fetch</code> 在内的功能事件。<code>ServiceWorker</code> 对象具有与其生命周期相关联的 <a href="package-web_web/ServiceWorker/state.html">ServiceWorker.state</a>。</p>
-<p>如果浏览器支持，service worker 可以静态导入 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ECMAScript 模块</a>，方法是使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"><code>import</code></a>。规范禁止动态导入：调用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import"><code>import()</code></a> 会抛出异常。</p>
-<p>由于 <code>ServiceWorker</code> 对象未公开给 <a href="package-web_web/DedicatedWorkerGlobalScope-extension-type.html">DedicatedWorkerGlobalScope</a> 和 <a href="package-web_web/SharedWorkerGlobalScope-extension-type.html">SharedWorkerGlobalScope</a>，部分或所有浏览器可能只允许在 Window 作用域中注册 service worker。详情请参阅<a href="#browser_compatibility">浏览器兼容性</a>。</p>
+<p>如果浏览器支持，服务工作线程可以静态导入 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ECMAScript 模块</a>，方法是使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"><code>import</code></a>。规范禁止动态导入：调用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import"><code>import()</code></a> 会抛出异常。</p>
+<p>由于 <code>ServiceWorker</code> 对象未公开给 <a href="package-web_web/DedicatedWorkerGlobalScope-extension-type.html">DedicatedWorkerGlobalScope</a> 和 <a href="package-web_web/SharedWorkerGlobalScope-extension-type.html">SharedWorkerGlobalScope</a>，部分或所有浏览器可能只允许在 Window 作用域中注册服务工作线程。详情请参阅<a href="#browser_compatibility">浏览器兼容性</a>。</p>
 <hr>
 <p>API 文档来源：<a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker">MDN Web 文档</a>。</p>
 </section>
@@ -294,10 +291,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Returns the <code>ServiceWorker</code> serialized script URL defined as part of
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration"><code>ServiceWorkerRegistration</code></a>.
-Must be on the same origin as the document that registers the
-<code>ServiceWorker</code>.
+  返回作为 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration"><code>ServiceWorkerRegistration</code></a> 一部分定义的 <code>ServiceWorker</code> 序列化脚本 URL。该 URL 必须与注册此 <code>ServiceWorker</code> 的文档同源。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -309,12 +303,7 @@ Must be on the same origin as the document that registers the
 
 </dt>
 <dd>
-  The <strong><code>state</code></strong> read-only property of the
-<a href="package-web_web/ServiceWorker-extension-type.html">ServiceWorker</a> interface returns a string representing the current state
-of the service worker. It can be one of the following values: <code>parsed</code>,
-<code>installing</code>,
-<code>installed</code>, <code>activating</code>, <code>activated</code>, or
-<code>redundant</code>.
+  <a href="package-web_web/ServiceWorker-extension-type.html">ServiceWorker</a> 接口的只读属性 <strong><code>state</code></strong> 返回一个字符串，表示 service worker 的当前状态。其值可以是 <code>parsed</code>、<code>installing</code>、<code>installed</code>、<code>activating</code>、<code>activated</code> 或 <code>redundant</code>。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -727,10 +716,7 @@ of the service worker. It can be one of the following values: <code>parsed</code
 
 </dt>
 <dd>
-  The <strong><code>postMessage()</code></strong> method of the <a href="package-web_web/ServiceWorker-extension-type.html">ServiceWorker</a> interface sends a
-message to the worker. The first parameter is the data to send to the
-worker. The data may be any JavaScript object which can be handled by the
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm">structured clone algorithm</a>.
+  <a href="package-web_web/ServiceWorker-extension-type.html">ServiceWorker</a> 接口的 <strong><code>postMessage()</code></strong> 方法会向 worker 发送消息。第一个参数是要发送给 worker 的数据。该数据可以是任何能由 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm">结构化克隆算法</a>处理的 JavaScript 对象。
   
 
 </dd>
