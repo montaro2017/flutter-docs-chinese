@@ -122,12 +122,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><a href="widgets/FocusTraversalGroup-class.html">FocusTraversalGroup</a>, 一种将其分组，并为其应用遍历策略的组件：<a href="widgets/Focus-class.html">Focus</a> 节点（位于该组件下方的 widget 树中）。</li>
 <li><a href="widgets/WidgetOrderTraversalPolicy-class.html">WidgetOrderTraversalPolicy</a>，一种依据 widget 创建顺序确定遍历顺序的策略。</li>
 <li><a href="widgets/ReadingOrderTraversalPolicy-class.html">ReadingOrderTraversalPolicy</a>，一种按照当前 <a href="widgets/Directionality-class.html">Directionality</a> 的自然“阅读顺序”确定遍历顺序的策略。</li>
-<li><a href="widgets/NumericFocusOrder-class.html">NumericFocusOrder</a>, a focus order that assigns a numeric traversal order
-to a <a href="widgets/FocusTraversalOrder-class.html">FocusTraversalOrder</a> widget.</li>
-<li><a href="widgets/LexicalFocusOrder-class.html">LexicalFocusOrder</a>, a focus order that assigns a string-based lexical
-traversal order to a <a href="widgets/FocusTraversalOrder-class.html">FocusTraversalOrder</a> widget.</li>
-<li><a href="widgets/FocusOrder-class.html">FocusOrder</a>, an abstract base class for all types of focus traversal
-orderings.</li>
+<li><a href="widgets/NumericFocusOrder-class.html">NumericFocusOrder</a>，一种为 <a href="widgets/FocusTraversalOrder-class.html">FocusTraversalOrder</a> widget 指定数字遍历顺序的焦点顺序。</li>
+<li><a href="widgets/LexicalFocusOrder-class.html">LexicalFocusOrder</a>，一种为 <a href="widgets/FocusTraversalOrder-class.html">FocusTraversalOrder</a> widget 指定基于字符串字典序遍历顺序的焦点顺序。</li>
+<li><a href="widgets/FocusOrder-class.html">FocusOrder</a>，所有焦点遍历顺序类型的抽象基类。</li>
 </ul>
 </section>
 
@@ -169,8 +166,7 @@ orderings.</li>
           <span class="name"><a href="widgets/OrderedTraversalPolicy/OrderedTraversalPolicy.html">OrderedTraversalPolicy</a></span><span class="signature">({<span class="parameter" id="-param-secondary"><span class="type-annotation"><a href="widgets/FocusTraversalPolicy-class.html">FocusTraversalPolicy</a>?</span> <span class="parameter-name">secondary</span>, </span><span class="parameter" id="-param-requestFocusCallback"><span class="type-annotation"><a href="widgets/TraversalRequestFocusCallback.html">TraversalRequestFocusCallback</a>?</span> <span class="parameter-name">requestFocusCallback</span></span>})</span>
         </dt>
         <dd>
-          Constructs a traversal policy that orders widgets for keyboard traversal
-based on an explicit order.
+          构造一种遍历策略，根据显式指定的顺序排列 widget，以供键盘遍历。
         </dd>
     </dl>
   </section>
@@ -223,8 +219,7 @@ based on an explicit order.
 
 </dt>
 <dd>
-  This is the policy that is used when a node doesn't have an order
-assigned, or when multiple nodes have orders which are identical.
+  当节点未指定顺序，或多个节点的顺序相同时，使用此策略。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -246,9 +241,7 @@ assigned, or when multiple nodes have orders which are identical.
 
 </dt>
 <dd class="inherited">
-  This is called whenever the given <code>node</code> is re-parented into a new scope,
-so that the policy has a chance to update or invalidate any cached data
-that it maintains per scope about the node.
+  每当给定的 <code>node</code> 被重新挂载到新的作用域时，都会调用此方法，使策略有机会更新或使其按作用域为该节点维护的缓存数据失效。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -287,9 +280,7 @@ that it maintains per scope about the node.
 
 </dt>
 <dd class="inherited">
-  Returns the first node in the given <code>direction</code> that should receive focus
-if there is no current focus in the scope to which the <code>currentNode</code>
-belongs.
+  如果 <code>currentNode</code> 所属的作用域中当前没有焦点，则返回给定 <code>direction</code> 上应接收焦点的第一个节点。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -315,8 +306,7 @@ belongs.
 
 </dt>
 <dd class="inherited">
-  Focuses the next widget in the given <code>direction</code> in the <a href="widgets/FocusScope-class.html">FocusScope</a> that
-contains the <code>currentNode</code>.
+  在包含 <code>currentNode</code> 的 <a href="widgets/FocusScope-class.html">FocusScope</a> 中，沿给定的 <code>direction</code> 将焦点移至下一个 widget。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -329,7 +319,7 @@ contains the <code>currentNode</code>.
 
 </dt>
 <dd class="inherited">
-  Clears the data associated with the given <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> for this object.
+  清除此对象中与给定 <a href="widgets/FocusScopeNode-class.html">FocusScopeNode</a> 关联的数据。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -342,8 +332,7 @@ contains the <code>currentNode</code>.
 
 </dt>
 <dd class="inherited">
-  Focuses the next widget in the focus scope that contains the given
-<code>currentNode</code>.
+  将焦点移至包含给定 <code>currentNode</code> 的焦点作用域中的下一个 widget。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -369,8 +358,7 @@ contains the <code>currentNode</code>.
 
 </dt>
 <dd class="inherited">
-  Focuses the previous widget in the focus scope that contains the given
-<code>currentNode</code>.
+  将焦点移至包含给定 <code>currentNode</code> 的焦点作用域中的上一个 widget。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -383,7 +371,7 @@ contains the <code>currentNode</code>.
 
 </dt>
 <dd>
-  Sorts the given <code>descendants</code> into focus order.
+  按焦点顺序对给定的 <code>descendants</code> 排序。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
