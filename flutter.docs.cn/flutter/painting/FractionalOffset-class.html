@@ -101,9 +101,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 id="design-discussion">设计讨论</h2>
 <p><a href="painting/FractionalOffset-class.html">FractionalOffset</a> 和 <a href="painting/Alignment-class.html">Alignment</a> 是表示同一信息的两种不同方式：相对于矩形尺寸的矩形内位置。两个类的区别在于它们表示位置时所用的坐标系。</p>
 <p><a href="painting/FractionalOffset-class.html">FractionalOffset</a> 使用以矩形左上角为原点的坐标系，而 <a href="painting/Alignment-class.html">Alignment</a> 使用以矩形中心为原点的坐标系。</p>
-<p><a href="painting/FractionalOffset-class.html">FractionalOffset</a> 的历史早于 <a href="painting/Alignment-class.html">Alignment</a>。尝试创建一个能适配 <a href="painting/FractionalOffset-class.html">TextDirection</a> 的 <a href="dart-ui/TextDirection.html">FractionalOffset</a> 版本时，我们遇到了困难：将原点放在左上角会引入难以消除的从左到右偏向。</p>
-<p>由于原点位于中心，<a href="painting/Alignment-class.html">Alignment</a> 和 <a href="painting/AlignmentDirectional-class.html">AlignmentDirectional</a> 可以使用同一个原点，因此我们能够通过线性函数，在 <a href="painting/AlignmentDirectional-class.html">TextDirection.rtl</a> 和 <a href="painting/Alignment-class.html">TextDirection.ltr</a> 两种方向下，将 <a href="dart-ui/TextDirection.html">AlignmentDirectional</a> 转换为 <a href="dart-ui/TextDirection.html">Alignment</a>。</p>
-<p><a href="painting/Alignment-class.html">Alignment</a> 大多数情况下比 <a href="painting/FractionalOffset-class.html">FractionalOffset</a> 更合适，应优先使用 <a href="painting/FractionalOffset-class.html">FractionalOffset</a> 的替代方案。我们仍继续实现 <a href="painting/FractionalOffset-class.html">FractionalOffset</a>，以支持早于 <a href="painting/Alignment-class.html">Alignment</a> 的代码。</p>
+<p><a href="painting/FractionalOffset-class.html">FractionalOffset</a> 的历史早于 <a href="painting/Alignment-class.html">Alignment</a>。尝试创建一个能适配 <a href="dart-ui/TextDirection.html">TextDirection</a> 的 <a href="painting/FractionalOffset-class.html">FractionalOffset</a> 版本时，我们遇到了困难：将原点放在左上角会引入难以消除的从左到右的偏向。</p>
+<p>由于原点位于中心，<a href="painting/Alignment-class.html">Alignment</a> 和 <a href="painting/AlignmentDirectional-class.html">AlignmentDirectional</a> 可以使用同一个原点，因此我们能够通过线性函数，在 <a href="dart-ui/TextDirection.html">TextDirection.rtl</a> 和 <a href="dart-ui/TextDirection.html">TextDirection.ltr</a> 两种方向下，将 <a href="painting/AlignmentDirectional-class.html">AlignmentDirectional</a> 转换为 <a href="painting/Alignment-class.html">Alignment</a>。</p>
+<p><a href="painting/Alignment-class.html">Alignment</a> 大多数情况下比 <a href="painting/FractionalOffset-class.html">FractionalOffset</a> 更合适，应使用 <a href="painting/Alignment-class.html">Alignment</a>，而不是 <a href="painting/FractionalOffset-class.html">FractionalOffset</a>。我们仍继续实现 <a href="painting/FractionalOffset-class.html">FractionalOffset</a>，以支持早于 <a href="painting/Alignment-class.html">Alignment</a> 的代码。</p>
 <p>另请参阅：</p>
 <ul>
 <li><a href="painting/Alignment-class.html">Alignment</a> 使用以矩形中心为基准的坐标系，而不是以矩形左上角为原点。</li>
@@ -267,7 +267,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  Returns the offset that is this fraction in the direction of the given offset.
+  返回由给定偏移量按此分数缩放得到的偏移量。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -280,7 +280,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  Returns the offset that is this fraction within the given size.
+  返回此分数在给定 Size 内对应的 Offset。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -293,8 +293,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  Returns a rect of the given size, aligned within given rect as specified
-by this alignment.
+  按此对齐方式，将给定尺寸的矩形在给定矩形内对齐，并返回该矩形。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -320,9 +319,7 @@ by this alignment.
 
 </dt>
 <dd class="inherited">
-  Convert this instance into an <a href="painting/Alignment-class.html">Alignment</a>, which uses literal
-coordinates (the <code>x</code> coordinate being explicitly a distance from the
-left).
+  将此实例转换为 <a href="painting/Alignment-class.html">Alignment</a>；该类使用直接坐标，其中 <code>x</code> 坐标明确表示从左侧量起的距离。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -348,7 +345,7 @@ left).
 
 </dt>
 <dd class="inherited">
-  Returns the point that is this fraction within the given rect.
+  返回此分数在给定 rect 内对应的点。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
@@ -382,7 +379,7 @@ left).
 
 </dt>
 <dd>
-  Scales the <a href="painting/Alignment-class.html">Alignment</a> in each dimension by the given factor.
+  按给定因子缩放 <a href="painting/Alignment-class.html">Alignment</a> 的各个维度。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -421,7 +418,7 @@ left).
 
 </dt>
 <dd>
-  Divides the <a href="painting/Alignment-class.html">Alignment</a> in each dimension by the given factor.
+  将 <a href="painting/Alignment-class.html">Alignment</a> 的各个维度分别除以给定因子。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -460,7 +457,7 @@ left).
 
 </dt>
 <dd>
-  Integer divides the <a href="painting/Alignment-class.html">Alignment</a> in each dimension by the given factor.
+  将 <a href="painting/Alignment-class.html">Alignment</a> 的各个维度分别整除给定因子。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -480,7 +477,7 @@ left).
 
 </dt>
 <dd>
-  Linearly interpolate between two <a href="painting/FractionalOffset-class.html">FractionalOffset</a>。
+  在两个 <a href="painting/FractionalOffset-class.html">FractionalOffset</a> 之间进行线性插值。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>

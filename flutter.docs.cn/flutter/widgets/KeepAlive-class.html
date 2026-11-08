@@ -95,14 +95,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>将子组件标记为需要保持存活，即使它位于通常会被移除子组件的延迟列表中也不会被移除。</p>
 <p>此组件用于 <a href="rendering/RenderAbstractViewport-class.html">RenderAbstractViewport</a>，例如 <a href="widgets/Viewport-class.html">Viewport</a> 或 <a href="widgets/TwoDimensionalViewport-class.html">TwoDimensionalViewport</a>，以管理需要在滚动出视野后仍保持存活的组件的生命周期。</p>
-<p>The <a href="widgets/SliverChildBuilderDelegate-class.html">SliverChildBuilderDelegate</a> 和 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a> delegates,
-used with <a href="widgets/SliverList-class.html">SliverList</a> 和 <a href="widgets/SliverGrid-class.html">SliverGrid</a>, as well as the scroll view
-counterparts <a href="widgets/ListView-class.html">ListView</a> 和 <a href="widgets/GridView-class.html">GridView</a>, have an <code>addAutomaticKeepAlives</code>
-feature, which is enabled by default. This feature inserts
-<a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> widgets around each child, which in turn configure
-<a href="widgets/KeepAlive-class.html">KeepAlive</a> widgets in response to <a href="widgets/KeepAliveNotification-class.html">KeepAliveNotification</a>。</p>
-<p>The same <code>addAutomaticKeepAlives</code> feature is supported by
-<a href="widgets/TwoDimensionalChildBuilderDelegate-class.html">TwoDimensionalChildBuilderDelegate</a> 和 <a href="widgets/TwoDimensionalChildListDelegate-class.html">TwoDimensionalChildListDelegate</a>.</p>
+<p>与 <a href="widgets/SliverList-class.html">SliverList</a>、<a href="widgets/SliverGrid-class.html">SliverGrid</a> 以及对应的滚动视图 <a href="widgets/ListView-class.html">ListView</a>、<a href="widgets/GridView-class.html">GridView</a> 配合使用的 <a href="widgets/SliverChildBuilderDelegate-class.html">SliverChildBuilderDelegate</a> 和 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a>，默认启用了 <code>addAutomaticKeepAlives</code> 特性。此特性会在每个子项外插入 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 组件；这些组件会根据 <a href="widgets/KeepAliveNotification-class.html">KeepAliveNotification</a> 配置 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 组件。</p>
+<p><a href="widgets/TwoDimensionalChildBuilderDelegate-class.html">TwoDimensionalChildBuilderDelegate</a> 和 <a href="widgets/TwoDimensionalChildListDelegate-class.html">TwoDimensionalChildListDelegate</a> 也支持相同的 <code>addAutomaticKeepAlives</code> 特性。</p>
 <p>可以直接使用 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 管理保持存活的行为，也可以依赖通知。为方便起见，可在 <a href="widgets/State-class.html">State</a> 子类中混入 <a href="widgets/AutomaticKeepAliveClientMixin-mixin.html">AutomaticKeepAliveClientMixin</a>。详情请参阅 <a href="widgets/AutomaticKeepAliveClientMixin-mixin.html">AutomaticKeepAliveClientMixin</a> 文档。</p>
 <p>
 <a name="widgets.KeepAlive.1"></a>
@@ -113,8 +107,7 @@ feature, which is enabled by default. This feature inserts
 <p>此示例中的每个列表条目都是一个维护计数器的 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>。点击“+”按钮会增加计数器。为了有选择地保留状态，每个条目都会包在 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 组件中，并根据条目的索引设置 keepAlive 参数：</p>
 <ul>
 <li>对于偶数索引项，使用 <code>keepAlive: true</code>，因此即使滚出屏幕也会保留其状态。</li>
-<li>For odd-indexed items, <code>keepAlive: false</code>, so their state is discarded
-when they are no longer visible.
+<li>对于奇数索引项，使用 <code>keepAlive: false</code>，因此它们不可见时会丢弃其状态。</li>
 </div>
     <a class="anchor-button-overlay anchor-button" title="复制链接到剪贴板"
         onmouseenter="fixHref(this, 'widgets.KeepAlive.1');" onclick="fixHref(this, 'widgets.KeepAlive.1'); copyStringToClipboard(this.href);"
@@ -135,9 +128,7 @@ when they are no longer visible.
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a>，使子树可以请求在惰性列表中保持存活。</li>
-<li><a href="widgets/AutomaticKeepAliveClientMixin-mixin.html">AutomaticKeepAliveClientMixin</a>, which is a mixin with convenience
-methods for clients of <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a>. Used with <a href="widgets/State-class.html">State</a>
-的子类配合使用。</li>
+<li><a href="widgets/AutomaticKeepAliveClientMixin-mixin.html">AutomaticKeepAliveClientMixin</a> 是一个混入，为 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 的使用者提供便捷方法，适用于 <a href="widgets/State-class.html">State</a> 的子类。</li>
 </ul>
 </section>
 
@@ -206,8 +197,7 @@ methods for clients of <a href="widgets/AutomaticKeepAlive-class.html">Automatic
 
 </dt>
 <dd>
-  Describes the <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> that is typically used to set up the
-<a href="rendering/ParentData-class.html">ParentData</a> that <a href="widgets/KeepAlive/applyParentData.html">applyParentData</a> will write to.
+  描述通常用于设置 <a href="rendering/ParentData-class.html">ParentData</a> 的 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>；<a href="widgets/KeepAlive/applyParentData.html">applyParentData</a> 会将数据写入该 ParentData。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -219,8 +209,7 @@ methods for clients of <a href="widgets/AutomaticKeepAlive-class.html">Automatic
 
 </dt>
 <dd>
-  Describes the <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> that is typically used to set up the
-<a href="rendering/ParentData-class.html">ParentData</a> that <a href="widgets/KeepAlive/applyParentData.html">applyParentData</a> will write to.
+  描述通常用于设置 <a href="rendering/ParentData-class.html">ParentData</a> 的 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a>；<a href="widgets/KeepAlive/applyParentData.html">applyParentData</a> 会将数据写入该 ParentData。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -244,7 +233,7 @@ methods for clients of <a href="widgets/AutomaticKeepAlive-class.html">Automatic
 
 </dt>
 <dd>
-  Whether to keep the child alive.
+  是否保持子组件存活。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -316,8 +305,7 @@ methods for clients of <a href="widgets/AutomaticKeepAlive-class.html">Automatic
 
 </dt>
 <dd>
-  Whether the <a href="widgets/ParentDataElement/applyWidgetOutOfTurn.html">ParentDataElement.applyWidgetOutOfTurn</a> method is allowed
-with this widget.
+  是否允许此组件使用 <a href="widgets/ParentDataElement/applyWidgetOutOfTurn.html">ParentDataElement.applyWidgetOutOfTurn</a> 方法。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -356,8 +344,7 @@ with this widget.
 
 </dt>
 <dd class="inherited">
-  Checks if this widget can apply its parent data to the provided
-<code>renderObject</code>.
+  检查此组件是否可以将其父级数据应用于给定的 <code>renderObject</code>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
