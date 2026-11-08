@@ -349,10 +349,8 @@ class SignUpPage extends StatelessWidget {
 <h2 id="state-restoration">状态恢复</h2>
 <p>如果提供了 <a href="widgets/Navigator/restorationScopeId.html">restorationScopeId</a>，且此 <a href="widgets/Navigator-class.html">Navigator</a> 位于有效的 <a href="widgets/RestorationScope-class.html">RestorationScope</a> 中，那么状态恢复时，Navigator 会重新创建当前的 <a href="widgets/Route-class.html">Route</a> 历史堆栈，并恢复这些 <a href="widgets/Route-class.html">Route</a> 的内部状态。不过，堆栈中的 <a href="widgets/Route-class.html">Route</a> 并非都能恢复：</p>
 <ul>
-<li><a href="widgets/Page-class.html">Page</a>-based routes restore their state if <a href="widgets/Page/restorationId.html">Page.restorationId</a> is
-provided.</li>
-<li><a href="widgets/Route-class.html">Route</a>s added with the classic imperative API (<a href="widgets/Navigator/push.html">push</a>, <a href="widgets/Navigator/pushNamed.html">pushNamed</a>, and
-friends) can never restore their state.</li>
+<li>基于 <a href="widgets/Page-class.html">Page</a> 的路由在提供 <a href="widgets/Page/restorationId.html">Page.restorationId</a> 时会恢复其状态。</li>
+<li>通过经典命令式 API（<a href="widgets/Navigator/push.html">push</a>、<a href="widgets/Navigator/pushNamed.html">pushNamed</a> 等）添加的 <a href="widgets/Route-class.html">Route</a> 永远无法恢复其状态。</li>
 <li>通过可恢复的命令式 API（<a href="widgets/Navigator/restorablePush.html">restorablePush</a>、<a href="widgets/Navigator/restorablePushNamed.html">restorablePushNamed</a> 以及其他名称中含有“restorable”的命令式方法）添加的 <a href="widgets/Route-class.html">Route</a>，会在它下方直到第一个基于 <a href="widgets/Page-class.html">Page</a> 的路由（含该路由）都已恢复后，恢复自身状态。如果下方没有基于 <a href="widgets/Page-class.html">Page</a> 的路由，则只有当它下方的所有路由都恢复时，它才会恢复状态。</li>
 </ul>
 <p>如果 <a href="widgets/Route-class.html">Route</a> 可以恢复，<a href="widgets/Navigator-class.html">Navigator</a> 会为其 <a href="widgets/Route/restorationScopeId.html">Route.restorationScopeId</a> 设置一个非 null 值。路由可以使用该 ID 保存和恢复自身状态。例如，<a href="widgets/ModalRoute-class.html">ModalRoute</a> 会使用此 ID 为其内容 widget 创建 <a href="widgets/RestorationScope-class.html">RestorationScope</a>。</p>
