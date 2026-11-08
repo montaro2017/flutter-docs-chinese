@@ -95,24 +95,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>描述 <a href="widgets/Element-class.html">Element</a> 的配置。</p>
-<p>Widget 是 Flutter 框架核心的类层次结构。widget 是用户界面某一部分的不可变描述。widget 可以具体化为 element，由 element 管理底层的 render 树。</p>
-<p>widget 本身没有可变状态（所有字段都必须是 final）。如果要将可变状态与 widget 关联，请考虑使用 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>。每当它具体化为 element 并加入树中时，都会通过 <a href="widgets/StatefulWidget/createState.html">StatefulWidget.createState</a> 创建一个 <a href="widgets/State-class.html">State</a> 对象。</p>
+<p>Widget 是 Flutter 框架类层次结构的核心。Widget 是对用户界面某一部分的不可变描述。Widget 可以膨胀为 Element，由 Element 管理底层渲染树。</p>
+<p>Widget 本身没有可变状态（所有字段都必须是 final）。如果要将可变状态与 Widget 关联，可以使用 <a href="widgets/StatefulWidget-class.html">StatefulWidget</a>；每当该 Widget 被膨胀为 Element 并纳入树中时，<a href="widgets/StatefulWidget/createState.html">StatefulWidget.createState</a> 都会创建一个 <a href="widgets/State-class.html">State</a> 对象。</p>
 <p>给定的 Widget 可以在树中出现零次或多次。尤其是，同一个 Widget 可以多次放入树中。每次放入树中时，它都会膨胀为一个 <a href="widgets/Element-class.html">Element</a>；因此，多次纳入树中的 Widget 也会多次膨胀。</p>
-<p>The <a href="widgets/Widget/key.html">key</a> property controls how one widget replaces another widget in the
-tree. If the <a href="dart-core/Object/runtimeType.html">runtimeType</a> 和 <a href="widgets/Widget/key.html">key</a> properties of the two widgets are
-<a href="widgets/Widget/operator_equals.html">operator==</a>, respectively, then the new widget replaces the old widget by
-updating the underlying element (i.e., by calling <a href="widgets/Element/update.html">Element.update</a> with the
-new widget). Otherwise, the old element is removed from the tree, the new
-widget is inflated into an element, and the new element is inserted into the
-tree.</p>
+<p><a href="widgets/Widget/key.html">key</a> 属性决定树中的一个 Widget 如何替换另一个 Widget。如果两个 Widget 的 <a href="dart-core/Object/runtimeType.html">runtimeType</a> 和 <a href="widgets/Widget/key.html">key</a> 属性分别相等（通过 <a href="widgets/Widget/operator_equals.html">operator==</a> 判断），新 Widget 会通过更新底层的 Element（即调用 <a href="widgets/Element/update.html">Element.update</a> 并传入新 Widget）来替换旧 Widget。否则，旧 Element 会从树中移除，新 Widget 会膨胀为 Element，并将新的 Element 插入树中。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 和 <a href="widgets/State-class.html">State</a>, for widgets that can build differently
-several times over their lifetime.</li>
-<li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a>, for widgets that introduce ambient state that can
-be read by descendant widgets.</li>
-<li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a>, for widgets that always build the same way given a
-particular configuration and ambient state.</li>
+<li><a href="widgets/StatefulWidget-class.html">StatefulWidget</a> 和 <a href="widgets/State-class.html">State</a>，适用于生命周期内可能多次以不同方式构建的 widget。</li>
+<li><a href="widgets/InheritedWidget-class.html">InheritedWidget</a>，适用于引入环境状态、供后代 widget 读取的 widget。</li>
+<li><a href="widgets/StatelessWidget-class.html">StatelessWidget</a>，适用于在给定特定配置和环境状态时始终以相同方式构建的 widget。</li>
 </ul>
 </section>
 
@@ -164,7 +155,7 @@ particular configuration and ambient state.</li>
           <span class="name"><a href="widgets/Widget/Widget.html">Widget</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span></span>})</span>
         </dt>
         <dd>
-          Initializes <code>key</code> for subclasses.
+          为子类初始化 <code>key</code>。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -373,8 +364,7 @@ particular configuration and ambient state.</li>
 
 </dt>
 <dd>
-  Whether the <code>newWidget</code> can be used to update an <a href="widgets/Element-class.html">Element</a> that currently
-has the <code>oldWidget</code> as its configuration.
+  判断 <code>newWidget</code> 是否可用于更新当前配置为 <code>oldWidget</code> 的 <a href="widgets/Element-class.html">Element</a>。
   
 
 </dd>
