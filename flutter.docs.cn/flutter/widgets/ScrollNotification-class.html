@@ -97,14 +97,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>与滚动相关的 <a href="widgets/Notification-class.html">Notification</a>。</p>
 <p><a href="widgets/Scrollable-class.html">Scrollable</a> 组件会向其祖先通知滚动相关变化。这些通知的生命周期如下：</p>
 <ul>
-<li>A <a href="widgets/ScrollStartNotification-class.html">ScrollStartNotification</a>, which indicates that the widget has started
-scrolling.</li>
+<li>表示组件已开始滚动的 <a href="widgets/ScrollStartNotification-class.html">ScrollStartNotification</a>。</li>
 <li>零个或多个 <a href="widgets/ScrollUpdateNotification-class.html">ScrollUpdateNotification</a>，表示 widget 已改变滚动位置；它们可能与零个或多个 <a href="widgets/OverscrollNotification-class.html">OverscrollNotification</a> 交替出现。后者表示滚动位置没有改变，因为该变化会使滚动位置超出其滚动边界。</li>
 <li><a href="widgets/ScrollUpdateNotification-class.html">ScrollUpdateNotification</a> 和 <a href="widgets/OverscrollNotification-class.html">OverscrollNotification</a> 之间会穿插零个或多个 <a href="widgets/UserScrollNotification-class.html">UserScrollNotification</a>，它们表示用户改变了滚动方向。</li>
-<li>A <a href="widgets/ScrollEndNotification-class.html">ScrollEndNotification</a>, which indicates that the widget has stopped
-scrolling.</li>
-<li>A <a href="widgets/UserScrollNotification-class.html">UserScrollNotification</a>, with a <a href="widgets/UserScrollNotification/direction.html">UserScrollNotification.direction</a> of
-<a href="rendering/ScrollDirection.html">ScrollDirection.idle</a>.</li>
+<li>表示组件已停止滚动的 <a href="widgets/ScrollEndNotification-class.html">ScrollEndNotification</a>。</li>
+<li><a href="widgets/UserScrollNotification-class.html">UserScrollNotification</a>，其 <a href="widgets/UserScrollNotification/direction.html">UserScrollNotification.direction</a> 为 <a href="rendering/ScrollDirection.html">ScrollDirection.idle</a>。</li>
 </ul>
 <p>通知会沿组件树向上传递，因此给定的 <a href="widgets/NotificationListener-class.html">NotificationListener</a> 会收到所有后代 <a href="widgets/Scrollable-class.html">Scrollable</a> 组件发出的通知。若只关注最近的 <a href="widgets/Scrollable-class.html">Scrollable</a> 后代发出的通知，请检查通知的 <a href="widgets/ViewportNotificationMixin/depth.html">depth</a> 属性是否为零。</p>
 <p><a href="widgets/NotificationListener-class.html">NotificationListener</a> 收到滚动通知时，监听器所在组件的构建和布局已经完成，因此再调用 <a href="widgets/State/setState.html">State.setState</a> 为时已晚。尝试根据滚动通知调整构建或布局，会导致布局落后一个帧，用户体验不佳。因此，滚动通知主要适用于绘制效果（绘制发生在布局之后）。使用滚动通知的绘制效果示例包括 <a href="widgets/GlowingOverscrollIndicator-class.html">GlowingOverscrollIndicator</a> 和 <a href="material/Scrollbar-class.html">Scrollbar</a>。</p>
@@ -249,8 +246,7 @@ scrolling.</li>
 
 </dt>
 <dd>
-  A description of a <a href="widgets/Scrollable-class.html">Scrollable</a>'s contents, useful for modeling the state
-of its viewport.
+  对 <a href="widgets/Scrollable-class.html">Scrollable</a> 内容的描述，可用于模拟其视口状态。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
