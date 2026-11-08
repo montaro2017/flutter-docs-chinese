@@ -96,10 +96,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>组合字节和文本的输出接收器。</p>
 <p><a href="dart-io/IOSink-class.html">IOSink</a> 将字节 <a href="dart-async/StreamSink-class.html">StreamSink</a> 与文本 <a href="dart-core/StringSink-class.html">StringSink</a> 组合起来，便于同时输出字节和文本。</p>
-<p><code>IOSink</code> 用于写入字节。通过 <a href="dart-io/IOSink/write.html">write</a> 或 <a href="dart-io/IOSink/writeCharCode.html">writeCharCode</a> 写入的字符串会使用 <a href="dart-io/IOSink/encoding.html">encoding</a> 转换为字节。通过 <a href="dart-io/IOSink/add.html">add</a> 或 <a href="dart-io/IOSink/addStream.html">addStream</a> 添加的整数数据会被视为字节数据，并会像使用 <a href="dart-core/int/toUnsigned.html">int.toUnsigned</a> 一样截断为无符号 8 位值。无法保证转换何时发生，因为这取决于 sink 的具体实现。</p>
+<p><code>IOSink</code> 用于写入字节。通过 <a href="dart-io/IOSink/write.html">write</a> 或 <a href="dart-io/IOSink/writeCharCode.html">writeCharCode</a> 写入的字符串会使用 <a href="dart-io/IOSink/encoding.html">encoding</a> 转换为字节。通过 <a href="dart-io/IOSink/add.html">add</a> 或 <a href="dart-io/IOSink/addStream.html">addStream</a> 添加的整数数据会被视为字节数据，并会像使用 <a href="dart-core/int/toUnsigned.html">int.toUnsigned</a> 一样截断为无符号 8 位值。无法保证转换何时发生，因为这取决于输出接收器的具体实现。</p>
 <p>文本（<a href="dart-io/IOSink/write.html">write</a>）和字节（<a href="dart-io/IOSink/add.html">add</a>）可以自由交错写入。</p>
 <p>通过 <a href="dart-io/IOSink/addStream.html">addStream</a> 添加流期间，在 <a href="dart-io/IOSink/addStream.html">addStream</a> 完成之前，任何进一步向 <a href="dart-io/IOSink-class.html">IOSink</a> 添加或写入内容的操作都会失败。</p>
-<p>sink 关闭后，向 <a href="dart-io/IOSink-class.html">IOSink</a> 添加数据会导致错误。</p>
+<p>输出接收器关闭后，向 <a href="dart-io/IOSink-class.html">IOSink</a> 添加数据会导致错误。</p>
 </section>
 
 
@@ -141,7 +141,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="name"><a href="dart-io/IOSink/IOSink.html">IOSink</a></span><span class="signature">(<span class="parameter" id="-param-target"><span class="type-annotation"><a href="dart-async/StreamConsumer-class.html">StreamConsumer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">target</span>, {</span><span class="parameter" id="-param-encoding"><span class="type-annotation"><a href="dart-convert/Encoding-class.html">Encoding</a></span> <span class="parameter-name">encoding</span> = <span class="default-value">utf8</span></span>})</span>
         </dt>
         <dd>
-          Create an <a href="dart-io/IOSink-class.html">IOSink</a> that outputs to a <code>target</code> <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a> of bytes.
+          创建一个将字节输出到 <code>target</code> <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a> 的 <a href="dart-io/IOSink-class.html">IOSink</a>。
             <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>
@@ -159,8 +159,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  A future that will complete when the consumer closes, or when an
-error occurs.
+  当消费者关闭或发生错误时，此 Future 将完成。
   <div class="features"><span class="feature">无 setter</span><span class="feature">重写</span></div>
 
 </dd>
@@ -172,7 +171,7 @@ error occurs.
 
 </dt>
 <dd>
-  The <a href="dart-convert/Encoding-class.html">Encoding</a> used when writing strings.
+  写入字符串时使用的 <a href="dart-convert/Encoding-class.html">Encoding</a>。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -218,7 +217,7 @@ error occurs.
 
 </dt>
 <dd>
-  Adds byte <code>data</code> to the target consumer, ignoring <a href="dart-io/IOSink/encoding.html">encoding</a>.
+  将字节 <code>data</code> 添加到目标消费者，并忽略 <a href="dart-io/IOSink/encoding.html">encoding</a>。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -231,7 +230,7 @@ error occurs.
 
 </dt>
 <dd>
-  Passes the error to the target consumer as an error event.
+  将该错误作为错误事件传递给目标消费者。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -244,7 +243,7 @@ error occurs.
 
 </dt>
 <dd>
-  Adds all elements of the given <code>stream</code>.
+  添加给定 <code>stream</code> 的所有元素。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -257,7 +256,7 @@ error occurs.
 
 </dt>
 <dd>
-  Close the target consumer.
+  关闭目标消费者。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -270,8 +269,7 @@ error occurs.
 
 </dt>
 <dd>
-  Returns a <a href="dart-async/Future-class.html">Future</a> that completes once all buffered data is accepted by the
-underlying <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.
+  当所有缓冲数据都被底层 <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a> 接收后，<a href="dart-async/Future-class.html">Future</a> 即完成。
   
 
 </dd>
@@ -310,8 +308,7 @@ underlying <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.
 
 </dt>
 <dd>
-  Converts <code>object</code> to a String by invoking <a href="dart-core/Object/toString.html">Object.toString</a> 和
-<a href="dart-io/IOSink/add.html">add</a>s the encoding of the result to the target consumer.
+  调用 <a href="dart-core/Object/toString.html">Object.toString</a> 将 <code>object</code> 转换为 String，并通过 <a href="dart-io/IOSink/add.html">add</a> 将结果的编码写入目标消费者。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -324,7 +321,7 @@ underlying <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.
 
 </dt>
 <dd>
-  Iterates over the given <code>objects</code> 和 <a href="dart-io/IOSink/write.html">write</a>s them in sequence.
+  按顺序遍历给定的 <code>objects</code>，并逐个调用 <a href="dart-io/IOSink/write.html">write</a> 写入。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -337,7 +334,7 @@ underlying <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.
 
 </dt>
 <dd>
-  Writes the character of <code>charCode</code>.
+  写入 <code>charCode</code> 表示的字符。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
@@ -350,8 +347,7 @@ underlying <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.
 
 </dt>
 <dd>
-  Converts <code>object</code> to a String by invoking <a href="dart-core/Object/toString.html">Object.toString</a> and
-writes the result to <code>this</code>, followed by a newline.
+  调用 <a href="dart-core/Object/toString.html">Object.toString</a> 将 <code>object</code> 转换为 String，然后将结果写入 <code>this</code>，并追加换行符。
   <div class="features"><span class="feature">重写</span></div>
 
 </dd>
