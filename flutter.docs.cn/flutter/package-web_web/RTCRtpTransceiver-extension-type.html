@@ -95,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="desc markdown">
   <p>WebRTC 接口 <strong><code>RTCRtpTransceiver</code></strong> 表示 <a href="package-web_web/RTCRtpSender-extension-type.html">RTCRtpSender</a> 与 <a href="package-web_web/RTCRtpReceiver-extension-type.html">RTCRtpReceiver</a> 的固定配对，以及二者共享的部分状态。</p>
 <p>每个媒体区段都描述一个双向 SRTP（“安全实时传输协议”）流；如果存在 <a href="package-web_web/RTCDataChannel-extension-type.html">RTCDataChannel</a>，则其媒体区段除外。对于某些应用，发送和接收 SRTP 流的这种配对很重要，因此使用 <code>RTCRtpTransceiver</code> 表示该配对以及媒体区段中的其他重要状态。每个未禁用的 SRTP 媒体区段始终恰好对应一个 transceiver。</p>
-<p>transceiver 通过其 <a href="package-web_web/RTCRtpTransceiver/mid.html">RTCRtpTransceiver.mid</a> 属性唯一标识，该属性与对应 m-line 的媒体 ID（<code>mid</code>）相同。当 <code>mid</code> 非 null 时，<code>RTCRtpTransceiver</code> 与某个 m-line 相关联；否则视为未关联。</p>
+<p>每个收发器都通过其 <a href="package-web_web/RTCRtpTransceiver/mid.html">RTCRtpTransceiver.mid</a> 属性唯一标识；该属性与对应媒体区段（m-line）的媒体 ID（<code>mid</code>）相同。当 <code>mid</code> 非 <code>null</code> 时，<code>RTCRtpTransceiver</code> 与某个媒体区段相关联；否则视为未关联。</p>
 <hr>
 <p>API 文档来源：<a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCRtpTransceiver">MDN Web Docs</a>。</p>
 </section>
@@ -143,9 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  The read-only <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 属性 <strong><code>currentDirection</code></strong> is a
-string which indicates the current negotiated directionality of the
-transceiver.
+  只读属性 <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 的 <strong><code>currentDirection</code></strong> 是一个字符串，表示 transceiver 当前协商确定的方向。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -157,8 +155,7 @@ transceiver.
 
 </dt>
 <dd>
-  The <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 属性 <strong><code>direction</code></strong> is a string that
-indicates the transceiver's <em>preferred</em> directionality.
+  <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 的属性 <strong><code>direction</code></strong> 是一个字符串，表示 transceiver 的<em>首选</em>方向。
   <div class="features"><span class="feature">getter/setter 对</span></div>
 
 </dd>
@@ -257,10 +254,7 @@ indicates the transceiver's <em>preferred</em> directionality.
 
 </dt>
 <dd>
-  The read-only <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> interface's
-<strong><code>mid</code></strong> property specifies the negotiated media ID
-(<code>mid</code>) which the local and remote peers have agreed upon to uniquely
-identify the stream's pairing of sender and receiver.
+  <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 接口的只读属性 <strong><code>mid</code></strong> 指定协商后的媒体 ID（<code>mid</code>），该 ID 由本地端与远端共同确定，用于唯一标识流中的发送端与接收端配对。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -287,10 +281,7 @@ identify the stream's pairing of sender and receiver.
 
 </dt>
 <dd>
-  The read-only <strong><code>receiver</code></strong> property
-of WebRTC's <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> interface indicates the
-<a href="package-web_web/RTCRtpReceiver-extension-type.html">RTCRtpReceiver</a> responsible for receiving and decoding incoming media
-data for the transceiver's stream.
+  只读属性 <strong><code>receiver</code></strong> 属于 WebRTC 的 <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 接口，表示该 transceiver 媒体流中负责接收并解码传入媒体数据的 <a href="package-web_web/RTCRtpReceiver-extension-type.html">RTCRtpReceiver</a>。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -314,10 +305,7 @@ data for the transceiver's stream.
 
 </dt>
 <dd>
-  The read-only <strong><code>sender</code></strong> property
-of WebRTC's <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> interface indicates the
-<a href="package-web_web/RTCRtpSender-extension-type.html">RTCRtpSender</a> responsible for encoding and sending outgoing media data
-for the transceiver's stream.
+  只读属性 <strong><code>sender</code></strong> 属于 WebRTC 的 <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 接口，表示该 transceiver 媒体流中负责编码并发送传出媒体数据的 <a href="package-web_web/RTCRtpSender-extension-type.html">RTCRtpSender</a>。
   <div class="features"><span class="feature">无 setter</span></div>
 
 </dd>
@@ -704,8 +692,7 @@ for the transceiver's stream.
 
 </dt>
 <dd>
-  The <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 方法 <strong><code>setCodecPreferences()</code></strong> configures the
-transceiver's preferred list of codecs.
+  <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 的 <strong><code>setCodecPreferences()</code></strong> 方法用于配置 transceiver 的首选编解码器列表。
   
 
 </dd>
@@ -734,9 +721,7 @@ transceiver's preferred list of codecs.
 
 </dt>
 <dd>
-  The <strong><code>stop()</code></strong> method in the <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> interface permanently
-stops the transceiver by stopping both the associated <a href="package-web_web/RTCRtpSender-extension-type.html">RTCRtpSender</a> 和
-<a href="package-web_web/RTCRtpReceiver-extension-type.html">RTCRtpReceiver</a>.
+  <strong><code>stop()</code></strong> 方法属于 <a href="package-web_web/RTCRtpTransceiver-extension-type.html">RTCRtpTransceiver</a> 接口；它会永久停止 transceiver，同时停止关联的 <a href="package-web_web/RTCRtpSender-extension-type.html">RTCRtpSender</a> 和 <a href="package-web_web/RTCRtpReceiver-extension-type.html">RTCRtpReceiver</a>。
   
 
 </dd>
