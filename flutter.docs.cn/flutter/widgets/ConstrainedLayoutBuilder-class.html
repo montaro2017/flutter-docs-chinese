@@ -97,10 +97,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>一种专用的 <a href="widgets/AbstractLayoutBuilder-class.html">AbstractLayoutBuilder</a>，其组件子树取决于将施加到该组件上的 <code>ConstraintType</code> 输入约束。</p>
 <p>在以下情况下会调用 <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数：</p>
 <ul>
-<li>The first time the widget is laid out.</li>
-<li>When the parent widget passes different layout constraints.</li>
-<li>When the parent widget updates this widget and <a href="widgets/AbstractLayoutBuilder/updateShouldRebuild.html">updateShouldRebuild</a> returns <code>true</code>.</li>
-<li>When the dependencies that the <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> function subscribes to change.</li>
+<li>widget 首次进行布局时。</li>
+<li>父级 widget 传入不同的布局约束时。</li>
+<li>父级 widget 更新此 widget 且 <a href="widgets/AbstractLayoutBuilder/updateShouldRebuild.html">updateShouldRebuild</a> 返回 <code>true</code> 时。</li>
+<li><a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数所订阅的依赖发生变化时。</li>
 </ul>
 <p>如果父级重复传入相同约束，布局期间<strong>不会</strong>调用 <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数。</p>
 <p>如果某个祖先跳过此子树的布局，导致约束过期，<code>builder</code> 会使用最近一次已知的约束重新构建。</p>
@@ -146,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="name"><a href="widgets/ConstrainedLayoutBuilder/ConstrainedLayoutBuilder.html">ConstrainedLayoutBuilder</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-builder"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">builder</span>(<span class="parameter" id="param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="param-constraints"><span class="type-annotation">ConstraintType</span> <span class="parameter-name">constraints</span></span>)</span>})</span>
         </dt>
         <dd>
-          Creates a widget that defers its building until layout.
+          创建一个延迟到布局阶段才构建的 widget。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -164,7 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd>
-  Called at layout time to construct the widget tree.
+  在布局阶段调用以构建 widget 树。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -378,8 +378,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  Whether <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a> needs to be called again even if the layout constraints
-are the same.
+  即使布局约束相同，是否仍需再次调用 <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
