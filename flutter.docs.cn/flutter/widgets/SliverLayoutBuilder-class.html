@@ -97,16 +97,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>它类似于 <a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a> widget，不过其构建器应返回一个 sliver widget，而 <a href="widgets/SliverLayoutBuilder-class.html">SliverLayoutBuilder</a> 本身也是一个 sliver。框架会在布局时调用 <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数，并提供当前的 <a href="rendering/SliverConstraints-class.html">SliverConstraints</a>。<a href="widgets/SliverLayoutBuilder-class.html">SliverLayoutBuilder</a> 最终的 <a href="rendering/SliverGeometry-class.html">SliverGeometry</a> 与其子项的 <a href="rendering/SliverGeometry-class.html">SliverGeometry</a> 相同。</p>
 <p>在以下情况下会调用 <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数：</p>
 <ul>
-<li>The first time the widget is laid out.</li>
-<li>When the parent widget passes different layout constraints.</li>
-<li>When the parent widget updates this widget and <a href="widgets/AbstractLayoutBuilder/updateShouldRebuild.html">updateShouldRebuild</a> returns <code>true</code>.</li>
-<li>When the dependencies that the <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> function subscribes to change.</li>
+<li>widget 首次进行布局时。</li>
+<li>父级 widget 传入不同的布局约束时。</li>
+<li>父级 widget 更新此 widget 且 <a href="widgets/AbstractLayoutBuilder/updateShouldRebuild.html">updateShouldRebuild</a> 返回 <code>true</code> 时。</li>
+<li><a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数所订阅的依赖发生变化时。</li>
 </ul>
 <p>如果父级反复传入相同的约束，布局期间<strong>不会</strong>调用 <a href="widgets/ConstrainedLayoutBuilder/builder.html">builder</a> 函数。</p>
 <p>如果某个祖先跳过了此子树的布局，导致约束过时，<code>builder</code> 会使用最近一次已知的约束重新构建。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a>, the non-sliver version of this widget.</li>
+<li><a href="widgets/LayoutBuilder-class.html">LayoutBuilder</a>，此 widget 的非 sliver 版本。</li>
 </ul>
 </section>
 
@@ -146,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="name"><a href="widgets/SliverLayoutBuilder/SliverLayoutBuilder.html">SliverLayoutBuilder</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-builder"><span>required</span> <span class="type-annotation"><a href="widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">builder</span>(<span class="parameter" id="param-context"><span class="type-annotation"><a href="widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="param-constraints"><span class="type-annotation"><a href="rendering/SliverConstraints-class.html">SliverConstraints</a></span> <span class="parameter-name">constraints</span></span>)</span>})</span>
         </dt>
         <dd>
-          Creates a sliver widget that defers its building until layout.
+          创建一个延迟到布局阶段才构建的 sliver widget。
             <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
@@ -164,7 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  Called at layout time to construct the widget tree.
+  在布局阶段调用以构建 widget 树。
   <div class="features"><span class="feature">final</span><span class="feature">继承</span></div>
 
 </dd>
@@ -378,8 +378,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </dt>
 <dd class="inherited">
-  Whether <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a> needs to be called again even if the layout constraints
-are the same.
+  即使布局约束相同，是否仍需再次调用 <a href="widgets/AbstractLayoutBuilder/builder.html">builder</a>。
   <div class="features"><span class="feature">继承</span></div>
 
 </dd>
