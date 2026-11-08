@@ -104,22 +104,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <p>此 widget 仍处于挂载状态时，鼠标指针离开该 widget 会触发。</p>
 <p>当指针（无论是否按下按钮）不再位于此 widget 的区域内时，会触发此回调；因该 widget 消失而导致的退出除外。具体来说，以下情况会触发此回调：</p>
 <ul>
-<li>A pointer that is hovering this widget has moved away.</li>
-<li>A pointer that is hovering this widget has been removed.</li>
-<li>This widget, which is being hovered by a pointer, has moved away.</li>
+<li>原本悬停在此 widget 上的指针已移开。</li>
+<li>原本悬停在此 widget 上的指针已被移除。</li>
+<li>正被指针悬停的此 widget 已移出指针所在区域。</li>
 </ul>
 <p>以下情况则<strong>不会</strong>触发：</p>
 <ul>
-<li>This widget, which is being hovered by a pointer, has disappeared.</li>
+<li>正被指针悬停的此 widget 已消失。</li>
 </ul>
 <p>因此，<a href="widgets/MouseRegion/onExit.html">MouseRegion.onExit</a> 可能没有对应的 <a href="widgets/MouseRegion/onEnter.html">MouseRegion.onEnter</a>。</p>
-<p>This restriction aims to prevent a common misuse: if <a href="widgets/State/setState.html">State.setState</a> is
-called during <a href="widgets/MouseRegion/onExit.html">MouseRegion.onExit</a> without checking whether the widget is
-still mounted, an exception will occur. This is because the callback is
-triggered during the post-frame phase, at which point the widget has been
-unmounted. Since <a href="widgets/State/setState.html">State.setState</a> is exclusive to widgets, the restriction
-is specific to <a href="widgets/MouseRegion-class.html">MouseRegion</a>, and does not apply to its lower-level
-counterparts, <a href="rendering/RenderMouseRegion-class.html">RenderMouseRegion</a> 和 <a href="services/MouseTrackerAnnotation-class.html">MouseTrackerAnnotation</a>.</p>
+<p>此限制旨在避免一种常见误用：如果在 <a href="widgets/MouseRegion/onExit.html">MouseRegion.onExit</a> 中调用 <a href="widgets/State/setState.html">State.setState</a> 时未检查 widget 是否仍处于挂载状态，就会抛出异常。原因是该回调在帧后阶段触发，此时 widget 已卸载。由于 <a href="widgets/State/setState.html">State.setState</a> 仅适用于 widget，此限制只针对 <a href="widgets/MouseRegion-class.html">MouseRegion</a>，不适用于其更底层的对应实现 <a href="rendering/RenderMouseRegion-class.html">RenderMouseRegion</a> 和 <a href="services/MouseTrackerAnnotation-class.html">MouseTrackerAnnotation</a>。</p>
 <p>有几种方法可以缓解此限制：</p>
 <ul>
 <li>如果悬停状态完全包含在一个无条件创建此 <a href="widgets/MouseRegion-class.html">MouseRegion</a> 的 widget 中，就无需担心此问题，因为卸载 <a href="widgets/MouseRegion-class.html">MouseRegion</a> 后，该状态便不再使用。</li>
@@ -170,8 +164,7 @@ counterparts, <a href="rendering/RenderMouseRegion-class.html">RenderMouseRegion
 <p>另请参阅：</p>
 <ul>
 <li><a href="widgets/MouseRegion/onEnter.html">onEnter</a>，当鼠标指针进入该区域时触发。</li>
-<li><a href="rendering/RenderMouseRegion-class.html">RenderMouseRegion</a> 和 <a href="services/MouseTrackerAnnotation/onExit.html">MouseTrackerAnnotation.onExit</a>, which are how
-this callback is internally implemented, but without the restriction.</li>
+<li><a href="rendering/RenderMouseRegion-class.html">RenderMouseRegion</a> 和 <a href="services/MouseTrackerAnnotation/onExit.html">MouseTrackerAnnotation.onExit</a> 是此回调的底层实现方式，不受上述限制。</li>
 </ul>
 </section>
 
