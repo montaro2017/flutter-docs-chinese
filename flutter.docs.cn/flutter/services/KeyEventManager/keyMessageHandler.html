@@ -113,22 +113,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 id="handlers-and-event-results">处理器与事件结果</h2>
 <p>大致而言，Flutter 会按以下阶段处理每个原生按键事件：</p>
 <ol>
-<li>Platform-side pre-filtering, sometimes used for IME.</li>
-<li>The key event system.</li>
-<li>The text input system.</li>
-<li>Other native components (possibly non-Flutter).</li>
+<li>平台侧预筛选，有时用于输入法（IME）。</li>
+<li>按键事件系统。</li>
+<li>文本输入系统。</li>
+<li>其他原生组件（可能并非 Flutter 组件）。</li>
 </ol>
 <p>每个阶段都会产生一个称为“事件结果”的布尔值。结果为 true 时，表示该阶段已<em>处理</em>此事件，并阻止其传递到下一阶段。借助此机制，“Ctrl-C”等快捷键不会在文本字段中输入字符“C”；未被任何组件处理的快捷键也可以触发特殊提示（例如 macOS 上的“bonk”提示音）。</p>
 <p>在第二阶段（即“按键事件系统”）中，事件会分发到多个目标：<a class="deprecated" href="services/RawKeyboard-class.html">RawKeyboard</a> 的监听器、<a href="services/HardwareKeyboard-class.html">HardwareKeyboard</a> 的处理器，以及 <a class="deprecated" href="services/KeyEventManager/keyMessageHandler.html">keyMessageHandler</a>。无论处理器返回什么结果，所有目标都会收到该事件。只要任一处理器的结果为 true，第二阶段的总体结果就为 true，并会停止事件继续传递。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="services/RawKeyboard/addListener.html">RawKeyboard.addListener</a>, which adds a raw keyboard listener.</li>
-<li><a class="deprecated" href="widgets/RawKeyboardListener-class.html">RawKeyboardListener</a>, which is also implemented by adding a raw
-keyboard listener.</li>
-<li><a href="services/HardwareKeyboard/addHandler.html">HardwareKeyboard.addHandler</a>, which adds a hardware keyboard handler.</li>
+<li><a href="services/RawKeyboard/addListener.html">RawKeyboard.addListener</a>，用于添加原始键盘监听器。</li>
+<li><a class="deprecated" href="widgets/RawKeyboardListener-class.html">RawKeyboardListener</a>，其实现方式也是添加原始键盘监听器。</li>
+<li><a href="services/HardwareKeyboard/addHandler.html">HardwareKeyboard.addHandler</a>，用于添加硬件键盘处理器。</li>
 </ul>
 <h2 id="advanced-usages-manual-assignment-or-patching">高级用法：手动赋值或修补</h2>
-<p>如果不使用焦点系统管理焦点，可将此属性设为一个 <a class="deprecated" href="services/KeyMessageHandler.html">KeyMessageHandler</a>；当平台不应继续传递事件时，该处理器应返回 true。如果此字段为 null，则假定 Flutter 未处理按键事件，结果为 false。</p>
+<p>如果不使用焦点系统管理焦点，可将此属性设为一个 <a class="deprecated" href="services/KeyMessageHandler.html">KeyMessageHandler</a>；若平台不应继续传播该事件，则该处理器应返回 true。如果此字段为 null，则按 Flutter 未处理按键事件处理，结果为 false。</p>
 <p>即使使用焦点系统，你可能仍需执行其功能范围之外的操作。这时可以将 <a class="deprecated" href="services/KeyEventManager/keyMessageHandler.html">keyMessageHandler</a> 设为一个回调来<em>修补</em>原处理器：先执行自己的任务，再调用原回调（也可以完全不调用）。</p>
 <p>对 <a class="deprecated" href="services/KeyEventManager/keyMessageHandler.html">keyMessageHandler</a> 的修补无法撤销。应始终假设其他组件可能在你之前或之后修补此处理器。因此，你可能需要编写自己的全局通知管理器，以便添加和移除回调。</p>
 <p>在 <code>FocusManager</code> 赋值回调之前，不应修补 <a class="deprecated" href="services/KeyEventManager/keyMessageHandler.html">keyMessageHandler</a>。在组件生命周期中的任何时刻（例如 <code>initState</code>）或调用 <code>WidgetManager.instance</code> 后，都能确保该回调已完成赋值。</p>
@@ -158,8 +157,7 @@ keyboard listener.</li>
 </p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="services/HardwareKeyboard/addHandler.html">HardwareKeyboard.addHandler</a>, which accepts multiple global handlers to
-process <a href="services/KeyEvent-class.html">KeyEvent</a>s</li>
+<li><a href="services/HardwareKeyboard/addHandler.html">HardwareKeyboard.addHandler</a>，可接受多个全局处理器来处理<a href="services/KeyEvent-class.html">KeyEvent</a>。</li>
 </ul>
 </section>
 
