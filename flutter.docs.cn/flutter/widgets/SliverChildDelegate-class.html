@@ -110,10 +110,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </li>
 <li>
 <p>将 <a href="widgets/KeepAlive-class.html">KeepAlive</a> 设为需要保留的 sliver 子项 widget 子树的根 widget。<a href="widgets/KeepAlive-class.html">KeepAlive</a> 会将子树顶部的渲染对象子项标记为需要保持活动状态。当关联的顶部渲染对象滚出视野时，sliver 会将子项渲染对象（以及相应的元素和状态）保存在缓存列表中，而不是销毁它们。滚回视野时，渲染对象会按原样重新绘制（如果期间没有被标记为脏）。</p>
-<p>This only works if the <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> subclasses don't wrap the
-child widget subtree with other widgets such as <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 和
-<a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> via <code>addAutomaticKeepAlives</code> 和
-<code>addRepaintBoundaries</code>.</p>
+<p>只有在 <a href="widgets/SliverChildDelegate-class.html">SliverChildDelegate</a> 子类不通过 <code>addAutomaticKeepAlives</code> 和
+<code>addRepaintBoundaries</code> 添加 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 和
+<a href="widgets/RepaintBoundary-class.html">RepaintBoundary</a> 等其他 widget 来包装子 widget 子树时，此方法才有效。</p>
 </li>
 <li>
 <p>使用 <a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> widget（默认由 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a> 或 <a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a> 插入）。<a href="widgets/AutomaticKeepAlive-class.html">AutomaticKeepAlive</a> 允许后代 widget 控制是否实际保留子树。此行为不同于 <a href="widgets/KeepAlive-class.html">KeepAlive</a>，后者会无条件保留子树。</p>
@@ -125,10 +124,8 @@ child widget subtree with other widgets such as <a href="widgets/AutomaticKeepAl
 <p>如果在单个滚动视图中使用多个委托对象，即使每个委托对象的第一个子项超出当前可视区域，也始终会对其进行布局。这是因为必须至少有一个子项，才能估算整个滚动视图的 <a href="widgets/SliverChildDelegate/estimateMaxScrollOffset.html">estimateMaxScrollOffset</a>；该估算会根据当前已构建的子项来推算其余子项的范围。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="widgets/SliverChildBuilderDelegate-class.html">SliverChildBuilderDelegate</a>, which is a delegate that uses a builder
-callback to construct the children.</li>
-<li><a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a>, which is a delegate that has an explicit list
-of children.</li>
+<li><a href="widgets/SliverChildBuilderDelegate-class.html">SliverChildBuilderDelegate</a>，这是一个使用 builder 回调构建子项的委托对象。</li>
+<li><a href="widgets/SliverChildListDelegate-class.html">SliverChildListDelegate</a>，这是一个显式持有子项列表的委托对象。</li>
 </ul>
 </section>
 
@@ -225,7 +222,7 @@ of children.</li>
 
 </dt>
 <dd>
-  Returns the child with the given index.
+  返回指定索引处的子项。
   
 
 </dd>
@@ -251,7 +248,7 @@ of children.</li>
 
 </dt>
 <dd>
-  Called at the end of layout to indicate that layout is now complete.
+  在布局结束时调用，以表示布局已完成。
   
 
 </dd>
@@ -277,7 +274,7 @@ of children.</li>
 
 </dt>
 <dd>
-  Find index of child element with associated key.
+  查找具有指定键的子元素索引。
   
 
 </dd>
@@ -303,8 +300,7 @@ of children.</li>
 
 </dt>
 <dd>
-  Called whenever a new instance of the child delegate class is
-provided to the sliver.
+  每当向 sliver 提供新的子项委托类实例时调用。
   
 
 </dd>
