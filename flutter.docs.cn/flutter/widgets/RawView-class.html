@@ -94,12 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
 <section class="desc markdown">
   <p>用于为视图启动渲染树的底层核心组件 <a href="widgets/View-class.html">View</a> 实现。</p>
-<p>Typically, the <a href="widgets/View-class.html">View</a> widget is used instead of a <a href="widgets/RawView-class.html">RawView</a> widget to create
-a view, since, in addition to creating a view, it also adds some useful
-widgets, such as a <a href="widgets/MediaQuery-class.html">MediaQuery</a> 和 <a href="widgets/FocusScope-class.html">FocusScope</a>. The <a href="widgets/RawView-class.html">RawView</a> widget is
-only used directly if it is not desirable to have these additional widgets
-around the resulting widget tree. The <a href="widgets/View-class.html">View</a> widget uses the <a href="widgets/RawView-class.html">RawView</a>
-widget internally to manage its <a href="dart-ui/FlutterView-class.html">FlutterView</a>.</p>
+<p>通常使用 <a href="widgets/View-class.html">View</a> widget 而非 <a href="widgets/RawView-class.html">RawView</a> widget 来创建视图，因为 View 除了创建视图外，还会添加一些有用的 widget，例如 <a href="widgets/MediaQuery-class.html">MediaQuery</a> 和 <a href="widgets/FocusScope-class.html">FocusScope</a>。只有在不希望生成的 widget 树周围带有这些附加 widget 时，才直接使用 <a href="widgets/RawView-class.html">RawView</a>。<a href="widgets/View-class.html">View</a> widget 内部使用 <a href="widgets/RawView-class.html">RawView</a> widget 管理其 <a href="dart-ui/FlutterView-class.html">FlutterView</a>。</p>
 <p>此组件可作为组件树的根节点（不位于其他 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> 组件内），也可作为 <a href="widgets/ViewCollection-class.html">ViewCollection</a> 的子组件，或放入 <a href="widgets/ViewAnchor-class.html">ViewAnchor</a> 组件的 <a href="widgets/ViewAnchor/view.html">ViewAnchor.view</a> 插槽中。它不必是这些组件的直接子组件；两者之间可以有其他非 <a href="widgets/RenderObjectWidget-class.html">RenderObjectWidget</a> 组件，例如 <a href="widgets/InheritedWidget-class.html">InheritedWidget</a>。</p>
 <p>组件树中的每个 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 最多只能关联一个 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> 组件。任何时候，同一组件树中都不能同时存在两个或更多使用同一 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 配置的 <a href="widgets/View-class.html">View</a> 或 <a href="widgets/RawView-class.html">RawView</a> 组件。系统通过 <a href="widgets/GlobalObjectKey-class.html">GlobalObjectKey</a> 强制执行此限制，其标识由传给此组件的 <a href="widgets/RawView/view.html">view</a> 推导得出。</p>
 <p>由于 <a href="widgets/RawView-class.html">RawView</a> 组件会启动独立的渲染树，因此它及其后代都不会将 <a href="rendering/RenderObject-class.html">RenderObject</a> 插入现有渲染树。因此，<a href="widgets/RawView-class.html">RawView</a> 只能用于组件树中无需参与周围渲染树构建的部分。换言之，它只能放在组件树的非渲染区域中（渲染区域和非渲染区域的定义请参阅 <a href="widgets/WidgetsBinding-mixin.html">WidgetsBinding</a>）。</p>
@@ -162,8 +157,7 @@ widget internally to manage its <a href="dart-ui/FlutterView-class.html">Flutter
 
 </dt>
 <dd>
-  The widget below this widget in the tree, which will be drawn into the
-<a href="widgets/RawView/view.html">view</a>.
+  当前 widget 树中位于此 widget 下方、并将绘制到 <a href="widgets/RawView/view.html">view</a> 中的 widget。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
@@ -211,7 +205,7 @@ widget internally to manage its <a href="dart-ui/FlutterView-class.html">Flutter
 
 </dt>
 <dd>
-  The <a href="dart-ui/FlutterView-class.html">FlutterView</a> into which <a href="widgets/RawView/child.html">child</a> is drawn.
+  将 <a href="dart-ui/FlutterView-class.html">FlutterView</a> 作为绘制 <a href="widgets/RawView/child.html">child</a> 的目标视图。
   <div class="features"><span class="feature">final</span></div>
 
 </dd>
