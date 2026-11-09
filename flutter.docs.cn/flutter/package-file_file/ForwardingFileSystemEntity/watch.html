@@ -119,23 +119,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>
 <p><code>OS X</code>：使用 <a href="https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/FSEvents_ProgGuide/TechnologyOverview/TechnologyOverview.html">File System Events API</a>。此实现支持监视文件和目录，也支持递归监视。此 API 有以下限制：</p>
 <ul>
-<li>Changes that occurred shortly <em>before</em> the <a href="package-file_file/ForwardingFileSystemEntity/watch.html">watch</a> method was
-called may still appear in the <a href="dart-async/Stream-class.html">Stream</a>.</li>
-<li>Changes that occur in a short period of time may arrive
-out-of-order.</li>
-<li>Multiple changes made in a single directory may be coalesced into
-a single <code>FileSystemEvent</code>.</li>
+<li>更改可能在调用时点 <em>之前</em> 不久发生；调用 <a href="package-file_file/ForwardingFileSystemEntity/watch.html">watch</a> 方法后，这些更改仍可能出现在 <a href="dart-async/Stream-class.html">Stream</a> 中。</li>
+<li>短时间内发生的更改可能会乱序到达。</li>
+<li>同一目录中的多项更改可能会合并为一个 <code>FileSystemEvent</code>。</li>
 </ul>
 </li>
 </ul>
 <p>只有在开始监听返回的 <a href="dart-async/Stream-class.html">Stream</a> 后，系统才会开始监听事件；调用 <a href="package-file_file/ForwardingFileSystemEntity/watch.html">watch</a> 时不会立即开始。</p>
 <p>返回值是一个无限的广播 <a href="dart-async/Stream-class.html">Stream</a>，只有发生以下情况之一时才会停止：</p>
 <ul>
-<li>The <a href="dart-async/Stream-class.html">Stream</a> is canceled, e.g. by calling <code>cancel</code> on the
- <a href="dart-async/StreamSubscription-class.html">StreamSubscription</a>.</li>
-<li>The <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> being watched is deleted.</li>
-<li>System Watcher exits unexpectedly. e.g. On <code>Windows</code> this happens when
-buffer that receive events from <code>ReadDirectoryChangesW</code> overflows.</li>
+<li><a href="dart-async/Stream-class.html">Stream</a> 被取消，例如调用 <code>cancel</code> 取消 <a href="dart-async/StreamSubscription-class.html">StreamSubscription</a>。</li>
+<li>被监视的 <a href="dart-io/FileSystemEntity-class.html">FileSystemEntity</a> 被删除。</li>
+<li>System Watcher 意外退出。例如，在 <code>Windows</code> 上，接收 <code>ReadDirectoryChangesW</code> 事件的缓冲区溢出时会发生这种情况。</li>
 </ul>
 <p>使用 <code>events</code> 指定要监听的事件。<a href="dart-io/FileSystemEvent-class.html">FileSystemEvent</a> 中的常量可以通过按位或组合，以混合监听多个事件。默认值为 <a href="dart-io/FileSystemEvent/all-constant.html">FileSystemEvent.all</a>。</p>
 <p>移动事件可能会被报告为单独的删除事件和创建事件。</p>
