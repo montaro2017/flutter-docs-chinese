@@ -98,8 +98,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>任何静态类型<em>包含 <code>Finalizable</code></em> 的局部变量，都保证在执行离开该变量所在的代码块之前保持存活。</p>
 <p>如果满足以下任一条件，则类型<em>包含 <code>Finalizable</code></em>：</p>
 <ul>
-<li>the type is a non-<code>Never</code> subtype of <code>Finalizable</code>, or</li>
-<li>the type is <code>T?</code> or <code>FutureOr&lt;T&gt;</code> where <code>T</code> includes <code>Finalizable</code>.</li>
+<li>该类型是 <code>Finalizable</code> 的非 <code>Never</code> 子类型，或者</li>
+<li>该类型是 <code>T?</code> 或 <code>FutureOr&lt;T&gt;</code>，且 <code>T</code> 包含 <code>Finalizable</code>。</li>
 </ul>
 <p>换言之，只要此类变量引用着某个对象，该对象就保证<em>不会</em>被视为不可达；即使变量最后一次被引用之后，变量本身也会在其整个作用域期间保持存活。</p>
 <p><em>如果变量的类型没有此标记接口，只要确定变量之后不会再被引用，即使外围作用域尚未执行完毕，该变量的值也可能被垃圾回收。这反过来可能触发 <code>NativeFinalizer</code> 执行回调。当变量的类型包含 <a href="dart-ffi/Finalizable-class.html">Finalizable</a> 时，在当前使用该变量的代码执行完毕之前，不会运行 <code>NativeFinalizer</code> 回调。</em></p>
