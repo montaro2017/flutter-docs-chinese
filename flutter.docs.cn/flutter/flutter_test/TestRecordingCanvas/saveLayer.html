@@ -108,11 +108,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Saves a copy of the current transform and clip on the save stack, and then
-creates a new group which subsequent calls will become a part of. When the
-save stack is later popped, the group will be flattened into a layer and
-have the given <code>paint</code>'s <a href="dart-ui/Paint/colorFilter.html">Paint.colorFilter</a> 和 <a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a>
-applied.</p>
+  <p>将当前变换和裁剪状态复制到保存栈，然后创建一个新组，后续调用都会成为该组的一部分。稍后弹出保存栈时，会将该组展平为图层，并应用给定 <code>paint</code> 的 <a href="dart-ui/Paint/colorFilter.html">Paint.colorFilter</a> 和 <a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a>。</p>
 <p>这可以创建合成效果，例如让一组绘图命令呈现半透明。若不使用 <a href="flutter_test/TestRecordingCanvas/saveLayer.html">saveLayer</a>，组内每个部分都会单独绘制，因此重叠区域会比未重叠区域更暗。使用 <a href="flutter_test/TestRecordingCanvas/saveLayer.html">saveLayer</a> 将它们分组后，可以先以不透明颜色绘制整个组，再通过 <a href="flutter_test/TestRecordingCanvas/saveLayer.html">saveLayer</a> 的画笔使整个组变为透明。</p>
 <p>调用 <a href="flutter_test/TestRecordingCanvas/restore.html">restore</a> 可弹出保存栈，并将画笔应用到该组。</p>
 <h2 id="using-savelayer-with-clips">在裁剪区域中使用 saveLayer</h2>
@@ -153,19 +149,14 @@ applied.</p>
   canvas.restore();
 }
 </code></pre>
-<p>(Incidentally, rather than using <a href="dart-ui/Canvas/clipRRect.html">clipRRect</a> 和 <a href="flutter_test/TestRecordingCanvas/drawPaint.html">drawPaint</a> to draw
-rounded rectangles like this, prefer the <a href="flutter_test/TestRecordingCanvas/drawRRect.html">drawRRect</a> method. These
-examples are using <a href="flutter_test/TestRecordingCanvas/drawPaint.html">drawPaint</a> as a proxy for "complicated draw operations
-that will get clipped", to illustrate the point.)</p>
+<p>（顺带一提，绘制此类圆角矩形时，建议使用 <a href="dart-ui/Canvas/clipRRect.html">clipRRect</a> 和 <a href="flutter_test/TestRecordingCanvas/drawPaint.html">drawPaint</a>，而不是使用 <a href="flutter_test/TestRecordingCanvas/drawRRect.html">drawRRect</a> 方法。这里用 <a href="flutter_test/TestRecordingCanvas/drawPaint.html">drawPaint</a> 代表“复杂且会被裁剪的绘制操作”，以说明这一点。）</p>
 <h2 id="performance-considerations">性能注意事项</h2>
 <p>一般来说，<a href="flutter_test/TestRecordingCanvas/saveLayer.html">saveLayer</a> 的开销相对较大。</p>
 <p>GPU（图形处理器，即负责处理图形的硬件）有多种硬件架构，但大多数架构都会对命令进行批处理和重排以提高性能。使用图层时，渲染管线必须切换渲染目标（从一个图层切换到另一个图层）。切换渲染目标可能会刷新 GPU 命令缓冲区，通常会使大批量处理带来的优化失效。切换渲染目标还会造成大量内存搬运：GPU 需要将当前帧缓冲区内容从针对写入优化的内存区域复制出来，并在恢复上一个渲染目标（图层）时再复制回去。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="flutter_test/TestRecordingCanvas/save.html">save</a>, which saves the current state, but does not create a new layer
-for subsequent commands.</li>
-<li><a href="dart-ui/BlendMode.html">BlendMode</a>, which discusses the use of <a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a> with
-<a href="flutter_test/TestRecordingCanvas/saveLayer.html">saveLayer</a>.</li>
+<li><a href="flutter_test/TestRecordingCanvas/save.html">save</a> 用于保存当前状态，但不会为后续命令创建新图层。</li>
+<li><a href="dart-ui/BlendMode.html">BlendMode</a> 介绍了如何将 <a href="dart-ui/Paint/blendMode.html">Paint.blendMode</a> 与 <a href="flutter_test/TestRecordingCanvas/saveLayer.html">saveLayer</a> 配合使用。</li>
 </ul>
 </section>
 

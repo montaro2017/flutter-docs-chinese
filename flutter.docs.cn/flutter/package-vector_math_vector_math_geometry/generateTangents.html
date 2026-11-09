@@ -105,16 +105,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
     
 <section class="desc markdown">
-  <p>Generate vertex tangents based on a list of <code>positions</code>, <code>normals</code>,
-<code>texCoords</code> 和 <code>indices</code>.
-<code>tangents</code> is assumed to be zeroed out, and much match <code>positions</code>,
-<code>normals</code>, and <code>texCoords</code> in length.
-<code>indices</code> is assumed to represent a triangle list.
-Tangents are returned as Vector4s. The X, Y, and Z component represent
-the tangent and the W component represents the direction of the bitangent
-which can be generated as:
+  <p>根据 <code>positions</code>、<code>normals</code>、<code>texCoords</code> 和 <code>indices</code> 列表生成顶点切线。
+假定 <code>tangents</code> 已清零，且其长度必须与 <code>positions</code>、
+<code>normals</code> 和 <code>texCoords</code> 相同。
+假定 <code>indices</code> 表示三角形列表。
+切线以 Vector4 形式返回。X、Y 和 Z 分量表示切线，W 分量表示副切线方向，
+可通过以下方式生成：
 vec4 bitangent = cross(normal, tangent.xyz) * tangent.w;
-Derived from the granddaddy of all tangent generation functions:
+此实现源自最早的切线生成函数：
 <a href="http://www.terathon.com/code/tangent.html">http://www.terathon.com/code/tangent.html</a></p>
 </section>
 

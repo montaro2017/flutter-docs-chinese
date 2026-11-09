@@ -120,11 +120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>图像的每个矩形区域由 <code>rects</code> 参数中的一个条目指定；如果提供了颜色，则使用 <code>colors</code> 列表中的对应条目和 <code>blendMode</code> 参数将二者混合。在此操作步骤中，图像区域视为源，关联的颜色视为目标。</li>
 <li>使用第一步的结果以及列表对应项中 <code>transforms</code> 所表示的平移、旋转和缩放属性，并结合 <a href="dart-ui/Paint-class.html">Paint</a> 对象的属性，将结果混合绘制到画布上。</li>
 </ul>
-<p>If the first stage of the operation which blends each part of the image with
-a color is needed, then both the <code>colors</code> 和 <code>blendMode</code> arguments must
-not be null and there must be an entry in the <code>colors</code> list for each
-image part. If that stage is not needed, then the <code>colors</code> argument can
-be either null or an empty list and the <code>blendMode</code> argument may also be null.</p>
+<p>如果需要执行将图像各部分与颜色混合的第一阶段，则 <code>colors</code> 和 <code>blendMode</code> 参数都不能为 null，并且 <code>colors</code> 列表中必须为每个图像部分提供一个条目。如果不需要此阶段，<code>colors</code> 参数可以为 null 或空列表，<code>blendMode</code> 参数也可以为 null。</p>
 <p>可选的 <code>cullRect</code> 参数可以估算图集各个部分绘制后覆盖的范围，并与裁剪区域比较；如果两者没有相交，就可以快速跳过此操作。</p>
 <p>以下示例从单个精灵图集渲染多个精灵，不进行旋转或缩放：</p>
 <pre class="language-dart"><code class="language-dart">class Sprite {
@@ -207,13 +203,10 @@ class MyPainter extends CustomPainter {
   // ...
 }
 </code></pre>
-<p>The length of the <code>transforms</code> 和 <code>rects</code> lists must be equal and
-if the <code>colors</code> argument is not null then it must either be empty or
-have the same length as the other two lists.</p>
+<p><code>transforms</code> 和 <code>rects</code> 列表的长度必须相同；如果 <code>colors</code> 参数不为 null，则它必须为空，或与另外两个列表长度相同。</p>
 <p>另请参阅：</p>
 <ul>
-<li><a href="flutter_test/TestRecordingCanvas/drawRawAtlas.html">drawRawAtlas</a>, which takes its arguments as typed data lists rather
-than objects.</li>
+<li><a href="flutter_test/TestRecordingCanvas/drawRawAtlas.html">drawRawAtlas</a> 接收类型化数据列表作为参数，而不是对象。</li>
 </ul>
 </section>
 
