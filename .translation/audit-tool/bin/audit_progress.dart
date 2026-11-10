@@ -46,7 +46,16 @@ void loadCaseSourceOverrides() {
       .where((entry) => entry.key != entry.value)
       .map((entry) => entry.key)
       .toSet();
-  archiveRequired.addAll(conflicting);
+  // On case-insensitive filesystems, both sides of a case-only filename
+  // collision resolve to the same extracted file. Read every member of those
+  // collision groups from the original archive, including the path whose
+  // mapped target keeps its logical name.
+  final conflictingGroups =
+      conflicting.map((path) => path.toLowerCase()).toSet();
+  final archivePages = pathMap.keys
+      .where((path) => conflictingGroups.contains(path.toLowerCase()))
+      .toSet();
+  archiveRequired.addAll(archivePages);
   if (conflicting.isEmpty) return;
   final zipPath = p.join(repoRoot, 'flutter.docs', 'flutter.docs.zip');
   if (!File(zipPath).existsSync()) return;
@@ -54,7 +63,7 @@ void loadCaseSourceOverrides() {
   try {
     final archive = ZipDecoder().decodeBuffer(input);
     for (final entry in archive.files) {
-      if (!conflicting.contains(entry.name)) continue;
+      if (!archivePages.contains(entry.name)) continue;
       archiveSources[entry.name] = utf8.decode(entry.content as List<int>);
     }
   } finally {
@@ -123,7 +132,8 @@ Map<String, dynamic>? latestCachedManifest() {
       continue;
     }
     final value = jsonDecode(readUtf8(manifest.path)) as Map<String, dynamic>;
-    if (value['source_fingerprints'] is Map &&
+    if (value['scope'] == '全站 API 文档' &&
+        value['source_fingerprints'] is Map &&
         value['target_fingerprints'] is Map) return value;
   }
   return null;
@@ -233,6 +243,8 @@ Map<String, dynamic> parseArgs(List<String> args) {
       result['help'] = true;
     } else if (arg == '--full') {
       result['full'] = true;
+    } else if (arg == '--record-unreachable') {
+      result['record-unreachable'] = true;
     } else if (i + 1 < args.length && !args[i + 1].startsWith('--')) {
       result[arg.substring(2)] = args[++i];
     } else {
@@ -246,7 +258,7 @@ void usage() {
   stdout.writeln('''Dart 翻译进度审计工具
 
 用法:
-  dart run .translation/audit-tool/bin/audit_progress.dart scan [--page PREFIX] [--workers N]
+  dart run .translation/audit-tool/bin/audit_progress.dart scan [--page PREFIX] [--workers N] [--record-unreachable]
   dart run .translation/audit-tool/bin/audit_progress.dart report --run RUN_ID [--full]
   dart run .translation/audit-tool/bin/audit_progress.dart export-review --run RUN_ID [--out FILE]
   dart run .translation/audit-tool/bin/audit_progress.dart import-review --file FILE
@@ -365,6 +377,48 @@ Future<Map<String, dynamic>> inventory() async {
     'missing_links': missing.toList()..sort(),
     'unreachable': unreachable
   };
+}
+
+void writeUnreachableReport({
+  required List<String> unreachable,
+  required List<String> missingLinks,
+  required int reachableCount,
+}) {
+  final path = p.join(repoRoot, '.translation', 'audit-tool', 'results',
+      'unreachable-pages.md');
+  final file = File(path)..parent.createSync(recursive: true);
+  final content = StringBuffer()
+    ..writeln('# 首页不可达页面清单')
+    ..writeln()
+    ..writeln('生成时间：${DateTime.now().toUtc().toIso8601String()}')
+    ..writeln()
+    ..writeln(
+        '从 `flutter.docs/index.html` 遍历本地链接；可达页面数：$reachableCount；不可达页面数：${unreachable.length}；缺失链接数：${missingLinks.length}。')
+    ..writeln()
+    ..writeln('翻译前查看此清单，列出的页面跳过常规翻译任务。')
+    ..writeln()
+    ..writeln('## 不可达页面')
+    ..writeln();
+  if (unreachable.isEmpty) {
+    content.writeln('无');
+  } else {
+    for (final page in unreachable) {
+      content.writeln('- `$page`');
+    }
+  }
+  content
+    ..writeln()
+    ..writeln('## 缺失链接目标')
+    ..writeln();
+  if (missingLinks.isEmpty) {
+    content.writeln('无');
+  } else {
+    for (final page in missingLinks) {
+      content.writeln('- `$page`');
+    }
+  }
+  file.writeAsStringSync(content.toString(), encoding: utf8);
+  stdout.writeln('已更新不可达页面清单：$path');
 }
 
 String nodeText(Node node) {
@@ -1375,9 +1429,29 @@ Future<int> runScan(Map<String, dynamic> args) async {
             Platform.numberOfProcessors.clamp(1, 12);
         final incremental = await rescanChangedTargets(
             cached, currentSources, currentTargets, workers);
-        if (incremental >= 0) return incremental;
+        if (incremental >= 0) {
+          if (args['record-unreachable'] == true) {
+            writeUnreachableReport(
+              unreachable: (cached['unreachable_pages'] as List? ?? const [])
+                  .cast<String>(),
+              missingLinks:
+                  (cached['missing_links'] as List? ?? const []).cast<String>(),
+              reachableCount: cached['inventory_page_count'] as int? ?? 0,
+            );
+          }
+          return incremental;
+        }
       }
       if (sourceUnchanged && targetsUnchanged) {
+        if (args['record-unreachable'] == true) {
+          writeUnreachableReport(
+            unreachable: (cached['unreachable_pages'] as List? ?? const [])
+                .cast<String>(),
+            missingLinks:
+                (cached['missing_links'] as List? ?? const []).cast<String>(),
+            reachableCount: cached['inventory_page_count'] as int? ?? 0,
+          );
+        }
         final elapsed = watch.elapsedMilliseconds;
         stdout.writeln(
             '输入未变化，复用快照 ${cached['run_id']}（$elapsed ms）；Markdown：${p.join(auditDir, 'runs', cached['run_id'] as String, 'report', 'index.md')}');
@@ -1387,6 +1461,13 @@ Future<int> runScan(Map<String, dynamic> args) async {
   }
   final sourceFingerprintsBefore = sourceFingerprints();
   final inv = await inventory();
+  if (args['record-unreachable'] == true) {
+    writeUnreachableReport(
+      unreachable: (inv['unreachable'] as List).cast<String>(),
+      missingLinks: (inv['missing_links'] as List).cast<String>(),
+      reachableCount: (inv['pages'] as List).length,
+    );
+  }
   var pages = (inv['pages'] as List).cast<String>();
   if (prefix != null)
     pages = pages
