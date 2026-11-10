@@ -20,3 +20,4 @@
 - 同一时间最多运行 5 个子代理。
 - 翻译页面、首页、资源和代码片段都应写入 `flutter.docs.cn/`。
 - 翻译 HTML 时保留链接目标、锚点、代码和页面结构。累积一批页面后重新扫描并检查结构异常、断链和译文；确认该批结果后再集中提交并推送，不逐页提交推送。
+- 创建 Git 提交时，在提交说明正文中为实际参与协作的代理添加 `Co-Authored-By` trailer：Codex 使用 `Co-Authored-By: Codex <codex@openai.com>`；Claude 使用其实际配置的姓名和邮箱，不要编造邮箱。若 Codex 和 Claude 都参与，则分别添加两条。
